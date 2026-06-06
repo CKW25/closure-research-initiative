@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Closure Research Initiative">
+<meta property="og:description" content="A mathematical research initiative investigating the fundamental structure of reality from first principles">
+<meta property="og:url" content="https://closureresearchinitiative.org/">
+<meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Closure Research Initiative">
+<meta name="twitter:description" content="A mathematical research initiative investigating the fundamental structure of reality from first principles">
+<meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
+<meta name="google-site-verification" content="">
 <title>Closure Research Initiative</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -10,11 +20,32 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="license" href="/license.html">
+<link rel="alternate" type="application/atom+xml" title="Closure Research Initiative" href="/feed.xml">
 <meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<style>
+.theme-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  z-index: 100;
+}
+.theme-toggle:hover { opacity: 1; }
+
 :root {
   --navy: #0A2348;
   --gold: #B9933D;
@@ -23,6 +54,22 @@
   --muted: #5A6472;
   --card: #FFFFFF;
   --border: rgba(10,35,72,0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --paper: #11131A;
+    --text: #D6D8DD;
+    --muted: #878C99;
+    --card: #1A1D27;
+    --border: rgba(255,255,255,0.08);
+  }
+}
+:root.dark {
+  --paper: #11131A;
+  --text: #D6D8DD;
+  --muted: #878C99;
+  --card: #1A1D27;
+  --border: rgba(255,255,255,0.08);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -280,6 +327,29 @@ footer {
   align-items: center;
 }
 
+@media print {
+  body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
+  .container { max-width: 100%; padding: 0 1in; }
+  .hero { padding: 0.5in 0 0.25in; }
+  .hero-logo img { width: 180px; }
+  .hero h1 { font-size: 20pt; }
+  .hero .subtitle { font-size: 10pt; }
+  nav { display: none; }
+  a { color: #000 !important; text-decoration: underline !important; }
+  .paper, .monograph { break-inside: avoid; }
+  .paper-title a, .monograph-title a { text-decoration: none !important; }
+  .paper-title a::after, .monograph-title a::after { content: " (" attr(href) ")"; font-size: 9pt; color: #555; }
+  .cite-details, .monograph-cite-details { display: block; }
+  .cite-summary, .monograph-cite-summary { list-style: none; font-weight: bold; }
+  .cite-summary::before, .monograph-cite-summary::before { content: "Cite: "; }
+  .cite-block { font-size: 8pt; white-space: pre-wrap; }
+  details > .cite-block { display: block; }
+  .links a { border: 1px solid #ccc; padding: 2pt 6pt; text-decoration: none !important; }
+  #contact { break-inside: avoid; }
+  footer { font-size: 8pt; color: #555; }
+  .orcid-img { display: none; }
+}
+
 @media (max-width: 800px) {
   .container { padding: 0 1.5rem; }
   .hero { padding: 3rem 0 1.5rem; }
@@ -310,6 +380,7 @@ footer {
     <span>Preprints</span>
     <a href="/about.html">About</a>
     <a href="#contact">Contact</a>
+    <a href="/notes/">Notes</a>
     <a href="/license.html">License</a>
   </nav>
 
@@ -330,7 +401,7 @@ footer {
     </div>
     <div class="monograph">
       <div class="monograph-label">Comprehensive Treatise</div>
-      <div class="monograph-title"><a href="/csm.pdf">Closed System Monograph</a></div>
+      <div class="monograph-title"><a href="/csm/">Closed System Monograph</a></div>
       <div class="monograph-meta">Chast K. Wolfe &middot; v1 &middot; June 2026</div>
       <div class="monograph-abstract">
         A mathematically closed physical theory must be written without external scaffolding. This develops the closure principle as a classification program, showing the admissible architecture is highly rigid across geometric, field-theoretic, scalar, and matter sectors. The monograph develops the full theory from primitive comparison data through quotient semantics, transport obstruction, curvature, and the emergence of smooth geometry.
@@ -367,7 +438,7 @@ footer {
     </p>
 
     <div class="paper">
-      <div class="paper-title"><a href="/ccw.pdf">Closed Comparison Worlds and the Obstruction to Subsystem</a></div>
+      <div class="paper-title"><a href="/ccw/">Closed Comparison Worlds and the Obstruction to Subsystem</a></div>
       <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 2026</div>
       <div class="abstract-text">A finitary structural account of subsystem attribution in closed two-subsystem comparison worlds, using only binary comparison predicates with no topology, metric, or dynamics assumed. Rectangular completeness is shown equivalent to profile-maximality.</div>
       <div class="links">
@@ -389,7 +460,7 @@ footer {
     </div>
 
     <div class="paper">
-      <div class="paper-title"><a href="/cfsg.pdf">Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S&sup3;</a></div>
+      <div class="paper-title"><a href="/cfsg/">Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S&sup3;</a></div>
       <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 2026</div>
       <div class="abstract-text">We prove that a genuinely closed three-dimensional system is necessarily diffeomorphic to S&sup3;. The closure constraint at the manifold stage forces the only consistent geometry, via the orthonormal frame bundle and admissible comparison groupoid.</div>
       <div class="links">
@@ -411,7 +482,7 @@ footer {
     </div>
 
     <div class="paper">
-      <div class="paper-title"><a href="/scc.pdf">Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems</a></div>
+      <div class="paper-title"><a href="/scc/">Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems</a></div>
       <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 2026</div>
       <div class="abstract-text">Proves that the cosmological and structural uses of "open" and "closed" operate at different logical levels and cannot be identified. Structural closure is a precondition for invariant physical content, not a geometric condition.</div>
       <div class="links">
@@ -433,7 +504,7 @@ footer {
     </div>
 
     <div class="paper">
-      <div class="paper-title"><a href="/rc.pdf">Rectangular Completeness Encompasses Standard Physical Closure</a></div>
+      <div class="paper-title"><a href="/rc/">Rectangular Completeness Encompasses Standard Physical Closure</a></div>
       <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 2026</div>
       <div class="abstract-text">Closure as rectangular completeness stands in a precise relation to standard notions of closed two-subsystem systems. For classical systems it equals the full-product component; for quantum systems it captures the product-state sector.</div>
       <div class="links">
@@ -455,7 +526,7 @@ footer {
     </div>
 
     <div class="paper">
-      <div class="paper-title"><a href="/fe.pdf">Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy</a></div>
+      <div class="paper-title"><a href="/fe/">Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy</a></div>
       <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 2026</div>
       <div class="abstract-text">Four independent axes of primitive structural input&mdash;externalization, artificial factorization, premature globalization, reification of repair&mdash;are isolated and proved logically independent. Applied to foundational tensions across classical and quantum physics.</div>
       <div class="links">
@@ -477,7 +548,7 @@ footer {
     </div>
 
     <div class="paper">
-      <div class="paper-title"><a href="/rie.pdf">A Factorization Criterion for Route Invariants with Fixed Endpoint Data</a></div>
+      <div class="paper-title"><a href="/rie/">A Factorization Criterion for Route Invariants with Fixed Endpoint Data</a></div>
       <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 2026</div>
       <div class="abstract-text">A factorization criterion for comparison data with fixed endpoints: a route invariant is determined by endpoint data if and only if it is constant on every endpoint fiber. Instances are recorded in quotient semantics, categories, gauge transport, holonomy, differential geometry, and general relativity.</div>
       <div class="links">
@@ -531,10 +602,33 @@ footer {
 
   <footer>
     <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
-    <span>closureresearchinitiative.org &middot; Last updated June 2026</span>
+    <span><a href="/license.html" style="color:var(--muted);">License</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; closureresearchinitiative.org &middot; Last updated June 2026</span>
   </footer>
 
 </div>
+
+<button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+
+<script>
+(function() {
+  var t = document.getElementById('themeToggle');
+  var r = document.documentElement;
+  var s = localStorage.getItem('theme');
+  if (s === 'dark') r.classList.add('dark');
+  else if (s === 'light') r.classList.add('light');
+  t.addEventListener('click', function() {
+    if (r.classList.contains('dark')) {
+      r.classList.remove('dark');
+      r.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      r.classList.remove('light');
+      r.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+})();
+</script>
 
 </body>
 </html>

@@ -3,22 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="License — Closure Research Initiative">
-<meta property="og:description" content="Copyright and licensing terms for works published by the Closure Research Initiative. All Rights Reserved. SPDX-License-Identifier: All-Rights-Reserved.">
-<meta property="og:url" content="https://closureresearchinitiative.org/license.html">
+<meta property="og:title" content="Notes — Closure Research Initiative">
+<meta property="og:description" content="Research notes, commentary, and updates from the Closure Research Initiative.">
+<meta property="og:url" content="https://closureresearchinitiative.org/notes/">
 <meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="License — Closure Research Initiative">
-<meta name="twitter:description" content="Copyright and licensing terms for works published by the Closure Research Initiative. All Rights Reserved. SPDX-License-Identifier: All-Rights-Reserved.">
+<meta name="twitter:title" content="Notes — Closure Research Initiative">
+<meta name="twitter:description" content="Research notes, commentary, and updates from the Closure Research Initiative.">
 <meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
-<title>License — Closure Research Initiative</title>
+<title>Notes — Closure Research Initiative</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="license" href="/license.html">
 <link rel="alternate" type="application/atom+xml" title="Closure Research Initiative" href="/feed.xml">
+<meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -81,6 +83,7 @@ body {
 
 .hero { text-align: center; padding: 4rem 0 2rem; }
 .hero-logo { margin-bottom: 1.5rem; }
+.hero-logo a { text-decoration: none; }
 .hero-logo img { width: 200px; height: auto; }
 .hero h1 {
   font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
@@ -146,35 +149,20 @@ nav span {
   background: var(--border);
 }
 
-h3 {
+.post { margin-bottom: 2.5rem; }
+.post-title {
   font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--navy);
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-p { margin-bottom: 1rem; font-size: 0.9rem; }
-ul { margin-bottom: 1rem; padding-left: 1.25rem; }
-ul li { font-size: 0.9rem; margin-bottom: 0.35rem; }
-a { color: var(--navy); }
-
-.legal-block {
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 1.75rem 2rem;
-  margin-bottom: 1.5rem;
-}
-.legal-block p { margin-bottom: 0.5rem; font-size: 0.88rem; }
-.legal-block .label {
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   margin-bottom: 0.25rem;
 }
+.post-meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.post-excerpt { font-size: 0.9rem; }
 
 footer {
   margin-top: 3.5rem;
@@ -188,14 +176,11 @@ footer {
 }
 
 @media print {
-  body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
+  body { font-size: 11pt; color: #000; background: #fff; }
   .container { max-width: 100%; padding: 0 1in; }
   .hero { padding: 0.5in 0 0.25in; }
   .hero-logo img { width: 180px; }
   .hero h1 { font-size: 20pt; }
-  .hero .subtitle { font-size: 10pt; }
-  .legal-block { border: none; padding: 0; margin-bottom: 0.75rem; }
-  .legal-block .label { font-size: 8pt; }
   nav { display: none; }
   a { color: #000 !important; }
   footer { font-size: 8pt; color: #555; }
@@ -218,79 +203,48 @@ footer {
     <div class="hero-logo">
       <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
     </div>
-    <h1>Closure Research Initiative</h1>
-    <div class="subtitle">A mathematical research initiative investigating the fundamental structure of reality from first principles</div>
+    <h1>Notes</h1>
+    <div class="subtitle">Following the mathematics wherever it leads</div>
   </div>
 
   <nav>
     <a href="/">Preprints</a>
     <a href="/about.html">About</a>
-    <span>License</span>
+    <span>Notes</span>
   </nav>
 
   <div class="section-header">
-    <h2>License &amp; Copyright</h2>
+    <h2>Recent Notes</h2>
     <span class="line"></span>
   </div>
 
-  <p><strong>SPDX-License-Identifier: All-Rights-Reserved</strong></p>
-
-  <div class="legal-block">
-    <p class="label">Copyright</p>
-    <p>&copy; 2026 Chast K. Wolfe. All rights reserved.</p>
+  <div class="post">
+    <div class="post-title">The Research Program Launched</div>
+    <div class="post-meta">June 2026</div>
+    <div class="post-excerpt">
+      Today marks the initial public release of the Closure Research Initiative's research program. Seven preprints and the monograph are now available, developing the full arc from primitive comparison data to the geometry of closed three-dimensional systems. The central thesis&mdash;that the universe is necessarily closed, diffeomorphic to S&sup3;, as a consequence of what it means for a physical system to be genuinely closed under its own internal modes of comparison&mdash;is developed across multiple independent lines of argument.
+    </div>
   </div>
 
-  <div class="legal-block">
-    <p class="label">Ownership</p>
-    <p>All works, preprints, manuscripts, and content published by the Closure Research Initiative&mdash;including but not limited to research papers, the monograph <em>Closed Systems from Comparison Completeness</em>, technical notes, and website content&mdash;are the intellectual property of Chast K. Wolfe and are protected by applicable copyright law, including the Berne Convention for the Protection of Literary and Artistic Works and the U.S. Copyright Act (Title 17, U.S. Code).</p>
+  <div class="post">
+    <div class="post-title">On the Relationship Between Structural and Cosmological Closure</div>
+    <div class="post-meta">June 2026</div>
+    <div class="post-excerpt">
+      A point that deserves emphasis: the mathematical sense of closure developed in this program&mdash;closure under intrinsic comparison data&mdash;is logically distinct from the cosmological sense of the term (open vs. closed universe in FLRW cosmology). The preprint <em>Structural Closure and the Cosmological Misnomer</em> develops this separation in detail. The S&sup3; theorem is a result about structural closure, not a cosmological claim&mdash;though it has deep consequences for cosmology.
+    </div>
   </div>
 
-  <div class="legal-block">
-    <p class="label">Permitted Uses</p>
-    <p>Papers and preprints are made publicly available for the purposes of scholarly review, criticism, research, and personal study. The following are permitted without prior written permission:</p>
-    <ul>
-      <li>Downloading and reading papers for personal or academic use</li>
-      <li>Citing papers with appropriate attribution in scholarly works</li>
-      <li>Sharing links to the official repository at closureresearchinitiative.org</li>
-    </ul>
-  </div>
-
-  <div class="legal-block">
-    <p class="label">Prohibited Uses</p>
-    <p>Except as expressly permitted above, no part of any work may be reproduced, distributed, republished, uploaded, posted, transmitted, adapted, or otherwise used in any form or by any means without prior written permission from Chast K. Wolfe. Prohibited uses include but are not limited to:</p>
-    <ul>
-      <li>Republication or redistribution of full papers on third-party platforms without authorization</li>
-      <li>Commercial use, sale, or licensing of any content</li>
-      <li>Derivative works or adaptations without permission</li>
-      <li>Removal or alteration of copyright notices</li>
-    </ul>
-  </div>
-
-  <div class="legal-block">
-    <p class="label">Citation</p>
-    <p>Scholarly citation of these works is encouraged and does not require permission, provided that proper attribution is given. Citations should reference the original publication at closureresearchinitiative.org and include the DOI once assigned.</p>
-  </div>
-
-  <div class="legal-block">
-    <p class="label">Permissions &amp; Licensing Inquiries</p>
-    <p>Requests for permission to reproduce, distribute, or otherwise use any content beyond the permitted uses above should be directed to:</p>
-    <p><a href="mailto:chast.wolfe@closureresearchinitiative.org">chast.wolfe@closureresearchinitiative.org</a></p>
-  </div>
-
-  <div class="legal-block">
-    <p class="label">Jurisdiction</p>
-    <p>This license and any disputes arising from it shall be governed by and construed in accordance with the laws of the United States of America and the State of Texas.</p>
-  </div>
-
-  <div class="legal-block">
-    <p class="label">Machine-Readable Identifier</p>
-    <p>SPDX-License-Identifier: All-Rights-Reserved</p>
-    <p style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">This identifier conforms to the SPDX specification maintained by the Linux Foundation and is recognized by software composition analysis tools.</p>
+  <div class="post">
+    <div class="post-title">What Does It Mean for a Theory to Be Closed?</div>
+    <div class="post-meta">June 2026</div>
+    <div class="post-excerpt">
+      The Initiative's founding premise is that a genuinely closed physical theory cannot rely on external scaffolding&mdash;no background manifold, no pre-assumed state space, no external observers, no gauge convention, no causal structure, no field content can be accepted as primitive by convention alone. The question is: starting from nothing but the capacity for binary comparison, what structure is forced? The answer, developed in the <em>Closed System Monograph</em>, is that the admissible architecture is remarkably rigid.
+    </div>
   </div>
 
   <footer>
     <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
-    <span><a href="/license.html" style="color:var(--muted);">License</a> &middot; <a href="/notes/" style="color:var(--muted);">Notes</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; closureresearchinitiative.org</span>
+    <span><a href="/license.html" style="color:var(--muted);">License</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; closureresearchinitiative.org</span>
   </footer>
 
 </div>

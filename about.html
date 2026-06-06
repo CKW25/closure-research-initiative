@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="About — Closure Research Initiative">
+<meta property="og:description" content="The Closure Research Initiative investigates closed physical theory without external scaffolding — comparison theory, quotient semantics, transport obstruction, and the S³ theorem.">
+<meta property="og:url" content="https://closureresearchinitiative.org/about.html">
+<meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About — Closure Research Initiative">
+<meta name="twitter:description" content="The Closure Research Initiative investigates closed physical theory without external scaffolding — comparison theory, quotient semantics, transport obstruction, and the S³ theorem.">
+<meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
 <title>About — Closure Research Initiative</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -10,6 +19,7 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="license" href="/license.html">
+<link rel="alternate" type="application/atom+xml" title="Closure Research Initiative" href="/feed.xml">
 <meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +34,42 @@
   --card: #FFFFFF;
   --border: rgba(10,35,72,0.12);
 }
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --paper: #11131A;
+    --text: #D6D8DD;
+    --muted: #878C99;
+    --card: #1A1D27;
+    --border: rgba(255,255,255,0.08);
+  }
+}
+:root.dark {
+  --paper: #11131A;
+  --text: #D6D8DD;
+  --muted: #878C99;
+  --card: #1A1D27;
+  --border: rgba(255,255,255,0.08);
+}
+.theme-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  z-index: 100;
+}
+.theme-toggle:hover { opacity: 1; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Inter', 'Source Sans Pro', sans-serif;
@@ -124,6 +170,18 @@ footer {
   align-items: center;
 }
 
+@media print {
+  body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
+  .container { max-width: 100%; padding: 0 1in; }
+  .hero { padding: 0.5in 0 0.25in; }
+  .hero-logo img { width: 180px; }
+  .hero h1 { font-size: 20pt; }
+  .hero .subtitle { font-size: 10pt; }
+  nav { display: none; }
+  a { color: #000 !important; text-decoration: underline !important; }
+  footer { font-size: 8pt; color: #555; }
+}
+
 @media (max-width: 800px) {
   .container { padding: 0 1.5rem; }
   .hero h1 { font-size: 2rem; }
@@ -148,6 +206,7 @@ footer {
   <nav>
     <a href="/">Preprints</a>
     <span>About</span>
+    <a href="/notes/">Notes</a>
     <a href="/license.html">License</a>
   </nav>
 
@@ -209,10 +268,33 @@ footer {
 
   <footer>
     <span>&copy; Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
-    <span>closureresearchinitiative.org &middot; Last updated June 2026</span>
+    <span><a href="/license.html" style="color:var(--muted);">License</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; closureresearchinitiative.org &middot; Last updated June 2026</span>
   </footer>
 
 </div>
+
+<button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+
+<script>
+(function() {
+  var t = document.getElementById('themeToggle');
+  var r = document.documentElement;
+  var s = localStorage.getItem('theme');
+  if (s === 'dark') r.classList.add('dark');
+  else if (s === 'light') r.classList.add('light');
+  t.addEventListener('click', function() {
+    if (r.classList.contains('dark')) {
+      r.classList.remove('dark');
+      r.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      r.classList.remove('light');
+      r.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+})();
+</script>
 
 </body>
 </html>

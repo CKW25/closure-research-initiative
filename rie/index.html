@@ -1,24 +1,26 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="License — Closure Research Initiative">
-<meta property="og:description" content="Copyright and licensing terms for works published by the Closure Research Initiative. All Rights Reserved. SPDX-License-Identifier: All-Rights-Reserved.">
-<meta property="og:url" content="https://closureresearchinitiative.org/license.html">
+<meta property="og:title" content="A Factorization Criterion for Route Invariants with Fixed Endpoint Data â€” Closure Research Initiative">
+<meta property="og:description" content="A factorization criterion for comparison data with fixed endpoints: a route invariant is determined by endpoint data if and only if it is constant on every endpoint fiber. Instances are recorded in quotient semantics, categories, gauge transport, holonomy, differential geometry, and general relativity.">
+<meta property="og:url" content="https://closureresearchinitiative.org/rie/">
 <meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="License — Closure Research Initiative">
-<meta name="twitter:description" content="Copyright and licensing terms for works published by the Closure Research Initiative. All Rights Reserved. SPDX-License-Identifier: All-Rights-Reserved.">
+<meta name="twitter:title" content="A Factorization Criterion for Route Invariants with Fixed Endpoint Data â€” Closure Research Initiative">
+<meta name="twitter:description" content="A factorization criterion for comparison data with fixed endpoints: a route invariant is determined by endpoint data if and only if it is constant on every endpoint fiber. Instances are recorded in quotient semantics, categories, gauge transport, holonomy, differential geometry, and general relativity.">
 <meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
-<title>License — Closure Research Initiative</title>
+<title>A Factorization Criterion for Route Invariants with Fixed Endpoint Data â€” Closure Research Initiative</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="license" href="/license.html">
 <link rel="alternate" type="application/atom+xml" title="Closure Research Initiative" href="/feed.xml">
+<meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -78,17 +80,17 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 .container { max-width: 780px; margin: 0 auto; padding: 0 3rem; }
-
 .hero { text-align: center; padding: 4rem 0 2rem; }
 .hero-logo { margin-bottom: 1.5rem; }
 .hero-logo img { width: 200px; height: auto; }
+.hero-logo a { text-decoration: none; }
 .hero h1 {
   font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   color: var(--navy);
-  line-height: 1.15;
+  line-height: 1.25;
   margin-bottom: 0.5rem;
 }
 .hero .subtitle {
@@ -97,7 +99,6 @@ body {
   font-style: italic;
   color: var(--muted);
 }
-
 nav {
   text-align: center;
   padding: 1.5rem 0 2.5rem;
@@ -126,7 +127,6 @@ nav span {
   padding-bottom: 2.5rem;
   border-bottom: 2px solid var(--gold);
 }
-
 .section-header {
   display: flex;
   align-items: center;
@@ -145,37 +145,95 @@ nav span {
   height: 1px;
   background: var(--border);
 }
-
-h3 {
-  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--navy);
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-p { margin-bottom: 1rem; font-size: 0.9rem; }
-ul { margin-bottom: 1rem; padding-left: 1.25rem; }
-ul li { font-size: 0.9rem; margin-bottom: 0.35rem; }
-a { color: var(--navy); }
-
-.legal-block {
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 1.75rem 2rem;
+.paper-detail .meta {
+  font-size: 0.82rem;
+  color: var(--muted);
   margin-bottom: 1.5rem;
 }
-.legal-block p { margin-bottom: 0.5rem; font-size: 0.88rem; }
-.legal-block .label {
+.paper-detail .meta strong { color: var(--navy); }
+.paper-detail .type-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 0.2rem 0.6rem;
+  margin-bottom: 0.75rem;
+}
+.paper-detail .abstract {
+  font-size: 0.92rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+.download-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+.download-block h3 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+.download-block .dl-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.download-block .dl-links a {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--navy);
+  text-decoration: none;
+  border: 1px solid var(--navy);
+  padding: 0.4rem 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+.download-block .dl-links a:hover { background: var(--navy); color: #fff; }
+.cite-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  font-size: 0.78rem;
+  white-space: pre-wrap;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.5;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+.cite-block .label {
+  font-family: 'Inter', sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
-
+.version-block {
+  margin-bottom: 1.5rem;
+}
+.version-block h3 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.version-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.version-table th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+  padding: 0.4rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.version-table td { padding: 0.4rem 0.75rem; border-bottom: 1px solid var(--border); }
 footer {
   margin-top: 3.5rem;
   padding: 1.5rem 0;
@@ -186,24 +244,21 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
-
 @media print {
   body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
   .container { max-width: 100%; padding: 0 1in; }
   .hero { padding: 0.5in 0 0.25in; }
   .hero-logo img { width: 180px; }
-  .hero h1 { font-size: 20pt; }
-  .hero .subtitle { font-size: 10pt; }
-  .legal-block { border: none; padding: 0; margin-bottom: 0.75rem; }
-  .legal-block .label { font-size: 8pt; }
+  .hero h1 { font-size: 18pt; }
   nav { display: none; }
   a { color: #000 !important; }
+  .download-block { border: none; padding: 0; }
+  .cite-block { border: none; padding: 0; font-size: 7pt; }
   footer { font-size: 8pt; color: #555; }
 }
-
 @media (max-width: 800px) {
   .container { padding: 0 1.5rem; }
-  .hero h1 { font-size: 2rem; }
+  .hero h1 { font-size: 1.3rem; }
   .hero-logo img { width: 150px; }
   nav a, nav span { margin: 0 0.6rem; font-size: 0.72rem; }
   footer { flex-direction: column; gap: 0.3rem; text-align: center; }
@@ -218,79 +273,59 @@ footer {
     <div class="hero-logo">
       <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
     </div>
-    <h1>Closure Research Initiative</h1>
-    <div class="subtitle">A mathematical research initiative investigating the fundamental structure of reality from first principles</div>
+    <h1>A Factorization Criterion for Route Invariants with Fixed Endpoint Data</h1>
+    <div class="subtitle">Closure Research Initiative &middot; June 2026</div>
   </div>
 
   <nav>
     <a href="/">Preprints</a>
     <a href="/about.html">About</a>
-    <span>License</span>
+    <a href="/license.html">License</a>
   </nav>
 
-  <div class="section-header">
-    <h2>License &amp; Copyright</h2>
-    <span class="line"></span>
-  </div>
+  <div class="paper-detail">
+    <div class="type-badge">Research Paper</div>
+    <p class="meta">
+      <strong>Chast K. Wolfe</strong> &middot; v1 &middot; June 2026
+    </p>
 
-  <p><strong>SPDX-License-Identifier: All-Rights-Reserved</strong></p>
+    <div class="abstract">
+      A factorization criterion for comparison data with fixed endpoints: a route invariant is determined by endpoint data if and only if it is constant on every endpoint fiber. Instances are recorded in quotient semantics, categories, gauge transport, holonomy, differential geometry, and general relativity.
+    </div>
 
-  <div class="legal-block">
-    <p class="label">Copyright</p>
-    <p>&copy; 2026 Chast K. Wolfe. All rights reserved.</p>
-  </div>
+    <div class="download-block">
+      <h3>Download</h3>
+      <div class="dl-links">
+        <a href="/rie.pdf">PDF</a>
+        <a href="/rie-latex.zip">LaTeX Source (ZIP)</a>
+      </div>
+    </div>
 
-  <div class="legal-block">
-    <p class="label">Ownership</p>
-    <p>All works, preprints, manuscripts, and content published by the Closure Research Initiative&mdash;including but not limited to research papers, the monograph <em>Closed Systems from Comparison Completeness</em>, technical notes, and website content&mdash;are the intellectual property of Chast K. Wolfe and are protected by applicable copyright law, including the Berne Convention for the Protection of Literary and Artistic Works and the U.S. Copyright Act (Title 17, U.S. Code).</p>
-  </div>
+    <div class="version-block">
+      <h3>Version History</h3>
+      <table class="version-table">
+        <tr><th>Version</th><th>Date</th><th>Notes</th></tr>
+        <tr><td>v1</td><td>June 2026</td><td>Initial preprint</td></tr>
+      </table>
+    </div>
 
-  <div class="legal-block">
-    <p class="label">Permitted Uses</p>
-    <p>Papers and preprints are made publicly available for the purposes of scholarly review, criticism, research, and personal study. The following are permitted without prior written permission:</p>
-    <ul>
-      <li>Downloading and reading papers for personal or academic use</li>
-      <li>Citing papers with appropriate attribution in scholarly works</li>
-      <li>Sharing links to the official repository at closureresearchinitiative.org</li>
-    </ul>
-  </div>
-
-  <div class="legal-block">
-    <p class="label">Prohibited Uses</p>
-    <p>Except as expressly permitted above, no part of any work may be reproduced, distributed, republished, uploaded, posted, transmitted, adapted, or otherwise used in any form or by any means without prior written permission from Chast K. Wolfe. Prohibited uses include but are not limited to:</p>
-    <ul>
-      <li>Republication or redistribution of full papers on third-party platforms without authorization</li>
-      <li>Commercial use, sale, or licensing of any content</li>
-      <li>Derivative works or adaptations without permission</li>
-      <li>Removal or alteration of copyright notices</li>
-    </ul>
-  </div>
-
-  <div class="legal-block">
-    <p class="label">Citation</p>
-    <p>Scholarly citation of these works is encouraged and does not require permission, provided that proper attribution is given. Citations should reference the original publication at closureresearchinitiative.org and include the DOI once assigned.</p>
-  </div>
-
-  <div class="legal-block">
-    <p class="label">Permissions &amp; Licensing Inquiries</p>
-    <p>Requests for permission to reproduce, distribute, or otherwise use any content beyond the permitted uses above should be directed to:</p>
-    <p><a href="mailto:chast.wolfe@closureresearchinitiative.org">chast.wolfe@closureresearchinitiative.org</a></p>
-  </div>
-
-  <div class="legal-block">
-    <p class="label">Jurisdiction</p>
-    <p>This license and any disputes arising from it shall be governed by and construed in accordance with the laws of the United States of America and the State of Texas.</p>
-  </div>
-
-  <div class="legal-block">
-    <p class="label">Machine-Readable Identifier</p>
-    <p>SPDX-License-Identifier: All-Rights-Reserved</p>
-    <p style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">This identifier conforms to the SPDX specification maintained by the Linux Foundation and is recognized by software composition analysis tools.</p>
+    <div class="cite-block">
+      <div class="label">BibTeX Citation</div>
+@misc{wolfe2026route,
+  author       = {Chast K. Wolfe},
+  title        = {A Factorization Criterion for Route Invariants with Fixed Endpoint Data},
+  year         = {2026},
+  howpublished = {Closure Research Initiative preprint},
+  doi          = {},
+  url          = {https://closureresearchinitiative.org/rie.pdf},
+  license      = {All Rights Reserved. See https://closureresearchinitiative.org/license.html}
+}
+    </div>
   </div>
 
   <footer>
     <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
-    <span><a href="/license.html" style="color:var(--muted);">License</a> &middot; <a href="/notes/" style="color:var(--muted);">Notes</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; closureresearchinitiative.org</span>
+    <span><a href="/license.html" style="color:var(--muted);">License</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; closureresearchinitiative.org</span>
   </footer>
 
 </div>
@@ -317,6 +352,8 @@ footer {
   });
 })();
 </script>
-
 </body>
 </html>
+
+
+
