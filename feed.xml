@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://closureresearchinitiative.org/</id>
   <title>Closure Research Initiative</title>
-  <subtitle>A mathematical research initiative investigating the fundamental structure of reality from first principles</subtitle>
+  <subtitle>Closed physical theory from first principles: comparison data to S³ geometry</subtitle>
   <link href="https://closureresearchinitiative.org/"/>
   <link rel="self" type="application/atom+xml" href="https://closureresearchinitiative.org/feed.xml"/>
-  <updated>2026-06-05T00:00:00Z</updated>
+  <updated>2026-06-06T00:00:00Z</updated>
   <author>
     <name>Chast K. Wolfe</name>
     <email>chast.wolfe@closureresearchinitiative.org</email>
@@ -17,7 +17,7 @@
     <title>Closed System Monograph</title>
     <summary>A mathematically closed physical theory must be written without external scaffolding. This develops the closure principle as a classification program, showing the admissible architecture is highly rigid across geometric, field-theoretic, scalar, and matter sectors.</summary>
     <link rel="alternate" href="https://closureresearchinitiative.org/csm.pdf"/>
-    <updated>2026-06-05T00:00:00Z</updated>
+    <updated>2026-06-06T00:00:00Z</updated>
   </entry>
 
   <entry>
@@ -25,7 +25,7 @@
     <title>Closed Comparison Worlds and the Obstruction to Subsystem</title>
     <summary>A finitary structural account of subsystem attribution in closed two-subsystem comparison worlds, using only binary comparison predicates with no topology, metric, or dynamics assumed.</summary>
     <link rel="alternate" href="https://closureresearchinitiative.org/ccw.pdf"/>
-    <updated>2026-06-05T00:00:00Z</updated>
+    <updated>2026-06-06T00:00:00Z</updated>
   </entry>
 
   <entry>
@@ -33,7 +33,7 @@
     <title>Closure Forces Spherical Geometry</title>
     <summary>We prove that a genuinely closed three-dimensional system is necessarily diffeomorphic to S³. The closure constraint at the manifold stage forces the only consistent geometry.</summary>
     <link rel="alternate" href="https://closureresearchinitiative.org/cfsg.pdf"/>
-    <updated>2026-06-05T00:00:00Z</updated>
+    <updated>2026-06-06T00:00:00Z</updated>
   </entry>
 
   <entry>
@@ -41,7 +41,7 @@
     <title>Structural Closure and the Cosmological Misnomer</title>
     <summary>Proves that the cosmological and structural uses of "open" and "closed" operate at different logical levels and cannot be identified. Structural closure is a precondition for invariant physical content, not a geometric condition.</summary>
     <link rel="alternate" href="https://closureresearchinitiative.org/scc.pdf"/>
-    <updated>2026-06-05T00:00:00Z</updated>
+    <updated>2026-06-06T00:00:00Z</updated>
   </entry>
 
   <entry>
@@ -49,7 +49,7 @@
     <title>Rectangular Completeness Encompasses Standard Physical Closure</title>
     <summary>Closure as rectangular completeness stands in a precise relation to standard notions of closed two-subsystem systems. For classical systems it equals the full-product component; for quantum systems it captures the product-state sector.</summary>
     <link rel="alternate" href="https://closureresearchinitiative.org/rc.pdf"/>
-    <updated>2026-06-05T00:00:00Z</updated>
+    <updated>2026-06-06T00:00:00Z</updated>
   </entry>
 
   <entry>
@@ -57,7 +57,7 @@
     <title>Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy</title>
     <summary>Four independent axes of primitive structural input—externalization, artificial factorization, premature globalization, reification of repair—are isolated and proved logically independent.</summary>
     <link rel="alternate" href="https://closureresearchinitiative.org/fe.pdf"/>
-    <updated>2026-06-05T00:00:00Z</updated>
+    <updated>2026-06-06T00:00:00Z</updated>
   </entry>
 
   <entry>
@@ -65,6 +65,6 @@
     <title>A Factorization Criterion for Route Invariants with Fixed Endpoint Data</title>
     <summary>A factorization criterion for comparison data with fixed endpoints: a route invariant is determined by endpoint data if and only if it is constant on every endpoint fiber.</summary>
     <link rel="alternate" href="https://closureresearchinitiative.org/rie.pdf"/>
-    <updated>2026-06-05T00:00:00Z</updated>
+    <updated>2026-06-06T00:00:00Z</updated>
   </entry>
 </feed>
