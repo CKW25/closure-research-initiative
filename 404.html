@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="404 — Closure Research Initiative">
+<meta property="og:description" content="Page not found">
+<meta property="og:url" content="https://closureresearchinitiative.org/404.html">
+<meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="404 — Closure Research Initiative">
+<meta name="twitter:description" content="Page not found">
+<meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
+<meta name="google-site-verification" content="">
+<title>404 — Closure Research Initiative</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="license" href="/license.html">
+<link rel="alternate" type="application/atom+xml" title="Closure Research Initiative" href="/feed.xml">
+<meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A2348;
+  --gold: #B9933D;
+  --paper: #FAFAF8;
+  --text: #1E2430;
+  --muted: #5A6472;
+  --card: #FFFFFF;
+  --border: rgba(10,35,72,0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --paper: #11131A;
+    --text: #D6D8DD;
+    --muted: #878C99;
+    --card: #1A1D27;
+    --border: rgba(255,255,255,0.08);
+  }
+}
+:root.dark {
+  --paper: #11131A;
+  --text: #D6D8DD;
+  --muted: #878C99;
+  --card: #1A1D27;
+  --border: rgba(255,255,255,0.08);
+}
+.theme-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  z-index: 100;
+}
+.theme-toggle:hover { opacity: 1; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 3rem; display: flex; flex-direction: column; min-height: 100vh; }
+.hero { text-align: center; padding: 6rem 0 1rem; flex: 1; }
+.hero-logo { margin-bottom: 1.5rem; }
+.hero-logo a { text-decoration: none; }
+.hero-logo img { width: 160px; height: auto; }
+.code {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 6rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  max-width: 400px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+.hero a {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--navy);
+  border: 1px solid var(--navy);
+  padding: 0.4rem 1.2rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.hero a:hover { background: var(--navy); color: #fff; }
+footer {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+}
+@media (max-width: 800px) {
+  .container { padding: 0 1.5rem; }
+  .hero { padding: 3rem 0 1rem; }
+  .code { font-size: 4rem; }
+  .hero-logo img { width: 120px; }
+}
+@media print {
+  body { color: #000; background: #fff; }
+  .code { color: #000; }
+  .hero a { border: 1px solid #000; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="hero-logo">
+      <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
+    </div>
+    <div class="code">404</div>
+    <h1>Page not found</h1>
+    <p>The requested page does not exist at this address. The universe may be closed, but this URL is open.</p>
+    <a href="/">Return to home page</a>
+  </div>
+  <footer>
+    <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
+  </footer>
+</div>
+<button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+<script>
+(function() {
+  var t = document.getElementById('themeToggle');
+  var r = document.documentElement;
+  var s = localStorage.getItem('theme');
+  if (s === 'dark') r.classList.add('dark');
+  else if (s === 'light') r.classList.add('light');
+  t.addEventListener('click', function() {
+    if (r.classList.contains('dark')) {
+      r.classList.remove('dark');
+      r.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      r.classList.remove('light');
+      r.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+})();
+</script>
+</body>
+</html>
