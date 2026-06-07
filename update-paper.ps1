@@ -12,8 +12,8 @@ $rootZip = "$base\$Paper-latex.zip"
 
 # Read current version
 $html = Get-Content "$base\index.html" -Raw
-$versionMatch = [regex]::Match($html, '(?<=v)(\d+)(?= \. June 2026)')
-$globalVersionMatch = [regex]::Match($html, 'v(\d+) \. June 2026')
+$versionMatch = [regex]::Match($html, '(?<=v)(\d+)(?= \. June \d+, 2026)')
+$globalVersionMatch = [regex]::Match($html, 'v(\d+) \. June \d+, 2026')
 if ($globalVersionMatch.Success) {
     # Check per-paper if there's a specific pattern
     # For now use global counter
