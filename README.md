@@ -1,10 +1,10 @@
 # Closure Research Initiative
 
-A mathematical research initiative investigating the fundamental structure of reality from first principles.
+A mathematical research initiative investigating what structure a physical theory must have if it is written without external scaffolding.
 
 ## Overview
 
-The Closure Research Initiative is founded on a single premise: a mathematically closed physical theory must be written without external scaffolding. From intrinsic comparison data, the admissible architecture is rigid: quotient semantics, the obstruction to subsystem attribution, and a transport-obstruction curvature hierarchy follow at the relational level; at the manifold stage, a genuinely closed three-dimensional system is diffeomorphic to S&sup3;.
+The Closure Research Initiative is founded on a single primitive premise: intrinsicality&mdash;a comparison is a relation among states, invariant under the symmetries it constitutes, not an externally imposed labeling. Under intrinsicality, closure (rectangular completeness) and the finite-to-global compactness boundary are derived rather than assumed. From intrinsic comparison data, the admissible architecture is rigid: quotient semantics, the obstruction to subsystem attribution, and a transport-obstruction curvature hierarchy follow at the relational level; at the manifold stage, a genuinely closed three-dimensional system is diffeomorphic to S&sup3;.
 
 ## Preprints
 
