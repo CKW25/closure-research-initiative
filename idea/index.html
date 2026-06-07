@@ -1,19 +1,19 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="Notes  —  Closure Research Initiative">
-<meta property="og:description" content="Research notes, commentary, and updates from the Closure Research Initiative.">
-<meta property="og:url" content="https://closureresearchinitiative.org/notes/">
+<meta property="og:title" content="The Idea">
+<meta property="og:description" content="What the closure program claims, in plain language: physics from self-containment alone.">
+<meta property="og:url" content="https://closureresearchinitiative.org/idea/">
 <meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Notes  —  Closure Research Initiative">
-<meta name="twitter:description" content="Research notes, commentary, and updates from the Closure Research Initiative.">
+<meta name="twitter:title" content="The Idea">
+<meta name="twitter:description" content="What the closure program claims, in plain language: physics from self-containment alone.">
 <meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
 <meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
-<title>Notes  —  Closure Research Initiative</title>
+<title>The Idea — Closure Research Initiative</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -81,8 +81,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 .container { max-width: 780px; margin: 0 auto; padding: 0 3rem; }
-
-.hero { text-align: center; padding: 4rem 0 2rem; position: relative; }
+.hero { text-align: center; padding: 4rem 0 2rem; }
 .discuss-wrapper {
   text-align: center;
   padding: 0 0 1.5rem;
@@ -121,7 +120,6 @@ body {
   font-style: italic;
   color: var(--muted);
 }
-
 nav {
   text-align: center;
   padding: 1.5rem 0 2.5rem;
@@ -150,41 +148,9 @@ nav span {
   padding-bottom: 2.5rem;
   border-bottom: 2px solid var(--gold);
 }
-
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-.section-header h2 {
-  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--navy);
-  white-space: nowrap;
-}
-.section-header .line {
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-
-.post { margin-bottom: 2.5rem; }
-.post-title {
-  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--navy);
-  margin-bottom: 0.25rem;
-}
-.post-meta {
-  font-size: 0.78rem;
-  color: var(--muted);
-  margin-bottom: 0.5rem;
-}
-.post-excerpt { font-size: 0.9rem; }
-
+p { font-size: 0.92rem; color: var(--text); margin-bottom: 1rem; line-height: 1.8; }
+a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
+a:hover { text-decoration-color: var(--gold); }
 footer {
   margin-top: 3.5rem;
   padding: 1.5rem 0;
@@ -195,18 +161,17 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
-
 @media print {
-  body { font-size: 11pt; color: #000; background: #fff; }
+  body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
   .container { max-width: 100%; padding: 0 1in; }
   .hero { padding: 0.5in 0 0.25in; }
   .hero-logo img { width: 180px; }
   .hero h1 { font-size: 20pt; }
+  .hero .subtitle { font-size: 10pt; }
   nav { display: none; }
-  a { color: #000 !important; }
+  a { color: #000 !important; text-decoration: underline !important; }
   footer { font-size: 8pt; color: #555; }
 }
-
 @media (max-width: 800px) {
   .container { padding: 0 1.5rem; }
   .hero h1 { font-size: 2rem; }
@@ -224,8 +189,8 @@ footer {
     <div class="hero-logo">
       <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
     </div>
-    <h1>Notes</h1>
-    <div class="subtitle">Following the mathematics wherever it leads</div>
+    <h1>The Idea</h1>
+    <div class="subtitle">What the closure program claims, without the mathematics</div>
   </div>
 
   <div class="discuss-wrapper">
@@ -233,43 +198,35 @@ footer {
   </div>
 
   <nav>
-    <a href="/idea/">The Idea</a>
+    <span>The Idea</span>
     <a href="/">Preprints</a>
     <a href="/about.html">About</a>
     <a href="/overview/">Overview</a>
-    <span>Notes</span>
+    <a href="/notes/">Notes</a>
     <a href="/license.html">License</a>
     <a href="/guide/">Guide</a>
   </nav>
 
-  <div class="section-header">
-    <h2>Recent Notes</h2>
-    <span class="line"></span>
-  </div>
+  <p>Modern physics begins by assuming a great deal. Space and time are given in advance. A state space is posited. Observers stand outside the system and read off measurements. Fields, symmetries, and a causal order are written in by hand. The theory then asks: what are the laws governing all this assumed structure? The closure program asks a different and prior question &mdash; what would a physical theory look like if it assumed <em>none</em> of that, and had to build everything from the inside?</p>
 
-  <div class="post">
-    <div class="post-title">Release</div>
-    <div class="post-meta">June 5, 2026</div>
-    <div class="post-excerpt">
-      The seven preprints and the monograph are now public, developing the full arc from primitive comparison data to the geometry of closed three-dimensional systems. A central result&mdash;that a genuinely closed three-dimensional system is diffeomorphic to S&sup3;&mdash;is developed at the manifold stage of the program. The question first posed in 2009 has, over seventeen years, been developed into a systematic program.
-    </div>
-  </div>
+  <p>The starting point is the least a system can have and still be a system: the capacity to <em>compare</em> its own states. Given two states, a comparison tells you whether they stand in some relation or not &mdash; nothing more. No distances, no coordinates, no clock, no outside vantage. Just states and the bare relations among them. This is not a modeling choice made for convenience; it is the floor. Anything less is not a system at all, and anything more is structure smuggled in from outside.</p>
 
-  <div class="post">
-    <div class="post-title">On the Relationship Between Structural and Cosmological Closure</div>
-    <div class="post-meta">June 5, 2026</div>
-    <div class="post-excerpt">
-      The mathematical sense of closure&mdash;closure under intrinsic comparison data&mdash;is logically distinct from the cosmological sense (open vs. closed universe in FLRW cosmology). The S&sup3; theorem is a result about structural closure, not a cosmological claim. This distinction took years to articulate cleanly; the preprint <em>Structural Closure and the Cosmological Misnomer</em> finally develops it in full.
-    </div>
-  </div>
+  <p>On this floor the program places a single demand: the system must be <em>self-contained</em>. Nothing outside it may do any of the work of defining it. In particular, a comparison must be a genuine relation <em>between states</em> &mdash; determined by how the states stand to one another &mdash; and not a label pinned onto them from somewhere external. A labeling that no internal relation accounts for is exactly the &ldquo;external scaffolding&rdquo; the program forbids. This single requirement, that comparison be intrinsic, is the entire foundation. Everything that follows is forced by it; nothing else is assumed.</p>
 
-  <div class="post">
-    <div class="post-title">What Closure Requires</div>
-    <div class="post-meta">June 5, 2026</div>
-    <div class="post-excerpt">
-      A genuinely closed physical theory cannot rely on external scaffolding. No background manifold, no pre-assumed state space, no external observers, no gauge convention, no causal structure, no field content can be accepted as primitive. Starting from nothing but intrinsic comparison&mdash;predicates invariant under the symmetries they constitute&mdash;the admissible architecture follows from that single condition, with closure and the compactness boundary derived rather than assumed. The monograph develops this in full.
-    </div>
-  </div>
+  <p>The first thing that comes out is something you might not expect. In a self-contained system, every admissible combination of internally distinguishable features must either be realized or internally excluded. What cannot happen is a merely silent absence &mdash; a possibility that the system&rsquo;s own comparisons recognize as admissible, but that no state realizes, and whose omission no internal comparison detects. Maintaining that kind of gap would require a selection made from outside the system. A genuinely closed world cannot quietly omit an admissible possibility; the omission would be external scaffolding.</p>
+
+  <p>This is the hinge of the whole program, and it is worth being careful about, because it is <em>not</em> obvious and it is <em>not</em> universal. A rigid rod constrains two endpoints to a fixed separation; a system coupled to a heat bath is shaped by that bath. These are real systems with genuine gaps &mdash; and they are precisely <em>open</em> systems, shaped by something outside themselves, or carrying constraints their own comparisons register. The claim is conditional: it holds for systems that are self-contained, and it is exactly what distinguishes the closed from the open. That a closed system must be complete in this sense is the thing the mathematics had to prove, and does. But the idea behind the proof is the one stated plainly above: a closed world cannot maintain an admissible gap that nothing inside it detects.</p>
+
+  <p>Once the states fill out this way, the rest follows in a cascade, and at each step something physicists normally assume turns out to be unavoidable rather than chosen. When you carry a comparison from one part of the system to another, the comparisons do not transport flatly &mdash; there is an obstruction to moving them around consistently. The first stable layer of that obstruction, written in its own internal terms, <em>is</em> curvature. Curvature is not added as a geometric assumption; it is what the failure of comparisons to transport flatly already is. The way competing alternatives must be weighted yields the rule physicists know as the Born rule. The number of dimensions cannot be free &mdash; four is forced. The geometry of a genuinely closed three-dimensional system, at the stage where it can be described as a smooth space at all, is the three-sphere. Even the fact that electric charge comes in thirds falls out, rather than being read off from experiment.</p>
+
+  <p>None of these were put in. They are not laws layered onto the comparison structure; they are what a self-contained comparison structure cannot avoid being. This is the claim, and it is the reason the program is worth taking seriously or refuting carefully: it proposes that the laws of physics are not a separate set of facts about the world, decided one way when they might have been decided another. They are what <em>any</em> world must look like if it rests on nothing outside itself. The structure of physics, on this view, is the structure of self-containment &mdash; and there is nothing left over to explain, because there was never a free choice to be made.</p>
+
+  <p>The mathematics that establishes each step is developed in full in the monograph and the supporting papers. What is given here is only the idea: the single premise, and the shape of what it forces. Everything stated above is proved; this page asserts nothing the papers do not earn.</p>
+
+  <p>Read the development:
+<a href="/overview/">Overview</a> &middot;
+<a href="/csm/">Monograph</a> &middot;
+<a href="/#papers">Papers</a></p>
 
   <footer>
     <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
