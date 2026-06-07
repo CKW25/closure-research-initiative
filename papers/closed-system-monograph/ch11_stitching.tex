@@ -1,0 +1,752 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{Transport-Closed Dynamics and Spacetime Interleaving}
+\label{ch:stitching}
+% ============================================================
+\section{Introduction}
+Under the standing principle of closed-world admissibility
+(\cref{sp:closed-world}), this chapter determines the transport-closed
+dynamics consequences of \cref{sp:quotient,sp:transport} on the closed
+side of the stack.  Using the observer-side irreversible filtration
+inherited from \cref{ch:flow}, it then assembles the canonical stitched
+refinement/observer arena \(\mathsf{ST}\) used immediately in
+\cref{ch:christoffel} and later in \cref{ch:causality,ch:connection}.
+\Cref{ch:flow} isolated the source of irreversibility in the
+closed-system stack.  The intrinsic quotient
+\[
+	\pi\colon X\to \Phys:=X/G
+\]
+does not itself generate an arrow of time: reversible evolution on \(X\)
+descends to reversible evolution on \(\Phys\).  Irreversibility enters
+only at the later internal observer-induced descent on \(\Phys\), and
+the observer-side temporal filtration used here is inherited from that
+stage.
+The purpose of the present chapter is different.  We return to the
+closed side of the framework and determine what transport closure entails
+on admissible dynamics before any observer reduction is imposed.
+Two facts are proved.
+\begin{enumerate}[label=\textup{(\roman*)}]
+	\item
+	      Under closed-system semantics and transport closure, every admissible
+	      dynamical evolution preserves the primitive comparison structure and
+	      therefore lies in the intrinsic symmetry group
+	      \[
+		      G=\Aut(U,\mathcal C).
+	      \]
+	\item
+	      Once comparison preservation is determined, admissible dynamics acts
+	      canonically on the refinement tower of Boolean algebras and hence on
+	      its Stone inverse limit.  If an observer reduction on the limit
+	      descends to finite refinement levels, then temporal coarse-graining and
+	      spatial refinement interleave functorially, yielding a canonical
+	      two-parameter inverse system.
+\end{enumerate}
+To state the second conclusion in an intrinsically categorical form, we
+prove not merely that each admissible symmetry acts on each refinement
+stage, but that
+\[
+	\Aut(U,\mathcal C)
+\]
+acts by automorphisms of the entire refinement inverse system.
+The resulting two-parameter limit object is the first object in the
+stack in which refinement and observer-induced temporal coarsening are
+assembled into a single canonical construction.
+\medskip
+The logical position of the chapter is therefore
+\[
+	\begin{aligned}
+		 & \text{transport closure}
+		\Longrightarrow
+		\text{comparison-preserving dynamics}
+		\Longrightarrow
+		\text{refinement action}
+		\\
+		 & \Longrightarrow
+		\text{refinement/observer interleaving}
+		\Longrightarrow
+		\mathsf{ST}.
+	\end{aligned}
+\]
+No curvature, smooth realization, or macroscopic field law appears
+here.  Those belong to later chapters.
+% ------------------------------------------------------------
+\section{Transport closure determines comparison preservation}
+% ------------------------------------------------------------
+We begin by fixing the meaning of transport closure at the present
+level of the stack.
+\begin{definition}[Transport-closed extension]
+	An extension of quotient semantics is called
+	\emph{transport-closed} if it introduces neither
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item object-locus representative data, i.e.\ no section
+		      \[
+			      s\colon \Phys\to X
+			      \qquad\text{with}\qquad
+			      \pi\circ s=\id_{\Phys},
+		      \]
+		      nor
+		\item morphism-locus obstruction, i.e.\ no nontrivial holonomy or loop
+		      defect.
+	\end{enumerate}
+	Equivalently, by the descent--obstruction classification together with
+	the loop criterion from the transport spine
+	(\cref{thm:structural-closure} and the endpoint-determined criterion in
+	the descent--obstruction chapter), admissible transport is
+	endpoint-determined.
+\end{definition}
+\begin{definition}[Admissible dynamics]
+	A dynamical evolution on \(U\) is called \emph{admissible} if it is
+	realized within a transport-closed extension of quotient semantics.
+\end{definition}
+The first result removes an external hypothesis.  Comparison
+preservation is not assumed; it is determined.
+\begin{lemma}[Transport-closed endpoint-determined realizations add no new comparison data]
+	\label{lem:endpoint-no-new-comparison}
+	Under the standing principle \cref{sp:closed-world}, assume
+	closed-system semantics and transport closure.  Any
+	endpoint-determined realization of quotient-level dynamics introduces
+	no comparison distinction beyond the descended content on \(\Phys\).
+\end{lemma}
+\begin{proof}
+	By the two-locus classification, any admissible enrichment beyond
+	quotient semantics is exhausted by object-locus representative choice
+	and morphism-locus transport obstruction, possibly with both and with
+	no third locus.
+	Endpoint-determined transport excludes the morphism locus, while
+	transport closure excludes the object locus.  Hence no additional
+	comparison distinction can be introduced beyond the quotient-level
+	content already determined by \(\Phys\).
+\end{proof}
+\begin{theorem}[Transport closure determines comparison preservation]
+	\label{thm:transport-forces-Aut}
+	Under the standing principle \cref{sp:closed-world}, assume
+	closed-system semantics and transport closure.  Then every
+	admissible dynamical transformation on \(U\) preserves every comparison
+	predicate and therefore belongs to the intrinsic symmetry group
+	\[
+		G=\Aut(U,\mathcal C).
+	\]
+\end{theorem}
+\begin{proof}
+	Let \(\Phi\colon U\to U\) be admissible.  Suppose
+	\[
+		\Phi\notin \Aut(U,\mathcal C).
+	\]
+	Then, by definition of \(\Aut(U,\mathcal C)\), there exist
+	\(c\in\mathcal C\) and \(u,v\in U\) such that
+	\[
+		c(\Phi(u),\Phi(v))\neq c(u,v).
+	\]
+	Under rectangular completeness, the comparison world admits its
+	canonical diagonal presentation
+	\[
+		U\cong X:=X_A\times X_B,
+		\qquad
+		\pi\colon X\to \Phys:=X/G,
+	\]
+	and closed-system semantics identifies admissible state content with
+	data descending through \(\pi\).  Thus any admissible realization of
+	\(\Phi\) must respect the quotient boundary determined by \(\pi\).
+	But the inequality
+	\[
+		c(\Phi(u),\Phi(v))\neq c(u,v)
+	\]
+	shows that \(\Phi\) produces a comparison distinction not already
+	determined by the descended quotient content on \(\Phys\).  By
+	\cref{lem:endpoint-no-new-comparison}, no endpoint-determined
+	realization can produce such a distinction.  Hence any realization of
+	\(\Phi\) must involve enrichment beyond endpoint-determined quotient
+	semantics.
+	By the universal two-locus classification of enrichment
+	(\cref{thm:classification} in \cref{ch:rotation}, equivalently the
+	action-groupoid classification together with the section--holonomy
+	dichotomy), every such non-endpoint-determined realization is
+	exhausted by representative choice and morphism-level transport,
+	possibly with both and with no third locus.
+	Transport closure excludes both.  This contradiction proves that
+	\(\Phi\in\Aut(U,\mathcal C)\).
+\end{proof}
+\begin{remark}[Derived symmetry]
+	Theorem~\ref{thm:transport-forces-Aut} replaces the external hypothesis
+	that admissible dynamics preserves comparisons.  In the closed-system
+	stack, comparison preservation is not an independent postulate.  It is
+	a consequence of admissibility together with transport closure.
+\end{remark}
+% ------------------------------------------------------------
+\section{Refinement tower and Stone inverse limit}
+% ------------------------------------------------------------
+We now pass from the comparison layer to the refinement layer.
+Let
+\[
+	(\B_k)_{k\in\mathbb N}
+\]
+be the refinement tower of \cref{ch:foundation}, and let
+\[
+	\B_\infty
+	:=
+	\left\langle \bigcup_{k\in\mathbb N}\B_k\right\rangle
+\]
+be the generated limit Boolean algebra.  Write
+\[
+	S_k:=\UF(\B_k),
+	\qquad
+	S_\infty:=\UF(\B_\infty)
+\]
+for the corresponding Stone spaces.  Restriction of ultrafilters along
+the inclusions
+\[
+	\B_k\subseteq\B_{k+1}
+\]
+induces bonding maps
+\[
+	\phi_{k+1,k}\colon S_{k+1}\to S_k.
+\]
+\begin{proposition}[Stone inverse limit]
+	\label{prop:Stone-limit}
+	There is a canonical homeomorphism
+	\[
+		S_\infty\cong \varprojlim_k S_k.
+	\]
+	We denote the inverse-limit projections by
+	\[
+		p_k\colon S_\infty\to S_k.
+	\]
+\end{proposition}
+\begin{proof}
+	This is the inverse-limit representation of admissible ultrafilters
+	proved in the foundational chapter, applied to the present refinement
+	tower.
+\end{proof}
+\begin{lemma}[Surjectivity of the projections]
+	\label{lem:pk-surjective}
+	For every \(k\), the projection
+	\[
+		p_k\colon S_\infty\to S_k
+	\]
+	is surjective.
+\end{lemma}
+\begin{proof}
+	Each bonding map
+	\[
+		\phi_{k+1,k}\colon S_{k+1}\to S_k
+	\]
+	is induced by restriction of ultrafilters along
+	\[
+		\B_k\subseteq \B_{k+1}.
+	\]
+	Every ultrafilter on \(\B_k\) extends to an ultrafilter on
+	\(\B_{k+1}\), so each \(\phi_{k+1,k}\) is surjective.  The coordinate
+	projections from an inverse limit of nonempty compact Hausdorff spaces
+	with surjective bonding maps are therefore surjective.  Under the
+	identification of \cref{prop:Stone-limit}, this is exactly the
+	surjectivity of \(p_k\).
+\end{proof}
+% ------------------------------------------------------------
+\section{Functorial action on the refinement inverse system}
+% ------------------------------------------------------------
+Once admissible dynamics is determined into \(\Aut(U,\mathcal C)\), it acts
+not only on \(U\) but on every comparison-generated Boolean stage, and
+hence on the full Stone tower.
+\begin{proposition}[Boolean invariance]
+	\label{prop:boolean-inv}
+	Every comparison-preserving bijection
+	\[
+		\phi\in\Aut(U,\mathcal C)
+	\]
+	acts on \(\B_\infty\) by pullback
+	\[
+		E\longmapsto \phi^{-1}(E),
+	\]
+	preserves each finite-stage algebra \(\B_k\), and therefore induces
+	maps
+	\[
+		\widehat\phi^{(k)}\colon S_k\to S_k,
+		\qquad
+		\widehat\phi^\infty\colon S_\infty\to S_\infty.
+	\]
+\end{proposition}
+\begin{proof}
+	It is enough to check preservation on the generating comparison sets.
+	For a basic left comparison set
+	\[
+		L_{c,w}:=\{u\in U:c(u,w)=1\},
+	\]
+	we have
+	\[
+		u\in\phi^{-1}(L_{c,w})
+		\iff
+		c(\phi(u),w)=1
+		\iff
+		c(u,\phi^{-1}(w))=1
+		\iff
+		u\in L_{c,\phi^{-1}(w)}.
+	\]
+	Thus pullback sends left generators to left generators.
+	Similarly, for a basic right comparison set
+	\[
+		R_{c,w}:=\{u\in U:c(w,u)=1\},
+	\]
+	one computes
+	\[
+		u\in\phi^{-1}(R_{c,w})
+		\iff
+		c(w,\phi(u))=1
+		\iff
+		c(\phi^{-1}(w),u)=1
+		\iff
+		u\in R_{c,\phi^{-1}(w)}.
+	\]
+	Hence right generators are preserved as well.
+	Therefore pullback preserves the generating comparison family, hence
+	every \(\B_k\) and therefore \(\B_\infty\).  The induced maps on Stone
+	spaces are the stated maps.
+\end{proof}
+\begin{theorem}[Functorial action on the refinement inverse system]
+	\label{thm:Aut-functorial}
+	The assignment
+	\[
+		\phi\longmapsto\bigl(\widehat\phi^{(k)}\bigr)_{k\in\mathbb N}
+	\]
+	defines an action of
+	\[
+		\Aut(U,\mathcal C)
+	\]
+	by automorphisms of the inverse system
+	\[
+		\bigl(S_k,\phi_{k+1,k}\bigr)_{k\in\mathbb N}.
+	\]
+	Equivalently, for every
+	\[
+		\phi\in\Aut(U,\mathcal C)
+	\]
+	and every \(k\), the square
+	\[
+		\begin{tikzcd}
+			S_{k+1} \arrow[r,"\widehat\phi^{(k+1)}"] \arrow[d,"\phi_{k+1,k}"']
+			& S_{k+1} \arrow[d,"\phi_{k+1,k}"] \\
+			S_k \arrow[r,"\widehat\phi^{(k)}"']
+			& S_k
+		\end{tikzcd}
+	\]
+	commutes, and
+	\[
+		\widehat{\id}^{(k)}=\id_{S_k},
+		\qquad
+		\widehat{(\phi\circ\psi)}^{(k)}
+		=
+		\widehat\phi^{(k)}\circ\widehat\psi^{(k)}
+	\]
+	for all \(k\).
+\end{theorem}
+\begin{proof}
+	Fix \(\phi\in\Aut(U,\mathcal C)\).  By
+	\cref{prop:boolean-inv}, the maps
+	\[
+		\widehat\phi^{(k)}\colon S_k\to S_k
+	\]
+	are well-defined.
+	To verify compatibility with the bonding maps, let
+	\(\mathfrak u\in S_{k+1}\).  Then
+	\[
+		\phi_{k+1,k}\bigl(\widehat\phi^{(k+1)}(\mathfrak u)\bigr)
+		=
+		\widehat\phi^{(k+1)}(\mathfrak u)\cap\B_k.
+	\]
+	By definition,
+	\[
+		E\in\widehat\phi^{(k+1)}(\mathfrak u)
+		\iff
+		\phi^{-1}(E)\in\mathfrak u
+		\qquad
+		(E\in\B_{k+1}).
+	\]
+	Restricting to \(E\in\B_k\), we obtain
+	\[
+		E\in\phi_{k+1,k}\bigl(\widehat\phi^{(k+1)}(\mathfrak u)\bigr)
+		\iff
+		\phi^{-1}(E)\in \mathfrak u\cap\B_k
+		\iff
+		E\in\widehat\phi^{(k)}(\mathfrak u\cap\B_k).
+	\]
+	Thus
+	\[
+		\phi_{k+1,k}\circ\widehat\phi^{(k+1)}
+		=
+		\widehat\phi^{(k)}\circ\phi_{k+1,k}.
+	\]
+	Identity and composition are immediate from the corresponding facts for
+	pullback on subsets of \(U\).  The identity automorphism induces the
+	identity on every Boolean algebra, hence
+	\[
+		\widehat{\id}^{(k)}=\id_{S_k}.
+	\]
+	If \(\phi,\psi\in\Aut(U,\mathcal C)\), then
+	\[
+		(\phi\circ\psi)^{-1}=\psi^{-1}\circ\phi^{-1},
+	\]
+	so
+	\[
+		\widehat{(\phi\circ\psi)}^{(k)}
+		=
+		\widehat\phi^{(k)}\circ\widehat\psi^{(k)}.
+	\]
+	Therefore \(\Aut(U,\mathcal C)\) acts by automorphisms of the inverse
+	system.
+\end{proof}
+\begin{corollary}[Action on the Stone limit]
+	\label{cor:Aut-limit-action}
+	The action of \(\Aut(U,\mathcal C)\) on the inverse system induces an
+	action on the inverse limit \(S_\infty\).  Under the identification
+	\[
+		S_\infty\cong \varprojlim_k S_k,
+	\]
+	this action agrees with the Stone action
+	\[
+		\widehat\phi^\infty\colon S_\infty\to S_\infty.
+	\]
+\end{corollary}
+\begin{proof}
+	By \cref{thm:Aut-functorial}, each \(\phi\in\Aut(U,\mathcal C)\)
+	determines a compatible family of maps on the inverse system and hence
+	a unique induced map on the inverse limit.  By construction, this is
+	the Stone-dual map induced directly from pullback on \(\B_\infty\).
+\end{proof}
+\begin{corollary}[Induced flow on the Stone limit]
+	Let
+	\[
+		(\Phi_t)_{t\in\mathbb R}
+	\]
+	be an admissible reversible flow on \(U\).  Then each \(\Phi_t\)
+	induces compatible homeomorphisms
+	\[
+		\widehat\Phi_t^{(k)}\colon S_k\to S_k,
+		\qquad
+		\widehat\Phi_t^\infty\colon S_\infty\to S_\infty,
+	\]
+	and
+	\[
+		(\widehat\Phi_t^\infty)_{t\in\mathbb R}
+	\]
+	is a reversible flow on \(S_\infty\).
+\end{corollary}
+\begin{proof}
+	By \cref{thm:transport-forces-Aut}, each \(\Phi_t\) lies in
+	\(\Aut(U,\mathcal C)\), so
+	\cref{thm:Aut-functorial,cor:Aut-limit-action} produce the induced
+	maps on every \(S_k\) and on \(S_\infty\).  Since
+	\[
+		\Phi_{t+s}=\Phi_t\circ\Phi_s,
+		\qquad
+		\Phi_0=\id_U,
+	\]
+	the induced maps satisfy
+	\[
+		\widehat\Phi_{t+s}^{(k)}
+		=
+		\widehat\Phi_t^{(k)}\circ\widehat\Phi_s^{(k)},
+		\qquad
+		\widehat\Phi_0^{(k)}=\id_{S_k},
+	\]
+	and likewise on \(S_\infty\).  Hence
+	\((\widehat\Phi_t^\infty)_{t\in\mathbb R}\) is a reversible flow.
+\end{proof}
+% ------------------------------------------------------------
+\section{Observer reduction on the Stone limit}
+% ------------------------------------------------------------
+We now reintroduce observer structure, but only at the limit level.
+Let
+\[
+	\theta_\infty\colon S_\infty\twoheadrightarrow Y
+\]
+be a surjective observer reduction.
+\begin{definition}[$k$-level admissibility]
+	The observer reduction \(\theta_\infty\) is called
+	\emph{\(k\)-level admissible} if it is constant on fibers of
+	\[
+		p_k\colon S_\infty\to S_k,
+	\]
+	that is,
+	\[
+		p_k(x)=p_k(y)
+		\Longrightarrow
+		\theta_\infty(x)=\theta_\infty(y).
+	\]
+\end{definition}
+\begin{lemma}[Descent criterion]
+	\label{lem:descent-criterion}
+	Fix \(k\).  The following are equivalent:
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item
+		      There exists a map
+		      \[
+			      \theta_k\colon S_k\to Y
+		      \]
+		      such that
+		      \[
+			      \theta_k\circ p_k=\theta_\infty.
+		      \]
+		\item
+		      \(\theta_\infty\) is \(k\)-level admissible.
+	\end{enumerate}
+	If such a map exists, it is unique.
+\end{lemma}
+\begin{proof}
+	If \(\theta_k\) exists and \(p_k(x)=p_k(y)\), then
+	\[
+		\theta_\infty(x)=\theta_k(p_k(x))=\theta_k(p_k(y))=\theta_\infty(y),
+	\]
+	so \(\theta_\infty\) is constant on fibers of \(p_k\).
+	Conversely, assume \(\theta_\infty\) is constant on fibers of \(p_k\).
+	Given \(u\in S_k\), choose \(x\in S_\infty\) with \(p_k(x)=u\), which
+	is possible by \cref{lem:pk-surjective}, and define
+	\[
+		\theta_k(u):=\theta_\infty(x).
+	\]
+	This is well-defined by fiber constancy.  The identity
+	\[
+		\theta_k\circ p_k=\theta_\infty
+	\]
+	is immediate, and uniqueness follows from the surjectivity of \(p_k\).
+\end{proof}
+\begin{definition}[Induced finite-level filtration]
+	Assume \(\theta_\infty\) is \(k\)-level admissible, and let
+	\[
+		\theta_k\colon S_k\to Y
+	\]
+	be the descended map of \cref{lem:descent-criterion}.  For \(t\ge 0\),
+	define
+	\[
+		\mathcal F_t^{(k)}
+		:=
+		\ker\bigl(\theta_k\circ \widehat\Phi_t^{(k)}\bigr)
+		\subseteq S_k\times S_k,
+	\]
+	that is,
+	\[
+		(a,b)\in \mathcal F_t^{(k)}
+		\iff
+		\theta_k\bigl(\widehat\Phi_t^{(k)}(a)\bigr)
+		=
+		\theta_k\bigl(\widehat\Phi_t^{(k)}(b)\bigr).
+	\]
+\end{definition}
+\begin{remark}[No independent finite-level observer]
+	Finite-level observer data are not primitive.
+	If \(\theta_\infty\) is \(k\)-level admissible, then \(\theta_k\)
+	exists uniquely.  If \(\theta_\infty\) is not \(k\)-level admissible,
+	no such \(\theta_k\) exists.  Any independent specification of a
+	finite-level observer map would therefore constitute additional
+	structure beyond the closed-system boundary.
+\end{remark}
+% ------------------------------------------------------------
+\section{Determined interleaving across refinement}
+% ------------------------------------------------------------
+We now prove that observer-induced temporal identifications descend
+along refinement whenever observer descent is available at adjacent
+levels.
+\begin{theorem}[Interleaving]
+	\label{thm:interleaving}
+	Assume that \(\theta_\infty\) is both \((k+1)\)-level admissible and
+	\(k\)-level admissible.  Then for every \(t\ge 0\),
+	\[
+		(\phi_{k+1,k}\times \phi_{k+1,k})
+		\bigl(\mathcal F_t^{(k+1)}\bigr)
+		\subseteq
+		\mathcal F_t^{(k)}.
+	\]
+\end{theorem}
+\begin{proof}
+	Let
+	\[
+		(u,v)\in \mathcal F_t^{(k+1)}.
+	\]
+	Then
+	\[
+		\theta_{k+1}\bigl(\widehat\Phi_t^{(k+1)}(u)\bigr)
+		=
+		\theta_{k+1}\bigl(\widehat\Phi_t^{(k+1)}(v)\bigr).
+	\]
+	Choose \(x,y\in S_\infty\) with
+	\[
+		p_{k+1}(x)=u,
+		\qquad
+		p_{k+1}(y)=v.
+	\]
+	Using
+	\[
+		\theta_{k+1}\circ p_{k+1}=\theta_\infty
+	\]
+	and
+	\[
+		p_{k+1}\circ \widehat\Phi_t^\infty
+		=
+		\widehat\Phi_t^{(k+1)}\circ p_{k+1},
+	\]
+	we obtain
+	\[
+		\theta_\infty\bigl(\widehat\Phi_t^\infty(x)\bigr)
+		=
+		\theta_\infty\bigl(\widehat\Phi_t^\infty(y)\bigr).
+	\]
+	Now use
+	\[
+		p_k=\phi_{k+1,k}\circ p_{k+1},
+		\qquad
+		p_k\circ \widehat\Phi_t^\infty
+		=
+		\widehat\Phi_t^{(k)}\circ p_k,
+		\qquad
+		\theta_k\circ p_k=\theta_\infty.
+	\]
+	Then
+	\[
+		\theta_k\bigl(\widehat\Phi_t^{(k)}(\phi_{k+1,k}(u))\bigr)
+		=
+		\theta_k\bigl(\widehat\Phi_t^{(k)}(\phi_{k+1,k}(v))\bigr),
+	\]
+	which is exactly the statement that
+	\[
+		(\phi_{k+1,k}(u),\phi_{k+1,k}(v))
+		\in
+		\mathcal F_t^{(k)}.
+	\]
+\end{proof}
+\begin{corollary}[Refinement contraction]
+	Define
+	\[
+		d_k(a,b):=\inf\{t\ge0:(a,b)\in \mathcal F_t^{(k)}\},
+	\]
+	whenever the infimum is meaningful.  Then
+	\[
+		d_k\bigl(\phi_{k+1,k}(u),\phi_{k+1,k}(v)\bigr)
+		\le
+		d_{k+1}(u,v).
+	\]
+\end{corollary}
+\begin{proof}
+	If
+	\[
+		(u,v)\in \mathcal F_t^{(k+1)},
+	\]
+	then \cref{thm:interleaving} gives
+	\[
+		(\phi_{k+1,k}(u),\phi_{k+1,k}(v))
+		\in \mathcal F_t^{(k)}.
+	\]
+	Taking the infimum over all such \(t\) yields the claim.
+\end{proof}
+% ------------------------------------------------------------
+\section{Spacetime as a joint two-parameter limit}
+% ------------------------------------------------------------
+\Cref{thm:Aut-functorial,thm:interleaving} produce two independent
+directions of
+structure.
+\begin{itemize}
+	\item
+	      Refinement yields the inverse system
+	      \[
+		      \cdots \to S_{k+1}\to S_k\to\cdots .
+	      \]
+	\item
+	      Observer-induced temporal coarse-graining yields, at each admissible
+	      level \(k\), the quotient family
+	      \[
+		      S_k/\mathcal F_t^{(k)}.
+	      \]
+\end{itemize}
+Consider therefore the two-parameter diagram
+\[
+	(k,t)\longmapsto S_k/\mathcal F_t^{(k)},
+\]
+restricted to those pairs \((k,t)\) for which \(\theta_\infty\)
+descends to level \(k\) and for which the temporal bonding maps are
+defined.
+The refinement-direction bonding maps are supplied by
+\cref{thm:interleaving}.  Temporal bonding maps exist on any subdomain
+of \(t\) on which
+\[
+	t\longmapsto \mathcal F_t^{(k)}
+\]
+is monotone.
+\begin{definition}[Spacetime object]
+	The \emph{spacetime object} is
+	\[
+		\mathsf{ST}
+		:=
+		\varprojlim_{(k,t)}
+		\bigl(S_k/\mathcal F_t^{(k)}\bigr),
+	\]
+	taken over the two-parameter domain on which the quotients and bonding
+	maps are defined.
+\end{definition}
+\begin{remark}[Interpretation]
+	The object \(\mathsf{ST}\) packages two distinct structural directions:
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item
+		      spatial refinement, represented by the inverse-system direction in
+		      \(k\);
+		\item
+		      temporal coarsening, represented by the observer-induced quotient
+		      direction in \(t\).
+	\end{enumerate}
+	It is therefore the first object in the stack in which the two limiting
+	directions coexist in a single canonical construction.
+\end{remark}
+\begin{remark}[Determined versus observer-relative data]
+	Up to this point, the following data are determined:
+	\begin{itemize}
+		\item
+		      the intrinsic symmetry group
+		      \[
+			      G=\Aut(U,\mathcal C);
+		      \]
+		\item
+		      comparison preservation of admissible dynamics under transport closure;
+		\item
+		      the functorial action of \(\Aut(U,\mathcal C)\) on the refinement
+		      inverse system;
+		\item
+		      the induced action on the Stone limit;
+		\item
+		      the refinement-direction interleaving maps;
+		\item
+		      the corresponding two-parameter spacetime object on every domain where
+		      observer descent and temporal monotonicity are available.
+	\end{itemize}
+	What remains observer-relative is the choice of reduction
+	\[
+		\theta_\infty\colon S_\infty\to Y,
+	\]
+	and hence the set of finite levels at which descent occurs, together
+	with the temporal domain on which the induced filtration is monotone.
+\end{remark}
+\begin{remark}[Position in the stack]
+	This chapter does not yet introduce curvature.
+	Its output is the structural arena on which later curvature data will
+	be realized:
+	\[
+		\begin{aligned}
+			 & \text{transport-closed dynamics}
+			\Longrightarrow
+			\Aut(U,\mathcal C)\text{-action}
+			\\
+			 & \Longrightarrow
+			\text{refinement/observer interleaving}
+			\Longrightarrow
+			\mathsf{ST}.
+		\end{aligned}
+	\]
+	The curvature chapters begin only after this arena has been fixed.
+\end{remark}
+
+\section{Conclusion}
+\label{sec:stitching-conclusion}
+This chapter fixes the first joint refinement--time arena in the stack:
+the two-parameter inverse-limit object \(\mathsf{ST}\), where intrinsic
+refinement and observer-induced temporal coarsening are represented within
+one coherent construction.
+
+Accordingly, \cref{ch:christoffel} uses the stitched arena \(\mathsf{ST}\)
+to realize the first intrinsic transport obstruction as smooth
+curvature, while \cref{ch:causality,ch:connection} reuse that same arena
+later in the causal and connection-first developments.

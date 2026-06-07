@@ -1,0 +1,1280 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{Transport Closure and the Uniqueness of the Macroscopic Compatibility Law}
+\label{ch:einstein}
+% ============================================================
+\section{Introduction}
+Under the standing principle of closed-world admissibility
+(\cref{sp:closed-world}), this chapter develops the macroscopic
+compatibility consequences of the repaired intrinsic transport package
+already established in \cref{ch:interface,ch:causality,ch:hilbert}.
+Using the stabilized quadratic carrier together with the inherited
+observer-side filtration and, under the inherited second-jet
+faithfulness condition, the realized degree--\(2\) channel and
+first-variation pairing carried there, it derives the unique
+macroscopic compatibility law used in \cref{ch:connection,ch:em}.
+\Cref{ch:interface,ch:causality,ch:hilbert} therefore supply the
+exact intrinsic transport, filtration, and realized-branch input
+needed here, rather than a bare whole-carrier curvature
+identification or an unconditional direct smooth-realization
+package.
+At the intrinsic level, the first nontrivial stabilized obstruction is
+the quadratic transport carrier
+\[
+	F^2/F^3
+\]
+on the Stone inverse limit.
+At the realized level, two structural facts have already been established.
+First, \cref{ch:interface} shows that, under the inherited
+second-jet faithfulness condition, nonzero stabilized square classes
+are equivalent to nonzero realized curvature in the realized metric
+geometry.
+Second, the pointwise first-variation geometry constructed in
+Proposition~17.2.2, together with the smooth realization theorem for
+connection-first geometry in Theorem~17.9.1(ii) and the tangent
+identification stated in Section~17.12, identifies the intrinsic
+first-variation arenas with the realized tangent geometry.  More
+precisely, for each realized point \(p\),
+\[
+	V_p \cong T_pM,
+\]
+and, under the inherited second-jet faithfulness condition, the
+first-variation pairing on the realized degree--\(2\) channel
+attached to the stabilized quadratic carrier
+\[
+	B_p:V_p\times V_p\to\mathbb R,
+\]
+is identified with the Lorentz metric pairing
+\[
+	g_p:T_pM\times T_pM\to\mathbb R.
+\]
+Thus the realized transport geometry contains not only the curvature
+channel of the quadratic carrier, but also, under that inherited
+second-jet faithfulness condition, the pointwise quadratic pairing
+carried by the realized degree--\(2\) channel attached to the
+stabilized quadratic carrier.
+In particular, comparison automorphisms preserve the realized transport
+geometry at the metric level and not merely at the curvature level.
+The purpose of the present chapter is to determine which macroscopic
+compatibility laws are admissible for that realized metric geometry.
+No action functional is assumed.
+No matter tensor is postulated.
+No variational principle, entropy extremization principle, or external
+geometric axiom is inserted.
+The argument is entirely internal to the closed stack and uses only
+structures already determined by
+\cref{thm:interface-main,thm:lorentz-forced,thm:quadratic-scalar,thm:universal-complex-structure}.
+We work strictly after the development in
+\cref{ch:interface,ch:causality,ch:hilbert}.
+In particular, we take as input the following previously established
+facts.
+\begin{enumerate}[label=\textup{(S\arabic*)}]
+	\item \label{ein:S1}
+	      Rectangular completeness and canonical quotient semantics.
+	\item \label{ein:S2}
+	      Closed-system descent and exhaustion of enrichment by the same
+	      two loci, possibly with both and with no third: representative
+	      choice and transport.
+	\item \label{ein:S3}
+	      Transport closure:
+	      every admissible microscopic dynamics lies in
+	      \[
+		      \G:=\Aut(U,\mathcal C).
+	      \]
+	\item \label{ein:S4}
+	      A refinement tower
+	      \[
+		      \B_1\subset \B_2\subset \cdots,
+		      \qquad
+		      \B_\infty=\Bigl\langle \bigcup_k \B_k \Bigr\rangle,
+	      \]
+	      with Stone inverse limit
+	      \[
+		      S_\infty=\UF(\B_\infty)\cong \varprojlim_k \UF(\B_k).
+	      \]
+	\item \label{ein:S5}
+	      Foundation's quantifier boundary:
+	      global admissibility is equivalent to finite non-coverage of the
+	      excluded finite comparison cells, equivalently to existence of a
+	      coherent admissible ultrafilter tower.
+	\item \label{ein:S6}
+	      The stabilized intrinsic degree--\(2\) transport carrier
+	      \[
+		      \mathcal K_\infty\subset F^2/F^3
+	      \]
+	      on the inverse-limit locus.
+	\item \label{ein:S7}
+	      Interface realization:
+	      under the inherited second-jet faithfulness condition and smooth
+	      realization
+	      \[
+		      \iota:S_\infty\to M,
+	      \]
+	      nonzero stabilized square classes are equivalent to nonzero
+	      realized curvature for a smooth realized metric \(g\).
+	\item \label{ein:S8}
+	      First-variation realization:
+	      by Proposition~17.2.2, Theorem~17.9.1(ii), and Section~17.12,
+	      the pointwise first-variation space \(V_p\) realizes as the
+	      tangent space \(T_pM\), and, under the inherited second-jet faithfulness condition, the first-variation pairing on the
+	      realized degree--\(2\) channel attached to the stabilized
+	      quadratic carrier
+	      \[
+		      B_p:V_p\times V_p\to\mathbb R
+	      \]
+	      is identified with the Lorentz metric pairing
+	      \[
+		      g_p:T_pM\times T_pM\to\mathbb R.
+	      \]
+	\item \label{ein:S9}
+	      Local rigidity:
+	      every homeomorphism of \(M\) preserving the realized transport geometry
+	      is a \(C^1\)-diffeomorphism.
+	\item \label{ein:S10}
+	      Quadratic determinacy and causal-diamond growth:
+	      along the observer-side filtration inherited from
+	      \cref{ch:flow} and interleaved with the refinement tower in
+	      \cref{ch:stitching},
+	      \[
+		      \mu(D_T)\asymp T^2,
+	      \]
+	      and equivalently, after reparameterizing by the corresponding
+	      refinement scale \(L:=k(T)\),
+	      \[
+		      \mu(D_L)\asymp L^4.
+	      \]
+\end{enumerate}
+The question is therefore the following.
+\begin{quote}
+	Which macroscopic compatibility laws are admissible for the realized
+	metric geometry determined by the closed relational stack?
+\end{quote}
+The answer is that, in the metric-only regime of the closed stack, the
+only admissible law is the Einstein law with cosmological term.
+\begin{theorem}[Macroscopic compatibility classification]
+	\label{thm:einstein-main}
+	Under the standing principle \cref{sp:closed-world}, let
+	\[
+		E:\mathcal G\to \Gamma(S^2T^*M)
+	\]
+	be an admissible macroscopic operator in the sense of
+	\cref{def:admissible-operator}.
+	Then there exist constants \(\alpha,\beta\in\mathbb R\) such that
+	\[
+		E_{\mu\nu}(g)=\alpha\,G_{\mu\nu}(g)+\beta\,g_{\mu\nu}.
+	\]
+	Consequently, every admissible macroscopic compatibility law
+	\[
+		E(g)=0
+	\]
+	is equivalent, when \(\alpha\neq 0\), to
+	\[
+		G_{\mu\nu}(g)+\Lambda g_{\mu\nu}=0,
+		\qquad
+		\Lambda:=\frac{\beta}{\alpha}.
+	\]
+\end{theorem}
+The proof proceeds in five steps.
+\begin{enumerate}[label=\textup{(\roman*)}]
+	\item finite comparison-preserving partial symmetries extend globally;
+	\item nontrivial automorphisms can be localized to arbitrary clopen
+	      cylinders in the Stone inverse limit;
+	\item under realization, those localized symmetries preserve the full
+	      realized transport geometry, including, under the inherited
+	      second-jet faithfulness condition, the pointwise first-variation
+	      pairing carried by the realized degree--\(2\) channel attached
+	      to the stabilized quadratic carrier, and hence induce local
+	      \(C^1\)-diffeomorphisms of the realized manifold preserving the
+	      metric pairings \(g_p\);
+	\item finite comparison data at a realized point reconstructs the
+	      quadratic form on the tangent space, and the induced tangent action
+	      realizes the full orthogonal group \(O(T_pM,g_p)\);
+	\item in dimension \(4\), every admissible local second-order symmetric
+	      metric operator is a linear combination of \(G\) and \(g\), and the
+	      divergence identity then follows from the contracted Bianchi identity.
+\end{enumerate}
+We then strengthen the conclusion by showing that the cosmological term
+is not an external order--\(0\) residue.
+It is the scalar projection of the realized degree--\(2\) channel
+attached to the stabilized quadratic carrier, read under the
+inherited second-jet faithfulness condition through the same
+intrinsic obstruction mechanism that supports the Einstein branch.
+% ============================================================
+\section{Stack boundary and admissible macroscopic operators}
+\label{sec:einstein-boundary}
+% ============================================================
+\begin{definition}[Admissible macroscopic operator]
+	\label{def:admissible-operator}
+	Let \(\mathcal G\) denote the realized metric class on \(M\).
+	A map
+	\[
+		E:\mathcal G\to \Gamma(S^2T^*M)
+	\]
+	is called \emph{admissible} if the following properties hold.
+	\begin{enumerate}[label=\textup{(A\arabic*)}]
+		\item \label{ein:A1}
+		      \textbf{Locality of order at most \(2\).}
+		      For every \(x\in M\), the value \(E(g)(x)\) depends only on the
+		      \(2\)-jet \(j_x^2g\).
+		\item \label{ein:A2}
+		      \textbf{Metric-only dependence.}
+		      The operator depends only on the realized metric \(g\).
+		\item \label{ein:A3}
+		      \textbf{Symmetry.}
+		      For every \(g\in\mathcal G\),
+		      \[
+			      E_{\mu\nu}(g)=E_{\nu\mu}(g).
+		      \]
+		\item \label{ein:A4}
+		      \textbf{Realized local symmetry invariance.}
+		      Whenever \(\Phi\) is a realized local symmetry arising from a
+		      cylinder-supported automorphism of \(S_\infty\), one has
+		      \[
+			      E(\Phi^*g)=\Phi^*E(g).
+		      \]
+		\item \label{ein:A5}
+		      \textbf{Concrete second-order tensoriality.}
+		      In local coordinates, each component \(E_{\mu\nu}(g)\) is a finite sum
+		      of complete contractions built from
+		      \[
+			      g_{\alpha\beta},
+			      \qquad
+			      (g^{-1})^{\alpha\beta},
+			      \qquad
+			      \partial_\gamma g_{\alpha\beta},
+			      \qquad
+			      \partial_{\gamma\delta} g_{\alpha\beta},
+		      \]
+		      with smooth coefficient functions.
+	\end{enumerate}
+\end{definition}
+\begin{remark}
+	Condition \textup{\ref{ein:A4}} supplies the microscopic symmetry input
+	determined by the stack.
+	The classification argument below does not require density in the full
+	diffeomorphism group.
+	What it requires is the tangent isotropy determined by realized local
+	comparison symmetries.
+\end{remark}
+\begin{remark}[Local algebraicity of admissible operators]
+	By \textup{\ref{ein:A1}}, \textup{\ref{ein:A2}}, and
+	\textup{\ref{ein:A5}}, the value \(E(g)(p)\) depends only on the
+	\(2\)-jet of \(g\) at \(p\), and after passing to normal coordinates at
+	\(p\), that dependence is an algebraic construction from the algebraic
+	curvature tensor and the metric.
+	Thus once the orthogonal isotropy at \(p\) is identified, the
+	classification reduces to ordinary orthogonal invariant theory.
+\end{remark}
+% ============================================================
+\section{Finite typing and extension from the quantifier boundary}
+\label{sec:einstein-extension}
+% ============================================================
+\begin{definition}[Finite comparison constraints]
+	Let \(F\subset U\) be finite.
+	A finite directed comparison pattern over \(F\) is a specification of
+	bits
+	\[
+		(\pi^\rightarrow_{c,f},\pi^\leftarrow_{c,f})\in\{0,1\}\times\{0,1\}
+		\qquad
+		(c\in\mathcal C,\ f\in F).
+	\]
+	Its realization set is
+	\[
+		X(F;\pi^\rightarrow,\pi^\leftarrow)
+		:=
+		\Bigl\{
+		u\in U:
+		c(u,f)=\pi^\rightarrow_{c,f},\
+		c(f,u)=\pi^\leftarrow_{c,f}
+		\text{ for all }(c,f)
+		\Bigr\}.
+	\]
+\end{definition}
+\begin{lemma}[Typing lemma]
+	\label{lem:einstein-typing}
+	For every finite set \(F\subset U\) and every finite pattern
+	\((\pi^\rightarrow,\pi^\leftarrow)\), the realization set
+	\[
+		X(F;\pi^\rightarrow,\pi^\leftarrow)
+	\]
+	belongs to some finite-stage Boolean algebra \(\B_k\).
+\end{lemma}
+\begin{proof}
+	Each atomic condition \(c(u,f)=1\), \(c(u,f)=0\), \(c(f,u)=1\), or
+	\(c(f,u)=0\) defines a comparison half-space.
+	The realization set of the finite pattern is therefore a finite Boolean
+	combination of finitely many such half-spaces.
+	By construction of the refinement tower, every finitely generated
+	Boolean subalgebra of \(\B_\infty\) is contained in some finite stage
+	\(\B_k\).
+	Hence
+	\[
+		X(F;\pi^\rightarrow,\pi^\leftarrow)\in \B_k
+	\]
+	for some \(k\).
+\end{proof}
+\begin{theorem}[Extension from the quantifier boundary]
+	\label{thm:einstein-extension}
+	Let
+	\[
+		\sigma:D\to D'
+	\]
+	be a finite partial bijection such that
+	\[
+		c(x,y)=c(\sigma(x),\sigma(y))
+		\qquad
+		(x,y\in D,\ c\in\mathcal C).
+	\]
+	Then \(\sigma\) extends to an element
+	\[
+		\phi\in \G=\Aut(U,\mathcal C).
+	\]
+\end{theorem}
+\begin{proof}
+	Fix a well-order of \(U\), and perform a back-and-forth construction.
+	Assume inductively that a finite comparison-preserving partial bijection
+	\[
+		\sigma_n:D_n\to D_n'
+	\]
+	has already been constructed.
+	\smallskip
+	\noindent
+	\emph{Forth step.}
+	Choose \(u\in U\setminus D_n\).
+	We seek \(v\in U\setminus D_n'\) such that for every \(x\in D_n\) and
+	every \(c\in\mathcal C\),
+	\[
+		c(u,x)=c(v,\sigma_n(x)),
+		\qquad
+		c(x,u)=c(\sigma_n(x),v).
+	\]
+	This prescribes a finite comparison pattern over the witness set
+	\(D_n'\).
+	By \cref{lem:einstein-typing}, the set of realizations of this pattern
+	lies in some \(\B_k\).
+	Suppose this realization set were empty.
+	Then the finitely many excluded comparison cells determined by the
+	required pattern would cover \(U\), contradicting the quantifier
+	boundary assumption \ref{ein:S5}.
+	Hence the realization set is nonempty.
+	Because only finitely many points have already been used, we may choose
+	\(v\notin D_n'\).
+	\smallskip
+	\noindent
+	\emph{Back step.}
+	Apply the same argument to the inverse partial bijection in order to
+	extend the codomain side by one point.
+	\smallskip
+	Proceeding transfinitely along the chosen well-order yields a total
+	bijection
+	\[
+		\phi:U\to U
+	\]
+	preserving every comparison in \(\mathcal C\).
+	Hence
+	\[
+		\phi\in\Aut(U,\mathcal C)=\G.
+	\]
+\end{proof}
+% ============================================================
+\section{Cylinder-local automorphism completeness on the Stone limit}
+\label{sec:einstein-cylinder}
+% ============================================================
+\begin{definition}[Stone cylinders]
+	For \(b\in \B_\infty\), define
+	\[
+		\widehat b:=\{p\in S_\infty:\ b\in p\}.
+	\]
+	A \emph{clopen cylinder} is a set of this form.
+\end{definition}
+\begin{theorem}[Cylinder-local completion]
+	\label{thm:einstein-cylinder}
+	For every nonempty clopen cylinder \(E\subseteq S_\infty\), there
+	exists a nontrivial automorphism \(\phi\in\G\) such that the induced
+	Stone homeomorphism \(\widehat\phi\) satisfies
+	\[
+		\widehat\phi|_{S_\infty\setminus E}=\id.
+	\]
+\end{theorem}
+\begin{proof}
+	Write \(E=\widehat b\) for some \(b\in \B_\infty\).
+	Because \(b\) belongs to the direct-limit Boolean algebra, it is
+	decided by finitely many generators from some stage \(\B_k\).
+	Let \(W\) be a finite witness family supporting those generators.
+	Choose an ultrafilter \(p\in E\).
+	Since \(E\) is nonempty and clopen, and since finite-stage refinement
+	separates finite comparison protocols, there exists another ultrafilter
+	\(q\in E\), \(q\neq p\), which agrees with \(p\) on every generator
+	supported outside \(W\), but differs on the local witness pattern
+	inside \(W\).
+	Realize the relevant finite local data of \(p\) and \(q\) by a finite
+	witness configuration \(D\subset U\).
+	Define a finite partial bijection
+	\[
+		\sigma:D\to D
+	\]
+	which fixes all witnesses outside \(W\) and permutes the witnesses in
+	\(W\) so as to interchange the local \(p\)-pattern and \(q\)-pattern.
+	By construction, \(\sigma\) preserves all comparisons on \(D\).
+	Indeed, outside \(W\) nothing changes, while inside \(W\) the
+	permutation has been chosen precisely so that the finite comparison
+	type is carried to an equivalent one.
+	Hence, by \cref{thm:einstein-extension}, \(\sigma\) extends to an
+	automorphism
+	\[
+		\phi\in\G.
+	\]
+	Because \(\sigma\) is the identity on all data outside the support of
+	\(b\), the induced Stone action fixes \(S_\infty\setminus E\)
+	pointwise.
+	Because \(\sigma\) exchanges the local patterns of \(p\) and \(q\), the
+	induced action is nontrivial on \(E\).
+\end{proof}
+% ============================================================
+\section{Realized local symmetries and tangent isotropy}
+\label{sec:einstein-rigidity}
+% ============================================================
+\begin{lemma}[Realized transport geometry is preserved by comparison automorphisms]
+	\label{lem:einstein-realized-preservation}
+	Let
+	\[
+		\phi\in\G=\Aut(U,\mathcal C),
+	\]
+	and let
+	\[
+		\widehat\phi:S_\infty\to S_\infty
+	\]
+	denote the induced Stone homeomorphism.
+	Under the realization map
+	\[
+		\iota:S_\infty\to M,
+	\]
+	the induced homeomorphism of \(M\) preserves the realized transport
+	geometry, including the realized degree--\(2\) carrier and, under the
+	inherited second-jet faithfulness condition, the pointwise
+	first-variation pairing carried by the realized degree--\(2\)
+	channel attached to the stabilized quadratic carrier.
+	Equivalently, it preserves both the realized curvature channel and,
+	under that same inherited second-jet faithfulness condition, the metric
+	pairings \(g_p\).
+\end{lemma}
+\begin{proof}
+	By transport closure, every admissible microscopic dynamics is an
+	element of \(\G\).
+	Hence every \(\phi\in\G\) acts functorially on the intrinsic transport
+	filtration and therefore preserves each stabilized graded layer.
+	In particular, \(\phi\) preserves the intrinsic quadratic carrier
+	\[
+		\mathcal K_\infty\subset F^2/F^3.
+	\]
+	It also preserves the intrinsic first-variation transport data, because
+	that data is reconstructed from the same closed comparison transport
+	geometry.
+	By \ref{ein:S7}, realization carries this preserved quadratic package
+	forward only through the repaired interface statement: under the
+	inherited second-jet faithfulness condition, nonzero stabilized square
+	classes are equivalent to nonzero realized curvature.
+	By \ref{ein:S8}, the first-variation space realizes as the tangent
+	space and, under that same inherited second-jet faithfulness condition,
+	the preserved first-variation pairing on the realized degree--\(2\)
+	channel attached to the stabilized quadratic carrier is identified
+	with the Lorentz metric pairing on \(T_pM\).
+	Functoriality of realization therefore implies that the induced map on
+	the realized locus preserves the realized curvature channel and, under
+	the inherited second-jet faithfulness condition, the realized metric
+	pairing carried by that realized degree--\(2\) channel.
+\end{proof}
+\begin{theorem}[Local realized symmetry theorem]
+	\label{thm:einstein-local-realized}
+	Let \(B\subset M\) be a coordinate ball.
+	For every sufficiently small clopen cylinder
+	\[
+		E\subset S_\infty
+		\qquad\text{with}\qquad
+		\iota(E)\subset B,
+	\]
+	there exists a nontrivial \(C^1\)-diffeomorphism
+	\[
+		\Phi_E:M\to M
+	\]
+	induced by a comparison automorphism, whose deviation from the identity
+	is confined to \(B\), and such that
+	\[
+		E(\Phi_E^*g)=\Phi_E^*E(g)
+	\]
+	for every admissible macroscopic operator \(E\).
+\end{theorem}
+\begin{proof}
+	By \cref{thm:einstein-cylinder}, choose
+	\[
+		\phi\in\G
+	\]
+	whose Stone action is supported in \(E\) and is nontrivial there.
+	By \cref{lem:einstein-realized-preservation}, the induced homeomorphism
+	of \(M\) preserves the full realized transport geometry, hence in
+	particular the metric pairings \(g_p\).
+	By the rigidity input \ref{ein:S9}, that induced homeomorphism is a
+	\(C^1\)-diffeomorphism; call it \(\Phi_E\).
+	Because the Stone action is trivial off \(E\), the only nontrivial
+	realized effect occurs inside \(\iota(E)\subset B\).
+	Finally, admissibility condition \textup{\ref{ein:A4}} gives
+	\[
+		E(\Phi_E^*g)=\Phi_E^*E(g)
+	\]
+	for every admissible macroscopic operator \(E\).
+\end{proof}
+\begin{definition}[Local realized isotropy at a point]
+	Let \(p\in M\).
+	Define
+	\[
+		\Iso^{\mathrm{loc}}_p
+		:=
+		\Bigl\{
+		d\Phi_p\in \GL(T_pM):
+		\Phi \text{ arises from a realized local symmetry and } \Phi(p)=p
+		\Bigr\}.
+	\]
+\end{definition}
+% ============================================================
+\section{Quadratic reconstruction from finite comparison data}
+\label{sec:einstein-quadratic-reconstruction}
+% ============================================================
+\begin{definition}[Stabilized degree--\(2\) comparison data at a point]
+	Fix \(p\in M\), and identify the first-variation arena \(V_p\) with
+	\(T_pM\) via the smooth realization theorem
+	\textup{(Theorem~17.9.1(ii) together with Section~17.12)}.
+	For a sufficiently small realized neighborhood of \(p\), the
+	\emph{stabilized degree--\(2\) comparison data near \(p\)} consists of the
+	finite comparison relations detected by the stabilized quadratic carrier
+	\[
+		\mathcal K_\infty\subset F^2/F^3
+	\]
+	on local comparison directions converging to tangent directions at \(p\).
+\end{definition}
+\begin{remark}
+	By Proposition~17.2.2, the stack canonically determines a symmetric
+	bilinear form
+	\[
+		B_p:V_p\times V_p\to\mathbb R.
+	\]
+	By Theorem~17.9.1(ii), the first-variation arena realizes as the
+	tangent space, and, under the inherited second-jet interface
+	hypothesis, the relevant pairing on the realized degree--\(2\)
+	channel attached to the stabilized quadratic carrier is identified
+	there with the Lorentz metric pairing
+	\[
+		g_p:T_pM\times T_pM\to\mathbb R.
+	\]
+	Thus the pointwise quadratic form is not auxiliary structure: it is the
+	realized form of the intrinsic first-variation transport pairing.
+\end{remark}
+\begin{theorem}[Quadratic reconstruction from finite comparison data]
+	\label{thm:einstein-quadratic-reconstruction}
+	Let \(p\in M\), and set
+	\[
+		V:=T_pM.
+	\]
+	There exists a canonical map
+	\[
+		\mathfrak q_p:
+		\Bigl\{
+		\text{stabilized finite degree--\(2\) comparison data near }p
+		\Bigr\}
+		\longrightarrow
+		\Sym^2(V^*)
+	\]
+	characterized by the property that under smooth realization it sends
+	the intrinsic first-variation comparison data, through that realized
+	degree--\(2\) channel attached to the stabilized quadratic carrier,
+	to the Lorentz metric pairing
+	\[
+		g_p.
+	\]
+	Moreover, this map is injective: if two symmetric bilinear forms
+	\[
+		q,\widetilde q\in \Sym^2(V^*)
+	\]
+	induce identical stabilized finite degree--\(2\) comparison data in every
+	sufficiently small neighborhood of \(p\), then
+	\[
+		q=\widetilde q.
+	\]
+	In particular, the realized metric pairing \(g_p\) is uniquely
+	reconstructed from finite comparison data.
+\end{theorem}
+\begin{proof}
+	We divide the proof into four steps.
+	\medskip
+	\noindent
+	\textbf{Step 1: intrinsic degree--\(2\) data determines first-variation
+		pairings.}
+	By Proposition~17.2.2, for each point of the first-variation locus the
+	closed stack canonically determines a symmetric bilinear pairing
+	\[
+		B_p:V_p\times V_p\to\mathbb R.
+	\]
+	This pairing is part of the intrinsic transport geometry.
+	It is read off from the degree--\(2\) transport layer: the stabilized
+	carrier
+	\[
+		\mathcal K_\infty\subset F^2/F^3
+	\]
+	encodes precisely the quadratic comparison relations between local
+	comparison directions.
+	Therefore, once local comparison directions have been chosen, the
+	stabilized degree--\(2\) comparison data determines the values of the
+	first-variation pairing on those directions.
+	\medskip
+	\noindent
+	\textbf{Step 2: passage to the realized tangent space.}
+	By Theorem~17.9.1(ii), together with the identification of
+	Section~17.12, the first-variation arena \(V_p\) realizes as the tangent
+	space \(T_pM\), and the intrinsic pairing \(B_p\) realizes as the
+	Lorentz metric pairing \(g_p\).
+	Thus for realized tangent directions \(v,w\in V=T_pM\), any local
+	comparison directions converging to \(v\) and \(w\) determine, through
+	the stabilized degree--\(2\) carrier, a well-defined quadratic pairing
+	whose realized value is exactly
+	\[
+		g_p(v,w).
+	\]
+	This defines the map \(\mathfrak q_p\): given stabilized finite
+	degree--\(2\) comparison data, assign to each pair \((v,w)\) the
+	corresponding realized first-variation value.
+	Because the underlying pairing is symmetric and bilinear, the resulting
+	assignment lies in \(\Sym^2(V^*)\).
+	\medskip
+	\noindent
+	\textbf{Step 3: well-definedness.}
+	We must check that the assigned value does not depend on the particular
+	finite approximation.
+	Choose \(v,w\in V\), and let
+	\[
+		(v_\nu,w_\nu)
+		\qquad\text{and}\qquad
+		(v'_\mu,w'_\mu)
+	\]
+	be two sufficiently fine families of local comparison directions
+	converging to \(v\) and \(w\).
+	Since the carrier \(\mathcal K_\infty\) is stabilized, the degree--\(2\)
+	comparison relations are eventually constant at sufficiently fine stage.
+	Hence both approximating families determine the same first-variation
+	value.
+	After realization, both therefore give the same number
+	\[
+		g_p(v,w).
+	\]
+	So \(\mathfrak q_p\) is well-defined.
+	\medskip
+	\noindent
+	\textbf{Step 4: injectivity.}
+	Let
+	\[
+		q,\widetilde q\in\Sym^2(V^*)
+	\]
+	induce identical stabilized finite degree--\(2\) comparison data in every
+	sufficiently small neighborhood of \(p\).
+	We must prove
+	\[
+		q=\widetilde q.
+	\]
+	Fix arbitrary \(v,w\in V\).
+	Choose local realized comparison directions converging to \(v\) and \(w\).
+	Because the stabilized finite degree--\(2\) comparison data induced by
+	\(q\) and \(\widetilde q\) agree at every sufficiently fine stage, the
+	corresponding first-variation values assigned to the pair \((v,w)\) also
+	agree.
+	Therefore
+	\[
+		q(v,w)=\widetilde q(v,w).
+	\]
+	Since \(v,w\in V\) were arbitrary, the two bilinear forms agree on every
+	pair of vectors.
+	Hence
+	\[
+		q=\widetilde q.
+	\]
+	Applying this conclusion to the realized first-variation transport data
+	shows that there is exactly one symmetric bilinear form on \(T_pM\)
+	compatible with the stabilized finite degree--\(2\) comparison data near
+	\(p\), namely the realized metric pairing \(g_p\).
+	This proves both the existence of \(\mathfrak q_p\) and its injectivity.
+\end{proof}
+\begin{theorem}[Canonical frame realizability]
+	\label{thm:einstein-frame-realization}
+	Let \(p\in M\), and let
+	\[
+		(e_1,\dots,e_n)
+	\]
+	be an orthonormal frame of \(T_pM\).
+	Then there exists a finite comparison configuration localized near
+	\(p\), together with a distinguished ordering of its realized tangent
+	directions, whose stabilized degree--\(2\) comparison data reconstructs
+	exactly the Gram matrix
+	\[
+		g_p(e_i,e_j)=\delta_{ij}.
+	\]
+	Moreover, if two such ordered configurations realize two orthonormal
+	frames with the same Gram matrix, then there exists a
+	comparison-preserving finite bijection carrying the first ordered
+	configuration to the second.
+\end{theorem}
+\begin{proof}
+	Fix an orthonormal frame \((e_1,\dots,e_n)\).
+	Choose local realized comparison directions converging to these tangent
+	directions.
+	At sufficiently fine finite stage, the induced stabilized degree--\(2\)
+	comparison data determine, by
+	\cref{thm:einstein-quadratic-reconstruction}, the unique quadratic form
+	\(g_p\) on the span of these directions.
+	Because the frame is orthonormal, the reconstructed Gram matrix is
+	\(\delta_{ij}\).
+	This yields the desired ordered finite configuration.
+	Now let two such ordered configurations realize orthonormal frames with
+	the same Gram matrix.
+	Since both ordered configurations induce the same stabilized finite
+	degree--\(2\) comparison data, they have the same finite comparison
+	type.
+	Therefore the order-preserving identification of one configuration with
+	the other is comparison-preserving.
+	This gives the required finite bijection.
+\end{proof}
+\begin{theorem}[Isotropy completeness]
+	\label{thm:einstein-isotropy-complete}
+	Let \(p\in M\), and set
+	\[
+		V:=T_pM.
+	\]
+	Then
+	\[
+		\Iso^{\mathrm{loc}}_p = O(V,g_p).
+	\]
+\end{theorem}
+\begin{proof}
+	We prove the two inclusions separately.
+	\medskip
+	\noindent
+	\textbf{Step 1: \(\Iso^{\mathrm{loc}}_p\subseteq O(V,g_p)\).}
+	Let
+	\[
+		A\in \Iso^{\mathrm{loc}}_p.
+	\]
+	By definition, there exists a realized local symmetry \(\Phi\) fixing
+	\(p\) such that
+	\[
+		A=d\Phi_p.
+	\]
+	By \cref{lem:einstein-realized-preservation}, every realized local
+	symmetry preserves the full realized transport geometry.
+	In particular, it preserves the pointwise first-variation pairing, hence
+	the metric pairing \(g_p\).
+	Therefore
+	\[
+		g_p(Au,Av)=g_p(u,v)
+		\qquad
+		(u,v\in V),
+	\]
+	so \(A\in O(V,g_p)\).
+	Thus
+	\[
+		\Iso^{\mathrm{loc}}_p\subseteq O(V,g_p).
+	\]
+	\medskip
+	\noindent
+	\textbf{Step 2: \(O(V,g_p)\subseteq \Iso^{\mathrm{loc}}_p\).}
+	Let
+	\[
+		A\in O(V,g_p)
+	\]
+	be arbitrary.
+	Choose an orthonormal frame
+	\[
+		(e_1,\dots,e_n)
+	\]
+	of \(V\), and define
+	\[
+		f_i:=Ae_i.
+	\]
+	Because \(A\) is orthogonal, the frame
+	\[
+		(f_1,\dots,f_n)
+	\]
+	is also orthonormal.
+	By \cref{thm:einstein-frame-realization}, there exist ordered finite
+	comparison configurations localized in arbitrarily small neighborhoods
+	of \(p\) realizing the frames \((e_i)\) and \((f_i)\).
+	Because \(A\) is orthogonal, both frames have the same Gram matrix
+	\(\delta_{ij}\).
+	Hence, again by \cref{thm:einstein-frame-realization}, there exists a
+	comparison-preserving finite bijection carrying the first ordered
+	configuration to the second.
+	By \cref{thm:einstein-extension}, this finite bijection extends to a
+	global comparison automorphism
+	\[
+		\phi\in\G.
+	\]
+	By \cref{thm:einstein-local-realized}, the corresponding realized map is
+	a local \(C^1\)-diffeomorphism \(\Phi\) fixing \(p\).
+	Its differential carries the realized tangent directions of the first
+	frame to those of the second.
+	Hence
+	\[
+		d\Phi_p(e_i)=f_i=Ae_i
+		\qquad
+		(i=1,\dots,n).
+	\]
+	Since the vectors \(e_i\) form a basis of \(V\), it follows that
+	\[
+		d\Phi_p=A.
+	\]
+	Therefore \(A\in\Iso^{\mathrm{loc}}_p\), so
+	\[
+		O(V,g_p)\subseteq \Iso^{\mathrm{loc}}_p.
+	\]
+	Combining the two inclusions yields
+	\[
+		\Iso^{\mathrm{loc}}_p = O(V,g_p).
+	\]
+\end{proof}
+\begin{corollary}[Full orthogonal equivariance]
+	\label{cor:einstein-full-equivariance}
+	Every admissible local second-order metric operator is
+	\(O(T_pM,g_p)\)-equivariant at \(p\).
+\end{corollary}
+\begin{proof}
+	Let
+	\[
+		F_p:J_p^2(\mathcal G)\to S^2T_p^*M
+	\]
+	be the pointwise map corresponding to an admissible operator \(E\).
+	By \textup{\ref{ein:A4}}, \(F_p\) is equivariant under every realized
+	local symmetry fixing \(p\), hence under \(\Iso^{\mathrm{loc}}_p\).
+	By \cref{thm:einstein-isotropy-complete},
+	\[
+		\Iso^{\mathrm{loc}}_p = O(T_pM,g_p),
+	\]
+	so \(F_p\) is \(O(T_pM,g_p)\)-equivariant.
+\end{proof}
+% ============================================================
+\section{Dimension from intrinsic causal-diamond growth}
+\label{sec:einstein-dim}
+% ============================================================
+\begin{theorem}[Dimension from causal diamonds]
+	\label{thm:einstein-dim}
+	Assume that the intrinsic causal-diamond growth law satisfies
+	\[
+		\mu(D_L)\asymp L^4,
+	\]
+	and that the realized small causal-diamond volume is asymptotically
+	comparable to that intrinsic count.
+	Then
+	\[
+		\dim M=4.
+	\]
+\end{theorem}
+\begin{proof}
+	Let \(n:=\dim M\).
+	In an \(n\)-dimensional smooth Lorentzian manifold, the volume of a
+	sufficiently small causal diamond of linear scale \(L\) has asymptotic
+	expansion
+	\[
+		\Vol(D_L)=C_nL^n+o(L^n),
+		\qquad
+		C_n>0,
+	\]
+	where \(C_n\) is the model tangent-cone constant.
+	By hypothesis, this realized small-diamond volume is asymptotically
+	comparable to the stabilized intrinsic count, and the latter satisfies
+	\[
+		\mu(D_L)\asymp L^4.
+	\]
+	Hence the growth exponents must agree.
+	Therefore \(n=4\).
+\end{proof}
+% ============================================================
+\section{Second-order local tensor classification}
+\label{sec:einstein-classification}
+% ============================================================
+\begin{theorem}[Second-order classification in dimension \(4\)]
+	\label{thm:einstein-classification}
+	Assume \(\dim M=4\).
+	Let
+	\[
+		E:\mathcal G\to \Gamma(S^2T^*M)
+	\]
+	be admissible.
+	Then there exist constants \(a,b,c\in\mathbb R\) such that
+	\[
+		E_{\mu\nu}
+		=
+		a\,\Ric_{\mu\nu}
+		+
+		b\,g_{\mu\nu}\Scal
+		+
+		c\,g_{\mu\nu}.
+	\]
+	If one writes
+	\[
+		a=\alpha,
+		\qquad
+		b=-\frac{\alpha}{2},
+		\qquad
+		c=\beta,
+	\]
+	then equivalently
+	\[
+		E_{\mu\nu}=\alpha\,G_{\mu\nu}+\beta\,g_{\mu\nu}.
+	\]
+\end{theorem}
+\begin{proof}
+	By \textup{\ref{ein:A1}}--\textup{\ref{ein:A5}}, the value \(E(g)(p)\)
+	is a natural second-order tensorial expression depending only on the
+	\(2\)-jet of \(g\).
+	By \cref{cor:einstein-full-equivariance}, this dependence is
+	\(O(T_pM,g_p)\)-equivariant.
+	Therefore \(E(g)(p)\) is an \(O(V,g_p)\)-equivariant algebraic function
+	of the algebraic curvature tensor and the metric, where
+	\[
+		V:=T_pM.
+	\]
+	Pass to normal coordinates at \(p\).
+	Then the first derivatives of \(g\) vanish, so the only second-order
+	data are the algebraic curvature tensor and its contractions.
+	By classical orthogonal invariant theory for natural second-order
+	symmetric tensors, the only such tensors are linear combinations of
+	\[
+		\Ric_{\mu\nu},
+		\qquad
+		g_{\mu\nu}\Scal,
+		\qquad
+		g_{\mu\nu}.
+	\]
+	Hence there exist constants \(a,b,c\in\mathbb R\) such that
+	\[
+		E_{\mu\nu}
+		=
+		a\,\Ric_{\mu\nu}
+		+
+		b\,g_{\mu\nu}\Scal
+		+
+		c\,g_{\mu\nu}.
+	\]
+	Writing
+	\[
+		\alpha:=a,
+		\qquad
+		\beta:=c,
+		\qquad
+		b:=-\frac{\alpha}{2},
+	\]
+	one obtains
+	\[
+		a\,\Ric_{\mu\nu}+b\,g_{\mu\nu}\Scal
+		=
+		\alpha\left(
+		\Ric_{\mu\nu}-\frac12\Scal\,g_{\mu\nu}
+		\right)
+		=
+		\alpha\,G_{\mu\nu}.
+	\]
+	Therefore
+	\[
+		E_{\mu\nu}=\alpha\,G_{\mu\nu}+\beta\,g_{\mu\nu}.
+	\]
+\end{proof}
+\begin{corollary}[Divergence identity as a consequence]
+	If \(E\) is admissible, then
+	\[
+		\nabla_\mu E^{\mu\nu}(g)=0
+	\]
+	for every realized metric \(g\).
+\end{corollary}
+\begin{proof}
+	By \cref{thm:einstein-classification},
+	\[
+		E_{\mu\nu}=\alpha\,G_{\mu\nu}+\beta\,g_{\mu\nu}.
+	\]
+	Since
+	\[
+		\nabla^\mu G_{\mu\nu}=0
+	\]
+	by the contracted Bianchi identity and
+	\[
+		\nabla^\mu g_{\mu\nu}=0
+	\]
+	by metric compatibility of the Levi--Civita connection, one obtains
+	\[
+		\nabla^\mu E_{\mu\nu}=0.
+	\]
+\end{proof}
+% ============================================================
+\section{The scalar channel of the stabilized quadratic carrier}
+\label{sec:einstein-scalar}
+% ============================================================
+\Cref{sec:einstein-classification} identifies \(\beta g_{\mu\nu}\) as the unique
+order--\(0\) symmetric natural residue.
+We now show that this coefficient is not external to the transport
+picture.
+It is the scalar projection on the realized degree--\(2\) channel
+attached to the stabilized quadratic carrier
+\(\mathcal K_\infty\subset F^2/F^3\) under the inherited second-jet
+faithfulness condition.
+\begin{definition}[Realized algebraic curvature module]
+	Let \(p\in M\), and set \(V:=T_pM\).
+	Write \(\mathcal R(V)\subset V^{*\otimes 4}\) for the space of
+	algebraic curvature tensors.
+	Under the orthogonal group \(O(V,g_p)\), there is the standard
+	equivariant decomposition
+	\[
+		\mathcal R(V)
+		=
+		\mathcal W(V)\oplus \mathcal E(V)\oplus \mathcal S(V),
+	\]
+	where \(\mathcal W(V)\) is the Weyl summand, \(\mathcal E(V)\) is the
+	trace-free Ricci summand, and \(\mathcal S(V)\) is the scalar summand.
+\end{definition}
+\begin{remark}
+	The scalar summand \(\mathcal S(V)\) is one-dimensional, generated by
+	\(g_p\owedge g_p\).
+\end{remark}
+\begin{definition}[Canonical scalar channel]
+	Assume the inherited second-jet faithfulness condition in a compatible
+	smooth realization, and write
+	\[
+		\Jtwo(\mathcal K_\infty)\subseteq \mathcal R(V)
+	\]
+	for the realized degree--\(2\) channel attached to the stabilized
+	quadratic carrier.
+	Let
+	\[
+		\pr_{\mathrm{scal}}:\mathcal R(V)\to \mathcal S(V)
+	\]
+	be the \(O(V,g_p)\)-equivariant projection onto the scalar summand.
+	Fix a nonzero invariant linear functional
+	\[
+		\Phi:\mathcal S(V)\to\mathbb R.
+	\]
+	Define the canonical scalar channel on that realized degree--\(2\)
+	channel by
+	\[
+		\beta_\triangle
+		:=
+		\Phi\circ \pr_{\mathrm{scal}}\big|_{\Jtwo(\mathcal K_\infty)}.
+	\]
+\end{definition}
+\begin{lemma}[Uniqueness of the scalar channel]
+	The scalar channel \(\beta_\triangle\) is well-defined up to an overall
+	nonzero normalization constant.
+\end{lemma}
+\begin{proof}
+	The space \(\mathcal S(V)\) is one-dimensional.
+	Hence any two nonzero invariant linear functionals on \(\mathcal S(V)\)
+	differ by multiplication by a nonzero scalar.
+	Therefore the composite
+	\[
+		\Phi\circ \pr_{\mathrm{scal}}\big|_{\Jtwo(\mathcal K_\infty)}
+	\]
+	is unique up to such a normalization.
+\end{proof}
+\begin{theorem}[Cosmological coefficient from the quadratic carrier]
+	\label{thm:einstein-beta-from-carrier}
+	There exists a constant \(\kappa\neq 0\) such that
+	\[
+		\beta=\kappa\,\beta_\triangle.
+	\]
+\end{theorem}
+\begin{proof}
+	By \cref{thm:einstein-classification}, the only order--\(0\) symmetric
+	natural term in an admissible macroscopic operator is
+	\[
+		\beta g_{\mu\nu}.
+	\]
+	Thus \(\beta\) is the unique surviving macroscopic scalar coefficient.
+	On the other hand, under the inherited second-jet interface
+	hypothesis, nonzero stabilized square classes in the stabilized
+	quadratic carrier \(\mathcal K_\infty\subset F^2/F^3\) are
+	equivalent to nonzero realized curvature, and
+	\(\beta_\triangle\) is precisely the canonical scalar projection on
+	the realized degree--\(2\) channel attached to that stabilized
+	quadratic carrier.
+	Both \(\beta\) and \(\beta_\triangle\) are scalar-valued, local, and
+	attached to the same one-dimensional invariant scalar channel.
+	Hence they differ by a nonzero proportionality constant:
+	\[
+		\beta=\kappa\,\beta_\triangle.
+	\]
+\end{proof}
+\begin{corollary}[Vanishing criterion]
+	\[
+		\beta=0
+		\quad\Longleftrightarrow\quad
+		\beta_\triangle=0.
+	\]
+	In particular, the cosmological term vanishes exactly when the scalar
+	projection of the stabilized quadratic carrier vanishes.
+\end{corollary}
+\begin{proof}
+	Immediate from \cref{thm:einstein-beta-from-carrier}, since
+	\(\kappa\neq 0\).
+\end{proof}
+\begin{remark}
+	Thus the two surviving macroscopic terms come from the same intrinsic
+	obstruction package carried by the stabilized quadratic transport
+	layer:
+	\[
+		\alpha G_{\mu\nu}
+		\quad\text{is the trace-free channel on the realized degree--\(2\) channel,}
+	\]
+	while
+	\[
+		\beta g_{\mu\nu}
+		\quad\text{is the scalar channel on that same realized degree--\(2\) channel.}
+	\]
+	The full admissible macroscopic compatibility law is therefore
+	generated by that intrinsic obstruction package, read under the
+	inherited second-jet faithfulness condition, and by no additional
+	independent source.
+\end{remark}
+% ============================================================
+\section{Einstein compatibility determination}
+\label{sec:einstein-proof}
+% ============================================================
+\begin{proof}[Proof of \cref{thm:einstein-main}]
+	By \cref{thm:einstein-extension}, finite comparison-preserving partial
+	symmetries extend globally.
+	By \cref{thm:einstein-cylinder}, the comparison symmetry group \(\G\) is
+	cylinder-locally complete on \(S_\infty\).
+	By \cref{lem:einstein-realized-preservation} and
+	\cref{thm:einstein-local-realized}, these localized Stone symmetries
+	induce local realized \(C^1\)-diffeomorphisms.
+	By \cref{thm:einstein-quadratic-reconstruction},
+	\cref{thm:einstein-frame-realization}, and
+	\cref{thm:einstein-isotropy-complete}, their tangent action realizes
+	the full orthogonal isotropy needed for pointwise invariant
+	classification.
+	By \cref{thm:einstein-dim}, one has
+	\[
+		\dim M=4.
+	\]
+	Hence \cref{thm:einstein-classification} applies and yields
+	\[
+		E_{\mu\nu}(g)=\alpha\,G_{\mu\nu}(g)+\beta\,g_{\mu\nu}.
+	\]
+	Finally, by \cref{thm:einstein-beta-from-carrier}, the cosmological
+	coefficient \(\beta\) is the scalar projection of the same stabilized
+	quadratic carrier
+	\[
+		\mathcal K_\infty\subset F^2/F^3
+	\]
+	whose realized degree--\(2\) channel, under the inherited second-jet faithfulness condition, carries the same repaired curvature bridge:
+	nonzero stabilized square classes are equivalent to nonzero realized
+	curvature.
+	Thus both surviving macroscopic terms arise from the same intrinsic
+	obstruction mechanism.
+	If the admissible compatibility law is
+	\[
+		E(g)=0,
+	\]
+	then
+	\[
+		\alpha\,G_{\mu\nu}(g)+\beta\,g_{\mu\nu}=0.
+	\]
+	When \(\alpha\neq 0\), divide by \(\alpha\) to obtain
+	\[
+		G_{\mu\nu}(g)+\Lambda g_{\mu\nu}=0,
+		\qquad
+		\Lambda:=\frac{\beta}{\alpha}.
+	\]
+\end{proof}
+% ============================================================
+\section{Structural summary}
+\label{sec:einstein-summary}
+% ============================================================
+The structural chain proved in this chapter is
+\[
+	\begin{aligned}
+		\text{quantifier boundary}
+			 & \Longrightarrow
+		\text{extension of finite partial symmetries}
+		\\
+			 & \Longrightarrow
+		\text{cylinder-local Stone symmetries}
+		\\
+			 & \Longrightarrow
+		\text{realized local }C^1\text{-symmetries}
+		\\
+			 & \Longrightarrow
+		\text{quadratic reconstruction from finite comparison data}
+		\\
+			 & \Longrightarrow
+		\text{canonical frame realizability}
+		\\
+			 & \Longrightarrow
+		\text{full orthogonal isotropy}
+		\\
+			 & \Longrightarrow O(T_pM,g_p)
+		\\
+			 & \Longrightarrow \dim M=4
+		\\
+			 & \Longrightarrow
+		\text{second-order local classification}
+		\\
+			 & \Longrightarrow
+		E_{\mu\nu}=\alpha G_{\mu\nu}+\beta g_{\mu\nu}.
+	\end{aligned}
+\]
+with
+\[
+	\begin{aligned}
+		\alpha G_{\mu\nu}
+			 & =
+		\text{trace-free channel on the realized degree--\(2\) channel}
+		\\
+			 & \quad\text{attached to the stabilized quadratic carrier, read under the}
+		\\
+			 & \quad\text{inherited second-jet faithfulness condition},
+		\\
+		\beta g_{\mu\nu}
+			 & =
+		\text{scalar channel on that same realized degree--\(2\) channel.}
+	\end{aligned}
+\]
+Accordingly, the closed relational stack determines the Einstein
+compatibility law and identifies both surviving macroscopic terms with
+one intrinsic obstruction package, read on the realized degree--\(2\)
+channel attached to
+\[
+	F^2/F^3.
+\]
+under the inherited second-jet faithfulness condition.
+% ============================================================
+\section{Transition to connection-first reconstruction}
+\label{sec:einstein-transition}
+% ============================================================
+This chapter fixes the admissible macroscopic compatibility law in the
+metric-only regime of the closed stack.
+Within that regime one obtains
+\[
+	G_{\mu\nu}+\Lambda g_{\mu\nu}=0.
+\]
+This is not a terminal halt of the program.
+It is the boundary datum for the next reconstruction layer.
+To pass from vacuum compatibility to sourced dynamics, one must identify
+which additional intrinsic sectors can couple without violating closure,
+quotient descent, and transport visibility.
+That continuation starts in \cref{ch:connection}, where the same
+quadratic carrier is recast in connection-first form and prepared for the
+downstream phase and matter sectors.
+% ============================================================
+
+\section{Conclusion}
+\label{sec:einstein-conclusion}
+Within the metric-only regime of the closed stack, the admissible
+macroscopic compatibility law is uniquely fixed, and its surviving tensor
+channels are both traced to the same stabilized quadratic obstruction
+source.
+
+Accordingly, \cref{ch:connection} starts from this Einstein boundary law,
+reconstructs the same content in connection-first variables, and opens
+the intrinsic route to the phase dynamics of \cref{ch:em} and the sourced
+matter couplings of \cref{ch:matter}.

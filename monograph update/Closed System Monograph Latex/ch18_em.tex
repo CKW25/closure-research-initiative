@@ -1,0 +1,1609 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{Electromagnetism from Closedness and Phase Curvature}
+\label{ch:em}
+% ============================================================
+% ============================================================
+\section{Purpose and logical status}
+\label{sec:em-purpose}
+Under the standing principle of closed-world admissibility
+(\cref{sp:closed-world}), this chapter develops the phase-curvature
+consequences of the transport-visibility clause
+\cref{sp:transport} on the stabilized quadratic carrier.
+As the electromagnetic extension of the main argument, it draws on the
+transport, quadratic, Hilbert, Einstein-boundary, and connection results
+of the preceding chapters to derive phase curvature and charge
+quantization.
+% ============================================================
+The purpose of this chapter is to derive the electromagnetic sector
+determined by the closed comparison framework.
+The derivation does not proceed in the usual order.
+Standard gauge theory typically begins with a field, then introduces a
+bundle, then interprets topological classes, and finally extracts
+quantization.
+The closed-system order is the reverse:
+\[
+	\begin{aligned}
+		 & \text{closedness}
+		\Longrightarrow
+		\text{finite admissibility}
+		\Longrightarrow
+		\text{global coherence}
+		\\
+		 & \Longrightarrow
+		\text{discrete phase sectors}
+		\Longrightarrow
+		\text{field laws}.
+	\end{aligned}
+\]
+\Cref{ch:lift,ch:triangles,ch:interface,ch:hilbert,ch:christoffel}
+already established the structural ingredients
+needed for this reversal.
+\begin{enumerate}
+	\item
+	      Every admissible enrichment beyond quotient semantics is
+	      exhausted by representative choice and morphism-level transport,
+	      possibly with both and with no third locus
+	      (\cref{cor:two-loci-lift,thm:lift-classification-main}).
+	\item
+	      The morphism locus is canonically a flat transport connection on
+	      protocol categories, while its later global loop-obstruction
+	      description is recorded by loop holonomy
+	      (\cref{thm:lift-flat-torsor,thm:DO-classification}).
+	\item
+	      The first nontrivial finite obstruction to transport is ternary:
+	      pairwise compatibility does not yet force global compatibility, but a
+	      triangle obstruction does (\cref{thm:triangle,thm:bridge-main}).
+	\item
+	      The first visible stable obstruction layer is the quadratic carrier
+	      \[
+		      \mathcal K \cong F^2/F^3.
+	      \]
+	      (\cref{thm:interface-stabilized})
+	\item
+	      The quadratic carrier admits a canonical orientation involution and a
+	      canonical complex structure, unique up to sign
+	      (\cref{thm:universal-complex-structure,prop:hilbert-J-unique}).
+	\item
+	      Under the inherited second-jet faithfulness condition, nonzero
+	      stabilized square classes in the degree--\(2\) carrier are
+	      equivalent to nonzero realized curvature on the local geometric
+	      branch (\cref{thm:interface-curvature}).
+	\item
+	      Finite comparison patterns are typed at finite Boolean stage, and
+	      global existence is equivalent to coherent extension across the
+	      refinement tower (\cref{thm:einstein-extension,thm:stability}).
+\end{enumerate}
+The present chapter combines these facts to prove four statements.
+\begin{enumerate}
+	\item
+	      The morphism locus admits a canonical phase reduction
+	      \[
+		      \rho_{\mathrm{ph}}:\Omega_{i_0}(\mathcal G(\mathcal I))\to U(1).
+	      \]
+	\item
+	      Its smooth realization determines a phase connection
+	      \[
+		      A\in\Omega^1(M)
+	      \]
+	      with curvature
+	      \[
+		      F=dA\in\Omega^2(M).
+	      \]
+	\item
+	      The electromagnetic field strength \(F=dA\) is the realized
+	      phase curvature of the canonical phase reduction, read on the
+	      orientation-odd realized degree--\(2\) sector attached to the
+	      stabilized quadratic carrier.
+	\item
+	      Charge quantization is determined by closedness, through finite phase
+	      typing and coherent tower extension, before any external topological
+	      interpretation is introduced.
+\end{enumerate}
+Thus electromagnetism is not an additional structure placed on top of
+the closed comparison world.
+It is the realized phase curvature of the canonical phase reduction of
+the morphism locus.
+\medskip
+The chapter therefore establishes:
+\[
+	\boxed{
+		\begin{aligned}
+			\text{Electromagnetism}
+				&=
+			\text{realized phase curvature}
+			\\
+				&\quad
+			\text{of the canonical phase reduction of the morphism locus}
+		\end{aligned}
+	}
+\]
+and
+\[
+	\boxed{
+		\text{charge quantization}=
+		\text{closedness of the phase sector}.
+	}
+\]
+% ============================================================
+\section{The intrinsic loop representation}
+\label{sec:em-loop-representation}
+% ============================================================
+Let \(\mathcal I\) be a connected protocol category and fix a base object
+\(i_0\in\Obj(\mathcal I)\).
+\begin{definition}[Loop group]
+	The loop group of the transport groupoid of \(\mathcal I\) at \(i_0\) is
+	\[
+		\Omega_{i_0}(\mathcal G(\mathcal I)):=\Aut_{\mathcal G(\mathcal I)}(i_0).
+	\]
+\end{definition}
+\Cref{thm:lift-classification-main,cor:two-loci-lift} show that every
+admissible
+distinction beyond quotient-level endpoint data is carried by the
+morphism locus, hence by transport.
+At the intrinsic level, tree transport is gauge, while loop transport
+records the later global loop-obstruction description of the morphism
+locus.
+\begin{theorem}[Loop-defect representation]
+	Under the standing principle \cref{sp:closed-world}, there exists a
+	canonical homomorphism
+	\[
+		\rho_g:\Omega_{i_0}(\mathcal G(\mathcal I))\longrightarrow H_{\mathrm{stab}}
+	\]
+	into a stabilizer subgroup \(H_{\mathrm{stab}}\) such that:
+	\begin{enumerate}
+		\item
+		      \(\rho_g\) is invariant under gauge modification up to conjugation;
+		\item
+		      \(\rho_g\) is trivial if and only if transport is endpoint-determined;
+		\item
+		      all later global loop-obstruction information is carried by
+		      \(\rho_g\).
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	By the classification of representative lifts, every admissible lift
+	consists of object representatives together with morphism-level
+	transport data.
+	Changing representatives modifies the transport cocycle by conjugation,
+	so loop holonomy is invariant up to conjugacy.
+	If all loop holonomies are trivial, then transport depends only on
+	endpoints; conversely, any endpoint-determined transport has trivial
+	loop holonomy.
+	Thus the later global loop-obstruction description of the morphism
+	locus is carried by the loop representation \(\rho_g\). ∎
+\end{proof}
+% ============================================================
+\section{Triangle obstruction and quadratic localization}
+\label{sec:em-triangle-localization}
+% ============================================================
+The loop representation is not yet the electromagnetic sector.
+The first task is to identify the precise layer at which intrinsic
+transport defect first survives.
+\begin{definition}[Detection size]
+	Let \(\{C_i\}\) be the family of alignment cosets attached to a lifted
+	transport configuration.
+	Its detection size is
+	\[
+		m:=\min\Bigl\{|I|:\ \bigcap_{i\in I} C_i=\varnothing\Bigr\},
+	\]
+	with \(m=\infty\) if no such finite \(I\) exists.
+\end{definition}
+\begin{theorem}[Triangle minimality]
+	\label{thm:em-triangle-minimal}
+	The first nontrivial finite obstruction to simultaneous transport
+	compatibility occurs at detection size
+	\[
+		m=3.
+	\]
+	Equivalently, pairwise compatibility does not yet force trivial loop
+	defect, while a triangle configuration can witness the first genuine
+	intrinsic obstruction.
+\end{theorem}
+\begin{proof}
+	By \cref{thm:triangle,thm:bridge-main}, length--\(2\)
+	transport relations close trivially, whereas length--\(3\) relations
+	produce the first nonvanishing defect.
+	Thus no \(2\)-point observable detects a genuinely new obstruction, but
+	a \(3\)-point observable can.
+	Hence the first finite obstruction is ternary. ∎
+\end{proof}
+The triangle regime is precisely where the first stable obstruction
+carrier appears.
+\begin{corollary}[Quadratic localization]
+	The intrinsic transport defect factors through the stabilized
+	quadratic carrier
+	\[
+		\mathcal K \cong F^2/F^3.
+	\]
+\end{corollary}
+\begin{proof}
+	The triangle obstruction is first visible at degree \(2\), and later
+	higher-order terms lie in deeper filtration layers.
+	Therefore the first stable intrinsic carrier of visible transport
+	defect is \(F^2/F^3\). ∎
+\end{proof}
+% ============================================================
+\section{Canonical phase reduction}
+\label{sec:em-phase-reduction}
+% ============================================================
+The electromagnetic sector must come from the quadratic carrier, not
+from an externally imposed gauge group.
+The crucial point is that the oriented defect double attached to the
+stabilized quadratic carrier already carries a canonical complex
+structure.
+\begin{theorem}[Canonical phase reduction]
+	\label{thm:em-phase-reduction}
+	Under the standing principle \cref{sp:closed-world}, there exists a
+	canonical abelian phase reduction
+	\[
+		\rho_{\mathrm{ph}}:\Omega_{i_0}(\mathcal G(\mathcal I))\longrightarrow U(1),
+	\]
+	unique up to global phase.
+\end{theorem}
+\begin{proof}
+	By \cref{thm:universal-complex-structure}, the oriented quadratic defect
+	sector carries a canonical complex structure
+	\[
+		J:H_{\mathbb R}\to H_{\mathbb R},
+		\qquad
+		J^2=-\id,
+	\]
+	unique up to sign.
+	This equips the oriented quadratic defect sector with a Hermitian
+	structure.
+	The abelianization of the loop-defect representation, composed with the
+	unitary phase determined by that Hermitian structure, yields a phase
+	character
+	\[
+		\rho_{\mathrm{ph}}:\Omega_{i_0}(\mathcal G(\mathcal I))\to U(1).
+	\]
+	Since the only ambiguity in the underlying complex structure is a
+	global sign, the resulting phase reduction is unique up to global
+	phase. ∎
+\end{proof}
+\begin{remark}
+	The appearance of \(U(1)\) is not postulated.
+	It is determined by the canonical complex structure on the oriented
+	defect double attached to the stabilized quadratic carrier.
+\end{remark}
+% ============================================================
+\section{Orientation involution and the odd transport sector}
+\label{sec:em-orientation-odd}
+% ============================================================
+The phase reduction alone identifies a unitary sector.
+To identify electromagnetism itself, one must isolate the
+orientation-sensitive part of the quadratic carrier.
+\begin{definition}[Loop reversal]
+	For a based loop \(\gamma\in\Omega_{i_0}(\mathcal G(\mathcal I))\), define
+	\[
+		\tau(\gamma):=\gamma^{-1}.
+	\]
+\end{definition}
+\begin{definition}[Orientation involution on the quadratic carrier]
+	The loop-reversal map induces a linear involution
+	\[
+		\tau_{\mathcal K}:\mathcal K\to\mathcal K
+	\]
+	by functoriality of transport defect under reversal of oriented
+	triangle/loop data.
+\end{definition}
+\begin{lemma}
+	\label{lem:em-orientation-square}
+	The induced map satisfies
+	\[
+		\tau_{\mathcal K}^2=\id_{\mathcal K}.
+	\]
+\end{lemma}
+\begin{proof}
+	Since \((\gamma^{-1})^{-1}=\gamma\) for every loop \(\gamma\), the
+	induced action on any functorially attached defect carrier squares to
+	the identity. ∎
+\end{proof}
+\begin{definition}[Even and odd quadratic sectors]
+	Define
+	\[
+		\mathcal K^+ := \ker(\tau_{\mathcal K}-\id),
+		\qquad
+		\mathcal K^- := \ker(\tau_{\mathcal K}+\id).
+	\]
+\end{definition}
+Let \(H\) denote the Hilbert completion of the quadratic defect sector
+constructed from
+\cref{thm:quadratic-scalar,thm:universal-complex-structure}
+and its canonical
+complex structure.
+\begin{theorem}[Canonical orientation decomposition]
+	There is a canonical orthogonal decomposition
+	\[
+		H = H^+ \oplus H^-,
+	\]
+	where \(H^\pm\) are the closed \(\pm1\)-eigenspaces of the induced
+	orientation involution.
+\end{theorem}
+\begin{proof}
+	By \cref{lem:em-orientation-square}, the induced operator on \(H\) is a
+	bounded involution.
+	Therefore its spectrum lies in \(\{\pm1\}\), and \(H\) decomposes into
+	the corresponding eigenspaces
+	\[
+		H=H^+\oplus H^-.
+	\]
+	Since the involution is canonical and the Hermitian structure is
+	transport-invariant, this decomposition is canonical and orthogonal.
+	∎
+\end{proof}
+The odd sector is the one relevant for electromagnetism.
+\begin{lemma}[Odd parity determines antisymmetry]
+	\label{lem:em-odd-antisymmetry}
+	Let \(p\in M\) be a realized point and let \(k\in\mathcal K^-_p\).
+	If
+	\[
+		B_k:T_pM\times T_pM\to\mathbb R
+	\]
+	is the realized bilinear representative of \(k\), then
+	\[
+		B_k(v,w)=-B_k(w,v)
+		\qquad
+		\text{for all }v,w\in T_pM.
+	\]
+\end{lemma}
+\begin{proof}
+	Reversal of oriented transport exchanges the ordered pair
+	\((v,w)\) with \((w,v)\).
+	Since \(k\) lies in the \((-1)\)-eigenspace of the orientation
+	involution, the realized degree--\(2\) defect changes sign under this
+	exchange.
+	Hence
+	\[
+		B_k(w,v)=-B_k(v,w),
+	\]
+	so \(B_k\) is alternating. ∎
+\end{proof}
+\begin{corollary}[Degenerate-pair vanishing]
+	\label{cor:em-degenerate-pair-vanishing}
+	For every \(k\in\mathcal K^-_p\),
+	\[
+		B_k(v,v)=0
+		\qquad
+		\text{for all }v\in T_pM.
+	\]
+\end{corollary}
+\begin{proof}
+	Apply \cref{lem:em-odd-antisymmetry} with \(w=v\). ∎
+\end{proof}
+Thus every odd quadratic class determines an alternating bilinear form.
+\begin{definition}[Odd transport \(2\)-form map]
+	For each realized point \(p\in M\), define
+	\[
+		\Xi_p:\mathcal K^-_p\longrightarrow \Lambda^2(T_p^*M)
+	\]
+	by sending an odd quadratic class to its realized alternating bilinear
+	representative.
+\end{definition}
+\begin{theorem}[Odd sector as \(2\)-form sector]
+	\label{thm:em-odd-twoform}
+	For each realized point \(p\in M\), the odd quadratic sector admits a
+	canonical injective realization
+	\[
+		\Xi_p:\mathcal K^-_p\hookrightarrow \Lambda^2(T_p^*M).
+	\]
+	These maps assemble naturally into a bundle morphism
+	\[
+		\Xi:\mathcal K^-_{\mathrm{real}}\to \Lambda^2(T^*M).
+	\]
+	If the odd quadratic sector exhausts all realized alternating degree--\(2\)
+	transport data, then
+	\[
+		\mathcal K^-_{\mathrm{real}}\cong \Lambda^2(T^*M).
+	\]
+\end{theorem}
+\begin{proof}
+	Under the inherited second-jet faithfulness condition, each odd
+	quadratic class on the realized degree--\(2\) channel attached to the
+	stabilized quadratic carrier has a realized bilinear representative on
+	\(T_pM\times T_pM\), which provides the existence of \(\Xi_p\).
+	By \cref{lem:em-odd-antisymmetry} and
+	\cref{cor:em-degenerate-pair-vanishing}, the image lies in
+	\(\Lambda^2(T_p^*M)\).
+	Naturality under the realized local symmetry pseudogroup makes these
+	fiberwise maps compatible on overlaps, hence they assemble into a
+	bundle morphism.
+	Injectivity follows because an odd class with vanishing realized
+	alternating representative is invisible in the realized degree--\(2\)
+	branch, hence vanishes in the realized odd sector.
+	If every realized alternating degree--\(2\) transport datum is produced
+	by an odd quadratic class, then the map is also surjective. ∎
+\end{proof}
+\begin{corollary}[Electromagnetic field strength lives in the odd sector]
+	The electromagnetic field strength constructed below is a section of the
+	odd transport \(2\)-form bundle.
+\end{corollary}
+\begin{proof}
+	By \cref{thm:em-odd-twoform}, the realized odd quadratic sector embeds
+	canonically in \(\Lambda^2(T^*M)\).
+	The electromagnetic field strength introduced in
+	\cref{def:em-field-strength} is the phase curvature and reverses sign
+	under orientation reversal, hence belongs to the odd sector.
+\end{proof}
+% ============================================================
+\section{Phase connection and curvature}
+\label{sec:em-connection-curvature}
+% ============================================================
+The phase reduction determines the electromagnetic connection.
+\begin{definition}[Phase line bundle]
+	Let \(L_{\mathrm{ph}}\to M\) denote the intrinsic phase line bundle
+	determined by the canonical phase reduction.
+\end{definition}
+\begin{theorem}[Phase connection]
+	\label{thm:em-phase-connection}
+	Under smooth realization, the phase reduction determines a local unitary
+	connection
+	\[
+		A\in \Omega^1(M).
+	\]
+\end{theorem}
+\begin{proof}
+	\Cref{thm:connection-smooth-realization} supplies the
+	local transport connection on the realized branch.
+	Passing to the phase reduction of the morphism locus yields a unitary
+	connection on the intrinsic phase line bundle \(L_{\mathrm{ph}}\).
+	In local gauge, this is represented by a \(1\)-form \(A\). ∎
+\end{proof}
+\begin{definition}[Electromagnetic field strength]
+	\label{def:em-field-strength}
+	Define
+	\[
+		F:=dA\in\Omega^2(M).
+	\]
+\end{definition}
+\begin{theorem}[Homogeneous Maxwell equation]
+	The electromagnetic field strength satisfies
+	\[
+		dF=0.
+	\]
+\end{theorem}
+\begin{proof}
+	Immediate from \cref{def:em-field-strength}. ∎
+\end{proof}
+\begin{corollary}
+	The field strength \(F\) lies in the odd transport \(2\)-form sector.
+\end{corollary}
+\begin{proof}
+	The phase curvature changes sign under reversal of oriented loop
+	transport, hence lies in the orientation-odd part of the degree--\(2\)
+	carrier.
+	By \cref{thm:em-odd-twoform}, that odd sector is realized as a subbundle
+	of \(\Lambda^2(T^*M)\). ∎
+\end{proof}
+% ============================================================
+\section{Admissible phase operators and the sourced Maxwell equation}
+\label{sec:em-sourced-maxwell}
+% ============================================================
+The homogeneous equation is formal.
+The sourced equation requires the macroscopic naturality mechanism.
+\begin{definition}[Admissible phase operator]
+	A phase operator is a map
+	\[
+		\mathcal E_{\mathrm{ph}}:(g,A)\mapsto J_{\mathrm{ph}}
+	\]
+	from the realized metric and phase connection to a \(1\)-form
+	\(J_{\mathrm{ph}}\),
+	satisfying:
+	\begin{enumerate}
+		\item locality of order at most \(1\) in \(A\);
+		\item covariance under the realized local symmetry pseudogroup;
+		\item gauge equivariance under
+		      \[
+			      A\mapsto A+d\chi;
+		      \]
+		\item dependence only on the intrinsic phase sector of the closed
+		      system.
+	\end{enumerate}
+\end{definition}
+\begin{lemma}[Classification of first-order natural phase operators]
+	\label{lem:em-natural-operator}
+	Let \(F\in\Omega^2(M)\).
+	Any linear, first-order, covariant, natural operator that maps \(F\) to
+	a \(1\)-form is, up to overall normalization, given by
+	\[
+		F\mapsto d{*}F.
+	\]
+\end{lemma}
+\begin{proof}
+	Naturality permits only constructions from \(g\), \(\nabla\), and \(F\).
+	A first-order operator producing a \(1\)-form must contract one index
+	of \(\nabla F\) using the metric.
+	The only such covariant contraction is
+	\[
+		\nabla^\mu F_{\mu\nu},
+	\]
+	which in differential-form notation is exactly \(d{*}F\), up to
+	normalization. ∎
+\end{proof}
+\begin{definition}[Phase current]
+	Let \(\psi\) be a charged matter field in a phase representation sector.
+	The \emph{phase current} \(J_{\mathrm{ph}}\) is the unique \(1\)-form
+	obtained as the natural variation of the matter coupling with respect to
+	the phase connection \(A\).
+\end{definition}
+\begin{theorem}[Sourced Maxwell equation]
+	\label{thm:em-sourced-maxwell}
+	The electromagnetic field satisfies
+	\[
+		d{*}F = {*}J_{\mathrm{ph}},
+	\]
+	where \(J_{\mathrm{ph}}\) is the phase current associated to charged
+	matter.
+	Equivalently,
+	\[
+		\nabla_\mu F^{\mu\nu}=g_{\mathrm{ph}}\,J_{\mathrm{ph}}^\nu
+	\]
+	for a unique coupling normalization \(g_{\mathrm{ph}}\).
+\end{theorem}
+\begin{proof}
+	By \cref{lem:em-natural-operator}, the only admissible first-order
+	natural operator on the electromagnetic \(2\)-form is \(d{*}F\), up to
+	normalization.
+	The matter sector couples to the phase connection and therefore
+	produces a covariant phase current \(J_{\mathrm{ph}}\).
+	Compatibility of the field equation with locality, covariance, gauge
+	equivariance, and first-order dependence determines
+	\[
+		d{*}F = {*}J_{\mathrm{ph}}
+	\]
+	up to a single overall constant.
+	Writing that constant in index notation gives
+	\[
+		\nabla_\mu F^{\mu\nu}=g_{\mathrm{ph}}\,J_{\mathrm{ph}}^\nu.
+	\]
+	No other first-order, gauge-equivariant, covariant law is admissible.
+	∎
+\end{proof}
+\begin{corollary}[Charge conservation]
+	The phase current is conserved:
+	\[
+		d{*}J_{\mathrm{ph}}=0,
+		\qquad\text{equivalently}\qquad
+		\nabla_\nu J_{\mathrm{ph}}^\nu=0.
+	\]
+\end{corollary}
+\begin{proof}
+	Apply \(d\) to both sides of \cref{thm:em-sourced-maxwell} and use
+	\(d^2=0\). ∎
+\end{proof}
+% ============================================================
+\section{Finite phase typing}
+\label{sec:em-finite-phase-typing}
+% ============================================================
+Up to this point the phase sector is present, but it has not yet been
+shown to be discrete.
+That discreteness is the real quantization theorem.
+\begin{definition}[Finite phase pattern]
+	Let \(S\subset \Omega_{i_0}(\mathcal G(\mathcal I))\) be finite.
+	A finite phase pattern on \(S\) is a map
+	\[
+		\vartheta:S\to U(1).
+	\]
+	It is called \emph{internally admissible} if it is induced by a finite
+	comparison configuration of the closed system.
+\end{definition}
+\begin{definition}[Stage-\(k\) phase sector]
+	For each finite Boolean stage \(B_k\) of the refinement tower, let
+	\[
+		\mathsf P_k
+	\]
+	denote the set of internally admissible phase sectors represented at
+	stage \(k\).
+\end{definition}
+\begin{theorem}[Finite phase typing theorem]
+	\label{thm:em-finite-phase-typing}
+	Every internally admissible finite phase pattern induced by the
+	canonical phase reduction
+	\[
+		\rho_{\mathrm{ph}}:\Omega_{i_0}(\mathcal G(\mathcal I))\to U(1)
+	\]
+	is represented by a finite-stage Boolean comparison pattern.
+	Equivalently, for every finite
+	\[
+		S\subset \Omega_{i_0}(\mathcal G(\mathcal I))
+	\]
+	and every internally admissible restriction
+	\[
+		\vartheta=\rho_{\mathrm{ph}}|_S,
+	\]
+	there exist a finite witness set \(F\subset U\), a finite directed
+	comparison pattern \((\pi^\rightarrow,\pi^\leftarrow)\) over \(F\), and
+	an index \(k\) such that the realization set
+	\[
+		X(F;\pi^\rightarrow,\pi^\leftarrow)\in B_k
+	\]
+	determines \(\vartheta\) on \(S\).
+\end{theorem}
+\begin{proof}
+	We proceed in three steps.
+	\smallskip
+	\noindent\emph{Step 1: every admissible finite phase restriction is
+		transport data.}
+	By the two-locus theorem, all admissible non-endpoint distinction lies
+	in the morphism locus.
+	Hence any admissible finite phase pattern is determined by transport
+	data on a finite protocol subconfiguration.
+	\smallskip
+	\noindent\emph{Step 2: finite transport data is typed by finite
+		comparison data.}
+	Each loop in a finite set \(S\) is represented by a finite zig-zag of
+	morphisms.
+	Therefore the transport information relevant to \(S\) depends on only
+	finitely many comparison incidences.
+	By \cref{thm:einstein-extension}, this finite transport
+	information is encoded by a finite directed comparison pattern over a
+	finite witness set \(F\subset U\).
+	\smallskip
+	\noindent\emph{Step 3: finite comparison data lies at finite Boolean
+		stage.}
+	By \cref{thm:stability}, every finite
+	directed comparison pattern belongs to some finite-stage Boolean
+	algebra \(B_k\).
+	Therefore the phase pattern \(\vartheta\) is represented at finite
+	Boolean stage.
+	Hence every internally admissible finite phase pattern is finite-stage
+	Boolean. ∎
+\end{proof}
+\begin{corollary}[Discrete finite-stage phase sectors]
+	\label{cor:em-discrete-stage-phase}
+	For each \(k\), the stage-\(k\) phase sector \(\mathsf P_k\) is
+	discrete.
+\end{corollary}
+\begin{proof}
+	Each \(\mathsf P_k\) is represented by admissibility classes inside the
+	finite Boolean algebra \(B_k\).
+	Hence it is combinatorial rather than continuously parametrized. ∎
+\end{proof}
+% ============================================================
+\section{Closedness-selected quantization}
+\label{sec:em-closedness-quantization}
+% ============================================================
+The phase sector is now finite-stage typed.
+Closedness upgrades this to global discreteness.
+\begin{theorem}[Closedness-selected phase sectors]
+	\label{thm:em-closedness-phase}
+	Let
+	\[
+		\mathsf P_\infty
+	\]
+	denote the set of globally admissible phase sectors.
+	Then restriction along the refinement tower induces a canonical
+	identification
+	\[
+		\mathsf P_\infty \cong \varprojlim_k \mathsf P_k.
+	\]
+	In particular, the set of globally admissible phase sectors is
+	discrete.
+\end{theorem}
+\begin{proof}
+	Global admissibility in the closed system is equivalent to existence of
+	a coherent admissible tower.
+	By \cref{thm:em-finite-phase-typing}, every admissible finite phase
+	restriction lies in some stage-\(k\) sector \(\mathsf P_k\).
+	Hence any globally admissible phase sector determines a coherent tower
+	\[
+		(\vartheta_k)_k,
+		\qquad
+		\vartheta_k\in\mathsf P_k,
+		\qquad
+		\vartheta_{k+1}|_{B_k}=\vartheta_k.
+	\]
+	Conversely, any such coherent tower defines a global admissible phase
+	sector by the same inverse-limit mechanism that governs all other
+	closed-system objects.
+	Therefore
+	\[
+		\mathsf P_\infty \cong \varprojlim_k \mathsf P_k.
+	\]
+	Since each \(\mathsf P_k\) is discrete by
+	\cref{cor:em-discrete-stage-phase}, the global sector set
+	\(\mathsf P_\infty\) is discrete. ∎
+\end{proof}
+\begin{corollary}[Quantization before geometry]
+	Charge quantization is a consequence of closedness before smooth
+	geometry is introduced.
+	Under smooth realization, the canonical phase reduction realizes
+	geometrically through the local phase connection \(A\), whose
+	curvature \(F=dA\) exhibits the already-discrete phase sector as a
+	quantized phase-curvature sector.
+\end{corollary}
+\begin{proof}
+	By \cref{thm:em-closedness-phase}, the phase sector is already discrete
+	at the internal comparison level.
+	The canonical phase reduction realizes geometrically through the local
+	phase connection \(A\), whose curvature \(F=dA\) exhibits that same
+	already-discrete sector on the realized branch.
+	Therefore smooth geometry reflects a quantization already determined by
+	closedness. ∎
+\end{proof}
+\begin{remark}[Logical reversal]
+	The standard order
+	\[
+		\text{bundle}
+		\Longrightarrow
+		\text{topology}
+		\Longrightarrow
+		\text{quantization}
+	\]
+	is reversed in the closed-system framework:
+	\[
+		\begin{aligned}
+			 & \text{closedness}
+			\Longrightarrow
+			\text{finite admissibility}
+			\Longrightarrow
+			\text{coherent discrete phase sectors}
+			\\
+			 & \Longrightarrow
+			\text{quantized phase curvature}.
+		\end{aligned}
+	\]
+\end{remark}
+% ============================================================
+\section{Charge lattice and the fundamental spectrum}
+\label{sec:em-charge-lattice}
+% ============================================================
+Discreteness of the phase sector now determines quantization of charges.
+\begin{definition}[Global phase sector group]
+	Composition of phase sectors induces an abelian group structure on the
+	set \(\mathsf P_\infty\) of globally admissible phase sectors.
+\end{definition}
+\begin{definition}[Primitive phase sector]
+	A nonzero phase sector \(\mathfrak p\in \mathsf P_\infty\) is called
+	\emph{primitive} if whenever
+	\[
+		\mathfrak p=\mathfrak a^n
+	\]
+	for some \(\mathfrak a\in \mathsf P_\infty\) and \(n\in\mathbb Z\), one
+	has \(n=\pm1\).
+\end{definition}
+\begin{definition}[Charge assignment]
+	A charge assignment is a group homomorphism
+	\[
+		q:\mathsf P_\infty\to \mathbb R.
+	\]
+\end{definition}
+\begin{theorem}[Charge lattice theorem]
+	\label{thm:em-charge-lattice}
+	Assume \(\mathsf P_\infty\) is generated by a primitive phase sector
+	\(\mathfrak p_0\).
+	Then every admissible phase sector has the form
+	\[
+		\mathfrak p_n=\mathfrak p_0^{\,n},
+		\qquad n\in\mathbb Z,
+	\]
+	and every charge assignment satisfies
+	\[
+		q(\mathfrak p_n)=n\,q_0,
+		\qquad q_0:=q(\mathfrak p_0).
+	\]
+	In particular,
+	\[
+		q(\mathsf P_\infty)=q_0\,\mathbb Z.
+	\]
+\end{theorem}
+\begin{proof}
+	Every admissible phase sector is a power of the primitive generator
+	\(\mathfrak p_0\).
+	Since \(q\) is a group homomorphism,
+	\[
+		q(\mathfrak p_0^{\,n})=n\,q(\mathfrak p_0)=nq_0.
+	\]
+	Hence the charge image is exactly the rank--\(1\) lattice
+	\(q_0\mathbb Z\). ∎
+\end{proof}
+\begin{corollary}[Fundamental charge quantization]
+	All fundamental charges are integer multiples of a primitive charge unit
+	\(q_0\).
+\end{corollary}
+\begin{proof}
+	Immediate from \cref{thm:em-charge-lattice}.
+\end{proof}
+\begin{remark}
+	No fundamental fractional charge arises at the primitive phase level.
+	Any effective fractional charge, if present, must therefore be a
+	composite-sector quotient effect rather than a fundamental phase
+	weight.
+\end{remark}
+% ============================================================
+\section{Composite-sector descent and the minimal denominator}
+\label{sec:em-composite-quotients}
+% ============================================================
+\Cref{sec:em-charge-lattice} closes the fundamental charge lattice.
+What remains is the emergent possibility of fractional observable
+charge through quotient semantics at the composite level.
+\begin{definition}[Composite charged sector]
+	A composite charged sector is a tensor product of finitely many
+	fundamental charged sectors
+	\[
+		\mathcal C:=\mathcal S_{n_1}\otimes\cdots\otimes \mathcal S_{n_r},
+	\]
+	with raw charge
+	\[
+		q_{\mathrm{raw}}(\mathcal C)=\Bigl(\sum_{j=1}^r n_j\Bigr)q_0.
+	\]
+\end{definition}
+\begin{definition}[Observable descent]
+	An observable descent of a composite charged sector is a surjective map
+	\[
+		\pi_{\mathrm{obs}}:\mathcal C\twoheadrightarrow \mathcal C_{\mathrm{obs}}
+	\]
+	such that admissible observables on \(\mathcal C\) are precisely those
+	that factor through \(\pi_{\mathrm{obs}}\).
+\end{definition}
+\begin{definition}[Descended charge]
+	A descended charge observable on \(\mathcal C_{\mathrm{obs}}\) is a map
+	\[
+		q_{\mathrm{obs}}:\mathcal C_{\mathrm{obs}}\to\mathbb R
+	\]
+	such that
+	\[
+		q_{\mathrm{raw}}=m\,q_{\mathrm{obs}}\circ \pi_{\mathrm{obs}}
+	\]
+	for some positive integer \(m\).
+\end{definition}
+\begin{theorem}[Fractional-charge descent criterion]
+	\label{thm:em-fractional-criterion}
+	A composite observable sector admits an effective fractional charge unit
+	\[
+		q_{\mathrm{eff}}=\frac{q_0}{m}
+		\qquad (m>1)
+	\]
+	if and only if the raw charge lattice descends through an index-\(m\)
+	quotient under observable descent.
+\end{theorem}
+\begin{proof}
+	If
+	\[
+		q_{\mathrm{raw}}=m\,q_{\mathrm{obs}}\circ\pi_{\mathrm{obs}},
+	\]
+	then a unit observable charge step corresponds to raw charge
+	\(q_0\), hence
+	\[
+		q_{\mathrm{eff}}=\frac{q_0}{m}.
+	\]
+	Conversely, if the observable unit is \(q_0/m\), then multiplication by
+	\(m\) recovers the raw integer lattice, so the raw charge factors
+	through an index-\(m\) quotient. ∎
+\end{proof}
+The transport spine fixes the minimal possible denominator.
+\begin{theorem}[Minimal composite quotient index]
+	\label{thm:em-minimal-composite-index}
+	If the closed comparison framework determines a nontrivial composite
+	observable descent producing effective fractional charge, then the
+	minimal possible quotient index is
+	\[
+		m=3.
+	\]
+\end{theorem}
+\begin{proof}
+	By \cref{thm:em-fractional-criterion}, fractional observable charge can
+	arise only through a nontrivial quotient of a composite charged sector.
+	If \(m=2\), the quotient would already be detectable by pairwise
+	compatibility data.
+	But the transport spine proves that no genuinely new obstruction is
+	visible at arity \(2\); the first irreducible composite obstruction is
+	ternary by \cref{thm:em-triangle-minimal}.
+	Therefore the first possible determined quotient must occur at index \(3\),
+	the first nontrivial composite arity. ∎
+\end{proof}
+\subsection{Minimal composite descent and uniqueness of denominator 3}
+\label{sec:denom3-unique}
+\begin{theorem}[Minimal denominator \(3\) and uniqueness]
+\label{thm:em-denominator3-uniqueness}
+Assume a nontrivial composite observable descent exists.
+Then:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item the minimal nontrivial denominator is \(3\);
+\item any two minimal denominator-\(3\) composite descents are equivalent
+      under admissible quotient descent.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\textbf{Step 1 (transport visibility: \cref{sp:transport}).}
+Part \textup{(i)} is exactly
+\cref{thm:em-minimal-composite-index} together with
+\cref{thm:em-fractional-criterion}.
+The first visible nontrivial composite obstruction is ternary, so the
+first admissible denominator is forced to be \(3\).
+
+\textbf{Step 2 (intrinsic comparison of minimal descents:
+\cref{sp:intrinsic,sp:transport}).}
+For part \textup{(ii)}, let
+\(\pi_{\mathrm{obs}}^{(1)}\) and \(\pi_{\mathrm{obs}}^{(2)}\)
+be two denominator-\(3\) minimal descents.
+Minimality forces each to be first-visible at the same ternary composite
+level, so their finite comparison tests agree by
+\cref{thm:em-triangle-minimal} and the same transport-visibility
+criterion used in \cref{thm:em-fractional-criterion}.
+
+\textbf{Step 3 (finite-to-global passage and admissible descent:
+\cref{sp:compactness,sp:closure,sp:quotient}).}
+By comparison completeness of the closed stack, equality on all finite
+comparison tests implies admissible descent equivalence.
+Thus the two minimal denominator-\(3\) descents are equivalent.
+\end{proof}
+\begin{corollary}[Primitive triplet channel]
+\label{cor:em-primitive-triplet}
+The minimal denominator-\(3\) composite descent determines, up to
+admissible equivalence, a primitive irreducible internal multiplicity
+channel of dimension \(3\).
+\end{corollary}
+\begin{proof}
+By \cref{thm:em-denominator3-uniqueness}, the first nontrivial composite
+descent has unique index \(3\).
+Its observable quotient has exactly three primitive residue classes, and
+irreducibility follows from minimality (otherwise a proper nontrivial
+subchannel would descend at smaller index).
+Therefore the primitive channel is three-dimensional and unique up to
+admissible equivalence.
+\end{proof}
+\begin{corollary}[Minimal effective charge unit]
+	If a nontrivial composite observable descent is determined, then the minimal
+	effective observable charge unit is
+	\[
+		q_{\mathrm{eff}}=\frac{q_0}{3}.
+	\]
+\end{corollary}
+\begin{proof}
+	By \cref{thm:em-fractional-criterion}, effective fractional charge from
+	composite descent has unit \(q_0/m\), where \(m\) is the quotient index.
+	By \cref{thm:em-minimal-composite-index}, the first admissible index is
+	\(m=3\).
+	Hence the minimal effective unit is \(q_0/3\).
+\end{proof}
+\begin{remark}
+	Thus thirds are not imported from phenomenology.
+	They are the denominator determined by the first irreducible composite
+	obstruction size of the transport spine.
+\end{remark}
+% ============================================================
+\section{Uniqueness and normalization of the electromagnetic coupling}
+\label{sec:em-normalization}
+% ============================================================
+The electromagnetic field law is already fixed up to a single coupling
+normalization.
+We now identify that normalization as internal rather than free.
+\begin{definition}[Intrinsic quadratic scale]
+	The intrinsic quadratic scale is the normalization of the canonical
+	quadratic scalar law
+	\[
+		Q:\mathcal K\to\mathbb R
+	\]
+	fixed by the closed-system admissibility structure.
+\end{definition}
+\begin{definition}[Causal-diamond normalization]
+	The causal-diamond normalization is the unique scaling law
+	\[
+		|D(r)|\sim r^4
+	\]
+	fixed by the four-dimensional causal-diamond growth theorem.
+\end{definition}
+\begin{theorem}[Uniqueness of the phase-coupling channel]
+	Every admissible abelian phase-curvature law has the form
+	\[
+		\nabla_\mu \mathcal H^{\mu\nu}=J_{\mathrm{ph}}^\nu,
+		\qquad
+		\mathcal H^{\mu\nu}=c\,F^{\mu\nu},
+	\]
+	for a unique nonzero constant \(c\).
+	Equivalently, there is exactly one admissible electromagnetic coupling
+	channel, up to overall normalization.
+\end{theorem}
+\begin{proof}
+	By \cref{lem:em-natural-operator}, any admissible first-order, natural,
+	covariant phase law depends on \(F\) only through \(d{*}F\), up to
+	normalization.
+	Equivalently, any constitutive tensor must be a scalar multiple of
+	\(F\):
+	\[
+		\mathcal H^{\mu\nu}=cF^{\mu\nu}.
+	\]
+	Thus there is exactly one coupling channel and one remaining scalar
+	normalization. ∎
+\end{proof}
+\begin{theorem}[Intrinsic phase normalization]
+	\label{thm:em-intrinsic-normalization}
+	The electromagnetic coupling normalization is determined by the same
+	intrinsic normalization mechanism that fixes the quadratic scalar law
+	and the causal-diamond scaling.
+	In particular, the electromagnetic coupling is not an independent free
+	parameter.
+\end{theorem}
+\begin{proof}
+	The first-visible scalar and phase channels inherit their
+	normalization from the stabilized quadratic carrier
+	\(\mathcal K\cong F^2/F^3\).
+	Under the inherited second-jet faithfulness condition, the
+	Einstein-side scalar coefficient is read on the realized
+	degree--\(2\) channel attached to that stabilized carrier, so the
+	scalar, Einstein, and phase channels are normalized relative to one
+	saved quadratic scale rather than to independent macroscopic
+	inputs.
+	Closedness forbids insertion of an additional independent scale.
+	The causal-diamond growth law fixes the normalization of macroscopic
+	volume and density.
+	Therefore the proportionality constant between phase curvature and phase
+	current is fixed by the unique conversion between the quadratic carrier
+	scale and the causal-diamond density scale.
+	Hence the electromagnetic coupling is determined internally. ∎
+\end{proof}
+\begin{corollary}[Closedness of the electromagnetic sector]
+	The electromagnetic field equations are fully determined by the closed
+	comparison framework.
+	No free parameter remains in the electromagnetic sector.
+\end{corollary}
+\begin{proof}
+	The field strength is fixed by
+	\[
+		F=dA,
+	\]
+	the homogeneous law by
+	\[
+		dF=0,
+	\]
+	the sourced law by
+	\[
+		d{*}F={*}J_{\mathrm{ph}},
+	\]
+	the charge lattice by \cref{thm:em-charge-lattice}, and the coupling
+	normalization by \cref{thm:em-intrinsic-normalization}.
+	Thus the electromagnetic sector is closed. ∎
+\end{proof}
+% ============================================================
+\section{Structural summary}
+\label{sec:em-summary}
+% ============================================================
+The chapter has proved the following chain:
+\[
+	\begin{aligned}
+		 & \text{morphism locus}
+		\Longrightarrow
+		\text{loop defect}
+		\Longrightarrow
+		\text{triangle obstruction}
+		\Longrightarrow
+		\mathcal K\cong F^2/F^3
+		\\
+		 & \Longrightarrow
+		\text{canonical complex phase}
+		\Longrightarrow
+		A
+		\Longrightarrow
+		F=dA,
+	\end{aligned}
+\]
+with
+\[
+	F\in \Gamma(\Lambda^-_{\mathrm{tr}}(M))\subseteq \Omega^2(M),
+\]
+and
+\[
+	\begin{cases}
+		dF=0, \\[4pt]
+		d{*}F={*}J_{\mathrm{ph}}.
+	\end{cases}
+\]
+At the same time, the internal closedness mechanism yields
+\[
+	\begin{aligned}
+		 & \text{finite phase typing}
+		\Longrightarrow
+		\text{discrete finite-stage phase sectors}
+		\\
+		 & \Longrightarrow
+		\text{coherent global phase lattice}
+		\\
+		 & \Longrightarrow
+		\text{charge quantization}.
+	\end{aligned}
+\]
+Thus the logic of the chapter is not
+\[
+	\text{field}
+	\Longrightarrow
+	\text{bundle}
+	\Longrightarrow
+	\text{topology}
+	\Longrightarrow
+	\text{quantization},
+\]
+but rather
+\[
+	\begin{aligned}
+		 & \text{closedness}
+		\Longrightarrow
+		\text{finite admissibility}
+		\Longrightarrow
+		\text{coherent discrete sectors}
+		\\
+		 & \Longrightarrow
+		\text{electromagnetic field laws}.
+	\end{aligned}
+\]
+This is the precise sense in which the closed-system program inverts the
+usual order of gauge theory.
+\medskip
+Accordingly:
+\[
+	\boxed{
+		\begin{aligned}
+			&\text{Electromagnetism is the realized phase curvature}\\
+			&\text{of the canonical phase reduction of the morphism locus.}
+		\end{aligned}
+	}
+\]
+\[
+	\boxed{
+		\text{Charge quantization is a consequence of closedness.}
+	}
+\]
+\[
+	\boxed{
+		\text{If effective fractional charge appears, its primitive denominator is }3.
+	}
+\]
+% ============================================================
+\section{Uniqueness of the admissible phase operator}
+\label{sec:em-operator-uniqueness}
+% ============================================================
+The sourced Maxwell equation derived in
+\cref{sec:em-sourced-maxwell,thm:em-sourced-maxwell} relied on
+the classification of admissible phase operators.
+We now prove that classification in full tensorial form.
+The result is that there is exactly one admissible first-order operator
+acting on the electromagnetic field strength.
+% ============================================================
+\subsection{Statement of the classification theorem}
+% ============================================================
+\begin{theorem}[Uniqueness of the admissible phase operator]
+	\label{thm:em-operator-uniqueness}
+	Let $(M,g)$ be the realized spacetime manifold with Lorentzian metric,
+	and let
+	\[
+		F \in \Omega^2(M)
+	\]
+	be the abelian phase curvature.
+	Let
+	\[
+		\mathcal P:\Omega^2(M)\longrightarrow \Omega^1(M)
+	\]
+	be a linear operator satisfying:
+	\begin{enumerate}
+		\item locality of differential order at most $1$;
+		\item covariance under the realized local symmetry pseudogroup;
+		\item tensorial naturality (no dependence on external structure);
+		\item gauge equivariance (dependence only on $F=dA$);
+		\item dependence only on the intrinsic phase sector.
+	\end{enumerate}
+	Then there exists a unique constant $c\in\mathbb R$ such that
+	\[
+		\mathcal P(F) = c\, d{*}F.
+	\]
+	Equivalently, in index notation,
+	\[
+		\mathcal P(F)_\nu = c\, \nabla^\mu F_{\mu\nu}.
+	\]
+\end{theorem}
+% ============================================================
+\subsection{Reduction to tensorial classification}
+% ============================================================
+\begin{lemma}[Gauge reduction]
+	\label{lem:em-operator-gauge-reduction}
+	Any admissible operator $\mathcal P$ depends on the connection $A$
+	only through the curvature $F=dA$.
+\end{lemma}
+\begin{proof}
+	Gauge equivariance requires invariance under
+	\[
+		A \mapsto A + d\lambda.
+	\]
+	Since $F=dA$ is gauge-invariant and the theory is abelian, any
+	gauge-equivariant expression must factor through $F$.
+	Hence $\mathcal P$ depends only on $F$. ∎
+\end{proof}
+\begin{lemma}[First-order form]
+	\label{lem:em-operator-first-order}
+	Any admissible operator $\mathcal P$ is a tensorial contraction of
+	\[
+		\nabla_\alpha F_{\beta\gamma}.
+	\]
+\end{lemma}
+\begin{proof}
+	By locality of order at most $1$, $\mathcal P$ may depend on at most
+	one derivative of $F$.
+	By naturality, the only available structures are $g$, its inverse,
+	the Levi-Civita connection, and the volume form.
+	Thus $\mathcal P(F)$ must be obtained by contracting
+	\[
+		\nabla_\alpha F_{\beta\gamma}
+	\]
+	with these structures. ∎
+\end{proof}
+% ============================================================
+\subsection{Tensorial classification}
+% ============================================================
+\begin{lemma}[Exhaustion of contractions]
+	\label{lem:em-operator-contractions}
+	All tensorial contractions of $\nabla_\alpha F_{\beta\gamma}$ producing
+	a $1$-form are linear combinations of the following two types:
+	\begin{enumerate}
+		\item divergence-type contraction:
+		      \[
+			      \nabla^\mu F_{\mu\nu};
+		      \]
+		\item antisymmetric $3$-form contraction:
+		      \[
+			      \nabla_{[\alpha}F_{\beta\gamma]}.
+		      \]
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	The tensor $\nabla_\alpha F_{\beta\gamma}$ has one derivative index and
+	two antisymmetric indices.
+	To obtain a $1$-form, one must leave exactly one free index and contract
+	the remaining two.
+	\medskip
+	\noindent\emph{Case 1: contract derivative index with one $F$ index.}
+	This yields
+	\[
+		\nabla^\mu F_{\mu\nu}.
+	\]
+	\medskip
+	\noindent\emph{Case 2: antisymmetrize all indices.}
+	This yields
+	\[
+		\nabla_{[\alpha}F_{\beta\gamma]},
+	\]
+	a $3$-form.
+	\medskip
+	All other contractions vanish or reduce to these cases:
+	\begin{itemize}
+		\item contraction of $F$ indices:
+		      \[
+			      g^{\beta\gamma}F_{\beta\gamma}=0
+		      \]
+		      by antisymmetry;
+		\item contractions using the Levi-Civita tensor reduce to the Hodge
+		      dual of the $3$-form above.
+	\end{itemize}
+	Thus the two listed types exhaust all possibilities. ∎
+\end{proof}
+% ============================================================
+\subsection{Elimination of the antisymmetric term}
+% ============================================================
+\begin{lemma}[Vanishing of the antisymmetric contraction]
+	\label{lem:em-operator-antisymmetric-vanishes}
+	The antisymmetric contraction satisfies
+	\[
+		\nabla_{[\alpha}F_{\beta\gamma]} = 0.
+	\]
+\end{lemma}
+\begin{proof}
+	Since $F=dA$, we have
+	\[
+		dF = d(dA) = 0.
+	\]
+	In index notation, this is precisely
+	\[
+		\nabla_{[\alpha}F_{\beta\gamma]} = 0.
+	\]
+	∎
+\end{proof}
+\begin{corollary}
+	The only nonvanishing admissible contraction is
+	\[
+		\nabla^\mu F_{\mu\nu}.
+	\]
+\end{corollary}
+\begin{proof}
+	By \cref{lem:em-operator-contractions}, admissible first-order
+	contractions are exhausted by divergence and the fully antisymmetric
+	term.
+	By \cref{lem:em-operator-antisymmetric-vanishes}, the antisymmetric term
+	vanishes identically.
+	Therefore only \(\nabla^\mu F_{\mu\nu}\) remains.
+\end{proof}
+% ============================================================
+\subsection{Normalization}
+% ============================================================
+\begin{lemma}[Constancy of the coefficient]
+	\label{lem:em-operator-constant}
+	The coefficient multiplying $\nabla^\mu F_{\mu\nu}$ is constant.
+\end{lemma}
+\begin{proof}
+	By naturality, the operator must be invariant under the realized local
+	symmetry pseudogroup.
+	Hence no coordinate-dependent or field-dependent scalar coefficient is
+	admissible.
+	The coefficient must therefore be constant. ∎
+\end{proof}
+% ============================================================
+\subsection{Conclusion}
+% ============================================================
+\begin{proof}[Proof of \cref{thm:em-operator-uniqueness}]
+	By \cref{lem:em-operator-gauge-reduction}, $\mathcal P$ depends only on $F$.
+	By \cref{lem:em-operator-first-order}, it is built from
+	$\nabla F$.
+	By \cref{lem:em-operator-contractions}, the only possible contractions
+	are divergence-type or antisymmetric.
+	By \cref{lem:em-operator-antisymmetric-vanishes}, the antisymmetric term
+	vanishes identically.
+	Thus
+	\[
+		\mathcal P(F)_\nu = c\, \nabla^\mu F_{\mu\nu}.
+	\]
+	By \cref{lem:em-operator-constant}, $c$ is constant.
+	In differential-form notation, this is
+	\[
+		\mathcal P(F)=c\, d{*}F.
+	\]
+	This proves uniqueness. ∎
+\end{proof}
+% ============================================================
+\subsection{Maxwell equation as a determined law}
+% ============================================================
+\begin{corollary}[Determined form of the phase field equation]
+	The only admissible first-order, local, covariant, gauge-equivariant
+	field equation for the electromagnetic $2$-form is
+	\[
+		d{*}F = {*}J_{\mathrm{ph}},
+	\]
+	or equivalently
+	\[
+		\nabla^\mu F_{\mu\nu} = g_{\mathrm{ph}}\, (J_{\mathrm{ph}})_\nu,
+	\]
+	for a unique coupling constant $g_{\mathrm{ph}}$.
+\end{corollary}
+\begin{proof}
+	By \cref{thm:em-operator-uniqueness}, the left-hand side must be
+	proportional to $d{*}F$.
+	The right-hand side is the phase current arising from matter coupling.
+	Thus the equation follows uniquely up to normalization. ∎
+\end{proof}
+\begin{remark}[Closure of the electromagnetic sector]
+	This classification removes the final ambiguity in the electromagnetic
+	sector.
+	The field strength $F$, the homogeneous equation $dF=0$, the sourced
+	equation $d{*}F={*}J_{\mathrm{ph}}$, and the charge lattice are all
+	determined by the
+	closed comparison framework.
+	No additional admissible first-order phase law exists.
+\end{remark}
+% ============================================================
+\section{Rigidity of the phase symmetry group}
+\label{sec:phase-group-rigidity}
+% ============================================================
+\Cref{thm:em-phase-reduction,thm:em-phase-connection,thm:em-operator-uniqueness}
+derive a canonical phase reduction
+\[
+	\rho_{\mathrm{ph}}:\Omega_{i_0}(\mathcal G(\mathcal I))\to U(1)
+\]
+from the stabilized quadratic carrier
+\[
+	\mathcal K \cong F^2/F^3.
+\]
+The natural question is whether this $U(1)$ phase symmetry is merely one
+admissible choice among many, or whether it is the only admissible phase
+symmetry determined by the closed comparison stack at the first visible
+transport layer.
+The answer is rigidity: at degree $2$, the phase symmetry is unique.
+% ============================================================
+\subsection{Admissible phase symmetry groups}
+% ============================================================
+\begin{definition}[Admissible phase symmetry group]
+	\label{def:admissible-phase-group}
+	An \emph{admissible phase symmetry group} at the first visible transport
+	layer is a topological group $\Gamma$ together with a homomorphism
+	\[
+		\rho_\Gamma:\Omega_{i_0}(\mathcal G(\mathcal I))\to \Gamma
+	\]
+	satisfying:
+	\begin{enumerate}
+		\item $\rho_\Gamma$ depends only on the stabilized quadratic carrier
+		      \[
+			      \mathcal K\cong F^2/F^3;
+		      \]
+		\item $\rho_\Gamma$ is natural under gauge modification and under the
+		      realized local symmetry pseudogroup;
+		\item $\rho_\Gamma$ is induced by a filtration-compatible structure on
+		      the quadratic defect sector;
+		\item the corresponding local connection sector is abelian and
+		      first-order, so that its curvature law belongs to the admissible phase
+		      class of Chapter~\ref{ch:em}.
+	\end{enumerate}
+\end{definition}
+\begin{remark}
+	This definition concerns only \emph{phase symmetry} at the first visible
+	quadratic layer.
+	It does not yet classify all possible symmetry structures that might
+	arise on higher transport-jet layers
+	\[
+		F^m/F^{m+1},\qquad m\ge 3.
+	\]
+\end{remark}
+% ============================================================
+\subsection{Rigidity at the quadratic layer}
+% ============================================================
+\begin{theorem}[Quadratic phase rigidity]
+	\label{thm:quadratic-phase-rigidity}
+	At the first visible transport layer
+	\[
+		\mathcal K\cong F^2/F^3,
+	\]
+	the only admissible phase symmetry group is \(U(1)\), unique up to
+	global phase.
+	Equivalently, if
+	\[
+		\rho_\Gamma:\Omega_{i_0}(\mathcal G(\mathcal I))\to \Gamma
+	\]
+	is an admissible phase symmetry in the sense of
+	\cref{def:admissible-phase-group}, then \(\Gamma\) is canonically
+	isomorphic to \(U(1)\).
+\end{theorem}
+\begin{proof}
+	The proof is by elimination.
+	\smallskip
+	\noindent\emph{Step 1: the phase sector must be induced from the quadratic carrier.}
+	By hypothesis, an admissible phase symmetry depends only on the first
+	visible stabilized transport carrier
+	\[
+		\mathcal K\cong F^2/F^3.
+	\]
+	No lower layer can contribute, since degree $1$ carries only first-order
+	transport data, and no higher layer can contribute to the first visible
+	phase sector without violating the grading of the transport filtration.
+	\smallskip
+	\noindent\emph{Step 2: the only determined extra structure on the quadratic carrier is the
+		canonical complex structure.}
+	Chapter~15 proves that the quadratic carrier carries:
+	\begin{enumerate}
+		\item a unique positive quadratic scalar form;
+		\item a unique filtration-compatible orientation involution;
+		\item a canonical oriented defect double;
+		\item an orthogonal complex structure
+		      \[
+			      J: H_{\mathbb R}\to H_{\mathbb R},\qquad J^2=-\id,
+		      \]
+		      unique up to sign;
+		\item a unique Hermitian inner product compatible with $J$.
+	\end{enumerate}
+	Thus the only intrinsic ``phase'' structure determined on the first visible
+	carrier is a Hermitian complex line structure, unique up to global sign.
+	This is exactly the structure whose unitary symmetry group is \(U(1)\).
+	No larger phase group is determined at this layer. \qedhere
+\end{proof}
+\begin{proof}[Continuation of the proof]
+	\smallskip
+	\noindent\emph{Step 3: real-linear alternatives are excluded.}
+	A merely real-linear phase symmetry would correspond to a structure
+	preserving the positive quadratic form without using the canonical
+	complex structure.
+	But the phase reduction of Chapter~\ref{ch:em} is induced precisely by
+	the Hermitian structure determined by \(J\), not just by the underlying real
+	quadratic form.
+	Hence the phase symmetry must be unitary rather than merely orthogonal.
+	In particular, the surviving abelian phase symmetry is not
+	\(\mathbb R^\times\), not \(\mathbb R\), and not a generic real torus.
+	\smallskip
+	\noindent\emph{Step 4: larger abelian phase groups are excluded.}
+	Because the complex structure on the quadratic defect sector is unique up
+	to sign, there is only one intrinsic phase direction.
+	A larger abelian phase group would require several independent phase
+	directions on the same first visible layer, equivalently several
+	independent compatible complex structures or several independent
+	Hermitian phase sectors.
+	No such multiplicity is proved or allowed by the quadratic Hilbert
+	reconstruction.
+	Therefore the abelian phase symmetry at degree $2$ is exactly one copy of
+	\(U(1)\).
+	\smallskip
+	\noindent\emph{Step 5: uniqueness up to global phase.}
+	The only residual ambiguity in the complex structure is
+	\[
+		J\mapsto -J,
+	\]
+	which corresponds to complex conjugation of the same unitary phase
+	sector.
+	Therefore the resulting phase reduction is unique up to global phase.
+	Hence every admissible phase symmetry group at the first visible
+	quadratic layer is canonically isomorphic to \(U(1)\). ∎
+\end{proof}
+% ============================================================
+\subsection{Exclusion of higher-layer phase extensions}
+% ============================================================
+\begin{theorem}[No independent higher-layer phase extension at degree $2$]
+	Let
+	\[
+		m(F)=F^m/F^{m+1}
+	\]
+	be the higher transport-jet carriers of Chapter~17.
+	Then no admissible phase symmetry at the first visible electromagnetic
+	layer can depend on any \(m(F)\) with \(m\ge 3\).
+	Equivalently, the electromagnetic phase symmetry is already closed on
+	\[
+		F^2/F^3.
+	\]
+\end{theorem}
+\begin{proof}
+	Chapter~17 proves that for \(m\ge 3\), the graded pieces
+	\[
+		F^m/F^{m+1}
+	\]
+	are higher-order transport jets: they encode order--\(m\) Taylor defect
+	modulo lower-order data.
+	They therefore belong to higher transport structure, not to the first
+	visible phase layer.
+	An admissible phase symmetry at the electromagnetic level must belong to
+	the first visible obstruction layer itself.
+	If it depended essentially on some \(F^m/F^{m+1}\) with \(m\ge 3\), then
+	the phase sector would not be first-visible at degree \(2\), contrary to
+	the construction of the chapter and to the localization
+	\[
+		\mathcal K\cong F^2/F^3.
+	\]
+	Hence the electromagnetic phase symmetry is already exhausted on the
+	quadratic layer and admits no independent extension from higher
+	transport-jet carriers. ∎
+\end{proof}
+% ============================================================
+\subsection{Consequences}
+% ============================================================
+\begin{corollary}[Uniqueness of electromagnetism at the quadratic layer]
+	At the first visible transport layer, electromagnetism is the unique
+	admissible phase gauge theory.
+\end{corollary}
+\begin{proof}
+	By \cref{thm:quadratic-phase-rigidity}, the only admissible phase
+	symmetry group is \(U(1)\).
+	By \cref{thm:em-operator-uniqueness}, the
+	unique admissible first-order field law on that \(U(1)\)-sector is the
+	Maxwell law
+	\[
+		dF=0,\qquad d{*}F={*}J_{\mathrm{ph}}.
+	\]
+	Therefore electromagnetism is the unique admissible phase gauge theory at
+	degree \(2\). ∎
+\end{proof}
+\begin{remark}[What remains open]
+	The present theorem does \emph{not} prove that no further non-abelian
+	symmetry can arise anywhere in the full transport stack.
+	It proves the narrower and sharper claim:
+	\[
+		\boxed{
+			\text{at the first visible quadratic layer, the only admissible phase
+				symmetry is }U(1).
+		}
+	\]
+	Any additional gauge structure, if it exists, must therefore arise from
+	a genuinely higher transport layer rather than from the electromagnetic
+	phase sector itself.
+\end{remark}
+
+\section{Conclusion}
+\label{sec:em-conclusion}
+At the first visible quadratic layer, the electromagnetic conclusion is
+rigid: phase symmetry is canonically \(U(1)\), admissible first-order
+dynamics is Maxwell, and charge quantization is fixed by the same closure
+constraints. No independent degree--\(2\) alternative remains.
+
+This is the forced handoff point of the gauge arc: once the degree--\(2\)
+phase sector is closed, any additional internal or matter structure must
+come from higher transport forcing rather than from modifying
+electromagnetism itself; that continuation is carried by
+\cref{ch:matter}.
+
+Accordingly, the scalar channel fixed by the main stack is carried
+next through matter-sector classification, numerical closure, and
+canonical realization in
+\cref{ch:matter,ch:matter-numbers,ch:numerical-closure,ch:matter-realization},
+before Appendix \cref{app:fusion} records its downstream
+magnetic-confinement application, isolating the canonical intrinsic
+transport scalar and separating later perturbative and
+confinement-level readings.

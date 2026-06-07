@@ -1,0 +1,247 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{Conditional Completion Ledger}
+\label{app:conditional-completion}
+% ============================================================
+
+\section{Extracted structural content}
+\label{sec:cond-reduced}
+
+This ledger records entries that are structurally reduced but not yet
+numerically fixed by closed transport alone.
+In the Chapter~20/21 terminology, such entries are called
+\emph{extracted}.
+No additional theorem-level claim is introduced here; this chapter is
+status bookkeeping for downstream numerical closure.
+
+At the current manuscript stage, the extracted entry is:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+  full representation-content classification reduced to irreducible unitary
+  representation data of
+  \(U(1)\times SU(2)\times SU(3)\)
+  (\cref{thm:matter-spectrum-reduction,cor:matter-unique-forced-output}).
+\end{enumerate}
+
+\section{Open quantitative boundary data}
+\label{sec:cond-open}
+
+This section records quantitatively open entries that are not determined by
+the theorem-level closure chain of Chapters~1--21.
+Unless further closure theorems are proved, these entries remain explicit
+boundary data.
+
+After the global closure audit of Chapters~14--21, the ledger is typed in
+three layers.
+
+\textbf{Layer A (internal bridge data discharged).}
+The scalar bilinear source is forced by polarization
+(\cref{thm:scalar-pairing}), and the closed-system quartic mass coordinate is
+fixed by the intrinsic readout bridge
+(\cref{thm:numbers-mass-calibration}).
+
+\textbf{Layer B (properties and data discharged by theorem).}
+The explicit depth-anchor package \cref{def:numbers-depth-anchors} is
+optional: it is discharged whenever the ratio/cubic calibration criterion
+of
+\cref{thm:numbers-anchor-closure-61835,cor:numbers-anchor-closure-discharges}
+is available.
+
+The shell-completeness property \cref{def:shell-completeness} is optional:
+it is discharged whenever the signed-permutation quadratic criterion
+\cref{thm:shell-completeness-from-symmetry,cor:shell-completeness-discharged}
+is available, in particular via the Chapter~19 transport-derived route
+\cref{thm:shell-symmetry-from-transport,cor:shell-completeness-from-transport},
+with finite in-model verification by
+\cref{thm:shell-interface-checklist}.
+
+The one-reference shell closure data
+\cref{def:shell-defect-intrinsic,def:shell-anchor} are no longer mandatory:
+they are discharged whenever the two-reference algebraic closure criterion
+of \cref{thm:shell-two-reference-closure,cor:shell-two-reference-discharges}
+is available.
+
+\textbf{Layer C (residual open quantitative-status entries).}
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+  explicit real-level form of the scalar quadratic channel
+  \(Q_{\mathbb R}\)
+  (\cref{rem:two-levels-Q,rem:spectral-scalar-id-scope});
+\item
+  shell-completeness status (explicit property declaration vs verified
+  signed-permutation discharge criterion, including the Chapter~19
+  transport-derived route) for data packages where
+  \cref{thm:shell-completeness-from-symmetry,thm:shell-symmetry-from-transport,thm:shell-interface-checklist}
+  is not established;
+\item
+  dimensionless shell-splitting constant status
+  (internal determination vs irreducible \(\gamma\)) when neither the
+  intrinsic-defect route nor two-reference algebraic closure is available;
+\item
+  absolute mass-scale normalization (open \(\alpha\)) when no calibration
+  route fixes \(\alpha\);
+\item
+  generation-level realization details;
+\item
+  low-energy coupling-constant values.
+\end{enumerate}
+
+These entries remain outside current theorem-level closure and are tracked as
+explicit open boundary data.
+
+\section{Formal hardening ledger}
+\label{sec:cond-hardening-ledger}
+
+This section lists every global item that carries non-theorem-level load and
+records its strongest current status.
+The words ``datum'', ``property'', and ``principle'' are used deliberately:
+a datum is retained only as boundary data, a property may be verified or
+discharged theoremically, and the standing principle is the admissibility rule
+that governs the whole construction.
+
+\begin{enumerate}[label=\textup{(H\arabic*)}]
+\item
+  \textbf{Closed-world admissibility.}
+  \Cref{sp:closed-world} is the sole standing principle.  It is not a hidden
+  geometric, probabilistic, or dynamical postulate; it is the rule that only
+  internally reconstructed comparison content is admissible.
+\item
+  \textbf{Scalar pairing bridge.}
+  \Cref{thm:scalar-pairing} proves that the bilinear source needed to pass
+  from the canonical scalar channel to a real quadratic form is forced by
+  polarization; it is no longer retained as boundary data.
+\item
+  \textbf{Closed-system mass-coordinate bridge.}
+  \Cref{thm:numbers-mass-calibration} proves that the intrinsic quartic
+  coefficient-energy readout is the closed-system mass coordinate.  Only the
+  external identification of that internal coordinate with a measured mass
+  convention lies outside the internal theorem stack.
+\item
+  \textbf{Depth-anchor package.}
+  \Cref{def:numbers-depth-anchors} is a package, not a condition.  It is
+  stipulated directly only for data packages that choose explicit \((6,18,35)\)
+  reference depths, and it is recovered by the ratio/cubic route
+  \cref{thm:numbers-anchor-closure-61835,cor:numbers-anchor-closure-discharges}.
+\item
+  \textbf{Shell completeness.}
+  \Cref{def:shell-completeness} is a property, not a condition.  It is
+  proved by the signed-permutation quadratic criterion and, in transport-realized settings,
+  by the transport-to-shell route
+  \cref{thm:shell-completeness-from-symmetry,thm:shell-symmetry-from-transport,cor:shell-completeness-from-transport}.
+\item
+  \textbf{One-reference defect data.}
+  \Cref{def:shell-defect-intrinsic} is one-reference shell bookkeeping
+  data only.  It is unnecessary whenever the two-reference algebraic
+  closure theorem applies.
+\item
+  \textbf{One-reference anchor data.}
+  \Cref{def:shell-anchor} is likewise one-reference normalization data
+  only.  It is discharged together with defect-evaluation data by
+  \cref{thm:shell-two-reference-closure,cor:shell-two-reference-discharges}.
+\end{enumerate}
+
+\begin{definition}[Global closure-status vector]
+\label{def:cond-status-vector}
+The current global closure-status vector is
+\[
+  \mathcal C_{\rm status}
+  :=
+  (P, B, M, A, S, R, E),
+\]
+where:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(P\) is the standing closed-world admissibility principle
+      \cref{sp:closed-world};
+\item \(B\) is the scalar-pairing bridge
+      \cref{thm:scalar-pairing};
+\item \(M\) is the closed-system mass-coordinate bridge
+      \cref{thm:numbers-mass-calibration};
+\item \(A\) is the depth-anchor package, either specified by
+      \cref{def:numbers-depth-anchors} or recovered by
+      \cref{thm:numbers-anchor-closure-61835};
+\item \(S\) is shell completeness, either verified by
+      \cref{thm:shell-completeness-from-symmetry,thm:shell-symmetry-from-transport}
+      or retained as an open property;
+\item \(R\) is one-reference shell bookkeeping, discharged when
+      \cref{thm:shell-two-reference-closure} applies;
+\item \(E\) is the residual observer-side semantic realization layer.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Global closure audit normal form]
+\label{thm:cond-closure-normal-form}
+At the present theorem strength, every global non-structural dependency in
+Chapters~14--22 is represented by exactly one component of
+\(\mathcal C_{\rm status}\).  Moreover:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(P\) is the only standing principle;
+\item \(B\) and \(M\) are theorem-level bridges, not boundary data;
+\item \(A\), \(S\), and \(R\) are either specified packages/properties or are
+      discharged by the theorems named in \cref{def:cond-status-vector};
+\item the only item not internalized by the mathematical closure stack is
+      \(E\), the observer-side interpretation of closed-system coordinates as
+      empirical readouts.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The standing layer is unique by \cref{sp:closed-world} and by the
+introductory scope statement, so all global admissibility load is accounted
+for by \(P\).
+
+For scalar structure, \cref{thm:scalar-pairing} constructs the bilinear source
+by polarization from the real quadratic scalar channel.  Thus the old
+pairing-level load is represented by \(B\) and is theorem-level.  For mass
+coordinates, \cref{thm:numbers-mass-calibration} identifies the internal
+quartic coefficient-energy readout with the closed-system mass coordinate;
+therefore the corresponding load is represented by \(M\) and is also
+theorem-level.
+
+For numerical anchors, \cref{def:numbers-depth-anchors} records the explicit
+package, while \cref{thm:numbers-anchor-closure-61835,cor:numbers-anchor-closure-discharges}
+recover and discharge it when the ratio/cubic route applies.  This is exactly
+component \(A\).  For shell completeness,
+\cref{def:shell-completeness} names the property and
+\cref{thm:shell-completeness-from-symmetry,thm:shell-symmetry-from-transport,cor:shell-completeness-from-transport}
+give the theorem-level verification routes; this is exactly component \(S\).
+For one-reference shell bookkeeping,
+\cref{def:shell-defect-intrinsic,def:shell-anchor} name the data and
+\cref{thm:shell-two-reference-closure,cor:shell-two-reference-discharges}
+discharge them under two-reference closure; this is exactly component \(R\).
+
+The residual entries listed in \cref{sec:cond-open} either refine one of
+\(A\), \(S\), or \(R\), or concern observer-side empirical interpretation.
+\Cref{cor:mass-boundary,thm:matter-realization-factorization-criterion}
+isolate that interpretation as a separate semantic realization problem,
+which is component \(E\).  Hence every global non-structural dependency is
+represented by one listed component, and the four claims follow.
+\end{proof}
+
+\begin{corollary}[No hidden global assumptions after hardening]
+\label{cor:cond-no-hidden-global-assumptions}
+After replacing each occurrence of old assumption-level language by the
+corresponding component of \(\mathcal C_{\rm status}\), the manuscript has no
+unlisted global quantitative assumption in Chapters~14--22.
+\end{corollary}
+
+\begin{proof}
+By \cref{thm:cond-closure-normal-form}, every global non-structural dependency
+belongs to exactly one component of \(\mathcal C_{\rm status}\).  Components
+\(B\) and \(M\) are theorems; components \(A\), \(S\), and \(R\) are either
+named explicitly or discharged by named theorems; component \(E\) is explicitly
+semantic rather than mathematical.  Therefore no remaining global
+quantitative assumption is hidden.
+\end{proof}
+
+\begin{remark}[Irreducible residue at current theorem strength]
+After this hardening,
+\cref{def:numbers-depth-anchors,def:shell-completeness,def:shell-defect-intrinsic,def:shell-anchor}
+carry no assumption-level status: each is either a defined package,
+a theorem-proved property, or optional one-reference bookkeeping discharged by
+a two-reference theorem.  The scalar-pairing and closed-system mass-coordinate bridge theorems are now
+proved internally in \cref{thm:scalar-pairing,thm:numbers-mass-calibration}.
+The only residue is semantic: an external observer may still ask whether the
+closed-system mass coordinate is the measured mass used in a chosen empirical
+protocol.  That identification is not an additional mathematical axiom of the
+closed-system stack; it is an observer-side realization convention.
+\end{remark}

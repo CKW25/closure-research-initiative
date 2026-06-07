@@ -1,0 +1,559 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{Comparison Triangles and the Multi--Point Boundary}
+\label{ch:triangles}
+% ============================================================
+\section{Introduction}
+Under the standing principle of closed-world admissibility
+(\cref{sp:closed-world}), this chapter develops the first finite visible
+transport obstruction in the sense of \cref{sp:transport}.
+Proceeding from the lift classification, it identifies the first finite
+triangle boundary that underlies \cref{ch:descent_obstruction,ch:bridge}.
+\Cref{ch:locus,ch:lift} established that representative enrichment is
+exhausted by representative choice and morphism-level transport,
+possibly with both and with no third locus; equivalently, every
+representative lift is given by representative choice together with
+transport data, and no third layer of enrichment is present
+(\cref{thm:lift-classification-main,cor:two-loci-lift}).
+In particular, once a quotient-level protocol is lifted to
+representatives in \(X\), the only possible obstruction to global
+compatibility lies in the transport data.
+The present chapter identifies the first nontrivial finite regime in
+which that obstruction becomes intrinsically visible.
+At the one-point level there is no issue: quotient semantics is complete,
+and admissible reports are exactly the \(G\)-invariant maps
+\[
+	R:X\to S,
+\]
+equivalently those that factor through the orbit projection
+\[
+	\pi:X\to \Phys:=X/G
+\]
+(\cref{lem:forced-descent}).
+At the multi-point level, however, a stronger compatibility problem
+appears. Several representatives may each be individually compatible
+with the quotient data, yet fail to admit a \emph{single common diagonal
+	gauge} aligning them simultaneously.
+This failure is the first genuinely relational boundary beyond ordinary
+quotient semantics.
+The chapter has three aims.
+\begin{enumerate}
+	\item We formulate diagonal \(n\)-point semantics and show that
+	      \(n\)-point coherent observables separate exactly the diagonal
+	      \(G\)-orbits in \(X^n\).
+	\item We prove a stabilizer--coset criterion for simultaneous diagonal
+	      alignment. This converts the problem into a concrete intersection
+	      problem inside \(G\).
+	\item We define the \emph{minimal detection size}
+	      \[
+		      m=\min\{|I|:\bigcap_{i\in I}C_i=\varnothing\},
+	      \]
+	      prove the associated minimality theorem, and isolate the regime \(m=3\),
+	      called the \emph{triangle regime}. In that regime, pairwise compatibility
+	      still holds but global compatibility fails, so triangles are the first
+	      nontrivial finite witnesses of transport obstruction.
+\end{enumerate}
+This chapter is entirely algebraic. No topology, smoothness, metric,
+probability, or dynamics is assumed.
+% ============================================================
+\section{\texorpdfstring{Diagonal \(n\)-point semantics}{Diagonal n-point semantics}}
+% ============================================================
+Let \(G\) act diagonally on \(X^n\) by
+\[
+	g\cdot(x_1,\dots,x_n):=(g\cdot x_1,\dots,g\cdot x_n).
+\]
+\begin{definition}[Diagonal orbit projection]
+	For each \(n\ge 1\), let
+	\[
+		\pi_n:X^n\to X^n/G
+	\]
+	denote the orbit projection for the diagonal action.
+\end{definition}
+\begin{definition}[Diagonal equivalence]
+	For \(x,y\in X^n\), write
+	\[
+		x\sim_\Delta y
+	\]
+	if there exists \(g\in G\) such that
+	\[
+		y=g\cdot x.
+	\]
+	Equivalently,
+	\[
+		x\sim_\Delta y
+		\iff
+		\pi_n(x)=\pi_n(y).
+	\]
+\end{definition}
+\begin{definition}[\(n\)-point coherent observable]
+	Let \(S\) be a set. A map
+	\[
+		R^{(n)}:X^n\to S
+	\]
+	is called \emph{\(n\)-point coherent} if it is invariant under the
+	diagonal action of \(G\), i.e.
+	\[
+		R^{(n)}(g\cdot x)=R^{(n)}(x)
+		\qquad
+		\text{for all }g\in G,\ x\in X^n.
+	\]
+\end{definition}
+\begin{theorem}[Diagonal separation]
+	\label{thm:diag-separation}
+	For \(x,y\in X^n\), the following are equivalent.
+	\begin{enumerate}
+		\item
+		      \[
+			      \pi_n(x)=\pi_n(y).
+		      \]
+		\item Every \(n\)-point coherent observable takes the same value on
+		      \(x\) and \(y\).
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Assume first that \(\pi_n(x)=\pi_n(y)\). Then \(y=g\cdot x\) for some
+	\(g\in G\). Hence for every \(n\)-point coherent observable
+	\(R^{(n)}\),
+	\[
+		R^{(n)}(y)=R^{(n)}(g\cdot x)=R^{(n)}(x).
+	\]
+	Conversely, the quotient map
+	\[
+		\pi_n:X^n\to X^n/G
+	\]
+	is itself invariant under the diagonal action. Therefore, if every
+	diagonally invariant map agrees on \(x\) and \(y\), then in particular
+	\[
+		\pi_n(x)=\pi_n(y).
+	\]
+\end{proof}
+\begin{remark}[Multi-point boundary]
+	For \(n=1\), \cref{thm:diag-separation} is just ordinary quotient
+	semantics. For \(n\ge 2\), diagonal orbit structure on \(X^n\) may
+	contain strictly more information than the pointwise orbit list in
+	\(\Phys^n\), because diagonal equivalence requires one common element of
+	\(G\) for all coordinates simultaneously.
+\end{remark}
+% ============================================================
+\section{Alignment and stabilizer cosets}
+% ============================================================
+We now convert simultaneous diagonal alignment into an intersection
+problem in the group \(G\).
+\begin{definition}[Stabilizers and alignment cosets]
+	\label{def:cosets}
+	Fix \(n\ge 1\), points
+	\[
+		x_1,\dots,x_n\in X,
+	\]
+	and elements
+	\[
+		g_1,\dots,g_n\in G.
+	\]
+	Define
+	\[
+		y_k:=g_k^{-1}\cdot x_k
+		\qquad
+		(1\le k\le n).
+	\]
+	Let
+	\[
+		H_k:=\Stab(x_k)
+		=
+		\{h\in G:\ h\cdot x_k=x_k\}.
+	\]
+	Define the associated alignment coset
+	\[
+		C_k:=H_k g_k^{-1}\subseteq G.
+	\]
+\end{definition}
+\begin{lemma}[Coset intersection criterion]
+	\label{lem:coset}
+	With notation as in \cref{def:cosets},
+	\[
+		(y_1,\dots,y_n)\sim_\Delta (x_1,\dots,x_n)
+		\iff
+		\bigcap_{k=1}^n C_k\neq\varnothing.
+	\]
+\end{lemma}
+\begin{proof}
+	By definition,
+	\[
+		(y_1,\dots,y_n)\sim_\Delta (x_1,\dots,x_n)
+	\]
+	if and only if there exists \(a\in G\) such that
+	\[
+		a\cdot x_k=y_k
+		\qquad
+		\text{for all }k.
+	\]
+	Using \(y_k=g_k^{-1}\cdot x_k\), this is equivalent to
+	\[
+		a\cdot x_k=g_k^{-1}\cdot x_k
+		\qquad
+		\text{for all }k.
+	\]
+	Multiplying on the left by \(g_k\) gives
+	\[
+		g_k a\cdot x_k=x_k
+		\qquad
+		\text{for all }k,
+	\]
+	hence
+	\[
+		g_k a\in H_k
+		\qquad
+		\text{for all }k.
+	\]
+	Equivalently,
+	\[
+		a\in H_k g_k^{-1}=C_k
+		\qquad
+		\text{for all }k.
+	\]
+	Thus such an \(a\) exists if and only if
+	\[
+		a\in\bigcap_{k=1}^n C_k.
+	\]
+\end{proof}
+\begin{remark}[Free-action specialization]
+	If each stabilizer \(H_k\) is trivial, then
+	\[
+		C_k=\{g_k^{-1}\},
+	\]
+	and \cref{lem:coset} reduces to the statement that simultaneous diagonal
+	alignment holds if and only if
+	\[
+		g_1=\cdots=g_n.
+	\]
+	Thus in the free regime the multi-point obstruction is exactly the
+	failure of all transport labels to coincide.
+\end{remark}
+% ============================================================
+\section{Minimal detection size}
+% ============================================================
+\begin{definition}[Minimal detection size]
+	With notation as in \cref{def:cosets}, define
+	\[
+		m
+		:=
+		\min
+		\left\{
+		|I|:
+		I\subseteq\{1,\dots,n\},
+		\ \bigcap_{i\in I}C_i=\varnothing
+		\right\},
+	\]
+	with the convention \(m=\infty\) if no such subset exists.
+\end{definition}
+Thus \(m\) is the smallest number of points whose simultaneous diagonal
+alignment fails.
+\begin{remark}[Restriction notation]
+	If \(I=\{i_1,\dots,i_r\}\subseteq\{1,\dots,n\}\), we write
+	\[
+		(x_i)_{i\in I}:=(x_{i_1},\dots,x_{i_r}),
+		\qquad
+		(y_i)_{i\in I}:=(y_{i_1},\dots,y_{i_r}),
+	\]
+	in the induced order on \(I\).
+\end{remark}
+\begin{theorem}[Minimal obstruction theorem]
+	In the local alignment setup, assume \(m<\infty\). Then:
+	\begin{enumerate}
+		\item For every \(I\subseteq\{1,\dots,n\}\) with \(|I|<m\),
+		      \[
+			      (y_i)_{i\in I}\sim_\Delta (x_i)_{i\in I}.
+		      \]
+		\item There exists \(I\subseteq\{1,\dots,n\}\) with \(|I|=m\) such that
+		      \[
+			      (y_i)_{i\in I}\not\sim_\Delta (x_i)_{i\in I}.
+		      \]
+	\end{enumerate}
+	Hence \(m\) is the unique minimal cardinality at which failure of a
+	common diagonal gauge can be detected.
+\end{theorem}
+\begin{proof}
+	Let \(I\subseteq\{1,\dots,n\}\) with \(|I|<m\). By minimality of \(m\),
+	one has
+	\[
+		\bigcap_{i\in I}C_i\neq\varnothing.
+	\]
+	Applying \cref{lem:coset} to the restricted tuples gives
+	\[
+		(y_i)_{i\in I}\sim_\Delta (x_i)_{i\in I}.
+	\]
+	This proves the first statement.
+	By definition of \(m\), there exists \(I\) with \(|I|=m\) and
+	\[
+		\bigcap_{i\in I}C_i=\varnothing.
+	\]
+	Applying \cref{lem:coset} again yields
+	\[
+		(y_i)_{i\in I}\not\sim_\Delta (x_i)_{i\in I}.
+	\]
+	This proves the second statement.
+\end{proof}
+\begin{corollary}[\(m=2\) and \(m=3\) regimes]
+	With notation as in \cref{def:cosets}:
+	\begin{enumerate}
+		\item \(m=2\) if and only if there exist \(i\neq j\) such that
+		      \[
+			      C_i\cap C_j=\varnothing.
+		      \]
+		\item \(m=3\) if and only if every pairwise intersection is nonempty,
+		      but there exist distinct \(i,j,k\) such that
+		      \[
+			      C_i\cap C_j\cap C_k=\varnothing.
+		      \]
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	This is immediate from the definition of \(m\).
+\end{proof}
+% ============================================================
+\section{The triangle regime}
+% ============================================================
+\begin{definition}[Triangle regime]
+	We say that the configuration is in the \emph{triangle regime} if
+	\[
+		m=3.
+	\]
+\end{definition}
+\begin{theorem}[Strict minimality of triangles]
+	\label{thm:triangle}
+	In the local alignment setup, assume the triangle regime. Then there
+	exist distinct indices
+	\(i,j,k\) such that:
+	\begin{enumerate}
+		\item every two-point restriction among \(\{i,j,k\}\) is diagonally
+		      alignable;
+		\item the three-point restriction
+		      \[
+			      (y_i,y_j,y_k)
+		      \]
+		      is not diagonally alignable with
+		      \[
+			      (x_i,x_j,x_k).
+		      \]
+	\end{enumerate}
+	Consequently:
+	\begin{enumerate}
+		\item no two-point coherent observable detects the obstruction;
+		\item some three-point coherent observable does detect it.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	By definition of the triangle regime, there exists a triple
+	\(\{i,j,k\}\) such that
+	\[
+		C_i\cap C_j\cap C_k=\varnothing.
+	\]
+	Again because \(m=3\), every subset of cardinality \(<3\) has nonempty
+	intersection. In particular,
+	\[
+		C_i\cap C_j\neq\varnothing,
+		\qquad
+		C_i\cap C_k\neq\varnothing,
+		\qquad
+		C_j\cap C_k\neq\varnothing.
+	\]
+	By \cref{lem:coset}, each corresponding two-point restriction is
+	diagonally equivalent. This proves the first statement.
+	Applying \cref{lem:coset} to the triple gives
+	\[
+		(y_i,y_j,y_k)\not\sim_\Delta (x_i,x_j,x_k).
+	\]
+	This proves the second statement.
+	The detectability statements follow from \cref{thm:diag-separation}:
+	the two-point restrictions are diagonally equivalent and therefore
+	cannot be separated by any two-point coherent observable, whereas the
+	three-point restriction is not diagonally equivalent and is therefore
+	separated by some three-point coherent observable. The separating
+	three-point observable may be taken to be the orbit projection
+	\[
+		\pi_3:X^3\to X^3/G.
+	\]
+\end{proof}
+\begin{corollary}[Triangle detectability]
+	In the triangle regime, \(n=3\) is strictly minimal for detecting the
+	obstruction to global diagonal alignment.
+\end{corollary}
+\begin{proof}
+	This is just a restatement of \cref{thm:triangle}.
+\end{proof}
+\begin{remark}[Structural meaning of the triangle regime]
+	The significance of the triangle regime is not that every obstruction
+	must already occur at size \(3\). The significance is that \(m=3\) is
+	the first regime in which global incompatibility can persist despite
+	complete pairwise compatibility. Thus triangles are the first
+	nontrivial finite witnesses of genuinely relational transport failure.
+\end{remark}
+% ============================================================
+\section{Transport realization from lifts}
+% ============================================================
+We now connect the coset formalism of
+\cref{def:cosets,lem:coset} directly to the lift and
+transport structure of \cref{ch:lift}, without introducing any
+auxiliary base object or path choice.
+\begin{definition}[Finite transport sample]
+	\label{def:transport-sample}
+	Let
+	\[
+		\overline R:\mathcal I\to\Phys^{\disc}
+	\]
+	be a quotient-level protocol, and let
+	\[
+		T:\mathcal I\to X\sslash G
+	\]
+	be a representative lift.
+	A \emph{finite transport sample} extracted from \(T\) consists of:
+	\begin{enumerate}
+		\item a finite family of objects
+		      \[
+			      i_1,\dots,i_n\in\Obj(\mathcal I),
+		      \]
+		\item representatives
+		      \[
+			      x_k:=T(i_k)\in X
+			      \qquad
+			      (1\le k\le n),
+		      \]
+		\item morphisms in the action groupoid
+		      \[
+			      (g_k,x_k):x_k\to y_k
+			      \qquad
+			      (1\le k\le n),
+		      \]
+		      arising from the transport data carried by \(T\).
+	\end{enumerate}
+	For such a sample, define
+	\[
+		H_k:=\Stab(x_k),
+		\qquad
+		C_k:=H_k g_k^{-1}.
+	\]
+\end{definition}
+\begin{lemma}[Intrinsicity of the induced cosets]
+	\label{lem:intrinsic-cosets}
+	Let a finite transport sample be extracted from a representative lift
+	\(T\). Then the associated cosets
+	\[
+		C_k=H_k g_k^{-1}
+	\]
+	depend only on the transport morphisms of the lift and are unchanged by
+	replacing any chosen transport label \(g_k\) by another label
+	representing the same morphism with the same source \(x_k\).
+	Consequently all intersection properties of the family \(\{C_k\}\) are
+	intrinsic to the lift.
+\end{lemma}
+\begin{proof}
+	Fix \(k\). In the action groupoid, a morphism with source \(x_k\) and
+	target \(y_k\) may be written as
+	\[
+		(g_k,x_k):x_k\to y_k.
+	\]
+	Suppose the same morphism is represented by another group element
+	\(g_k'\in G\) with
+	\[
+		(g_k',x_k):x_k\to y_k.
+	\]
+	Then
+	\[
+		g_k\cdot x_k=y_k=g_k'\cdot x_k,
+	\]
+	hence
+	\[
+		g_k' g_k^{-1}\cdot x_k=x_k.
+	\]
+	Therefore
+	\[
+		g_k' g_k^{-1}\in H_k.
+	\]
+	Write
+	\[
+		g_k'=h_k g_k
+		\qquad
+		\text{for some } h_k\in H_k.
+	\]
+	Then
+	\[
+		H_k (g_k')^{-1}
+		=
+		H_k g_k^{-1} h_k^{-1}
+		=
+		H_k g_k^{-1},
+	\]
+	because \(h_k^{-1}\in H_k\).
+	Thus the coset \(C_k\) is unchanged.
+	Since this holds for each \(k\), all intersections of the family
+	\(\{C_k\}\) are unchanged as well.
+\end{proof}
+\begin{proposition}[Transport induces alignment cosets]
+	Every finite transport sample extracted from a representative lift
+	determines canonically a family of alignment cosets
+	\[
+		C_k=H_k g_k^{-1},
+		\qquad
+		H_k=\Stab(x_k),
+	\]
+	and the associated alignment problem is exactly the intrinsic alignment
+	problem of \cref{lem:coset}.
+\end{proposition}
+\begin{proof}
+	This is immediate from \cref{def:transport-sample},
+	\cref{lem:intrinsic-cosets}, and \cref{lem:coset}.
+\end{proof}
+\begin{corollary}[Triangle obstruction for transport]
+	If the cosets induced by a finite transport sample lie in the triangle
+	regime, then every pair of transported representatives is
+	simultaneously alignable, but some triple is not.
+	Thus the first nontrivial finite obstruction to global transport
+	alignment is triangular.
+\end{corollary}
+\begin{proof}
+	Immediate from \cref{thm:triangle}.
+\end{proof}
+\begin{remark}[Morphism-locus character of the obstruction]
+	The obstruction detected here does not arise from quotient semantics
+	itself. It arises only after representatives have been chosen and
+	transport labels compared across several points. Thus the triangle
+	regime lies strictly in the morphism locus of enrichment, i.e.\
+	strictly beyond the object-level representative data isolated in
+	\cref{cor:two-loci-lift,thm:flat-connection-interpretation}.
+\end{remark}
+% ============================================================
+\section{Interpretation}
+% ============================================================
+The multi-point obstruction studied here is the first place where the
+morphism-locus transport data of \cref{ch:lift} become visible as
+an intrinsically relational phenomenon.
+At one point, quotient semantics forgets all representative dependence.
+At two points, there may or may not already be an obstruction. But in
+the triangle regime, every pair remains compatible while the triple
+fails. This is the first configuration in which pairwise transport
+coherence ceases to imply global coherence.
+The conclusion is exact: the triangle regime is the first regime in
+which compatibility ceases to be controlled by lower-arity data. In that
+sense, triangles are the first irreducible finite carriers of global
+transport incompatibility.
+This is the precise algebraic precursor of the later geometric picture.
+The next chapter globalizes this triangular incompatibility into a
+loop-based descent obstruction, and \cref{ch:bridge} then identifies
+that loop defect and the triangle witness as two presentations of the
+same intrinsic morphism-locus invariant. Under the subsequent
+loop-level globalization of \cref{ch:descent_obstruction} and the
+triangle--loop identification of \cref{ch:bridge}, this same finite
+witness becomes the corresponding relational loop defect. Under smooth
+realization, the infinitesimal form of that loop defect is curvature.
+
+\section{Conclusion}
+\label{sec:triangles-conclusion}
+The finite obstruction boundary is now sharp: the triangle regime is the
+first irreducible configuration in which transport data are pairwise
+compatible yet globally inconsistent. No lower-arity test detects this
+failure.
+
+Accordingly, \cref{ch:descent_obstruction} globalizes this finite
+witness into a loop-representation descent obstruction, and
+\cref{ch:bridge} then identifies the finite triangle witness and loop
+defect as two presentations of the same morphism-level obstruction
+datum.

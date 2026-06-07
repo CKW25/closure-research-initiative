@@ -10,7 +10,7 @@ The Closure Research Initiative is founded on a single primitive premise: intrin
 
 | Code | Title | Status |
 |------|-------|--------|
-| csm | Closed Systems from Comparison Completeness | v2 |
+| csm | Closed Systems from Comparison Completeness | v3 |
 | ccw | Closed Comparison Worlds and the Obstruction to Subsystem Attribution | v1 |
 | cfsg | Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S&sup3; | v1 |
 | scc | Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems | v1 |

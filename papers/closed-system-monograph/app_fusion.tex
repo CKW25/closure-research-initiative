@@ -1,0 +1,1775 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{Nonperturbative Adiabatic Invariants from Closed-System Transport}
+\label{app:fusion}
+% ============================================================
+% ============================================================
+\section{Purpose and logical status}
+\label{sec:fusion-purpose}
+Under the standing principle of closed-world admissibility
+(\cref{sp:closed-world}), this appendix records a downstream
+confinement application of \cref{sp:compactness,sp:transport} through
+the stabilized quadratic scalar channel.
+As the terminal step of the manuscript, it isolates the theorem-level
+intrinsic scalar carried by any confinement system realized as a closed
+comparison world and then separates that scalar from its later
+perturbative and magnetic-confinement readings.
+% ============================================================
+The purpose of this appendix is to present a downstream application
+template for the closed relational stack developed in the main text.
+The chosen downstream model is magnetic confinement.
+The conclusion at theorem level is that, once the transport stack and
+the inherited realized scalar-channel package of
+\cref{thm:interface-stabilized,thm:born,thm:quadratic-scalar} are in
+force, one obtains a scalar
+\[
+	\mathfrak s_{\mathrm{fus}}:U\to\mathbb R
+\]
+which is unique up to nonzero normalization and invariant under the
+intrinsic evolution of the confinement system.
+This appendix is entirely downstream.
+It introduces no new foundational principle, assumes no new dynamical
+axiom locally, and does not reprove the closed-system stack.
+Its role is to show that once the classification, quotient,
+transport, quadratic-carrier, and realized scalar-channel theorems are
+available, the intrinsic scalar
+\[
+	\mathfrak s_{\mathrm{fus}}=Q\circ \kappa
+\]
+follows formally.
+The operative chain is:
+\begin{align*}
+	(U,\mathcal C)
+	 & \Longrightarrow U\cong X_A\times X_B                    \\
+	 & \Longrightarrow \pi:X\to \Phys=X/G                      \\
+	 & \Longrightarrow F^1\supset F^2\supset F^3\supset \cdots \\
+	 & \Longrightarrow \mathcal K_\infty\subset F^2/F^3        \\
+	 & \Longrightarrow Q:\mathcal K_\infty\to\mathbb R       \\
+	 & \Longrightarrow \mathfrak s_{\mathrm{fus}}=Q\circ \kappa .
+\end{align*}
+The point is exact at the level of the intrinsic scalar.
+The quadratic scalar channel isolated in the main text is therefore not
+left as a formal carrier datum.
+In the confinement setting it furnishes a canonical nonperturbative
+transport scalar; later perturbative matching and physical
+interpretation are treated separately below.
+\begin{theorem}[Main appendix theorem]
+	\label{thm:fusion-main-statement}
+	Under the standing principle \cref{sp:closed-world}, let
+	\((U,\mathcal C)\) be the closed comparison world associated to a
+	magnetic confinement system.
+	Assume the structural inputs listed in
+	\cref{sec:fusion-structural-inputs}.
+	Then there exists a scalar-valued function
+	\[
+		\mathfrak s_{\mathrm{fus}}:U\to\mathbb R
+	\]
+	such that:
+	\begin{enumerate}[label=\textup{(\alph*)}]
+		\item
+		      \(\mathfrak s_{\mathrm{fus}}\) is preserved by every intrinsic evolution
+		      \[
+			      \Phi_t\in \Aut(U,\mathcal C),
+		      \]
+		      that is,
+		      \[
+			      \mathfrak s_{\mathrm{fus}}(\Phi_t(u))=\mathfrak s_{\mathrm{fus}}(u)
+			      \qquad
+			      \text{for all }u\in U,\ t;
+		      \]
+		\item
+		      \(\mathfrak s_{\mathrm{fus}}\) is unique up to multiplication by a nonzero real scalar.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Existence is proved in \cref{thm:fusion-existence}, invariance under
+	intrinsic evolution in \cref{thm:fusion-invariance}, and uniqueness up
+	to nonzero scaling in \cref{thm:fusion-unique}.
+	Combining these three statements yields items
+	\textup{(a)}--\textup{(b)}.
+\end{proof}
+% ============================================================
+\section{Structural inputs from the main text}
+\label{sec:fusion-structural-inputs}
+% ============================================================
+The appendix uses the transport/carrier results already
+established in the main text together with the realized scalar-channel
+package already isolated there.
+No new primitive axiom is introduced locally.
+The required inputs are:
+\begin{enumerate}[label=\textup{(\roman*)}]
+	\item
+	      the closed-world quotient backbone and structural completion of
+	      admissible state content
+	      \(\bigl(\cref{thm:part1-structural-completion}\bigr)\);
+	\item
+	      the lift and transport-obstruction architecture, including the
+	      canonical morphism-locus carrier and its first visible quadratic
+	      layer
+	      \(\bigl(\cref{thm:lift-classification-main,thm:triangle-degree2}\bigr)\);
+	\item
+	      stabilization of the intrinsic obstruction channel and its
+	      realization interface
+	      \(\bigl(\cref{thm:interface-stabilized}\bigr)\);
+	\item
+	      existence and one-dimensional rigidity of the scalar channel on the
+	      realized degree--\(2\) channel attached to the stabilized
+	      quadratic carrier, together with its probabilistic Born
+	      normalization under the inherited second-jet interface
+	      hypothesis
+	      \(\bigl(\cref{thm:quadratic-scalar,thm:born}\bigr)\).
+\end{enumerate}
+These inputs are exactly the data propagated in the remainder of the
+appendix to produce the intrinsic confinement scalar
+\(\mathfrak s_{\mathrm{fus}}=Q\circ\kappa\).
+Any perturbative identification or magnetic-confinement reading is kept
+as a downstream interpretation layer on top of that scalar.
+% ============================================================
+\section{Transport filtration and the universal quadratic quotient}
+\label{sec:fusion-universal}
+% ============================================================
+Let
+\[
+	N:=\Ker\!\bigl(\Aut(U,\mathcal C)\to \Aut(X_A)\times\Aut(X_B)\bigr),
+	\qquad
+	F^1:=N,
+	\qquad
+	F^{m+1}:=[F^1,F^m].
+\]
+\begin{definition}[Visible degree--\(1\) transport module]
+	\[
+		V:=F^1/F^2.
+	\]
+\end{definition}
+% ------------------------------------------------------------
+\subsection*{Commutator structure of the transport filtration}
+% ------------------------------------------------------------
+\begin{lemma}
+	\label{lem:fusion-commutator}
+	For all integers \(i,j\ge 1\),
+	\[
+		[F^i,F^j]\subseteq F^{i+j}.
+	\]
+	In particular, each quotient \(F^m/F^{m+1}\) is abelian.
+\end{lemma}
+\begin{proof}
+	We proceed in a sequence of logically independent steps.
+	\medskip
+	\noindent
+	\textbf{Step 1: Reduction to a universal group-theoretic statement.}
+	The filtration is defined inductively by
+	\[
+		F^{m+1}=[F^1,F^m].
+	\]
+	Thus \(F^\bullet\) is the lower central series of the group \(F^1\).
+	It suffices to prove that for any group \(G\) with lower central series
+	\[
+		\gamma_1(G)=G,\qquad \gamma_{m+1}(G)=[G,\gamma_m(G)],
+	\]
+	one has
+	\[
+		[\gamma_i(G),\gamma_j(G)]\subseteq \gamma_{i+j}(G).
+	\]
+	We therefore prove the statement in this generality.
+	\medskip
+	\noindent
+	\textbf{Step 2: Induction scheme.}
+	Define
+	\[
+		P(n):\quad
+		[\gamma_i(G),\gamma_j(G)]\subseteq \gamma_{i+j}(G)
+		\quad\text{for all }i+j\le n.
+	\]
+	We prove \(P(n)\) for all \(n\ge2\) by induction.
+	\medskip
+	\noindent
+	\textbf{Step 3: Base case.}
+	For \(n=2\), the only possibility is \(i=j=1\).
+	Then
+	\[
+		[\gamma_1(G),\gamma_1(G)]
+		=
+		[G,G]
+		=
+		\gamma_2(G),
+	\]
+	so the statement holds.
+	\medskip
+	\noindent
+	\textbf{Step 4: Inductive step.}
+	Assume \(P(n-1)\).
+	Let \(i+j=n\).
+	Without loss of generality, assume \(i\ge2\).
+	Then
+	\[
+		\gamma_i(G)=[G,\gamma_{i-1}(G)].
+	\]
+	Thus
+	\[
+		[\gamma_i(G),\gamma_j(G)]
+		=
+		[[G,\gamma_{i-1}(G)],\gamma_j(G)].
+	\]
+	We now invoke the Hall–Witt identity (three-subgroup identity):
+	for subgroups \(A,B,C\),
+	\[
+		[[A,B],C]\subseteq [A,[B,C]]\cdot [B,[A,C]].
+	\]
+	Apply with
+	\[
+		A=G,\quad B=\gamma_{i-1}(G),\quad C=\gamma_j(G).
+	\]
+	Then
+	\[
+		[\gamma_i(G),\gamma_j(G)]
+		\subseteq
+		[G,[\gamma_{i-1},\gamma_j]]
+		\cdot
+		[\gamma_{i-1},[G,\gamma_j]].
+	\]
+	By the induction hypothesis,
+	\[
+		[\gamma_{i-1},\gamma_j]\subseteq \gamma_{i+j-1}(G),
+	\]
+	and by definition,
+	\[
+		[G,\gamma_j]=\gamma_{j+1}(G).
+	\]
+	Therefore,
+	\[
+		[G,[\gamma_{i-1},\gamma_j]]
+		\subseteq
+		[G,\gamma_{i+j-1}]
+		=
+		\gamma_{i+j}(G),
+	\]
+	and
+	\[
+		[\gamma_{i-1},[G,\gamma_j]]
+		=
+		[\gamma_{i-1},\gamma_{j+1}]
+		\subseteq
+		\gamma_{(i-1)+(j+1)}(G)
+		=
+		\gamma_{i+j}(G).
+	\]
+	Thus
+	\[
+		[\gamma_i(G),\gamma_j(G)]
+		\subseteq
+		\gamma_{i+j}(G).
+	\]
+	\medskip
+	\noindent
+	\textbf{Step 5: Abelianity of graded quotients.}
+	Taking \(i=j=m\),
+	\[
+		[\gamma_m(G),\gamma_m(G)]\subseteq \gamma_{2m}(G).
+	\]
+	Since \(2m\ge m+1\),
+	\[
+		\gamma_{2m}(G)\subseteq \gamma_{m+1}(G),
+	\]
+	hence
+	\[
+		[\gamma_m(G),\gamma_m(G)]\subseteq \gamma_{m+1}(G).
+	\]
+	Therefore the quotient
+	\[
+		\gamma_m(G)/\gamma_{m+1}(G)
+	\]
+	is abelian.
+	\medskip
+	\noindent
+	\textbf{Step 6: Specialization.}
+	Applying this to \(G=F^1\), we obtain
+	\[
+		[F^i,F^j]\subseteq F^{i+j},
+	\]
+	as required.
+\end{proof}
+% ------------------------------------------------------------
+\subsection*{Universal quadratic quotient}
+% ------------------------------------------------------------
+\begin{theorem}[Universal quadratic quotient]
+	There exists a canonical surjective homomorphism
+	\[
+		q_{\wedge}:\Lambda^2(V)\twoheadrightarrow F^2/F^3
+	\]
+	characterized by
+	\[
+		q_{\wedge}(\bar x\wedge \bar y)=[x,y]\bmod F^3.
+	\]
+\end{theorem}
+\begin{proof}
+	We divide the proof into five logically independent parts.
+	\medskip
+	\noindent
+	\textbf{Step 1: Definition of the pairing.}
+	Let \(\bar x,\bar y\in V=F^1/F^2\).
+	Choose representatives \(x,y\in F^1\).
+	Define
+	\[
+		\beta(\bar x,\bar y):=[x,y]\bmod F^3.
+	\]
+	We must show that \(\beta\) is:
+	\begin{enumerate}
+		\item well defined;
+		\item bilinear;
+		\item alternating;
+		\item universal;
+		\item surjective.
+	\end{enumerate}
+	\medskip
+	\noindent
+	\textbf{Step 2: Independence of representatives.}
+	Suppose
+	\[
+		x'=xf,\quad y'=yg,
+		\quad f,g\in F^2.
+	\]
+	We compute
+	\[
+		[x',y']=[xf,yg].
+	\]
+	Using the standard commutator expansion
+	(valid in any group),
+	\[
+		[ab,cd]
+		=
+		[a,d]\cdot[a,c]^d\cdot[b,d]^c\cdot[b,c],
+	\]
+	and simplifying modulo \(F^3\), we obtain the classical reduction:
+	\[
+		[xf,yg]
+		=
+		[x,y]\cdot[x,g]\cdot[f,y]\cdot[f,g]
+		\quad \mod F^3.
+	\]
+	Now:
+	- \([x,g]\in [F^1,F^2]=F^3\),
+	- \([f,y]\in [F^2,F^1]=F^3\),
+	- \([f,g]\in [F^2,F^2]\subseteq F^4\subseteq F^3\).
+	Hence
+	\[
+		[xf,yg]\equiv [x,y]\pmod{F^3}.
+	\]
+	Thus \(\beta\) is well defined.
+	\medskip
+	\noindent
+	\textbf{Step 3: Bilinearity.}
+	Let \(\bar x,\bar x',\bar y\in V\), with lifts \(x,x',y\in F^1\).
+	We compute:
+	\[
+		[xx',y]
+		=
+		[x,y]\cdot[x,y,x']\cdot[x',y],
+	\]
+	where
+	\[
+		[x,y,x']:=([[x,y],x']).
+	\]
+	Since \([x,y]\in F^2\),
+	\[
+		[x,y,x']\in [F^2,F^1]=F^3.
+	\]
+	Thus modulo \(F^3\),
+	\[
+		[xx',y]\equiv [x,y]\cdot[x',y].
+	\]
+	Passing to the quotient \(F^2/F^3\), multiplication becomes addition, hence
+	\[
+		\beta(\bar x+\bar x',\bar y)
+		=
+		\beta(\bar x,\bar y)+\beta(\bar x',\bar y).
+	\]
+	The same argument applies in the second variable.
+	\medskip
+	\noindent
+	\textbf{Step 4: Alternation.}
+	We have
+	\[
+		[x,x]=e \Rightarrow \beta(\bar x,\bar x)=0.
+	\]
+	Also
+	\[
+		[y,x]=[x,y]^{-1},
+	\]
+	which corresponds to negation in the abelian group \(F^2/F^3\).
+	Thus \(\beta\) is alternating.
+	\medskip
+	\noindent
+	\textbf{Step 5: Factorization.}
+	By the universal property of the exterior square,
+	every alternating bilinear map
+	\[
+		V\times V \to F^2/F^3
+	\]
+	factors uniquely through
+	\[
+		\Lambda^2(V).
+	\]
+	Thus there exists a unique homomorphism
+	\[
+		q_{\wedge}:\Lambda^2(V)\to F^2/F^3
+	\]
+	with
+	\[
+		q_{\wedge}(\bar x\wedge \bar y)=\beta(\bar x,\bar y).
+	\]
+	\medskip
+	\noindent
+	\textbf{Step 6: Surjectivity.}
+	By definition,
+	\[
+		F^2=[F^1,F^1].
+	\]
+	Thus every element of \(F^2\) is a finite product of commutators:
+	\[
+		z=\prod_i [x_i,y_i].
+	\]
+	Passing to \(F^2/F^3\), the group becomes abelian, so
+	\[
+		z\equiv \sum_i [x_i,y_i].
+	\]
+	Hence every element lies in the image of \(q_{\wedge}\).
+	\medskip
+	\noindent
+	\textbf{Conclusion.}
+	Therefore \(q_{\wedge}\) is a well-defined surjective homomorphism.
+\end{proof}
+% ------------------------------------------------------------
+\begin{definition}[Quadratic relation subgroup]
+	Define
+	\[
+		R_2:=\Ker(q_{\wedge})\subseteq \Lambda^2(V).
+	\]
+	Then there is an exact sequence
+	\[
+		0\longrightarrow R_2
+		\longrightarrow \Lambda^2(V)
+		\xrightarrow{q_{\wedge}}
+		F^2/F^3
+		\longrightarrow 0.
+	\]
+\end{definition}
+\begin{remark}
+	This identifies the universal degree--\(2\) commutator object.
+	The invariant theorem does not require solving the full relation problem
+	on \(\Lambda^2(V)\).
+	By \cref{thm:kernel-annihilation-upstream}, every admissible degree--\(2\)
+	scalarization already vanishes on \(R_2\), and therefore factors uniquely
+	through the quadratic carrier. Thus the scalar theory of the appendix is
+	intrinsic to the quadratic carrier \(F^2/F^3\) and not to any choice of universal lift.
+\end{remark}
+% ============================================================
+\section{The stabilized quadratic carrier and its realized scalar channel}
+\label{sec:fusion-K}
+% ============================================================
+\Cref{sec:fusion-universal} constructs the universal degree--\(2\)
+quotient.
+We now pass to the stabilized carrier that actually controls the
+invariant.
+\begin{proposition}
+	The compatible degree--\(2\) transport defects define the stabilized
+	quadratic carrier
+	\[
+		K=\mathcal K_\infty
+	\]
+	of \cref{thm:interface-stabilized}.
+\end{proposition}
+\begin{proof}
+	We make explicit the logical content of the cited theorem in the notation
+	of the present appendix.
+	By construction, the transport package of the main text assigns to each
+	finite stage of the refinement tower a degree--\(2\) carrier
+	\[
+		\mathcal K_k
+		\subseteq
+		F^2K_{p_k}^{(k)}/F^3K_{p_k}^{(k)}
+	\]
+	generated by the quadratic square classes arising from the intrinsic
+	transport defect at that stage.
+	The refinement morphisms induce compatible transition maps
+	\[
+		\mathcal K_{k+1}\longrightarrow \mathcal K_k
+	\]
+	because the defect construction commutes with refinement; this is the
+	content of the compatibility statements proved upstream and assembled in
+	\cref{thm:interface-stabilized}.
+	A compatible family
+	\[
+		(\xi_k)_k,\qquad \xi_k\in \mathcal K_k,
+	\]
+	is by definition an element of the inverse limit
+	\[
+		\varprojlim_k \mathcal K_k.
+	\]
+	Conversely, every element of the inverse limit is, by definition, such a
+	compatible family. The cited theorem identifies this inverse-limit object
+	as the stabilized degree--\(2\) transport carrier and denotes it by
+	\[
+		\mathcal K_\infty.
+	\]
+	Therefore the stabilized carrier relevant for the present appendix is
+	precisely
+	\[
+		K:=\mathcal K_\infty.
+	\]
+	No additional structure is introduced here; the proposition is exactly
+	the translation of \cref{thm:interface-stabilized} into the present
+	notation.
+\end{proof}
+\begin{proposition}
+	\label{prop:fusion-curvature}
+	Under the inherited second-jet faithfulness condition and compatible
+	smooth realization, nonzero stabilized square classes in the
+	stabilized quadratic carrier are equivalent to nonzero realized
+	curvature on the realized degree--\(2\) channel.
+\end{proposition}
+\begin{proof}
+	The statement has two parts: first, the passage from intrinsic quadratic
+	transport defect to the stabilized carrier; second, the realized
+	interface criterion carried by compatible smooth realization.
+	By \cref{thm:interface-curvature}, if
+	\[
+		\mathcal A_{ij}(p_\infty)\in \mathcal K_\infty
+	\]
+	denotes the stabilized quadratic square class determined by the
+	\((i,j)\)-transport square at the inverse-limit basepoint \(p_\infty\),
+	then under the second-jet comparison map
+	\[
+		\Jtwo:\mathcal K_\infty\to \End(V),
+		\qquad
+		V:=T_{\iota(p_\infty)}M,
+	\]
+	nonzero stabilized square classes are equivalent to nonzero realized
+	curvature on the realized degree--\(2\) channel.
+	By \cref{thm:connection-smooth-realization}, the same compatible smooth
+	realization supplies the realized affine-connection and metric branch on
+	which this curvature is read.  Thus the appendix inherits the repaired
+	main-text interface exactly: the stabilized quadratic carrier feeds the
+	confinement application through the inherited second-jet criterion
+	relating its nonzero stabilized square classes to nonzero realized
+	curvature, not through a direct whole-carrier curvature identity.
+\end{proof}
+\begin{proposition}[Realized scalar channel on the stabilized carrier]
+	\label{prop:fusion-scalar}
+	Under smooth realization and the inherited second-jet interface
+	hypothesis, the stabilized quadratic carrier admits a nonzero scalar
+	channel
+	\[
+		Q:K\to\mathbb R
+	\]
+	read from the realized degree--\(2\) channel attached to that carrier,
+	unique up to multiplication by a nonzero real scalar.
+\end{proposition}
+\begin{proof}
+	By \cref{prop:fusion-curvature}, under smooth realization and the
+	inherited second-jet faithfulness condition, the stabilized quadratic
+	carrier
+	\[
+		K=\mathcal K_\infty
+	\]
+	is read through the realized curvature carrier. The scalarization
+	problem used in this appendix is therefore exactly the scalarization
+	problem on the realized degree--\(2\) channel addressed in the main text.
+	Now \cref{lem:K-scalar-unique,lem:branch-weight-1d} state that the space
+	of admissible scalarizations of that realized degree--\(2\) channel is
+	one-dimensional. Concretely, this means that if
+	\[
+		W_1,W_2:K\to\mathbb R
+	\]
+	are admissible scalarizations, then there exists
+	\[
+		c\in\mathbb R
+	\]
+	such that
+	\[
+		W_1=c\,W_2.
+	\]
+	In particular, the scalarization space is nonzero, so there exists at
+	least one nontrivial scalarization. Fix any such nonzero scalarization
+	and denote it by
+	\[
+		Q:K\to\mathbb R.
+	\]
+	If \(W:K\to\mathbb R\) is any other admissible scalarization, then the
+	one-dimensionality assertion implies that there exists
+	\[
+		c\in\mathbb R
+	\]
+	with
+	\[
+		W=cQ.
+	\]
+	If \(W\neq 0\), then necessarily \(c\neq 0\). Hence every nonzero
+	admissible scalarization is a nonzero scalar multiple of \(Q\).
+	This is the scalar channel used in the remainder of the appendix.
+\end{proof}
+% ------------------------------------------------------------
+% ------------------------------------------------------------
+\subsection*{Canonical quadratic defect section}
+% ------------------------------------------------------------
+The construction of the confinement invariant uses a canonical map
+\[
+	\kappa:U\to K
+\]
+from the state space to the stabilized quadratic carrier.
+To make the downstream scalarization completely rigid, we isolate the
+construction in three stages:
+existence, basepoint-independence, and functorial uniqueness.
+\begin{theorem}[Canonical quadratic defect section]
+	\label{thm:fusion-kappa}
+	Under the standing principle \cref{sp:closed-world}, let
+	\((U,\mathcal C)\) be a closed comparison world, let
+	\[
+		G:=\Aut(U,\mathcal C),
+	\]
+	and let
+	\[
+		K=\mathcal K_\infty
+	\]
+	be the stabilized quadratic transport carrier obtained from the
+	refinement-compatible degree--\(2\) transport system of
+	\cref{ch:interface}.
+	In the local witness-selection setup, assume that for each state
+	\(u\in U\), the refinement tower admits a
+	compatible family of local transport witnesses centered at \(u\), so
+	that at each finite stage \(k\) one has a local witness network
+	\[
+		\mathcal N_k(u)=(V_k(u),E_k(u)),
+	\]
+	a chosen admissible basepoint
+	\[
+		p_k(u)\in V_k(u),
+	\]
+	and associated quadratic square classes
+	\[
+		\mathcal A_{ij}^{(k)}(p_k(u))
+		\in
+		F^2K_{p_k(u)}^{(k)}/F^3K_{p_k(u)}^{(k)}.
+	\]
+	Assume moreover that these classes are compatible under the refinement
+	bonding maps.
+	Then the family
+	\[
+		\bigl(\mathcal A_{ij}^{(k)}(p_k(u))\bigr)_k
+	\]
+	defines a canonical element
+	\[
+		\kappa(u)\in K.
+	\]
+	Hence there exists a canonical map
+	\[
+		\kappa:U\to K,
+		\qquad
+		u\longmapsto \kappa(u),
+	\]
+	called the quadratic defect section.
+	Furthermore, for every
+	\[
+		g\in G
+		\qquad\text{and}\qquad
+		u\in U,
+	\]
+	one has
+	\[
+		\kappa(g\cdot u)=g_*\kappa(u),
+	\]
+	where
+	\[
+		g_*:K\to K
+	\]
+	is the induced automorphism of the stabilized quadratic carrier.
+\end{theorem}
+\begin{proof}
+	We divide the argument into six steps.
+	\medskip
+	\noindent
+	\textbf{Step 1: Finite-stage quadratic defect classes attached to a state.}
+	Fix
+	\[
+		u\in U.
+	\]
+	By hypothesis, at each refinement stage \(k\), the state \(u\) determines
+	a local transport witness system with basepoint
+	\[
+		p_k(u)\in V_k(u),
+	\]
+	and therefore a based defect homomorphism
+	\[
+		\delta_{p_k(u)}^{(k)}:
+		\Omega_{p_k(u)}(\mathcal N_k(u))\to K_{p_k(u)}^{(k)}.
+	\]
+	For each ordered pair of local transport directions \((i,j)\), let
+	\[
+		\square_{ij}:=e_ie_je_i^{-1}e_j^{-1}
+	\]
+	be the corresponding commutator square loop based at \(p_k(u)\).
+	By the quadratic cancellation result upstream, the defect element
+	\[
+		\delta_{p_k(u)}^{(k)}(\square_{ij})
+	\]
+	lies in
+	\[
+		F^2K_{p_k(u)}^{(k)}.
+	\]
+	Its class modulo \(F^3\) is therefore well defined:
+	\[
+		\mathcal A_{ij}^{(k)}(p_k(u))
+		:=
+		\bigl[\delta_{p_k(u)}^{(k)}(\square_{ij})\bigr]
+		\in
+		F^2K_{p_k(u)}^{(k)}/F^3K_{p_k(u)}^{(k)}.
+	\]
+	Thus each state \(u\) determines, stage by stage, a family of
+	finite-stage quadratic transport defect classes.
+	\medskip
+	\noindent
+	\textbf{Step 2: Compatibility under refinement.}
+	Let
+	\[
+		R_{k+1,k}^{\Omega}:
+		\Omega_{p_{k+1}(u)}(\mathcal N_{k+1}(u))
+		\to
+		\Omega_{p_k(u)}(\mathcal N_k(u))
+	\]
+	and
+	\[
+		Q_{k+1,k}^{K}:
+		K_{p_{k+1}(u)}^{(k+1)}
+		\to
+		K_{p_k(u)}^{(k)}
+	\]
+	be the bonding maps supplied by refinement compatibility.
+	By the compatibility identity for defect maps,
+	\[
+		Q_{k+1,k}^{K}\circ \delta_{p_{k+1}(u)}^{(k+1)}
+		=
+		\delta_{p_k(u)}^{(k)}\circ R_{k+1,k}^{\Omega},
+	\]
+	the defect of the commutator square at stage \(k+1\) maps to the defect
+	of the corresponding commutator square at stage \(k\).
+	Passing to the quadratic quotient yields
+	\[
+		Q_{k+1,k}^{(2)}
+		\bigl(\mathcal A_{ij}^{(k+1)}(p_{k+1}(u))\bigr)
+		=
+		\mathcal A_{ij}^{(k)}(p_k(u)),
+	\]
+	where
+	\[
+		Q_{k+1,k}^{(2)}:
+		F^2K_{p_{k+1}(u)}^{(k+1)}/F^3K_{p_{k+1}(u)}^{(k+1)}
+		\to
+		F^2K_{p_k(u)}^{(k)}/F^3K_{p_k(u)}^{(k)}
+	\]
+	is the induced degree--\(2\) bonding morphism.
+	Therefore
+	\[
+		\bigl(\mathcal A_{ij}^{(k)}(p_k(u))\bigr)_k
+	\]
+	is a compatible family in the inverse system defining the stabilized
+	carrier.
+	\medskip
+	\noindent
+	\textbf{Step 3: Passage to the inverse limit.}
+	By definition,
+	\[
+		K=\mathcal K_\infty=\varprojlim_k \mathcal K_k.
+	\]
+	Hence every compatible family of finite-stage quadratic classes defines a
+	unique element of \(K\).
+	Applying this to the family attached to \(u\), we obtain an element
+	\[
+		\kappa(u)\in K.
+	\]
+	This constructs a map
+	\[
+		\kappa:U\to K,
+		\qquad
+		u\mapsto \kappa(u).
+	\]
+	At this stage the map is defined relative to the chosen basepoint system
+	\((p_k(u))_k\). The next theorem removes that dependence.
+	\medskip
+	\noindent
+	\textbf{Step 4: Finite-stage equivariance under intrinsic automorphisms.}
+	Let
+	\[
+		g\in G=\Aut(U,\mathcal C).
+	\]
+	Because \(g\) preserves the comparison world, it preserves the induced
+	transport structure. In particular, for each \(k\), it carries local
+	witness systems at \(u\) to local witness systems at \(g\cdot u\), sends
+	commutator squares to commutator squares, and induces an isomorphism
+	\[
+		g_*^{(k)}:
+		F^2K_{p_k(u)}^{(k)}/F^3K_{p_k(u)}^{(k)}
+		\to
+		F^2K_{p_k(g\cdot u)}^{(k)}/F^3K_{p_k(g\cdot u)}^{(k)}
+	\]
+	satisfying
+	\[
+		g_*^{(k)}
+		\bigl(\mathcal A_{ij}^{(k)}(p_k(u))\bigr)
+		=
+		\mathcal A_{ij}^{(k)}(p_k(g\cdot u)).
+	\]
+	Since the family \((g_*^{(k)})_k\) is compatible with refinement, it
+	assembles into an induced automorphism
+	\[
+		g_*:K\to K.
+	\]
+	\medskip
+	\noindent
+	\textbf{Step 5: Naturality.}
+	The \(k\)-th component of \(\kappa(u)\) is
+	\[
+		\mathcal A_{ij}^{(k)}(p_k(u)).
+	\]
+	Applying \(g_*\) to \(\kappa(u)\) acts componentwise by \(g_*^{(k)}\), so
+	the \(k\)-th component of \(g_*\kappa(u)\) is
+	\[
+		g_*^{(k)}
+		\bigl(\mathcal A_{ij}^{(k)}(p_k(u))\bigr)
+		=
+		\mathcal A_{ij}^{(k)}(p_k(g\cdot u)).
+	\]
+	But this is exactly the \(k\)-th component of \(\kappa(g\cdot u)\).
+	Since equality in an inverse limit is equivalent to equality of all
+	finite-stage components, it follows that
+	\[
+		\kappa(g\cdot u)=g_*\kappa(u).
+	\]
+	\medskip
+	\noindent
+	\textbf{Step 6: Conclusion.}
+	Thus the map
+	\[
+		\kappa:U\to K
+	\]
+	is canonically defined from compatible quadratic defect classes and is
+	natural under the intrinsic symmetry action.
+\end{proof}
+\begin{theorem}[Basepoint-independence of the quadratic defect section]
+	Let the hypotheses of \cref{thm:fusion-kappa} hold.
+	Fix a state
+	\[
+		u\in U.
+	\]
+	At each finite refinement stage \(k\), let
+	\[
+		p_k,\;p_k'\in V_k(u)
+	\]
+	be two admissible basepoints representing the same state \(u\), and let
+	\[
+		\gamma_k:p_k\to p_k'
+	\]
+	be an admissible transport path between them.
+	Let
+	\[
+		\mathcal A_{ij}^{(k)}(p_k),
+		\qquad
+		\mathcal A_{ij}^{(k)}(p_k')
+	\]
+	be the quadratic defect classes computed using these two basepoints.
+	Then
+	\[
+		\mathcal A_{ij}^{(k)}(p_k')
+		=
+		\mathcal A_{ij}^{(k)}(p_k)
+		\quad\text{in}\quad
+		F^2K^{(k)}/F^3K^{(k)}.
+	\]
+	Consequently, the element
+	\[
+		\kappa(u)\in K
+	\]
+	is independent of the choice of basepoint representatives.
+\end{theorem}
+\begin{proof}
+	We prove the theorem in four steps.
+	\medskip
+	\noindent
+	\textbf{Step 1: Conjugation identifies based loop groups.}
+	Fix a stage \(k\).
+	Let
+	\[
+		\gamma_k:p_k\to p_k'
+	\]
+	be an admissible transport path.
+	Then conjugation by \(\gamma_k\) identifies the based loop groups:
+	\[
+		\Omega_{p_k}(\mathcal N_k(u))
+		\longrightarrow
+		\Omega_{p_k'}(\mathcal N_k(u)),
+		\qquad
+		\ell\longmapsto \gamma_k\,\ell\,\gamma_k^{-1}.
+	\]
+	Under the transport functor, this induces conjugation on the isotropy
+	group:
+	\[
+		\delta_{p_k'}^{(k)}(\gamma_k\ell\gamma_k^{-1})
+		=
+		\delta_{\gamma_k}^{(k)}\,
+		\delta_{p_k}^{(k)}(\ell)\,
+		\delta_{\gamma_k}^{(k)\,-1},
+	\]
+	where
+	\[
+		\delta_{\gamma_k}^{(k)}\in K^{(k)}
+	\]
+	denotes the transport element associated to \(\gamma_k\).
+	\medskip
+	\noindent
+	\textbf{Step 2: The two commutator-square defects are conjugate.}
+	Let
+	\[
+		\square_{ij}:=e_ie_je_i^{-1}e_j^{-1}
+	\]
+	be the commutator square based at \(p_k\), and let
+	\[
+		\square_{ij}':=\gamma_k\,\square_{ij}\,\gamma_k^{-1}
+	\]
+	be the corresponding square at \(p_k'\).
+	Then
+	\[
+		\delta_{p_k'}^{(k)}(\square_{ij}')
+		=
+		\delta_{\gamma_k}^{(k)}\,
+		\delta_{p_k}^{(k)}(\square_{ij})\,
+		\delta_{\gamma_k}^{(k)\,-1}.
+	\]
+	Set
+	\[
+		x:=\delta_{p_k}^{(k)}(\square_{ij})\in F^2K^{(k)},
+		\qquad
+		g:=\delta_{\gamma_k}^{(k)}\in F^1K^{(k)}.
+	\]
+	Then the two representatives are related by
+	\[
+		\delta_{p_k'}^{(k)}(\square_{ij}')=gxg^{-1}.
+	\]
+	\medskip
+	\noindent
+	\textbf{Step 3: Conjugation is trivial modulo \(F^3\) on \(F^2\).}
+	Using the identity
+	\[
+		gxg^{-1}=x[g,x],
+	\]
+	we reduce the difference between \(gxg^{-1}\) and \(x\) to the
+	commutator term \([g,x]\).
+	Since
+	\[
+		g\in F^1,\qquad x\in F^2,
+	\]
+	\cref{lem:fusion-commutator} yields
+	\[
+		[g,x]\in [F^1,F^2]\subseteq F^3.
+	\]
+	Hence
+	\[
+		gxg^{-1}=x\cdot z
+		\qquad
+		\text{for some }z\in F^3.
+	\]
+	Therefore
+	\[
+		gxg^{-1}\equiv x\pmod{F^3}.
+	\]
+	It follows that
+	\[
+		\bigl[\delta_{p_k'}^{(k)}(\square_{ij}')\bigr]
+		=
+		\bigl[\delta_{p_k}^{(k)}(\square_{ij})\bigr]
+		\quad\text{in}\quad
+		F^2K^{(k)}/F^3K^{(k)}.
+	\]
+	Equivalently,
+	\[
+		\mathcal A_{ij}^{(k)}(p_k')
+		=
+		\mathcal A_{ij}^{(k)}(p_k).
+	\]
+	\medskip
+	\noindent
+	\textbf{Step 4: Passage to the inverse limit.}
+	Since the equality above holds for every finite stage \(k\), the two
+	compatible families obtained from the two basepoint systems coincide in
+	every component. Hence they define the same element of the inverse limit
+	\[
+		K=\varprojlim_k \mathcal K_k.
+	\]
+	Therefore the stabilized defect class
+	\[
+		\kappa(u)\in K
+	\]
+	is independent of the choice of admissible basepoint representatives.
+\end{proof}
+\begin{theorem}[Functorial uniqueness of the quadratic defect section]
+	Let the hypotheses of \cref{thm:fusion-kappa} hold, and let
+	\[
+		\kappa:U\to K
+	\]
+	be the canonical quadratic defect section just constructed.
+	Suppose
+	\[
+		\sigma:U\to K
+	\]
+	is another map satisfying the following properties:
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item
+		      for every
+		      \[
+			      g\in G=\Aut(U,\mathcal C)
+			      \qquad\text{and}\qquad
+			      u\in U,
+		      \]
+		      one has
+		      \[
+			      \sigma(g\cdot u)=g_*\sigma(u);
+		      \]
+		\item
+		      for each
+		      \[
+			      u\in U,
+		      \]
+		      the value \(\sigma(u)\) depends only on the first visible quadratic
+		      transport defect class of \(u\), i.e. only on the corresponding element
+		      of the stabilized carrier \(K\);
+		\item
+		      on primitive quadratic square witnesses, \(\sigma\) agrees with the
+		      finite-stage defect assignment used to define \(\kappa\).
+	\end{enumerate}
+	Then
+	\[
+		\sigma=\kappa.
+	\]
+	That is, \(\kappa\) is the unique natural quadratic defect assignment
+	compatible with transport, filtration, and primitive quadratic
+	normalization.
+\end{theorem}
+\begin{proof}
+	We prove equality pointwise.
+	Fix
+	\[
+		u\in U.
+	\]
+	By \cref{thm:fusion-kappa}, the element
+	\[
+		\kappa(u)\in K
+	\]
+	is represented by a compatible family of finite-stage quadratic square
+	classes
+	\[
+		\bigl(\mathcal A_{ij}^{(k)}(p_k(u))\bigr)_k.
+	\]
+	By construction of the stabilized carrier, \(K\) is generated by the
+	stabilized images of such primitive quadratic square classes.
+	Now consider
+	\[
+		\sigma(u)\in K.
+	\]
+	Property \textup{(ii)} says that \(\sigma(u)\) depends only on the first
+	visible quadratic transport defect class of \(u\). But this class is
+	exactly the stabilized class represented by the same compatible family
+	used to define \(\kappa(u)\). Thus \(\sigma(u)\) cannot depend on any
+	additional structure beyond the element of \(K\) already encoded by
+	\(\kappa(u)\).
+	Property \textup{(iii)} fixes the normalization of \(\sigma\) on the
+	primitive quadratic generators: on every primitive quadratic square
+	witness, \(\sigma\) agrees with the defining assignment for \(\kappa\).
+	Since the stabilized carrier \(K\) is generated by these primitive
+	quadratic classes, and since \(\sigma\) and \(\kappa\) agree on those
+	generators while depending only on the resulting stabilized quadratic
+	class, it follows that
+	\[
+		\sigma(u)=\kappa(u).
+	\]
+	Because \(u\in U\) was arbitrary, we conclude that
+	\[
+		\sigma=\kappa.
+	\]
+	This proves uniqueness.
+\end{proof}
+% ============================================================
+\section{Construction of the invariant}
+\label{sec:fusion-construction}
+% ============================================================
+We now construct the confinement invariant itself.
+\begin{definition}[Quadratic defect section]
+	Let
+	\[
+		\kappa:U\to K
+	\]
+	be the canonical degree--\(2\) defect section of
+	\cref{thm:fusion-kappa}.
+\end{definition}
+\begin{definition}[The confinement invariant]
+	Define
+	\[
+		\mathfrak s_{\mathrm{fus}}:=Q\circ \kappa.
+	\]
+\end{definition}
+\begin{theorem}[Existence]
+	\label{thm:fusion-existence}
+	The map
+	\[
+		\mathfrak s_{\mathrm{fus}}:U\to\mathbb R
+	\]
+	is a well-defined scalar-valued function on the confinement state space.
+\end{theorem}
+\begin{proof}
+	To prove that \(\mathfrak s_{\mathrm{fus}}\) is well defined, it suffices to verify that both
+	factors in the composite
+	\[
+		\mathfrak s_{\mathrm{fus}}=Q\circ\kappa
+	\]
+	are well-defined maps with compatible source and target.
+	First, by \cref{thm:fusion-kappa}, the quadratic defect section
+	\[
+		\kappa:U\to K
+	\]
+	is a canonically defined map on the confinement comparison world. The
+	word ``canonical'' is essential: it means that \(\kappa(u)\) depends
+	only on the intrinsic transport data associated with the state \(u\), and
+	not on any auxiliary presentation, lift, or coordinate choice. Thus the
+	expression \(\kappa(u)\) makes sense for every \(u\in U\).
+	Second, by \cref{prop:fusion-scalar}, the scalar channel
+	\[
+		Q:K\to\mathbb R
+	\]
+	is a well-defined real-valued map on the stabilized quadratic carrier.
+	Again, this means that once a degree--\(2\) transport defect class has
+	been formed as an element of \(K\), its scalar image under \(Q\) is
+	unambiguously determined.
+	Therefore, for each \(u\in U\), one may first form
+	\[
+		\kappa(u)\in K
+	\]
+	and then apply \(Q\) to obtain
+	\[
+		Q(\kappa(u))\in\mathbb R.
+	\]
+	This defines a map
+	\[
+		\mathfrak s_{\mathrm{fus}}:U\to\mathbb R,
+		\qquad
+		\mathfrak s_{\mathrm{fus}}(u):=Q(\kappa(u)).
+	\]
+	No further compatibility condition is required, because the codomain of
+	\(\kappa\) is precisely the domain of \(Q\).
+	Hence \(\mathfrak s_{\mathrm{fus}}\) is a well-defined scalar-valued function on \(U\).
+\end{proof}
+\begin{theorem}[Invariance under intrinsic evolution]
+	\label{thm:fusion-invariance}
+	Under the standing principle \cref{sp:closed-world}, let
+	\[
+		\Phi_t\in \Aut(U,\mathcal C)
+	\]
+	be an intrinsic evolution of the confinement system.
+	Then
+	\[
+		\mathfrak s_{\mathrm{fus}}(\Phi_t(u))=\mathfrak s_{\mathrm{fus}}(u)
+		\qquad
+		\text{for all }u\in U,\ t.
+	\]
+\end{theorem}
+\begin{proof}
+	We prove the statement by unfolding, in order, the definitions of
+	intrinsic evolution, naturality of the defect section, and admissibility
+	of the scalar channel.
+	Fix \(t\) and \(u\in U\).
+	By hypothesis,
+	\[
+		\Phi_t\in \Aut(U,\mathcal C).
+	\]
+	Thus \(\Phi_t\) is an automorphism of the closed comparison world.
+	Equivalently, \(\Phi_t\) preserves all admissible comparison predicates
+	and therefore belongs to the intrinsic symmetry group
+	\[
+		G:=\Aut(U,\mathcal C).
+	\]
+	This is consistent with \cref{thm:transport-forces-Aut}, which asserts
+	precisely that intrinsic admissible transport-closed dynamics acts
+	through automorphisms of the comparison world.
+	Now apply the functoriality of the defect section.
+	By \cref{thm:fusion-kappa}, for every \(g\in G\),
+	\[
+		\kappa(g\cdot u)=g_*\kappa(u),
+	\]
+	where \(g_*\) denotes the induced action on the stabilized quadratic
+	carrier \(K\).
+	Specializing to \(g=\Phi_t\), we obtain
+	\[
+		\kappa(\Phi_t(u))=\Phi_{t*}\kappa(u).
+	\]
+	Next use the admissibility of the scalar channel \(Q\).
+	By definition of admissible scalarization, and by the uniqueness theory
+	cited in \cref{prop:fusion-scalar}, the map \(Q\) is invariant under the
+	intrinsic symmetry action on \(K\). That is,
+	\[
+		Q(g_*k)=Q(k)
+		\qquad
+		\text{for all }g\in G,\ k\in K.
+	\]
+	Again specializing to \(g=\Phi_t\), we obtain
+	\[
+		Q(\Phi_{t*}k)=Q(k)
+		\qquad
+		\text{for all }k\in K.
+	\]
+	We now compute directly:
+	\begin{align*}
+		\mathfrak s_{\mathrm{fus}}(\Phi_t(u))
+		 & =(Q\circ\kappa)(\Phi_t(u)) \\
+		 & =Q(\kappa(\Phi_t(u)))      \\
+		 & =Q(\Phi_{t*}\kappa(u))     \\
+		 & =Q(\kappa(u))              \\
+		 & =\mathfrak s_{\mathrm{fus}}(u).
+	\end{align*}
+	Since \(u\in U\) and \(t\) were arbitrary, the equality holds for all
+	states and all intrinsic evolution times.
+	Therefore \(\mathfrak s_{\mathrm{fus}}\) is invariant under intrinsic evolution.
+\end{proof}
+\begin{theorem}[Uniqueness up to scale]
+	\label{thm:fusion-unique}
+	The scalar invariant \(\mathfrak s_{\mathrm{fus}}\) is unique up to multiplication by a nonzero
+	real scalar.
+\end{theorem}
+\begin{proof}
+	Let
+	\[
+		\mathfrak s_1,\mathfrak s_2:U\to\mathbb R
+	\]
+	be two scalar invariants obtained by the construction of the appendix.
+	By definition of the construction, there exist nonzero admissible
+	scalarizations
+	\[
+		Q_1,Q_2:K\to\mathbb R
+	\]
+	such that
+	\[
+		\mathfrak s_1=Q_1\circ\kappa,
+		\qquad
+		\mathfrak s_2=Q_2\circ\kappa.
+	\]
+	By \cref{prop:fusion-scalar}, the admissible scalarization space on \(K\)
+	is one-dimensional.
+	Therefore there exists
+	\[
+		c\in\mathbb R^\times
+	\]
+	such that
+	\[
+		Q_1=c\,Q_2.
+	\]
+	Substituting this relation into the definition of \(\mathfrak s_1\), we obtain
+	\[
+		\mathfrak s_1
+		=
+		Q_1\circ\kappa
+		=
+		(c\,Q_2)\circ\kappa
+		=
+		c\,(Q_2\circ\kappa)
+		=
+		c\,\mathfrak s_2.
+	\]
+	Thus \(\mathfrak s_1\) and \(\mathfrak s_2\) differ by multiplication by a nonzero real
+	constant.
+	This proves uniqueness of the confinement invariant up to nonzero
+	normalization.
+\end{proof}
+\begin{corollary}[Main appendix theorem]
+	\label{cor:fusion-main}
+	The confinement comparison world carries a scalar-valued function
+	\[
+		\mathfrak s_{\mathrm{fus}}:U\to\mathbb R
+	\]
+	which is invariant under intrinsic evolution and unique up to
+	multiplication by a nonzero scalar.
+\end{corollary}
+\begin{proof}
+	The corollary is obtained by assembling
+	\cref{thm:fusion-existence,thm:fusion-invariance,thm:fusion-unique}.
+	By \cref{thm:fusion-existence}, the function
+	\[
+		\mathfrak s_{\mathrm{fus}}=Q\circ\kappa
+	\]
+	is well defined on the confinement state space \(U\).
+	By \cref{thm:fusion-invariance}, this function is preserved under every
+	intrinsic evolution
+	\[
+		\Phi_t\in\Aut(U,\mathcal C).
+	\]
+	By \cref{thm:fusion-unique}, any other scalar invariant obtained from the
+	same transport stack differs from \(\mathfrak s_{\mathrm{fus}}\) by multiplication by a nonzero
+	real scalar.
+	These three statements are exactly the claims asserted in the corollary.
+\end{proof}
+% ============================================================
+\section{Perturbative alignment criterion}
+\label{sec:fusion-asymptotic}
+% ============================================================
+\Cref{cor:fusion-main} is structural and nonperturbative.
+We now record the additional criterion under which one may identify it
+with the perturbative adiabatic invariant in the small-\(\epsilon\)
+regime.
+\begin{theorem}[Conditional carrier identification of the perturbative invariant]
+	\label{thm:fusion-equivalence}
+	Under the standing principle \cref{sp:closed-world}, assume that in the
+	perturbative regime
+	\[
+		\epsilon:=\rho/L\ll 1,
+	\]
+	the perturbative adiabatic invariant is obtained by admissible
+	scalarization of the same transport stack, with leading nontrivial term
+	carried by the first visible transport defect.
+	Then the perturbative adiabatic invariant and the closed-system invariant
+	\[
+		\mathfrak s_{\mathrm{fus}}=Q\circ\kappa
+	\]
+	are the same scalar channel written in different coordinates.
+	Equivalently, under that perturbative identification, Kruskal's
+	adiabatic invariant series is the asymptotic expansion of the unique
+	admissible scalar channel on the first visible transport carrier.
+\end{theorem}
+\begin{proof}
+	The proof rests on four assertions:
+	\begin{enumerate}[label=\textup{(\arabic*)}]
+		\item the transport filtration records perturbative order;
+		\item the first visible scalar carrier occurs in degree \(2\);
+		\item the scalar channel on that carrier is unique;
+		\item under the stated perturbative hypothesis, no second independent
+		      scalar channel enters the same transport stack.
+	\end{enumerate}
+	We treat them in order and then combine them.
+	\medskip
+	\noindent
+	\textbf{Step 1: The filtration records perturbative order.}
+	The small parameter
+	\[
+		\epsilon:=\rho/L
+	\]
+	measures the ratio of the microscopic gyroradius scale to the macroscopic
+	variation scale of the magnetic geometry.
+	In the perturbative treatment of magnetic confinement, transport
+	quantities are expanded as formal series in \(\epsilon\), and each order
+	measures the first scale at which exact closure of the leading transport
+	law fails.
+	The intrinsic transport filtration
+	\[
+		F^1\supset F^2\supset F^3\supset\cdots
+	\]
+	is organized by exactly the same principle.
+	An element lies in \(F^m\) precisely when its transport defect is
+	invisible through order \(m-1\), and passage to the quotient
+	\[
+		F^m/F^{m+1}
+	\]
+	isolates the first nonvanishing defect at order \(m\).
+	Thus the perturbative order-\(\epsilon^m\) data are encoded by the graded
+	piece
+	\[
+		F^m/F^{m+1}.
+	\]
+	\medskip
+	\noindent
+	\textbf{Step 2: The first visible scalar carrier is quadratic.}
+	By the main transport theory and, in particular, by the interface
+	results
+	(\cref{thm:interface-stabilized,thm:interface-seal}), the first visible nontrivial transport
+	obstruction is degree \(2\).
+	Equivalently, the first graded piece capable of carrying nontrivial
+	scalar information is
+	\[
+		K\cong F^2/F^3.
+	\]
+	The degree--\(1\) quotient carries only abelianized transport content
+	and does not detect the intrinsic \(2\)-skeletal obstruction.
+	Hence the first nontrivial scalar invariant extracted from transport must
+	factor through \(K\).
+	\medskip
+	\noindent
+	\textbf{Step 3: Uniqueness of the scalar channel on the first visible carrier.}
+	By \cref{prop:fusion-scalar}, the space of admissible scalarizations of
+	\(K\) in the realized scalar-channel regime is one-dimensional.
+	Therefore any admissible scalar observable whose leading contribution is
+	carried by the first visible transport defect must be proportional to
+	the distinguished scalar channel
+	\[
+		Q:K\to\mathbb R.
+	\]
+	By the perturbative-identification hypothesis, the perturbative
+	adiabatic invariant is of exactly this type.
+	\medskip
+	\noindent
+	\textbf{Step 4: Identification.}
+	Under the same perturbative-identification hypothesis, higher-order
+	corrections still scalarize the same transport stack rather than opening
+	a new independent scalar channel.
+	By \cref{thm:kernel-annihilation-upstream}, every admissible degree--\(2\)
+	scalar detector descends uniquely through the quadratic carrier.
+	Thus once the leading scalar transport content has been fixed on \(K\),
+	there is no second independent scalar channel through which that same
+	transport stack can be scalarized.
+	Consequently, the perturbative invariant and the intrinsic invariant
+	\[
+		\mathfrak s_{\mathrm{fus}}=Q\circ\kappa
+	\]
+	arise from the same scalar channel and differ only by the perturbative
+	coordinate expansion used to express that channel in the regime
+	\(\epsilon\ll1\).
+	This is the asserted identification.
+\end{proof}
+\begin{corollary}[Conditional all-orders asymptotic agreement]
+	Under the hypotheses of \cref{thm:fusion-equivalence}, in the
+	perturbative regime
+	\[
+		\epsilon\ll 1,
+	\]
+	the invariant \(\mathfrak s_{\mathrm{fus}}\) agrees with Kruskal's adiabatic invariant series to
+	all orders.
+\end{corollary}
+\begin{proof}
+	By \cref{thm:fusion-equivalence}, under the stated perturbative
+	identification the perturbative invariant series and the intrinsic
+	invariant \(\mathfrak s_{\mathrm{fus}}\) are two presentations of the same scalar channel.
+	Therefore their asymptotic coefficients agree order by order in the
+	small-\(\epsilon\) regime.
+\end{proof}
+\begin{remark}
+	The point is not that \(\mathfrak s_{\mathrm{fus}}\) is defined perturbatively.
+	It is not.
+	Rather, once \(\mathfrak s_{\mathrm{fus}}\) has been defined intrinsically by the closed-system
+	transport stack, any perturbative invariant satisfying
+	\cref{thm:fusion-equivalence} is recovered as a local coordinate
+	expansion of that same scalar channel in the regime
+	\(\epsilon\ll1\).
+\end{remark}
+% ============================================================
+\section{Conditional confinement package}
+\label{sec:fusion-prediction}
+% ============================================================
+The theorem-level output of the appendix is the intrinsic scalar \(\mathfrak s_{\mathrm{fus}}\).
+We now record the perturbative and confinement readings that become
+available once the relevant interpretation hypotheses are fixed.
+\begin{theorem}[Conditional confinement interpretation package]
+	\label{thm:fusion-prediction}
+	Under the standing principle \cref{sp:closed-world}, let
+	\((U,\mathcal C)\) be a magnetic geometry realized as a closed
+	comparison world.
+	Then the following statements hold.
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item
+		      There exists a scalar-valued function
+		      \[
+			      \mathfrak s_{\mathrm{fus}}:U\to\mathbb R
+		      \]
+		      which is invariant under intrinsic evolution and unique up to
+		      multiplication by a nonzero real scalar.
+		\item
+		      Under the additional perturbative-identification hypothesis of
+		      \cref{thm:fusion-equivalence}, the perturbative adiabatic invariant is the
+		      asymptotic expansion of \(\mathfrak s_{\mathrm{fus}}\) in the regime \(\epsilon\ll 1\).
+		\item
+		      If confinement for the relevant particle family is modeled by compact
+		      containment of the appropriate invariant level sets, then the resulting
+		      structural confinement criterion is that the magnetic geometry confines
+		      exactly when those level sets of \(\mathfrak s_{\mathrm{fus}}\) are compact and remain contained in
+		      the plasma volume.
+		\item
+		      Under the same confinement model, the corresponding optimization problem is
+		      to optimize the confinement quality of the level sets of \(\mathfrak s_{\mathrm{fus}}\) over the
+		      admissible comparison structures induced by the geometry.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Part \textup{(i)} is exactly \cref{cor:fusion-main}.
+	Part \textup{(ii)} is exactly \cref{thm:fusion-equivalence}.
+	For parts \textup{(iii)} and \textup{(iv)}, once confinement is modeled by compact
+	containment of invariant level sets, the statements are the formal
+	restatement of that model using the theorem-level scalar \(\mathfrak s_{\mathrm{fus}}\) singled
+	out by part \textup{(i)}.
+	Because changing magnetic geometry changes the induced comparison world,
+	and hence changes the resulting invariant \(\mathfrak s_{\mathrm{fus}}\), optimizing confinement
+	inside that model is equivalently the problem of optimizing the geometry
+	of the relevant \(\mathfrak s_{\mathrm{fus}}\)-level sets across the induced comparison
+	structures.
+\end{proof}
+\begin{remark}
+	The theorem does not yet provide a reactor-specific closed-form number
+	for \(\mathfrak s_{\mathrm{fus}}\) for an arbitrary coil set.
+	What it provides is the canonical intrinsic scalar to which any later
+	perturbative, numerical, or confinement model must refer.
+\end{remark}
+% ============================================================
+\section{Magnetic-confinement interpretation}
+\label{sec:fusion-interpretation}
+% ============================================================
+\Cref{thm:fusion-prediction} separates theorem-level invariant content
+from the later confinement reading.
+Under the confinement interpretation package, the structure may be read
+as follows.
+\begin{enumerate}[label=\textup{(\roman*)}]
+	\item
+	      The gyration of a charged particle in a magnetic field is an internal
+	      transport process of the confinement world.
+	\item
+	      The failure of this transport to close exactly is a loop defect.
+	      Its first stable visible component lies in the quadratic carrier
+	      \[
+		      F^2/F^3.
+	      \]
+	\item
+	      The map
+	      \[
+		      \kappa:U\to K
+	      \]
+	      assigns to each state its intrinsic quadratic transport defect class.
+	\item
+	      The scalar channel
+	      \[
+		      Q:K\to\mathbb R
+	      \]
+	      extracts the unique admissible scalar carried by that defect in the
+	      realized scalar-channel regime used in the appendix.
+	\item
+	      The composite
+	      \[
+		      \mathfrak s_{\mathrm{fus}}=Q\circ\kappa
+	      \]
+	      is therefore the canonical intrinsic transport scalar supplied by
+	      the closed-system structure for this application.
+\end{enumerate}
+Thus the intrinsic transport scalar is not postulated at the
+carrier level.
+Its later reading as a nonperturbative adiabatic invariant or
+confinement observable is a downstream interpretation of the scalar
+channel of the quadratic transport carrier.
+\begin{remark}
+	No Liouville-integrability assumption enters.
+	No continuous-symmetry assumption enters.
+	No data-driven learning step enters.
+	All three are replaced at the carrier level by the closed-system
+	transport stack already proved in the main text.
+\end{remark}
+% ============================================================
+\section{Consequences of the interpretation package}
+\label{sec:fusion-predictions}
+% ============================================================
+Once the intrinsic scalar \(\mathfrak s_{\mathrm{fus}}\) is established theorem-level and the
+perturbative/level-set interpretation package is adopted, several
+immediate consequences follow.
+\subsection{General-geometry existence}
+The existence of \(\mathfrak s_{\mathrm{fus}}\) is not restricted to integrable or symmetric
+magnetic fields.
+Its construction depends only on the closed comparison structure and the
+quadratic scalar channel.
+Accordingly, any magnetic geometry that can be realized as a closed
+comparison world carries the same canonical nonperturbative transport
+scalar.
+\subsection{Structural confinement criterion under level-set interpretation}
+Because \(\mathfrak s_{\mathrm{fus}}\) is invariant under intrinsic evolution, if confinement is
+modeled by compact containment of the relevant invariant level sets, then
+confinement may be rephrased geometrically in terms of the level sets of
+\(\mathfrak s_{\mathrm{fus}}\).
+The resulting structural criterion is:
+\begin{quote}
+	A magnetic geometry confines the relevant particles exactly when the
+	appropriate level sets of \(\mathfrak s_{\mathrm{fus}}\) are compact and remain contained within
+	the plasma volume.
+\end{quote}
+This criterion is downstream: it depends on the theorem-level scalar
+channel of the transport filtration together with the chosen level-set
+interpretation, not on full-orbit simulation.
+\subsection{Optimization reformulation under the same criterion}
+Changing magnetic geometry changes the comparison predicates.
+Changing the comparison predicates changes the transport filtration.
+Changing the transport filtration changes the quadratic carrier and
+therefore changes the scalar channel \(\mathfrak s_{\mathrm{fus}}\).
+Thus, under the same level-set confinement model, the optimization
+problem becomes:
+\begin{quote}
+	Find the magnetic geometry whose induced comparison structure optimizes
+	the compactness and confinement properties of the level sets of \(\mathfrak s_{\mathrm{fus}}\).
+\end{quote}
+This reformulates the task as a variational problem on the space of
+comparison structures rather than only as a brute-force orbit-search
+problem.
+\subsection{Further confinement regimes}
+Nothing in the theorem-level construction of \(\mathfrak s_{\mathrm{fus}}\) used a special
+property of alpha particles beyond the existence of a closed comparison
+structure for the confinement system.
+Accordingly, the same structural machinery applies, in the same
+conditional sense, to any confinement problem whose relevant state space
+is describable as a closed comparison world with transport filtration
+and quadratic scalar channel.
+% ============================================================
+\section{Normalized exact observables}
+\label{sec:fusion-normalized}
+% ============================================================
+The scalar channel \(Q\) is unique only up to multiplication by a
+nonzero constant.
+Accordingly, absolute values of \(\mathfrak s_{\mathrm{fus}}=Q\circ\kappa\) depend on the chosen
+normalization.
+What is canonically determined without any further choice is the ratio of
+two nonzero scalar values.
+\begin{proposition}[Normalized exact invariant]
+	Let
+	\[
+		Q:K\to\mathbb R_{\ge 0}
+	\]
+	be the canonical scalar channel on the stabilized quadratic carrier, and
+	let
+	\[
+		u_*\in U
+	\]
+	satisfy
+	\[
+		\kappa(u_*)\neq 0.
+	\]
+	Then the normalized scalar
+	\[
+		\widehat{\mathfrak s}_{\mathrm{fus}}(u;u_*):=
+		\frac{Q(\kappa(u))}{Q(\kappa(u_*))}
+	\]
+	is well defined, independent of the normalization of \(Q\), and
+	invariant under intrinsic evolution.
+\end{proposition}
+\begin{proof}
+	There are three claims to establish:
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item the ratio is independent of normalization of \(Q\);
+		\item the ratio is defined, i.e. the denominator is nonzero;
+		\item the ratio is invariant under intrinsic evolution.
+	\end{enumerate}
+	\medskip
+	\noindent
+	\textbf{Step 1: Independence of normalization.}
+	Let
+	\[
+		Q'=cQ
+	\]
+	for some \(c>0\).
+	Then for every \(u\in U\),
+	\[
+		Q'(\kappa(u))=c\,Q(\kappa(u)),
+	\]
+	and similarly
+	\[
+		Q'(\kappa(u_*))=c\,Q(\kappa(u_*)).
+	\]
+	Therefore
+	\[
+		\frac{Q'(\kappa(u))}{Q'(\kappa(u_*))}
+		=
+		\frac{cQ(\kappa(u))}{cQ(\kappa(u_*))}
+		=
+		\frac{Q(\kappa(u))}{Q(\kappa(u_*))}.
+	\]
+	Thus the normalized scalar does not depend on the chosen nonzero
+	normalization of the scalar channel.
+	\medskip
+	\noindent
+	\textbf{Step 2: Nonvanishing of the denominator.}
+	By hypothesis,
+	\[
+		\kappa(u_*)\neq 0.
+	\]
+	The scalar channel \(Q\) is by construction nontrivial on the realized
+	carrier and takes nonnegative values on the chosen normalization.
+	The intended normalization in this proposition is one for which nonzero
+	carrier classes are assigned nonzero nonnegative values. Under that
+	normalization,
+	\[
+		Q(\kappa(u_*))>0.
+	\]
+	Hence the denominator is nonzero and the ratio is well defined.
+	\medskip
+	\noindent
+	\textbf{Step 3: Invariance under intrinsic evolution.}
+	Let
+	\[
+		\Phi_t\in \Aut(U,\mathcal C).
+	\]
+	By \cref{thm:fusion-invariance},
+	\[
+		Q(\kappa(\Phi_t(u)))=Q(\kappa(u))
+	\]
+	for every \(u\in U\).
+	Applying this once to \(u\) and once to \(u_*\), we obtain
+	\[
+		Q(\kappa(\Phi_t(u)))=Q(\kappa(u)),
+		\qquad
+		Q(\kappa(\Phi_t(u_*)))=Q(\kappa(u_*)).
+	\]
+	Therefore
+	\[
+		\widehat{\mathfrak s}_{\mathrm{fus}}(\Phi_t(u);\Phi_t(u_*))
+		=
+		\frac{Q(\kappa(\Phi_t(u)))}{Q(\kappa(\Phi_t(u_*)))}
+		=
+		\frac{Q(\kappa(u))}{Q(\kappa(u_*))}
+		=
+		\widehat{\mathfrak s}_{\mathrm{fus}}(u;u_*).
+	\]
+	This proves invariance of the normalized scalar.
+\end{proof}
+\begin{remark}
+	The proposition identifies the first exactly computable scalar quantity
+	determined entirely by the theorem stack without fixing an external
+	normalization convention.
+\end{remark}
+% ============================================================
+\section{Structural summary}
+\label{sec:fusion-summary}
+% ============================================================
+The argument of the appendix is:
+\begin{align*}
+	\text{closed confinement system} & \Longrightarrow \text{comparison completeness}                                      \\
+	                                 & \Longrightarrow \text{canonical quotient semantics}                                 \\
+	                                 & \Longrightarrow \text{transport filtration } F^1\supset F^2\supset F^3\supset\cdots \\
+	                                 & \Longrightarrow \text{stabilized quadratic carrier } K                              \\
+	                                 & \Longrightarrow \text{unique scalar channel } Q                                     \\
+	                                 & \Longrightarrow \text{intrinsic scalar } \mathfrak s_{\mathrm{fus}} .
+\end{align*}
+Through the intrinsic scalar \(\mathfrak s_{\mathrm{fus}}=Q\circ\kappa\), every arrow in this
+chain is theorem-level within the closed relational stack, using the
+inherited realized scalar-channel package already isolated upstream.
+Thus \(\mathfrak s_{\mathrm{fus}}\) is not postulated, not learned from data, and not restricted
+to integrable geometries at the level of its intrinsic construction.
+Perturbative matching and confinement-level interpretation are
+additional downstream reading layers built on that scalar.
+% ============================================================
+\section{Conclusion}
+\label{sec:fusion-conclusion}
+% ============================================================
+This appendix has one theorem-level purpose:
+to exhibit the downstream confinement use of the quadratic scalar channel
+of the closed-system transport theory.
+The chain proved here is:
+\begin{align*}
+	(U,\mathcal{C}) & \Longrightarrow N=F^1                                \\
+	                & \Longrightarrow V=F^1/F^2                            \\
+	                & \Longrightarrow \Lambda^2(V) \xrightarrow{q_{\wedge}} F^2/F^3 \\
+	                & \Longrightarrow K = \mathcal{K}_\infty               \\
+	                & \Longrightarrow Q : K \to \mathbb{R}                 \\
+	                & \Longrightarrow \mathfrak s_{\mathrm{fus}} = Q \circ \kappa .
+\end{align*}
+Thus the abstract machinery of the main text yields a canonical
+intrinsic transport scalar in the magnetic-confinement
+setting whenever the system is realized as a closed comparison world.
+The point is not merely that the scalar can be named.
+The point is that its existence and uniqueness up to scale are fixed by
+the internal structure of that world.
+Perturbative matching to Kruskal-type series and any confinement-level
+or optimization reading remain separate downstream
+interpretation steps.
+In this sense, the appendix closes the manuscript's forward arc: the
+abstract chain from closure, transport, and quadratic obstruction to
+scalar channel is carried into a downstream confinement application
+template.

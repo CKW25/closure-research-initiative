@@ -1,0 +1,597 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{Closed Systems from Comparison Completeness}
+\label{ch:closure}
+% ============================================================
+\section{Introduction}
+Under the standing principle of closed-world admissibility
+(\cref{sp:closed-world}), this chapter consolidates the
+compactness/closure/quotient consequences of
+Chapters~\ref{ch:foundation}--\ref{ch:rotation} into a single closure
+theorem that serves as the formal entry point to the
+representative-enrichment analysis in \cref{ch:locus}.
+Chapter~\ref{ch:foundation} isolated the Boolean compactness mechanism
+governing passage from finite-stage admissibility to global
+admissibility. Chapter~\ref{ch:bottom} applied that mechanism to the
+primitive comparison world
+\[
+	(U,\mathcal C),
+\]
+proved that rectangular comparison completeness is equivalent to
+bijectivity of the canonical factor map
+\[
+	\Theta:U\to X_A\times X_B,
+	\qquad
+	X_A:=U/\alpha,
+	\qquad
+	X_B:=U/\beta,
+\]
+and thereby obtained the canonical product presentation
+\[
+	U\cong X_A\times X_B.
+\]
+Chapter~\ref{ch:rotation} then showed that under this determined product
+presentation the intrinsic symmetry group
+\[
+	G:=\Aut(U,\mathcal C)
+\]
+acts diagonally on
+\[
+	X:=X_A\times X_B,
+\]
+that the comparison world canonically determines the orbit projection
+\[
+	\pi:X\to\Phys:=X/G,
+\]
+and that admissible closed-system reports are exactly the coherent maps
+on \(X\), equivalently the maps descending uniquely through \(\pi\).
+The present chapter does not introduce new primitive structure. Its
+purpose is to identify the single internal condition responsible for the
+entire Part~II spine and to fix, at theorem level, the meaning of the
+phrase \emph{closed system} in the present framework.
+From this point onward the convention is exact:
+\[
+	\text{closed}
+	\quad:=\quad
+	\text{rectangularly complete}.
+\]
+This is a terminological identification, not a new axiom. The content of
+the chapter is that this one internal completeness condition is exactly
+what determines the canonical product presentation, diagonal redundancy, the
+orbit quotient, and quotient semantics.
+Accordingly, the chapter has three tasks:
+\begin{enumerate}[label=\textup{(\roman*)}]
+	\item
+	      to define closedness exactly as the internal profile-pairing
+	      completeness condition isolated in Chapter~\ref{ch:bottom};
+	\item
+	      to prove that closedness is exactly the condition determining the canonical
+	      product presentation and the quotient-semantic structure of
+	      Chapter~\ref{ch:rotation};
+	\item
+	      to prove that closedness is minimal for determining this structure
+	      uniformly across comparison worlds.
+\end{enumerate}
+The first two tasks are consequences of Chapters~\ref{ch:bottom} and
+\ref{ch:rotation}. The genuinely new content of the present chapter is
+the minimality theorem and the compression of Part~II into a single
+classification statement.
+Thus this is the point at which the phrase \emph{closed system} ceases
+to be heuristic. Within the present framework, a closed system is
+exactly a comparison world whose intrinsic left-profile and right-profile
+data are internally complete.
+% ============================================================
+\section{Closure as profile-pairing completeness}
+\label{sec:closure-profile}
+% ============================================================
+Recall from \cref{def:alpha-beta,def:Theta} that every comparison world
+\((U,\mathcal C)\) determines intrinsic congruences \(\alpha,\beta\),
+quotient sets
+\[
+	X_A:=U/\alpha,
+	\qquad
+	X_B:=U/\beta,
+\]
+and the canonical factor map
+\[
+	\Theta:U\to X_A\times X_B,
+	\qquad
+	\Theta(u)=([u]_\alpha,[u]_\beta).
+\]
+\begin{definition}[Closure]
+	\label{def:closure}
+	A comparison world \((U,\mathcal C)\) is \emph{closed} if it is
+	rectangularly complete in the sense of \cref{def:rect}; equivalently, if
+	for every pair
+	\[
+		A\in X_A,
+		\qquad
+		B\in X_B,
+	\]
+	there exists a unique element \(u\in U\) such that
+	\[
+		[u]_\alpha=A,
+		\qquad
+		[u]_\beta=B.
+	\]
+\end{definition}
+\begin{remark}[Terminological status]
+	\cref{def:closure} introduces no new mathematical structure. It merely
+	renames the rectangular comparison completeness condition of
+	\cref{def:rect} in the language appropriate to its semantic role in the
+	remainder of the manuscript.
+\end{remark}
+\begin{remark}[Internality of closure]
+	Closure is purely internal. It refers neither to a geometric boundary
+	nor to an ambient environment, an external observer, or a background
+	space. It asserts only that every admissible pairing of left and right
+	comparison profiles is realized by a unique state of the world itself.
+\end{remark}
+\begin{proposition}[Closure \(\Longleftrightarrow\) bijectivity of the canonical profile map]
+	\label{prop:closure-bijective}
+	For a comparison world \((U,\mathcal C)\), the following are equivalent:
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item \((U,\mathcal C)\) is closed.
+		\item The canonical factor map
+		      \[
+			      \Theta:U\to X_A\times X_B
+		      \]
+		      is bijective.
+	\end{enumerate}
+	When these conditions hold, the identification
+	\[
+		U\cong X_A\times X_B
+	\]
+	is canonical, namely given by \(\Theta\).
+\end{proposition}
+\begin{proof}
+	By \cref{def:closure}, closedness is exactly rectangular completeness.
+	By \cref{thm:classification}, rectangular completeness is equivalent to
+	bijectivity of \(\Theta\), and the same theorem records that the
+	resulting identification of \(U\) with \(X_A\times X_B\) is canonical.
+\end{proof}
+\begin{remark}[Closure as absence of profile-pair defects]
+	Failure of closure means that at least one of two profile-pair
+	defects occurs: either \(\Theta\) is not injective, so distinct
+	states determine the same left-right profile pair, or \(\Theta\) is
+	not surjective, so some left-right profile pair is not realized by
+	any state; both defects may occur simultaneously. Thus closure is
+	precisely the absence of profile-pair defects.
+\end{remark}
+% ============================================================
+\section{Closure determines diagonal redundancy and quotient semantics}
+\label{sec:closure-forces}
+% ============================================================
+Once closure holds, the product structure and quotient-semantic
+architecture of Part~II are determined.
+Assume henceforth, under \cref{sp:closure}, that the equivalent conditions of
+\cref{prop:closure-bijective} hold. Write
+\[
+	X:=X_A\times X_B
+\]
+and identify \(U\) with \(X\) through the canonical bijection
+\(\Theta\).
+\begin{definition}[Determined diagonal redundancy]
+	\label{def:forced-diagonal}
+	A comparison world \((U,\mathcal C)\) \emph{determines diagonal redundancy}
+	if the following data are canonically determined from \((U,\mathcal C)\)
+	without any additional primitive:
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item the factor spaces
+		      \[
+			      X_A=U/\alpha,
+			      \qquad
+			      X_B=U/\beta;
+		      \]
+		\item the canonical identification
+		      \[
+			      U\cong X_A\times X_B;
+		      \]
+		\item the canonical diagonal action of
+		      \[
+			      G:=\Aut(U,\mathcal C)
+		      \]
+		      on
+		      \[
+			      X=X_A\times X_B.
+		      \]
+	\end{enumerate}
+\end{definition}
+\begin{proposition}[Closure determines diagonal redundancy]
+	\label{prop:forced-diagonal-action}
+	If \((U,\mathcal C)\) is closed, then it determines diagonal redundancy in
+	the sense of \cref{def:forced-diagonal}. More precisely, under the
+	canonical identification \(U\cong X_A\times X_B\), the natural action of
+	\[
+		G=\Aut(U,\mathcal C)
+	\]
+	on \(U\) becomes the diagonal action
+	\[
+		g\cdot(x_A,x_B):=(g\cdot x_A,\ g\cdot x_B)
+	\]
+	on \(X_A\times X_B\).
+\end{proposition}
+\begin{proof}
+	By \cref{prop:closure-bijective}, closure yields the canonical
+	identification
+	\[
+		U\cong X_A\times X_B
+	\]
+	through \(\Theta\). The \(G\)-invariance of \(\alpha\) and \(\beta\),
+	proved in \cref{lem:invariance}, gives well-defined induced actions on
+	\(X_A\) and \(X_B\); see
+	\cref{def:induced-actions,lem:well-defined-actions}. By
+	\cref{thm:diagonal}, the action of \(G\) on \(U\) is transported by
+	\(\Theta\) exactly to the diagonal action on \(X_A\times X_B\).
+\end{proof}
+\begin{corollary}[Canonical quotient input]
+	\label{cor:closure-terminal-data}
+	If \((U,\mathcal C)\) is closed, then the orbit quotient
+	\[
+		\Phys:=X/G
+	\]
+	and the orbit projection
+	\[
+		\pi:X\to\Phys
+	\]
+	are canonically determined by the comparison world.
+\end{corollary}
+\begin{proof}
+	By \cref{prop:forced-diagonal-action}, closure determines the diagonal
+	action of \(G\) on \(X\). The orbit quotient and its projection are
+	therefore canonically determined.
+\end{proof}
+\begin{proposition}[Universal quotient description of coherent reports]
+	\label{prop:principal}
+	Under the standing principle \cref{sp:closed-world}, let
+	\((U,\mathcal C)\) be closed, and let
+	\[
+		\pi:X\to \Phys:=X/G
+	\]
+	be the orbit projection for the determined diagonal action. Then for every
+	set \(S\), composition with \(\pi\) induces a bijection
+	\[
+		\pi^*:\Map(\Phys,S)\xrightarrow{\ \cong\ }\Map_G(X,S),
+	\]
+	where
+	\[
+		\Map_G(X,S)
+		:=
+		\{R:X\to S:\ R(g\cdot x)=R(x)\ \forall g\in G,\ x\in X\}
+	\]
+	is the set of coherent, equivalently \(G\)-invariant, maps.
+\end{proposition}
+\begin{proof}
+	Define
+	\[
+		\pi^*(f):=f\circ\pi
+		\qquad
+		\text{for }f\in\Map(\Phys,S).
+	\]
+	Because \(\pi(g\cdot x)=\pi(x)\) for all \(g\in G\) and \(x\in X\), the
+	composite \(f\circ\pi\) is \(G\)-invariant. Hence \(\pi^*\) is well
+	defined.
+	Let
+	\[
+		R\in\Map_G(X,S).
+	\]
+	Then \(R\) is coherent in the sense of \cref{def:report-coherence}. By
+	\cref{thm:descent}, there exists a unique map
+	\[
+		\widetilde R:\Phys\to S
+	\]
+	such that
+	\[
+		R=\widetilde R\circ\pi.
+	\]
+	Therefore
+	\[
+		R=\pi^*(\widetilde R),
+	\]
+	so \(\pi^*\) is surjective.
+	Now suppose
+	\[
+		\pi^*(f_1)=\pi^*(f_2),
+		\qquad\text{i.e.}\qquad
+		f_1\circ\pi=f_2\circ\pi.
+	\]
+	Let \(p\in\Phys\). Since \(\pi\) is surjective, choose \(x\in X\) with
+	\[
+		\pi(x)=p.
+	\]
+	Then
+	\[
+		f_1(p)
+		=
+		f_1(\pi(x))
+		=
+		(f_1\circ\pi)(x)
+		=
+		(f_2\circ\pi)(x)
+		=
+		f_2(\pi(x))
+		=
+		f_2(p).
+	\]
+	Hence \(f_1=f_2\), so \(\pi^*\) is injective. Therefore \(\pi^*\) is a
+	bijection.
+\end{proof}
+\begin{corollary}[Closed-system semantics is quotient semantics]
+	\label{cor:closed-equals-quotient}
+	Under closure, admissible state reports in the closed-system sense are
+	exactly maps on the quotient state space
+	\[
+		\Phys=X/G.
+	\]
+\end{corollary}
+\begin{proof}
+	By \cref{def:closed-system-semantics}, admissible state reports are
+	exactly coherent maps, equivalently the elements of \(\Map_G(X,S)\) for
+	varying codomain \(S\). By \cref{prop:principal}, these are in canonical
+	bijection with maps \(\Phys\to S\).
+\end{proof}
+\begin{remark}[Why quotient semantics is not an extra axiom]
+	The quotient \(\Phys\) is not introduced by a separate gauge principle.
+	Once closure determines the canonical product structure and diagonal
+	redundancy, the universal property of \(\pi\) determines the semantic
+	identification of admissible reports with maps on \(\Phys\).
+\end{remark}
+% ============================================================
+\section{Logical minimality of closure}
+\label{sec:closure-minimality}
+% ============================================================
+The genuinely new content of the chapter is the minimality statement:
+closure is not merely sufficient for the quotient-semantic spine. It is
+the minimal internal condition that determines it uniformly.
+\begin{theorem}[Logical minimality of closure]
+	\label{thm:logical-minimality}
+	Let \(P\) be any property of comparison worlds with the following
+	uniform determining property:
+	\medskip
+	\noindent
+	for every comparison world \((U,\mathcal C)\) satisfying \(P\), the
+	world canonically admits an identification
+	\[
+		U\cong X_A\times X_B
+	\]
+	compatible with the intrinsic congruences \(\alpha\) and \(\beta\).
+	\medskip
+	\noindent
+	Then \(P\) implies rectangular completeness. Equivalently, \(P\) implies
+	closedness.
+\end{theorem}
+\begin{proof}
+	Fix a comparison world \((U,\mathcal C)\) satisfying \(P\). By
+	hypothesis, \((U,\mathcal C)\) canonically admits an identification
+	\[
+		U\cong X_A\times X_B
+	\]
+	compatible with the intrinsic congruences \(\alpha\) and \(\beta\). By
+	compatibility, the canonical factor map
+	\[
+		\Theta:U\to X_A\times X_B
+	\]
+	must coincide with that identification, hence is bijective. By
+	\cref{thm:classification}, bijectivity of \(\Theta\) is equivalent to
+	rectangular completeness. Thus \(P\) implies closedness.
+\end{proof}
+\begin{theorem}[Minimality of closure for the quotient-semantic spine]
+	\label{thm:rect-minimal}
+	For a comparison world \((U,\mathcal C)\), the following are equivalent:
+	\begin{enumerate}[label=\textup{(\arabic*)}]
+		\item \((U,\mathcal C)\) is closed.
+		\item The canonical map
+		      \[
+			      \Theta:U\to X_A\times X_B
+		      \]
+		      is bijective.
+		\item \((U,\mathcal C)\) determines diagonal redundancy.
+	\end{enumerate}
+	Moreover, no strictly weaker closure property guarantees determined diagonal
+	redundancy for all comparison worlds.
+\end{theorem}
+\begin{proof}
+	The equivalence
+	\textup{(1)}\(\Longleftrightarrow\)\textup{(2)} is
+	\cref{prop:closure-bijective}. The implication
+	\textup{(2)}\(\Longrightarrow\)\textup{(3)} is
+	\cref{prop:forced-diagonal-action}. Conversely, if diagonal redundancy is
+	determined, then by \cref{def:forced-diagonal} the comparison world
+	canonically determines an identification
+	\[
+		U\cong X_A\times X_B.
+	\]
+	Since \(\Theta\) is the canonical map from \(U\) to that same product,
+	it must be bijective. Hence
+	\textup{(3)}\(\Longrightarrow\)\textup{(2)}.
+	If \(P\) is any property of comparison worlds which uniformly determines
+	diagonal redundancy, then \(P\) satisfies the hypothesis of
+	\cref{thm:logical-minimality}. Therefore \(P\) implies closedness. Hence
+	no strictly weaker property can force diagonal redundancy uniformly.
+\end{proof}
+\begin{corollary}[Logical irreversibility of the spine]
+	Once closure holds, the structural chain
+	\begin{align*}
+		(U,\mathcal C)
+		 & \Longrightarrow U\cong X_A\times X_B                     \\
+		 & \Longrightarrow G\curvearrowright X \text{ diagonally}   \\
+		 & \Longrightarrow \pi:X\to\Phys=X/G                        \\
+		 & \Longrightarrow \text{canonical descent}                    \\
+		 & \Longrightarrow \text{subsystem attribution obstruction}
+	\end{align*}
+	is determined. No weaker closure axiom guarantees this chain uniformly.
+\end{corollary}
+\begin{proof}
+	The first three steps follow from
+	\cref{prop:closure-bijective,prop:forced-diagonal-action,cor:closure-terminal-data}.
+	Canonical descent is the universal quotient description of
+	\cref{prop:principal}. The final obstruction statement is
+	\cref{thm:nogo}. The minimality clause is the second assertion of
+	\cref{thm:rect-minimal}.
+\end{proof}
+% ============================================================
+\section{Part~II classification theorem}
+\label{sec:partII-classification}
+% ============================================================
+The results of Chapters~\ref{ch:bottom}, \ref{ch:rotation}, and the
+present chapter now compress into a single classification theorem.
+\begin{theorem}[Closed-system classification from comparison completeness]
+	\label{thm:structural-closure}
+	Under the standing principle \cref{sp:closed-world}, let
+	\((U,\mathcal C)\) be a comparison world in the local
+	distinguishability regime
+	\[
+		\alpha\cap\beta=\Delta_U
+	\]
+	and satisfying the closure clause \cref{sp:closure}, equivalently
+	rectangular comparison completeness.
+	Then the following structure is canonically determined.
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item
+		      the canonical factor map
+		      \[
+			      \Theta:U\to X_A\times X_B,
+			      \qquad
+			      X_A:=U/\alpha,
+			      \qquad
+			      X_B:=U/\beta,
+		      \]
+		      is bijective, hence
+		      \[
+			      U\cong X_A\times X_B;
+		      \]
+		\item
+		      the intrinsic symmetry group
+		      \[
+			      G:=\Aut(U,\mathcal C)
+		      \]
+		      acts diagonally on
+		      \[
+			      X:=X_A\times X_B,
+		      \]
+		      so the comparison world canonically determines the orbit projection
+		      \[
+			      \pi:X\to\Phys:=X/G;
+		      \]
+		\item
+		      for every set \(S\), pullback along \(\pi\) induces a bijection
+		      \[
+			      \Map(\Phys,S)\xrightarrow{\ \cong\ }\Map_G(X,S),
+		      \]
+		      where \(\Map_G(X,S)\) denotes the coherent, equivalently \(G\)-invariant,
+		      maps \(X\to S\);
+		\item
+		      consequently, admissible closed-system content is exactly quotient
+		      content on \(\Phys\);
+		\item
+		      for pure orbit motion, coherent reports are constant, so subsystem
+		      attribution along pure diagonal orbit loops is not a quotient-level
+		      invariant;
+		\item
+		      any extension of quotient semantics on finite comparison protocols that
+		      is not endpoint-determined introduces additional structure through at
+		      least one of two loci, possibly both, and through no others:
+		      \begin{enumerate}[label=\textup{(\alph*)}]
+			      \item object-level representative choice, i.e. a section
+			            \[
+				            s:\Phys\to X;
+			            \]
+			      \item morphism-level transport data, equivalently nontrivial loop defect.
+		      \end{enumerate}
+		\end{enumerate}
+		Hence a closed system in the present sense is canonically classified by
+		the quotient-semantic datum
+		\[
+			X_A,\ X_B,\ G,\ \pi:X_A\times X_B\to (X_A\times X_B)/G,
+		\]
+		together with the theorem that all admissible content descends to the
+		quotient and all non-quotient enrichment enters through at least one of
+		the two classified loci, possibly both, with no third locus.
+\end{theorem}
+\begin{proof}
+	Item \textup{(i)} is \cref{prop:closure-bijective}. Item \textup{(ii)}
+	is \cref{prop:forced-diagonal-action} together with
+	\cref{cor:closure-terminal-data}. Item \textup{(iii)} is
+	\cref{prop:principal}. Item \textup{(iv)} is
+	\cref{cor:closed-equals-quotient}. Item \textup{(v)} is
+	\cref{thm:nogo}. Item \textup{(vi)} is
+	\cref{thm:two-locus-classification,cor:transport-form}.
+\end{proof}
+% ============================================================
+\section{Interpretation}
+\label{sec:closure-interpretation}
+% ============================================================
+The formal results admit an exact internal reading.
+\begin{remark}[Closure as internal completeness]
+	Within the present framework, the term \emph{closed system} has a purely
+	comparison-theoretic meaning. It does not refer to a geometric boundary
+	or to an externally imposed isolation condition. Rather, closure means
+	that the comparison structure already realizes every state required by
+	its own left-profile and right-profile data.
+	Equivalently, closure is the condition that every pair consisting of an
+	\(\alpha\)-class and a \(\beta\)-class is realized by a unique element
+	of \(U\). This is exactly the rectangular comparison completeness
+	condition of \cref{def:rect}, recast terminologically in
+	\cref{def:closure}.
+	Thus closedness is not added from outside. It is the statement that the
+	comparison world is internally complete with respect to its own profile
+	data. Once this internal completeness holds, the canonical product
+	decomposition, the diagonal symmetry, the orbit quotient, and the
+	quotient semantics all follow as necessary consequences of the
+	comparison structure itself.
+\end{remark}
+\begin{remark}[Structural centrality of the chapter]
+	Everything later in the stack presupposes the theorem-level content
+	recorded here. The transport theory of enrichment, the stabilization of
+	loop defect, and the later curvature realization of that same
+	obstruction all require that admissible state content has already
+	been determined down to quotient semantics. That determining is exactly
+	the content of closure as established in the present chapter.
+\end{remark}
+% ============================================================
+\section{Conclusion}
+\label{sec:closure-conclusion}
+% ============================================================
+The structural content of Part~II is now complete.
+A comparison world is closed exactly when it satisfies rectangular
+comparison completeness. Equivalently, it is closed exactly when the
+canonical factor map
+\[
+	\Theta:U\to X_A\times X_B
+\]
+is bijective. In that case the comparison structure determines the canonical
+product presentation
+\[
+	U\cong X_A\times X_B,
+\]
+the diagonal action of
+\[
+	G=\Aut(U,\mathcal C)
+\]
+on
+\[
+	X=X_A\times X_B,
+\]
+and hence the canonical orbit projection
+\[
+	\pi:X\to\Phys=X/G.
+\]
+The universal property of \(\pi\) then identifies admissible
+closed-system reports with maps on \(\Phys\). Quotient semantics is
+therefore not an added axiom. It is a theorem-level consequence of
+closure.
+	Moreover, closure is minimal for this purpose. No strictly weaker
+	condition determines diagonal redundancy uniformly, and hence no strictly
+	weaker condition determines the quotient-semantic spine of Part~II.
+	This is the structural role of the chapter. It closes Part~II by fixing
+	the exact theorem-level meaning of a closed system and by proving that
+	the passage from primitive comparison data to canonical quotient
+	semantics is determined exactly by closure, i.e. by rectangular
+	comparison completeness.
+	Accordingly, Part~II concludes at theorem level: closure is both
+	necessary and sufficient for the quotient-semantic backbone, and no
+	weaker hypothesis supports the same uniform determination.
+
+From this fixed backbone, \cref{ch:locus} undertakes the universal
+classification of admissible enrichment mechanisms beyond quotient
+semantics.

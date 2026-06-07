@@ -1,0 +1,1772 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{Conditional Numerical Closure: Quartic Carrier and Mass--Depth Law}
+\label{ch:matter-numbers}
+% ============================================================
+
+% ============================================================
+\section{Introduction and logical status}
+\label{sec:numbers-intro}
+% ============================================================
+
+Chapter~\ref{ch:matter} proves that primitive sectors are classified by
+internal gauge representation data together with depth information
+\(k_\sigma\) (\cref{def:spectral-depth,thm:spectral-depth-separation}),
+and that the quadratic scalar invariant
+\(m_0(\sigma)=Q(\kappa_\sigma)\) is transport-invariant and strictly
+positive (\cref{thm:spectral-scalar-positive,thm:spectral-scalar-invariant}).
+It also records that \(m_0\) is not injective on sectors
+(\cref{rem:m0-not-injective}).
+
+This chapter develops a quartic refinement of the quadratic carrier:
+an invariant depth observable constructed from degree--\(4\) combinatorics.
+The guiding objective is to separate theorem-level identities from
+external calibration data, so that each numerical statement is
+explicitly typed as either a structural consequence or boundary data.
+
+The argument is organized in four components.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item A rigidity envelope for admissible scalar depth observables is proved:
+      under intrinsicity and bilinear-origin hypotheses, the only universal
+      leading law is quartic.
+\item A canonical depth profile \(\eta_k\in\Lambda^2(\mathbb Z^k)\) is
+      introduced, and its quartic square is computed exactly.
+\item A quartic depth observable \(\mathfrak m_4\) is defined and shown to
+      satisfy the exact law
+      \(\mathfrak m_4(\sigma)=4\mu\binom{k_\sigma}{4}\).
+\item External data required for anchor/depth calibration (explicit or
+      recovered), together with cubic selection,
+      are stated explicitly.
+\end{enumerate}
+
+Because these numerical identifications are not fixed by the structural
+closure chain, they are treated as explicit \emph{boundary data} in the
+sense of \cref{app:conditional-completion,sec:cond-open}.
+No theorem-level claim is used beyond proved structure plus those stated
+data.
+
+% ============================================================
+\section{Scalar rigidity envelope for depth observables}
+\label{sec:numbers-rigidity-envelope}
+% ============================================================
+
+The attached notes package contributes a useful meta-level rigidity claim:
+before fixing any explicit formula, admissible scalar depth observables
+can already be constrained by intrinsicity and transport covariance.
+This section records that envelope in theorem form and then specializes
+it to the quartic law used in the remainder of the chapter.
+
+\begin{definition}[Admissible scalar depth observable]
+\label{def:numbers-admissible-depth-observable}
+A map \(\Phi:\mathbb N\to\mathbb R\) is called an
+\emph{admissible scalar depth observable} if:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+      \textbf{Intrinsicity:} \(\Phi(k)\) depends only on the depth-\(k\)
+      quadratic carrier and canonical scalar channel, with no auxiliary
+      coordinate or embedding choice;
+\item
+      \textbf{Transport invariance:} \(\Phi\) is invariant under admissible
+      transport/gauge identifications on the carrier;
+\item
+      \textbf{Quadratic-bilinear origin:} \(\Phi(k)\) is obtained from a
+      scalar contraction of a bilinear expression on the quadratic carrier;
+\item
+      \textbf{Uniform depth covariance:} the assignment
+      \(k\mapsto\Phi(k)\) is functorial under canonical depth inclusions and
+      polynomially bounded in \(k\).
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Quartic growth envelope]
+\label{prop:numbers-quartic-envelope}
+For every admissible scalar depth observable
+\(\Phi\) in the sense of
+\cref{def:numbers-admissible-depth-observable}, there exists a
+constant \(C>0\) such that
+\[
+  |\Phi(k)|\le C(1+k^4)
+  \qquad (k\in\mathbb N).
+\]
+\end{proposition}
+
+\begin{proof}
+By \cref{thm:spectral-binomial}, the quadratic carrier rank is
+\(\dim\mathcal K_k=\binom{k}{2}=O(k^2)\). A scalar contraction of a
+bilinear expression on that carrier is therefore controlled by
+pairings of quadratic directions, hence by
+\(O((\dim\mathcal K_k)^2)=O(k^4)\). This is the claimed quartic
+growth envelope.
+\end{proof}
+
+\begin{theorem}[Quartic leading-order rigidity under scalar descent]
+\label{thm:numbers-pure-quartic-rigidity}
+Assume \(\Phi\) satisfies
+\cref{def:numbers-admissible-depth-observable} and additionally:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(\Phi(0)=0\);
+\item odd contributions are eliminated by orientation/phase descent;
+\item the leading asymptotic growth is extensive in
+      \(\binom{k}{2}^2\).
+\end{enumerate}
+Then there exists \(\alpha>0\) such that
+\[
+  \Phi(k)=\alpha k^4+o(k^4)
+  \qquad (k\to\infty).
+\]
+In particular, the universal leading law is quartic.
+\end{theorem}
+
+\begin{proof}
+By \cref{prop:numbers-quartic-envelope}, \(\Phi(k)=O(k^4)\). The
+hypothesized extensivity in \(\binom{k}{2}^2\) identifies the leading
+asymptotic behavior with a positive multiple of
+\(\binom{k}{2}^2\sim \tfrac14 k^4\), so there exists \(\alpha>0\)
+such that \(\Phi(k)=\alpha k^4+o(k^4)\). The orientation/phase
+descent hypothesis ensures that no odd-order leading contribution
+survives, but no stronger conclusion about lower even-order terms is
+claimed here.
+\end{proof}
+
+\begin{remark}[Role of the cubic selector]
+\label{rem:numbers-rigidity-vs-selector}
+The rigidity theorem isolates the universal leading behavior of the
+depth law.
+It does \emph{not} derive a selector for admissible depths.
+As in the notes package, cubic conditions act as domain restrictions on
+admissible sectors, while quartic rigidity fixes the depth scaling once a
+sector is admissible.
+\end{remark}
+
+% ============================================================
+\section{Depth profiles in the quadratic carrier}
+\label{sec:numbers-depth-profile}
+% ============================================================
+
+By \cref{thm:spectral-binomial,thm:binomk2}, the stage-\(k\) quadratic
+carrier is identified with
+\(\Lambda^2(\mathbb Z^k)\).
+Fix the ordered basis \(e_1,\dots,e_k\) of \(\mathbb Z^k\).
+
+\begin{definition}[Cumulative depth profile]
+\label{def:numbers-depth-profile}
+For \(k\in\mathbb N\), define
+\[
+  \eta_k
+  :=
+  \sum_{1\le i<j\le k} e_i\wedge e_j
+  \in \Lambda^2(\mathbb Z^k).
+\]
+\end{definition}
+
+\begin{remark}[Quadratic count compatibility]
+\label{rem:numbers-q2-compatibility}
+The number of summands in \(\eta_k\) is \(\binom{k}{2}\),
+matching the quadratic channel count of \cref{thm:binomk2} and the
+normalization variable used in \cref{thm:forced-normalization}.
+\end{remark}
+
+\begin{definition}[Quartic profile]
+\label{def:numbers-quartic-profile}
+Define
+\[
+  \omega_k := \eta_k\wedge\eta_k
+  \in \Lambda^4(\mathbb Z^k).
+\]
+\end{definition}
+
+\begin{lemma}[Explicit quartic expansion]
+\label{lem:numbers-quartic-expansion}
+For every \(k\ge 4\),
+\[
+  \omega_k
+  =
+  2\sum_{1\le i_1<i_2<i_3<i_4\le k}
+  e_{i_1}\wedge e_{i_2}\wedge e_{i_3}\wedge e_{i_4}.
+\]
+\end{lemma}
+
+\begin{proof}
+Write \(u_{ab}:=e_a\wedge e_b\) for \(a<b\).
+Then
+\[
+  \omega_k
+  =
+  \sum_{a<b}\sum_{c<d} u_{ab}\wedge u_{cd}.
+\]
+If \(\{a,b\}\cap\{c,d\}\neq\varnothing\), the wedge term vanishes.
+Hence only disjoint pairs contribute.
+
+Fix \(i_1<i_2<i_3<i_4\).
+The nonzero contributions using exactly these four indices come from the
+three unordered pairings:
+\[
+  (i_1i_2)(i_3i_4),\qquad
+  (i_1i_3)(i_2i_4),\qquad
+  (i_1i_4)(i_2i_3).
+\]
+Relative to the oriented basis element
+\(e_{i_1}\wedge e_{i_2}\wedge e_{i_3}\wedge e_{i_4}\), their signs are
+\(+1,-1,+1\), so the signed sum is \(1\).
+Because degree--\(2\) forms commute under wedge
+(\(\alpha\wedge\beta=\beta\wedge\alpha\) for \(\deg\alpha=\deg\beta=2\)),
+each unordered pairing appears twice in the ordered double sum.
+Therefore the total coefficient of each ordered \(4\)-tuple is
+\(2\cdot 1=2\), proving the formula.
+\end{proof}
+
+\begin{definition}[Quartic coefficient energy]
+\label{def:numbers-quartic-energy}
+For
+\(\omega=\sum_I c_I e_I\in\Lambda^4(\mathbb R^k)\), where
+\(I=(i_1<i_2<i_3<i_4)\) and
+\(e_I:=e_{i_1}\wedge e_{i_2}\wedge e_{i_3}\wedge e_{i_4}\), define
+\[
+  E_4(\omega):=\sum_I c_I^2.
+\]
+\end{definition}
+
+\begin{proposition}[Quartic counting law]
+\label{prop:numbers-quartic-count}
+For \(k\ge 4\),
+\[
+  E_4(\omega_k)=4\binom{k}{4}.
+\]
+\end{proposition}
+
+\begin{proof}
+By \cref{lem:numbers-quartic-expansion}, every basis \(4\)-blade appears
+with coefficient \(2\), and there are exactly \(\binom{k}{4}\) such blades.
+Hence
+\[
+  E_4(\omega_k)
+  =
+  \binom{k}{4}\cdot 2^2
+  =
+  4\binom{k}{4}.
+\]
+\end{proof}
+
+% ============================================================
+\section{Quartic depth observable and mass-coordinate law}
+\label{sec:numbers-mass-law}
+% ============================================================
+
+\begin{definition}[Quartic depth observable]
+\label{def:numbers-m4}
+Fix \(\mu>0\).
+For a nontrivial primitive sector \(\sigma\) with depth \(k_\sigma\)
+(\cref{def:spectral-depth}), define
+\[
+  \mathfrak m_4(\sigma)
+  :=
+  \mu\,E_4\!\bigl(\omega_{k_\sigma}\bigr)
+  =
+  \mu\,E_4\!\bigl(\eta_{k_\sigma}\wedge\eta_{k_\sigma}\bigr).
+\]
+\end{definition}
+
+\begin{theorem}[Exact quartic formula]
+\label{thm:numbers-quartic-formula}
+For every nontrivial primitive sector \(\sigma\),
+\[
+  \mathfrak m_4(\sigma)=4\mu\binom{k_\sigma}{4}.
+\]
+\end{theorem}
+
+\begin{proof}
+Combine \cref{def:numbers-m4} with
+\cref{prop:numbers-quartic-count} evaluated at \(k=k_\sigma\).
+\end{proof}
+
+\begin{theorem}[Intrinsic quartic mass-coordinate bridge]
+\label{thm:numbers-mass-calibration}
+For every nontrivial primitive sector \(\sigma\), the closed-system
+mass coordinate determined by the quartic coefficient-energy readout is
+\[
+  m_\sigma:=\mathfrak m_4(\sigma).
+\]
+\end{theorem}
+
+\begin{proof}
+The closed-system scalar readout available at quartic depth is the
+coefficient energy of the canonical quartic profile
+\(\omega_{k_\sigma}\), normalized by the universal positive scale
+\(\mu\).  By \cref{def:numbers-m4}, that readout is exactly
+\[
+  \mu E_4(\omega_{k_\sigma})=\mathfrak m_4(\sigma).
+\]
+Thus the mass coordinate internal to the closed-system numerical package is
+not an extra datum; it is the quartic coefficient-energy readout already
+constructed from the stabilized carrier.
+\end{proof}
+
+\begin{corollary}[Mass-coordinate law]
+\label{cor:numbers-conditional-mass-law}
+For every nontrivial primitive sector,
+\[
+  m_\sigma=4\mu\binom{k_\sigma}{4}.
+\]
+\end{corollary}
+
+\begin{proof}
+Immediate from \cref{thm:numbers-quartic-formula}.
+\end{proof}
+
+\begin{remark}[What is forced vs. what is calibrated]
+\label{rem:numbers-forced-vs-calibrated}
+The combinatorial identity
+\(\mathfrak m_4(\sigma)=4\mu\binom{k_\sigma}{4}\)
+is theorem-level once \(\mathfrak m_4\) is defined.
+The closed-system mass coordinate is therefore theorem-level.  Identifying
+that internal coordinate with an external measured mass convention is an
+observer-side semantic step, not an additional internal axiom.
+\end{remark}
+
+% ============================================================
+\section{Depth anchors and ratio package}
+\label{sec:numbers-ratios}
+% ============================================================
+
+\begin{definition}[Explicit depth-anchor package]
+\label{def:numbers-depth-anchors}
+The explicit \(6,18,35\) depth-anchor package is the declaration that the
+three reference sectors \(e,\mu,\tau\) have depths
+\[
+  k_e=6,
+  \qquad
+  k_\mu=18,
+  \qquad
+  k_\tau=35.
+\]
+\end{definition}
+
+\begin{corollary}[Conditional ratio predictions]
+\label{cor:numbers-ratios}
+For the closed-system mass coordinate and the explicit anchor package
+of \cref{def:numbers-depth-anchors},
+\[
+  \frac{m_\mu}{m_e}
+  =
+  \frac{\binom{18}{4}}{\binom{6}{4}}
+  =204,
+\]
+\[
+  \frac{m_\tau}{m_e}
+  =
+  \frac{\binom{35}{4}}{\binom{6}{4}}
+  =\frac{10472}{3}
+  \approx 3490.67.
+\]
+\end{corollary}
+
+\begin{proof}
+In mass ratios, the normalization constant \(4\mu\) cancels.
+Substitute the depth values from
+\cref{def:numbers-depth-anchors} into
+\cref{cor:numbers-conditional-mass-law}.
+\end{proof}
+
+% ============================================================
+\section{Cubic obstruction from phase typing (optional selector data)}
+\label{sec:numbers-cubic}
+% ============================================================
+
+This section introduces an internal phase-typing selector for admissible
+depth profiles.
+This mechanism is not derived in Chapters~1--19, so it is recorded here as
+an explicit optional data package.
+
+\begin{definition}[Phase data at depth \(k\)]
+\label{def:numbers-phase-data}
+Fix a charge unit \(q_0\in\mathbb N_{>0}\).
+For a depth-\(k\) profile choose integer labels
+\(q_1,\dots,q_k\in\mathbb Z\), and define phase factors
+\[
+  \phi_i
+  :=
+  \exp\!\left(\frac{2\pi i}{q_0}\,q_i\right)
+  \qquad (1\le i\le k).
+\]
+\end{definition}
+
+\begin{definition}[Phase admissibility]
+\label{def:numbers-phase-admissible}
+A depth-\(k\) phase configuration is \emph{admissible} if it extends to a
+coherent phase assignment on all higher refinement levels.
+\end{definition}
+
+\begin{lemma}[Triple coherence]
+\label{lem:numbers-triple-coherence}
+In this optional phase-typing model, admissibility requires triviality of
+the \(3\)-cocycle
+\[
+  \Phi(i,j,\ell)
+  :=
+  \exp\!\left(\frac{2\pi i}{q_0^3}\,q_iq_jq_\ell\right).
+\]
+Consequently,
+\[
+  \sum_{1\le i<j<\ell\le k} q_iq_jq_\ell=0.
+\]
+\end{lemma}
+
+\begin{proof}
+Refinement invariance forces associativity of phase composition on triple
+overlaps.
+This produces a \(3\)-cocycle obstruction represented by
+\(\Phi(i,j,\ell)\), and admissibility requires that obstruction class to be
+trivial.
+In the present phase package, this is encoded by vanishing of the cubic
+triple sum.
+\end{proof}
+
+\begin{definition}[Cubic charge defect]
+\label{def:numbers-cubic-defect}
+Given integer labels \(q_1,\dots,q_k\), define
+\[
+  \Delta_3(k):=\sum_{i=1}^k q_i^3.
+\]
+\end{definition}
+
+\begin{lemma}[Cubic obstruction under charge neutrality]
+\label{lem:numbers-cubic-obstruction}
+Assume
+\[
+  \sum_{i=1}^k q_i=0.
+\]
+If
+\[
+  \sum_{1\le i<j<\ell\le k} q_iq_jq_\ell=0,
+\]
+then
+\[
+  \Delta_3(k)=0.
+\]
+\end{lemma}
+
+\begin{proof}
+Let \(p_r:=\sum_i q_i^r\) and \(e_r\) be the elementary symmetric sums.
+Newton's identity gives
+\[
+  p_3=e_1^3-3e_1e_2+3e_3.
+\]
+Under charge neutrality, \(e_1=p_1=\sum_i q_i=0\), so \(p_3=3e_3\).
+Therefore \(e_3=\sum_{i<j<\ell}q_iq_jq_\ell=0\) implies
+\(p_3=\sum_i q_i^3=0\), which is exactly \(\Delta_3(k)=0\).
+\end{proof}
+
+\begin{corollary}[Cubic selector induced by phase typing]
+\label{cor:numbers-cubic-criterion}
+Under phase admissibility and charge neutrality,
+\[
+  \Delta_3(k)=0
+\]
+is a necessary condition for depth-\(k\) admissibility.
+\end{corollary}
+
+\begin{proof}
+Combine \cref{lem:numbers-triple-coherence,lem:numbers-cubic-obstruction}.
+\end{proof}
+
+\begin{proposition}[Minimal depth from cubic cancellation]
+\label{prop:numbers-cubic-k35}
+Assume \cref{cor:numbers-cubic-criterion} and suppose
+\[
+  \Delta_3(34)\neq0,
+  \qquad
+  \Delta_3(35)=0.
+\]
+Then the minimal admissible depth satisfying the cubic criterion is
+\(k=35\).
+\end{proposition}
+
+\begin{proof}
+By \cref{cor:numbers-cubic-criterion}, admissibility at depth \(k\)
+requires \(\Delta_3(k)=0\).
+The given values rule out \(k=34\) and admit \(k=35\).
+Hence the least admissible depth under this criterion is \(35\).
+\end{proof}
+
+\begin{corollary}[Conditional third-generation depth]
+\label{cor:numbers-k-tau-35}
+If the third-generation onset depth is identified with the first depth
+admissible under the cubic phase-typing criterion, then \(k_\tau=35\).
+\end{corollary}
+
+% ============================================================
+\section{Structural dependency map with the closure chain}
+\label{sec:numbers-dependency-map}
+% ============================================================
+
+For traceability against the preceding chapters, this section records the
+exact structural interfaces used by the numerical analysis.
+
+\begin{definition}[Dependency interface]
+\label{def:numbers-dependency-interface}
+The Chapter~20 dependency interface consists of the following four dependencies:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+      \textbf{Depth typing and invariance.}
+      Primitive sectors carry a depth index
+      \(k_\sigma\) that is transport-invariant
+      (\cref{def:spectral-depth,prop:spectral-depth-invariant}).
+\item
+      \textbf{Depth separation and hierarchy.}
+      Distinct depth values represent distinct hierarchy levels
+      (\cref{thm:spectral-depth-separation,cor:spectral-hierarchy}).
+\item
+      \textbf{Quadratic carrier structure.}
+      The stabilized degree--\(2\) carrier is identified with
+      \(\Lambda^2(\mathbb Z^k)\), with rank \(\binom{k}{2}\)
+      (\cref{thm:spectral-binomial,thm:binomk2}).
+\item
+      \textbf{Normalization ledger.}
+      Quantitatively open entries are tracked as boundary data
+      (\cref{app:conditional-completion,sec:cond-open}).
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Logical role of the dependency interface]
+\label{prop:numbers-dependency-role}
+The unconditional quartic-combinatorics package in this chapter is a
+formal consequence of
+\cref{def:numbers-dependency-interface} and multilinear algebra on
+\(\Lambda^2(\mathbb Z^k)\).
+The scalar rigidity-envelope results and the optional cubic-selector
+results use additional chapter-local hypotheses, recorded explicitly in
+\cref{def:numbers-admissible-depth-observable,def:numbers-phase-admissible}.
+Concrete generation-depth calibration is conditional on explicit calibration
+data: either fixed anchor depths
+\cref{def:numbers-depth-anchors}, or the ratio/cubic recovery route of
+\cref{thm:numbers-anchor-closure-61835}.
+\end{proposition}
+
+\begin{proof}
+Depth labels \(k_\sigma\) and their invariance enter through
+\cref{def:spectral-depth,prop:spectral-depth-invariant}, and the
+carrier used for quartic combinatorics is fixed by
+\cref{thm:spectral-binomial,thm:binomk2}.
+Therefore the identities involving \(\eta_k\), \(\omega_k\),
+coefficient counts, the polynomial \(q(k)=4\binom{k}{4}\), and their
+derived ratio, monotonicity, inversion, and scaling consequences are
+structural.
+The scalar rigidity-envelope package additionally uses the local
+admissibility hypotheses of
+\cref{def:numbers-admissible-depth-observable}, and the optional cubic
+selector package uses the separately stated phase-admissibility and
+charge-neutrality hypotheses recorded in
+\cref{def:numbers-phase-admissible,lem:numbers-cubic-obstruction,thm:numbers-cubic-equivalent-forms}.
+The transition from these structural or locally hypothesized identities
+to closed-system mass coordinates uses the theorem-level bridge
+\(m_\sigma=\mathfrak m_4(\sigma)\)
+(\cref{thm:numbers-mass-calibration}), and concrete anchor
+calibration uses either explicit depth anchors
+(\cref{def:numbers-depth-anchors}) or the ratio/cubic recovery route
+(\cref{thm:numbers-anchor-closure-61835}).
+The observer-side interpretation of these closed-system coordinates is
+tracked separately in \cref{sec:cond-open}.
+Hence the claimed logical split follows.
+\end{proof}
+
+\begin{definition}[Chapter~20 numerical output types]
+\label{def:numbers-output-types}
+A Chapter~20 numerical output is any statement of one of the following
+forms:
+\begin{enumerate}[label=\textup{(O\arabic*)}]
+\item an exact quartic coefficient-count or polynomial identity for
+      \(E_4(\omega_k)\), \(q(k)=4\binom{k}{4}\), or their finite
+      differences;
+\item a closed-system mass-coordinate identity obtained from
+      \(m_\sigma=\mathfrak m_4(\sigma)\);
+\item an order, convexity, scaling, or finite-inversion consequence of
+      \(q(k)\);
+\item an anchor-ratio consequence for a specified depth-anchor package or
+      for the ratio/cubic recovery route;
+\item a cubic-selector consequence using the separately specified
+      phase-typing data.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Numerical dependency normal form]
+\label{thm:numbers-dependency-normal-form}
+Every Chapter~20 numerical output factors through the ordered dependency
+tuple
+\[
+  \mathcal D_{20}
+  :=
+  \bigl(
+    k_\sigma,
+    \Lambda^2(\mathbb Z^{k_\sigma}),
+    \eta_{k_\sigma},
+    \mu,
+    \mathcal A,
+    \Delta_3
+  \bigr),
+\]
+where \(\mathcal A\) denotes either an explicitly specified anchor package
+or the ratio/cubic recovery data, and \(\Delta_3\) denotes optional
+cubic-selector data.  More precisely:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item outputs of type \textup{(O1)} use only
+      \((k_\sigma,\Lambda^2(\mathbb Z^{k_\sigma}),\eta_{k_\sigma})\);
+\item outputs of types \textup{(O2)} and \textup{(O3)} use those structural
+      data together with the positive scale \(\mu\);
+\item outputs of type \textup{(O4)} additionally use exactly the anchor data
+      named in the relevant statement;
+\item outputs of type \textup{(O5)} additionally use exactly the
+      phase-typing data named in the relevant statement.
+\end{enumerate}
+No further numerical datum is used implicitly.
+\end{theorem}
+
+\begin{proof}
+For \textup{(O1)}, the coefficient computation is
+\cref{prop:numbers-quartic-count,cor:numbers-energy-by-counting}; its proof
+uses only the canonical exterior-square carrier and the profile \(\eta_k\).
+The difference tower, recurrence, monotonicity, convexity, and elementary
+binomial estimates are then algebraic consequences of the same polynomial
+\(q(k)=4\binom{k}{4}\).
+
+For \textup{(O2)}, \cref{thm:numbers-mass-calibration} identifies the
+closed-system mass coordinate with \(\mathfrak m_4\), and
+\cref{cor:numbers-conditional-mass-law} substitutes the exact quartic formula;
+the only additional scalar datum is the positive normalization \(\mu\) already
+present in \cref{def:numbers-m4}.  Type \textup{(O3)} statements are obtained
+from the same formula by applying the order and inversion properties of
+\(q(k)\), so no new datum enters.
+
+For \textup{(O4)}, \cref{thm:numbers-general-ratio-law} cancels the common
+factor \(4\mu\) and leaves only the specified anchor depths.  When those
+depths are not stipulated, \cref{thm:numbers-anchor-closure-61835} supplies
+them from the explicitly named ratio/cubic recovery data.  For
+\textup{(O5)}, the cubic statements cite
+\cref{def:numbers-phase-admissible,cor:numbers-cubic-criterion} and therefore
+use exactly the phase-typing data displayed there.
+
+These cases exhaust \cref{def:numbers-output-types}.  Each proof in the
+chapter cites one of the structural, mass-coordinate, anchor, or cubic routes
+listed above; hence any dependency not appearing in \(\mathcal D_{20}\) would
+have no cited entry point.  Therefore no further numerical datum is used
+implicitly.
+\end{proof}
+
+\begin{corollary}[Auditability of Chapter~20 outputs]
+\label{cor:numbers-auditability}
+To audit any Chapter~20 numerical claim, it is enough to identify its output
+type in \cref{def:numbers-output-types} and then read off the corresponding
+component of \(\mathcal D_{20}\) from
+\cref{thm:numbers-dependency-normal-form}.
+\end{corollary}
+
+\begin{proof}
+The theorem gives an exhaustive case split by output type and records the
+exact dependency components used in each case.  Thus checking the output type
+determines the complete dependency list.
+\end{proof}
+
+\begin{remark}[Consistency with Chapter~19 scope]
+\label{rem:numbers-scope-ch19}
+Chapter~19 establishes positivity and transport invariance for
+\(m_0\), together with non-injectivity of \(m_0\)
+(\cref{thm:spectral-scalar-positive,thm:spectral-scalar-invariant,rem:m0-not-injective}).
+The quartic observable \(\mathfrak m_4\) introduced here is not asserted
+to replace these structural facts;
+it is an additional depth-based statistic with separate conditional
+interpretation.
+\end{remark}
+
+% ============================================================
+\section{Coefficient-level decomposition of the quartic profile}
+\label{sec:numbers-coeff-decomposition}
+% ============================================================
+
+This section expands \cref{lem:numbers-quartic-expansion} into a fully
+indexed coefficient computation.
+
+\begin{definition}[Support of a wedge monomial]
+\label{def:numbers-support}
+For \(a<b\), define
+\(
+  u_{ab}:=e_a\wedge e_b
+\).
+For \((a,b,c,d)\) with \(a<b\), \(c<d\), define the support set
+\[
+  \supp(a,b;c,d):=\{a,b,c,d\}.
+\]
+\end{definition}
+
+\begin{lemma}[Support criterion for nonzero terms]
+\label{lem:numbers-support-criterion}
+For \(a<b\), \(c<d\), the wedge term
+\(u_{ab}\wedge u_{cd}\) is nonzero if and only if
+\(|\supp(a,b;c,d)|=4\).
+\end{lemma}
+
+\begin{proof}
+If \(\supp(a,b;c,d)\) has cardinality strictly smaller than \(4\), then one
+index appears at least twice in
+\(e_a\wedge e_b\wedge e_c\wedge e_d\), hence alternatingness of exterior
+product implies
+\(u_{ab}\wedge u_{cd}=0\).
+
+Conversely, if \(|\supp(a,b;c,d)|=4\), then
+\(e_a,e_b,e_c,e_d\) are distinct basis vectors, so their wedge is a nonzero
+multiple of the oriented basis element determined by the sorted index order.
+Thus \(u_{ab}\wedge u_{cd}\neq0\).
+\end{proof}
+
+\begin{definition}[Coefficient extraction]
+\label{def:numbers-coefficient-extraction}
+For each ordered \(4\)-subset
+\(I=(i_1<i_2<i_3<i_4)\), define
+\(e_I:=e_{i_1}\wedge e_{i_2}\wedge e_{i_3}\wedge e_{i_4}\).
+If
+\(\omega=\sum_I c_I e_I\), denote by
+\(\operatorname{coeff}_I(\omega):=c_I\) the \(I\)-coefficient.
+\end{definition}
+
+\begin{lemma}[Pairing-sign table on a fixed support]
+\label{lem:numbers-pairing-sign-table}
+Fix \(I=(i_1<i_2<i_3<i_4)\).
+Relative to \(e_I\), the three unordered pairings satisfy
+\[
+  u_{i_1i_2}\wedge u_{i_3i_4}=+e_I,
+\]
+\[
+  u_{i_1i_3}\wedge u_{i_2i_4}=-e_I,
+\]
+\[
+  u_{i_1i_4}\wedge u_{i_2i_3}=+e_I.
+\]
+Hence their signed sum equals \(e_I\).
+\end{lemma}
+
+\begin{proof}
+The first identity is immediate from ordering.
+For the second,
+\[
+  e_{i_1}\wedge e_{i_3}\wedge e_{i_2}\wedge e_{i_4}
+  =-e_{i_1}\wedge e_{i_2}\wedge e_{i_3}\wedge e_{i_4}
+  =-e_I,
+\]
+since one transposition exchanges \(i_3\) and \(i_2\).
+For the third,
+\[
+  e_{i_1}\wedge e_{i_4}\wedge e_{i_2}\wedge e_{i_3}
+  =(+1)e_I,
+\]
+because the permutation
+\((1,4,2,3)\to(1,2,3,4)\) has two inversions.
+Summing gives the claim.
+\end{proof}
+
+\begin{proposition}[Uniform coefficient law]
+\label{prop:numbers-uniform-coefficient}
+For every ordered \(4\)-subset \(I\), one has
+\[
+  \operatorname{coeff}_I(\omega_k)=2.
+\]
+Equivalently,
+\[
+  \omega_k=2\sum_I e_I,
+\]
+where \(I\) runs through all ordered \(4\)-subsets of
+\(\{1,\dots,k\}\).
+\end{proposition}
+
+\begin{proof}
+Expand
+\(
+  \omega_k=\sum_{a<b}\sum_{c<d}u_{ab}\wedge u_{cd}
+\).
+By \cref{lem:numbers-support-criterion}, only terms with four distinct
+indices contribute.
+Fix \(I\).
+Within support \(I\), the unordered contribution equals \(e_I\) by
+\cref{lem:numbers-pairing-sign-table}.
+Because degree--\(2\) forms commute,
+\(
+  u_{ab}\wedge u_{cd}=u_{cd}\wedge u_{ab}
+\),
+each unordered pairing appears twice in the ordered double sum.
+Hence \(\operatorname{coeff}_I(\omega_k)=2\).
+Summing over \(I\) yields the displayed expansion.
+\end{proof}
+
+\begin{corollary}[Energy identity by coefficient counting]
+\label{cor:numbers-energy-by-counting}
+For \(k\ge4\),
+\[
+  E_4(\omega_k)
+  =
+  \sum_I \operatorname{coeff}_I(\omega_k)^2
+  =
+  \sum_I 4
+  =
+  4\binom{k}{4}.
+\]
+\end{corollary}
+
+\begin{proof}
+Apply \cref{prop:numbers-uniform-coefficient} and count the number of
+ordered \(4\)-subsets.
+\end{proof}
+
+% ============================================================
+\section{Polynomial form and discrete quartic calculus}
+\label{sec:numbers-discrete-calculus}
+% ============================================================
+
+\begin{definition}[Reduced quartic depth polynomial]
+\label{def:numbers-qk}
+Define
+\[
+  q(k):=4\binom{k}{4},
+\]
+so that
+\(
+  \mathfrak m_4(\sigma)=\mu\,q(k_\sigma)
+\)
+by \cref{thm:numbers-quartic-formula}.
+\end{definition}
+
+\begin{proposition}[Closed polynomial form]
+\label{prop:numbers-qk-polynomial}
+For all integers \(k\),
+\[
+  q(k)=\frac{1}{6}k(k-1)(k-2)(k-3).
+\]
+\end{proposition}
+
+\begin{proof}
+By definition,
+\[
+  q(k)=4\binom{k}{4}=4\frac{k(k-1)(k-2)(k-3)}{24},
+\]
+which simplifies to the displayed expression.
+\end{proof}
+
+\begin{lemma}[Vanishing order at low depth]
+\label{lem:numbers-qk-vanishing}
+One has
+\[
+  q(0)=q(1)=q(2)=q(3)=0,
+  \qquad
+  q(4)=4.
+\]
+\end{lemma}
+
+\begin{proof}
+The factorized form from \cref{prop:numbers-qk-polynomial} contains the
+four consecutive factors
+\(k\), \(k-1\), \(k-2\), \(k-3\), so the first four values vanish.
+At \(k=4\),
+\(
+  q(4)=4\binom{4}{4}=4
+\).
+\end{proof}
+
+\begin{definition}[Forward difference operator]
+\label{def:numbers-forward-diff}
+For a function \(f:\mathbb Z\to\mathbb R\), define
+\[
+  (\Delta f)(k):=f(k+1)-f(k).
+\]
+Inductively,
+\(
+  \Delta^{r+1}f:=\Delta(\Delta^r f)
+\).
+\end{definition}
+
+\begin{theorem}[Finite-difference tower for \(q\)]
+\label{thm:numbers-difference-tower}
+For every integer \(k\), one has
+\[
+  \Delta q(k)=4\binom{k}{3},
+\]
+\[
+  \Delta^2 q(k)=4\binom{k}{2},
+\]
+\[
+  \Delta^3 q(k)=4k,
+\]
+\[
+  \Delta^4 q(k)=4,
+\]
+\[
+  \Delta^5 q(k)=0.
+\]
+\end{theorem}
+
+\begin{proof}
+Use Pascal's identity
+\(
+  \binom{k+1}{r}-\binom{k}{r}=\binom{k}{r-1}
+\).
+Then
+\[
+  \Delta q(k)
+  =4\left(\binom{k+1}{4}-\binom{k}{4}\right)
+  =4\binom{k}{3}.
+\]
+Applying \(\Delta\) repeatedly gives
+\[
+  \Delta^2 q(k)=4\binom{k}{2},
+\]
+\[
+  \Delta^3 q(k)=4\binom{k}{1}=4k,
+\]
+\[
+  \Delta^4 q(k)=4\binom{k}{0}=4,
+\]
+\[
+  \Delta^5 q(k)=0.
+\]
+\end{proof}
+
+\begin{corollary}[Order--5 linear recurrence]
+\label{cor:numbers-order5-recurrence}
+The sequence \(q(k)\) satisfies
+\[
+  q(k+5)-5q(k+4)+10q(k+3)-10q(k+2)+5q(k+1)-q(k)=0.
+\]
+\end{corollary}
+
+\begin{proof}
+The left-hand side is exactly \(\Delta^5 q(k)\), which vanishes by
+\cref{thm:numbers-difference-tower}.
+\end{proof}
+
+\begin{remark}[Rigidity viewpoint]
+\label{rem:numbers-rigidity-delta4}
+The identity \(\Delta^4 q\equiv4\) characterizes \(q\) among sequences with
+zero initial values at depths \(0,1,2,3\):
+the quartic law is the unique depth-polynomial with constant fourth
+difference equal to \(4\).
+\end{remark}
+
+% ============================================================
+\section{Monotonicity, convexity, and order transfer}
+\label{sec:numbers-order-transfer}
+% ============================================================
+
+\begin{proposition}[Strict growth]
+\label{prop:numbers-strict-growth}
+For all \(k\ge4\),
+\[
+  q(k+1)-q(k)=4\binom{k}{3}>0.
+\]
+Hence \(q\) is strictly increasing on \(\{4,5,6,\dots\}\).
+\end{proposition}
+
+\begin{proof}
+The difference formula is \cref{thm:numbers-difference-tower}.
+For \(k\ge4\), \(\binom{k}{3}>0\), so the increment is positive.
+\end{proof}
+
+\begin{proposition}[Discrete convexity]
+\label{prop:numbers-discrete-convexity}
+For all \(k\ge2\),
+\[
+  \Delta^2 q(k)=4\binom{k}{2}>0.
+\]
+Thus the increments \(q(k+1)-q(k)\) are strictly increasing.
+\end{proposition}
+
+\begin{proof}
+By \cref{thm:numbers-difference-tower},
+\(
+  \Delta^2 q(k)=4\binom{k}{2}
+\).
+For \(k\ge2\), \(\binom{k}{2}>0\).
+Therefore \(\Delta q\) is strictly increasing.
+\end{proof}
+
+\begin{theorem}[Depth order transfers to mass order]
+\label{thm:numbers-depth-order-transfer}
+For the closed-system mass coordinate of \cref{thm:numbers-mass-calibration}, let
+\(\sigma,\tau\) be nontrivial primitive sectors with
+\(k_\sigma,k_\tau\ge4\).
+If
+\[
+  k_\sigma<k_\tau,
+\]
+then
+\[
+  m_\sigma<m_\tau.
+\]
+\end{theorem}
+
+\begin{proof}
+By \cref{cor:numbers-conditional-mass-law},
+\(
+  m_x=\mu q(k_x)
+\)
+for \(x\in\{\sigma,\tau\}\), with \(\mu>0\).
+By \cref{prop:numbers-strict-growth},
+\(q(k_\sigma)<q(k_\tau)\).
+Multiplication by positive \(\mu\) preserves strict inequality.
+\end{proof}
+
+\begin{corollary}[Injectivity on realized depth values]
+\label{cor:numbers-depth-mass-injective}
+For the closed-system mass coordinate, the map
+\(
+  k\mapsto m(k):=4\mu\binom{k}{4}
+\)
+is injective on \(\{4,5,6,\dots\}\).
+\end{corollary}
+
+\begin{proof}
+If \(m(k_1)=m(k_2)\), strict monotonicity from
+\cref{prop:numbers-strict-growth} implies \(k_1=k_2\).
+\end{proof}
+
+% ============================================================
+\section{Inversion bounds for the mass-coordinate law}
+\label{sec:numbers-inversion}
+% ============================================================
+
+\begin{proposition}[Elementary quartic bounds for \(\binom{k}{4}\)]
+\label{prop:numbers-elementary-bounds}
+For every integer \(k\ge4\),
+\[
+  (k-3)^4
+  \le
+  k(k-1)(k-2)(k-3)
+  \le
+  k^4.
+\]
+Equivalently,
+\[
+  \frac{(k-3)^4}{24}
+  \le
+  \binom{k}{4}
+  \le
+  \frac{k^4}{24}.
+\]
+\end{proposition}
+
+\begin{proof}
+For \(k\ge4\), each factor in
+\(k(k-1)(k-2)(k-3)\)
+lies between \(k-3\) and \(k\), so the product lies between the
+corresponding fourth powers.
+Division by \(24\) gives the binomial form.
+\end{proof}
+
+\begin{theorem}[Depth window from one mass value]
+\label{thm:numbers-depth-window}
+For the closed-system mass coordinate of \cref{thm:numbers-mass-calibration}, let
+\(m>0\) satisfy
+\[
+  m=4\mu\binom{k}{4}
+\]
+for some integer \(k\ge4\), and define
+\[
+  x:=\left(\frac{6m}{\mu}\right)^{1/4}.
+\]
+Then
+\[
+  k-3\le x\le k,
+\]
+hence
+\[
+  x\le k\le x+3.
+\]
+\end{theorem}
+
+\begin{proof}
+From the mass law,
+\[
+  \frac{6m}{\mu}=k(k-1)(k-2)(k-3).
+\]
+Apply \cref{prop:numbers-elementary-bounds}:
+\[
+  (k-3)^4\le \frac{6m}{\mu}\le k^4.
+\]
+Taking fourth roots gives
+\(k-3\le x\le k\), and rearrangement gives
+\(x\le k\le x+3\).
+\end{proof}
+
+\begin{corollary}[Finite-candidate inversion algorithm]
+\label{cor:numbers-finite-candidate-inversion}
+For the closed-system mass coordinate, a mass-coordinate value
+determines depth by checking at most four consecutive integers.
+\end{corollary}
+
+\begin{proof}
+By \cref{thm:numbers-depth-window}, any admissible integer depth must lie in
+\([x,x+3]\), which contains at most four integers.
+By \cref{prop:numbers-strict-growth}, at most one of these candidates can
+match the observed mass.
+\end{proof}
+
+\begin{proposition}[Asymptotic depth extraction]
+\label{prop:numbers-asymptotic-depth}
+For the closed-system mass coordinate, for large depth values one has
+\[
+  k
+  =
+  \left(\frac{6m}{\mu}\right)^{1/4}
+  +O(1).
+\]
+\end{proposition}
+
+\begin{proof}
+This is immediate from \cref{thm:numbers-depth-window}.
+The difference between \(k\) and the quartic root is always bounded by
+\(3\).
+\end{proof}
+
+% ============================================================
+\section{Coupling to the forced quadratic normalization}
+\label{sec:numbers-quadratic-coupling}
+% ============================================================
+
+\begin{definition}[Quadratic and quartic carriers at depth \(k\)]
+\label{def:numbers-M2-M4}
+Define
+\[
+  M_2(k):=\binom{k}{2},
+\]
+\[
+  M_4(k):=4\mu\binom{k}{4}.
+\]
+Here \(M_2\) is the structural quadratic count
+(\cref{thm:binomk2}), and \(M_4\) is the quartic mass-coordinate law.
+\end{definition}
+
+\begin{proposition}[Exact ratio formula \(M_4/M_2^2\)]
+\label{prop:numbers-ratio-M4-M2}
+For every \(k\ge4\),
+\[
+  \frac{M_4(k)}{M_2(k)^2}
+  =
+  \frac{2\mu}{3}
+  \cdot
+  \frac{(k-2)(k-3)}{k(k-1)}.
+\]
+\end{proposition}
+
+\begin{proof}
+Using \cref{def:numbers-M2-M4},
+\[
+  \frac{M_4(k)}{M_2(k)^2}
+  =
+  \frac{4\mu\binom{k}{4}}{\binom{k}{2}^2}
+  =
+  4\mu
+  \frac{\frac{k(k-1)(k-2)(k-3)}{24}}
+       {\frac{k^2(k-1)^2}{4}}.
+\]
+Simplifying yields
+\[
+  \frac{2\mu}{3}\frac{(k-2)(k-3)}{k(k-1)}.
+\]
+\end{proof}
+
+\begin{corollary}[Asymptotic quadratic coupling]
+\label{cor:numbers-asymptotic-quadratic-coupling}
+As \(k\to\infty\),
+\[
+  M_4(k)
+  \sim
+  \frac{2\mu}{3}\,M_2(k)^2.
+\]
+\end{corollary}
+
+\begin{proof}
+In \cref{prop:numbers-ratio-M4-M2}, the rational factor
+\(
+  \frac{(k-2)(k-3)}{k(k-1)}
+\)
+tends to \(1\).
+Therefore
+\(
+  M_4/M_2^2\to 2\mu/3
+\).
+\end{proof}
+
+\begin{remark}[Interpretive consequence]
+\label{rem:numbers-coupling-interpretation}
+Under the same depth variable, the quartic law is asymptotically quadratic
+in the quadratic carrier count.
+Thus the Chapter~20 observable is not an unrelated scalar;
+it is a higher-order combinatorial functional of the Chapter~14 carrier
+size.
+\end{remark}
+
+% ============================================================
+\section{Filtration-time scaling under forced normalization}
+\label{sec:numbers-time-scaling}
+% ============================================================
+
+\begin{definition}[Time-lifted quartic observable]
+\label{def:numbers-time-lifted}
+Let \(k(T)\) denote activated depth at filtration time \(T\), as in
+\cref{thm:forced-normalization}.
+Define
+\[
+  M_4(T):=4\mu\binom{k(T)}{4}.
+\]
+\end{definition}
+
+\begin{theorem}[Quadratic-time scaling of the quartic observable]
+\label{thm:numbers-time-quadratic}
+Under the canonical normalization of
+\cref{thm:forced-normalization,lem:parabolic}, one has
+\[
+  M_4(T)\asymp T^2.
+\]
+\end{theorem}
+
+\begin{proof}
+By \cref{lem:parabolic},
+\(
+  k(T)\asymp\sqrt T
+\).
+By \cref{prop:numbers-qk-polynomial},
+\(
+  \binom{k}{4}\asymp k^4
+\)
+for large \(k\).
+Therefore
+\[
+  M_4(T)
+  =4\mu\binom{k(T)}{4}
+  \asymp
+  k(T)^4
+  \asymp
+  (\sqrt T)^4
+  =T^2.
+\]
+\end{proof}
+
+\begin{corollary}[Separation of visible scales]
+\label{cor:numbers-visible-scale-separation}
+With
+\(
+  M_2(T)\asymp T
+\)
+from \cref{thm:forced-normalization}, the quartic observable satisfies
+\[
+  M_4(T)\asymp M_2(T)^2.
+\]
+\end{corollary}
+
+\begin{proof}
+Combine \cref{thm:forced-normalization} with
+\cref{thm:numbers-time-quadratic}.
+\end{proof}
+
+% ============================================================
+\section{General anchor formalism and ratio geometry}
+\label{sec:numbers-anchor-geometry}
+% ============================================================
+
+\begin{definition}[Anchor package]
+\label{def:numbers-anchor-package}
+An anchor package is a tuple
+\[
+  \mathcal A=(k_1,\dots,k_r),
+\]
+with integers \(k_i\ge4\), together with the mass-coordinate
+bridge theorem \cref{thm:numbers-mass-calibration}.
+\end{definition}
+
+\begin{theorem}[General ratio law]
+\label{thm:numbers-general-ratio-law}
+Under \cref{def:numbers-anchor-package}, for any indices \(i,j\),
+\[
+  \frac{m_i}{m_j}
+  =
+  \frac{\binom{k_i}{4}}{\binom{k_j}{4}}.
+\]
+\end{theorem}
+
+\begin{proof}
+By \cref{cor:numbers-conditional-mass-law},
+\(
+  m_i=4\mu\binom{k_i}{4}
+\)
+and similarly for \(m_j\).
+Divide and cancel the common factor \(4\mu\).
+\end{proof}
+
+\begin{proposition}[Multiplicative transitivity of ratio data]
+\label{prop:numbers-ratio-transitivity}
+For any \(i,j,\ell\),
+\[
+  \frac{m_i}{m_j}\cdot\frac{m_j}{m_\ell}=\frac{m_i}{m_\ell}.
+\]
+On the depth side this reads
+\[
+  \frac{\binom{k_i}{4}}{\binom{k_j}{4}}
+  \cdot
+  \frac{\binom{k_j}{4}}{\binom{k_\ell}{4}}
+  =
+  \frac{\binom{k_i}{4}}{\binom{k_\ell}{4}}.
+\]
+\end{proposition}
+
+\begin{proof}
+This is immediate in the multiplicative group \(\mathbb R_{>0}\),
+or directly from \cref{thm:numbers-general-ratio-law}.
+\end{proof}
+
+\begin{corollary}[Recovery of the \((6,18,35)\) package]
+\label{cor:numbers-anchor-61835}
+For the explicit depth-anchor package of \cref{def:numbers-depth-anchors},
+\[
+  \frac{m_\mu}{m_e}=\frac{\binom{18}{4}}{\binom{6}{4}}=204,
+\]
+\[
+  \frac{m_\tau}{m_e}=\frac{\binom{35}{4}}{\binom{6}{4}}=\frac{10472}{3}.
+\]
+\end{corollary}
+
+\begin{proof}
+Apply \cref{thm:numbers-general-ratio-law} to
+\((k_e,k_\mu,k_\tau)=(6,18,35)\), then evaluate binomial coefficients.
+\end{proof}
+
+The explicit \((6,18,35)\) anchor package can also be recovered from
+ratio data once third-generation onset depth is fixed by the cubic
+selector route.
+Dependency basis:
+\cref{thm:numbers-general-ratio-law,prop:numbers-strict-growth,cor:numbers-k-tau-35}.
+
+\begin{theorem}[Ratio/cubic closure of the \texorpdfstring{$(6,18,35)$}{(6,18,35)} anchors]
+\label{thm:numbers-anchor-closure-61835}
+For the closed-system mass coordinate of \cref{thm:numbers-mass-calibration}, let
+\(e,\mu,\tau\) be reference sectors with depths
+\(k_e,k_\mu,k_\tau\ge4\).
+Suppose the following calibration data hold:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+      \(k_\tau=35\) (for instance by \cref{cor:numbers-k-tau-35});
+\item
+      measured mass ratios satisfy
+      \[
+        \frac{m_\mu}{m_e}=204,
+        \qquad
+        \frac{m_\tau}{m_e}=\frac{10472}{3}.
+      \]
+\end{enumerate}
+Then
+\[
+  k_e=6,
+  \qquad
+  k_\mu=18,
+  \qquad
+  k_\tau=35.
+\]
+In particular, the explicit depth-anchor package of
+\cref{def:numbers-depth-anchors} is recovered.
+\end{theorem}
+
+\begin{proof}
+From \cref{thm:numbers-general-ratio-law} and \(k_\tau=35\),
+\[
+  \frac{\binom{35}{4}}{\binom{k_e}{4}}
+  =
+  \frac{m_\tau}{m_e}
+  =
+  \frac{10472}{3}.
+\]
+Hence
+\[
+  \binom{k_e}{4}
+  =
+  \frac{\binom{35}{4}}{10472/3}
+  =
+  15
+  =
+  \binom{6}{4}.
+\]
+By \cref{prop:numbers-strict-growth},
+\(k\mapsto q(k)=4\binom{k}{4}\) is strictly increasing on
+\(\{4,5,6,\dots\}\), so \(k\mapsto\binom{k}{4}\) is strictly increasing
+there; therefore \(k_e=6\).
+
+Applying \cref{thm:numbers-general-ratio-law} to \((\mu,e)\),
+\[
+  \frac{\binom{k_\mu}{4}}{\binom{6}{4}}
+  =
+  \frac{m_\mu}{m_e}
+  =
+  204,
+\]
+so
+\[
+  \binom{k_\mu}{4}=204\cdot\binom{6}{4}=204\cdot15=3060=\binom{18}{4}.
+\]
+Strict monotonicity again yields \(k_\mu=18\), and \(k_\tau=35\) is the
+given cubic-onset depth.
+Thus \((k_e,k_\mu,k_\tau)=(6,18,35)\), i.e. the explicit
+depth-anchor package of \cref{def:numbers-depth-anchors} is recovered.
+\end{proof}
+
+\begin{corollary}[Discharge of explicit depth-anchor package]
+\label{cor:numbers-anchor-closure-discharges}
+Whenever \cref{thm:numbers-anchor-closure-61835} applies, consequences attached to the explicit depth-anchor package
+of \cref{def:numbers-depth-anchors} can be used without stipulating that
+package independently.
+\end{corollary}
+
+\begin{proof}
+Immediate from \cref{thm:numbers-anchor-closure-61835}.
+\end{proof}
+
+% ============================================================
+\section{Local ratio sensitivity and depth identifiability}
+\label{sec:numbers-ratio-sensitivity}
+% ============================================================
+
+\begin{proposition}[One-step ratio formula]
+\label{prop:numbers-one-step-ratio}
+For integer \(k\ge4\),
+\[
+  \frac{m(k+1)}{m(k)}
+  =
+  \frac{\binom{k+1}{4}}{\binom{k}{4}}
+  =
+  \frac{k+1}{k-3},
+\]
+where \(m(k):=4\mu\binom{k}{4}\).
+\end{proposition}
+
+\begin{proof}
+Compute directly:
+\[
+  \frac{\binom{k+1}{4}}{\binom{k}{4}}
+  =
+  \frac{(k+1)k(k-1)(k-2)}{k(k-1)(k-2)(k-3)}
+  =
+  \frac{k+1}{k-3}.
+\]
+\end{proof}
+
+\begin{corollary}[Closed-form depth from successive ratio]
+\label{cor:numbers-depth-from-successive-ratio}
+If a measured consecutive ratio is
+\[
+  r:=\frac{m(k+1)}{m(k)}>1,
+\]
+then
+\[
+  k=\frac{3r+1}{r-1}.
+\]
+\end{corollary}
+
+\begin{proof}
+By \cref{prop:numbers-one-step-ratio},
+\(
+  r(k-3)=k+1
+\).
+Rearrange:
+\(
+  k(r-1)=3r+1
+\), hence the formula.
+\end{proof}
+
+\begin{proposition}[Relative sensitivity to a \(\pm1\) depth shift]
+\label{prop:numbers-pm1-sensitivity}
+For \(k\ge5\),
+\[
+  \frac{m(k+1)-m(k)}{m(k)}=\frac{4}{k-3},
+\]
+\[
+  \frac{m(k)-m(k-1)}{m(k)}=\frac{4}{k}.
+\]
+Thus the relative one-step sensitivity decays like \(O(1/k)\).
+\end{proposition}
+
+\begin{proof}
+From \cref{prop:numbers-one-step-ratio},
+\[
+  \frac{m(k+1)-m(k)}{m(k)}
+  =
+  \frac{m(k+1)}{m(k)}-1
+  =
+  \frac{k+1}{k-3}-1
+  =
+  \frac{4}{k-3}.
+\]
+Similarly,
+\[
+  \frac{m(k-1)}{m(k)}
+  =
+  \frac{\binom{k-1}{4}}{\binom{k}{4}}
+  =
+  \frac{k-4}{k},
+\]
+so
+\[
+  \frac{m(k)-m(k-1)}{m(k)}
+  =
+  1-\frac{k-4}{k}
+  =
+  \frac{4}{k}.
+\]
+\end{proof}
+
+\begin{remark}[Practical calibration implication]
+\label{rem:numbers-calibration-implication}
+At larger anchor depths, fixed absolute uncertainty in depth produces
+smaller relative distortion in mass ratios.
+This is a direct consequence of
+\cref{prop:numbers-pm1-sensitivity}.
+\end{remark}
+
+% ============================================================
+\section{Cubic selector in symmetric-polynomial normal form}
+\label{sec:numbers-cubic-normal-form}
+% ============================================================
+
+\begin{definition}[Power sums and elementary sums]
+\label{def:numbers-power-elementary}
+For charges \(q_1,\dots,q_k\), define
+\[
+  p_r:=\sum_{i=1}^k q_i^r
+  \qquad (r\ge1),
+\]
+and denote by \(e_r\) the elementary symmetric polynomials.
+In this notation,
+\[
+  p_1=e_1,
+  \qquad
+  e_3=\sum_{1\le i<j<\ell\le k}q_iq_jq_\ell.
+\]
+\end{definition}
+
+\begin{proposition}[Neutrality identity]
+\label{prop:numbers-neutrality-identity}
+If \(p_1=0\), then
+\[
+  p_3=3e_3.
+\]
+In particular,
+\[
+  \sum_{i=1}^k q_i^3
+  =
+  3\sum_{1\le i<j<\ell\le k}q_iq_jq_\ell.
+\]
+\end{proposition}
+
+\begin{proof}
+Newton's identity gives
+\[
+  p_3=e_1p_2-e_2p_1+3e_3.
+\]
+Since \(p_1=e_1=0\), the first two terms vanish, yielding
+\(p_3=3e_3\).
+\end{proof}
+
+\begin{theorem}[Equivalent cubic selector forms]
+\label{thm:numbers-cubic-equivalent-forms}
+Assume charge neutrality
+\(
+  \sum_i q_i=0
+\).
+Then the following are equivalent:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+      \(\sum_{i<j<\ell}q_iq_jq_\ell=0\);
+\item
+      \(\sum_i q_i^3=0\);
+\item
+      \(\Delta_3(k)=0\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By \cref{prop:numbers-neutrality-identity},
+\(
+  \sum_i q_i^3=3\sum_{i<j<\ell}q_iq_jq_\ell
+\).
+Thus (i) and (ii) are equivalent.
+Condition (iii) is exactly the notation of (ii) by
+\cref{def:numbers-cubic-defect}.
+\end{proof}
+
+\begin{proposition}[General minimal-depth criterion]
+\label{prop:numbers-cubic-minimal-general}
+Suppose admissibility requires
+\(\Delta_3(k)=0\), and there exists \(k_\ast\ge4\) such that
+\[
+  \Delta_3(k)\neq0
+  \quad\text{for all }4\le k<k_\ast,
+\]
+\[
+  \Delta_3(k_\ast)=0.
+\]
+Then the minimal admissible depth is \(k_\ast\).
+\end{proposition}
+
+\begin{proof}
+The first line excludes every depth smaller than \(k_\ast\).
+The second line certifies admissibility at \(k_\ast\).
+Therefore no admissible depth exists below \(k_\ast\), and \(k_\ast\)
+is the least admissible depth.
+\end{proof}
+
+\begin{corollary}[Specialization to \(k_\tau=35\)]
+\label{cor:numbers-k35-specialization}
+If
+\[
+  \Delta_3(k)\neq0\ \text{for all }4\le k\le34,
+\]
+\[
+  \Delta_3(35)=0,
+\]
+then the first cubic-admissible depth is \(35\).
+\end{corollary}
+
+\begin{proof}
+Apply \cref{prop:numbers-cubic-minimal-general} with
+\(k_\ast=35\).
+\end{proof}
+
+% ============================================================
+\section{Integrated conditional closure theorem}
+\label{sec:numbers-integrated-closure}
+% ============================================================
+
+\begin{theorem}[Integrated conditional numerical closure]
+\label{thm:numbers-integrated-closure}
+Fix \(\mu>0\) and a primitive sector assignment
+\(\sigma\mapsto k_\sigma\in\mathbb N\).
+Suppose the following data are fixed:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+      structural depth and carrier data from
+      \cref{def:numbers-dependency-interface};
+\item
+      optional anchor/depth calibration route: either explicit anchors
+      \cref{def:numbers-depth-anchors} or the ratio/cubic route
+      \cref{thm:numbers-anchor-closure-61835};
+\item
+      optional cubic selector package
+      \cref{def:numbers-phase-admissible,cor:numbers-cubic-criterion}.
+\end{enumerate}
+Then:
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item
+      \(m_\sigma=4\mu\binom{k_\sigma}{4}\) for every primitive sector;
+\item
+      mass ordering follows depth ordering for all depths \(\ge4\);
+\item
+      all anchor ratios are given by binomial quotients
+      \(\binom{k_i}{4}/\binom{k_j}{4}\);
+\item
+      if the cubic defect first vanishes at depth \(k_\ast\), then
+      \(k_\ast\) is the first cubic-admissible generation depth;
+\item
+      if either the explicit depth-anchor package of
+      \cref{def:numbers-depth-anchors} is stipulated or
+      \cref{thm:numbers-anchor-closure-61835} applies, then the concrete
+      \((6,18,35)\) depth-anchor package is fixed.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Part (a) is \cref{cor:numbers-conditional-mass-law}, using
+\cref{thm:numbers-mass-calibration}.
+Part (b) is \cref{thm:numbers-depth-order-transfer}.
+Part (c) is \cref{thm:numbers-general-ratio-law}.
+Part (d) is \cref{prop:numbers-cubic-minimal-general}.
+Part (e) is immediate from
+\cref{def:numbers-depth-anchors,thm:numbers-anchor-closure-61835}.
+All components are conditional exactly on the stated structural and
+calibration data.
+\end{proof}
+
+\begin{corollary}[Operational checklist]
+\label{cor:numbers-operational-checklist}
+To apply Chapter~20 numerically, it is sufficient to
+specify:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+      the depth assignment \(k_\sigma\);
+\item
+      the normalization constant \(\mu\);
+\item
+      optional anchor/depth calibration route: either explicit reference
+      depths, or the ratio/cubic route of
+      \cref{thm:numbers-anchor-closure-61835};
+\item
+      optional cubic selector data \(\Delta_3(k)\)
+      (used in particular for the ratio/cubic route).
+\end{enumerate}
+After these data are fixed, every Chapter~20 output is an explicit algebraic
+consequence.
+\end{corollary}
+
+\begin{proof}
+This is a direct restatement of
+\cref{thm:numbers-integrated-closure} and the formulas proved in
+\cref{sec:numbers-discrete-calculus,sec:numbers-anchor-geometry,sec:numbers-cubic-normal-form}.
+\end{proof}
+
+\begin{remark}[Why this chapter is conditionally complete]
+\label{rem:numbers-conditionally-complete}
+From the structural side, multilinear combinatorics on
+\(\Lambda^2(\mathbb Z^k)\) fixes the exact quartic backbone
+\(E_4(\omega_k)=4\binom{k}{4}\), while the broader admissible-depth
+rigidity package fixes quartic growth and quartic leading-order
+behavior at the saved theorem strength.
+From the quantitative side, the remaining degrees of freedom are
+named explicitly as conditional boundary data, and the formulas
+attached to each chosen data package display those dependencies
+directly.
+This is the precise sense in which Chapter~20 is complete as a
+\emph{conditional} numerical closure theorem.
+\end{remark}
+
+% ============================================================
+\section{Conclusion}
+\label{sec:numbers-conclusion}
+% ============================================================
+
+The chapter now yields a full dependency-explicit numerical package with
+three layers:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item The quartic combinatorics are exact and internally complete:
+      \(E_4(\omega_k)=4\binom{k}{4}\)
+      (\cref{prop:numbers-quartic-count,cor:numbers-energy-by-counting}).
+\item The induced depth polynomial has explicit discrete calculus,
+      recurrence, monotonicity, convexity, and inversion theory
+      (\cref{thm:numbers-difference-tower,cor:numbers-order5-recurrence,thm:numbers-depth-window}).
+\item The quartic mass-coordinate law is identified by the intrinsic bridge theorem:
+      \(m_\sigma=4\mu\binom{k_\sigma}{4}\)
+      (\cref{thm:numbers-mass-calibration,cor:numbers-conditional-mass-law}).
+\item Within a fixed anchor package, anchor ratios are given exactly
+      by binomial quotients
+      (\cref{thm:numbers-general-ratio-law,cor:numbers-anchor-61835}).
+\item The explicit \((6,18,35)\) anchor package can be recovered via
+      ratio/cubic closure and therefore need not be stipulated separately
+      when that route is available
+      (\cref{thm:numbers-anchor-closure-61835,cor:numbers-anchor-closure-discharges}).
+\item The cubic selector admits symmetric-polynomial normal forms and a
+      general minimal-depth theorem
+      (\cref{thm:numbers-cubic-equivalent-forms,prop:numbers-cubic-minimal-general}).
+\item The full package is assembled as one conditional closure theorem
+      (\cref{thm:numbers-integrated-closure,cor:numbers-operational-checklist}).
+\end{enumerate}
+
+Accordingly, Chapter~20 now aligns with the proof architecture used in the
+longer structural chapters:
+it provides an exact quartic combinatorial core,
+an explicit dependency ledger,
+and a conditional chain from stated boundary data to the corresponding
+numerical outputs.
+
+What remains beyond this chapter is precisely the status of
+in-shell splitting and final normalization: whether an additional
+intrinsic shell invariant is needed, whether its coefficient is
+internally fixed or irreducible, and how absolute mass scale is anchored.
+That extension is isolated in \cref{ch:numbers-shell-closure}.

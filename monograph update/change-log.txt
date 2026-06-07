@@ -1,0 +1,14 @@
+Change Log
+
+Added \label{def:left-right-profiles} to the left/right profile definition so later admissibility references resolve cleanly: Closure Program/Closed System Monograph Latex/closed-systems-from-comparison-completeness/ch02_bottom.tex:154.
+Inserted Lemma 2.6.2 (Conservative-completion dichotomy), proving the internal-exclusion vs conservative-extension split for unrealized profile pairs: Closure Program/Closed System Monograph Latex/closed-systems-from-comparison-completeness/ch02_bottom.tex:789.
+Added Corollary 2.6.3 (Closure forbids conservative omission), isolating the closure principle as the step that rules out intrinsically undetectable omissions: Closure Program/Closed System Monograph Latex/closed-systems-from-comparison-completeness/ch02_bottom.tex:898.
+Replaced the proof of rectangular completeness under intrinsicality so it now routes through the dichotomy and corollary instead of asserting conservativity: Closure Program/Closed System Monograph Latex/closed-systems-from-comparison-completeness/ch02_bottom.tex:913.
+Added an explanatory remark showing the equivalent finite-induction viewpoint while keeping the dichotomy as the main engine: Closure Program/Closed System Monograph Latex/closed-systems-from-comparison-completeness/ch02_bottom.tex:935.
+Kept the non-universality scope remark intact, now following the revised theorem stack: Closure Program/Closed System Monograph Latex/closed-systems-from-comparison-completeness/ch02_bottom.tex:947.
+Final Numbering
+
+Lemma 2.6.2: Conservative-completion dichotomy.
+Corollary 2.6.3: Closure forbids conservative omission.
+Theorem 2.6.4: Rectangular completeness under intrinsicality.
+The induction explanation becomes the intervening remark, so the non-universality remark is now Remark 2.6.6.

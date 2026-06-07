@@ -1,0 +1,224 @@
+\documentclass[12pt,openany]{book}
+% ============================================================
+% Fonts and encoding
+% ============================================================
+\usepackage[T1]{fontenc}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\usepackage{newunicodechar}
+% ============================================================
+% Page geometry
+% ============================================================
+\usepackage[margin=1.15in]{geometry}
+% ============================================================
+% Math packages
+% ============================================================
+\usepackage{amsmath,amssymb,mathtools,amsthm,mathrsfs}
+\numberwithin{equation}{section}
+% ============================================================
+% Graphics
+% ============================================================
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tikz-cd}
+% ============================================================
+% Lists
+% ============================================================
+\usepackage{enumitem}
+% ============================================================
+% Hyperlinks and cross-references
+% ============================================================
+\usepackage[unicode,hypertexnames=false]{hyperref}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\hypersetup{
+  pdftitle  = {Closed Systems from Comparison Completeness: A Unified Theory},
+  pdfauthor = {Chast K. Wolfe},
+  pdfsubject = {Mathematical monograph on closed relational systems, comparison completeness, quotient semantics, transport, curvature, and electromagnetism},
+  pdfkeywords = {closed systems, comparison completeness, relational systems, quotient semantics, holonomy, curvature, electromagnetism},
+  pdfcreator = {LaTeX},
+  pdfproducer = {LaTeX},
+  pdflang = {en-US},
+  pdfdisplaydoctitle = true,
+  hidelinks
+}
+\usepackage[nameinlink,noabbrev]{cleveref}
+% ============================================================
+% Theorem environments
+% ============================================================
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{standingprinciple}{Standing Principle}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{definition}{Definition}{Definitions}
+\crefname{remark}{Remark}{Remarks}
+\crefname{corollary}{Corollary}{Corollaries}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{standingprinciple}{Standing Principle}{Standing Principles}
+\renewcommand{\qedsymbol}{$\square$}
+% ============================================================
+% Unified macros
+% ============================================================
+\newcommand{\U}{\mathsf U}
+\newcommand{\BA}{\mathsf B_A}
+\newcommand{\BB}{\mathsf B_B}
+\newcommand{\B}{\mathsf B}
+\newcommand{\Phys}{\mathsf{Phys}}
+\newcommand{\PhysH}{\mathsf{Phys}_{\mathcal{H}}}
+\newcommand{\J}{\mathsf J}
+\newcommand{\raw}{\mathrm{raw}}
+\DeclareMathOperator{\UF}{UF}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Bij}{Bij}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\piZero}{\pi_0}
+\DeclareMathOperator{\Idl}{Idl}
+\DeclareMathOperator{\Ric}{Ric}
+\DeclareMathOperator{\Scal}{Scal}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\dimdiamond}{dim_{\diamond}}
+\DeclareMathOperator{\Riem}{Riem}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\Obs}{Obs}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Iso}{Iso}
+\DeclareMathOperator{\Chan}{Chan}
+\DeclareMathOperator{\Obj}{Ob}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Bool}{Bool}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\Curv}{Curv}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\Hol}{\mathrm{Hol}}
+\newcommand{\Path}{\mathrm{Path}}
+\newcommand{\e}{e}
+\newcommand{\acts}{\curvearrowright}
+\newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
+\newcommand{\disc}{\mathrm{disc}}
+\newcommand{\GI}{\mathcal G(\mathcal I)}
+\newcommand{\T}{\mathrm{T}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\LC}{\mathrm{LC}}
+\newcommand{\wt}[1]{\widetilde{#1}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\tri}{\triangle}
+\newcommand{\Ob}{\mathrm{Ob}}
+\newcommand{\Mor}{\mathrm{Mor}}
+\newcommand{\Lie}{\mathcal L}
+\newcommand{\vol}{\mathrm{vol}}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\owedge}{\mathbin{\wedge\!\!\!\!\wedge}}
+\newcommand{\trtr}{\mathrm{tr}^{(2)}}
+\newcommand{\ncl}[1]{\Bigl\langle\!\Bigl\langle\,#1\,\Bigr\rangle\!\Bigr\rangle}
+\newcommand{\Jtwo}{\mathsf{Jet}_2}
+\newcommand{\G}{\mathsf G}
+\newcommand{\reg}{\mathrm{reg}}
+\newunicodechar{∎}{\ensuremath{\square}}
+\makeatletter
+\let\ps@headings\ps@plain
+\let\ps@myheadings\ps@plain
+\makeatother
+\hbadness=10000
+\vbadness=10000
+\hfuzz=\maxdimen
+\vfuzz=\maxdimen
+\pdfstringdefDisableCommands{%
+  \def\Phys{Phys}%
+  \def\PhysH{Phys\_H}%
+  \def\Hol{Hol}%
+  \def\Path{Path}%
+  \def\B{B}%
+}
+% ============================================================
+\begin{document}
+\pagestyle{plain}
+\sloppy
+\frontmatter
+\begin{titlepage}
+	\centering
+	\vspace*{3cm}
+	{\Huge\bfseries Closed Systems from\\[6pt] Comparison Completeness}\\[1.5cm]
+	{\Large\itshape A Theory of Closed Relational Systems}\\[10pt]
+	{\Large Chast K.~Wolfe}\\[2cm]
+	\vfill
+\end{titlepage}
+\input{preface}
+\tableofcontents
+\mainmatter
+\pagestyle{plain}
+\input{ch00_introduction}
+\part{Foundations}
+\input{ch01_foundation}
+\input{ch02_bottom}
+\part{Quotient Semantics and the No-Go Theorem}
+\input{ch03_rotation}
+\input{ch04_closure}
+\part{Lifting, Transport, and Holonomy}
+\input{ch05_locus}
+\input{ch06_lift}
+\input{ch07_triangles}
+\input{ch08_descent_obstruction}
+\input{ch09_bridge}
+\part{Dynamics, Irreversibility, and Spacetime}
+\input{ch10_flow}
+\input{ch11_stitching}
+\part{Curvature and the Einstein Boundary}
+\input{ch12_christoffel}
+\input{ch13_interface}
+\input{ch14_causality}
+\input{ch15_hilbert}
+\input{ch16_einstein}
+\input{ch17_manifold}
+\part{Electromagnetism}
+\input{ch18_em}
+\input{ch19_matter}
+\part{Numerical Closure}
+\input{ch20_numbers}
+\input{ch21_shell_closure}
+\input{ch22_matter_realization}
+\appendix
+\part{Appendix}
+\input{app_conditional_completion}
+\input{app_fusion}
+\backmatter
+\begin{thebibliography}{99}
+	\bibitem{Isham1993}
+	C.~J.~Isham,
+	``Canonical Quantum Gravity and the Problem of Time,''
+	in \textit{Integrable Systems, Quantum Groups, and Quantum Field Theories},
+	ed.\ L.~A.~Ibort and M.~A.~Rodr\'{\i}guez
+	(Kluwer, 1993), pp.~157--287;
+	arXiv:gr-qc/9210011.
+	\bibitem{Kuchar1992}
+	K.~V.~Kucha\v{r},
+	``Time and Interpretations of Quantum Gravity,''
+	in \textit{Proc.\ 4th Canadian Conf.\ on General Relativity},
+	ed.\ G.~Kunstatter et al.\
+	(World Scientific, 1992).
+	\bibitem{Anderson2017}
+	E.~Anderson,
+	\emph{The Problem of Time}
+	(Springer, 2017).
+\end{thebibliography}
+\end{document}
