@@ -3,3 +3,8 @@ all-papers.zip
 token/
 
 .wrangler/
+
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
