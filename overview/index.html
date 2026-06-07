@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Overview — Closure Research Initiative">
+<meta property="og:description" content="An introduction to the closure program: what it means for a physical theory to be genuinely closed, and what structure follows necessarily from that requirement.">
+<meta property="og:url" content="https://closureresearchinitiative.org/overview/">
+<meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Overview — Closure Research Initiative">
+<meta name="twitter:description" content="An introduction to the closure program: what it means for a physical theory to be genuinely closed, and what structure follows necessarily from that requirement.">
+<meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
+<meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
+<title>Overview — Closure Research Initiative</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="license" href="/license.html">
+<link rel="alternate" type="application/atom+xml" title="Closure Research Initiative" href="/feed.xml">
+<meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A2348;
+  --gold: #B9933D;
+  --paper: #FAFAF8;
+  --text: #1E2430;
+  --muted: #5A6472;
+  --card: #FFFFFF;
+  --border: rgba(10,35,72,0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --paper: #11131A;
+    --text: #D6D8DD;
+    --muted: #878C99;
+    --card: #1A1D27;
+    --border: rgba(255,255,255,0.08);
+  }
+}
+:root.dark {
+  --paper: #11131A;
+  --text: #D6D8DD;
+  --muted: #878C99;
+  --card: #1A1D27;
+  --border: rgba(255,255,255,0.08);
+}
+.theme-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  z-index: 100;
+}
+.theme-toggle:hover { opacity: 1; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 3rem; }
+
+.hero { text-align: center; padding: 4rem 0 2rem; }
+.hero-logo { margin-bottom: 1.5rem; }
+.hero-logo a { text-decoration: none; }
+.hero-logo img { width: 200px; height: auto; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+nav {
+  text-align: center;
+  padding: 1.5rem 0 2.5rem;
+  margin-bottom: 3rem;
+}
+nav a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+nav span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.section-header h2 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.section-header .line { flex: 1; height: 1px; background: var(--border); }
+
+p { font-size: 0.92rem; color: var(--text); margin-bottom: 1rem; line-height: 1.8; }
+a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
+a:hover { text-decoration-color: var(--gold); }
+
+.essay h3 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.essay h4 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  font-style: italic;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.essay .section-divider {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin: 2.5rem 0;
+  letter-spacing: 0.3em;
+}
+
+footer {
+  margin-top: 3.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media print {
+  body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
+  .container { max-width: 100%; padding: 0 1in; }
+  .hero { padding: 0.5in 0 0.25in; }
+  .hero-logo img { width: 180px; }
+  .hero h1 { font-size: 20pt; }
+  .hero .subtitle { font-size: 10pt; }
+  nav { display: none; }
+  a { color: #000 !important; text-decoration: underline !important; }
+  footer { font-size: 8pt; color: #555; }
+}
+
+@media (max-width: 800px) {
+  .container { padding: 0 1.5rem; }
+  .hero h1 { font-size: 2rem; }
+  .hero-logo img { width: 150px; }
+  nav a, nav span { margin: 0 0.6rem; font-size: 0.72rem; }
+  footer { flex-direction: column; gap: 0.3rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-logo">
+      <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
+    </div>
+    <h1>Overview</h1>
+    <div class="subtitle">An introduction to the closure program</div>
+  </div>
+
+  <nav>
+    <a href="/">Preprints</a>
+    <a href="/about.html">About</a>
+    <span>Overview</span>
+    <a href="/notes/">Notes</a>
+    <a href="/license.html">License</a>
+  </nav>
+
+  <div class="section-header">
+    <h2>What It Means for a Theory to Be Closed</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="essay">
+
+  <p>Every physical theory makes assumptions. Some are explicit axioms; others are structural commitments built into the mathematical language itself. The question at the foundation of this program is: which of these assumptions are necessary, and which are imported only by convention? Could we identify the minimal set of commitments that any closed physical theory must make, and then see what structure follows from those commitments alone?</p>
+
+  <p>The phrase &ldquo;closed physical theory&rdquo; is used here in a specific sense. A theory is closed when every structure it invokes is recoverable from within the system itself&mdash;when there is no appeal to an external frame, an external observer, a pre-supplied background, or any scaffolding that cannot be justified by the system&rsquo;s own internal resources. This is not a claim about a particular theory being correct. It is a constraint on what may count as a theory at all.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>The Starting Point: Comparison Data</h3>
+
+  <p>Suppose we have a system that is all there is. There is nothing outside it. There is no external observer, no pre-existing coordinate system, no background space, no clock. What can we say about such a system?</p>
+
+  <p>The only operation available internally is comparison. Given two states of the system, we can ask whether they are the same or different, and more finely, we can compare them along whatever dimensions of variation the system itself supports. This is the primitive data: a set of states equipped with binary comparison predicates. No topology, no metric, no dynamics, no geometry is assumed at the start. The question is what structure is forced to emerge from this meager beginning.</p>
+
+  <p>This starting point is not a conjecture about the nature of reality. It is a methodological discipline: if a structure cannot be recovered from comparison data alone, then it cannot be taken as primitive in a closed theory. It must either be derived from something deeper or abandoned.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>Two Subsystems: Rectangular Completeness</h3>
+
+  <p>When a system decomposes into two subsystems, a new question arises. The whole contains joint states of the two parts. But does it contain all possible combinations of states from each part individually, or only some of them? The condition under which the whole contains all such combinations is called <em>rectangular completeness</em>.</p>
+
+  <p>The name comes from the observation that the set of joint states can be arranged as a grid or rectangle: the rows correspond to states of one subsystem, the columns to states of the other, and each cell is a joint state. Rectangular completeness is the condition that every cell is filled&mdash;that every combination is realized. When this holds, the system has a natural product structure: the whole is, in a precise sense, the product of its parts.</p>
+
+  <p>Rectangular completeness turns out to be equivalent, under mild conditions, to a property called profile-maximality: the world cannot be extended to a larger world in which one subsystem has the same range of profiles but strictly more states. This equivalence is not obvious, but it is provable from the comparison data alone.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>Quotient Semantics: When Labels Are Lost</h3>
+
+  <p>In a closed system, symmetries are not optional. If the system&rsquo;s internal comparison structure identifies two states as equivalent under a symmetry, then no admissible report can distinguish them. The states live in orbits of the symmetry group, and the physically accessible information is what descends to the orbit space&mdash;the quotient.</p>
+
+  <p>This has a striking consequence for subsystem attribution. Consider a pure motion within a diagonal orbit of a two-subsystem system: a change that moves both subsystems together in a correlated way. Because the motion is within a single orbit, the quotient-level reports cannot decide whether the change is assigned to subsystem A or to subsystem B. The labels &ldquo;A changed&rdquo; and &ldquo;B changed&rdquo; are not distinguished by any admissible comparison. Subsystem attribution is not an invariant of the closed system.</p>
+
+  <p>This is not a limitation of the formalism. It is a structural fact about what it means to be closed. If there is no external frame, then there is no way to say which subsystem moved. The notion of subsystem attribution itself presupposes the kind of external scaffolding that closure excludes.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>Transport and Curvature</h3>
+
+  <p>To compare states across different locations or contexts, a closed system requires a notion of transport. How does a quantity at one point relate to the corresponding quantity at another point? The answer cannot be supplied from outside; it must be recoverable from the system&rsquo;s own comparison structure.</p>
+
+  <p>The comparison groupoid is the mathematical structure that encodes how points relate to one another through admissible comparisons. Transport arises naturally from this groupoid: a route from one point to another carries comparison data along with it. When two different routes between the same points give different transport data, there is an obstruction. This obstruction, recorded around closed loops, is curvature.</p>
+
+  <p>Curvature, in this setting, is not a geometric assumption. It is a necessary consequence of transport obstruction in a closed system. The curvature hierarchy&mdash;the hierarchy of increasingly fine-grained obstructions to route independence&mdash;emerges from the comparison groupoid without any prior geometric commitment.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>The Shape of the Universe</h3>
+
+  <p>The culmination of the program is a theorem about the geometry of genuinely closed three-dimensional systems. The argument proceeds as follows.</p>
+
+  <p>The closure program, working from comparison data alone, derives the smooth Riemannian manifold arena. This is not assumed; it is constructed from the relational data. At this derived stage, one has a compact Riemannian 3-manifold <em>M</em>.</p>
+
+  <p>The manifold <em>M</em> is modeled as a closed system via its orthonormal frame bundle &ndash; the collection of all frames (sets of orthogonal directions) at all points. The product of the frame bundle with itself carries a natural symmetry under the isometry group of <em>M</em>. Admissible comparison reports are exactly those that respect this symmetry: they factor through the orbit space of the diagonal action.</p>
+
+  <p>Genuine closure requires that admissible comparison morphisms exist between all pairs of frames. This forces the isometry group to act transitively on the frame bundle. By a theorem of Kobayashi, Bochner, and Yano, transitivity on the frame bundle forces the manifold to have constant sectional curvature. Together with simple connectivity, which follows from a strengthened gauge-reduced transport criterion, the only remaining possibility is the 3-sphere S&sup3;.</p>
+
+  <p>The result, in short, is that a genuinely closed three-dimensional system is necessarily spherical. The geometry is not one possibility among many; it is the unique geometry consistent with the requirements of closure.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>The Same Pattern Across Theories</h3>
+
+  <p>A separate result, the factorization criterion for route invariants with fixed endpoint data, records a pattern that recurs across many areas of physics. The criterion is simple: a route-dependent quantity is determined by its endpoints if and only if it is constant on every endpoint fiber. Equivalently, it must factor through the endpoint quotient.</p>
+
+  <p>This criterion, proved from elementary principles, captures the same structural obstruction that appears in quotient semantics (when do orbit-level reports determine object-level data?), in categories (when do morphisms factor through objects?), in gauge transport (when does parallel transport depend only on the path&rsquo;s endpoints?), in Wilson loops (when do loop variables reduce to endpoint data?), in differential geometry (curvature as the obstruction to path-independence), and in general relativity (the holonomy group as a measure of non-flatness).</p>
+
+  <p>The recurrence is not accidental. The same logical structure&mdash;the failure of endpoint-determinedness&mdash;manifests as distinct phenomena in each domain. The factorization criterion unifies them under a single formal account.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>Structural Error: Four Ways a Theory Can Fail to Be Closed</h3>
+
+  <p>If closure is a constraint on admissible physical description, then theories can fail to satisfy it in identifiable ways. A four-axis taxonomy isolates the recurrent forms of primitive structural input that violate closure:</p>
+
+  <p><em>Externalization.</em> A structure is externalized when it is treated as given rather than derived from the system&rsquo;s internal resources. Examples include an absolute background space, an external observer, or a pre-assumed causal structure.</p>
+
+  <p><em>Artificial factorization.</em> A system is artificially factorized when it is divided into subsystems in a way that is not recoverable from the intrinsic comparison structure. The division imports a distinction that the system itself does not support.</p>
+
+  <p><em>Premature globalization.</em> A local description is prematurely globalized when features that hold in a restricted context are assumed without justification to hold everywhere. The structure is imported because it is convenient, not because it is forced.</p>
+
+  <p><em>Reification of repair.</em> A formal repair of a structural problem is reified when the repair mechanism is treated as a physical object. An artifact of the mathematics is mistaken for a feature of the world.</p>
+
+  <p>These four axes are proved to be logically independent: no one of them is a Boolean consequence of the other three. They offer a scheme for classifying foundational tensions in classical mechanics, quantum mechanics, quantum field theory, general relativity, and statistical mechanics&mdash;not as separate problems, but as instances of a common pattern.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>What This Means</h3>
+
+  <p>The closure program proceeds from a single methodological constraint: a genuinely closed physical theory cannot rely on external scaffolding. Any structure it invokes must be recoverable from within the system itself. This constraint is not a physical hypothesis to be tested against observation. It is a condition on the form of physical description.</p>
+
+  <p>From binary comparison data alone&mdash;the minimal resource any closed system possesses&mdash;the admissible architecture is forced to be remarkably rigid. Rectangular completeness, quotient semantics, transport obstruction, curvature, and ultimately the spherical geometry of a closed three-dimensional universe are not choices made by nature or by the theorist. They are consequences of what it means for a system to be closed.</p>
+
+  <p>The question of whether the universe is in fact closed in this sense is not an empirical one. It is a question about the logical adequacy of physical description. If the universe can be described as a genuinely closed system, then the structure developed in this program is the structure it must have. If it cannot be so described, then the notion of physical description itself must be reexamined.</p>
+
+  </div>
+
+  <footer>
+    <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
+    <span><a href="/license.html" style="color:var(--muted);">License</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; closureresearchinitiative.org &middot; Last updated June 2026</span>
+  </footer>
+
+</div>
+
+<button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+
+<script>
+(function() {
+  var t = document.getElementById('themeToggle');
+  var r = document.documentElement;
+  var s = localStorage.getItem('theme');
+  if (s === 'dark') r.classList.add('dark');
+  else if (s === 'light') r.classList.add('light');
+  t.addEventListener('click', function() {
+    if (r.classList.contains('dark')) {
+      r.classList.remove('dark');
+      r.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      r.classList.remove('light');
+      r.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

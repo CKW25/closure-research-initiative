@@ -362,6 +362,7 @@ footer {
   .contact-grid { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 0.3rem; text-align: center; }
 }
+.dl-count { font-size: 0.72rem; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -407,8 +408,8 @@ footer {
         A mathematically closed physical theory must be written without external scaffolding. The monograph develops the closure principle as a classification program, establishing the admissible architecture as rigid across geometric, field-theoretic, scalar, and matter sectors. The theory proceeds from primitive comparison data through quotient semantics, transport obstruction, curvature, and the emergence of smooth geometry.
       </div>
       <div class="monograph-links">
-        <a href="/csm.pdf">PDF</a>
-        <a href="/csm-latex.zip">Source</a>
+        <a href="/dl/csm.pdf">PDF</a>
+        <a href="/dl/csm-latex.zip">Source</a>
         <details class="monograph-cite-details">
           <summary class="monograph-cite-summary">Cite</summary>
           <div class="cite-block">@book{wolfe2026closed,
@@ -434,7 +435,7 @@ footer {
       <span class="line"></span>
     </div>
     <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1rem;">
-      <a href="/all-papers.zip" style="color:var(--navy);text-underline-offset:2px;">Download all papers and LaTeX source (ZIP)</a>
+      <a href="/dl/all-papers.zip" style="color:var(--navy);text-underline-offset:2px;">Download all papers and LaTeX source (ZIP)</a>
     </p>
 
     <div class="paper">
@@ -442,8 +443,8 @@ footer {
       <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 2026</div>
       <div class="abstract-text">A finitary structural account of subsystem attribution in closed two-subsystem comparison worlds, using only binary comparison predicates with no topology, metric, dynamics, background geometry, or gauge structure assumed. Among locally distinguishable worlds, rectangular completeness is equivalent to profile-maximality.</div>
       <div class="links">
-        <a href="/ccw.pdf">PDF</a>
-        <a href="/ccw-latex.zip">Source</a>
+        <a href="/dl/ccw.pdf">PDF</a>
+        <a href="/dl/ccw-latex.zip">Source</a>
         <details class="cite-details">
           <summary class="cite-summary">Cite</summary>
           <div class="cite-block">@misc{wolfe2026closed,
@@ -464,8 +465,8 @@ footer {
       <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 2026</div>
       <div class="abstract-text">A genuinely closed three-dimensional system is necessarily diffeomorphic to S&sup3;. The closure constraint at the manifold stage, together with the orthonormal frame bundle and the admissible comparison groupoid, entails a unique geometry.</div>
       <div class="links">
-        <a href="/cfsg.pdf">PDF</a>
-        <a href="/cfsg-latex.zip">Source</a>
+        <a href="/dl/cfsg.pdf">PDF</a>
+        <a href="/dl/cfsg-latex.zip">Source</a>
         <details class="cite-details">
           <summary class="cite-summary">Cite</summary>
           <div class="cite-block">@misc{wolfe2026closure,
@@ -486,8 +487,8 @@ footer {
       <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 2026</div>
       <div class="abstract-text">Proves that the cosmological and structural uses of "open" and "closed" operate at different logical levels and cannot be identified. Structural closure is a precondition for invariant physical content, not a geometric condition.</div>
       <div class="links">
-        <a href="/scc.pdf">PDF</a>
-        <a href="/scc-latex.zip">Source</a>
+        <a href="/dl/scc.pdf">PDF</a>
+        <a href="/dl/scc-latex.zip">Source</a>
         <details class="cite-details">
           <summary class="cite-summary">Cite</summary>
           <div class="cite-block">@misc{wolfe2026structural,
@@ -508,8 +509,8 @@ footer {
       <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 2026</div>
       <div class="abstract-text">Closure as rectangular completeness stands in a precise relation to standard notions of closed two-subsystem systems. For classical systems it equals the full-product component; for quantum systems it captures the product-state sector.</div>
       <div class="links">
-        <a href="/rc.pdf">PDF</a>
-        <a href="/rc-latex.zip">Source</a>
+        <a href="/dl/rc.pdf">PDF</a>
+        <a href="/dl/rc-latex.zip">Source</a>
         <details class="cite-details">
           <summary class="cite-summary">Cite</summary>
           <div class="cite-block">@misc{wolfe2026rectangular,
@@ -530,8 +531,8 @@ footer {
       <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 2026</div>
       <div class="abstract-text">Four independent axes of primitive structural input&mdash;externalization, artificial factorization, premature globalization, reification of repair&mdash;are isolated and proved logically independent. Applied to foundational tensions across classical and quantum physics.</div>
       <div class="links">
-        <a href="/fe.pdf">PDF</a>
-        <a href="/fe-latex.zip">Source</a>
+        <a href="/dl/fe.pdf">PDF</a>
+        <a href="/dl/fe-latex.zip">Source</a>
         <details class="cite-details">
           <summary class="cite-summary">Cite</summary>
           <div class="cite-block">@misc{wolfe2026foundational,
@@ -552,8 +553,8 @@ footer {
       <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 2026</div>
       <div class="abstract-text">A factorization criterion for comparison data with fixed endpoints: a route invariant is determined by endpoint data if and only if it is constant on every endpoint fiber. Instances are recorded in quotient semantics, categories, gauge transport, holonomy, differential geometry, and general relativity.</div>
       <div class="links">
-        <a href="/rie.pdf">PDF</a>
-        <a href="/rie-latex.zip">Source</a>
+        <a href="/dl/rie.pdf">PDF</a>
+        <a href="/dl/rie-latex.zip">Source</a>
         <details class="cite-details">
           <summary class="cite-summary">Cite</summary>
           <div class="cite-block">@misc{wolfe2026route,
@@ -606,6 +607,10 @@ footer {
   </footer>
 
 </div>
+
+<script>
+(function(){fetch('/dl/stats').then(function(r){return r.json();}).then(function(s){var a=document.querySelectorAll('a[href^="/dl/"]');for(var i=0;i<a.length;i++){var f=a[i].getAttribute('href').replace('/dl/','');var c=s[f];if(c!==undefined){var sp=document.createElement('span');sp.textContent=' ('+c+')';a[i].appendChild(sp);}}}).catch(function(){});})();
+</script>
 
 <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
 
