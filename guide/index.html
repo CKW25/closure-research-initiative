@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Reading Guide — Closure Research Initiative">
+<meta property="og:description" content="A suggested path through the works of the closure program, from overview to specialized results.">
+<meta property="og:url" content="https://closureresearchinitiative.org/guide/">
+<meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading Guide — Closure Research Initiative">
+<meta name="twitter:description" content="A suggested path through the works of the closure program, from overview to specialized results.">
+<meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
+<meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
+<title>Reading Guide — Closure Research Initiative</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="license" href="/license.html">
+<link rel="alternate" type="application/atom+xml" title="Closure Research Initiative" href="/feed.xml">
+<meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A2348;
+  --gold: #B9933D;
+  --paper: #FAFAF8;
+  --text: #1E2430;
+  --muted: #5A6472;
+  --card: #FFFFFF;
+  --border: rgba(10,35,72,0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --paper: #11131A;
+    --text: #D6D8DD;
+    --muted: #878C99;
+    --card: #1A1D27;
+    --border: rgba(255,255,255,0.08);
+  }
+}
+:root.dark {
+  --paper: #11131A;
+  --text: #D6D8DD;
+  --muted: #878C99;
+  --card: #1A1D27;
+  --border: rgba(255,255,255,0.08);
+}
+.theme-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  z-index: 100;
+}
+.theme-toggle:hover { opacity: 1; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 3rem; }
+
+.hero { text-align: center; padding: 4rem 0 2rem; }
+.hero-logo { margin-bottom: 1.5rem; }
+.hero-logo a { text-decoration: none; }
+.hero-logo img { width: 200px; height: auto; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+nav {
+  text-align: center;
+  padding: 1.5rem 0 2.5rem;
+  margin-bottom: 3rem;
+}
+nav a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+nav span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.section-header h2 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.section-header .line { flex: 1; height: 1px; background: var(--border); }
+
+p { font-size: 0.92rem; color: var(--text); margin-bottom: 1rem; line-height: 1.8; }
+a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
+a:hover { text-decoration-color: var(--gold); }
+
+.paper-list { margin: 1.5rem 0; }
+.paper-item {
+  margin-bottom: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+.paper-item h3 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+.paper-item h3 a { text-decoration: none; color: inherit; }
+.paper-item h3 a:hover { color: #14366B; }
+.paper-item .meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.paper-item .desc { font-size: 0.85rem; color: var(--text); line-height: 1.6; }
+
+.path-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--muted);
+  padding: 0.75rem 1rem;
+  border-left: 2px solid var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.numbered {
+  list-style: none;
+  counter-reset: step;
+  margin: 1.5rem 0;
+}
+.numbered li {
+  counter-increment: step;
+  margin-bottom: 1.5rem;
+  padding-left: 2.5rem;
+  position: relative;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.numbered li strong {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-weight: 600;
+  color: var(--navy);
+}
+.numbered li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--paper);
+  font-size: 0.72rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  margin-top: 3.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media print {
+  body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
+  .container { max-width: 100%; padding: 0 1in; }
+  .hero { padding: 0.5in 0 0.25in; }
+  .hero-logo img { width: 180px; }
+  .hero h1 { font-size: 20pt; }
+  .hero .subtitle { font-size: 10pt; }
+  nav { display: none; }
+  a { color: #000 !important; text-decoration: underline !important; }
+  .paper-item { break-inside: avoid; }
+  .numbered li::before { background: #000; }
+  footer { font-size: 8pt; color: #555; }
+}
+
+@media (max-width: 800px) {
+  .container { padding: 0 1.5rem; }
+  .hero h1 { font-size: 2rem; }
+  .hero-logo img { width: 150px; }
+  nav a, nav span { margin: 0 0.6rem; font-size: 0.72rem; }
+  .paper-item { padding: 1rem; }
+  footer { flex-direction: column; gap: 0.3rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-logo">
+      <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
+    </div>
+    <h1>Reading Guide</h1>
+    <div class="subtitle">A suggested path through the works</div>
+  </div>
+
+  <nav>
+    <a href="/">Preprints</a>
+    <a href="/about.html">About</a>
+    <a href="/overview/">Overview</a>
+    <a href="/notes/">Notes</a>
+    <a href="/license.html">License</a>
+    <span>Guide</span>
+    <a href="https://github.com/CKW25/closure-research-initiative/discussions" target="_blank">Discuss</a>
+  </nav>
+
+  <div class="section-header">
+    <h2>Where to Begin</h2>
+    <span class="line"></span>
+  </div>
+
+  <p>The seven papers and the monograph develop a single argument, but they approach it from different angles and at different levels of formality. Some introduce the foundational mathematical machinery; others apply it to specific problems or unify results across domains. This guide suggests an order of reading that builds the picture systematically, with a brief alternative path for those with particular interests.</p>
+
+  <div class="path-note">Each entry below links to its dedicated page, where the abstract, BibTeX citation, and download links are collected.</div>
+
+  <div class="section-header">
+    <h2>Primary Sequence</h2>
+    <span class="line"></span>
+  </div>
+
+  <ol class="numbered">
+
+  <li>
+    <strong><a href="/overview/">Overview</a></strong><br>
+    A non-technical introduction to the program&rsquo;s central question and results. Begin here to understand the overall shape before engaging the formal work.
+  </li>
+
+  <li>
+    <strong><a href="/ccw/">Closed Comparison Worlds</a></strong><br>
+    The mathematical starting point. Develops the theory of binary comparison data, rectangular completeness, profile-maximality, and the obstruction to subsystem attribution in a finitary setting. This paper establishes the foundational architecture on which the rest of the program rests.
+  </li>
+
+  <li>
+    <strong><a href="/csm/">Closed System Monograph</a></strong><br>
+    The comprehensive treatise. Builds the full theory from comparison data through quotient semantics, transport obstruction, and the emergence of smooth geometry, culminating in the S&sup3; theorem. Read this after CCW for the complete argument.
+  </li>
+
+  <li>
+    <strong><a href="/rc/">Route Invariants and the Factorization Criterion</a></strong><br>
+    A self-contained result with wide applicability. The factorization criterion records the same structural obstruction found in quotient semantics, gauge theory, and general relativity. This paper can be read independently but gains force in the context of the monograph.
+  </li>
+
+  <li>
+    <strong><a href="/fe/">Four Axes of Structural Error</a></strong><br>
+    Applies the closure framework to diagnose foundational problems across physics. The four axes&mdash;externalization, artificial factorization, premature globalization, reification of repair&mdash;are proved independent and shown to recur across theories. A taxonomic supplement to the constructive work.
+  </li>
+
+  <li>
+    <strong><a href="/scc/">Structural Closure Conditions</a></strong><br>
+    Examines the closure conditions&mdash;rectangular completeness and profile-maximality&mdash;in broader structural contexts. Extends the analysis of CCW to settings where the comparison structure carries additional algebraic or geometric data.
+  </li>
+
+  <li>
+    <strong><a href="/cfsg/">Comparison Foliations and Smooth Geometry</a></strong><br>
+    Addresses the transition from discrete or finitary comparison data to a smooth geometric arena. The foliation structure of the comparison groupoid is shown to force smoothness under mild conditions.
+  </li>
+
+  <li>
+    <strong><a href="/rie/">Route Invariants and the Geometry of Gauge Transport</a></strong><br>
+    Applies the factorization criterion to gauge transport and holonomy, demonstrating that the obstruction to endpoint-determinedness in gauge theories is an instance of the same structural pattern identified across the program.
+  </li>
+
+  </ol>
+
+  <div class="section-header">
+    <h2>Alternative Paths</h2>
+    <span class="line"></span>
+  </div>
+
+  <p><strong>For the mathematically inclined reader.</strong> Begin with <a href="/ccw/">CCW</a> for the finitary foundations, then proceed through <a href="/csm/">CSM</a> for the full construction. The remaining papers &mdash; <a href="/rc/">RC</a>, <a href="/fe/">FE</a>, <a href="/scc/">SCC</a>, <a href="/cfsg/">CFSG</a>, <a href="/rie/">RIE</a> &mdash; may be read in any order after the monograph, as each addresses a specific aspect of the program.</p>
+
+  <p><strong>For the physicist interested in structural foundations.</strong> Begin with the <a href="/overview/">Overview</a>, then read <a href="/fe/">FE</a> and <a href="/rc/">RC</a>, which connect the closure framework to familiar problems in gauge theory and general relativity. The monograph <a href="/csm/">CSM</a> may be consulted for the technical development of the geometry.</p>
+
+  <p><strong>For the reader interested in the S&sup3; theorem alone.</strong> The <a href="/overview/">Overview</a> states the result in plain language. The full demonstration appears in <a href="/csm/">CSM</a> (Sections 5&ndash;7), with the necessary preliminaries developed in <a href="/ccw/">CCW</a> and <a href="/cfsg/">CFSG</a>.</p>
+
+  <footer>
+    <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
+    <span><a href="/license.html" style="color:var(--muted);">License</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; closureresearchinitiative.org &middot; Last updated June 2026</span>
+  </footer>
+
+</div>
+
+<button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+
+<script>
+(function(){function u(){fetch('/dl/stats').then(function(r){return r.json();}).then(function(s){var a=document.querySelectorAll('a[href^="/dl/"]');for(var i=0;i<a.length;i++){var f=a[i].getAttribute('href').replace('/dl/','');var c=s[f];var sp=a[i].querySelector('.dlc');if(!sp){sp=document.createElement('span');sp.className='dlc';a[i].appendChild(sp)}sp.textContent=' \u00b7 '+(c!==undefined?c:'?')+' \u2b07'}}).catch(function(){})}setTimeout(u,100);document.querySelectorAll('a[href^="/dl/"]').forEach(function(l){l.addEventListener('click',function(){setTimeout(u,1500)})})})();
+</script>
+<script>
+(function() {
+  var t = document.getElementById('themeToggle');
+  var r = document.documentElement;
+  var s = localStorage.getItem('theme');
+  if (s === 'dark') r.classList.add('dark');
+  else if (s === 'light') r.classList.add('light');
+  t.addEventListener('click', function() {
+    if (r.classList.contains('dark')) {
+      r.classList.remove('dark');
+      r.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      r.classList.remove('light');
+      r.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
