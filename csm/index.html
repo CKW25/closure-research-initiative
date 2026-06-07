@@ -254,6 +254,10 @@ nav span {
   border-bottom: 1px solid var(--border);
 }
 .version-table td { padding: 0.4rem 0.75rem; border-bottom: 1px solid var(--border); }
+.paper-preview { text-align: center; margin-bottom: 1.5rem; }
+.paper-preview a { display: inline-block; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: box-shadow 0.2s; max-width: 100%; }
+.paper-preview a:hover { box-shadow: 0 2px 16px rgba(0,0,0,0.12); }
+.paper-preview img { display: block; max-width: 100%; height: auto; }
 .inline-details { display: inline; }
 .inline-details summary { display: inline; cursor: pointer; color: var(--muted); font-weight: 500; }
 .inline-details summary:hover { color: var(--navy); }
@@ -316,6 +320,7 @@ footer {
   </nav>
 
   <div class="paper-detail">
+    <div class="paper-preview"><a href="/dl/csm.pdf"><img src="thumb.jpg" alt="First page of the Closed System Monograph"></a></div>
     <div class="type-badge">Monograph</div>
     <p class="meta">
       <strong>Chast K. Wolfe</strong> &middot; v2 &middot; June 2026
