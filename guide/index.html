@@ -82,7 +82,26 @@ body {
 }
 .container { max-width: 780px; margin: 0 auto; padding: 0 3rem; }
 
-.hero { text-align: center; padding: 4rem 0 2rem; }
+.hero { text-align: center; padding: 4rem 0 2rem; position: relative; }
+.discuss-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.discuss-btn:hover {
+  color: var(--navy);
+  border-color: var(--gold);
+}
 .hero-logo { margin-bottom: 1.5rem; }
 .hero-logo a { text-decoration: none; }
 .hero-logo img { width: 200px; height: auto; }
@@ -258,6 +277,7 @@ footer {
 <div class="container">
 
   <div class="hero">
+    <a class="discuss-btn" href="https://github.com/CKW25/closure-research-initiative/discussions" target="_blank">Discuss &#8599;</a>
     <div class="hero-logo">
       <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
     </div>
@@ -272,7 +292,6 @@ footer {
     <a href="/notes/">Notes</a>
     <a href="/license.html">License</a>
     <span>Guide</span>
-    <a href="https://github.com/CKW25/closure-research-initiative/discussions" target="_blank">Discuss</a>
   </nav>
 
   <p>The seven papers and the monograph develop a single argument, though each approaches it from a distinct angle and at a different level of formal specificity. Some introduce the foundational mathematical architecture; others apply it to particular problems or demonstrate its recurrence across domains otherwise thought unrelated. The present guide proposes a sequence of reading that respects the logical dependencies among the works.</p>
