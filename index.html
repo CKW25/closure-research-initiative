@@ -362,7 +362,7 @@ footer {
   .contact-grid { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 0.3rem; text-align: center; }
 }
-.dl-count { font-size: 0.72rem; color: var(--muted); }
+.dl-count { font-size: 0.68rem; color: var(--muted); white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -609,7 +609,7 @@ footer {
 </div>
 
 <script>
-(function(){fetch('/dl/stats').then(function(r){return r.json();}).then(function(s){var a=document.querySelectorAll('a[href^="/dl/"]');for(var i=0;i<a.length;i++){var f=a[i].getAttribute('href').replace('/dl/','');var c=s[f];if(c!==undefined){var sp=document.createElement('span');sp.textContent=' ('+c+')';a[i].appendChild(sp);}}}).catch(function(){});})();
+(function(){fetch('/dl/stats').then(function(r){return r.json();}).then(function(s){var a=document.querySelectorAll('a[href^="/dl/"]');for(var i=0;i<a.length;i++){var f=a[i].getAttribute('href').replace('/dl/','');var c=s[f];if(c!==undefined){var sp=document.createElement('span');sp.textContent='\u00b7 '+c+' download'+(c===1?'':'s');a[i].appendChild(sp);}}}).catch(function(){});})();
 </script>
 
 <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
