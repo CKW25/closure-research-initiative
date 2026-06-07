@@ -4,16 +4,16 @@ A mathematical research initiative investigating the fundamental structure of re
 
 ## Overview
 
-The Closure Research Initiative develops the premise that a mathematically closed physical theory must be written without external scaffolding — no background geometry, no pre-assumed state space, no external observers accepted as primitive by convention alone. From binary comparison data, the admissible architecture is proven to be highly rigid, forcing quotient semantics, transport obstruction, curvature, and ultimately the geometry of a closed three-dimensional universe diffeomorphic to S³.
+The Closure Research Initiative is founded on a single premise: a mathematically closed physical theory must be written without external scaffolding. From intrinsic comparison data, the admissible architecture is rigid: quotient semantics, the obstruction to subsystem attribution, and a transport-obstruction curvature hierarchy follow at the relational level; at the manifold stage, a genuinely closed three-dimensional system is diffeomorphic to S&sup3;.
 
 ## Preprints
 
 | Code | Title | Status |
 |------|-------|--------|
-| csm | Closed System Monograph | v1 |
-| ccw | Closed Comparison Worlds and the Obstruction to Subsystem | v1 |
-| cfsg | Closure Forces Spherical Geometry | v1 |
-| scc | Structural Closure and the Cosmological Misnomer | v1 |
+| csm | Closed Systems from Comparison Completeness | v2 |
+| ccw | Closed Comparison Worlds and the Obstruction to Subsystem Attribution | v1 |
+| cfsg | Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S&sup3; | v1 |
+| scc | Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems | v1 |
 | rc | Rectangular Completeness Encompasses Standard Physical Closure | v1 |
 | fe | Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy | v1 |
 | rie | A Factorization Criterion for Route Invariants with Fixed Endpoint Data | v1 |
