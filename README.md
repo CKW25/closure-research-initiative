@@ -20,7 +20,24 @@ The Closure Research Initiative is founded on a single primitive premise: intrin
 
 ## Site
 
-The live site is at [closureresearchinitiative.org](https://closureresearchinitiative.org), deployed via Cloudflare Pages and automatically updated from this repository.
+The live site is at [closureresearchinitiative.org](https://closureresearchinitiative.org), deployed via Cloudflare and automatically updated from this repository.
+
+## Repository Structure
+
+| Path | Contents |
+|------|----------|
+| `index.html` | Homepage with monograph listing, all 7 papers, contact info |
+| `{ccw,cfsg,scc,rc,fe,rie}/` | Individual paper landing pages with BibTeX, downloads, version history |
+| `csm/` | Monograph landing page |
+| `idea/` | Plain-language introduction |
+| `overview/` | Result-by-result technical overview |
+| `notes/` | Research notes |
+| `guide/` | Reading guide with recommended sequences |
+| `papers/` | Source of truth for LaTeX source and compiled PDFs |
+| `archive/` | Archived versions of superseded preprints |
+| `update-paper.ps1` | Script for publishing paper revisions |
+| `feed.xml` | Atom feed for preprint updates |
+| `sitemap.xml` | XML sitemap for search engines
 
 ## Updating Papers
 
