@@ -32,6 +32,7 @@ The live site is at [closureresearchinitiative.org](https://closureresearchiniti
 | `site.js` | Shared theme toggle and download-count display script |
 | `_headers` | Cloudflare Pages response headers for clean UTF-8 HTML delivery |
 | `_redirects` | Legacy URL redirects, including `/license.html` and `/about.html` |
+| `llms.txt` | Markdown site summary for AI and retrieval tools |
 | `idea/` | Plain-language introduction |
 | `overview/` | Result-by-result overview |
 | `map/` | Four-axis structural map |
@@ -56,6 +57,8 @@ The live site is at [closureresearchinitiative.org](https://closureresearchiniti
 The live site is deployed by Cloudflare Pages from the `main` branch of this GitHub repository. Pushes to `main` publish automatically after Cloudflare finishes its build.
 
 Download links intentionally use `/dl/...` URLs. A Cloudflare Worker handles those routes, increments the download counter, and redirects to the static file at the site root. The shared `site.js` file reads `/dl/stats` and appends the visible down-arrow count beside each download link.
+
+The homepage and paper landing pages include Schema.org JSON-LD metadata. The root `llms.txt` file gives AI and retrieval tools a concise site map, disambiguation note, and citation guidance.
 
 `all-papers.zip` is a tracked deploy asset because the public preprints page links to it. Local secrets and Cloudflare cache files remain ignored under `token/` and `.wrangler/`.
 

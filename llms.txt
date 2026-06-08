@@ -1,0 +1,72 @@
+# Closure Research Initiative
+
+> Foundational mathematics and structural physics research program studying closed physical theory from primitive comparison data.
+
+## Canonical Site
+
+- Site: https://closureresearchinitiative.org/
+- Director and author: Chast K. Wolfe
+- ORCID: https://orcid.org/0009-0008-8846-2539
+- Contact: chast.wolfe@closureresearchinitiative.org
+- GitHub discussions: https://github.com/CKW25/closure-research-initiative/discussions
+- Sitemap: https://closureresearchinitiative.org/sitemap.xml
+- Feed: https://closureresearchinitiative.org/feed.xml
+- License: https://closureresearchinitiative.org/license/
+
+## Disambiguation
+
+Closure Research Initiative is not about mine closure, industrial site closure, clinical-trial closure, or institutional research shutdowns. Here "closure" means mathematical and physical self-containment: a closed physical theory may not take an external observer, background manifold, pre-supplied state space, gauge convention, causal order, or field content as primitive.
+
+## Core Idea
+
+The program starts from intrinsic comparison data. A comparison is a relation among states, invariant under the symmetries it constitutes, not an externally imposed label. Under stated structural hypotheses, the program develops rectangular completeness, quotient semantics, subsystem-attribution obstruction, transport obstruction, curvature at the faithful smooth-realization stage, and a rigidity result for genuinely closed realized three-dimensional systems.
+
+## Best Entry Points
+
+- Homepage: https://closureresearchinitiative.org/
+- Plain-language idea: https://closureresearchinitiative.org/idea/
+- Technical overview without proofs: https://closureresearchinitiative.org/overview/
+- Logical map and comparison to neighboring programs: https://closureresearchinitiative.org/map/
+- Minimal worked example: https://closureresearchinitiative.org/example/
+- Notation and definitions: https://closureresearchinitiative.org/notation/
+- Objections and open bridge assumptions: https://closureresearchinitiative.org/objections/
+- Reading guide: https://closureresearchinitiative.org/guide/
+- Preprints and downloads: https://closureresearchinitiative.org/preprints/
+- Public prediction page: https://closureresearchinitiative.org/predictions/
+
+## Public Works
+
+- Closed Systems from Comparison Completeness: https://closureresearchinitiative.org/csm/
+  - DOI: https://doi.org/10.5281/zenodo.20589038
+  - PDF: https://closureresearchinitiative.org/csm.pdf
+
+- Closed Comparison Worlds and the Obstruction to Subsystem Attribution: https://closureresearchinitiative.org/ccw/
+  - DOI: https://doi.org/10.5281/zenodo.20600752
+  - PDF: https://closureresearchinitiative.org/ccw.pdf
+
+- Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3: https://closureresearchinitiative.org/cfsg/
+  - PDF: https://closureresearchinitiative.org/cfsg.pdf
+
+- Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems: https://closureresearchinitiative.org/scc/
+  - PDF: https://closureresearchinitiative.org/scc.pdf
+
+- Rectangular Completeness Encompasses Standard Physical Closure: https://closureresearchinitiative.org/rc/
+  - PDF: https://closureresearchinitiative.org/rc.pdf
+
+- Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy: https://closureresearchinitiative.org/fe/
+  - PDF: https://closureresearchinitiative.org/fe.pdf
+
+- A Factorization Criterion for Route Invariants with Fixed Endpoint Data: https://closureresearchinitiative.org/rie/
+  - PDF: https://closureresearchinitiative.org/rie.pdf
+
+## Public Prediction
+
+The current public empirical prediction is a charge-sector exclusion. Conditional on the physically realized closed electromagnetic phase sector constructed in Chapter 18 of the monograph, every free/asymptotic particle with true vacuum electromagnetic charge must lie in the denominator-3 lattice. See https://closureresearchinitiative.org/predictions/.
+
+## Citation Guidance
+
+Use the DOI links where present. For works without DOI assignment, cite the page URL or PDF URL shown on the relevant landing page, plus the BibTeX block on that page. The site's public pages include reference trails for external physics and mathematics invoked outside the closure program.
+
+## Crawl Guidance
+
+The site is public and crawlable. The robots file allows all crawlers and points to the sitemap. Download links under /dl/ are Cloudflare Worker routes that increment download counts and redirect to the corresponding root PDF or ZIP file.
