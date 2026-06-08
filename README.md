@@ -30,6 +30,7 @@ The live site is at [closureresearchinitiative.org](https://closureresearchiniti
 |------|----------|
 | `index.html` | Homepage with research-program summary, navigation paths, and contact summary |
 | `site.js` | Shared theme toggle and download-count display script |
+| `site.webmanifest` | Install and platform icon metadata |
 | `_headers` | Cloudflare Pages response headers for clean UTF-8 HTML delivery |
 | `_redirects` | Legacy URL redirects, including `/license.html` and `/about.html` |
 | `llms.txt` | Markdown site summary for AI and retrieval tools |
