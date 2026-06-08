@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:title" content="Notes  —  Closure Research Initiative">
-<meta property="og:description" content="Research notes, commentary, and updates from the Closure Research Initiative.">
+<meta property="og:description" content="On the development of the closure program.">
 <meta property="og:url" content="https://closureresearchinitiative.org/notes/">
 <meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Notes  —  Closure Research Initiative">
-<meta name="twitter:description" content="Research notes, commentary, and updates from the Closure Research Initiative.">
+<meta name="twitter:description" content="On the development of the closure program.">
 <meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
 <meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
 <title>Notes  —  Closure Research Initiative</title>
@@ -184,12 +184,9 @@ nav span {
   color: var(--navy);
   margin-bottom: 0.25rem;
 }
-.post-meta {
-  font-size: 0.78rem;
-  color: var(--muted);
-  margin-bottom: 0.5rem;
-}
-.post-excerpt { font-size: 0.9rem; }
+  .post-excerpt { font-size: 0.9rem; }
+  .post-excerpt p { margin-bottom: 0.8rem; }
+  .post-excerpt p:last-child { margin-bottom: 0; }
 
 footer {
   margin-top: 3.5rem;
@@ -231,7 +228,7 @@ footer {
       <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
     </div>
     <h1>Notes</h1>
-    <div class="subtitle">Following the mathematics wherever it leads</div>
+    <div class="subtitle">On the development of the closure program</div>
   </div>
 
   <div class="discuss-wrapper">
@@ -249,31 +246,38 @@ footer {
   </nav>
 
   <div class="section-header">
-    <h2>Recent Notes</h2>
+    <h2>Notes</h2>
     <span class="line"></span>
   </div>
 
   <div class="post">
-    <div class="post-title">Release</div>
-    <div class="post-meta">June 5, 2026</div>
+    <div class="post-title">How the program was found</div>
     <div class="post-excerpt">
-      The seven preprints and the monograph are now public, developing the full arc from primitive comparison data to the geometry of closed three-dimensional systems. A central result&mdash;that a genuinely closed three-dimensional system is diffeomorphic to S&sup3;&mdash;is developed at the manifold stage of the program. The question first posed in 2009 has, over seventeen years, been developed into a systematic program.
+      <p>The closure program was not begun from its premise. It was begun from a question, in 2009: which of the structures that physics treats as given are genuinely necessary, and which are imported only by habit? There was no intention, at the start, of arriving at a single principle. The intention was to look.</p>
+      <p>The method was slow and concrete. Begin at the foundations of physics and rebuild the classical theories one at a time&mdash;mechanics, then the field theories, then the relativistic and quantum structures&mdash;each reconstructed from the ground rather than inherited. The point of rebuilding a theory you already know is that you find out which of its parts you were assuming without warrant. Done one theory at a time, over years, a pattern began to surface that none of the individual reconstructions had been looking for: the same kind of imported structure kept appearing in each, in different costume&mdash;an external frame here, a pre-supplied background there, a vantage standing outside the system and doing work the system could not do for itself.</p>
+      <p>The thread underneath all of them was closure. Each theory failed to be self-contained in the same way, and each repair pointed at the same missing requirement: that the system&rsquo;s structure be recoverable from within, with nothing outside it doing the defining. Closure was not a starting assumption that the program set out to defend. It was what the reconstructions kept demanding, the common cause behind problems that had looked unrelated. The single premise the work now rests on was the <em>last</em> thing found, not the first&mdash;the destination the long route of rebuilding arrived at.</p>
     </div>
   </div>
 
   <div class="post">
-    <div class="post-title">On the Relationship Between Structural and Cosmological Closure</div>
-    <div class="post-meta">June 5, 2026</div>
+    <div class="post-title">The premise came last, and that reorganized everything</div>
     <div class="post-excerpt">
-      The mathematical sense of closure&mdash;closure under intrinsic comparison data&mdash;is logically distinct from the cosmological sense (open vs. closed universe in FLRW cosmology). The S&sup3; theorem is a result about structural closure, not a cosmological claim. This distinction took years to articulate cleanly; the preprint <em>Structural Closure and the Cosmological Misnomer</em> finally develops it in full.
+      <p>For most of the program&rsquo;s history the foundation was not a single premise but several apparently separate commitments&mdash;that the systems in question are closed, that their finite structure fixes their global structure, that comparison is the right primitive. These were carried as independent assumptions for years, because they looked independent.</p>
+      <p>They are not. The recognition that all of them descend from one requirement&mdash;that a comparison be intrinsic, a genuine relation among states rather than a labeling imposed from outside&mdash;came late, and when it came it reorganized everything before it. What had been a list of standing principles became a single premise with the rest as consequences: closure and the finite-to-global boundary stopped being assumptions and became theorems. The work now presents the result in its finished logical order, premise first. That order is very nearly the reverse of the order in which it was found.</p>
     </div>
   </div>
 
   <div class="post">
-    <div class="post-title">What Closure Requires</div>
-    <div class="post-meta">June 5, 2026</div>
+    <div class="post-title">Structural closure is not cosmological closure</div>
     <div class="post-excerpt">
-      A genuinely closed physical theory cannot rely on external scaffolding. No background manifold, no pre-assumed state space, no external observers, no gauge convention, no causal structure, no field content can be accepted as primitive. Starting from nothing but intrinsic comparison&mdash;predicates invariant under the symmetries they constitute&mdash;the admissible architecture follows from that single condition, with closure and the compactness boundary derived rather than assumed. The monograph develops this in full.
+      <p>One distinction took years to state cleanly, and it is worth isolating because the words invite confusion. The mathematical sense of closure in this program&mdash;closure under intrinsic comparison&mdash;is not the cosmological sense, the open-versus-closed universe of FLRW cosmology. They are different ideas at different logical levels. The theorem that a genuinely closed three-dimensional system is the three-sphere is a result about <em>structural</em> closure; it is not a claim about whether the cosmos is spatially closed.</p>
+      <p>The two senses were entangled in the program&rsquo;s own early thinking, and disentangling them was not quick. <em>Structural Closure and the Cosmological Misnomer</em> develops the separation in full.</p>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-excerpt" style="color:var(--muted);font-style:italic;border-top:1px solid var(--border);padding-top:1.5rem;">
+      The seven preprints and the monograph are public. They present the finished theory; these notes record how it was arrived at.
     </div>
   </div>
 
