@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="Contact  —  Closure Research Initiative">
+<meta property="og:title" content="Contact  â€”  Closure Research Initiative">
 <meta property="og:description" content="Contact the Closure Research Initiative: correspondence, registry, and identifiers">
 <meta property="og:url" content="https://closureresearchinitiative.org/contact/">
 <meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Contact  —  Closure Research Initiative">
+<meta name="twitter:title" content="Contact  â€”  Closure Research Initiative">
 <meta name="twitter:description" content="Contact the Closure Research Initiative: correspondence, registry, and identifiers">
 <meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
 <meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
-<title>Contact  —  Closure Research Initiative</title>
+<title>Contact  â€”  Closure Research Initiative</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -234,7 +234,7 @@ footer {
     <a class="discuss-btn" href="https://github.com/CKW25/closure-research-initiative/discussions" target="_blank">Discuss on GitHub &#8599;</a>
   </div>
 
-  <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">?</button>
+  <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">â˜¾</button>
 
   <nav>
     <a href="/">Home</a>
@@ -293,20 +293,23 @@ footer {
   var t = document.getElementById('themeToggle');
   var r = document.documentElement;
   var s = localStorage.getItem('theme');
-  if (s === 'dark') r.classList.add('dark');
-  else if (s === 'light') r.classList.add('light');
+  if (s === 'dark') { r.classList.add('dark'); t.textContent = '☀'; }
+  else if (s === 'light') { r.classList.add('light'); t.textContent = '☾'; }
+  else { t.textContent = '☾'; }
   t.addEventListener('click', function() {
     if (r.classList.contains('dark')) {
       r.classList.remove('dark');
       r.classList.add('light');
       localStorage.setItem('theme', 'light');
+      t.textContent = '☾';
     } else {
       r.classList.remove('light');
       r.classList.add('dark');
       localStorage.setItem('theme', 'dark');
+      t.textContent = '☀';
     }
   });
-})();
+  })();
 </script>
 
 </body>
