@@ -1,5 +1,9 @@
 site.zip
-all-papers.zip
 token/
 
 .wrangler/
+*.log
+*.aux
+*.out
+*.toc
+*.synctex.gz

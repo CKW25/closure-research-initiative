@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -388,7 +388,7 @@ footer {
   publisher = {Closure Research Initiative},
   doi       = {10.5281/zenodo.20589038},
   url       = {https://doi.org/10.5281/zenodo.20589038},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
 }</div>
         </details>
       </div>
@@ -423,7 +423,7 @@ footer {
   howpublished = {Closure Research Initiative preprint},
   doi          = {},
   url          = {https://closureresearchinitiative.org/ccw.pdf},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
 }</div>
         </details>
       </div>
@@ -445,7 +445,7 @@ footer {
   howpublished = {Closure Research Initiative preprint},
   doi          = {},
   url          = {https://closureresearchinitiative.org/cfsg.pdf},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
 }</div>
         </details>
       </div>
@@ -467,7 +467,7 @@ footer {
   howpublished = {Closure Research Initiative preprint},
   doi          = {},
   url          = {https://closureresearchinitiative.org/scc.pdf},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
 }</div>
         </details>
       </div>
@@ -489,7 +489,7 @@ footer {
   howpublished = {Closure Research Initiative preprint},
   doi          = {},
   url          = {https://closureresearchinitiative.org/rc.pdf},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
 }</div>
         </details>
       </div>
@@ -511,7 +511,7 @@ footer {
   howpublished = {Closure Research Initiative preprint},
   doi          = {},
   url          = {https://closureresearchinitiative.org/fe.pdf},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
 }</div>
         </details>
       </div>
@@ -533,7 +533,7 @@ footer {
   howpublished = {Closure Research Initiative preprint},
   doi          = {},
   url          = {https://closureresearchinitiative.org/rie.pdf},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
 }</div>
         </details>
       </div>
@@ -548,29 +548,6 @@ footer {
 
 </div>
 
-<script>
-(function() {
-  var t = document.getElementById('themeToggle');
-  var r = document.documentElement;
-  var s = localStorage.getItem('theme');
-  if (s === 'dark') { r.classList.add('dark'); t.textContent = '☀'; }
-  else if (s === 'light') { r.classList.add('light'); t.textContent = '☾'; }
-  else { t.textContent = '☾'; }
-  t.addEventListener('click', function() {
-    if (r.classList.contains('dark')) {
-      r.classList.remove('dark');
-      r.classList.add('light');
-      localStorage.setItem('theme', 'light');
-      t.textContent = '☾';
-    } else {
-      r.classList.remove('light');
-      r.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-      t.textContent = '☀';
-    }
-  });
-  })();
-</script>
-
+<script src="/site.js" defer></script>
 </body>
 </html>

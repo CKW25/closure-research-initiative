@@ -28,7 +28,10 @@ The live site is at [closureresearchinitiative.org](https://closureresearchiniti
 
 | Path | Contents |
 |------|----------|
-| `index.html` | Homepage with monograph, paper list, and contact summary |
+| `index.html` | Homepage with research-program summary, navigation paths, and contact summary |
+| `site.js` | Shared theme toggle and download-count display script |
+| `_headers` | Cloudflare Pages response headers for clean UTF-8 HTML delivery |
+| `_redirects` | Legacy URL redirects, including `/license.html` and `/about.html` |
 | `idea/` | Plain-language introduction |
 | `overview/` | Result-by-result overview |
 | `map/` | Four-axis structural map |
@@ -36,25 +39,35 @@ The live site is at [closureresearchinitiative.org](https://closureresearchiniti
 | `objections/` | Strong objections and current answers/open points |
 | `notation/` | Core terms and symbols |
 | `contact/` | Correspondence and registry information |
+| `license/` | Copyright and permissions page |
 | `notes/` | Development notes |
 | `guide/` | Reading guide |
 | `csm/` | Monograph landing page |
 | `{ccw,cfsg,scc,rc,fe,rie}/` | Individual paper landing pages |
 | `papers/` | Source of truth for LaTeX source and compiled PDFs |
 | `archive/` | Archived versions of superseded preprints |
+| `all-papers.zip` | Download bundle served through `/dl/all-papers.zip` |
 | `feed.xml` | Atom feed for preprint updates |
 | `sitemap.xml` | XML sitemap |
 | `update-paper.ps1` | Paper revision/publishing helper |
 
+## Deployment
+
+The live site is deployed by Cloudflare Pages from the `main` branch of this GitHub repository. Pushes to `main` publish automatically after Cloudflare finishes its build.
+
+Download links intentionally use `/dl/...` URLs. A Cloudflare Worker handles those routes, increments the download counter, and redirects to the static file at the site root. The shared `site.js` file reads `/dl/stats` and appends the visible down-arrow count beside each download link.
+
+`all-papers.zip` is a tracked deploy asset because the public preprints page links to it. Local secrets and Cloudflare cache files remain ignored under `token/` and `.wrangler/`.
+
 ## Updating papers
 
-Run the publishing script to archive an old version and publish a revision:
+Run the publishing script to archive the current root PDF/source bundle, copy in a new PDF/source bundle, and rebuild `all-papers.zip`:
 
 ```powershell
 .\update-paper.ps1 -Paper rie -NewPdf path\to\new-version.pdf
 ```
 
-Before publishing, verify that the landing page, BibTeX, feed entry, sitemap, and version history all describe the same version.
+The script no longer commits or pushes by default. Before publishing, verify that the paper landing page, `/preprints/`, BibTeX, feed entry, sitemap, and version history all describe the same version. Then commit and push to `main`.
 
 ## License
 

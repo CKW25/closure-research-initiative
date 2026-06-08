@@ -1,86 +1,129 @@
+[CmdletBinding()]
 param(
     [Parameter(Mandatory=$true)]
+    [ValidateSet('csm','ccw','cfsg','scc','rc','fe','rie')]
     [string]$Paper,
+
     [Parameter(Mandatory=$true)]
+    [ValidateScript({ Test-Path -LiteralPath $_ -PathType Leaf })]
     [string]$NewPdf,
-    [string]$NewLatexZip
+
+    [ValidateScript({ [string]::IsNullOrWhiteSpace($_) -or (Test-Path -LiteralPath $_ -PathType Leaf) })]
+    [string]$NewLatexZip,
+
+    [ValidateRange(1, 999)]
+    [int]$Version,
+
+    [switch]$Commit,
+    [switch]$Push
 )
 
-$base = Split-Path -Parent $MyInvocation.MyCommand.Path
-$rootPdf = "$base\$Paper.pdf"
-$rootZip = "$base\$Paper-latex.zip"
+$ErrorActionPreference = 'Stop'
 
-# Read current version
-$html = Get-Content "$base\index.html" -Raw
-$versionMatch = [regex]::Match($html, '(?<=v)(\d+)(?= \. June \d+, 2026)')
-$globalVersionMatch = [regex]::Match($html, 'v(\d+) \. June \d+, 2026')
-if ($globalVersionMatch.Success) {
-    # Check per-paper if there's a specific pattern
-    # For now use global counter
+if ($Push -and -not $Commit) {
+    throw '-Push requires -Commit so the pushed state is explicit.'
 }
 
-# Determine next version number for this paper
-$archiveDir = "$base\archive\$Paper"
-$version = 1
-$existing = Get-ChildItem -Path $archiveDir -Filter "$Paper-v*" | Select-Object -ExpandProperty Name
-if ($existing) {
-    $maxVer = $existing | ForEach-Object { [regex]::Match($_, 'v(\d+)').Groups[1].Value } | Measure-Object -Maximum | Select-Object -ExpandProperty Maximum
-    $version = [int]$maxVer + 1
+$Base = Split-Path -Parent $MyInvocation.MyCommand.Path
+$ArchiveDir = Join-Path $Base "archive\$Paper"
+$RootPdf = Join-Path $Base "$Paper.pdf"
+$RootZip = Join-Path $Base "$Paper-latex.zip"
+$PaperPage = Join-Path $Base "$Paper\index.html"
+$AllPapersZip = Join-Path $Base 'all-papers.zip'
+
+function Get-CurrentVersion {
+    param([string]$Path)
+
+    if (-not (Test-Path -LiteralPath $Path)) {
+        return 0
+    }
+
+    $Html = Get-Content -LiteralPath $Path -Raw -Encoding UTF8
+    $Match = [regex]::Match($Html, 'v(?<version>\d+)\s*&middot;')
+
+    if ($Match.Success) {
+        return [int]$Match.Groups['version'].Value
+    }
+
+    return 0
 }
 
-# Check if current PDF exists (meaning we're updating an existing paper)
-if (Test-Path $rootPdf) {
-    # Archive current version
-    $archivedPdf = "$archiveDir\$Paper-v$version.pdf"
-    Copy-Item $rootPdf $archivedPdf -Force
-    Write-Host "Archived: $archivedPdf"
-    $version++
+function Copy-IfMissing {
+    param(
+        [string]$Source,
+        [string]$Destination
+    )
+
+    if ((Test-Path -LiteralPath $Source) -and -not (Test-Path -LiteralPath $Destination)) {
+        Copy-Item -LiteralPath $Source -Destination $Destination
+        Write-Host "Archived: $Destination"
+    }
 }
 
-if (Test-Path $rootZip -and $NewLatexZip) {
-    $archivedZip = "$archiveDir\$Paper-v$version-latex.zip"
-    Copy-Item $rootZip $archivedZip -Force
-    Write-Host "Archived: $archivedZip"
+function Rebuild-AllPapersZip {
+    param([string]$Destination)
+
+    $Items = @(
+        'ccw.pdf','ccw-latex.zip',
+        'csm.pdf','csm-latex.zip',
+        'cfsg.pdf','cfsg-latex.zip',
+        'scc.pdf','scc-latex.zip',
+        'rc.pdf','rc-latex.zip',
+        'fe.pdf','fe-latex.zip',
+        'rie.pdf','rie-latex.zip'
+    ) | ForEach-Object { Join-Path $Base $_ }
+
+    $Missing = $Items | Where-Object { -not (Test-Path -LiteralPath $_) }
+    if ($Missing) {
+        throw "Cannot rebuild all-papers.zip; missing files:`n$($Missing -join "`n")"
+    }
+
+    Remove-Item -LiteralPath $Destination -Force -ErrorAction SilentlyContinue
+    Compress-Archive -LiteralPath $Items -DestinationPath $Destination -CompressionLevel Optimal
+    Write-Host "Rebuilt: $Destination"
 }
 
-# Copy new PDF
-if (Test-Path $NewPdf) {
-    Copy-Item $NewPdf $rootPdf -Force
-    Write-Host "Updated: $rootPdf"
-}
-if ($NewLatexZip -and (Test-Path $NewLatexZip)) {
-    Copy-Item $NewLatexZip $rootZip -Force
-    Write-Host "Updated: $rootZip"
+$CurrentVersion = Get-CurrentVersion -Path $PaperPage
+$NewVersion = if ($Version) { $Version } else { $CurrentVersion + 1 }
+
+if ($CurrentVersion -gt 0 -and $NewVersion -le $CurrentVersion) {
+    throw "New version v$NewVersion must be greater than current version v$CurrentVersion."
 }
 
-# Update version in index.html
-$newVersion = $version
-$html = $html -replace "(?<=/$Paper\.pdf"")[^<]*<div class=""meta"">[^<]*v\d+", "`$1<div class=""meta"">Chast K. Wolfe &middot; v$newVersion"
-# Simpler approach: find the paper card and update its version
-$pattern = '(paper-title"><a href="/' + $Paper + '\.pdf">.*?</a></div>\s*<div class="meta">[^v]*v)\d+'
-$html = $html -replace $pattern, "`${1}$newVersion"
-Set-Content "$base\index.html" $html
-Write-Host "Version updated to v$newVersion in index.html"
+New-Item -ItemType Directory -Force -Path $ArchiveDir | Out-Null
 
-# Rebuild all-papers.zip
-Write-Host "Rebuilding all-papers.zip..."
-$allPapers = @(
-    "$base\ccw.pdf","$base\ccw-latex.zip",
-    "$base\csm.pdf","$base\csm-latex.zip",
-    "$base\cfsg.pdf","$base\cfsg-latex.zip",
-    "$base\fe.pdf","$base\fe-latex.zip",
-    "$base\scc.pdf","$base\scc-latex.zip",
-    "$base\rc.pdf","$base\rc-latex.zip",
-    "$base\rie.pdf","$base\rie-latex.zip"
-)
-$allZip = "$base\all-papers.zip"
-Remove-Item $allZip -Force -ErrorAction SilentlyContinue
-Compress-Archive -Path $allPapers -DestinationPath $allZip
+if ($CurrentVersion -gt 0) {
+    Copy-IfMissing -Source $RootPdf -Destination (Join-Path $ArchiveDir "$Paper-v$CurrentVersion.pdf")
+    Copy-IfMissing -Source $RootZip -Destination (Join-Path $ArchiveDir "$Paper-v$CurrentVersion-latex.zip")
+}
 
-# Git commit and push
-Write-Host "Committing to git..."
-Set-Location -LiteralPath $base
-git add -A
-git commit -m "Update $Paper to v$newVersion"
-git push
-Write-Host "Done! Pushed to GitHub. Cloudflare will auto-deploy shortly."
+Copy-Item -LiteralPath $NewPdf -Destination $RootPdf -Force
+Write-Host "Updated: $RootPdf"
+
+if ($NewLatexZip) {
+    Copy-Item -LiteralPath $NewLatexZip -Destination $RootZip -Force
+    Write-Host "Updated: $RootZip"
+} else {
+    Write-Host "Source ZIP unchanged: $RootZip"
+}
+
+Rebuild-AllPapersZip -Destination $AllPapersZip
+
+Write-Host ''
+Write-Host "Manual checks before publishing v${NewVersion}:"
+Write-Host "  - Update $Paper/index.html with version, date, abstract/change notes, and BibTeX."
+Write-Host "  - Update preprints/index.html, feed.xml, and sitemap.xml if public metadata changed."
+Write-Host "  - Verify /dl/$Paper.pdf and /dl/$Paper-latex.zip after deploy."
+
+if ($Commit) {
+    Set-Location -LiteralPath $Base
+    git add -- "$Paper.pdf" "$Paper-latex.zip" 'all-papers.zip' "archive/$Paper"
+    git commit -m "Update $Paper to v$NewVersion"
+
+    if ($Push) {
+        git push origin main
+    }
+} else {
+    Write-Host ''
+    Write-Host 'No commit was created. Review the site, then commit and push when ready.'
+}
