@@ -130,6 +130,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://closureresearchinitiative.org/objections/</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://closureresearchinitiative.org/404.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
