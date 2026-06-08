@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -58,9 +58,8 @@
   :root:not(.light) .hero-logo img { filter: invert(1); }
 }
 .theme-toggle {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  display: block;
+  margin: 0 auto 1.5rem;
   width: 2.2rem;
   height: 2.2rem;
   border-radius: 50%;
@@ -69,12 +68,8 @@
   color: var(--muted);
   font-size: 1rem;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   opacity: 0.7;
   transition: opacity 0.2s;
-  z-index: 100;
 }
 .theme-toggle:hover { opacity: 1; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -88,7 +83,7 @@ body {
 }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 3rem; }
 
-/* â”€â”€ Hero â”€â”€ */
+/* ── Hero ── */
 .hero { text-align: center; padding: 5rem 0 2.5rem; }
 .discuss-wrapper {
   text-align: center;
@@ -131,7 +126,7 @@ body {
   line-height: 1.5;
 }
 
-/* â”€â”€ Navigation â”€â”€ */
+/* ── Navigation ── */
 nav {
   text-align: center;
   padding: 1.5rem 0 2.5rem;
@@ -161,7 +156,7 @@ nav span {
   border-bottom: 2px solid var(--gold);
 }
 
-/* â”€â”€ Section â”€â”€ */
+/* ── Section ── */
 .section { margin-bottom: 3.5rem; }
 .section-header {
   display: flex;
@@ -185,7 +180,7 @@ nav span {
   margin-bottom: 1.5rem;
 }
 
-/* â”€â”€ Path cards â”€â”€ */
+/* ── Path cards ── */
 .path-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -214,7 +209,7 @@ nav span {
   line-height: 1.6;
 }
 
-/* â”€â”€ Contact â”€â”€ */
+/* ── Contact ── */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -235,7 +230,7 @@ nav span {
 .contact-col a:hover { color: var(--gold); text-decoration: underline; }
 .orcid-img { vertical-align: middle; margin-right: 4px; }
 
-/* â”€â”€ Footer â”€â”€ */
+/* ── Footer ── */
 footer {
   margin-top: 3.5rem;
   padding: 1.5rem 0;
@@ -292,6 +287,8 @@ footer {
   <div class="discuss-wrapper">
     <a class="discuss-btn" href="https://github.com/CKW25/closure-research-initiative/discussions" target="_blank">Discuss on GitHub &#8599;</a>
   </div>
+
+  <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">?</button>
 
   <nav>
     <span>Home</span>
@@ -390,8 +387,6 @@ footer {
   </footer>
 
 </div>
-
-<button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
 
 <script>
 (function() {
