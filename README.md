@@ -58,7 +58,9 @@ The live site is deployed by Cloudflare Pages from the `main` branch of this Git
 
 Download links intentionally use `/dl/...` URLs. A Cloudflare Worker handles those routes, increments the download counter, and redirects to the static file at the site root. The shared `site.js` file reads `/dl/stats` and appends the visible down-arrow count beside each download link.
 
-The homepage and paper landing pages include Schema.org JSON-LD metadata. The root `llms.txt` file gives AI and retrieval tools a concise site map, disambiguation note, and citation guidance.
+HTML pages include canonical URLs, plain meta descriptions, and Schema.org JSON-LD metadata. The root `llms.txt` file gives AI and retrieval tools a concise site map, disambiguation note, and citation guidance.
+
+Cloudflare account settings should enforce HTTPS and define the canonical host behavior. Cloudflare Pages `_redirects` handles path redirects, but Cloudflare does not support domain-level redirects in that file.
 
 `all-papers.zip` is a tracked deploy asset because the public preprints page links to it. Local secrets and Cloudflare cache files remain ignored under `token/` and `.wrangler/`.
 
