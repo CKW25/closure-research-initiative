@@ -186,139 +186,34 @@ nav span {
   margin-bottom: 1.5rem;
 }
 
-/* â”€â”€ Monograph â”€â”€ */
-.monograph {
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 2rem 2.25rem;
+/* â”€â”€ Path cards â”€â”€ */
+.path-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.25rem;
   margin-bottom: 2rem;
 }
-.monograph-label {
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
-}
-.monograph-title {
-  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: var(--navy);
-  margin-bottom: 0.3rem;
-}
-.monograph-title a { color: inherit; text-decoration: none; }
-.monograph-title a:hover { color: var(--gold); }
-.monograph-meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.75rem; }
-.monograph-abstract {
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 0.75rem;
-}
-.monograph-links { margin-top: 0.75rem; }
-.monograph-links a {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--navy);
-  border: 1px solid var(--border);
-  padding: 0.3rem 1rem;
-  margin-right: 0.5rem;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background 0.2s, color 0.2s;
-}
-.monograph-links a:hover { background: var(--navy); color: var(--paper); }
-.monograph-note {
-  margin-top: 1rem;
-  font-size: 0.82rem;
-  color: var(--muted);
-  font-style: italic;
-}
-
-/* â”€â”€ Papers â”€â”€ */
-.paper {
+.path-card {
   background: var(--card);
   border: 1px solid var(--border);
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 0.85rem;
+  padding: 1.5rem 1.25rem;
   transition: border-color 0.2s;
 }
-.paper:hover { border-color: rgba(10,35,72,0.25); }
-.paper-title {
+.path-card:hover { border-color: rgba(10,35,72,0.25); }
+.path-card h3 {
   font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--navy);
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.35rem;
 }
-.paper-title a { color: inherit; text-decoration: none; }
-.paper-title a:hover { color: var(--gold); }
-.meta { font-size: 0.76rem; color: var(--muted); margin-bottom: 0.35rem; }
-.abstract-text {
-  font-size: 0.84rem;
+.path-card h3 a { color: inherit; text-decoration: none; }
+.path-card h3 a:hover { color: var(--gold); }
+.path-card p {
+  font-size: 0.82rem;
   color: var(--muted);
   line-height: 1.6;
-  margin-bottom: 0.5rem;
 }
-.links { margin-top: 0.35rem; }
-.links a {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--navy);
-  border: 1px solid var(--border);
-  padding: 0.12rem 0.6rem;
-  margin-right: 0.35rem;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background 0.2s, color 0.2s;
-}
-.links a:hover { background: var(--navy); color: var(--paper); }
-
-.cite-details { display: inline-block; margin-right: 0.35rem; vertical-align: top; }
-.cite-summary {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--navy);
-  border: 1px solid var(--border);
-  padding: 0.12rem 0.6rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  font-family: 'Inter', sans-serif;
-}
-.cite-summary:hover { background: var(--navy); color: var(--paper); }
-.cite-block {
-  margin-top: 0.6rem;
-  background: var(--paper);
-  border: 1px solid var(--border);
-  padding: 0.75rem 1rem;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.72rem;
-  line-height: 1.5;
-  color: var(--text);
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-
-.monograph-cite-details { display: inline-block; margin-right: 0.5rem; vertical-align: top; }
-.monograph-cite-summary {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--navy);
-  border: 1px solid var(--border);
-  padding: 0.3rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  font-family: 'Inter', sans-serif;
-}
-.monograph-cite-summary:hover { background: var(--navy); color: var(--paper); }
 
 /* â”€â”€ Contact â”€â”€ */
 .contact-grid {
@@ -362,15 +257,6 @@ footer {
   .hero .subtitle { font-size: 10pt; }
   nav { display: none; }
   a { color: #000 !important; text-decoration: underline !important; }
-  .paper, .monograph { break-inside: avoid; }
-  .paper-title a, .monograph-title a { text-decoration: none !important; }
-  .paper-title a::after, .monograph-title a::after { content: " (" attr(href) ")"; font-size: 9pt; color: #555; }
-  .cite-details, .monograph-cite-details { display: block; }
-  .cite-summary, .monograph-cite-summary { list-style: none; font-weight: bold; }
-  .cite-summary::before, .monograph-cite-summary::before { content: "Cite: "; }
-  .cite-block { font-size: 8pt; white-space: pre-wrap; }
-  details > .cite-block { display: block; }
-  .links a { border: 1px solid #ccc; padding: 2pt 6pt; text-decoration: none !important; }
   #contact { break-inside: avoid; }
   footer { font-size: 8pt; color: #555; }
   .orcid-img { display: none; }
@@ -383,12 +269,13 @@ footer {
   .hero-logo img { width: 180px; }
   .hero .subtitle { font-size: 0.95rem; }
   nav a, nav span { margin: 0 0.6rem; font-size: 0.72rem; }
-  .monograph { padding: 1.5rem; }
-  .paper { padding: 1rem; }
   .contact-grid { grid-template-columns: 1fr; }
+  .path-grid { grid-template-columns: 1fr 1fr; }
   footer { flex-direction: column; gap: 0.3rem; text-align: center; }
 }
-.dlc { font-size: 0.68rem; color: var(--muted); white-space: nowrap; }
+@media (max-width: 500px) {
+  .path-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -409,214 +296,67 @@ footer {
 
   <nav>
     <a href="/idea/">The Idea</a>
-    <span>Preprints</span>
     <a href="/overview/">Overview</a>
     <a href="/map/">Map</a>
     <a href="/example/">Example</a>
-    <a href="/objections/">Objections</a>
     <a href="/notation/">Notation</a>
+    <a href="/objections/">Objections</a>
+    <a href="/guide/">Guide</a>
+    <a href="/preprints/">Preprints</a>
     <a href="/contact/">Contact</a>
     <a href="/notes/">Notes</a>
     <a href="/license/">License</a>
-    <a href="/guide/">Guide</a>
   </nav>
 
   <div class="section">
     <div class="section-header">
-      <h2>I. Research Program</h2>
+      <h2>Research Program</h2>
       <span class="line"></span>
     </div>
     <div class="intro-text">
-      The Closure Research Initiative studies what remains of physical theory when no external scaffolding is allowed to enter as primitive: no background manifold, no pre-supplied state space, no external observer, no gauge convention, no causal order, and no field content imposed in advance. The primitive condition is intrinsicality: a comparison is a relation among states, invariant under the symmetries it constitutes, not a label applied from outside.</p><p>
-      Under the theorem hypotheses stated in the monograph, especially local distinguishability, intrinsicality forces rectangular completeness rather than assuming it. The finite-to-global boundary is likewise discharged through the refinement-tower and finite-witness results. From there the relational architecture is rigid: quotient semantics, the obstruction to subsystem attribution, and a transport-obstruction hierarchy follow at the comparison level. The geometric claims are downstream: at the faithful smooth-realization stage, the obstruction is read as curvature, and a genuinely closed realized three-dimensional system is forced to the S&sup3; case.
+      The Closure Research Initiative studies what remains of physical theory when no external scaffolding is allowed to enter as primitive: no background manifold, no pre-supplied state space, no external observer, no gauge convention, no causal order, and no field content imposed in advance. The primitive condition is intrinsicality: a comparison is a relation among states, invariant under the symmetries it constitutes, not a label applied from outside.
     </div>
     <div class="intro-text">
-      Read a plain-language introduction: <a href="/idea/">The Idea &rarr;</a>
+      Starting from primitive comparison data, the program derives a rigid architecture&mdash;quotient semantics, transport obstruction, curvature at the faithful smooth-realization stage&mdash;and establishes that a genuinely closed realized three-dimensional system is forced to the S&sup3; case. No external geometric, dynamic, or quantum structure is assumed.
     </div>
   </div>
 
   <div class="section">
     <div class="section-header">
-      <h2>II. The Monograph</h2>
+      <h2>Start Exploring</h2>
       <span class="line"></span>
     </div>
-    <div class="monograph">
-      <div class="monograph-label">Comprehensive Treatise</div>
-      <div class="monograph-title"><a href="/csm/">Closed Systems from Comparison Completeness</a></div>
-      <div class="monograph-meta">Chast K. Wolfe &middot; v3 &middot; June 7, 2026</div>
-      <div class="monograph-abstract">
-        A mathematically closed physical theory must be written without external scaffolding. The monograph develops the closure principle as a classification program, establishing the admissible architecture as rigid across geometric, field-theoretic, scalar, and matter sectors. The theory proceeds from primitive comparison data through quotient semantics, transport obstruction, curvature at the faithful smooth-realization stage, and the emergence of smooth geometry within that bridge.
+    <div class="path-grid">
+      <div class="path-card">
+        <h3><a href="/idea/">The Idea &rarr;</a></h3>
+        <p>A plain-language introduction to the closure program, with minimal formalism.</p>
       </div>
-      <div class="monograph-links">
-        <a href="/dl/csm.pdf">PDF</a>
-        <a href="/dl/csm-latex.zip">Source</a>
-        <details class="monograph-cite-details">
-          <summary class="monograph-cite-summary">Cite</summary>
-          <div class="cite-block">@book{wolfe2026closed,
-  author    = {Chast K. Wolfe},
-  title     = {Closed Systems from Comparison Completeness},
-  year      = {2026},
-  version   = {3},
-  note      = {Version 3; see change note on the CSM landing page},
-  publisher = {Closure Research Initiative},
-  doi       = {},
-  url       = {https://closureresearchinitiative.org/csm.pdf},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
-}</div>
-        </details>
+      <div class="path-card">
+        <h3><a href="/overview/">Overview &rarr;</a></h3>
+        <p>The full architecture of the theory, with technical depth but no proofs.</p>
       </div>
-      <div class="monograph-note">
-        This is the comprehensive treatise. Supporting papers develop specific results in greater technical detail.
+      <div class="path-card">
+        <h3><a href="/map/">Map &rarr;</a></h3>
+        <p>Taxonomy of closure conditions, theorems, and their logical dependencies.</p>
+      </div>
+      <div class="path-card">
+        <h3><a href="/example/">Example &rarr;</a></h3>
+        <p>Walkthrough of a minimal toy model illustrating the main structural results.</p>
+      </div>
+      <div class="path-card">
+        <h3><a href="/preprints/">Preprints &rarr;</a></h3>
+        <p>Download the monograph and research papers with abstracts and BibTeX.</p>
+      </div>
+      <div class="path-card">
+        <h3><a href="/guide/">Guide &rarr;</a></h3>
+        <p>Suggested reading paths through the site by background and interest.</p>
       </div>
     </div>
-  </div>
-
-  <div class="section" id="papers">
-    <div class="section-header">
-      <h2>III. Research Papers</h2>
-      <span class="line"></span>
-    </div>
-    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1rem;">
-      <a href="/dl/all-papers.zip" style="color:var(--navy);text-underline-offset:2px;">Download all papers and LaTeX source (ZIP)</a>
-    </p>
-
-    <div class="paper">
-      <div class="paper-title"><a href="/ccw/">Closed Comparison Worlds and the Obstruction to Subsystem Attribution</a></div>
-      <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 5, 2026</div>
-      <div class="abstract-text">A finitary structural account of subsystem attribution in closed two-subsystem comparison worlds, using only binary comparison predicates with no topology, metric, dynamics, background geometry, or gauge structure assumed. Among locally distinguishable worlds, rectangular completeness is equivalent to profile-maximality.</div>
-      <div class="links">
-        <a href="/dl/ccw.pdf">PDF</a>
-        <a href="/dl/ccw-latex.zip">Source</a>
-        <details class="cite-details">
-          <summary class="cite-summary">Cite</summary>
-          <div class="cite-block">@misc{wolfe2026ccw,
-  author       = {Chast K. Wolfe},
-  title        = {Closed Comparison Worlds and the Obstruction to Subsystem Attribution},
-  year         = {2026},
-  howpublished = {Closure Research Initiative preprint},
-  doi          = {},
-  url          = {https://closureresearchinitiative.org/ccw.pdf},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
-}</div>
-        </details>
-      </div>
-    </div>
-
-    <div class="paper">
-      <div class="paper-title"><a href="/cfsg/">Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S&sup3;</a></div>
-      <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 5, 2026</div>
-      <div class="abstract-text">At the manifold stage, a genuinely closed realized three-dimensional system is forced to the S&sup3; case. The closure constraint, expressed through the orthonormal frame bundle and the admissible comparison groupoid, gives the rigidity result within that smooth-realization setting.</div>
-      <div class="links">
-        <a href="/dl/cfsg.pdf">PDF</a>
-        <a href="/dl/cfsg-latex.zip">Source</a>
-        <details class="cite-details">
-          <summary class="cite-summary">Cite</summary>
-          <div class="cite-block">@misc{wolfe2026closure,
-  author       = {Chast K. Wolfe},
-  title        = {Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S\textsuperscript{3}},
-  year         = {2026},
-  howpublished = {Closure Research Initiative preprint},
-  doi          = {},
-  url          = {https://closureresearchinitiative.org/cfsg.pdf},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
-}</div>
-        </details>
-      </div>
-    </div>
-
-    <div class="paper">
-      <div class="paper-title"><a href="/scc/">Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems</a></div>
-      <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 5, 2026</div>
-      <div class="abstract-text">Argues that the cosmological and structural uses of "open" and "closed" operate at different logical levels and cannot be identified. Structural closure functions as a precondition for invariant physical content, whereas cosmological closure is a specific geometric condition.</div>
-      <div class="links">
-        <a href="/dl/scc.pdf">PDF</a>
-        <a href="/dl/scc-latex.zip">Source</a>
-        <details class="cite-details">
-          <summary class="cite-summary">Cite</summary>
-          <div class="cite-block">@misc{wolfe2026structural,
-  author       = {Chast K. Wolfe},
-  title        = {Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems},
-  year         = {2026},
-  howpublished = {Closure Research Initiative preprint},
-  doi          = {},
-  url          = {https://closureresearchinitiative.org/scc.pdf},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
-}</div>
-        </details>
-      </div>
-    </div>
-
-    <div class="paper">
-      <div class="paper-title"><a href="/rc/">Rectangular Completeness Encompasses Standard Physical Closure</a></div>
-      <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 5, 2026</div>
-      <div class="abstract-text">Closure as rectangular completeness stands in a precise relation to standard notions of closed two-subsystem systems. For classical systems it equals the full-product component; for quantum systems it captures the product-state sector.</div>
-      <div class="links">
-        <a href="/dl/rc.pdf">PDF</a>
-        <a href="/dl/rc-latex.zip">Source</a>
-        <details class="cite-details">
-          <summary class="cite-summary">Cite</summary>
-          <div class="cite-block">@misc{wolfe2026rectangular,
-  author       = {Chast K. Wolfe},
-  title        = {Rectangular Completeness Encompasses Standard Physical Closure},
-  year         = {2026},
-  howpublished = {Closure Research Initiative preprint},
-  doi          = {},
-  url          = {https://closureresearchinitiative.org/rc.pdf},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
-}</div>
-        </details>
-      </div>
-    </div>
-
-    <div class="paper">
-      <div class="paper-title"><a href="/fe/">Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy</a></div>
-      <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 5, 2026</div>
-      <div class="abstract-text">Four independent axes of primitive structural input&mdash;externalization, artificial factorization, premature globalization, reification of repair&mdash;are isolated and proved logically independent. Applied to foundational tensions across classical and quantum physics.</div>
-      <div class="links">
-        <a href="/dl/fe.pdf">PDF</a>
-        <a href="/dl/fe-latex.zip">Source</a>
-        <details class="cite-details">
-          <summary class="cite-summary">Cite</summary>
-          <div class="cite-block">@misc{wolfe2026foundational,
-  author       = {Chast K. Wolfe},
-  title        = {Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy},
-  year         = {2026},
-  howpublished = {Closure Research Initiative preprint},
-  doi          = {},
-  url          = {https://closureresearchinitiative.org/fe.pdf},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
-}</div>
-        </details>
-      </div>
-    </div>
-
-    <div class="paper">
-      <div class="paper-title"><a href="/rie/">A Factorization Criterion for Route Invariants with Fixed Endpoint Data</a></div>
-      <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 5, 2026</div>
-      <div class="abstract-text">A factorization criterion for comparison data with fixed endpoints: a route invariant is determined by endpoint data if and only if it is constant on every endpoint fiber. Instances are recorded in quotient semantics, categories, gauge transport, holonomy, differential geometry, and general relativity.</div>
-      <div class="links">
-        <a href="/dl/rie.pdf">PDF</a>
-        <a href="/dl/rie-latex.zip">Source</a>
-        <details class="cite-details">
-          <summary class="cite-summary">Cite</summary>
-          <div class="cite-block">@misc{wolfe2026route,
-  author       = {Chast K. Wolfe},
-  title        = {A Factorization Criterion for Route Invariants with Fixed Endpoint Data},
-  year         = {2026},
-  howpublished = {Closure Research Initiative preprint},
-  doi          = {},
-  url          = {https://closureresearchinitiative.org/rie.pdf},
-  license = {All Rights Reserved. See https://closureresearchinitiative.org/license.html},
-}</div>
-        </details>
-      </div>
-    </div>
-
   </div>
 
   <div class="section">
     <div class="section-header">
-      <h2 id="contact">IV. Contact</h2>
+      <h2 id="contact">Contact</h2>
       <span class="line"></span>
     </div>
     <div class="contact-grid">
@@ -650,10 +390,6 @@ footer {
   </footer>
 
 </div>
-
-<script>
-(function(){function u(){fetch('/dl/stats').then(function(r){return r.json();}).then(function(s){var a=document.querySelectorAll('a[href^="/dl/"]');for(var i=0;i<a.length;i++){var f=a[i].getAttribute('href').replace('/dl/','');var c=s[f];var sp=a[i].querySelector('.dlc');if(!sp){sp=document.createElement('span');sp.className='dlc';a[i].appendChild(sp)}sp.textContent=' \u00b7 '+(c!==undefined?c:'?')+' \u2b07'}}).catch(function(){})}setTimeout(u,100);document.querySelectorAll('a[href^="/dl/"]').forEach(function(l){l.addEventListener('click',function(){setTimeout(u,1500)})})})();
-</script>
 
 <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
 
