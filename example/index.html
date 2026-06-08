@@ -299,12 +299,13 @@ footer {
   <p>The factor map &Theta; sends each state to the pair (its &alpha;-class, its &beta;-class) — that is, to (left class, right class). Laying the four states into a grid with &alpha;-classes as rows and &beta;-classes as columns:</p>
 
   <table class="grid">
-    <tr><th></th><th>R = 0</th><th>R = 1</th></tr>
-    <tr><th>L = 0</th><td>(0,0)</td><td>(0,1)</td></tr>
-    <tr><th>L = 1</th><td>(1,0)</td><td>(1,1)</td></tr>
+    <caption>Full 2&times;2 comparison world: &Theta; is bijective</caption>
+    <tr><th scope="col"></th><th scope="col">R = 0</th><th scope="col">R = 1</th></tr>
+    <tr><th scope="row">L = 0</th><td>(0,0)</td><td>(0,1)</td></tr>
+    <tr><th scope="row">L = 1</th><td>(1,0)</td><td>(1,1)</td></tr>
   </table>
 
-  <p>Every cell is filled, by exactly one state. That is what it means for &Theta; to be a bijection: each (left class, right class) pair is realized once. The world has recovered, from two predicates alone, that it <em>is</em> a product of a left factor and a right factor — the canonical decomposition the program calls rectangular completeness (Theorem 2.6.4). Two classes by two classes, four cells, four states, no cell empty and none doubled.</p>
+  <p>Every cell is filled, by exactly one state. That is what it means for &Theta; to be a bijection: each (left class, right class) pair is realized once. The world has recovered, from two predicates alone, that it <em>is</em> a product of a left factor and a right factor — the canonical decomposition the program calls rectangular completeness (Definition 2.5.1; equivalently, bijectivity of &Theta;; derived under the stated hypotheses in Theorem 2.6.4). Two classes by two classes, four cells, four states, no cell empty and none doubled.</p>
 
   <p>This is the whole mechanism in miniature: comparison data in, product structure out, nothing assumed.</p>
 
@@ -317,9 +318,10 @@ footer {
   <p>The profiles still produce two left classes and two right classes (the remaining states still show both feature values on each side). So the grid still <em>has</em> four cells — but only three are filled:</p>
 
   <table class="grid">
-    <tr><th></th><th>R = 0</th><th>R = 1</th></tr>
-    <tr><th>L = 0</th><td>(0,0)</td><td>(0,1)</td></tr>
-    <tr><th>L = 1</th><td>(1,0)</td><td><em>empty</em></td></tr>
+    <caption>Deleted-cell world: (1,1) is empty</caption>
+    <tr><th scope="col"></th><th scope="col">R = 0</th><th scope="col">R = 1</th></tr>
+    <tr><th scope="row">L = 0</th><td>(0,0)</td><td>(0,1)</td></tr>
+    <tr><th scope="row">L = 1</th><td>(1,0)</td><td><em>empty</em></td></tr>
   </table>
 
   <p>The cell (L=1, R=1) is admissible — the comparison structure recognizes a left class <em>L=1</em> and a right class <em>R=1</em>, so the combination is a coherent possibility — but no state realizes it. This is a <em>gap</em>. The factor map is no longer onto; the world is not rectangularly complete. And the gap is exactly the &ldquo;silent absence&rdquo; the program forbids in a closed world: a possibility the system&rsquo;s own comparisons recognize, that nothing realizes, and whose omission no comparison detects from inside.</p>
@@ -333,9 +335,10 @@ footer {
   <p>The profiles still yield two left classes and two right classes, so the grid still has four cells — but only the two diagonal cells are filled:</p>
 
   <table class="grid">
-    <tr><th></th><th>R = 0</th><th>R = 1</th></tr>
-    <tr><th>L = 0</th><td>(0,0)</td><td><em>empty</em></td></tr>
-    <tr><th>L = 1</th><td><em>empty</em></td><td>(1,1)</td></tr>
+    <caption>Rod world: only diagonal cells filled</caption>
+    <tr><th scope="col"></th><th scope="col">R = 0</th><th scope="col">R = 1</th></tr>
+    <tr><th scope="row">L = 0</th><td>(0,0)</td><td><em>empty</em></td></tr>
+    <tr><th scope="row">L = 1</th><td><em>empty</em></td><td>(1,1)</td></tr>
   </table>
 
   <p>What the calculation says is not in dispute: two cells are admissible — the comparison structure recognizes both left classes and both right classes — and two are unrealized. That much is arithmetic.</p>
