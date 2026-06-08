@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="A Worked Example — Closure Research Initiative">
+<meta property="og:description" content="The smallest case where the closure mechanism runs end to end: profiles, the factor map, and rectangular completeness on a four-state world.">
+<meta property="og:url" content="https://closureresearchinitiative.org/example/">
+<meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A Worked Example">
+<meta name="twitter:description" content="The smallest case where the closure mechanism runs end to end.">
+<meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon.png">
+<meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
+<title>A Worked Example — Closure Research Initiative</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="license" href="/license.html">
+<link rel="alternate" type="application/atom+xml" title="Closure Research Initiative" href="/feed.xml">
+<meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A2348;
+  --gold: #B9933D;
+  --paper: #FAFAF8;
+  --text: #1E2430;
+  --muted: #5A6472;
+  --card: #FFFFFF;
+  --border: rgba(10,35,72,0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --paper: #11131A;
+    --navy: #9BB5D6;
+    --text: #D6D8DD;
+    --muted: #878C99;
+    --card: #1A1D27;
+    --border: rgba(255,255,255,0.08);
+  }
+}
+:root.dark {
+  --paper: #11131A;
+  --navy: #9BB5D6;
+  --text: #D6D8DD;
+  --muted: #878C99;
+  --card: #1A1D27;
+  --border: rgba(255,255,255,0.08);
+}
+:root.dark .hero-logo img { filter: invert(1); }
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .hero-logo img { filter: invert(1); }
+}
+.theme-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  z-index: 100;
+}
+.theme-toggle:hover { opacity: 1; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 0 3rem; }
+
+.hero { text-align: center; padding: 4rem 0 2rem; position: relative; }
+.discuss-wrapper {
+  text-align: center;
+  padding: 0 0 1.5rem;
+}
+.discuss-btn {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.discuss-btn:hover {
+  color: var(--navy);
+  border-color: var(--gold);
+}
+.hero-logo { margin-bottom: 1.5rem; }
+.hero-logo a { text-decoration: none; }
+.hero-logo img { width: 200px; height: auto; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+nav {
+  text-align: center;
+  padding: 1.5rem 0 2.5rem;
+  margin-bottom: 3rem;
+}
+nav a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+nav span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.section-header h2 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.section-header .line { flex: 1; height: 1px; background: var(--border); }
+
+p { font-size: 0.92rem; color: var(--text); margin-bottom: 1rem; line-height: 1.8; }
+a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
+a:hover { text-decoration-color: var(--gold); }
+h3 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+h4 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  font-style: italic;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+table.grid { border-collapse: collapse; margin: 1.5rem 0; }
+table.grid th, table.grid td { border: 1px solid var(--border); padding: 0.5rem 1rem; text-align: center; min-width: 4rem; }
+table.grid th { font-weight: 600; }
+table.grid td em { color: var(--muted); font-style: italic; }
+
+footer {
+  margin-top: 3.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media print {
+  body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
+  .container { max-width: 100%; padding: 0 1in; }
+  .hero { padding: 0.5in 0 0.25in; }
+  .hero-logo img { width: 180px; }
+  .hero h1 { font-size: 20pt; }
+  .hero .subtitle { font-size: 10pt; }
+  nav { display: none; }
+  a { color: #000 !important; text-decoration: underline !important; }
+  table.grid th, table.grid td { border: 1px solid #ccc; }
+  footer { font-size: 8pt; color: #555; }
+}
+
+@media (max-width: 800px) {
+  .container { padding: 0 1.5rem; }
+  .hero h1 { font-size: 2rem; }
+  .hero-logo img { width: 150px; }
+  nav a, nav span { margin: 0 0.6rem; font-size: 0.72rem; }
+  footer { flex-direction: column; gap: 0.3rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-logo">
+      <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
+    </div>
+    <h1>A Worked Example</h1>
+    <div class="subtitle">The smallest case where the mechanism runs end to end</div>
+  </div>
+
+  <div class="discuss-wrapper">
+    <a class="discuss-btn" href="https://github.com/CKW25/closure-research-initiative/discussions" target="_blank">Discuss on GitHub &#8599;</a>
+  </div>
+
+  <nav>
+    <a href="/idea/">The Idea</a>
+    <a href="/">Preprints</a>
+    <a href="/overview/">Overview</a>
+    <a href="/map/">Map</a>
+    <span>Example</span>
+    <a href="/contact/">Contact</a>
+    <a href="/notes/">Notes</a>
+    <a href="/license.html">License</a>
+    <a href="/guide/">Guide</a>
+  </nav>
+
+  <div class="section-header">
+    <h2>A Worked Example</h2>
+    <span class="line"></span>
+  </div>
+
+  <p>Everything else on this site states the program&rsquo;s results. This page does one thing instead: it runs the machinery on the smallest case where anything interesting happens, so the mechanism can be checked by hand rather than taken on faith. No geometry, no curvature, no three-sphere — just the first two moves, comparison profiles and the factor map, on a world of four states. The point is to <em>see</em> rectangular completeness hold, and then watch it fail when the world is no longer self-contained.</p>
+
+  <h3>The setup</h3>
+
+  <p>A comparison world is a set of states together with comparison predicates — functions that take two states and return 0 or 1. Take four states, and think of each as carrying two internal features, a <em>left</em> feature and a <em>right</em> feature, each either 0 or 1:</p>
+
+  <p style="text-align:center;font-family:monospace;margin:1rem 0;">states: (0,0), (0,1), (1,0), (1,1)</p>
+
+  <p>We are <em>not</em> told in advance that these are &ldquo;pairs of features.&rdquo; That structure is exactly what the comparison data will have to recover on its own. All the world actually has is two predicates:</p>
+
+  <p style="text-align:center;font-family:monospace;margin:1rem 0;"><em>c<sub>L</sub></em>(<em>u</em>, <em>v</em>) returns the left feature of the first state, <em>u</em>.<br><em>c<sub>R</sub></em>(<em>u</em>, <em>v</em>) returns the right feature of the second state, <em>v</em>.</p>
+
+  <p>That is the entire world: four states, two predicates. No coordinates announced, no product structure assumed. Everything below is extracted from these two predicates.</p>
+
+  <h3>Step one — profiles</h3>
+
+  <p>For each state, its <em>left profile</em> records how it behaves as the first argument across all comparisons; its <em>right profile</em> records how it behaves as the second argument. Two states are identified by the left congruence (written &alpha;) when their left profiles are identical, and by the right congruence (&beta;) when their right profiles match. (These are Definitions 2.3.1–2.3.2 of the monograph, applied by hand.)</p>
+
+  <p>Computing the left profiles: <em>c<sub>L</sub></em> returns the first state&rsquo;s left feature, so a state&rsquo;s left profile is fixed entirely by <em>its own left feature</em>. States (0,0) and (0,1) share left feature 0, so they are &alpha;-equivalent; (1,0) and (1,1) share left feature 1. The left congruence sorts the four states into two classes:</p>
+
+  <p><strong>&alpha;-classes:</strong> { (0,0), (0,1) } and { (1,0), (1,1) } — call them <em>L=0</em> and <em>L=1</em>.</p>
+
+  <p>Symmetrically, <em>c<sub>R</sub></em> returns the second state&rsquo;s right feature, so a state&rsquo;s right profile is fixed by its own right feature:</p>
+
+  <p><strong>&beta;-classes:</strong> { (0,0), (1,0) } and { (0,1), (1,1) } — call them <em>R=0</em> and <em>R=1</em>.</p>
+
+  <p>Nothing about &ldquo;two features&rdquo; was assumed; the predicates <em>produced</em> exactly two left classes and two right classes on their own.</p>
+
+  <h3>Step two — the factor map</h3>
+
+  <p>The factor map &Theta; sends each state to the pair (its &alpha;-class, its &beta;-class) — that is, to (left class, right class). Laying the four states into a grid with &alpha;-classes as rows and &beta;-classes as columns:</p>
+
+  <table class="grid">
+    <tr><th></th><th>R = 0</th><th>R = 1</th></tr>
+    <tr><th>L = 0</th><td>(0,0)</td><td>(0,1)</td></tr>
+    <tr><th>L = 1</th><td>(1,0)</td><td>(1,1)</td></tr>
+  </table>
+
+  <p>Every cell is filled, by exactly one state. That is what it means for &Theta; to be a bijection: each (left class, right class) pair is realized once. The world has recovered, from two predicates alone, that it <em>is</em> a product of a left factor and a right factor — the canonical decomposition the program calls rectangular completeness (Theorem 2.6.4). Two classes by two classes, four cells, four states, no cell empty and none doubled.</p>
+
+  <p>This is the whole mechanism in miniature: comparison data in, product structure out, nothing assumed.</p>
+
+  <h3>What it looks like when closure fails</h3>
+
+  <p>The interest is in what <em>breaks</em> the picture, because that is where the closed/open distinction lives. Take the same two predicates, but delete one state — remove (1,1):</p>
+
+  <p style="text-align:center;font-family:monospace;margin:1rem 0;">states: (0,0), (0,1), (1,0)</p>
+
+  <p>The profiles still produce two left classes and two right classes (the remaining states still show both feature values on each side). So the grid still <em>has</em> four cells — but only three are filled:</p>
+
+  <table class="grid">
+    <tr><th></th><th>R = 0</th><th>R = 1</th></tr>
+    <tr><th>L = 0</th><td>(0,0)</td><td>(0,1)</td></tr>
+    <tr><th>L = 1</th><td>(1,0)</td><td><em>empty</em></td></tr>
+  </table>
+
+  <p>The cell (L=1, R=1) is admissible — the comparison structure recognizes a left class <em>L=1</em> and a right class <em>R=1</em>, so the combination is a coherent possibility — but no state realizes it. This is a <em>gap</em>. The factor map is no longer onto; the world is not rectangularly complete. And the gap is exactly the &ldquo;silent absence&rdquo; the program forbids in a closed world: a possibility the system&rsquo;s own comparisons recognize, that nothing realizes, and whose omission no comparison detects from inside.</p>
+
+  <h3>The rod — where calculation and interpretation part</h3>
+
+  <p>The rod makes the seam between calculation and interpretation sharp, which is why it is worth dwelling on. Suppose the two features are locked equal — only states where left = right exist:</p>
+
+  <p style="text-align:center;font-family:monospace;margin:1rem 0;">states: (0,0), (1,1)</p>
+
+  <p>The profiles still yield two left classes and two right classes, so the grid still has four cells — but only the two diagonal cells are filled:</p>
+
+  <table class="grid">
+    <tr><th></th><th>R = 0</th><th>R = 1</th></tr>
+    <tr><th>L = 0</th><td>(0,0)</td><td><em>empty</em></td></tr>
+    <tr><th>L = 1</th><td><em>empty</em></td><td>(1,1)</td></tr>
+  </table>
+
+  <p>What the calculation says is not in dispute: two cells are admissible — the comparison structure recognizes both left classes and both right classes — and two are unrealized. That much is arithmetic.</p>
+
+  <p>What closure <em>adds</em> is an interpretation of that arithmetic: it reads an admissible-but-unrealized cell as the signature of a constraint imposed from outside the two features themselves — here, a rigid coupling locking left to right, a relation the two features do not generate between them. On the closure reading, this world is <em>open</em>: something external is holding the off-diagonal cells empty.</p>
+
+  <p>A reader is free to reply: why not take the diagonal as the entire world, a complete and self-sufficient state space of two elements? That reply is coherent, and it is worth being exact about what it amounts to. It does not refute the closure analysis; it <em>declines the closure premise</em> — it chooses to treat an unexplained exclusion as a brute fact rather than as a mark of externality. That is precisely the choice the program asks a reader to make consciously rather than by default. Closure is the stance that a genuinely self-contained world owes no silent exclusions; a reader who accepts brute exclusions is describing a different kind of world, not correcting the analysis of this one.</p>
+
+  <h3>What this shows, and what it doesn&rsquo;t</h3>
+
+  <p>Keep two things separate, because the page&rsquo;s value depends on the distinction. The <em>calculation</em> is not in dispute: predicates determine congruences, congruences determine the factor map, and the factor map is bijective for the full product, non-surjective for the deleted world and the rod. Anyone can check it. The <em>closure principle</em> — that an admissible unrealized cell signals openness, an externally maintained absence — is the program&rsquo;s interpretation laid on top of the calculation, not a consequence of it. The example illustrates the principle vividly; it does not prove it. What proves its worth is whether the program built on it derives more than it assumes, which is the business of the monograph, not this page.</p>
+
+  <p>This is also only the first two moves — profiles and the factor map — on the smallest world that shows them. No transport, no curvature, no three-sphere; those act on far richer worlds and need the full development. But the example exposes something the geometric results otherwise hide: where their rigidity comes from. The uniqueness theorems downstream are not a new and separate force. They are this same pressure — <em>no admissible cell may stand silently empty</em> — applied not to two features but to frames, transport, and the relations among them. Seen from here, the later rigidity is less surprising: it is the no-silent-absence discipline carried upward through the structure. Whether each upward step succeeds is a question for the papers. What this page makes visible is that the source of the rigidity is already fully present in a grid of four states.</p>
+
+  <p>The full theory is in the <a href="/csm/">monograph</a>; the plain-language account in <a href="/idea/">The Idea</a>; the result-by-result development in the <a href="/overview/">Overview</a>.</p>
+
+  <footer>
+    <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
+    <span><a href="/license.html" style="color:var(--muted);">License</a> &middot; <a href="/notes/" style="color:var(--muted);">Notes</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; closureresearchinitiative.org &middot; Last updated June 7, 2026</span>
+  </footer>
+
+</div>
+
+<button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+
+<script>
+(function() {
+  var t = document.getElementById('themeToggle');
+  var r = document.documentElement;
+  var s = localStorage.getItem('theme');
+  if (s === 'dark') r.classList.add('dark');
+  else if (s === 'light') r.classList.add('light');
+  t.addEventListener('click', function() {
+    if (r.classList.contains('dark')) {
+      r.classList.remove('dark');
+      r.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      r.classList.remove('light');
+      r.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
