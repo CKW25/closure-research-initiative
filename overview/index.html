@@ -309,7 +309,7 @@ footer {
 
   <p>To compare states across different locations or contexts, a closed system requires a notion of transport. How does a quantity at one point relate to the corresponding quantity at another point? The answer cannot be supplied from outside; it must be recoverable from the system&rsquo;s own comparison structure.</p>
 
-  <p>The comparison groupoid is the mathematical structure that encodes how points relate to one another through admissible comparisons. Transport arises naturally from this groupoid: a route from one point to another carries comparison data along with it. When two different routes between the same points give different transport data, there is an obstruction. This obstruction, recorded around closed loops, is curvature.</p>
+  <p>The comparison groupoid is the mathematical structure that encodes how points relate to one another through admissible comparisons. Transport arises naturally from this groupoid: a route from one point to another carries comparison data along with it. When two different routes between the same points give different transport data, there is an obstruction. This obstruction, recorded around closed loops, is curvature in the standard connection-and-holonomy sense [2,3].</p>
 
   <p>Curvature, in this setting, is not a geometric assumption. It is the first stable layer of transport obstruction in a closed system, realized as curvature under faithful smooth realization. The curvature hierarchy&mdash;the hierarchy of increasingly fine-grained obstructions to route independence&mdash;emerges from the comparison groupoid without any prior geometric commitment.</p>
 
@@ -333,7 +333,7 @@ footer {
 
   <p>A separate result, the factorization criterion for route invariants with fixed endpoint data, records a pattern that recurs across many areas of physics. The criterion is simple: a route-dependent quantity is determined by its endpoints if and only if it is constant on every endpoint fiber. Equivalently, it must factor through the endpoint quotient.</p>
 
-  <p>This criterion, proved from elementary principles, captures the same structural obstruction that appears in quotient semantics (when do orbit-level reports determine object-level data?), in categories (when do morphisms factor through objects?), in gauge transport (when does parallel transport depend only on the path&rsquo;s endpoints?), in Wilson loops (when do loop variables reduce to endpoint data?), in differential geometry (curvature as the obstruction to path-independence), and in general relativity (the holonomy group as a measure of non-flatness).</p>
+  <p>This criterion, proved from elementary principles, captures the same structural obstruction that appears in quotient semantics (when do orbit-level reports determine object-level data?), in categories (when do morphisms factor through objects?), in gauge transport (when does parallel transport depend only on the path&rsquo;s endpoints?), in Wilson loops (when do loop variables reduce to endpoint data?), in differential geometry (curvature as the obstruction to path-independence), and in general relativity (the holonomy group as a measure of non-flatness) [2&ndash;4].</p>
 
   <p>The recurrence is not accidental. The same logical structure&mdash;the failure of endpoint-determinedness&mdash;manifests as distinct phenomena in each domain. The factorization criterion unifies them under a single formal account.</p>
 
@@ -351,7 +351,7 @@ footer {
 
   <p><em>Reification of repair.</em> A formal repair of a structural problem is reified when the repair mechanism is treated as a physical object. An artifact of the mathematics is mistaken for a feature of the world.</p>
 
-  <p>These four axes are proved to be logically independent: no one of them is a Boolean consequence of the other three. They offer a scheme for classifying foundational tensions in classical mechanics, quantum mechanics, quantum field theory, general relativity, and statistical mechanics&mdash;not as separate problems, but as instances of a common pattern.</p>
+  <p>These four axes are proved to be logically independent: no one of them is a Boolean consequence of the other three. They offer a scheme for classifying foundational tensions in classical mechanics, quantum mechanics, quantum field theory, general relativity, and statistical mechanics&mdash;not as separate problems, but as instances of a common pattern [3,5&ndash;8].</p>
 
   <div class="section-divider">&sect;</div>
 
@@ -372,10 +372,22 @@ footer {
   <p style="font-size:0.85rem;color:var(--muted);line-height:1.9;margin-bottom:0.3rem;">
   [1] S. Kobayashi and K. Nomizu, <em>Foundations of Differential Geometry</em>, Vol. I (Interscience, 1963), Theorem 4.2. For the specific &ldquo;transitive frame bundle &rArr; constant curvature&rdquo; form: S. Helgason, <em>Differential Geometry, Lie Groups, and Symmetric Spaces</em> (Academic Press, 1978), Ch. I &sect;4.
   </p>
+  <p style="font-size:0.85rem;color:var(--muted);line-height:1.9;margin-bottom:0.3rem;">
+  [2] M. Nakahara, <em>Geometry, Topology and Physics</em>, 2nd ed. (Institute of Physics, 2003), Chs. 10&ndash;11, for connections, holonomy, and gauge-field geometry.
+  </p>
+  <p style="font-size:0.85rem;color:var(--muted);line-height:1.9;margin-bottom:0.3rem;">
+  [3] R. M. Wald, <em>General Relativity</em> (University of Chicago Press, 1984), for curvature, parallel transport, and holonomy in relativistic geometry.
+  </p>
+  <p style="font-size:0.85rem;color:var(--muted);line-height:1.9;margin-bottom:0.3rem;">
+  [4] K. G. Wilson, &ldquo;Confinement of quarks,&rdquo; <em>Phys. Rev. D</em> 10 (1974) 2445&ndash;2459, doi:10.1103/PhysRevD.10.2445, for the Wilson-loop setting invoked as an external comparison example.
+  </p>
+  <p style="font-size:0.85rem;color:var(--muted);line-height:1.9;margin-bottom:0.3rem;">
+  [5] L. D. Landau and E. M. Lifshitz, <em>Mechanics</em>, 3rd ed. (Pergamon, 1976). [6] J. von Neumann, <em>Mathematical Foundations of Quantum Mechanics</em> (Princeton University Press, 1955). [7] M. E. Peskin and D. V. Schroeder, <em>An Introduction to Quantum Field Theory</em> (Westview, 1995). [8] R. K. Pathria and P. D. Beale, <em>Statistical Mechanics</em>, 3rd ed. (Elsevier, 2011).
+  </p>
 
   <footer>
     <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
-    <span><a href="/license/" style="color:var(--muted);">License</a> &middot; <a href="/notes/" style="color:var(--muted);">Notes</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; closureresearchinitiative.org &middot; Last updated June 7, 2026</span>
+    <span><a href="/license/" style="color:var(--muted);">License</a> &middot; <a href="/notes/" style="color:var(--muted);">Notes</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; closureresearchinitiative.org &middot; Last updated June 8, 2026</span>
   </footer>
 
 </div>
