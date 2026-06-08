@@ -301,7 +301,6 @@ footer {
   nav a, nav span { margin: 0 0.6rem; font-size: 0.72rem; }
   footer { flex-direction: column; gap: 0.3rem; text-align: center; }
 }
-.dlc { font-size: 0.68rem; color: var(--muted); white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -388,9 +387,6 @@ footer {
 
 </div>
 
-<script>
-(function(){function u(){fetch('/dl/stats').then(function(r){return r.json();}).then(function(s){var a=document.querySelectorAll('a[href^="/dl/"]');for(var i=0;i<a.length;i++){var f=a[i].getAttribute('href').replace('/dl/','');var c=s[f];var sp=a[i].querySelector('.dlc');if(!sp){sp=document.createElement('span');sp.className='dlc';a[i].appendChild(sp)}sp.textContent=' \u00b7 '+(c!==undefined?c:'?')+' \u2b07'}}).catch(function(){})}setTimeout(u,100);document.querySelectorAll('a[href^="/dl/"]').forEach(function(l){l.addEventListener('click',function(){setTimeout(u,1500)})})})();
-</script>
 
 <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
 
