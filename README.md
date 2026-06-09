@@ -63,7 +63,7 @@ Download links intentionally use `/dl/...` URLs. A Cloudflare Worker handles tho
 
 HTML pages include canonical URLs, plain meta descriptions, and Schema.org JSON-LD metadata. The root `llms.txt` file gives AI and retrieval tools a concise site map, disambiguation note, and citation guidance.
 
-Cloudflare account settings should enforce HTTPS and define the canonical host behavior. Cloudflare Pages `_redirects` handles path redirects, but Cloudflare does not support domain-level redirects in that file.
+Cloudflare account settings should enforce HTTPS and define the canonical host behavior. Cloudflare Pages `_redirects` handles path redirects, but Cloudflare does not support domain-level redirects in that file. For a single-hop `www` canonical redirect, use a Cloudflare Single Redirect rule named `Canonical www to apex` with expression `http.host eq "www.closureresearchinitiative.org"`, dynamic target `concat("https://closureresearchinitiative.org", http.request.uri.path)`, status `301`, and query-string preservation enabled.
 
 `all-papers.zip` is a tracked deploy asset because the public preprints page links to it. Local secrets and Cloudflare cache files remain ignored under `token/` and `.wrangler/`.
 
