@@ -225,6 +225,7 @@ nav span {
   line-height: 1.8;
   margin-bottom: 1.5rem;
 }
+.path-intro { max-width: 760px; }
 
 /* ── Path cards ── */
 .path-grid {
@@ -240,6 +241,13 @@ nav span {
   transition: border-color 0.2s;
 }
 .path-card:hover { border-color: rgba(10,35,72,0.25); }
+.path-kicker {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
 .path-card h3 {
   font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
   font-size: 1rem;
@@ -370,34 +378,54 @@ footer {
       <h2>Start Exploring</h2>
       <span class="line"></span>
     </div>
+    <div class="intro-text path-intro">
+      The site is arranged as a ladder: informal entry points first, then the structural map, the worked model, current objections, testable consequences, and finally the papers themselves.
+    </div>
     <div class="path-grid">
       <div class="path-card">
+        <span class="path-kicker">First pass</span>
         <h3><a href="/idea/">The Idea &rarr;</a></h3>
-        <p>A plain-language introduction to the closure program, with minimal formalism.</p>
+        <p>Start here for the motivation: what changes when a physical theory may not borrow external observers, backgrounds, coordinates, or primitive labels.</p>
       </div>
       <div class="path-card">
+        <span class="path-kicker">Architecture</span>
         <h3><a href="/overview/">Overview &rarr;</a></h3>
-        <p>The full architecture of the theory, with technical depth but no proofs.</p>
+        <p>A structured tour of the program from intrinsicality and comparison data through rectangular completeness, quotient semantics, transport obstruction, and the geometric stage.</p>
       </div>
       <div class="path-card">
+        <span class="path-kicker">Dependency view</span>
         <h3><a href="/map/">Map &rarr;</a></h3>
-        <p>Taxonomy of closure conditions, theorems, and their logical dependencies.</p>
+        <p>A compact taxonomy of closure conditions, theorem families, and which assumptions carry which conclusions.</p>
       </div>
       <div class="path-card">
+        <span class="path-kicker">Worked model</span>
         <h3><a href="/example/">Example &rarr;</a></h3>
-        <p>Walkthrough of a minimal toy model illustrating the main structural results.</p>
+        <p>A minimal finite comparison world showing how the abstract constraints appear in a toy case before any smooth geometry is invoked.</p>
       </div>
       <div class="path-card">
+        <span class="path-kicker">Reference</span>
+        <h3><a href="/notation/">Notation &rarr;</a></h3>
+        <p>Definitions and symbols for comparison relations, closure conditions, quotient semantics, route invariants, and obstruction language.</p>
+      </div>
+      <div class="path-card">
+        <span class="path-kicker">Stress tests</span>
+        <h3><a href="/objections/">Objections &rarr;</a></h3>
+        <p>The strongest current criticisms, including where the program is conditional, where bridges still matter, and which issues remain open.</p>
+      </div>
+      <div class="path-card">
+        <span class="path-kicker">Empirical pressure</span>
         <h3><a href="/predictions/">Predictions &rarr;</a></h3>
-        <p>A falsifiable charge-sector consequence: no free/asymptotic particle with true vacuum electromagnetic charge outside the denominator-3 lattice.</p>
+        <p>The current charge-sector consequence: no free or asymptotic particle with true vacuum electromagnetic charge outside the denominator-3 lattice.</p>
       </div>
       <div class="path-card">
-        <h3><a href="/preprints/">Preprints &rarr;</a></h3>
-        <p>Download the monograph and research papers with abstracts and BibTeX.</p>
-      </div>
-      <div class="path-card">
+        <span class="path-kicker">Reading routes</span>
         <h3><a href="/guide/">Guide &rarr;</a></h3>
-        <p>Suggested reading paths through the site by background and interest.</p>
+        <p>Suggested paths through the material for different backgrounds: mathematical, physical, philosophical, or quick-orientation.</p>
+      </div>
+      <div class="path-card">
+        <span class="path-kicker">Primary sources</span>
+        <h3><a href="/preprints/">Preprints &rarr;</a></h3>
+        <p>Download the monograph and papers, read abstracts, copy BibTeX entries, and follow version history for the research corpus.</p>
       </div>
     </div>
   </div>
