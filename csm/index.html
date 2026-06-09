@@ -31,16 +31,44 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Book",
+  "@type": [
+    "Book",
+    "ScholarlyArticle"
+  ],
   "@id": "https://closureresearchinitiative.org/csm/#article",
   "headline": "Closed Systems from Comparison Completeness",
   "name": "Closed Systems from Comparison Completeness",
   "description": "A theorem-first monograph developing closed relational systems from intrinsic comparison data through quotient semantics, transport obstruction, and faithful smooth realization.",
+  "abstract": "A mathematically closed physical theory is formulated without external primitive structure. The monograph develops the closure principle as a classification program, showing the admissible architecture is highly rigid across geometric, field-theoretic, scalar, and matter sectors. It develops the full theory from primitive comparison data through quotient semantics, transport obstruction, curvature, and the emergence of smooth geometry.",
   "author": {
     "@type": "Person",
     "@id": "https://closureresearchinitiative.org/#chast-k-wolfe",
     "name": "Chast K. Wolfe",
-    "sameAs": "https://orcid.org/0009-0008-8846-2539"
+    "url": "https://orcid.org/0009-0008-8846-2539",
+    "sameAs": [
+      "https://orcid.org/0009-0008-8846-2539"
+    ],
+    "affiliation": {
+      "@type": "Organization",
+      "@id": "https://closureresearchinitiative.org/#organization",
+      "name": "Closure Research Initiative",
+      "url": "https://closureresearchinitiative.org/"
+    }
+  },
+  "creator": {
+    "@type": "Person",
+    "@id": "https://closureresearchinitiative.org/#chast-k-wolfe",
+    "name": "Chast K. Wolfe",
+    "url": "https://orcid.org/0009-0008-8846-2539",
+    "sameAs": [
+      "https://orcid.org/0009-0008-8846-2539"
+    ],
+    "affiliation": {
+      "@type": "Organization",
+      "@id": "https://closureresearchinitiative.org/#organization",
+      "name": "Closure Research Initiative",
+      "url": "https://closureresearchinitiative.org/"
+    }
   },
   "publisher": {
     "@type": "Organization",
@@ -48,31 +76,92 @@
     "name": "Closure Research Initiative",
     "url": "https://closureresearchinitiative.org/"
   },
-  "url": "https://closureresearchinitiative.org/csm/",
-  "mainEntityOfPage": "https://closureresearchinitiative.org/csm/",
-  "sameAs": "https://doi.org/10.5281/zenodo.20589038",
-  "identifier": {
-    "@type": "PropertyValue",
-    "propertyID": "DOI",
-    "value": "10.5281/zenodo.20589038"
+  "copyrightHolder": {
+    "@type": "Person",
+    "@id": "https://closureresearchinitiative.org/#chast-k-wolfe",
+    "name": "Chast K. Wolfe",
+    "url": "https://orcid.org/0009-0008-8846-2539",
+    "sameAs": [
+      "https://orcid.org/0009-0008-8846-2539"
+    ]
   },
+  "copyrightYear": 2026,
+  "inLanguage": "en",
+  "url": "https://closureresearchinitiative.org/csm/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://closureresearchinitiative.org/csm/#webpage",
+    "url": "https://closureresearchinitiative.org/csm/"
+  },
+  "isPartOf": {
+    "@type": "CreativeWorkSeries",
+    "@id": "https://closureresearchinitiative.org/preprints/#series",
+    "name": "Closure Research Initiative public works",
+    "url": "https://closureresearchinitiative.org/preprints/"
+  },
+  "image": "https://closureresearchinitiative.org/csm/thumb.jpg",
+  "thumbnailUrl": "https://closureresearchinitiative.org/csm/thumb.jpg",
   "datePublished": "2026-06-07",
-  "dateModified": "2026-06-08",
-  "version": "3",
+  "dateModified": "2026-06-09",
+  "version": "v3",
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "DOI",
+      "value": "10.5281/zenodo.20589038",
+      "url": "https://doi.org/10.5281/zenodo.20589038"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "CRI work code",
+      "value": "csm",
+      "url": "https://closureresearchinitiative.org/csm/"
+    }
+  ],
+  "sameAs": [
+    "https://doi.org/10.5281/zenodo.20589038"
+  ],
+  "citation": [
+    "https://doi.org/10.5281/zenodo.20589038"
+  ],
+  "keywords": [
+    "closure",
+    "comparison completeness",
+    "intrinsicality",
+    "rectangular completeness",
+    "quotient semantics",
+    "transport obstruction",
+    "faithful smooth realization",
+    "charge quantization"
+  ],
+  "genre": [
+    "Monograph",
+    "Mathematical physics",
+    "Foundational physics"
+  ],
   "isAccessibleForFree": true,
   "license": "https://closureresearchinitiative.org/license/",
+  "publishingPrinciples": "https://closureresearchinitiative.org/license/",
+  "discussionUrl": "https://github.com/CKW25/closure-research-initiative/discussions",
   "encoding": [
     {
       "@type": "MediaObject",
+      "name": "Closed Systems from Comparison Completeness PDF",
       "encodingFormat": "application/pdf",
-      "contentUrl": "https://closureresearchinitiative.org/csm.pdf"
+      "contentUrl": "https://closureresearchinitiative.org/csm.pdf",
+      "url": "https://closureresearchinitiative.org/dl/csm.pdf",
+      "isAccessibleForFree": true
     },
     {
       "@type": "MediaObject",
+      "name": "Closed Systems from Comparison Completeness LaTeX source bundle",
       "encodingFormat": "application/zip",
-      "contentUrl": "https://closureresearchinitiative.org/csm-latex.zip"
+      "contentUrl": "https://closureresearchinitiative.org/csm-latex.zip",
+      "url": "https://closureresearchinitiative.org/dl/csm-latex.zip",
+      "isAccessibleForFree": true
     }
-  ]
+  ],
+  "bookEdition": "Version 3"
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
