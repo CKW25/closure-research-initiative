@@ -12,6 +12,8 @@
 - Sitemap: https://closureresearchinitiative.org/sitemap.xml
 - Feed: https://closureresearchinitiative.org/feed.xml
 - License: https://closureresearchinitiative.org/license/
+- External sources: https://closureresearchinitiative.org/sources/
+- External sources BibTeX: https://closureresearchinitiative.org/external-sources.bib
 
 ## Disambiguation
 
@@ -33,6 +35,7 @@ The program starts from intrinsic comparison data. A comparison is a relation am
 - Reading guide: https://closureresearchinitiative.org/guide/
 - Preprints and downloads: https://closureresearchinitiative.org/preprints/
 - Public prediction page: https://closureresearchinitiative.org/predictions/
+- External sources cited for background, comparison, and experimental context: https://closureresearchinitiative.org/sources/
 
 ## Public Works
 
@@ -65,7 +68,7 @@ The current public empirical prediction is a charge-sector exclusion. Conditiona
 
 ## Citation Guidance
 
-Use the DOI links where present. For works without DOI assignment, cite the page URL or PDF URL shown on the relevant landing page, plus the BibTeX block on that page. The site's public pages include reference trails for external physics and mathematics invoked outside the closure program.
+Use the DOI links where present. For works without DOI assignment, cite the page URL or PDF URL shown on the relevant landing page, plus the BibTeX block on that page. The site's public pages include reference trails for external physics and mathematics invoked outside the closure program. Outside works cited by the site are collected at https://closureresearchinitiative.org/sources/ with a BibTeX download at https://closureresearchinitiative.org/external-sources.bib.
 
 ## Crawl Guidance
 
