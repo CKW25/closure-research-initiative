@@ -8,13 +8,15 @@ The Closure Research Initiative is founded on one primitive admissibility condit
 
 Under the theorem hypotheses stated in the monograph, especially local distinguishability, intrinsicality forces rectangular completeness rather than assuming it. The finite-to-global boundary is discharged through the refinement-tower and finite-witness results. From there the formal development gives quotient semantics, the obstruction to subsystem attribution, and a transport-obstruction hierarchy. The geometric claims are downstream and conditional on the faithful smooth-realization bridge.
 
+Primary internal sources for these claims are the [CSM monograph](https://closureresearchinitiative.org/csm/), [CCW](https://closureresearchinitiative.org/ccw/), [CFSG](https://closureresearchinitiative.org/cfsg/), and the [Predictions page](https://closureresearchinitiative.org/predictions/). External background, comparison, and experimental sources are collected on the site [Sources page](https://closureresearchinitiative.org/sources/).
+
 ## Works
 
 | Code | Title | Status |
 |------|-------|--------|
 | csm | Closed Systems from Comparison Completeness | monograph, v3 |
 | ccw | Closed Comparison Worlds and the Obstruction to Subsystem Attribution | preprint, v1 |
-| cfsg | Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S³ | preprint, v1 |
+| cfsg | Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3 | preprint, v1 |
 | scc | Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems | preprint, v1 |
 | rc | Rectangular Completeness Encompasses Standard Physical Closure | preprint, v1 |
 | fe | Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy | preprint, v1 |
@@ -77,8 +79,8 @@ The script no longer commits or pushes by default. Before publishing, verify tha
 
 ## License
 
-All works © Chast K. Wolfe. All rights reserved. Public availability is for reading, citation, criticism, and scholarly review; it is not an open-source license grant.
+All works (c) Chast K. Wolfe. All rights reserved. Public availability is for reading, citation, criticism, and scholarly review; it is not an open-source license grant.
 
 ## Contact
 
-Chast K. Wolfe · [chast.wolfe@closureresearchinitiative.org](mailto:chast.wolfe@closureresearchinitiative.org)
+Chast K. Wolfe - [chast.wolfe@closureresearchinitiative.org](mailto:chast.wolfe@closureresearchinitiative.org)

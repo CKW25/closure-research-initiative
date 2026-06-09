@@ -23,6 +23,14 @@ Closure Research Initiative is not about mine closure, industrial site closure, 
 
 The formal development starts from intrinsic comparison data. A comparison is a relation among states, invariant under the symmetries of the comparison world it helps constitute, not an externally imposed label. Under stated structural hypotheses, the theory develops rectangular completeness, quotient semantics, subsystem-attribution obstruction, transport obstruction, curvature at the faithful smooth-realization stage, and a rigidity result for genuinely closed realized three-dimensional systems.
 
+## Claim Support
+
+- Foundational comparison data, intrinsicality, rectangular completeness, quotient semantics, transport obstruction, and the broad theorem chain: https://closureresearchinitiative.org/csm/
+- Finitary two-subsystem comparison worlds and the subsystem-attribution obstruction: https://closureresearchinitiative.org/ccw/
+- Conditional S3 theorem at the faithful smooth-realization/manifold stage: https://closureresearchinitiative.org/cfsg/
+- Public charge-sector consequence and experimental interface: https://closureresearchinitiative.org/predictions/
+- External works cited for background, comparison, experimental, and legal context: https://closureresearchinitiative.org/sources/
+
 ## Best Entry Points
 
 - Homepage: https://closureresearchinitiative.org/
