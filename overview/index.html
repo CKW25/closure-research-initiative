@@ -294,7 +294,7 @@ footer {
 
   <p>Every physical theory makes assumptions. Some are explicit axioms; others are structural commitments built into the mathematical language itself. The question at the foundation of this program is which of these assumptions are necessary, and which are imported only by convention. The aim is to identify the minimal commitments of a closed physical theory and determine what structure follows from those commitments alone.</p>
 
-  <p>The phrase &ldquo;closed physical theory&rdquo; is used here in a specific sense. A theory is closed when every structure it invokes is recoverable from within the system itself&mdash;when there is no appeal to an external frame, an external observer, a pre-supplied background, or any scaffolding that cannot be justified by the system&rsquo;s own internal resources. This is not a claim about a particular theory being correct. It is a constraint on what may count as a theory at all.</p>
+  <p>The phrase &ldquo;closed physical theory&rdquo; is used here in a specific sense. A theory is closed when every structure it invokes is recoverable from within the system itself&mdash;when there is no appeal to an external frame, an external observer, a pre-supplied background, or any external primitive structure not justified by internal resources. This is not a claim about a particular theory being correct. It is a constraint on the adequacy of closed-world description.</p>
 
   <div class="section-divider">&sect;</div>
 
@@ -312,25 +312,25 @@ footer {
 
   <p>When a system decomposes into two subsystems, a new question arises. The whole contains joint states of the two parts. But does it contain all possible combinations of states from each part individually, or only some of them? The condition under which the whole contains all such combinations is called <em>rectangular completeness</em>.</p>
 
-  <p>The name comes from the observation that the set of joint states can be arranged as a grid or rectangle: the rows correspond to states of one subsystem, the columns to states of the other, and each cell is a joint state. Rectangular completeness is the condition that every cell is filled&mdash;that every combination is realized. When this holds, the system has a natural product structure: the whole is, in a precise sense, the product of its parts.</p>
+  <p>The name comes from the observation that the set of joint states can be arranged as a grid or rectangle: the rows correspond to states of one subsystem, the columns to states of the other, and each cell is a joint state. Rectangular completeness is the condition that every cell is filled&mdash;that every combination is realized. When this holds, the system admits a natural product structure: the whole is, in a precise sense, the product of its parts.</p>
 
-  <p>Rectangular completeness turns out to be equivalent, under mild conditions, to a property called profile-maximality: the world cannot be extended to a larger world in which one subsystem has the same range of profiles but strictly more states. This equivalence is not obvious, but it is provable from the comparison data alone.</p>
+  <p>Rectangular completeness turns out to be equivalent, under mild conditions, to a property called profile-maximality: no extension exists to a larger comparison world in which one subsystem has the same range of profiles but strictly more states. This equivalence is not obvious, but it is provable from the comparison data alone.</p>
 
   <div class="section-divider">&sect;</div>
 
   <h3>Quotient Semantics: When Labels Are Lost</h3>
 
-  <p>In a closed system, symmetries are not optional. If the system&rsquo;s internal comparison structure identifies two states as equivalent under a symmetry, then no admissible report can distinguish them. The states live in orbits of the symmetry group, and the physically accessible information is what descends to the orbit space&mdash;the quotient.</p>
+  <p>In a closed system, symmetries are not optional. If the system&rsquo;s internal comparison structure identifies two states as equivalent under a symmetry, then no admissible report can distinguish them. The states belong to orbits of the symmetry group, and the physically accessible information is what descends to the orbit space&mdash;the quotient.</p>
 
-  <p>This has a direct consequence for subsystem attribution. Consider a pure motion within a diagonal orbit of a two-subsystem system: a change that moves both subsystems together in a correlated way. Because the motion is within a single orbit, the quotient-level reports cannot decide whether the change is assigned to subsystem A or to subsystem B. The labels &ldquo;A changed&rdquo; and &ldquo;B changed&rdquo; are not distinguished by any admissible comparison. Subsystem attribution is not an invariant of the closed system.</p>
+  <p>This has a direct consequence for subsystem attribution. Consider a pure motion within a diagonal orbit of a two-subsystem system: a change that moves both subsystems together in a correlated way. Because the motion is within a single orbit, quotient-level reports do not determine whether the change is assigned to subsystem A or to subsystem B. The labels &ldquo;A changed&rdquo; and &ldquo;B changed&rdquo; are not distinguished by any admissible comparison. Subsystem attribution is not an invariant of the closed system.</p>
 
-  <p>This is not a limitation of the formalism. It is a structural fact about what it means to be closed. If there is no external frame, then there is no way to say which subsystem moved. The notion of subsystem attribution itself presupposes the kind of external scaffolding that closure excludes.</p>
+  <p>This is not a limitation of the formalism. It is a structural fact about what it means to be closed. If there is no external frame, then there is no invariant criterion for determining which subsystem moved. The notion of subsystem attribution itself presupposes the kind of external primitive structure that closure excludes.</p>
 
   <div class="section-divider">&sect;</div>
 
   <h3>Transport and Curvature</h3>
 
-  <p>To compare states across different locations or contexts, a closed system requires a notion of transport. How does a quantity at one point relate to the corresponding quantity at another point? The answer cannot be supplied from outside; it must be recoverable from the system&rsquo;s own comparison structure.</p>
+  <p>To compare states across different locations or contexts, a closed system requires a notion of transport: a rule relating a quantity at one point to the corresponding quantity at another point. This rule cannot be supplied from outside; it must be recoverable from the system&rsquo;s internal comparison structure.</p>
 
   <p>The comparison groupoid is the mathematical structure that encodes how points relate to one another through admissible comparisons. Transport arises naturally from this groupoid: a route from one point to another carries comparison data along with it. When two different routes between the same points give different transport data, there is an obstruction. This obstruction, recorded around closed loops, is curvature in the standard connection-and-holonomy sense [2,3].</p>
 
@@ -348,7 +348,7 @@ footer {
 
   <p>Genuine closure at this stage requires admissible comparison morphisms between the relevant frame data. That condition forces the isometry group to act transitively on the frame bundle. By the standard homogeneous-geometry result [1] invoked in the program&rsquo;s <a href="/cfsg/">CFSG paper</a>, transitivity on the orthonormal frame bundle forces constant sectional curvature. Together with the program&rsquo;s gauge-reduced transport criterion for simple connectivity, the remaining closed realized three-dimensional case is S&sup3;.</p>
 
-  <p>The result is therefore not an unconditional derivation of smooth geometry from bare comparison data. It is a conditional rigidity theorem: once the faithful smooth-realization bridge is in place, genuine closure leaves the spherical case.</p>
+  <p>The result is therefore not an unconditional derivation of smooth geometry from bare comparison data. It is a conditional rigidity theorem: once the faithful smooth-realization bridge is in place, genuine closure selects the spherical case.</p>
 
   <div class="section-divider">&sect;</div>
 
@@ -372,7 +372,7 @@ footer {
 
   <p><em>Premature globalization.</em> A local description is prematurely globalized when features that hold in a restricted context are assumed without justification to hold everywhere. The structure is imported because it is convenient, not because it is forced.</p>
 
-  <p><em>Reification of repair.</em> A formal repair of a structural problem is reified when the repair mechanism is treated as a physical object. An artifact of the mathematics is mistaken for a feature of the world.</p>
+  <p><em>Reification of repair.</em> A formal repair of a structural problem is reified when the repair mechanism is treated as a physical object. An artifact of the mathematics is treated as if it were a feature of physical ontology.</p>
 
   <p>These four axes are proved to be logically independent: no one of them is a Boolean consequence of the other three. They offer a scheme for classifying foundational tensions in classical mechanics, quantum mechanics, quantum field theory, general relativity, and statistical mechanics&mdash;not as separate problems, but as instances of a common pattern [3,5&ndash;8].</p>
 
@@ -380,11 +380,11 @@ footer {
 
   <h3>What This Means</h3>
 
-  <p>The closure program proceeds from a single methodological constraint: a genuinely closed physical theory cannot rely on external scaffolding. Any structure it invokes must be recoverable from within the system itself. This constraint is not a physical hypothesis to be tested against observation. It is a condition on the form of physical description.</p>
+  <p>The closure program proceeds from a single methodological constraint: a genuinely closed physical theory cannot rely on external primitive structure. Any structure it invokes must be recoverable from within the system itself. This constraint is not a physical hypothesis to be tested against observation. It is a condition on the form of physical description.</p>
 
-  <p>The program&rsquo;s claim is that these are not additional choices once the relevant closure hypotheses are in force. They are consequences of the intrinsicality premise together with the stated structural conditions, especially local distinguishability at the comparison stage and faithful smooth realization at the geometric stage.</p>
+  <p>The claim is that these are not additional choices once the relevant closure hypotheses are in force. They are consequences of the intrinsicality premise together with the stated structural conditions, especially local distinguishability at the comparison stage and faithful smooth realization at the geometric stage.</p>
 
-  <p>The question of closure in this sense is first a question about the adequacy of physical description: what may be taken as primitive in a theory of the closed world? Empirical contact enters downstream, through whether the structures derived under that discipline recover the physical theories and phenomena they claim to explain.</p>
+  <p>The question of closure in this sense is first a question about the adequacy of physical description: what may be taken as primitive in a theory of the closed world? Empirical contact enters downstream, through whether the structures derived under that discipline recover the physical theories and phenomena they are intended to explain.</p>
 
   </div>
 

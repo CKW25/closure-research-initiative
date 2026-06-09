@@ -1,12 +1,12 @@
 # Closure Research Initiative
 
-A mathematical research initiative investigating what structure a physical theory may invoke when it is written without external scaffolding.
+A mathematical research initiative investigating what structure a physical theory may invoke when it is formulated without external primitive structure.
 
 ## Overview
 
-The Closure Research Initiative is founded on one primitive admissibility condition: intrinsicality. A comparison is a relation among states, invariant under the symmetries it constitutes, not an externally imposed label.
+The Closure Research Initiative is founded on one primitive admissibility condition: intrinsicality. A comparison is a relation among states, invariant under the symmetries of the comparison world it helps constitute, not an externally imposed label.
 
-Under the theorem hypotheses stated in the monograph, especially local distinguishability, intrinsicality forces rectangular completeness rather than assuming it. The finite-to-global boundary is discharged through the refinement-tower and finite-witness results. From there the program develops quotient semantics, the obstruction to subsystem attribution, and a transport-obstruction hierarchy. The geometric claims are downstream and conditional on the faithful smooth-realization bridge.
+Under the theorem hypotheses stated in the monograph, especially local distinguishability, intrinsicality forces rectangular completeness rather than assuming it. The finite-to-global boundary is discharged through the refinement-tower and finite-witness results. From there the formal development gives quotient semantics, the obstruction to subsystem attribution, and a transport-obstruction hierarchy. The geometric claims are downstream and conditional on the faithful smooth-realization bridge.
 
 ## Works
 
@@ -34,7 +34,7 @@ The live site is at [closureresearchinitiative.org](https://closureresearchiniti
 | `_headers` | Cloudflare Pages response headers for clean UTF-8 HTML delivery |
 | `_redirects` | Legacy URL redirects, including `/license.html` and `/about.html` |
 | `llms.txt` | Markdown site summary for AI and retrieval tools |
-| `idea/` | Plain-language introduction |
+| `idea/` | Foundational orientation |
 | `overview/` | Result-by-result overview |
 | `map/` | Four-axis structural map |
 | `example/` | Worked four-state comparison-world example |

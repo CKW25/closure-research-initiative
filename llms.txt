@@ -21,12 +21,12 @@ Closure Research Initiative is not about mine closure, industrial site closure, 
 
 ## Core Idea
 
-The program starts from intrinsic comparison data. A comparison is a relation among states, invariant under the symmetries it constitutes, not an externally imposed label. Under stated structural hypotheses, the program develops rectangular completeness, quotient semantics, subsystem-attribution obstruction, transport obstruction, curvature at the faithful smooth-realization stage, and a rigidity result for genuinely closed realized three-dimensional systems.
+The formal development starts from intrinsic comparison data. A comparison is a relation among states, invariant under the symmetries of the comparison world it helps constitute, not an externally imposed label. Under stated structural hypotheses, the theory develops rectangular completeness, quotient semantics, subsystem-attribution obstruction, transport obstruction, curvature at the faithful smooth-realization stage, and a rigidity result for genuinely closed realized three-dimensional systems.
 
 ## Best Entry Points
 
 - Homepage: https://closureresearchinitiative.org/
-- Plain-language idea: https://closureresearchinitiative.org/idea/
+- Foundational orientation: https://closureresearchinitiative.org/idea/
 - Technical overview without proofs: https://closureresearchinitiative.org/overview/
 - Logical map and comparison to neighboring programs: https://closureresearchinitiative.org/map/
 - Minimal worked example: https://closureresearchinitiative.org/example/
