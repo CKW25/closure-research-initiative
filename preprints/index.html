@@ -187,6 +187,17 @@ nav span {
   white-space: nowrap;
 }
 .section-header .line { flex: 1; height: 1px; background: var(--border); }
+.citation-hub {
+  margin: 0 0 2rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+.citation-hub a { color: var(--navy); text-underline-offset: 0.18em; }
 .monograph {
   background: var(--card);
   border: 1px solid var(--border);
@@ -398,7 +409,9 @@ footer {
     <a href="/license/">License</a>
   </nav>
 
-  <div class="section">
+  <p class="citation-hub">For consolidated citation metadata, author identification, DOI targets, and the outside-source BibTeX file, see <a href="/sources/#cite-this-work">Sources and Citation</a>. The expandable BibTeX blocks below remain the paper-specific citation records.</p>
+
+  <div class="section" id="monograph">
     <div class="section-header">
       <h2>I. The Monograph</h2>
       <span class="line"></span>
@@ -580,7 +593,7 @@ footer {
       <span class="line"></span>
     </div>
     <p style="font-size:0.86rem;color:var(--muted);line-height:1.8;margin-bottom:0;">
-      The abstracts on this page are navigation summaries. For paper-specific claims, cite the linked paper page, PDF, DOI where present, and BibTeX entry. For external comparison claims about background structure, gauge theory, geometry, cosmology, standard physical closure, or millicharged-particle searches, use <a href="/sources/">Sources</a>, the deeper trails on <a href="/overview/">Overview</a>, <a href="/map/">Structural Map</a>, <a href="/guide/">Reading Guide</a>, <a href="/predictions/">Predictions</a>, and the relevant paper landing page.
+      The abstracts on this page are navigation summaries. For paper-specific claims, cite the linked paper page, PDF, DOI where present, and BibTeX entry. For consolidated citation metadata and external comparison claims about background structure, gauge theory, geometry, cosmology, standard physical closure, or millicharged-particle searches, use <a href="/sources/#cite-this-work">Sources and Citation</a>, the deeper trails on <a href="/overview/">Overview</a>, <a href="/map/">Structural Map</a>, <a href="/guide/">Reading Guide</a>, <a href="/predictions/">Predictions</a>, and the relevant paper landing page.
     </p>
   </div>
 
