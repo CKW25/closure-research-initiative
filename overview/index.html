@@ -317,12 +317,8 @@ a:hover { text-decoration-color: var(--gold); }
 }
 .flrw-closure-diagram .panel-frame,
 .flrw-closure-diagram .formula-frame {
-  fill: var(--card);
-  stroke: var(--border);
-  stroke-width: 1.1;
-}
-.flrw-closure-diagram .panel-frame {
-  fill-opacity: 0.55;
+  fill: transparent;
+  stroke: none;
 }
 .flrw-closure-diagram .axis-line,
 .flrw-closure-diagram .flat-ray,
@@ -356,6 +352,11 @@ a:hover { text-decoration-color: var(--gold); }
   stroke-dasharray: 4 7;
   opacity: 0.9;
 }
+.flrw-closure-diagram .separator {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1;
+}
 .flrw-closure-diagram .observer-dot,
 .flrw-closure-diagram .target-dot {
   fill: var(--navy);
@@ -375,11 +376,11 @@ a:hover { text-decoration-color: var(--gold); }
   font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
 }
 .flrw-closure-diagram .panel-title {
-  font-size: 23px;
+  font-size: 22px;
   font-weight: 600;
 }
 .flrw-closure-diagram .formula-main {
-  font-size: 24px;
+  font-size: 23px;
   font-style: italic;
 }
 .flrw-closure-diagram .math-emph {
@@ -406,9 +407,9 @@ a:hover { text-decoration-color: var(--gold); }
 .flrw-mobile-formula,
 .flrw-mobile-limit,
 .flrw-mobile-panel {
-  border: 1px solid var(--border);
-  background: var(--card);
-  border-radius: 5px;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
 }
 .flrw-mobile-formula,
 .flrw-mobile-limit {
@@ -420,7 +421,8 @@ a:hover { text-decoration-color: var(--gold); }
   color: var(--text);
 }
 .flrw-mobile-panel {
-  padding: 0.75rem 0.85rem 0.85rem;
+  padding: 0.6rem 0 0.7rem;
+  border-bottom: 1px solid var(--border);
 }
 .flrw-mobile-panel h4 {
   margin: 0 0 0.35rem;
@@ -443,7 +445,7 @@ a:hover { text-decoration-color: var(--gold); }
   font-size: 1.08rem;
   font-style: italic;
   color: var(--text);
-  margin-top: 0.2rem;
+  margin-top: 0;
 }
 .flrw-mobile-panel svg .m-line,
 .flrw-mobile-panel svg .m-ring,
@@ -738,7 +740,7 @@ footer span { min-width: 0; }
   <p>The corresponding recovery target can be stated without changing the standard distance-measure formalism. In FLRW notation, the flat case uses the transverse-distance function as the identity, while the closed positive-curvature case replaces that identity by the spherical sine. Thus a sufficiently large curvature radius makes the closed S&sup3; model locally indistinguishable from the flat R&sup3; approximation, while the global spatial section closes rather than extending without return [12,13].</p>
 
   <figure class="concept-figure flrw-closure-figure" aria-labelledby="overview-flrw-closure-caption">
-    <svg class="flrw-closure-diagram" viewBox="0 0 820 430" role="img" aria-labelledby="overview-flrw-closure-title overview-flrw-closure-desc" xmlns="http://www.w3.org/2000/svg">
+    <svg class="flrw-closure-diagram" viewBox="0 0 820 370" role="img" aria-labelledby="overview-flrw-closure-title overview-flrw-closure-desc" xmlns="http://www.w3.org/2000/svg">
       <title id="overview-flrw-closure-title">Flat and closed FLRW transverse-distance comparison</title>
       <desc id="overview-flrw-closure-desc">A schematic comparing the flat transverse-distance law D_M equals D_C with the closed positive-curvature law D_M equals R_c sin(D_C divided by R_c). The closed law has the same local limit for small D_C over R_c but closes globally.</desc>
       <defs>
@@ -747,39 +749,30 @@ footer span { min-width: 0; }
         </marker>
       </defs>
 
-      <rect class="formula-frame" x="128" y="18" width="564" height="54" rx="4" />
-      <text class="formula-main" x="410" y="52" text-anchor="middle">FLRW transverse distance: D<tspan baseline-shift="sub" font-size="15">M</tspan> = S<tspan baseline-shift="sub" font-size="15">k</tspan>(D<tspan baseline-shift="sub" font-size="15">C</tspan>)</text>
+      <text class="formula-main" x="410" y="42" text-anchor="middle">FLRW transverse distance: D<tspan baseline-shift="sub" font-size="15">M</tspan> = S<tspan baseline-shift="sub" font-size="15">k</tspan>(D<tspan baseline-shift="sub" font-size="15">C</tspan>)</text>
+      <line class="separator" x1="146" y1="66" x2="674" y2="66" />
 
-      <rect class="panel-frame" x="42" y="96" width="348" height="246" rx="5" />
-      <rect class="panel-frame" x="430" y="96" width="348" height="246" rx="5" />
+      <text class="panel-title" x="220" y="105" text-anchor="middle">Flat local chart: R^3</text>
+      <line class="axis-line" x1="95" y1="188" x2="345" y2="188" marker-end="url(#flrw-arrow)" />
+      <circle class="observer-dot" cx="116" cy="188" r="5.5" />
+      <circle class="target-dot" cx="266" cy="188" r="5" />
+      <text class="math-emph" x="108" y="168" text-anchor="middle">O</text>
+      <text class="math-emph" x="266" y="168" text-anchor="middle">X</text>
+      <text class="axis-label" x="190" y="217" text-anchor="middle">local separation D<tspan baseline-shift="sub" font-size="9">C</tspan></text>
+      <text class="formula-main" x="220" y="284" text-anchor="middle">D<tspan baseline-shift="sub" font-size="15">M</tspan> = D<tspan baseline-shift="sub" font-size="15">C</tspan></text>
 
-      <text class="panel-title" x="216" y="128" text-anchor="middle">Flat approximation: R^3</text>
-      <line class="axis-line" x1="92" y1="215" x2="338" y2="215" marker-end="url(#flrw-arrow)" />
-      <circle class="observer-dot" cx="112" cy="215" r="5.5" />
-      <circle class="target-dot" cx="262" cy="215" r="5" />
-      <text class="math-emph" x="103" y="199" text-anchor="middle">O</text>
-      <text class="math-emph" x="262" y="199" text-anchor="middle">X</text>
-      <text class="axis-label" x="184" y="239" text-anchor="middle">comoving separation D<tspan baseline-shift="sub" font-size="9">C</tspan></text>
-      <text class="caption-label" x="274" y="178" text-anchor="middle">continues in the model</text>
-      <rect class="formula-frame" x="86" y="276" width="260" height="40" rx="4" />
-      <text class="formula-main" x="216" y="303" text-anchor="middle">D<tspan baseline-shift="sub" font-size="15">M</tspan> = D<tspan baseline-shift="sub" font-size="15">C</tspan></text>
+      <text class="panel-title" x="600" y="105" text-anchor="middle">Closed global section: S^3</text>
+      <circle class="sphere-ring" cx="600" cy="190" r="66" />
+      <path class="closed-arc" d="M 534 190 A 66 66 0 0 1 651 147" marker-end="url(#flrw-arrow)" />
+      <path class="return-arc" d="M 651 147 A 66 66 0 1 1 535 191" />
+      <circle class="observer-dot" cx="534" cy="190" r="5.5" />
+      <circle class="target-dot" cx="651" cy="147" r="5" />
+      <text class="math-emph" x="518" y="194" text-anchor="end">O</text>
+      <text class="math-emph" x="666" y="143">X</text>
+      <text class="formula-main" x="600" y="284" text-anchor="middle">D<tspan baseline-shift="sub" font-size="15">M</tspan> = R<tspan baseline-shift="sub" font-size="15">c</tspan> sin(D<tspan baseline-shift="sub" font-size="15">C</tspan>/R<tspan baseline-shift="sub" font-size="15">c</tspan>)</text>
 
-      <text class="panel-title" x="604" y="128" text-anchor="middle">Closed realization: S^3</text>
-      <circle class="sphere-ring" cx="604" cy="215" r="82" />
-      <line class="local-tangent" x1="500" y1="215" x2="706" y2="215" />
-      <path class="closed-arc" d="M 522 215 A 82 82 0 0 1 667 162" marker-end="url(#flrw-arrow)" />
-      <path class="return-arc" d="M 667 162 A 82 82 0 1 1 523 216" />
-      <circle class="observer-dot" cx="522" cy="215" r="5.5" />
-      <circle class="target-dot" cx="667" cy="162" r="5" />
-      <text class="math-emph" x="508" y="214" text-anchor="end">O</text>
-      <text class="math-emph" x="680" y="157">X</text>
-      <text class="axis-label" x="604" y="259" text-anchor="middle">closed great-circle section</text>
-      <text class="caption-label gold-label" x="706" y="208" text-anchor="middle">global return</text>
-      <rect class="formula-frame" x="474" y="276" width="260" height="40" rx="4" />
-      <text class="formula-main" x="604" y="303" text-anchor="middle">D<tspan baseline-shift="sub" font-size="15">M</tspan> = R<tspan baseline-shift="sub" font-size="15">c</tspan> sin(D<tspan baseline-shift="sub" font-size="15">C</tspan>/R<tspan baseline-shift="sub" font-size="15">c</tspan>)</text>
-
-      <rect class="formula-frame" x="178" y="368" width="464" height="38" rx="4" />
-      <text class="formula-main" x="410" y="393" text-anchor="middle">D<tspan baseline-shift="sub" font-size="15">C</tspan> &lt;&lt; R<tspan baseline-shift="sub" font-size="15">c</tspan>  implies  R<tspan baseline-shift="sub" font-size="15">c</tspan> sin(D<tspan baseline-shift="sub" font-size="15">C</tspan>/R<tspan baseline-shift="sub" font-size="15">c</tspan>) &approx; D<tspan baseline-shift="sub" font-size="15">C</tspan></text>
+      <line class="separator" x1="198" y1="318" x2="622" y2="318" />
+      <text class="formula-main" x="410" y="349" text-anchor="middle">D<tspan baseline-shift="sub" font-size="15">C</tspan> &lt;&lt; R<tspan baseline-shift="sub" font-size="15">c</tspan>  implies  R<tspan baseline-shift="sub" font-size="15">c</tspan> sin(D<tspan baseline-shift="sub" font-size="15">C</tspan>/R<tspan baseline-shift="sub" font-size="15">c</tspan>) &approx; D<tspan baseline-shift="sub" font-size="15">C</tspan></text>
     </svg>
     <div class="flrw-mobile-diagram" aria-hidden="true">
       <div class="flrw-mobile-formula">FLRW transverse distance: D<sub>M</sub> = S<sub>k</sub>(D<sub>C</sub>)</div>
@@ -797,8 +790,7 @@ footer span { min-width: 0; }
           <circle class="m-dot-gold" cx="202" cy="62" r="5" />
           <text class="m-math" x="51" y="47">O</text>
           <text class="m-math" x="198" y="47">X</text>
-          <text x="130" y="86" text-anchor="middle">comoving separation D<tspan baseline-shift="sub" font-size="8">C</tspan></text>
-          <text x="220" y="35" text-anchor="middle">continues in the model</text>
+          <text x="130" y="86" text-anchor="middle">local separation D<tspan baseline-shift="sub" font-size="8">C</tspan></text>
         </svg>
         <div class="mobile-formula">D<sub>M</sub> = D<sub>C</sub></div>
       </div>
@@ -819,8 +811,6 @@ footer span { min-width: 0; }
           <circle class="m-dot-gold" cx="203" cy="36" r="5" />
           <text class="m-math" x="86" y="73">O</text>
           <text class="m-math" x="215" y="33">X</text>
-          <text x="160" y="132" text-anchor="middle">closed great-circle section</text>
-          <text class="m-gold" x="232" y="72" text-anchor="middle">global return</text>
         </svg>
         <div class="mobile-formula">D<sub>M</sub> = R<sub>c</sub> sin(D<sub>C</sub>/R<sub>c</sub>)</div>
       </div>
