@@ -175,6 +175,38 @@ nav span {
 p { font-size: 0.92rem; color: var(--text); margin-bottom: 1rem; line-height: 1.8; }
 a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
 a:hover { text-decoration-color: var(--gold); }
+h2 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 2.4rem 0 0.8rem;
+  line-height: 1.25;
+}
+.math-display {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  color: var(--navy);
+  text-align: center;
+  margin: 1.2rem 0;
+}
+.formal-chain {
+  border-left: 2px solid var(--gold);
+  padding-left: 1.2rem;
+  margin: 1.2rem 0 1.4rem;
+}
+.formal-chain ol { margin: 0; padding-left: 1.2rem; }
+.formal-chain li {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 0.55rem;
+}
+.scope-note {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-style: italic;
+}
 footer {
   margin-top: 3.5rem;
   padding: 1.5rem 0;
@@ -254,11 +286,33 @@ footer span { min-width: 0; }
 
   <p>Once this comparison architecture is in place, the theory develops a sequence of increasingly structured results. Quotient semantics records what can be reported without violating internal symmetries. Transport obstruction records the failure of comparison data to transport consistently around loops. Under faithful smooth realization, the first stable obstruction layer is read as curvature. Later chapters develop the consequences for dimension, scalar weighting, field structure, and charge quantization.</p>
 
+  <h2 id="compactification-rigidity">Compactification Intuition and the S&sup3; Rigidity Theorem</h2>
+
+  <p>A useful preliminary picture is the one-point compactification of Euclidean space. The unbounded chart <em>R</em><sup>3</sup> can be completed, topologically, by adjoining a single point at infinity:</p>
+
+  <div class="math-display"><em>R</em><sup>3</sup> &cup; {&infin;} &cong; S<sup>3</sup>.</div>
+
+  <p>Under stereographic projection, this says that the missing point of the three-sphere corresponds to the common asymptotic endpoint of the unbounded Euclidean chart. It is a good intuition for how an apparently infinite coordinate description can be represented by a closed space. It is not, by itself, the proof of the closure theorem. Compactification is a topological operation applied to an already given chart; it supplies no metric, no curvature condition, and no intrinsic reason that this compactification rather than another closed model must be selected.</p>
+
+  <p>The formal theorem uses a different mechanism. The intuitive phrase &ldquo;no lopsided directions&rdquo; is replaced by frame-bundle transitivity: no localized orthonormal frame is privileged over any other by externally supplied structure. In the CFSG paper this is obtained from the closed-system admissibility criterion at the manifold stage, not from manually gluing infinity onto a pre-existing space.</p>
+
+  <div class="formal-chain" aria-label="Formal proof chain from closure to S3">
+    <ol>
+      <li>Primitive comparison data give quotient semantics and transport obstruction; where the faithful smooth-realization bridge is in force, the geometric branch is represented by a compact connected simply connected orientable Riemannian three-manifold <em>M</em>.</li>
+      <li>The orthonormal frame bundle <em>FM</em> records all localized observer frames. The closed-system comparison target is built from <em>FM</em> &times; <em>FM</em> modulo the diagonal action of the isometry group <em>Iso</em>(<em>M</em>).</li>
+      <li>Closed-system admissibility allows only comparison morphisms internally recoverable from that orbit structure. In CFSG this makes the admissible comparison groupoid exactly the action groupoid, so internally accessible morphisms are isometric.</li>
+      <li>Genuine closure requires admissible morphisms between arbitrary frame data. Hence <em>Iso</em>(<em>M</em>) acts transitively on <em>FM</em>.</li>
+      <li>By the standard homogeneous-geometry theorem used in CFSG, transitivity on the orthonormal frame bundle forces constant sectional curvature. The space-form classification then leaves the simply connected compact case <em>S</em><sup>3</sup>; flat and hyperbolic compact space forms require nontrivial fundamental group and are excluded by simple connectivity.</li>
+    </ol>
+  </div>
+
+  <p class="scope-note">Thus the compactification picture is an aid to orientation, not an independent derivation. The theorem-level claim is the CFSG rigidity statement: under the stated smooth-realization and closed-system hypotheses, the remaining genuinely closed realized three-dimensional case is S&sup3;.</p>
+
   <p>Those later claims are conditional theorem claims, with hypotheses and open points stated in the monograph and on the Objections page. The basic orientation is simpler: if a system is to be described without appeal to external structure, then every structure used in the description must either be recovered internally or marked as a remaining bridge.</p>
 
   <p>The mathematics that establishes each step is developed in the monograph and supporting papers. This page provides only the foundational orientation; the binding statements are the definitions, hypotheses, and theorems in the technical work.</p>
 
-  <p>Source trail: the comparison-world primitive and intrinsicality condition are in <a href="/csm/">CSM</a> Definition 0.1.1 and Chapter 2; the two-subsystem finitary version is isolated in <a href="/ccw/">CCW</a>; the terms used here are collected in <a href="/notation/">Notation</a>; the charge-sector consequence is isolated on <a href="/predictions/">Predictions</a> and developed in CSM Chapter 18; and the principal open qualification, faithful smooth realization, is stated on <a href="/objections/">Objections</a>. External background claims about standard mechanics, quantum theory, field theory, and general relativity are cited on the <a href="/overview/">Overview</a>, <a href="/map/">Structural Map</a>, and <a href="/guide/">Reading Guide</a> pages rather than repeated here.</p>
+  <p>Source trail: the comparison-world primitive and intrinsicality condition are in <a href="/csm/">CSM</a> Definition 0.1.1 and Chapter 2; the two-subsystem finitary version is isolated in <a href="/ccw/">CCW</a>; the <a href="/cfsg/">CFSG</a> paper proves the manifold-stage S&sup3; rigidity theorem; the terms used here are collected in <a href="/notation/">Notation</a>; the charge-sector consequence is isolated on <a href="/predictions/">Predictions</a> and developed in CSM Chapter 18; and the principal open qualification, faithful smooth realization, is stated on <a href="/objections/">Objections</a>. The one-point compactification background is cited on <a href="/sources/#munkres2000">Sources and Citation</a>; the frame-bundle and homogeneous-geometry references are cited on the <a href="/overview/">Overview</a> and <a href="/sources/">Sources and Citation</a> pages.</p>
 
   <p>Read the development:
 <a href="/overview/">Overview</a> &middot;
