@@ -74,6 +74,36 @@
     }
   }
 
+  var archivedDownloadBaselines = {
+    'archive/csm/csm-v3.pdf': 116,
+    'archive/csm/csm-v3-latex.zip': 9,
+    'archive/ccw/ccw-v1.pdf': 14,
+    'archive/ccw/ccw-v1-latex.zip': 8,
+    'archive/cfsg/cfsg-v1.pdf': 26,
+    'archive/cfsg/cfsg-v1-latex.zip': 6,
+    'archive/scc/scc-v1.pdf': 6,
+    'archive/scc/scc-v1-latex.zip': 5,
+    'archive/rc/rc-v1.pdf': 8,
+    'archive/rc/rc-v1-latex.zip': 5,
+    'archive/fe/fe-v1.pdf': 19,
+    'archive/fe/fe-v1-latex.zip': 5,
+    'archive/rie/rie-v1.pdf': 8,
+    'archive/rie/rie-v1-latex.zip': 6
+  };
+
+  function numericCount(value) {
+    var number = Number(value);
+    return Number.isFinite(number) ? number : 0;
+  }
+
+  function downloadCountFor(stats, key) {
+    var count = Object.prototype.hasOwnProperty.call(stats, key) ? numericCount(stats[key]) : 0;
+    if (Object.prototype.hasOwnProperty.call(archivedDownloadBaselines, key)) {
+      count += archivedDownloadBaselines[key];
+    }
+    return count;
+  }
+
   function ensureDownloadCountSpan(link) {
     var span = link.querySelector('.dlc');
     if (!span) {
@@ -95,7 +125,7 @@
       var key = downloadKeyFor(link);
       if (!key) return;
 
-      var count = Object.prototype.hasOwnProperty.call(stats, key) ? stats[key] : 0;
+      var count = downloadCountFor(stats, key);
       var span = ensureDownloadCountSpan(link);
       var formatted = formatCount(count);
 

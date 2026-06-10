@@ -30,9 +30,10 @@ async function main() {
   checkSitemap(sitemap);
   checkFeed(feed);
   const downloadKeys = checkDownloadLinks(siteJs);
+  const downloadBaselines = downloadCountBaselines(siteJs);
 
   if (liveBase) {
-    await checkLiveBackend(liveBase, downloadKeys);
+    await checkLiveBackend(liveBase, downloadKeys, downloadBaselines);
   } else {
     warnings.push("Live /api and /dl probes were skipped. Run npm run backend:check:live before release.");
   }
@@ -203,7 +204,18 @@ function checkDownloadLinks(siteJs) {
   return [...keys].sort();
 }
 
-async function checkLiveBackend(base, downloadKeys) {
+function downloadCountBaselines(siteJs) {
+  const baselines = new Map();
+  const objectMatch = siteJs.match(/var archivedDownloadBaselines = \{([\s\S]*?)\n  \};/);
+  if (!objectMatch) return baselines;
+
+  for (const match of objectMatch[1].matchAll(/'([^']+)':\s*(\d+)/g)) {
+    baselines.set(match[1], Number(match[2]));
+  }
+  return baselines;
+}
+
+async function checkLiveBackend(base, downloadKeys, downloadBaselines) {
   const askStatus = await readLiveJson(`${base}/api/ask-status`, "GET /api/ask-status");
   if (askStatus?.ok !== true) failures.push("Live /api/ask-status did not return ok=true.");
   if (askStatus?.aiReady !== true) failures.push("Live /api/ask-status reports aiReady=false.");
@@ -231,7 +243,9 @@ async function checkLiveBackend(base, downloadKeys) {
   const stats = await readLiveJson(`${base}/dl/stats`, "GET /dl/stats");
   if (!stats || typeof stats !== "object" || Array.isArray(stats)) failures.push("Live /dl/stats did not return a JSON object.");
   for (const key of downloadKeys) {
-    if (!Object.prototype.hasOwnProperty.call(stats || {}, key)) warnings.push(`Live /dl/stats has no count yet for /dl/${key}; site.js will display 0.`);
+    if (!Object.prototype.hasOwnProperty.call(stats || {}, key) && !downloadBaselines.has(key)) {
+      warnings.push(`Live /dl/stats has no count yet for /dl/${key}; site.js will display 0.`);
+    }
   }
 
   for (const asset of ["csm.pdf", "ccw.pdf", "feed.xml", "sitemap.xml", "llms.txt", "site.webmanifest"]) {
