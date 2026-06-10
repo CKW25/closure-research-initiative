@@ -425,7 +425,56 @@ nav span {
   padding: 0.4rem 0.75rem;
   border-bottom: 1px solid var(--border);
 }
-.version-table td { padding: 0.4rem 0.75rem; border-bottom: 1px solid var(--border); }
+.version-table td {
+  padding: 0.36rem 0.65rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.version-table th:nth-child(1),
+.version-table td:nth-child(1),
+.version-table th:nth-child(2),
+.version-table td:nth-child(2),
+.version-table th:nth-child(3),
+.version-table td:nth-child(3) {
+  white-space: nowrap;
+}
+.version-table a { color: var(--navy); text-underline-offset: 0.18em; }
+.version-status {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.18rem 0.45rem;
+}
+.version-status.current {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+.version-status.superseded {
+  color: var(--muted);
+}
+.version-files {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.16rem 0.45rem;
+  white-space: nowrap;
+}
+.version-files .sep { color: var(--muted); }
+.inline-details { display: block; }
+.inline-details summary {
+  cursor: pointer;
+  color: var(--navy);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.inline-details summary:hover { color: var(--gold); }
+.inline-details[open] summary { margin-bottom: 0.45rem; }
+.inline-details p { margin: 0.45rem 0 0; font-size: 0.82rem; line-height: 1.55; }
 .paper-preview { text-align: center; margin-bottom: 1.5rem; }
 .paper-preview a { display: inline-block; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: box-shadow 0.2s; max-width: 100%; }
 .paper-preview a:hover { box-shadow: 0 2px 16px rgba(0,0,0,0.12); }
@@ -571,6 +620,40 @@ footer span { min-width: 0; }
   .hero-logo img { width: 150px; }
   nav a, nav span { margin: 0 0.6rem; font-size: 0.72rem; }
   .record-panel dl { grid-template-columns: 1fr; }
+  .version-table,
+  .version-table tbody,
+  .version-table tr,
+  .version-table td {
+    display: block;
+    width: 100%;
+  }
+  .version-table tr:first-child { display: none; }
+  .version-table tr {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .version-table td {
+    border-bottom: 0;
+    padding: 0.18rem 0;
+  }
+  .version-table td::before {
+    display: block;
+    margin-bottom: 0.08rem;
+    color: var(--muted);
+    font-size: 0.64rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .version-table td:nth-child(1)::before { content: "Version"; }
+  .version-table td:nth-child(2)::before { content: "Date"; }
+  .version-table td:nth-child(3)::before { content: "Status"; }
+  .version-table td:nth-child(4)::before { content: "File"; }
+  .version-table td:nth-child(5)::before { content: "Details"; }
+  .version-files,
+  .inline-details summary {
+    white-space: normal;
+  }
   footer { flex-direction: column; gap: 0.3rem; text-align: center; }
 }
 </style>
@@ -708,9 +791,9 @@ footer span { min-width: 0; }
     <div class="version-block">
       <h3>Version History</h3>
       <table class="version-table">
-        <tr><th>Version</th><th>Date</th><th>Notes</th></tr>
-        <tr><td>v2</td><td>June 10, 2026</td><td>CRI metadata and format release. Affiliation, correspondence, and manuscript format updated to the common Closure Research Initiative article style. Mathematical content unchanged from v1. DOI pending for the current release.</td></tr>
-        <tr><td>v1</td><td>June 5, 2026</td><td>Initial preprint; superseded archival release. <a href="/dl/archive/ccw/ccw-v1.pdf">Archived PDF</a> &middot; <a href="/dl/archive/ccw/ccw-v1-latex.zip">Archived source</a> &middot; <a href="https://doi.org/10.5281/zenodo.20600752">DOI</a></td></tr>
+        <tr><th>Version</th><th>Date</th><th>Status</th><th>File</th><th>Details</th></tr>
+        <tr><td>v2</td><td>June 10, 2026</td><td><span class="version-status current">Current version</span></td><td><span class="version-files"><a href="/dl/ccw.pdf">PDF</a><span class="sep">&middot;</span><a href="/dl/ccw-latex.zip">Source</a></span></td><td><details class="inline-details"><summary>CRI metadata release</summary><p>Affiliation, correspondence, and manuscript format updated to the common Closure Research Initiative article style. Mathematical content unchanged from v1. DOI pending for the current release.</p></details></td></tr>
+        <tr><td>v1</td><td>June 5, 2026</td><td><span class="version-status superseded">Superseded version</span></td><td><span class="version-files"><a href="/dl/archive/ccw/ccw-v1.pdf">PDF</a><span class="sep">&middot;</span><a href="/dl/archive/ccw/ccw-v1-latex.zip">Source</a><span class="sep">&middot;</span><a href="https://doi.org/10.5281/zenodo.20600752">DOI</a></span></td><td><details class="inline-details"><summary>Initial preprint</summary><p>Initial preprint; superseded archival release.</p></details></td></tr>
       </table>
     </div>
 

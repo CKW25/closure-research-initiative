@@ -468,7 +468,19 @@ nav span {
   padding: 0.4rem 0.75rem;
   border-bottom: 1px solid var(--border);
 }
-.version-table td { padding: 0.4rem 0.75rem; border-bottom: 1px solid var(--border); }
+.version-table td {
+  padding: 0.36rem 0.65rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.version-table th:nth-child(1),
+.version-table td:nth-child(1),
+.version-table th:nth-child(2),
+.version-table td:nth-child(2),
+.version-table th:nth-child(3),
+.version-table td:nth-child(3) {
+  white-space: nowrap;
+}
 .version-table a { color: var(--navy); text-underline-offset: 0.18em; }
 .version-note {
   font-size: 0.8rem;
@@ -494,6 +506,14 @@ nav span {
 .version-status.superseded {
   color: var(--muted);
 }
+.version-files {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.16rem 0.45rem;
+  white-space: nowrap;
+}
+.version-files .sep { color: var(--muted); }
 .paper-preview { text-align: center; margin-bottom: 1.5rem; }
 .paper-preview a { display: inline-block; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: box-shadow 0.2s; max-width: 100%; }
 .paper-preview a:hover { box-shadow: 0 2px 16px rgba(0,0,0,0.12); }
@@ -512,11 +532,19 @@ nav span {
   transition: color 0.2s, border-color 0.2s;
 }
 .back-link:hover { color: var(--navy); border-color: var(--gold); }
-.inline-details { display: inline; }
-.inline-details summary { display: inline; cursor: pointer; color: var(--muted); font-weight: 500; }
-.inline-details summary:hover { color: var(--navy); }
-.inline-details[open] summary { color: var(--navy); }
-.inline-details p { margin: 0.8rem 0 0 0; font-size: 0.82rem; line-height: 1.6; }
+.inline-details { display: block; }
+.inline-details summary {
+  cursor: pointer;
+  color: var(--navy);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.inline-details summary:hover { color: var(--gold); }
+.inline-details[open] summary {
+  color: var(--navy);
+  margin-bottom: 0.45rem;
+}
+.inline-details p { margin: 0.55rem 0 0 0; font-size: 0.82rem; line-height: 1.6; }
 .inline-details ul { margin: 0.5rem 0; padding-left: 1.5rem; font-size: 0.82rem; line-height: 1.6; }
 .inline-details li { margin-bottom: 0.3rem; }
 footer {
@@ -567,6 +595,10 @@ footer span { min-width: 0; }
     border-bottom: 0;
     padding: 0.18rem 0;
   }
+  .version-files,
+  .inline-details summary {
+    white-space: normal;
+  }
   .version-table td::before {
     display: block;
     margin-bottom: 0.08rem;
@@ -580,7 +612,7 @@ footer span { min-width: 0; }
   .version-table td:nth-child(2)::before { content: "Date"; }
   .version-table td:nth-child(3)::before { content: "Status"; }
   .version-table td:nth-child(4)::before { content: "File"; }
-  .version-table td:nth-child(5)::before { content: "Notes"; }
+  .version-table td:nth-child(5)::before { content: "Details"; }
   footer { flex-direction: column; gap: 0.3rem; text-align: center; }
 }
 </style>
@@ -665,11 +697,11 @@ footer span { min-width: 0; }
       <h3>Version History</h3>
       <p class="version-note">Version 4 is the current site release. Earlier PDFs are preserved as fixed archival copies to support provenance, comparison, and version-specific reference. DOI metadata is listed with the version to which it was assigned.</p>
       <table class="version-table">
-        <tr><th>Version</th><th>Date</th><th>Status</th><th>File</th><th>Notes</th></tr>
-        <tr><td>v4</td><td>June 10, 2026</td><td><span class="version-status current">Current version</span></td><td><a href="/dl/csm.pdf">PDF</a> &middot; <a href="/dl/csm-latex.zip">LaTeX source</a></td><td>CRI metadata release. Affiliation and correspondence updated to Closure Research Initiative; the PDF and source package were rebuilt from the current monograph source. Mathematical content unchanged from v3. DOI pending for the current release.</td></tr>
-        <tr><td>v3</td><td>June 7, 2026</td><td><span class="version-status superseded">Superseded version</span></td><td><a href="/dl/archive/csm/csm-v3.pdf">Archived PDF</a> &middot; <a href="/dl/archive/csm/csm-v3-latex.zip">Archived source</a> &middot; <a href="https://doi.org/10.5281/zenodo.20589038">DOI</a></td><td><details class="inline-details"><summary>Conservative-completion lemma added</summary><p><strong>New Lemma 2.6.2 (Conservative-completion dichotomy).</strong> For any unrealized profile pair in an intrinsic, locally distinguishing comparison world, either the pair is <em>internally excluded</em>&mdash;its realization would violate the comparison predicate definitions&mdash;or the extension that realizes it is <em>conservative</em>: restriction back to U preserves the finite-coordinate comparison algebra supported in U and creates no new profile distinction among the original states. There is no third option. This splits the traditional conservativity assumption into a proven structural alternative.</p><p><strong>New Corollary 2.6.3 (Closure forbids conservative omission).</strong> An intrinsic, locally distinguishing world that is <em>closed</em> (rectangularly complete) cannot conservatively omit any finite profile. If a profile pair <em>could</em> be realized without disturbing existing data, it <em>must</em> already be realized. This isolates the closure principle as precisely the step that rules out intrinsically undetectable omissions.</p><p><strong>Theorem renumbered.</strong> Rectangular completeness under intrinsicality (formerly Theorem 2.6.2) is now <strong>Theorem 2.6.4</strong>, with its proof rewritten to route through Lemma 2.6.2 and Corollary 2.6.3 instead of asserting conservativity directly.</p><p><strong>Explanatory Remark 2.6.5 added.</strong> Shows the equivalent finite-induction viewpoint (if every finite subprofile is realized, the full profile is realizable), while keeping the dichotomy as the main structural mechanism.</p><p><strong>Scope preserved.</strong> The non-universality remark (now Remark 2.6.6) is unchanged: non-intrinsic worlds and intrinsic worlds failing local distinguishability may be open.</p><p><strong>Cross-reference label added.</strong> The left/right profile definition (Definition 2.3.1) now carries a label so later admissibility references resolve cleanly.</p></details></td></tr>
-        <tr><td>v2</td><td>June 7, 2026</td><td><span class="version-status superseded">Superseded version</span></td><td><a href="/dl/archive/csm/csm-v2.pdf">Archived PDF</a></td><td><details class="inline-details"><summary>Revised and expanded</summary><p><strong>Amended primitive (Definition 0.1.1).</strong> A comparison world $(U,C)$ is now required to be <em>intrinsic</em>: every predicate is invariant under the automorphism group of the comparison world it helps constitute, $c(gu,gv)=c(u,v)$ for all $g \in \mathrm{Aut}(U,C)$. This is a fixed-point condition&mdash;a comparison is a relation among states, not an externally imposed labeling&mdash;and is the primitive-level form of the intrinsicity clause (SP1).</p><p><strong>Standing principles SP2 and SP3 demoted to theorems.</strong> Both labels are retained for continuity of reference but are now derived rather than assumed:</p><ul><li><em>Compactness (SP2)</em> is derived in the new Theorem 2.9.3 (Compactness from intrinsicality), supported by the finite-support lemma (2.5.11) and the new finite-orbit-separation lemma (2.5.12). Under intrinsicality, profiles that differ differ at a single coordinate, the refinement-tower limit is the direct union with no completion, and the finite-to-global boundary holds without separate hypothesis.</li><li><em>Closedness (SP3)</em> is derived in the new Theorem 2.6.2 (Rectangular completeness under intrinsicality): an intrinsic, locally distinguishing world is rectangularly complete.</li></ul><p><strong>New results added:</strong> Lemma 2.5.12 (finite orbit separation under intrinsicality), Remark 2.5.13 (no limit-only separation), Theorem 2.6.2, Remark 2.6.3 (scope), Theorem 2.9.3.</p><p><strong>Updated cross-references:</strong> the SP2 and SP3 clauses (&sect;0.2) and the summary in &sect;0.5 now cite the derivations above. Lemmas in the former &sect;2.9 finite-support block were relocated to &sect;2.5 (now 2.5.11&ndash;2.5.12) so they precede their first use in &sect;2.6; the Boolean-internalization theorem retains its place (now 2.9.5).</p><p><strong>Scope unchanged.</strong> Rectangular completeness is not universal: non-intrinsic worlds, and intrinsic worlds failing local distinguishability, may be open. The rigid-rod, diathermal-wall, and symmetric-world examples remain genuine open systems (Remark 2.6.3).</p></details></td></tr>
-        <tr><td>v1</td><td>June 5, 2026</td><td><span class="version-status superseded">Superseded version</span></td><td><a href="/dl/archive/csm/csm-v1.pdf">Archived PDF</a> &middot; <a href="/dl/archive/csm/csm-v1-latex.zip">Archived source</a></td><td>Initial preprint</td></tr>
+        <tr><th>Version</th><th>Date</th><th>Status</th><th>File</th><th>Details</th></tr>
+        <tr><td>v4</td><td>June 10, 2026</td><td><span class="version-status current">Current version</span></td><td><span class="version-files"><a href="/dl/csm.pdf">PDF</a><span class="sep">&middot;</span><a href="/dl/csm-latex.zip">Source</a></span></td><td><details class="inline-details"><summary>CRI metadata release</summary><p>Affiliation and correspondence updated to Closure Research Initiative; the PDF and source package were rebuilt from the current monograph source. Mathematical content unchanged from v3. DOI pending for the current release.</p></details></td></tr>
+        <tr><td>v3</td><td>June 7, 2026</td><td><span class="version-status superseded">Superseded version</span></td><td><span class="version-files"><a href="/dl/archive/csm/csm-v3.pdf">PDF</a><span class="sep">&middot;</span><a href="/dl/archive/csm/csm-v3-latex.zip">Source</a><span class="sep">&middot;</span><a href="https://doi.org/10.5281/zenodo.20589038">DOI</a></span></td><td><details class="inline-details"><summary>Conservative-completion lemma added</summary><p><strong>New Lemma 2.6.2 (Conservative-completion dichotomy).</strong> For any unrealized profile pair in an intrinsic, locally distinguishing comparison world, either the pair is <em>internally excluded</em>&mdash;its realization would violate the comparison predicate definitions&mdash;or the extension that realizes it is <em>conservative</em>: restriction back to U preserves the finite-coordinate comparison algebra supported in U and creates no new profile distinction among the original states. There is no third option. This splits the traditional conservativity assumption into a proven structural alternative.</p><p><strong>New Corollary 2.6.3 (Closure forbids conservative omission).</strong> An intrinsic, locally distinguishing world that is <em>closed</em> (rectangularly complete) cannot conservatively omit any finite profile. If a profile pair <em>could</em> be realized without disturbing existing data, it <em>must</em> already be realized. This isolates the closure principle as precisely the step that rules out intrinsically undetectable omissions.</p><p><strong>Theorem renumbered.</strong> Rectangular completeness under intrinsicality (formerly Theorem 2.6.2) is now <strong>Theorem 2.6.4</strong>, with its proof rewritten to route through Lemma 2.6.2 and Corollary 2.6.3 instead of asserting conservativity directly.</p><p><strong>Explanatory Remark 2.6.5 added.</strong> Shows the equivalent finite-induction viewpoint (if every finite subprofile is realized, the full profile is realizable), while keeping the dichotomy as the main structural mechanism.</p><p><strong>Scope preserved.</strong> The non-universality remark (now Remark 2.6.6) is unchanged: non-intrinsic worlds and intrinsic worlds failing local distinguishability may be open.</p><p><strong>Cross-reference label added.</strong> The left/right profile definition (Definition 2.3.1) now carries a label so later admissibility references resolve cleanly.</p></details></td></tr>
+        <tr><td>v2</td><td>June 7, 2026</td><td><span class="version-status superseded">Superseded version</span></td><td><span class="version-files"><a href="/dl/archive/csm/csm-v2.pdf">PDF</a></span></td><td><details class="inline-details"><summary>Revised and expanded</summary><p><strong>Amended primitive (Definition 0.1.1).</strong> A comparison world $(U,C)$ is now required to be <em>intrinsic</em>: every predicate is invariant under the automorphism group of the comparison world it helps constitute, $c(gu,gv)=c(u,v)$ for all $g \in \mathrm{Aut}(U,C)$. This is a fixed-point condition&mdash;a comparison is a relation among states, not an externally imposed labeling&mdash;and is the primitive-level form of the intrinsicity clause (SP1).</p><p><strong>Standing principles SP2 and SP3 demoted to theorems.</strong> Both labels are retained for continuity of reference but are now derived rather than assumed:</p><ul><li><em>Compactness (SP2)</em> is derived in the new Theorem 2.9.3 (Compactness from intrinsicality), supported by the finite-support lemma (2.5.11) and the new finite-orbit-separation lemma (2.5.12). Under intrinsicality, profiles that differ differ at a single coordinate, the refinement-tower limit is the direct union with no completion, and the finite-to-global boundary holds without separate hypothesis.</li><li><em>Closedness (SP3)</em> is derived in the new Theorem 2.6.2 (Rectangular completeness under intrinsicality): an intrinsic, locally distinguishing world is rectangularly complete.</li></ul><p><strong>New results added:</strong> Lemma 2.5.12 (finite orbit separation under intrinsicality), Remark 2.5.13 (no limit-only separation), Theorem 2.6.2, Remark 2.6.3 (scope), Theorem 2.9.3.</p><p><strong>Updated cross-references:</strong> the SP2 and SP3 clauses (&sect;0.2) and the summary in &sect;0.5 now cite the derivations above. Lemmas in the former &sect;2.9 finite-support block were relocated to &sect;2.5 (now 2.5.11&ndash;2.5.12) so they precede their first use in &sect;2.6; the Boolean-internalization theorem retains its place (now 2.9.5).</p><p><strong>Scope unchanged.</strong> Rectangular completeness is not universal: non-intrinsic worlds, and intrinsic worlds failing local distinguishability, may be open. The rigid-rod, diathermal-wall, and symmetric-world examples remain genuine open systems (Remark 2.6.3).</p></details></td></tr>
+        <tr><td>v1</td><td>June 5, 2026</td><td><span class="version-status superseded">Superseded version</span></td><td><span class="version-files"><a href="/dl/archive/csm/csm-v1.pdf">PDF</a><span class="sep">&middot;</span><a href="/dl/archive/csm/csm-v1-latex.zip">Source</a></span></td><td><details class="inline-details"><summary>Initial preprint</summary><p>Initial preprint; superseded archival release.</p></details></td></tr>
       </table>
     </div>
 
