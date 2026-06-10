@@ -74,21 +74,21 @@
     }
   }
 
-  var archivedDownloadBaselines = {
-    'archive/csm/csm-v3.pdf': 116,
-    'archive/csm/csm-v3-latex.zip': 9,
-    'archive/ccw/ccw-v1.pdf': 14,
-    'archive/ccw/ccw-v1-latex.zip': 8,
-    'archive/cfsg/cfsg-v1.pdf': 26,
-    'archive/cfsg/cfsg-v1-latex.zip': 6,
-    'archive/scc/scc-v1.pdf': 6,
-    'archive/scc/scc-v1-latex.zip': 5,
-    'archive/rc/rc-v1.pdf': 8,
-    'archive/rc/rc-v1-latex.zip': 5,
-    'archive/fe/fe-v1.pdf': 19,
-    'archive/fe/fe-v1-latex.zip': 5,
-    'archive/rie/rie-v1.pdf': 8,
-    'archive/rie/rie-v1-latex.zip': 6
+  var currentReleaseBaselines = {
+    'csm.pdf': 116,
+    'csm-latex.zip': 9,
+    'ccw.pdf': 14,
+    'ccw-latex.zip': 8,
+    'cfsg.pdf': 26,
+    'cfsg-latex.zip': 6,
+    'scc.pdf': 6,
+    'scc-latex.zip': 5,
+    'rc.pdf': 8,
+    'rc-latex.zip': 5,
+    'fe.pdf': 19,
+    'fe-latex.zip': 5,
+    'rie.pdf': 8,
+    'rie-latex.zip': 6
   };
 
   function numericCount(value) {
@@ -98,10 +98,14 @@
 
   function downloadCountFor(stats, key) {
     var count = Object.prototype.hasOwnProperty.call(stats, key) ? numericCount(stats[key]) : 0;
-    if (Object.prototype.hasOwnProperty.call(archivedDownloadBaselines, key)) {
-      count += archivedDownloadBaselines[key];
+    if (isCurrentPaperLandingPage() && Object.prototype.hasOwnProperty.call(currentReleaseBaselines, key)) {
+      return Math.max(0, count - currentReleaseBaselines[key]);
     }
     return count;
+  }
+
+  function isCurrentPaperLandingPage() {
+    return /^\/(csm|ccw|cfsg|scc|rc|fe|rie)\/(?:index\.html)?$/i.test(window.location.pathname);
   }
 
   function ensureDownloadCountSpan(link) {
