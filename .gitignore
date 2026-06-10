@@ -1,0 +1,13 @@
+site.zip
+token/
+
+.wrangler/
+data/ask-corpus/
+!data/ask-corpus/.gitkeep
+node_modules/
+package-lock.json
+*.log
+*.aux
+*.out
+*.toc
+*.synctex.gz

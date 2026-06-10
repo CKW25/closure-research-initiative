@@ -1,0 +1,38 @@
+# Text normalization for GitHub rendering and reproducible diffs.
+* text=auto
+
+*.md text eol=lf
+*.txt text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.jsonc text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.xml text eol=lf
+*.bib text eol=lf
+*.cff text eol=lf
+*.tex text eol=lf diff=tex
+*.svg text eol=lf
+*.webmanifest text eol=lf
+*.ps1 text eol=crlf
+_headers text eol=lf
+_redirects text eol=lf
+
+# Binary scholarly and site assets.
+*.pdf binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.webp binary
+
+# Generated deploy/runtime artifacts should not dominate GitHub diffs or language stats.
+src/_generated/** linguist-generated=true
+data/ask-corpus/** linguist-generated=true
+all-papers.zip linguist-generated=true
+*.zip linguist-generated=true

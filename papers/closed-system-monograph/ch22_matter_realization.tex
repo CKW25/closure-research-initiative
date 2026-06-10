@@ -1,0 +1,730 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{Matter-Sector Realization of the Canonical Scalar Invariant}
+\label{ch:matter-realization}
+% ============================================================
+
+% ============================================================
+\section{Purpose and logical status}
+\label{sec:matter-realization-purpose}
+% ============================================================
+
+\Cref{ch:numbers-shell-closure} closes the intrinsic numerical classification
+of the scalar channel at the level of quartic leading behavior and a
+single normalization orbit, while recording same-channel correction
+structure only as compatibility-level bookkeeping.
+What remains is not further intrinsic classification, but realization role.
+For the Chapter~21 mass-coordinate reformulation and the accompanying
+conditional exact-ratio package used here as downstream numerical
+bookkeeping, see
+\cref{sec:intrinsic-spectral-mass-law}.
+
+This chapter identifies that role for the canonical excitation-sector scalar
+invariant.
+No observer-side measured-mass interpretation is assumed here.
+The objective is purely internal: determine which already-established
+realization branch canonically carries the Chapter~19 sector invariant.
+
+The argument unfolds in four steps:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item type the intrinsic scalar datum and its realization roles;
+\item prove branch priority and the intrinsic/observer boundary;
+\item isolate the operator-realization gap and its form route;
+\item formalize observer-map factorization constraints.
+\end{enumerate}
+
+% ============================================================
+\section{Structural inputs}
+\label{sec:matter-realization-inputs}
+% ============================================================
+
+We use the following theorem-level inputs from earlier chapters:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+      stabilized quadratic carrier
+      \(\mathcal K\cong F^2/F^3\)
+      (
+      \cref{thm:interface-stabilized}
+      );
+\item
+      one-dimensional canonical scalar channel on
+      \(\mathcal K_{\mathbb R}\)
+      (
+      \cref{thm:quadratic-scalar,thm:spectral-scalar-identification}
+      );
+\item
+      Hilbert realization branch of the stabilized quadratic carrier
+      (
+      \cref{ch:hilbert}
+      );
+\item
+      phase realization branch of the same carrier
+      (
+      \cref{ch:em}
+      );
+\item
+      macroscopic Einstein-branch scalar coefficient, read under the
+      inherited second-jet faithfulness condition on the realized
+      degree--\(2\) channel attached to the stabilized quadratic
+      carrier
+      (
+      \cref{ch:einstein}
+      );
+\item
+      canonical sector defect classes and scalar invariants
+      \(\kappa_\sigma\in\mathcal K\),
+      \(m_0(\sigma):=Q(\kappa_\sigma)\)
+      (
+      \cref{def:spectral-defect-class,def:spectral-scalar,thm:spectral-depth-separation}
+      ).
+\end{enumerate}
+
+The sections below keep these inputs separated by role: carrier typing,
+branch realization, and observer-side factorization.
+
+% ============================================================
+\section{Canonical sector scalar}
+\label{sec:matter-realization-scalar}
+% ============================================================
+
+\begin{definition}[Canonical sector scalar]
+\label{def:canonical-sector-scalar}
+For a primitive excitation sector \(\sigma\), define
+\[
+  m_0(\sigma):=Q(\kappa_\sigma),
+\]
+where \(\kappa_\sigma\in\mathcal K\) is the canonical quadratic defect
+class and \(Q\) is the unique admissible scalar channel on
+\(\mathcal K_{\mathbb R}\).
+\end{definition}
+
+\begin{remark}[Chapter~19 role]
+By \cref{thm:spectral-scalar-positive,thm:spectral-scalar-invariant,thm:spectral-depth-separation},
+\(m_0(\sigma)\) is strictly positive, transport-invariant, and part of the
+intrinsic sector-separation package.
+\end{remark}
+
+% ============================================================
+\section{Typing lemmas for realization roles}
+\label{sec:matter-realization-typing}
+% ============================================================
+
+\begin{lemma}[Carrier factorization of the canonical sector scalar]
+\label{lem:matter-realization-factorization}
+For every primitive excitation sector \(\sigma\), the scalar
+\(m_0(\sigma)\) factors canonically as
+\[
+  \sigma
+  \longmapsto
+  \kappa_\sigma\in\mathcal K
+  \hookrightarrow
+  \mathcal K_{\mathbb R}
+  \xrightarrow{\,Q\,}
+  \mathbb R_{\ge0}.
+\]
+In particular, \(m_0\) is intrinsic and transport-invariant before any
+observer-side interpretation map is introduced.
+\end{lemma}
+
+\begin{proof}
+By \cref{def:spectral-defect-class}, each primitive sector has a canonical
+defect class \(\kappa_\sigma\in\mathcal K\).
+By \cref{thm:quadratic-scalar}, the scalar channel is a canonical positive
+quadratic map
+\(Q:\mathcal K_{\mathbb R}\to\mathbb R_{\ge0}\), and
+\cref{def:spectral-scalar} defines
+\(m_0(\sigma)=Q(\kappa_\sigma)\).
+Transport invariance is exactly
+\cref{thm:spectral-scalar-invariant}, and strict positivity for primitive
+nontrivial sectors is \cref{thm:spectral-scalar-positive}.
+Hence the displayed factorization and intrinsic status are fixed prior to
+any external semantics.
+\end{proof}
+
+\begin{proposition}[Microscopic/macroscopic role split on one scalar channel]
+\label{prop:matter-realization-role-split}
+The canonical scalar channel admits two theorem-level realization roles:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+      microscopic excitation-sector role, where
+      \(m_0(\sigma)=Q(\kappa_\sigma)\) participates in primitive-sector
+      classification;
+\item
+      macroscopic geometric role, where, under the inherited second-jet faithfulness condition, the same scalar channel is read as the
+      Einstein-branch scalar coefficient on the realized degree--\(2\)
+      channel attached to the stabilized quadratic carrier.
+\end{enumerate}
+These roles are type-distinct and are not identified with one another
+without an additional realization map.
+\end{proposition}
+
+\begin{proof}
+For \textup{(i)}, Chapter~19 defines \(m_0\) on primitive sectors and uses
+it inside sector-separation structure
+(\cref{def:spectral-scalar,thm:spectral-depth-separation}).
+For \textup{(ii)}, Chapter~16 shows that, under the inherited
+second-jet faithfulness condition, the macroscopic scalar coefficient is
+read from the same canonical degree--\(2\) scalar channel on the
+realized degree--\(2\) channel attached to the stabilized quadratic
+carrier, up to normalization
+(\cref{thm:einstein-beta-from-carrier,thm:einstein-classification}).
+
+The codomains and logical roles differ: \textup{(i)} is a scalar invariant
+attached to primitive excitation sectors, while \textup{(ii)} is a
+coefficient in the macroscopic geometric operator classification.
+Therefore no theorem-level identification between the two roles follows
+without extra data.
+\end{proof}
+
+% ============================================================
+\section{Branch selection}
+\label{sec:matter-realization-branch}
+% ============================================================
+
+\begin{theorem}[Matter-sector branch selection]
+\label{thm:matter-branch-selection}
+Let \(\sigma\) be a primitive excitation sector and
+\(m_0(\sigma)=Q(\kappa_\sigma)\) its canonical scalar invariant.
+Then the admissible first realization role of \(m_0(\sigma)\) is through
+the Hilbert--phase branch of the stabilized quadratic carrier.
+Equivalently:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+      as a sector observable, \(m_0(\sigma)\) is carried by the
+      microscopic quadratic Hilbert law and its phase descent;
+\item
+      \(m_0(\sigma)\) is not, by default, a matter-sector observable in
+      the macroscopic Einstein branch, where, under the inherited
+      second-jet faithfulness condition, the same scalar channel is read
+      as the Einstein-branch scalar coefficient on the realized
+      degree--\(2\) channel attached to the stabilized quadratic
+      carrier.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By \cref{lem:matter-realization-factorization},
+\(m_0(\sigma)\) is attached to the stabilized quadratic defect class
+\(\kappa_\sigma\in\mathcal K\).
+The first realization branch of this carrier is the microscopic
+Hilbert-sector realization (\cref{thm:quadratic-scalar}) together with its
+phase descent (\cref{thm:em-phase-reduction,thm:em-closedness-phase}).
+So the intrinsic excitation-sector scalar is already realized on the
+Hilbert--phase branch.
+
+By \cref{prop:matter-realization-role-split}, under the inherited
+second-jet faithfulness condition the Einstein branch reads the same
+scalar channel as macroscopic geometric coefficient data on the
+realized degree--\(2\) channel attached to the stabilized quadratic
+carrier, rather than as primitive-sector observable data.
+Since Chapter~19 employs
+\(m_0(\sigma)\) as part of primitive excitation-sector organization
+(\cref{thm:spectral-depth-separation}), its first admissible realization
+role is the microscopic Hilbert--phase role.
+Hence \textup{(i)} and \textup{(ii)} follow.
+\end{proof}
+
+% ============================================================
+\section{Sector-observable priority}
+\label{sec:matter-realization-priority}
+% ============================================================
+
+\begin{theorem}[Sector-observable priority]
+\label{thm:sector-observable-priority}
+\label{thm:sector-observable}
+For every primitive excitation sector \(\sigma\),
+\[
+  m_0(\sigma)=Q(\kappa_\sigma)
+\]
+is, prior to any observer-side semantics, an intrinsic sector observable.
+\end{theorem}
+
+\begin{proof}
+By \cref{lem:matter-realization-factorization}, the map
+\(\sigma\mapsto m_0(\sigma)\) is defined purely from
+\(\kappa_\sigma\in\mathcal K\) and the intrinsic scalar channel \(Q\), and
+is transport-invariant before any observer semantics.
+Chapter~19 then uses this intrinsic scalar inside sector-organization data
+(\cref{thm:spectral-depth-separation}).
+By \cref{thm:matter-branch-selection}, this scalar is first realized on the
+Hilbert--phase branch at sector level.
+Therefore its status as a sector observable is fixed internally, prior to
+any observer-side interpretation.
+\end{proof}
+
+% ============================================================
+\section{Realization boundary}
+\label{sec:matter-realization-boundary}
+% ============================================================
+
+\begin{corollary}[Mass-realization boundary]
+\label{cor:mass-boundary}
+\label{cor:boundary}
+Any identification of the intrinsic sector scalar \(m_0(\sigma)\), or of
+the Chapter~20 closed-system mass coordinate, with an observer-side measured
+mass observable requires a separate semantic realization theorem.
+It is not part of the intrinsic theorem package of
+\cref{ch:causality,ch:hilbert,ch:einstein,ch:connection,ch:em,ch:matter,ch:numbers-shell-closure}.
+\end{corollary}
+
+\begin{proof}
+By \cref{thm:sector-observable-priority},
+\(m_0(\sigma)\) is theorem-level intrinsic sector data.
+By \cref{thm:matter-branch-selection} and
+\cref{prop:matter-realization-role-split}, this intrinsic datum has a
+canonical microscopic role and is not automatically identified with
+the Einstein-branch scalar coefficient read, under the inherited
+second-jet faithfulness condition, on the realized degree--\(2\)
+channel attached to the stabilized quadratic carrier.
+
+Hence any external measured-mass interpretation must introduce an additional
+semantic readout map, schematically
+\[
+  I_{\mathrm{mass}}:
+  m_0(\sigma)
+  \longmapsto
+  m_{\mathrm{obs}}(\sigma),
+\]
+not determined by the intrinsic package listed in the statement.
+Chapter~20 proves the internal quartic mass-coordinate bridge
+(\cref{thm:numbers-mass-calibration,rem:numbers-forced-vs-calibrated}); what is
+separate is the observer-side identification of that internal coordinate with
+a measured mass convention.  Therefore external measured-mass interpretation
+remains a semantic realization theorem, not an internal axiom.
+\end{proof}
+
+% ============================================================
+\section{Operator-first spectral realization gap}
+\label{sec:matter-realization-gap}
+% ============================================================
+
+The next theorem-level strengthening is not orthogonality as a starting
+input.
+The exact remaining direction is to construct the Chapter~19 sector scalar
+invariant as a self-adjoint operator on the Hilbert realization branch.
+Orthogonality is then a consequence of spectral structure.
+
+From the existing chapter stack, we have the following proved data:
+\begin{itemize}
+\item stabilized quadratic carrier
+      \(\mathcal K\cong F^2/F^3\)
+      (\cref{thm:interface-stabilized});
+\item unique one-dimensional scalar channel on
+      \(\mathcal K_{\mathbb R}\)
+      (\cref{thm:quadratic-scalar,thm:spectral-scalar-identification});
+\item Hilbert realization of the quadratic carrier
+      (\cref{ch:hilbert});
+\item intrinsic excitation-sector data
+      \(\kappa_\sigma\),
+      \(m_0(\sigma)=Q(\kappa_\sigma)\),
+      \(k_\sigma\), which separates primitive sectors inside a fixed gauge
+      class (\cref{thm:spectral-depth-separation}).
+\end{itemize}
+
+None of these, by itself, yields a canonical densely defined positive
+self-adjoint operator on the Hilbert realization whose sector eigenvalues
+are the intrinsic scalars \(m_0(\sigma)\).
+
+\begin{proposition}[Nature of the realization gap]
+\label{prop:matter-realization-gap}
+Intrinsic sector separation does not by itself produce the Hilbert-branch
+sector scalar operator.
+\end{proposition}
+
+\begin{proof}
+Sector separation is proved at classification level in the stabilized
+quadratic carrier, through invariants such as
+\(\kappa_\sigma\), \(m_0(\sigma)\), and \(k_\sigma\)
+(\cref{def:spectral-defect-class,def:spectral-scalar,thm:spectral-depth-separation}).
+Operator realization is a statement about unbounded self-adjoint structure on
+the Hilbert branch.
+No theorem in the current chain yet constructs the canonical positive
+self-adjoint operator whose sector eigenvalues are the intrinsic scalars.
+Hence the remaining gap is an operator-construction gap.
+\end{proof}
+
+\begin{theorem}[Target operator realization of the sector scalar invariant]
+\label{thm:hilbert-realization-sector-scalar}
+\label{thm:sector-observable-realization}
+Let \(H_{\mathrm{quad}}\) be the Hilbert realization of the stabilized
+quadratic carrier \(\mathcal K\simeq F^2/F^3\) from Chapter~15.
+The exact remaining realization-level operator target is to prove that
+there exists a canonical densely defined positive self-adjoint operator
+\[
+  \mathsf S : D(\mathsf S)\subset H_{\mathrm{quad}} \to H_{\mathrm{quad}}
+\]
+such that for every primitive excitation sector \(\sigma\) one has a nonzero
+vector \(\psi_\sigma \in D(\mathsf S)\) satisfying
+\[
+  \mathsf S \psi_\sigma = m_0(\sigma)\psi_\sigma,
+  \qquad
+  m_0(\sigma)=Q(\kappa_\sigma).
+\]
+\end{theorem}
+
+\begin{remark}[Status of the target theorem]
+\label{rem:matter-realization-sector-observable-status}
+\Cref{thm:hilbert-realization-sector-scalar} records the exact remaining
+realization-level operator statement to be discharged.
+It is not part of the current intrinsic theorem package proved so far.
+\end{remark}
+
+\begin{lemma}[Target form-typing input for the sector operator route]
+\label{lem:sector-quadratic-form}
+A sufficient intermediate target for
+\cref{thm:hilbert-realization-sector-scalar}
+is to prove that there exists a densely defined positive sesquilinear form
+\[
+  \mathfrak q : D(\mathfrak q)\times D(\mathfrak q)\to \mathbb C
+\]
+on \(H_{\mathrm{quad}}\) such that for every primitive excitation sector
+\(\sigma\),
+\[
+  \mathfrak q(\psi_\sigma,\psi_\sigma)=m_0(\sigma)\|\psi_\sigma\|^2.
+\]
+\end{lemma}
+
+\begin{remark}[Conditional candidate for the form route]
+\label{rem:matter-realization-form-candidate}
+If the later sector-to-Hilbert embedding and form-typing targets are
+discharged, then the natural candidate for the form in
+\cref{lem:sector-quadratic-form}
+is the defect-carrier expression
+\[
+  \mathfrak q(\psi,\phi):=\langle\kappa(\psi),\kappa(\phi)\rangle_Q,
+\]
+where \(\kappa(\psi)\) denotes the quadratic defect representative
+attached to the embedded sector vector \(\psi\), and
+\(\langle\cdot,\cdot\rangle_Q\)
+is the polarized form induced by the scalar channel \(Q\)
+(\cref{prop:hilbert-real-inner}) together with its later
+sesquilinear Hilbert-branch extension.
+This remark records only that candidate route;
+it does not assert that the required embedding, form-typing, or
+closability input has already been proved.
+\end{remark}
+
+\begin{proposition}[Closed-form route to the sector operator]
+\label{prop:matter-realization-form-route}
+Assume \cref{lem:sector-quadratic-form} and assume the form \(\mathfrak q\) is closed
+or closable.
+Then the representation theorem for closed positive forms yields a canonical
+positive self-adjoint operator
+\[
+  \mathsf S:D(\mathsf S)\subset H_{\mathrm{quad}}\to H_{\mathrm{quad}}
+\]
+satisfying
+\[
+  \mathfrak q(\psi,\phi)=\langle\psi,\mathsf S\phi\rangle
+\]
+for all \(\psi\in D(\mathfrak q)\), \(\phi\in D(\mathsf S)\).
+\end{proposition}
+
+\begin{proof}
+If \(\mathfrak q\) is closed and positive, the standard representation theorem assigns
+a unique positive self-adjoint operator \(\mathsf S\) whose form domain is
+\(D(\mathfrak q)\) and whose form identity is exactly the displayed equality.
+If \(\mathfrak q\) is closable, apply the same theorem to its closure.
+Canonicity follows from uniqueness in the representation theorem.
+\end{proof}
+
+% ============================================================
+\subsection{Proof checklist for the forced-upgrade roadmap}
+\label{subsec:matter-realization-roadmap-checklist}
+% ============================================================
+
+This subsection maps the roadmap stubs of
+\cref{subsec:shell-forced-upgrade-roadmap}
+to exact proof slots inside the Chapter~22 operator route.
+
+\begin{proposition}[Later roadmap-target bookkeeping for the Chapter~22 operator route]
+\label{prop:matter-roadmap-stub-slot-map}
+If the later roadmap targets recorded in
+\cref{subsec:shell-forced-upgrade-roadmap}
+were discharged, then they would feed this chapter as follows:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+      \cref{thm:roadmap-sector-to-hilbert-embedding}
+      would supply the canonical sector-to-Hilbert embedding input needed
+      to
+      place sector vectors \(\psi_\sigma\in H_{\mathrm{quad}}\) in the
+      operator-construction route of \cref{sec:matter-realization-gap};
+\item
+      \cref{lem:roadmap-embedded-sector-form}
+      would supply the form-typing input slot formalized by
+      \cref{lem:sector-quadratic-form};
+\item
+      \cref{thm:roadmap-closed-form-closability}
+      would discharge the closed/closable hypothesis required by
+      \cref{prop:matter-realization-form-route}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Immediate from the repaired target status of
+\cref{lem:sector-quadratic-form,prop:matter-realization-form-route}
+and the later-upgrade bookkeeping already recorded in
+\cref{subsec:shell-forced-upgrade-roadmap,prop:roadmap-implies-ch22-operator-target}.
+\end{proof}
+
+\begin{corollary}[Later checklist discharge promotes the operator target]
+\label{cor:matter-roadmap-checklist-to-operator-target}
+If the three roadmap targets named in
+\cref{prop:matter-roadmap-stub-slot-map}
+are later proved from existing theorem-level inputs without new
+observer-side assumptions, then that later discharge promotes the
+Chapter~22 operator target
+\cref{thm:hilbert-realization-sector-scalar}
+through the closed-form route.
+\end{corollary}
+
+\begin{proof}
+Combine
+\cref{prop:matter-roadmap-stub-slot-map,prop:matter-realization-form-route,prop:roadmap-implies-ch22-operator-target}.
+\end{proof}
+
+\begin{lemma}[Sector orthogonality from operator realization]
+\label{lem:matter-realization-sector-orthogonality}
+Let \(\mathsf S\) be self-adjoint on \(H_{\mathrm{quad}}\), and suppose
+\[
+  \mathsf S\psi_\sigma = m_0(\sigma)\psi_\sigma,
+  \qquad
+  \mathsf S\psi_\tau = m_0(\tau)\psi_\tau.
+\]
+Then
+\[
+  m_0(\sigma)\neq m_0(\tau)
+  \Longrightarrow
+  \langle\psi_\sigma,\psi_\tau\rangle=0.
+\]
+\end{lemma}
+
+\begin{proof}
+Self-adjointness gives
+\[
+  \langle \mathsf S\psi_\sigma,\psi_\tau\rangle
+  =
+  \langle \psi_\sigma,\mathsf S\psi_\tau\rangle.
+\]
+Hence
+\[
+  m_0(\sigma)\langle\psi_\sigma,\psi_\tau\rangle
+  =
+  m_0(\tau)\langle\psi_\sigma,\psi_\tau\rangle,
+\]
+so
+\[
+  (m_0(\sigma)-m_0(\tau))\langle\psi_\sigma,\psi_\tau\rangle=0.
+\]
+If \(m_0(\sigma)\neq m_0(\tau)\), then
+\(\langle\psi_\sigma,\psi_\tau\rangle=0\).
+\end{proof}
+
+\begin{corollary}[Consequences conditional on sector-observable realization]
+\label{cor:matter-realization-sector-observable-consequences}
+Assume \cref{thm:hilbert-realization-sector-scalar} and
+\[
+  H_{\mathrm{quad}}=
+  \overline{\operatorname{span}\{\psi_\sigma:
+  \sigma\in\mathsf S_{\mathrm{prim}}\}}.
+\]
+Then:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+      \(m_0(\sigma)\neq m_0(\tau)
+      \Rightarrow \langle\psi_\sigma,\psi_\tau\rangle=0\);
+\item
+      the sector eigenvectors generate a genuine spectral family for
+      \(\mathsf S\);
+\item
+      canonical spectral projections for \(\mathsf S\) exist and determine
+      the sector decomposition of the Hilbert branch.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Item \textup{(i)} is \cref{lem:matter-realization-sector-orthogonality}.
+Items \textup{(ii)} and \textup{(iii)} are standard consequences of the
+spectral theorem for self-adjoint operators once the eigenvector family is
+complete in the stated closure.
+\end{proof}
+
+In this way, orthogonality, spectral families, and projections appear as
+consequences of operator realization, not as independent starting input.
+The remaining realization step is therefore exact and isolated:
+construct the sector operator by closed positive form methods.
+
+% ============================================================
+\section{Observer-map factorization algebra}
+\label{sec:matter-realization-factorization-algebra}
+% ============================================================
+
+Write
+\[
+  \mathsf S_{\mathrm{prim}}
+  :=
+  \{\sigma:\sigma\text{ primitive excitation sector}\},
+  \qquad
+  m_0:\mathsf S_{\mathrm{prim}}\to\mathbb R_{\ge0},
+  \ \sigma\mapsto Q(\kappa_\sigma).
+\]
+
+The goal of this section is formal and minimal: isolate exactly when an
+observer-side assignment descends through the intrinsic scalar channel.
+
+\begin{definition}[Observer-side mass assignment]
+\label{def:matter-realization-observer-map}
+An observer-side mass assignment is any map
+\[
+  M_{\mathrm{obs}}:\mathsf S_{\mathrm{prim}}\to\mathbb R_{>0}.
+\]
+\end{definition}
+
+\begin{theorem}[Factorization criterion through the intrinsic scalar]
+\label{thm:matter-realization-factorization-criterion}
+Let \(M_{\mathrm{obs}}\) be an observer-side mass assignment.
+The following are equivalent:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item there exists a map
+      \(\Lambda:\mathrm{Im}(m_0)\to\mathbb R_{>0}\)
+      such that
+      \[
+        M_{\mathrm{obs}}=\Lambda\circ m_0;
+      \]
+\item for all
+      \(\sigma_1,\sigma_2\in\mathsf S_{\mathrm{prim}}\),
+      \[
+        m_0(\sigma_1)=m_0(\sigma_2)
+        \Longrightarrow
+        M_{\mathrm{obs}}(\sigma_1)=M_{\mathrm{obs}}(\sigma_2).
+      \]
+\end{enumerate}
+When these conditions hold, \(\Lambda\) is unique.
+\end{theorem}
+
+\begin{proof}
+\textup{(i)}\(\Rightarrow\)\textup{(ii)}:
+if \(M_{\mathrm{obs}}=\Lambda\circ m_0\) and
+\(m_0(\sigma_1)=m_0(\sigma_2)\), then
+\[
+  M_{\mathrm{obs}}(\sigma_1)
+  =\Lambda(m_0(\sigma_1))
+  =\Lambda(m_0(\sigma_2))
+  =M_{\mathrm{obs}}(\sigma_2).
+\]
+
+\textup{(ii)}\(\Rightarrow\)\textup{(i)}:
+define
+\(\Lambda:\mathrm{Im}(m_0)\to\mathbb R_{>0}\)
+by
+\[
+  \Lambda(x):=M_{\mathrm{obs}}(\sigma)
+  \quad
+  \text{for any }\sigma\text{ with }m_0(\sigma)=x.
+\]
+Condition \textup{(ii)} makes this well-defined.
+Then for every \(\sigma\),
+\[
+  (\Lambda\circ m_0)(\sigma)=\Lambda(m_0(\sigma))=M_{\mathrm{obs}}(\sigma),
+\]
+so \(M_{\mathrm{obs}}=\Lambda\circ m_0\).
+For uniqueness, if \(\Lambda_1\circ m_0=\Lambda_2\circ m_0\), then for
+every \(x\in\mathrm{Im}(m_0)\) choose \(\sigma\) with
+\(m_0(\sigma)=x\), giving
+\(\Lambda_1(x)=M_{\mathrm{obs}}(\sigma)=\Lambda_2(x)\).
+Hence \(\Lambda_1=\Lambda_2\).
+\end{proof}
+
+\begin{corollary}[Non-injectivity obstruction]
+\label{cor:matter-realization-noninjective-obstruction}
+Assume there exist
+\(\sigma_1\neq\sigma_2\) with
+\[
+  m_0(\sigma_1)=m_0(\sigma_2),
+  \qquad
+  M_{\mathrm{obs}}(\sigma_1)\neq M_{\mathrm{obs}}(\sigma_2).
+\]
+Then \(M_{\mathrm{obs}}\) cannot factor through \(m_0\).
+Hence any such assignment requires additional sector observables beyond
+the intrinsic scalar channel.
+\end{corollary}
+
+\begin{proof}
+If \(M_{\mathrm{obs}}\) factored through \(m_0\),
+\cref{thm:matter-realization-factorization-criterion} would force equality
+\(M_{\mathrm{obs}}(\sigma_1)=M_{\mathrm{obs}}(\sigma_2)\), contradicting
+the hypothesis.
+The final statement is immediate.
+\end{proof}
+
+\begin{proposition}[Two-point affine calibration on \(\mathrm{Im}(m_0)\)]
+\label{prop:matter-realization-affine-two-point}
+Fix two distinct intrinsic scalar values
+\(x_1,x_2\in\mathrm{Im}(m_0)\) and target values
+\(y_1,y_2\in\mathbb R\).
+There is a unique affine map
+\(
+  \Lambda_{\mathrm{aff}}(x)=ax+b
+\)
+satisfying
+\[
+  \Lambda_{\mathrm{aff}}(x_1)=y_1,
+  \qquad
+  \Lambda_{\mathrm{aff}}(x_2)=y_2,
+\]
+namely
+\[
+  a=\frac{y_2-y_1}{x_2-x_1},
+  \qquad
+  b=\frac{x_2y_1-x_1y_2}{x_2-x_1}.
+\]
+\end{proposition}
+
+\begin{proof}
+The constraints are the linear system
+\[
+  ax_1+b=y_1,
+  \qquad
+  ax_2+b=y_2.
+\]
+Subtract to obtain
+\(
+  a(x_2-x_1)=y_2-y_1
+\), hence the stated formula for \(a\).
+Substituting into either equation gives the stated formula for \(b\).
+Because \(x_2\neq x_1\), the system has unique solution.
+\end{proof}
+
+\begin{remark}[Boundary-data interpretation]
+\label{rem:matter-realization-factorization-boundary}
+\Cref{thm:matter-realization-factorization-criterion} and
+\cref{prop:matter-realization-affine-two-point} formalize the same logical
+boundary recorded in \cref{cor:mass-boundary}:
+the intrinsic sector scalar defines the factorization channel, while the
+choice of observer map \(\Lambda\) (or calibration parameters) is additional
+realization data.
+\end{remark}
+
+% ============================================================
+\section{Conclusion}
+\label{sec:matter-realization-conclusion}
+% ============================================================
+
+The canonical scalar invariant of Chapter~19 is now placed at its proper
+realization level.
+It is:
+\begin{itemize}
+\item intrinsic;
+\item sector-theoretic;
+\item first realized through the Hilbert--phase branch;
+\item constrained by an explicit observer-map factorization criterion;
+\item not yet an observer-side mass observable without extra calibration.
+\end{itemize}
+
+The remaining intrinsic realization step is explicit and isolated:
+construct the Hilbert-branch sector operator by the closed positive
+form route recorded in
+\cref{thm:hilbert-realization-sector-scalar,lem:sector-quadratic-form,prop:matter-realization-form-route}.
+Any later physical-mass identification would still require a separate
+observer-side realization theorem or calibration input beyond that
+operator construction.

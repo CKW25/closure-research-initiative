@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Download the monograph and research papers of the closure program: comparison theory, quotient semantics, transport obstruction, and the S&sup3; theorem.">
+<meta property="og:title" content="Preprints &mdash; Closure Research Initiative">
+<meta property="og:description" content="Download the monograph and research papers of the closure program: comparison theory, quotient semantics, transport obstruction, and the S&sup3; theorem.">
+<meta property="og:url" content="https://closureresearchinitiative.org/preprints/">
+<link rel="canonical" href="https://closureresearchinitiative.org/preprints/">
+<meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Preprints &mdash; Closure Research Initiative">
+<meta name="twitter:description" content="Download the monograph and research papers of the closure program: comparison theory, quotient semantics, transport obstruction, and the S&sup3; theorem.">
+<meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
+<meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
+<title>Preprints &mdash; Closure Research Initiative</title>
+<meta name="theme-color" content="#FAFAF8">
+<meta name="application-name" content="Closure Research Initiative">
+<meta name="apple-mobile-web-app-title" content="Closure Research">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260608">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-20260608.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-20260608.png">
+<link rel="icon" type="image/x-icon" href="/favicon-20260608.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-20260608.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="license" href="/license/">
+<link rel="alternate" type="application/atom+xml" title="Closure Research Initiative" href="/feed.xml">
+<meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "@type":  "CollectionPage",
+    "@id":  "https://closureresearchinitiative.org/preprints/#webpage",
+    "url":  "https://closureresearchinitiative.org/preprints/",
+    "name":  "Preprints",
+    "description":  "Download the monograph and research papers of the closure program: comparison theory, quotient semantics, transport obstruction, and the S\u00b3 theorem.",
+    "isPartOf":  {
+                     "@id":  "https://closureresearchinitiative.org/#website"
+                 },
+    "publisher":  {
+                      "@id":  "https://closureresearchinitiative.org/#organization"
+                  },
+    "inLanguage":  "en",
+    "about":  "Closure Research Initiative monograph and research preprints"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A2348;
+  --gold: #B9933D;
+  --paper: #FAFAF8;
+  --text: #1E2430;
+  --muted: #5A6472;
+  --card: #FFFFFF;
+  --border: rgba(10,35,72,0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --paper: #11131A;
+    --navy: #9BB5D6;
+    --text: #D6D8DD;
+    --muted: #878C99;
+    --card: #1A1D27;
+    --border: rgba(255,255,255,0.08);
+  }
+}
+:root.dark {
+  --paper: #11131A;
+  --navy: #9BB5D6;
+  --text: #D6D8DD;
+  --muted: #878C99;
+  --card: #1A1D27;
+  --border: rgba(255,255,255,0.08);
+}
+:root.dark .hero-logo img { filter: invert(1); }
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .hero-logo img { filter: invert(1); }
+}
+.theme-toggle {
+  display: block;
+  margin: 0 auto 1.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.theme-toggle:hover { opacity: 1; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 0 3rem; }
+.hero { text-align: center; padding: 4rem 0 2rem; position: relative; }
+.discuss-wrapper {
+  text-align: center;
+  padding: 0 0 1.5rem;
+}
+.discuss-btn {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.discuss-btn:hover {
+  color: var(--navy);
+  border-color: var(--gold);
+}
+.hero-logo { margin-bottom: 1.5rem; }
+.hero-logo a { text-decoration: none; }
+.hero-logo img { width: 200px; height: auto; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--muted);
+}
+nav {
+  text-align: center;
+  padding: 1.5rem 0 2.5rem;
+  margin-bottom: 3rem;
+}
+nav a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+nav span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--gold);
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.section-header h2 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.section-header .line { flex: 1; height: 1px; background: var(--border); }
+.citation-hub {
+  margin: 0 0 2rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+.citation-hub a { color: var(--navy); text-underline-offset: 0.18em; }
+.monograph {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2rem 2.25rem;
+  margin-bottom: 2rem;
+}
+.monograph-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
+}
+.monograph-title {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.2rem;
+}
+.monograph-title a { color: inherit; text-decoration: none; }
+.monograph-title a:hover { color: var(--gold); }
+.monograph-meta { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.5rem; }
+.monograph-abstract { font-size: 0.85rem; color: var(--text); line-height: 1.6; margin-bottom: 0.75rem; }
+.monograph-links { margin-top: 0.5rem; }
+.monograph-links a {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--navy);
+  border: 1px solid var(--navy);
+  padding: 0.3rem 1rem;
+  margin-right: 0.5rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.monograph-links a:hover { background: var(--navy); color: #fff; }
+.monograph-note {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+.paper {
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+.paper-title {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.1rem;
+}
+.paper-title a { color: inherit; text-decoration: none; }
+.paper-title a:hover { color: var(--gold); }
+.meta { font-size: 0.76rem; color: var(--muted); margin-bottom: 0.35rem; }
+.abstract-text {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+.links { margin-top: 0.35rem; }
+.links a {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--navy);
+  border: 1px solid var(--border);
+  padding: 0.12rem 0.6rem;
+  margin-right: 0.35rem;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+.links a:hover { background: var(--navy); color: var(--paper); }
+.cite-details { display: inline-block; margin-right: 0.35rem; vertical-align: top; }
+.cite-details[open] {
+  display: block;
+  width: 100%;
+  margin: 0.65rem 0 0;
+}
+.cite-summary {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--navy);
+  border: 1px solid var(--border);
+  padding: 0.12rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.cite-summary:hover { background: var(--navy); color: var(--paper); }
+.cite-block {
+  margin-top: 0.6rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--text);
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.monograph-cite-details { display: inline-block; margin-right: 0.5rem; vertical-align: top; }
+.monograph-cite-details[open] {
+  display: block;
+  width: 100%;
+  margin: 0.75rem 0 0;
+}
+.monograph-cite-summary {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--navy);
+  border: 1px solid var(--border);
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.monograph-cite-summary:hover { background: var(--navy); color: var(--paper); }
+footer {
+  margin-top: 3.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+footer span { min-width: 0; }
+@media print {
+  body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
+  .container { max-width: 100%; padding: 0 1in; }
+  .hero { padding: 0.5in 0 0.25in; }
+  .hero-logo img { width: 180px; }
+  .hero h1 { font-size: 20pt; }
+  .hero .subtitle { font-size: 10pt; }
+  nav { display: none; }
+  a { color: #000 !important; text-decoration: underline !important; }
+  .paper, .monograph { break-inside: avoid; }
+  .paper-title a, .monograph-title a { text-decoration: none !important; }
+  .paper-title a::after, .monograph-title a::after { content: " (" attr(href) ")"; font-size: 9pt; color: #555; }
+  .cite-details, .monograph-cite-details { display: block; }
+  .cite-summary, .monograph-cite-summary { list-style: none; font-weight: bold; }
+  .cite-summary::before, .monograph-cite-summary::before { content: "Cite: "; }
+  .cite-block { font-size: 8pt; white-space: pre-wrap; }
+  details > .cite-block { display: block; }
+  .links a { border: 1px solid #ccc; padding: 2pt 6pt; text-decoration: none !important; }
+  footer { font-size: 8pt; color: #555; }
+}
+@media (max-width: 800px) {
+  .container { padding: 0 1.5rem; }
+  .hero h1 { font-size: 2rem; }
+  .hero-logo img { width: 150px; }
+  nav a, nav span { margin: 0 0.6rem; font-size: 0.72rem; }
+  .monograph { padding: 1.5rem; }
+  .paper { padding: 1rem; }
+  footer { flex-direction: column; gap: 0.3rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-logo">
+      <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
+    </div>
+    <h1>Preprints</h1>
+    <div class="subtitle">Monograph, research papers, and downloads</div>
+  </div>
+
+  <div class="discuss-wrapper">
+    <a class="discuss-btn" href="https://github.com/CKW25/closure-research-initiative/discussions" target="_blank" rel="noopener">Discussion Forum &#8599;</a>
+  </div>
+
+  <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/idea/">Foundations</a>
+    <a href="/overview/">Overview</a>
+    <a href="/map/">Structural Map</a>
+    <a href="/example/">Worked Example</a>
+    <a href="/notation/">Notation</a>
+    <a href="/objections/">Objections</a>
+    <a href="/predictions/">Predictions</a>
+    <a href="/guide/">Reading Guide</a>
+    <span>Preprints</span>
+    <a href="/contact/">Contact</a>
+    <a href="/notes/">Research Notes</a>
+    <a href="/license/">License</a>
+  </nav>
+
+  <p class="citation-hub">For consolidated citation metadata, author identification, DOI targets, and the outside-source BibTeX file, see <a href="/sources/#cite-this-work">Sources and Citation</a>. The expandable BibTeX blocks below remain the paper-specific citation records.</p>
+
+  <div class="section" id="monograph">
+    <div class="section-header">
+      <h2>I. The Monograph</h2>
+      <span class="line"></span>
+    </div>
+    <div class="monograph">
+      <div class="monograph-label">Comprehensive Treatise</div>
+      <div class="monograph-title"><a href="/csm/">Closed Systems from Comparison Completeness</a></div>
+      <div class="monograph-meta">Chast K. Wolfe &middot; v3 &middot; June 7, 2026</div>
+      <div class="monograph-abstract">
+        A mathematically closed physical theory is formulated without external primitive structure. The monograph develops the closure principle as a classification program, establishing the admissible architecture as rigid across geometric, field-theoretic, scalar, and matter sectors. The theory proceeds from primitive comparison data through quotient semantics, transport obstruction, curvature at the faithful smooth-realization stage, and the emergence of smooth geometry within that bridge.
+      </div>
+      <div class="monograph-links">
+        <a href="/dl/csm.pdf">PDF</a>
+        <a href="/dl/csm-latex.zip">Source</a>
+        <a href="https://doi.org/10.5281/zenodo.20589038">DOI</a>
+        <details class="monograph-cite-details">
+          <summary class="monograph-cite-summary">Cite</summary>
+          <div class="cite-block">@book{wolfe2026closed,
+  author    = {Chast K. Wolfe},
+  title     = {Closed Systems from Comparison Completeness},
+  year      = {2026},
+  version   = {3},
+  note      = {Version 3; see change note on the CSM landing page},
+  publisher = {Closure Research Initiative},
+  doi       = {10.5281/zenodo.20589038},
+  url       = {https://doi.org/10.5281/zenodo.20589038},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
+}</div>
+        </details>
+      </div>
+      <div class="monograph-note">
+        This is the comprehensive treatise. Supporting papers develop specific results in greater technical detail.
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="papers">
+    <div class="section-header">
+      <h2>II. Research Papers</h2>
+      <span class="line"></span>
+    </div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1rem;">
+      <a href="/dl/all-papers.zip" style="color:var(--navy);text-underline-offset:2px;">Download all papers and LaTeX source (ZIP)</a>
+    </p>
+
+    <div class="paper">
+      <div class="paper-title"><a href="/ccw/">Closed Comparison Worlds and the Obstruction to Subsystem Attribution</a></div>
+      <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 5, 2026</div>
+      <div class="abstract-text">A finitary structural account of subsystem attribution in closed two-subsystem comparison worlds, using only binary comparison predicates with no topology, metric, dynamics, background geometry, or gauge structure assumed. Among locally distinguishable worlds, rectangular completeness is equivalent to profile-maximality.</div>
+      <div class="links">
+        <a href="/dl/ccw.pdf">PDF</a>
+        <a href="/dl/ccw-latex.zip">Source</a>
+        <a href="https://doi.org/10.5281/zenodo.20600752">DOI</a>
+        <details class="cite-details">
+          <summary class="cite-summary">Cite</summary>
+          <div class="cite-block">@misc{wolfe2026ccw,
+  author       = {Chast K. Wolfe},
+  title        = {Closed Comparison Worlds and the Obstruction to Subsystem Attribution},
+  year         = {2026},
+  howpublished = {Closure Research Initiative preprint},
+  doi          = {10.5281/zenodo.20600752},
+  url          = {https://doi.org/10.5281/zenodo.20600752},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
+}</div>
+        </details>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-title"><a href="/cfsg/">Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S&sup3;</a></div>
+      <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 5, 2026</div>
+      <div class="abstract-text">At the manifold stage, a genuinely closed realized three-dimensional system is constrained to the S&sup3; case. The closure constraint, expressed through the orthonormal frame bundle and the admissible comparison groupoid, gives the rigidity result within that smooth-realization setting.</div>
+      <div class="links">
+        <a href="/dl/cfsg.pdf">PDF</a>
+        <a href="/dl/cfsg-latex.zip">Source</a>
+        <details class="cite-details">
+          <summary class="cite-summary">Cite</summary>
+          <div class="cite-block">@misc{wolfe2026closure,
+  author       = {Chast K. Wolfe},
+  title        = {Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S\textsuperscript{3}},
+  year         = {2026},
+  howpublished = {Closure Research Initiative preprint},
+  url          = {https://closureresearchinitiative.org/cfsg.pdf},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
+}</div>
+        </details>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-title"><a href="/scc/">Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems</a></div>
+      <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 5, 2026</div>
+      <div class="abstract-text">Argues that the cosmological and structural uses of "open" and "closed" operate at different logical levels and cannot be identified. Structural closure functions as a precondition for invariant physical content, whereas cosmological closure is a specific geometric condition.</div>
+      <div class="links">
+        <a href="/dl/scc.pdf">PDF</a>
+        <a href="/dl/scc-latex.zip">Source</a>
+        <details class="cite-details">
+          <summary class="cite-summary">Cite</summary>
+          <div class="cite-block">@misc{wolfe2026structural,
+  author       = {Chast K. Wolfe},
+  title        = {Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems},
+  year         = {2026},
+  howpublished = {Closure Research Initiative preprint},
+  url          = {https://closureresearchinitiative.org/scc.pdf},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
+}</div>
+        </details>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-title"><a href="/rc/">Rectangular Completeness Encompasses Standard Physical Closure</a></div>
+      <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 5, 2026</div>
+      <div class="abstract-text">Closure as rectangular completeness stands in a precise relation to standard notions of closed two-subsystem systems. For classical systems it equals the full-product component; for quantum systems it captures the product-state sector.</div>
+      <div class="links">
+        <a href="/dl/rc.pdf">PDF</a>
+        <a href="/dl/rc-latex.zip">Source</a>
+        <details class="cite-details">
+          <summary class="cite-summary">Cite</summary>
+          <div class="cite-block">@misc{wolfe2026rectangular,
+  author       = {Chast K. Wolfe},
+  title        = {Rectangular Completeness Encompasses Standard Physical Closure},
+  year         = {2026},
+  howpublished = {Closure Research Initiative preprint},
+  url          = {https://closureresearchinitiative.org/rc.pdf},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
+}</div>
+        </details>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-title"><a href="/fe/">Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy</a></div>
+      <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 5, 2026</div>
+      <div class="abstract-text">Four independent axes of primitive structural input&mdash;externalization, artificial factorization, premature globalization, reification of repair&mdash;are isolated and proved logically independent. Applied to foundational tensions across classical and quantum physics.</div>
+      <div class="links">
+        <a href="/dl/fe.pdf">PDF</a>
+        <a href="/dl/fe-latex.zip">Source</a>
+        <details class="cite-details">
+          <summary class="cite-summary">Cite</summary>
+          <div class="cite-block">@misc{wolfe2026foundational,
+  author       = {Chast K. Wolfe},
+  title        = {Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy},
+  year         = {2026},
+  howpublished = {Closure Research Initiative preprint},
+  url          = {https://closureresearchinitiative.org/fe.pdf},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
+}</div>
+        </details>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-title"><a href="/rie/">A Factorization Criterion for Route Invariants with Fixed Endpoint Data</a></div>
+      <div class="meta">Chast K. Wolfe &middot; v1 &middot; June 5, 2026</div>
+      <div class="abstract-text">A factorization criterion for comparison data with fixed endpoints: a route invariant is determined by endpoint data if and only if it is constant on every endpoint fiber. Instances are recorded in quotient semantics, categories, gauge transport, holonomy, differential geometry, and general relativity.</div>
+      <div class="links">
+        <a href="/dl/rie.pdf">PDF</a>
+        <a href="/dl/rie-latex.zip">Source</a>
+        <a href="https://doi.org/10.5281/zenodo.20617818">DOI</a>
+        <details class="cite-details">
+          <summary class="cite-summary">Cite</summary>
+          <div class="cite-block">@misc{wolfe2026route,
+  author       = {Chast K. Wolfe},
+  title        = {A Factorization Criterion for Route Invariants with Fixed Endpoint Data},
+  year         = {2026},
+  howpublished = {Closure Research Initiative preprint},
+  doi          = {10.5281/zenodo.20617818},
+  url          = {https://doi.org/10.5281/zenodo.20617818},
+  license = {All Rights Reserved. See https://closureresearchinitiative.org/license/},
+}</div>
+        </details>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2>III. Citation Trail</h2>
+      <span class="line"></span>
+    </div>
+    <p style="font-size:0.86rem;color:var(--muted);line-height:1.8;margin-bottom:0;">
+      The abstracts on this page are navigation summaries. For paper-specific claims, cite the linked paper page, PDF, DOI where present, and BibTeX entry. For consolidated citation metadata and external comparison claims about background structure, gauge theory, geometry, cosmology, standard physical closure, or millicharged-particle searches, use <a href="/sources/#cite-this-work">Sources and Citation</a>, the deeper trails on <a href="/overview/">Overview</a>, <a href="/map/">Structural Map</a>, <a href="/guide/">Reading Guide</a>, <a href="/predictions/">Predictions</a>, and the relevant paper landing page.
+    </p>
+  </div>
+
+  <footer>
+    <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
+    <span>Maintained by Closure Research Initiative &middot; Served by <a href="https://workers.cloudflare.com/" style="color:var(--muted);" target="_blank" rel="noopener">Cloudflare Workers</a> &middot; Versioned on <a href="https://github.com/CKW25/closure-research-initiative" style="color:var(--muted);" target="_blank" rel="noopener">GitHub</a> &middot; <a href="/sources/" style="color:var(--muted);">Sources and Citation</a> &middot; <a href="/license/" style="color:var(--muted);">License</a> &middot; <a href="/notes/" style="color:var(--muted);">Research Notes</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; <a href="/contact/" style="color:var(--muted);">Contact</a> &middot; Last updated June 9, 2026</span>
+  </footer>
+
+</div>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,846 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{Diagonal Redundancy and the Obstruction to Subsystem Attribution}
+\label{ch:rotation}
+% ============================================================
+\section{Introduction}
+Under the standing principle of closed-world admissibility
+(\cref{sp:closed-world}), this chapter develops the
+quotient-descent and transport-visibility clauses
+(\cref{sp:quotient,sp:transport}).
+Taking the canonical product data of \cref{ch:bottom} as input, it
+establishes quotient descent and the subsystem-attribution boundary used
+in \cref{ch:closure,ch:locus}.
+\Cref{ch:bottom} established that rectangular comparison completeness
+determines a canonical product presentation
+\[
+	X:=X_A\times X_B,
+	\qquad
+	X_A:=U/\alpha,
+	\qquad
+	X_B:=U/\beta,
+\]
+together with a canonical diagonal action of the intrinsic symmetry group
+\[
+	G:=\Aut(U,\mathcal C)
+\]
+on \(X\); see \cref{thm:comparison-completeness-rigidity,thm:diagonal}.
+Accordingly, the primitive comparison world determines canonically the
+orbit projection
+\[
+	\pi:X\to \Phys:=X/G,
+\]
+which is exactly the quotient data produced in
+\cref{cor:terminal-data}.
+At this stage the remaining question is semantic. Once the comparison
+world has canonically collapsed to the diagonal-redundancy data
+\[
+	X=X_A\times X_B,
+	\qquad
+	G\curvearrowright X,
+	\qquad
+	\pi:X\to\Phys,
+\]
+it must be determined which state reports survive as intrinsic content
+of the closed system, and where any further non-quotient structure could
+possibly enter.
+The first point is descent. Once the diagonal action is fixed, the
+natural admissibility criterion for closed-system state reports is orbit
+invariance: admissible reports are exactly the \(G\)-invariant maps on
+\(X\), equivalently the maps that factor uniquely through the orbit
+projection
+\[
+	\pi:X\to\Phys.
+\]
+\Cref{thm:descent} shows that this factorization is automatic.
+Closed-system semantics is therefore determined to be quotient semantics.
+The second point is an obstruction theorem. Within quotient semantics,
+pure orbit motion carries no invariant subsystem attribution. Every
+coherent report is constant along a pure diagonal orbit loop, and any
+two pointwise orbit-equivalent supported representatives of such a loop
+have identical coherent report values. In particular, the distinction
+\begin{quote}
+	which subsystem moved?
+\end{quote}
+does not define a quotient-level invariant of the closed system.
+The third point is structural classification. Finite comparison
+protocols may extend quotient semantics, but within the extension
+formalism introduced below the possibilities are exhausted: if such an
+extension is not endpoint-determined, then additional structure enters
+through at least one of two classified loci, and possibly both:
+\begin{enumerate}[label=\textup{(\roman*)}]
+	\item representative selection, that is, a section of \(\pi\);
+	\item morphism-level enrichment, equivalently route-dependent transport
+	      or nontrivial loop defect.
+\end{enumerate}
+No third locus exists within that formalism.
+The chapter therefore identifies the precise obstruction boundary of
+closed quotient semantics. As shown below, every coherent report factors
+uniquely through the orbit projection. Consequently, any invariant
+content expressible by coherent reports is orbit-level content in
+\(\Phys\). Within the extension formalism introduced below, any content
+beyond that must arise through at least one of the two enrichment
+mechanisms above, and possibly through both together.
+% ============================================================
+\section{Closed-system quotient semantics}
+\label{sec:closed-quotient}
+% ============================================================
+Throughout this chapter, admissibility is read through
+\cref{sp:quotient}: semantic content is required to descend through
+intrinsic quotient maps, while non-quotient residue appears only through
+the transport mechanisms analyzed later (\cref{sp:transport}).
+Throughout the chapter, \(G\) acts diagonally on
+\[
+	X=X_A\times X_B,
+	\qquad
+	g\cdot(x_A,x_B):=(g\cdot x_A,g\cdot x_B),
+\]
+and
+\[
+	\pi:X\to \Phys:=X/G
+\]
+denotes the orbit projection.
+\begin{definition}[Coherent report]
+	\label{def:report-coherence}
+	Let \(S\) be a set. A map
+	\[
+		R:X\to S
+	\]
+	is \emph{coherent} if
+	\[
+		R(g\cdot x)=R(x)
+		\qquad
+		\text{for all }g\in G,\ x\in X.
+	\]
+	Equivalently, \(R\) is constant on \(G\)-orbits.
+\end{definition}
+Because diagonal redundancy identifies orbit-equivalent representatives,
+orbit invariance is not an additional convention but the intrinsic
+admissibility criterion for closed-system state reports.
+\begin{definition}[Closed-system semantics]
+	\label{def:closed-system-semantics}
+	A \emph{closed-system semantics} on \(X\) declares the admissible
+	state reports to be exactly the coherent reports.
+\end{definition}
+\begin{definition}[Orbit quotient]
+	The \emph{orbit quotient} of the diagonal action is
+	\[
+		\Phys:=X/G,
+	\]
+	equipped with the canonical projection
+	\[
+		\pi:X\to\Phys,
+		\qquad
+		\pi(x):=[x].
+	\]
+\end{definition}
+\begin{theorem}[Canonical descent]
+	\label{thm:descent}
+	Let \(R:X\to S\) be coherent. Then there exists a unique map
+	\[
+		\widetilde R:\Phys\to S
+	\]
+	such that
+	\[
+		R=\widetilde R\circ \pi.
+	\]
+\end{theorem}
+\begin{proof}
+	Define
+	\[
+		\widetilde R([x]):=R(x).
+	\]
+	To prove that this is well defined, suppose \([x]=[y]\) in \(\Phys\).
+	Then \(y=g\cdot x\) for some \(g\in G\). Since \(R\) is coherent,
+	\[
+		R(y)=R(g\cdot x)=R(x).
+	\]
+	Hence \(\widetilde R([x])\) is independent of the chosen representative.
+	Now for every \(x\in X\),
+	\[
+		(\widetilde R\circ\pi)(x)
+		=
+		\widetilde R([x])
+		=
+		R(x),
+	\]
+	so \(R=\widetilde R\circ\pi\).
+	For uniqueness, let \(f:\Phys\to S\) also satisfy \(R=f\circ\pi\). Then
+	for any \([x]\in\Phys\),
+	\[
+		f([x])=f(\pi(x))=R(x)=\widetilde R([x]).
+	\]
+	Therefore \(f=\widetilde R\).
+\end{proof}
+\begin{proposition}[Universal property of the orbit quotient]
+	\label{prop:orbit-universal}
+	For every set \(S\) and every coherent map
+	\[
+		R:X\to S,
+	\]
+	there exists a unique map
+	\[
+		\widetilde R:\Phys\to S
+	\]
+	such that
+	\[
+		R=\widetilde R\circ\pi.
+	\]
+	Equivalently, \(\pi:X\to\Phys\) is universal among coherent maps out of \(X\).
+\end{proposition}
+\begin{proof}
+	This is exactly \cref{thm:descent}.
+\end{proof}
+\begin{corollary}[Coherence \(\Longleftrightarrow\) descent]
+	\label{cor:descent}
+	For a map \(R:X\to S\), the following are equivalent.
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item \(R\) is coherent;
+		\item \(R\) is constant on \(G\)-orbits;
+		\item there exists a unique \(\widetilde R:\Phys\to S\) such that
+		      \[
+			      R=\widetilde R\circ\pi.
+		      \]
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	\emph{(i)\(\Rightarrow\)(iii).}
+	This is \cref{thm:descent}.
+	\smallskip
+	\emph{(iii)\(\Rightarrow\)(ii).}
+	If \(R=\widetilde R\circ\pi\), then for \(x,y\in X\) with
+	\(\pi(x)=\pi(y)\),
+	\[
+		R(x)=\widetilde R(\pi(x))=\widetilde R(\pi(y))=R(y).
+	\]
+	Thus \(R\) is constant on orbits.
+	\smallskip
+	\emph{(ii)\(\Rightarrow\)(i).}
+	If \(R\) is constant on orbits, then for every \(g\in G\) and
+	\(x\in X\), the points \(x\) and \(g\cdot x\) lie in the same orbit, so
+	\[
+		R(g\cdot x)=R(x).
+	\]
+	Hence \(R\) is coherent.
+\end{proof}
+\begin{remark}[Structural meaning of quotient semantics]
+	The orbit projection
+	\[
+		\pi:X\to \Phys=X/G
+	\]
+	is not merely a convenient quotient map. By
+	\cref{prop:orbit-universal}, it is universal among coherent
+	descriptions of \(X\). Thus quotient semantics is determined by diagonal
+	redundancy: every admissible state report factors uniquely through
+	\(\Phys\), and no finer representative-level distinction survives
+	without additional structure.
+\end{remark}
+\begin{remark}[Categorical formulation]
+	Let \(\mathsf{Inv}(X)\) be the category whose objects are pairs
+	\((S,R)\), where \(S\) is a set and \(R:X\to S\) is coherent, and
+	whose morphisms
+	\[
+		f:(S,R)\to (S',R')
+	\]
+	are maps \(f:S\to S'\) satisfying
+	\[
+		R'=f\circ R.
+	\]
+	Then \((\Phys,\pi)\) is an initial object of \(\mathsf{Inv}(X)\).
+	This is precisely the categorical form of
+	\cref{prop:orbit-universal}.
+\end{remark}
+% ============================================================
+\section{Pure orbit loops}
+\label{sec:loops}
+% ============================================================
+We now analyze histories that move entirely inside a single diagonal
+orbit.
+\begin{definition}[Pure diagonal orbit loop]
+	Fix \(T>0\). A \emph{pure diagonal orbit loop} is a map
+	\[
+		\Gamma:[0,T]\to X
+	\]
+	for which there exists a map
+	\[
+		g:[0,T]\to G
+	\]
+	such that
+	\[
+		g(0)=g(T)=e
+		\qquad\text{and}\qquad
+		\Gamma(t)=g(t)\cdot \Gamma(0)
+		\quad
+		\text{for all }t\in[0,T].
+	\]
+\end{definition}
+\begin{definition}[\(A\)-supported and \(B\)-supported representatives]
+	Let \(\Gamma:[0,T]\to X\) be a path.
+	An \emph{\(A\)-supported representative} of \(\Gamma\) is a path
+	\[
+		\Gamma_A(t)=(x_A(t),x_B(0))
+	\]
+	such that
+	\[
+		\pi(\Gamma_A(t))=\pi(\Gamma(t))
+		\qquad
+		\text{for all }t\in[0,T].
+	\]
+	Similarly, a \emph{\(B\)-supported representative} is a path
+	\[
+		\Gamma_B(t)=(x_A(0),x_B(t))
+	\]
+	satisfying
+	\[
+		\pi(\Gamma_B(t))=\pi(\Gamma(t))
+		\qquad
+		\text{for all }t\in[0,T].
+	\]
+\end{definition}
+\begin{lemma}[Single-orbit property]
+	\label{lem:single-orbit}
+	If \(\Gamma\) is a pure diagonal orbit loop, then
+	\[
+		\pi(\Gamma(t))=\pi(\Gamma(0))
+		\qquad
+		\text{for all }t\in[0,T].
+	\]
+\end{lemma}
+\begin{proof}
+	For each \(t\in[0,T]\), the defining relation
+	\[
+		\Gamma(t)=g(t)\cdot \Gamma(0)
+	\]
+	shows that \(\Gamma(t)\) lies in the same \(G\)-orbit as \(\Gamma(0)\).
+	Since \(\pi\) is the orbit projection, it takes equal values on
+	orbit-equivalent points. Therefore
+	\[
+		\pi(\Gamma(t))=\pi(\Gamma(0))
+	\]
+	for all \(t\).
+\end{proof}
+\begin{remark}
+	A pure orbit loop may be descriptively nontrivial in the product
+	presentation \(X_A\times X_B\), but orbit-theoretically it is
+	trivial: it remains inside a single orbit of the diagonal action.
+\end{remark}
+% ============================================================
+\section{Orbit-equivalent supported representatives}
+\label{sec:twin}
+% ============================================================
+The following proposition isolates the elementary symmetry relating
+supported representatives of the same quotient path.
+\begin{proposition}[Orbit-equivalent supported representatives]
+	\label{prop:twin}
+	Let \(\Gamma:[0,T]\to X\) be a pure diagonal orbit loop with witness
+	\(g:[0,T]\to G\), and assume \(\Gamma\) admits an \(A\)-supported
+	representative \(\Gamma_A\). Define
+	\[
+		\widetilde\Gamma(t):=g(t)^{-1}\cdot \Gamma_A(t).
+	\]
+	Then:
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item \(\widetilde\Gamma\) is a path in \(X\) satisfying
+		      \[
+			      \pi(\widetilde\Gamma(t))=\pi(\Gamma(t))
+			      \qquad
+			      \text{for all }t\in[0,T];
+		      \]
+		\item one has the reconstruction identity
+		      \[
+			      \Gamma_A(t)=g(t)\cdot \widetilde\Gamma(t)
+			      \qquad
+			      \text{for all }t\in[0,T];
+		      \]
+		\item the property of admitting an \(A\)-supported representative
+		      depends only on the quotient path \(t\mapsto \pi(\Gamma(t))\);
+		\item if a \(B\)-supported representative of the same quotient path is
+		      chosen, then both \(\Gamma\) and \(\widetilde\Gamma\) are pointwise
+		      orbit-equivalent to it.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	For each \(t\in[0,T]\),
+	\[
+		\widetilde\Gamma(t)=g(t)^{-1}\cdot\Gamma_A(t)
+	\]
+	lies in the same \(G\)-orbit as \(\Gamma_A(t)\). Since \(\Gamma_A\) is a
+	representative of \(\Gamma\), we have
+	\[
+		\pi(\Gamma_A(t))=\pi(\Gamma(t)).
+	\]
+	Therefore
+	\[
+		\pi(\widetilde\Gamma(t))=\pi(\Gamma_A(t))=\pi(\Gamma(t)),
+	\]
+	which proves \textup{(i)}.
+	Statement \textup{(ii)} is immediate from the definition:
+	\[
+		g(t)\cdot \widetilde\Gamma(t)
+		=
+		g(t)\cdot \bigl(g(t)^{-1}\cdot \Gamma_A(t)\bigr)
+		=
+		\Gamma_A(t).
+	\]
+	For \textup{(iii)}, the existence of an \(A\)-supported representative
+	is, by definition, a statement about whether the quotient path
+	\(t\mapsto \pi(\Gamma(t))\) can be realized by a path of the form
+	\((x_A(t),x_B(0))\). Thus it depends only on the quotient path itself.
+	For \textup{(iv)}, let \(\Gamma_B\) be a \(B\)-supported representative
+	of the same quotient path. Then
+	\[
+		\pi(\Gamma_B(t))=\pi(\Gamma(t))=\pi(\widetilde\Gamma(t))
+		\qquad
+		\text{for all }t,
+	\]
+	so \(\Gamma_B(t)\), \(\Gamma(t)\), and \(\widetilde\Gamma(t)\) are
+	pairwise orbit-equivalent at each time.
+\end{proof}
+% ============================================================
+\section{Subsystem attribution obstruction}
+\label{sec:nogo}
+% ============================================================
+We now prove the main no-go statement.
+\begin{theorem}[No-go theorem]
+	\label{thm:nogo}
+	Let \(R:X\to S\) be coherent, and let \(\Gamma:[0,T]\to X\) be a pure
+	diagonal orbit loop. Then
+	\[
+		R\circ \Gamma
+	\]
+	is constant on \([0,T]\).
+	Moreover, if \(\Gamma\) admits an \(A\)-supported representative and
+	\(\widetilde\Gamma\) is the associated path from \cref{prop:twin}, then
+	\[
+		R(\widetilde\Gamma(t))=R(\Gamma(t))
+		\qquad
+		\text{for all }t\in[0,T].
+	\]
+\end{theorem}
+\begin{proof}
+	By \cref{thm:descent}, there exists a unique map
+	\[
+		\widetilde R:\Phys\to S
+	\]
+	such that
+	\[
+		R=\widetilde R\circ\pi.
+	\]
+	Since \(\Gamma\) is a pure diagonal orbit loop,
+	\cref{lem:single-orbit} gives
+	\[
+		\pi(\Gamma(t))=\pi(\Gamma(0))
+		\qquad
+		\text{for all }t\in[0,T].
+	\]
+	Hence for all \(t\),
+	\[
+		R(\Gamma(t))
+		=
+		\widetilde R(\pi(\Gamma(t)))
+		=
+		\widetilde R(\pi(\Gamma(0))),
+	\]
+	which is independent of \(t\). Thus \(R\circ\Gamma\) is constant.
+	For the second statement, \cref{prop:twin}(i) gives
+	\[
+		\pi(\widetilde\Gamma(t))=\pi(\Gamma(t))
+		\qquad
+		\text{for all }t\in[0,T].
+	\]
+	Therefore
+	\[
+		R(\widetilde\Gamma(t))
+		=
+		\widetilde R(\pi(\widetilde\Gamma(t)))
+		=
+		\widetilde R(\pi(\Gamma(t)))
+		=
+		R(\Gamma(t)).
+	\]
+\end{proof}
+\begin{corollary}[No subsystem attribution at quotient level]
+	Within quotient semantics, subsystem attribution for pure orbit motion
+	does not define an invariant: every coherent report is constant along
+	pure orbit loops, and any two pointwise orbit-equivalent
+	representatives have identical coherent report values.
+\end{corollary}
+\begin{proof}
+	The constancy statement is the first part of \cref{thm:nogo}. The
+	pointwise orbit-equivalence statement follows from the second part and
+	\cref{prop:twin}(iv).
+\end{proof}
+% ============================================================
+\section{Orbit-preserving maps}
+\label{sec:orbit-invisibility}
+% ============================================================
+\Cref{thm:nogo} is the pathwise case of a more general
+orbit-invisibility principle.
+\begin{definition}[Orbit-preserving map]
+	A map
+	\[
+		\Theta_X:X\to X
+	\]
+	is \emph{orbit-preserving} if
+	\[
+		\pi\circ\Theta_X=\pi.
+	\]
+	Equivalently, \(\Theta_X(x)\) lies in the same \(G\)-orbit as \(x\) for
+	every \(x\in X\).
+\end{definition}
+\begin{theorem}[Orbit-preserving maps are coherently trivial]
+	Let
+	\[
+		\Theta_X:X\to X
+	\]
+	be orbit-preserving. Then for every coherent report \(R:X\to S\),
+	\[
+		R\circ \Theta_X=R.
+	\]
+\end{theorem}
+\begin{proof}
+	By \cref{thm:descent}, write
+	\[
+		R=\widetilde R\circ\pi
+	\]
+	for a unique map \(\widetilde R:\Phys\to S\). Then for every \(x\in X\),
+	\[
+		R(\Theta_X(x))
+		=
+		\widetilde R(\pi(\Theta_X(x)))
+		=
+		\widetilde R(\pi(x))
+		=
+		R(x),
+	\]
+	because \(\Theta_X\) is orbit-preserving.
+\end{proof}
+\begin{remark}
+	Within quotient semantics, an orbit-preserving map introduces no new
+	invariant information. Any nontrivial distinction must therefore arise
+	from structure not already encoded by the quotient projection.
+\end{remark}
+% ============================================================
+\section{Finite protocol extensions and the two-locus classification}
+\label{sec:two-locus-classification}
+% ============================================================
+We now classify all ways of enriching quotient semantics on finite
+comparison protocols.
+\begin{definition}[Finite protocol network]
+	A \emph{finite protocol network} is a finite directed graph
+	\[
+		\mathcal N=(V,E)
+	\]
+	whose vertex set satisfies
+	\[
+		V\subseteq \Phys.
+	\]
+	Write \(\Path(\mathcal N)\) for the free category on \(\mathcal N\).
+\end{definition}
+\begin{definition}[Extension of quotient semantics]
+	\label{def:extension}
+	Let \(\mathcal N=(V,E)\) be a finite protocol network. An
+	\emph{extension of quotient semantics} consists of the following data.
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item \emph{State compatibility:} for each \(p\in V\), an object
+		      assignment
+		      \[
+			      p\longmapsto F_{\mathcal N}(p)
+		      \]
+		      depending only on \(p\in\Phys\);
+		\item \emph{Compositionality:} a small category
+		      \[
+			      \mathsf C_{\mathcal N}
+		      \]
+		      with object set \(V\), together with a functor
+		      \[
+			      F_{\mathcal N}:\Path(\mathcal N)\to\mathsf C_{\mathcal N}
+		      \]
+		      extending the object assignment.
+	\end{enumerate}
+\end{definition}
+\begin{definition}[Endpoint-determined extension]
+	An extension of quotient semantics is \emph{endpoint-determined} if for
+	every finite protocol network \(\mathcal N\) and every pair of
+	co-terminal paths
+	\[
+		\gamma_1,\gamma_2\in\Path(\mathcal N)
+	\]
+	one has
+	\[
+		F_{\mathcal N}(\gamma_1)=F_{\mathcal N}(\gamma_2).
+	\]
+\end{definition}
+\begin{definition}[Section]
+	A \emph{section} of the orbit projection is a map
+	\[
+		s:\Phys\to X
+	\]
+	such that
+	\[
+		\pi\circ s=\id_{\Phys}.
+	\]
+\end{definition}
+\begin{theorem}[Two-locus classification within quotient-semantic extensions]
+	\label{thm:two-locus-classification}
+	Under the standing principle \cref{sp:closed-world}, let \(F\) be an
+	\emph{extension of quotient semantics} in the sense of
+	\cref{def:extension}. If \(F\) is not endpoint-determined, then at
+	least one of the following two enrichment mechanisms occurs:
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item \emph{Representative selection:} a section
+		      \[
+			      s:\Phys\to X
+		      \]
+		      of \(\pi\) is supplied;
+		\item \emph{Morphism enrichment:} there exist a network
+		      \[
+			      \mathcal N=(V,E)
+		      \]
+		      and co-terminal paths
+		      \[
+			      \gamma_1,\gamma_2\in\Path(\mathcal N)
+		      \]
+		      such that
+		      \[
+			      F_{\mathcal N}(\gamma_1)\neq F_{\mathcal N}(\gamma_2).
+		      \]
+	\end{enumerate}
+	No third locus exists within the data specified in \cref{def:extension}.
+\end{theorem}
+\begin{proof}
+	State compatibility fixes the object-level assignment by the points
+	\(p\in\Phys\) alone. Thus non-endpoint behavior cannot arise from a new
+	interpretation of vertices as such.
+	Accordingly, any failure of endpoint determinacy must be witnessed
+	through at least one of two enrichment layers, and both may be
+	present together. First, one may adjoin representative-level data
+	lifting points of \(\Phys\) back to \(X\). This is exactly the supply of a section
+	\[
+		s:\Phys\to X,
+	\]
+	which chooses a distinguished representative in each orbit.
+	Second, one may assign genuinely distinct morphism data to
+	co-terminal paths. Since \(\Path(\mathcal N)\) is the free category
+	on the graph \(\mathcal N\), a functor out of it is determined by its
+	values on objects, generating edges, and composition. The object
+	layer is already fixed by state compatibility. Therefore any
+	remaining failure of endpoint determinacy occurs at the morphism
+	layer, whether or not a section is also present.
+	This proves that mechanisms \textup{(i)} and \textup{(ii)} exhaust all
+	possible sources of non-endpoint behavior. No third locus exists
+	because \cref{def:extension} contains no further data.
+\end{proof}
+\begin{remark}[Object--morphism complementarity]
+	The two enrichment mechanisms act on categorically orthogonal layers.
+	Sections modify the representative choice at the object level.
+	Transport or holonomy data modify the morphism layer while leaving the
+	object set unchanged. Under the axioms of \cref{def:extension},
+	nothing else is available.
+\end{remark}
+% ============================================================
+\section{Transport schemes and holonomy}
+\label{sec:transport}
+% ============================================================
+We now recast the morphism-locus part of the classification as
+route-dependent transport.
+\begin{definition}[Free path groupoid]
+	\label{def:pathpm}
+	Let \(\mathcal N=(V,E)\) be a finite directed graph. Write
+	\[
+		\Path^\pm(\mathcal N)
+	\]
+	for the free groupoid obtained from \(\mathcal N\) by adjoining formal
+	inverses to all directed edges.
+\end{definition}
+\begin{definition}[Comparison groupoid]
+	A \emph{comparison groupoid} on \(\mathcal N\) is a small groupoid
+	\[
+		\mathsf C_{\mathcal N}\rightrightarrows V.
+	\]
+\end{definition}
+\begin{definition}[Transport scheme]
+	A \emph{transport scheme} on a finite network \(\mathcal N=(V,E)\)
+	consists of a choice, for each edge \(e:p\to q\), of a morphism
+	\[
+		\tau_e\in \Hom_{\mathsf C_{\mathcal N}}(p,q).
+	\]
+	By the universal property of the free groupoid, these data extend
+	uniquely to a functor
+	\[
+		\Hol:\Path^\pm(\mathcal N)\to \mathsf C_{\mathcal N}
+	\]
+	satisfying
+	\[
+		\Hol(e)=\tau_e
+		\qquad
+		\text{for every generating edge }e.
+	\]
+\end{definition}
+\begin{definition}[Route dependence]
+	A transport scheme is \emph{endpoint-determined} if for any two
+	morphisms
+	\[
+		\gamma_1,\gamma_2:p\to q
+	\]
+	in \(\Path^\pm(\mathcal N)\) one has
+	\[
+		\Hol(\gamma_1)=\Hol(\gamma_2).
+	\]
+	Otherwise it is \emph{route-dependent}.
+\end{definition}
+\begin{lemma}[Loop reduction]
+	\label{lem:loop-based}
+	Let
+	\[
+		\gamma_1,\gamma_2:p\to q
+	\]
+	be morphisms in \(\Path^\pm(\mathcal N)\). Then
+	\[
+		\Hol(\gamma_1)=\Hol(\gamma_2)
+		\iff
+		\Hol(\gamma_2^{-1}\!\circ\gamma_1)=\id_p.
+	\]
+\end{lemma}
+\begin{proof}
+	Because \(\mathsf C_{\mathcal N}\) is a groupoid, \(\Hol(\gamma_2)\) is
+	invertible. Therefore
+	\[
+		\Hol(\gamma_2^{-1}\!\circ\gamma_1)
+		=
+		\Hol(\gamma_2)^{-1}\circ \Hol(\gamma_1).
+	\]
+	Thus \(\Hol(\gamma_2^{-1}\!\circ\gamma_1)=\id_p\) if and only if
+	\[
+		\Hol(\gamma_1)=\Hol(\gamma_2).
+	\]
+\end{proof}
+\begin{theorem}[Route dependence \(\Longleftrightarrow\) loop defect]
+	\label{thm:route-dependence}
+	A transport scheme is route-dependent if and only if there exists a
+	based loop
+	\[
+		\ell:p\to p
+	\]
+	in \(\Path^\pm(\mathcal N)\) such that
+	\[
+		\Hol(\ell)\neq \id_p.
+	\]
+\end{theorem}
+\begin{proof}
+	Suppose first that the transport scheme is route-dependent. Then there
+	exist co-terminal morphisms
+	\[
+		\gamma_1,\gamma_2:p\to q
+	\]
+	such that
+	\[
+		\Hol(\gamma_1)\neq \Hol(\gamma_2).
+	\]
+	Set
+	\[
+		\ell:=\gamma_2^{-1}\!\circ\gamma_1.
+	\]
+	Then by \cref{lem:loop-based},
+	\[
+		\Hol(\ell)
+		=
+		\Hol(\gamma_2)^{-1}\circ\Hol(\gamma_1)
+		\neq \id_p.
+	\]
+	Conversely, suppose every based loop has trivial holonomy. Let
+	\[
+		\gamma_1,\gamma_2:p\to q
+	\]
+	be co-terminal. Then
+	\[
+		\gamma_2^{-1}\!\circ\gamma_1
+	\]
+	is a loop at \(p\), so
+	\[
+		\Hol(\gamma_2^{-1}\!\circ\gamma_1)=\id_p.
+	\]
+	By \cref{lem:loop-based},
+	\[
+		\Hol(\gamma_1)=\Hol(\gamma_2).
+	\]
+	Thus the scheme is endpoint-determined.
+\end{proof}
+\begin{corollary}[Transport form of the two-locus classification]
+	\label{cor:transport-form}
+	For finite protocol extensions in the sense of \cref{def:extension},
+	any enrichment beyond quotient semantics must occur through at least
+	one of the following classified loci, and may occur through both:
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item object-level enrichment by a section of \(\pi\);
+		\item morphism-level enrichment by a route-dependent transport scheme,
+		      equivalently by nontrivial loop defect.
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	Combine \cref{thm:two-locus-classification} with
+	\cref{thm:route-dependence}.
+\end{proof}
+\begin{remark}[Positive interpretation]
+	The two-locus classification says exactly where additional structure
+	can enter once quotient semantics has been fixed. A section chooses
+	preferred representatives in each orbit. A route-dependent transport
+	scheme introduces morphism-level data not determined by the endpoints
+	in \(\Phys\). Absent both of these two enrichments, no further
+	invariant distinction exists beyond orbit-level content.
+\end{remark}
+% ============================================================
+\section{Conclusion}
+\label{sec:rotation-conclusion}
+Starting from the canonical diagonal redundancy data produced in
+\cref{ch:bottom},
+\[
+	X=X_A\times X_B,
+	\qquad
+	G=\Aut(U,\mathcal C),
+	\qquad
+	\pi:X\to\Phys:=X/G,
+\]
+the semantic consequences of diagonal symmetry are now fixed.
+First, admissible closed-system reports are exactly the coherent maps
+\[
+	R:X\to S
+\]
+that are invariant under the diagonal action of \(G\). By the descent
+theorem, every such report factors uniquely through the orbit
+projection
+\[
+	\pi:X\to\Phys.
+\]
+Closed-system semantics is therefore determined to be quotient semantics:
+all invariant reportable content is carried by the orbit space
+\(\Phys\).
+Second, pure orbit motion is invisible to coherent reports. Every
+coherent report is constant along a pure diagonal orbit loop, and any
+pointwise orbit-equivalent supported representatives of such a loop
+have identical coherent report values. Hence subsystem attribution for
+pure orbit motion does not define a quotient-level invariant.
+Third, the possible enrichments of quotient semantics on finite
+comparison protocols are completely classified. Within the extension
+formalism of \cref{def:extension}, the classification is exhaustive: if
+an extension is not endpoint-determined, then additional structure
+enters through one or both of the following mechanisms:
+representative selection through a section of \(\pi\), and
+morphism-level transport data, equivalently nontrivial loop defect.
+There is no third locus within that formalism.
+The chapter therefore identifies the precise boundary of closed
+quotient semantics. Diagonal redundancy collapses all intrinsic
+invariant content of the closed comparison world to the orbit quotient
+\[
+	\Phys=X/G.
+\]
+Any further distinction must therefore be imported explicitly through
+at least one of the two structural mechanisms above, and possibly
+through both together.
+Accordingly, the semantic frontier is exact: intrinsic closed-system
+content is exhausted by quotient data, and every admissible refinement is
+confined to the classified object and morphism loci.
+
+\Cref{ch:closure} compresses this semantic arc into a single closure
+theorem that functions as the entry statement for the subsequent
+classification and obstruction chapters.

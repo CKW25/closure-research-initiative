@@ -1,0 +1,16 @@
+.git/
+.wrangler/
+node_modules/
+data/
+functions/
+scripts/
+src/
+token/
+.gitignore
+.assetsignore
+package.json
+package-lock.json
+wrangler.toml
+README.md
+update-paper.ps1
+*.log

@@ -1,0 +1,91 @@
+# Closure Research Initiative
+
+> Foundational mathematics and structural physics research program studying closed physical theory from primitive comparison data.
+
+## Canonical Site
+
+- Site: https://closureresearchinitiative.org/
+- Director and author: Chast K. Wolfe
+- ORCID: https://orcid.org/0009-0008-8846-2539
+- Contact: chast.wolfe@closureresearchinitiative.org
+- GitHub discussions: https://github.com/CKW25/closure-research-initiative/discussions
+- Sitemap: https://closureresearchinitiative.org/sitemap.xml
+- Feed: https://closureresearchinitiative.org/feed.xml
+- License: https://closureresearchinitiative.org/license/
+- Sources and citation: https://closureresearchinitiative.org/sources/
+- External sources BibTeX: https://closureresearchinitiative.org/external-sources.bib
+
+## Disambiguation
+
+Closure Research Initiative is not about mine closure, industrial site closure, clinical-trial closure, or institutional research shutdowns. Here "closure" means mathematical and physical self-containment: a closed physical theory may not take an external observer, background manifold, pre-supplied state space, gauge convention, causal order, or field content as primitive.
+
+## Core Idea
+
+The formal development starts from intrinsic comparison data. A comparison is a relation among states, invariant under the symmetries of the comparison world it helps constitute, not an externally imposed label. Under stated structural hypotheses, the theory develops rectangular completeness, quotient semantics, subsystem-attribution obstruction, transport obstruction, curvature at the faithful smooth-realization stage, and a rigidity result for genuinely closed realized three-dimensional systems.
+
+## Claim Support
+
+- Foundational comparison data, intrinsicality, rectangular completeness, quotient semantics, transport obstruction, and the broad theorem chain: https://closureresearchinitiative.org/csm/
+- Finitary two-subsystem comparison worlds and the subsystem-attribution obstruction: https://closureresearchinitiative.org/ccw/
+- Conditional S3 theorem at the faithful smooth-realization/manifold stage: https://closureresearchinitiative.org/cfsg/
+- Public charge-sector consequence and experimental interface: https://closureresearchinitiative.org/predictions/
+- Canonical citation targets and external works cited for background, comparison, experimental, and legal context: https://closureresearchinitiative.org/sources/
+
+## Best Entry Points
+
+- Homepage: https://closureresearchinitiative.org/
+- Foundational orientation: https://closureresearchinitiative.org/idea/
+- Technical overview without proofs: https://closureresearchinitiative.org/overview/
+- Logical map and comparison to neighboring programs: https://closureresearchinitiative.org/map/
+- Minimal worked example: https://closureresearchinitiative.org/example/
+- Notation and definitions: https://closureresearchinitiative.org/notation/
+- Objections and open bridge assumptions: https://closureresearchinitiative.org/objections/
+- Reading guide: https://closureresearchinitiative.org/guide/
+- Preprints and downloads: https://closureresearchinitiative.org/preprints/
+- Research notes: https://closureresearchinitiative.org/notes/
+- Corpus Query: https://closureresearchinitiative.org/ask/
+- Public prediction page: https://closureresearchinitiative.org/predictions/
+- Sources and citation hub: https://closureresearchinitiative.org/sources/
+
+## Public Works
+
+- Closed Systems from Comparison Completeness: https://closureresearchinitiative.org/csm/
+  - DOI: https://doi.org/10.5281/zenodo.20589038
+  - PDF: https://closureresearchinitiative.org/csm.pdf
+  - Superseded archived PDFs: https://closureresearchinitiative.org/archive/csm/csm-v2.pdf and https://closureresearchinitiative.org/archive/csm/csm-v1.pdf
+
+- Closed Comparison Worlds and the Obstruction to Subsystem Attribution: https://closureresearchinitiative.org/ccw/
+  - DOI: https://doi.org/10.5281/zenodo.20600752
+  - PDF: https://closureresearchinitiative.org/ccw.pdf
+
+- Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3: https://closureresearchinitiative.org/cfsg/
+  - PDF: https://closureresearchinitiative.org/cfsg.pdf
+
+- Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems: https://closureresearchinitiative.org/scc/
+  - PDF: https://closureresearchinitiative.org/scc.pdf
+
+- Rectangular Completeness Encompasses Standard Physical Closure: https://closureresearchinitiative.org/rc/
+  - PDF: https://closureresearchinitiative.org/rc.pdf
+
+- Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy: https://closureresearchinitiative.org/fe/
+  - PDF: https://closureresearchinitiative.org/fe.pdf
+
+- A Factorization Criterion for Route Invariants with Fixed Endpoint Data: https://closureresearchinitiative.org/rie/
+  - DOI: https://doi.org/10.5281/zenodo.20617818
+  - PDF: https://closureresearchinitiative.org/rie.pdf
+
+## Public Prediction
+
+The current public empirical prediction is a charge-sector exclusion. Conditional on the physically realized closed electromagnetic phase sector constructed in Chapter 18 of the monograph, every free/asymptotic particle with true vacuum electromagnetic charge must lie in the denominator-3 lattice. See https://closureresearchinitiative.org/predictions/.
+
+## Citation Guidance
+
+Use the DOI links where present. For works without DOI assignment, cite the page URL or PDF URL shown on the relevant landing page, plus the BibTeX block on that page. The Sources and Citation page collects the canonical citation targets for the monograph, public preprints, author ORCID, and outside works cited across the site. The external-source BibTeX download is available at https://closureresearchinitiative.org/external-sources.bib.
+
+## Corpus Assistant
+
+Corpus Query is a public bounded scholarly query interface at https://closureresearchinitiative.org/ask/. Its retrieval corpus is generated from the monograph, six public preprints, website pages, llms.txt, and external-source BibTeX. It supports guide, locate, and cite modes. Its answers are instructed to use only retrieved corpus excerpts and cite those excerpts by source label; short in-session history is used only to interpret follow-up queries.
+
+## Crawl Guidance
+
+The site is public and crawlable. The robots file allows all crawlers and points to the sitemap. Download links under /dl/ are Cloudflare Worker routes that increment download counts and redirect to the corresponding public PDF, ZIP, image, or archive file.

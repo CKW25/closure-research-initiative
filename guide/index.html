@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Logical dependencies and suggested reading sequences across the works of the closure program.">
+<meta property="og:title" content="Reading Guide &mdash; Closure Research Initiative">
+<meta property="og:description" content="Logical dependencies and suggested reading sequences across the works of the closure program.">
+<meta property="og:url" content="https://closureresearchinitiative.org/guide/">
+<link rel="canonical" href="https://closureresearchinitiative.org/guide/">
+<meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading Guide &mdash; Closure Research Initiative">
+<meta name="twitter:description" content="Logical dependencies and suggested reading sequences across the works of the closure program.">
+<meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
+<meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
+<title>Reading Guide &mdash; Closure Research Initiative</title>
+<meta name="theme-color" content="#FAFAF8">
+<meta name="application-name" content="Closure Research Initiative">
+<meta name="apple-mobile-web-app-title" content="Closure Research">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260608">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-20260608.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-20260608.png">
+<link rel="icon" type="image/x-icon" href="/favicon-20260608.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-20260608.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="license" href="/license/">
+<link rel="alternate" type="application/atom+xml" title="Closure Research Initiative" href="/feed.xml">
+<meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "@type":  "WebPage",
+    "@id":  "https://closureresearchinitiative.org/guide/#webpage",
+    "url":  "https://closureresearchinitiative.org/guide/",
+    "name":  "Reading Guide",
+    "description":  "Logical dependencies and suggested reading sequences across the works of the closure program.",
+    "isPartOf":  {
+                     "@id":  "https://closureresearchinitiative.org/#website"
+                 },
+    "publisher":  {
+                      "@id":  "https://closureresearchinitiative.org/#organization"
+                  },
+    "inLanguage":  "en"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A2348;
+  --gold: #B9933D;
+  --paper: #FAFAF8;
+  --text: #1E2430;
+  --muted: #5A6472;
+  --card: #FFFFFF;
+  --border: rgba(10,35,72,0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --paper: #11131A;
+    --navy: #9BB5D6;
+    --text: #D6D8DD;
+    --muted: #878C99;
+    --card: #1A1D27;
+    --border: rgba(255,255,255,0.08);
+  }
+}
+:root.dark {
+  --paper: #11131A;
+  --navy: #9BB5D6;
+  --text: #D6D8DD;
+  --muted: #878C99;
+  --card: #1A1D27;
+  --border: rgba(255,255,255,0.08);
+}
+:root.dark .hero-logo img { filter: invert(1); }
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .hero-logo img { filter: invert(1); }
+}
+.theme-toggle {
+  display: block;
+  margin: 0 auto 1.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.theme-toggle:hover { opacity: 1; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 0 3rem; }
+
+.hero { text-align: center; padding: 4rem 0 2rem; position: relative; }
+.discuss-wrapper {
+  text-align: center;
+  padding: 0 0 1.5rem;
+}
+.discuss-btn {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.discuss-btn:hover {
+  color: var(--navy);
+  border-color: var(--gold);
+}
+.hero-logo { margin-bottom: 1.5rem; }
+.hero-logo a { text-decoration: none; }
+.hero-logo img { width: 200px; height: auto; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+nav {
+  text-align: center;
+  padding: 1.5rem 0 2.5rem;
+  margin-bottom: 3rem;
+}
+nav a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+nav span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.section-header h2 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.section-header .line { flex: 1; height: 1px; background: var(--border); }
+
+p { font-size: 0.92rem; color: var(--text); margin-bottom: 1rem; line-height: 1.8; }
+a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
+a:hover { text-decoration-color: var(--gold); }
+
+.paper-list { margin: 1.5rem 0; }
+.paper-item {
+  margin-bottom: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+.paper-item h3 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+.paper-item h3 a { text-decoration: none; color: inherit; }
+.paper-item h3 a:hover { color: var(--gold); }
+.paper-item .meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.paper-item .desc { font-size: 0.85rem; color: var(--text); line-height: 1.6; }
+
+.path-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--muted);
+  padding: 0.75rem 1rem;
+  border-left: 2px solid var(--gold);
+  margin-bottom: 1.5rem;
+}
+.reference-list { margin-top: 0.5rem; }
+.reference-list p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 0.45rem;
+}
+
+.numbered {
+  list-style: none;
+  counter-reset: step;
+  margin: 1.5rem 0;
+}
+.numbered li {
+  counter-increment: step;
+  margin-bottom: 1.5rem;
+  padding-left: 2.5rem;
+  position: relative;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.numbered li strong {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-weight: 600;
+  color: var(--navy);
+}
+.numbered li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--paper);
+  font-size: 0.72rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  margin-top: 3.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+footer span { min-width: 0; }
+
+@media print {
+  body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
+  .container { max-width: 100%; padding: 0 1in; }
+  .hero { padding: 0.5in 0 0.25in; }
+  .hero-logo img { width: 180px; }
+  .hero h1 { font-size: 20pt; }
+  .hero .subtitle { font-size: 10pt; }
+  nav { display: none; }
+  a { color: #000 !important; text-decoration: underline !important; }
+  .paper-item { break-inside: avoid; }
+  .numbered li::before { background: #000; }
+  footer { font-size: 8pt; color: #555; }
+}
+
+@media (max-width: 800px) {
+  .container { padding: 0 1.5rem; }
+  .hero h1 { font-size: 2rem; }
+  .hero-logo img { width: 150px; }
+  nav a, nav span { margin: 0 0.6rem; font-size: 0.72rem; }
+  .paper-item { padding: 1rem; }
+  footer { flex-direction: column; gap: 0.3rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-logo">
+      <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
+    </div>
+    <h1>Reading Guide</h1>
+    <div class="subtitle">Logical dependencies and reading sequences</div>
+  </div>
+
+  <div class="discuss-wrapper">
+    <a class="discuss-btn" href="https://github.com/CKW25/closure-research-initiative/discussions" target="_blank" rel="noopener">Discussion Forum &#8599;</a>
+  </div>
+
+  <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/idea/">Foundations</a>
+    <a href="/overview/">Overview</a>
+    <a href="/map/">Structural Map</a>
+    <a href="/example/">Worked Example</a>
+    <a href="/notation/">Notation</a>
+    <a href="/objections/">Objections</a>
+    <a href="/predictions/">Predictions</a>
+    <span>Reading Guide</span>
+    <a href="/preprints/">Preprints</a>
+    <a href="/contact/">Contact</a>
+    <a href="/notes/">Research Notes</a>
+    <a href="/license/">License</a>
+  </nav>
+
+  <p>The monograph and six supporting papers develop a single argument, though each approaches it from a distinct angle and at a different level of formal specificity. Some introduce the foundational mathematical architecture; others apply it to particular problems or demonstrate its recurrence across domains otherwise thought unrelated. The present guide proposes a sequence of reading that respects the logical dependencies among the works.</p>
+
+  <div class="path-note">Each entry links to its dedicated page, which collects the abstract, BibTeX citation, and download links.</div>
+
+  <div class="section-header">
+    <h2>Primary Sequence</h2>
+    <span class="line"></span>
+  </div>
+
+  <ol class="numbered">
+
+  <li>
+    <strong><a href="/overview/">Overview</a></strong><br>
+    A non-technical exposition of the program&rsquo;s central question, its logical structure, and the principal results. Provides a preliminary map of the conceptual terrain before the formal engagement.
+  </li>
+
+  <li>
+    <strong><a href="/ccw/">Closed Comparison Worlds</a></strong><br>
+    The formal foundation. Develops the theory of binary comparison predicates, rectangular completeness, profile-maximality, and the obstruction to subsystem attribution in a finitary setting. This paper establishes the core architecture from which all subsequent work proceeds.
+  </li>
+
+  <li>
+    <strong><a href="/csm/">Closed Systems from Comparison Completeness</a></strong><br>
+    The comprehensive treatise. Constructs the theory from comparison data through quotient semantics and transport obstruction, then develops the faithful smooth-realization bridge by which the obstruction is read as curvature. The principal geometric claims should be read with that bridge explicit.
+  </li>
+
+  <li>
+    <strong><a href="/rc/">Rectangular Completeness and Standard Physical Closure</a></strong><br>
+    Shows that closure as rectangular completeness equals the full-product component of classical closure and captures the product-state sector of quantum mechanics, while strictly generalizing standard closure to relational comparison data.
+  </li>
+
+  <li>
+    <strong><a href="/fe/">Four Axes of Structural Error</a></strong><br>
+    Applies the closure framework as a diagnostic for foundational problems across physical theory. The four axes&mdash;externalization, artificial factorization, premature globalization, reification of repair&mdash;are shown to be logically independent and to recur across classical mechanics, quantum mechanics, quantum field theory, general relativity, and statistical mechanics.
+  </li>
+
+  <li>
+    <strong><a href="/scc/">Structural Closure and the Cosmological Misnomer</a></strong><br>
+    Establishes that structural closure (closure under intrinsic comparison) and cosmological closure (open vs. closed FLRW) operate at different logical levels and cannot be identified.
+  </li>
+
+  <li>
+    <strong><a href="/cfsg/">Closure Forces Spherical Geometry</a></strong><br>
+    Proves that at the manifold stage, a genuinely closed three-dimensional system is diffeomorphic to S&sup3;: the orthonormal frame bundle and admissible comparison groupoid force transitive isometry action, constant curvature, and&mdash;with simple connectivity&mdash;the 3-sphere.
+  </li>
+
+  <li>
+    <strong><a href="/rie/">Route Invariants and the Geometry of Gauge Transport</a></strong><br>
+    Applies the factorization criterion to gauge transport and holonomy, showing that the obstruction to endpoint-determinedness in gauge theories is an instance of the same structural pattern identified across the program.
+  </li>
+
+  </ol>
+
+  <div class="section-header">
+    <h2>Alternative Sequences</h2>
+    <span class="line"></span>
+  </div>
+
+  <p><strong>Foundations sequence.</strong> <a href="/ccw/">CCW</a> for the finitary foundations, then <a href="/csm/">CSM</a> for the full construction. The remaining papers&mdash;<a href="/rc/">RC</a>, <a href="/fe/">FE</a>, <a href="/scc/">SCC</a>, <a href="/cfsg/">CFSG</a>, <a href="/rie/">RIE</a>&mdash;may be read in any order thereafter, as each addresses a specific aspect of the program without cross-dependencies.</p>
+
+  <p><strong>Structural physics sequence.</strong> <a href="/overview/">Overview</a>, then <a href="/fe/">FE</a> and <a href="/rc/">RC</a>, which connect the closure framework to familiar problems in gauge theory and general relativity. <a href="/csm/">CSM</a> supplies the technical development of the geometry.</p>
+
+  <p><strong>S&sup3; theorem.</strong> Read <a href="/overview/">Overview</a> for the statement, <a href="/notation/">Notation</a> for the terms &ldquo;faithful smooth realization&rdquo; and &ldquo;transport obstruction,&rdquo; then <a href="/cfsg/">CFSG</a> for the focused theorem. Use CSM Parts III&ndash;V for the quotient/transport/curvature background rather than treating them as a substitute for the focused CFSG proof.</p>
+
+  <div class="section-header">
+    <h2>Empirical Consequence</h2>
+    <span class="line"></span>
+  </div>
+
+  <p>Read <a href="/predictions/">Predictions</a> for the charge-sector exclusion, then CSM Chapter 18 for the theorem chain behind it. The prediction is deliberately narrow: no free/asymptotic particle with true vacuum electromagnetic charge outside the denominator-3 lattice.</p>
+
+  <div class="section-header">
+    <h2>Citation Trail</h2>
+    <span class="line"></span>
+  </div>
+
+  <p>This guide is an orientation page. The technical claims are carried by the linked papers and monograph; the external physics language used to orient readers is anchored by the standard background sources below and collected on <a href="/sources/">Sources</a>.</p>
+
+  <div class="reference-list">
+    <p>[1] For classical mechanics background: L. D. Landau and E. M. Lifshitz, <a href="https://shop.elsevier.com/books/mechanics/landau/978-0-08-050347-9" target="_blank" rel="noopener"><em>Mechanics</em></a>, 3rd ed. (Pergamon, 1976).</p>
+    <p>[2] For quantum-mechanical state-space language: J. von Neumann, <a href="https://press.princeton.edu/books/paperback/9780691178578/mathematical-foundations-of-quantum-mechanics" target="_blank" rel="noopener"><em>Mathematical Foundations of Quantum Mechanics</em></a> (Princeton University Press, 1955).</p>
+    <p>[3] For quantum field theory and gauge-theoretic language: M. E. Peskin and D. V. Schroeder, <a href="https://www.routledge.com/An-Introduction-To-Quantum-Field-Theory/Peskin-Schroeder/p/book/9780429503559" target="_blank" rel="noopener"><em>An Introduction to Quantum Field Theory</em></a> (Westview, 1995).</p>
+    <p>[4] For general relativity and FLRW cosmology: R. M. Wald, <a href="https://press.uchicago.edu/ucp/books/book/chicago/G/bo5952261.html" target="_blank" rel="noopener"><em>General Relativity</em></a> (University of Chicago Press, 1984); S. Weinberg, <a href="https://openlibrary.org/books/OL4739027M/Gravitation_and_cosmology_principles_and_applications_of_the_general_theory_of_relativity." target="_blank" rel="noopener"><em>Gravitation and Cosmology</em></a> (Wiley, 1972).</p>
+    <p>[5] For frame bundles, connections, holonomy, and homogeneous geometry: S. Kobayashi and K. Nomizu, <a href="https://www.wiley-vch.de/en/areas-interest/mathematics-statistics/foundations-of-differential-geometry-volume-1-978-0-471-15733-5" target="_blank" rel="noopener"><em>Foundations of Differential Geometry</em>, Vol. I</a> (Interscience, 1963); S. Helgason, <a href="https://bookstore.ams.org/gsm-34/" target="_blank" rel="noopener"><em>Differential Geometry, Lie Groups, and Symmetric Spaces</em></a> (Academic Press, 1978).</p>
+    <p>[6] For statistical mechanics background: R. K. Pathria and P. D. Beale, <a href="https://shop.elsevier.com/books/statistical-mechanics/beale/978-0-12-382188-1" target="_blank" rel="noopener"><em>Statistical Mechanics</em></a>, 3rd ed. (Elsevier, 2011).</p>
+  </div>
+
+  <footer>
+    <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
+    <span>Maintained by Closure Research Initiative &middot; Served by <a href="https://workers.cloudflare.com/" style="color:var(--muted);" target="_blank" rel="noopener">Cloudflare Workers</a> &middot; Versioned on <a href="https://github.com/CKW25/closure-research-initiative" style="color:var(--muted);" target="_blank" rel="noopener">GitHub</a> &middot; <a href="/sources/" style="color:var(--muted);">Sources and Citation</a> &middot; <a href="/license/" style="color:var(--muted);">License</a> &middot; <a href="/notes/" style="color:var(--muted);">Research Notes</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; <a href="/contact/" style="color:var(--muted);">Contact</a> &middot; Last updated June 9, 2026</span>
+  </footer>
+
+</div>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

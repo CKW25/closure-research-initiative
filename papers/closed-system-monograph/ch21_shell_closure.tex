@@ -1,0 +1,1073 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{Intrinsic Numerical Closure, Unified Scalar Channel, and Same--Channel Corrections}
+\label{ch:numerical-closure}
+\label{ch:numbers-shell-closure}
+% ============================================================
+
+% ============================================================
+\section{Purpose and logical status}
+\label{sec:shell-purpose}
+% ============================================================
+
+This chapter closes the intrinsic numerical layer of the closed relational
+theory.
+Its role is to separate what transport-closed structure fixes internally
+from what remains a distinct realization choice.
+
+No observer-side semantic input enters the core closure statements.
+In particular, no external empirical normalization is required to state the
+intrinsic scalar law itself.
+
+The objectives are:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item classify intrinsic scalar observables carried by the stabilized
+      quadratic sector;
+\item identify the single normalization orbit of that scalar channel;
+\item constrain admissible subleading scalar corrections;
+\item separate intrinsic sector observables from downstream physical
+      interpretation maps.
+\end{enumerate}
+
+The chapter proceeds in two layers.
+First comes the forced intrinsic closure chain for scalar depth laws.
+Second comes a compatibility bridge that preserves legacy shell labels
+without introducing new observer-side data.
+
+% ============================================================
+\section{Structural inputs from Chapters~19--20}
+\label{sec:shell-inputs}
+% ============================================================
+
+We use the stabilized quadratic carrier and depth architecture established in
+\cref{ch:matter,ch:matter-numbers}:
+\[
+  \mathcal K\cong F^2/F^3,
+  \qquad
+  Q:\mathcal K_{\mathbb R}\to\mathbb R_{\ge0},
+  \qquad
+  k\in\mathbb N,
+\]
+together with the quartic depth polynomial
+\[
+  q(k):=4\binom{k}{4}
+\]
+from \cref{def:numbers-qk}.
+
+We write
+\[
+  \Sigma(k):=Q(\kappa_k)
+\]
+for the intrinsic scalar profile indexed by depth.
+
+Methodologically, each statement below is typed as either
+\emph{intrinsic/forced} or \emph{compatibility/conditional}.
+This mirrors the bookkeeping discipline used in
+\cref{ch:matter-numbers}.
+
+\begin{proposition}[Inherited dependency role in intrinsic form]
+\label{prop:shell-dependency-role}
+The unconditional intrinsic statements in this chapter use two saved
+upstream inputs:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item the Chapter~19 scalar-channel framework
+      \cref{thm:quadratic-scalar,thm:spectral-scalar-identification,thm:spectral-scalar-invariant};
+\item the Chapter~20 quartic-backbone and rigidity-envelope package,
+      read with its saved distinction between structural consequences
+      and extra compatibility inputs.
+\end{enumerate}
+Exact identification of a chosen scalar profile with
+\(q(k)=4\binom{k}{4}\), exact ratio formulas for that profile, and any
+observer-side or Hilbert-branch realization statement require
+additional compatibility or realization hypotheses beyond those
+unconditional inputs.
+\end{proposition}
+
+\begin{proof}
+Chapter~19 fixes the unique scalar channel up to positive
+normalization, the canonical factorization of sector scalars through
+that channel, and transport covariance.
+Chapter~20 then supplies the quartic combinatorial backbone
+\(q(k)=4\binom{k}{4}\) for the named quartic observable together with
+the general quartic-growth and quartic-leading-law consequences used
+for admissible scalar depth observables.
+Those inputs support the unconditional intrinsic statements of this
+chapter at exactly that strength.
+Whenever the chapter speaks about exact equality with the quartic
+backbone, exact ratio formulas for a chosen mass-coordinate
+presentation, or the later Hilbert-branch/operator route, those claims
+must be typed explicitly as compatibility-level or realization-level
+statements rather than folded into the unconditional intrinsic
+package.
+\end{proof}
+
+% ============================================================
+\section{Intrinsic scalar closure chain}
+\label{sec:shell-intrinsic-closure}
+% ============================================================
+
+This section begins with the forced intrinsic consequences of the
+Chapter~19/20 package and then marks later compatibility or
+conditional refinements explicitly where they enter.
+
+\begin{proposition}[Scaling covariance]
+\label{prop:scaling}
+If \(\Sigma\) is admissible and \(\lambda>0\), then
+\[
+  \Sigma_\lambda(k):=\lambda\Sigma(k)
+\]
+is admissible.
+\end{proposition}
+
+\begin{proof}
+Admissibility is stable under positive rescaling, since the scalar channel
+is unique only up to positive normalization
+(\cref{thm:quadratic-scalar,thm:spectral-ratio-properties}).
+\end{proof}
+
+\begin{theorem}[Intrinsic scalar-channel closure]
+\label{thm:closure}
+Every admissible intrinsic scalar profile along the depth architecture
+remains in the unique scalar channel fixed by
+\cref{thm:quadratic-scalar,thm:spectral-scalar-identification}.
+Moreover, its leading growth is quartic in the sense that
+\(\Sigma(k)=O(k^4)\), and under the Chapter~20 rigidity hypotheses its
+universal leading law is quartic.
+\end{theorem}
+
+\begin{proof}
+Channel uniqueness is exactly the Chapter~19 scalar-channel statement.
+The quartic growth envelope and quartic leading law are the saved
+Chapter~20 consequences recorded after patch P-218; they do not by
+themselves identify the full profile with the exact quartic backbone.
+\end{proof}
+
+\begin{corollary}[Conditional ratio rigidity for the quartic backbone]
+\label{cor:ratio-rigidity}
+Assume the chosen intrinsic scalar profile is identified with the
+Chapter~20 quartic observable up to one normalization constant, so that
+\(\Sigma(k)=\lambda q(k)\) for some \(\lambda>0\).
+Then for any admissible \(k_1,k_2\) with \(q(k_2)\neq0\),
+\[
+  \frac{\Sigma(k_1)}{\Sigma(k_2)}
+  =
+  \frac{q(k_1)}{q(k_2)}.
+\]
+\end{corollary}
+
+\begin{proof}
+Under the stated identification, the common factor \(\lambda\) cancels.
+\end{proof}
+
+\begin{theorem}[Uniqueness of scalar channel]
+\label{thm:scalar-channel}
+All intrinsic scalar observables descending from the stabilized quadratic
+carrier factor through one and the same one-dimensional scalar channel.
+\end{theorem}
+
+\begin{proof}
+This is precisely the channel-uniqueness content of
+\cref{thm:quadratic-scalar,thm:spectral-scalar-identification}.
+\end{proof}
+
+\begin{theorem}[No absolute normalization]
+\label{thm:no-absolute}
+No intrinsic construction in Chapters~1--21 fixes the overall
+normalization constant \(\lambda\).
+\end{theorem}
+
+\begin{proof}
+By \cref{thm:spectral-ratio-properties}, intrinsic structure fixes ratios,
+whereas absolute scale requires additional realization data.
+\end{proof}
+
+% ============================================================
+\section{Correction structure inside the same channel}
+\label{sec:shell-corrections}
+% ============================================================
+
+With the scalar channel fixed, we now record the compatibility model
+used later when one discusses subleading depth dependence without
+creating a new invariant type.
+
+\begin{theorem}[No new scalar invariants]
+\label{thm:no-new}
+Admissible scalar corrections do not create an independent scalar channel;
+they remain same-channel deformations of the intrinsic quartic profile.
+\end{theorem}
+
+\begin{proof}
+By \cref{thm:scalar-channel}, the scalar carrier is one-dimensional.
+Hence admissible scalar corrections may change depth dependence, but not the
+underlying scalar-channel type.
+\end{proof}
+
+\begin{theorem}[Conditional binomial correction model]
+\label{thm:basis}
+Assume a same-channel scalar profile \(M(k)\) is written as
+\[
+  M(k)=\lambda\,4\binom{k}{4}+R_{\le2}(k),
+\]
+where \(\lambda\in\mathbb R\) and the remainder \(R_{\le2}(k)\) is a discrete
+polynomial of degree at most \(2\).
+Then there exist constants \(\alpha,\beta,\gamma,\delta\in\mathbb R\)
+such that
+\[
+  M(k)
+  =
+  \alpha\binom{k}{4}
+  +
+  \beta\binom{k}{2}
+  +
+  \gamma k
+  +
+  \delta.
+\]
+\end{theorem}
+
+\begin{proof}
+Because \(R_{\le2}(k)\) has degree at most \(2\), it can be written in the
+binomial basis \(\beta\binom{k}{2}+\gamma k+\delta\).
+Absorbing the quartic backbone coefficient into
+\(\alpha:=4\lambda\) yields the displayed form.
+\end{proof}
+
+\begin{proposition}[Conditional leading structure]
+\label{prop:leading-structure}
+Under the hypotheses of \cref{thm:basis},
+\[
+  M(k)=\alpha\binom{k}{4}+O(k^2)
+  \qquad (k\to\infty).
+\]
+In particular, the quartic backbone controls the leading asymptotic
+behavior.
+\end{proposition}
+
+\begin{proof}
+The remainder terms \(\beta\binom{k}{2}+\gamma k+\delta\) have degree
+at most \(2\), so they contribute only \(O(k^2)\).
+\end{proof}
+
+\begin{theorem}[Conditional cubic rigidity under the correction model]
+\label{thm:cubic}
+Under the hypotheses of \cref{thm:basis}, the cubic coefficient of
+\(M(k)\) is fixed entirely by the quartic backbone and cannot be
+independently deformed by the modeled remainder.
+\end{theorem}
+
+\begin{proof}
+The quartic backbone \(4\binom{k}{4}\) already determines its own cubic
+term. Since the modeled remainder has degree at most \(2\), it cannot
+change that cubic coefficient.
+\end{proof}
+
+\begin{proposition}[Conditional structure of modeled corrections]
+\label{prop:correction-structure}
+Under the hypotheses of \cref{thm:basis}, modeled same-channel
+corrections first appear at quadratic order and below.
+\end{proposition}
+
+\begin{proof}
+This is exactly the degree statement encoded in the assumption on
+\(R_{\le2}(k)\) and restated by \cref{thm:cubic}.
+\end{proof}
+
+% ============================================================
+\section{Intrinsic spectral mass law, ratio rigidity, and asymptotic exactness}
+\label{sec:intrinsic-spectral-mass-law}
+% ============================================================
+
+This section rewrites the intrinsic scalar closure chain in spectral-mass
+language and isolates the asymptotic structure of realization-level
+corrections.
+At intrinsic level, no new input is added beyond the scalar-channel and
+quartic-depth package
+\cref{thm:quadratic-scalar,thm:spectral-scalar-identification,thm:spectral-ratio-properties,thm:numbers-quartic-formula,def:numbers-qk}.
+Its statements are explicitly split into two types:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \emph{intrinsic/forced}: the one-channel structural facts,
+      quartic leading behavior, and absence of intrinsic absolute
+      normalization already fixed by
+      \cref{thm:closure,thm:no-absolute};
+\item \emph{compatibility/conditional}: exact quartic-backbone formulas
+      for a chosen mass-coordinate presentation, together with any
+      consequences that require additional
+      Hilbert-branch realization input beyond Chapters~1--21, namely the
+      operator-route package
+      \cref{thm:intrinsic-spectral-mass-law,thm:exact-ratio-law,thm:hilbert-realization-sector-scalar,lem:sector-quadratic-form,prop:matter-realization-form-route}.
+\end{enumerate}
+
+Define the quartic backbone
+\[
+  B_4(k):=4\binom{k}{4}
+  =
+  \frac{k(k-1)(k-2)(k-3)}{6},
+  \qquad
+  k\in\mathbb N.
+\]
+By \cref{def:numbers-qk}, this is exactly the intrinsic depth law
+\(q(k)\).
+
+\begin{definition}[Intrinsic mass-coordinate profile]
+\label{def:intrinsic-mass-coordinate-profile}
+Write
+\[
+  m_{\mathrm{int}}(k):=\Sigma(k).
+\]
+This is an intrinsic scalar profile (mass-coordinate language), not yet an
+observer-side measured mass assignment.
+Equivalently, it is the depth-indexed presentation of the same canonical
+scalar channel fixed by
+\cref{thm:quadratic-scalar,thm:spectral-scalar-identification}.
+\end{definition}
+
+\begin{theorem}[Conditional intrinsic spectral mass law]
+\label{thm:intrinsic-spectral-mass-law}
+Assume the mass-coordinate profile is the Chapter~20 quartic backbone
+written in scalar-channel units, namely
+\[
+  m_{\mathrm{int}}(k)=\lambda\,4\binom{k}{4}
+\]
+for some \(\lambda>0\).
+Then the displayed quartic formulas, exact table, and exact ratio laws
+below hold for that chosen compatibility model.
+\end{theorem}
+
+\begin{proof}
+This is a direct restatement of the assumed identification with the
+exact quartic backbone \(q(k)=4\binom{k}{4}\).
+\end{proof}
+
+\begin{proposition}[Conditional unnormalized intrinsic mass table]
+\label{prop:unnormalized-intrinsic-mass-table}
+Under \cref{thm:intrinsic-spectral-mass-law}, the quartic backbone and
+mass-coordinate profile are given by the displayed table for
+\(k=0,\dots,20\):
+\[
+\begin{array}{c|c|c}
+k & B_4(k) & m_{\mathrm{int}}(k) \\
+\hline
+0 & 0 & 0 \\
+1 & 0 & 0 \\
+2 & 0 & 0 \\
+3 & 0 & 0 \\
+4 & 4 & 4\lambda \\
+5 & 20 & 20\lambda \\
+6 & 60 & 60\lambda \\
+7 & 140 & 140\lambda \\
+8 & 280 & 280\lambda \\
+9 & 504 & 504\lambda \\
+10 & 840 & 840\lambda \\
+11 & 1320 & 1320\lambda \\
+12 & 1980 & 1980\lambda \\
+13 & 2860 & 2860\lambda \\
+14 & 4004 & 4004\lambda \\
+15 & 5460 & 5460\lambda \\
+16 & 7280 & 7280\lambda \\
+17 & 9520 & 9520\lambda \\
+18 & 12240 & 12240\lambda \\
+19 & 15504 & 15504\lambda \\
+20 & 19380 & 19380\lambda
+\end{array}
+\]
+\end{proposition}
+
+\begin{proof}
+Direct evaluation of
+\(B_4(k)=4\binom{k}{4}\), followed by
+\(m_{\mathrm{int}}(k)=\lambda B_4(k)\)
+from \cref{thm:intrinsic-spectral-mass-law}.
+\end{proof}
+
+\begin{theorem}[Conditional exact ratio law]
+\label{thm:exact-ratio-law}
+Under \cref{thm:intrinsic-spectral-mass-law}, for any depths
+\(k,\ell\) with \(B_4(\ell)\neq0\),
+\[
+  \frac{m_{\mathrm{int}}(k)}{m_{\mathrm{int}}(\ell)}
+  =
+  \frac{B_4(k)}{B_4(\ell)}
+  =
+  \frac{\binom{k}{4}}{\binom{\ell}{4}}.
+\]
+\end{theorem}
+
+\begin{proof}
+Immediate from \cref{thm:intrinsic-spectral-mass-law}.
+\end{proof}
+
+\begin{corollary}[Conditional sample exact ratio predictions]
+\label{cor:sample-exact-ratio-predictions}
+Under \cref{thm:intrinsic-spectral-mass-law}, the displayed sample
+quartic-backbone ratios follow:
+\[
+  \frac{m_{\mathrm{int}}(5)}{m_{\mathrm{int}}(4)}=5,
+  \qquad
+  \frac{m_{\mathrm{int}}(6)}{m_{\mathrm{int}}(4)}=15,
+  \qquad
+  \frac{m_{\mathrm{int}}(18)}{m_{\mathrm{int}}(6)}=204,
+  \qquad
+  \frac{m_{\mathrm{int}}(35)}{m_{\mathrm{int}}(6)}=\frac{10472}{3}.
+\]
+\end{corollary}
+
+\begin{proof}
+Substitute into
+\cref{thm:exact-ratio-law}.
+\end{proof}
+
+\begin{theorem}[Normalization obstruction]
+\label{thm:normalization-obstruction-final}
+The closed relational system does not determine the absolute normalization
+scale of \(m_{\mathrm{int}}\).
+\end{theorem}
+
+\begin{proof}
+This is exactly
+\cref{thm:no-absolute}:
+intrinsic structure fixes only dimensionless ratios
+(\cref{thm:spectral-ratio-properties}) and leaves absolute normalization to
+separate realization data
+(\cref{rem:numbers-forced-vs-calibrated,sec:cond-open}).
+\end{proof}
+
+\begin{corollary}[Intrinsic prediction content at saved strength]
+\label{cor:complete-intrinsic-prediction-content}
+At unconditional intrinsic level, the theory determines the unique
+scalar channel, quartic leading behavior, and the absence of intrinsic
+absolute normalization.
+If one additionally identifies the mass-coordinate profile with the
+Chapter~20 quartic backbone up to normalization, then the exact
+quartic formulas and exact ratio consequences above follow.
+\end{corollary}
+
+\begin{proof}
+The unconditional intrinsic claims are exactly the one-channel and
+normalization statements from
+\cref{thm:closure,thm:no-absolute}.
+The conditional quartic-backbone claims are
+\cref{thm:intrinsic-spectral-mass-law,thm:exact-ratio-law}.
+\end{proof}
+
+\begin{remark}[Operator status and realization boundary]
+\label{rem:intrinsic-spectral-law-operator-status}
+The operator statement needed to realize
+\(m_0(\sigma)=Q(\kappa_\sigma)\) as Hilbert-branch spectral data is the
+target operator-route package
+\cref{thm:hilbert-realization-sector-scalar,lem:sector-quadratic-form,prop:matter-realization-form-route}.
+Within Chapters~1--21, this remains a realization-level step rather than an
+already completed intrinsic theorem.
+\end{remark}
+
+\begin{definition}[Depth operator \textup{(conditional realization datum)}]
+\label{def:depth-operator}
+Assume a realized Hilbert branch \(H_{\mathrm{quad}}\) with a depth-indexed
+sector family \(\{\psi_k\}_{k\in\mathbb N}\subset H_{\mathrm{quad}}\), each
+\(\psi_k\neq 0\), compatible with the intrinsic depth label
+\(k\) from \cref{thm:spectral-depth-separation}.
+Define the depth operator \(\mathsf K\) on the finite span
+\(D_{\mathrm{fin}}:=\operatorname{span}\{\psi_k\}\) by
+\[
+  \mathsf K\psi_k=k\,\psi_k.
+\]
+\end{definition}
+
+\begin{definition}[Quartic backbone operator \textup{(conditional)}]
+\label{def:quartic-backbone-operator}
+On \(D_{\mathrm{fin}}\), define
+\[
+  B_4(\mathsf K)
+  :=
+  4\binom{\mathsf K}{4}
+  =
+  \frac{\mathsf K(\mathsf K-1)(\mathsf K-2)(\mathsf K-3)}{6}.
+\]
+\end{definition}
+
+\begin{definition}[Realization defect operator \textup{(conditional model)}]
+\label{def:realization-defect-operator-final}
+Assume a realized sector operator \(\mathsf S_{\mathrm{real}}\) on
+\(D_{\mathrm{fin}}\) admits
+the decomposition
+\[
+  \mathsf S_{\mathrm{real}}=\lambda B_4(\mathsf K)+R_{\mathrm{def}},
+\]
+where \(R_{\mathrm{def}}\) is the realization defect operator.
+\end{definition}
+
+\begin{proposition}[Realized mass decomposition]
+\label{prop:realized-mass-decomposition}
+Under
+\cref{def:realization-defect-operator-final},
+for every depth vector \(\psi_k\in D_{\mathrm{fin}}\),
+\[
+  m_{\mathrm{real}}(k)
+  :=
+  \langle \psi_k,\mathsf S_{\mathrm{real}}\psi_k\rangle
+  =
+  \lambda B_4(k)+\langle \psi_k,R_{\mathrm{def}}\psi_k\rangle.
+\]
+\end{proposition}
+
+\begin{proof}
+Insert
+\(\mathsf S_{\mathrm{real}}=\lambda B_4(\mathsf K)+R_{\mathrm{def}}\)
+and use
+\(B_4(\mathsf K)\psi_k=B_4(k)\psi_k\).
+\end{proof}
+
+\begin{definition}[Depth renormalization parameter]
+\label{def:depth-renormalization-parameter-final}
+Assume \(B_4'(k)\neq 0\).
+Define
+\[
+  \delta_k
+  :=
+  \frac{\langle \psi_k,R_{\mathrm{def}}\psi_k\rangle}{\lambda B_4'(k)}.
+\]
+\end{definition}
+
+\begin{proposition}[First-order corrected spectrum]
+\label{prop:first-order-corrected-spectrum}
+Under
+\cref{def:depth-renormalization-parameter-final},
+\[
+  m_{\mathrm{real}}(k)
+  =
+  \lambda\bigl(B_4(k)+B_4'(k)\delta_k\bigr),
+\]
+and hence
+\[
+  m_{\mathrm{real}}(k)
+  =
+  \lambda B_4(k+\delta_k)
+  +
+  O\!\bigl(\delta_k^2B_4''(k)\bigr)
+\]
+to first order in realization defect.
+\end{proposition}
+
+\begin{proof}
+By
+\cref{def:depth-renormalization-parameter-final},
+\(
+\langle \psi_k,R_{\mathrm{def}}\psi_k\rangle=\lambda B_4'(k)\delta_k
+\).
+Substitute into
+\cref{prop:realized-mass-decomposition}.
+Then apply Taylor expansion of the quartic polynomial \(B_4\).
+\end{proof}
+
+\begin{lemma}[Quartic derivative asymptotics]
+\label{lem:quartic-derivative-asymptotics-final}
+For
+\[
+  B_4(k)
+  =
+  4\binom{k}{4}
+  =
+  \frac{k(k-1)(k-2)(k-3)}{6},
+\]
+one has
+\[
+  B_4'(k)
+  =
+  \frac{4k^3-18k^2+22k-6}{6}
+  =
+  \frac23\,k^3+O(k^2),
+\]
+and
+\[
+  B_4''(k)
+  =
+  \frac{12k^2-36k+22}{6}
+  =
+  2k^2+O(k).
+\]
+\end{lemma}
+
+\begin{proof}
+Differentiate the polynomial expression for \(B_4(k)\) directly.
+\end{proof}
+
+\begin{theorem}[Asymptotic exactness of the quartic mass law]
+\label{thm:asymptotic-exactness-quartic-mass-law-final}
+Assume
+\[
+  \langle \psi_k,R_{\mathrm{def}}\psi_k\rangle = O(k^p)
+  \qquad
+  \text{for some }p<3.
+\]
+Then:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+      \[
+        \delta_k = O(k^{p-3}),
+        \qquad
+        \delta_k\to 0
+        \quad (k\to\infty);
+      \]
+\item
+      \[
+        m_{\mathrm{real}}(k)=\lambda B_4(k)+o(B_4(k));
+      \]
+\item
+      \[
+        \frac{m_{\mathrm{real}}(k)}{\lambda B_4(k)}\to 1
+        \qquad
+        (k\to\infty).
+      \]
+\end{enumerate}
+In particular, if
+\(
+\langle \psi_k,R_{\mathrm{def}}\psi_k\rangle = O(k^2)
+\), then
+\(
+\delta_k = O(k^{-1})
+\).
+\end{theorem}
+
+\begin{proof}
+By
+\cref{def:depth-renormalization-parameter-final},
+\[
+  \delta_k
+  =
+  \frac{\langle \psi_k,R_{\mathrm{def}}\psi_k\rangle}{\lambda B_4'(k)}.
+\]
+By hypothesis,
+\(
+\langle \psi_k,R_{\mathrm{def}}\psi_k\rangle = O(k^p)
+\), and by
+\cref{lem:quartic-derivative-asymptotics-final},
+\(
+B_4'(k)=\Theta(k^3)
+\).
+Hence
+\(
+\delta_k = O(k^{p-3})
+\), so \(\delta_k\to0\) because \(p<3\).
+
+Next,
+\[
+  m_{\mathrm{real}}(k)
+  =
+  \lambda B_4(k)+\langle \psi_k,R_{\mathrm{def}}\psi_k\rangle
+  =
+  \lambda B_4(k)+O(k^p).
+\]
+Since
+\(
+B_4(k)=\frac16k^4+O(k^3)=\Theta(k^4)
+\)
+and \(p<3<4\), one has
+\(
+O(k^p)=o(B_4(k))
+\).
+Therefore
+\(
+m_{\mathrm{real}}(k)=\lambda B_4(k)+o(B_4(k))
+\), and dividing by \(\lambda B_4(k)\) gives item \textup{(iii)}.
+The final sentence is the case \(p=2\).
+\end{proof}
+
+\begin{proposition}[Conditional exact-ratio test for a chosen depth assignment]
+\label{prop:exact-ratio-test}
+Assume the chosen mass-coordinate profile is identified with the
+quartic backbone as in \cref{thm:intrinsic-spectral-mass-law}.
+For any proposed depth assignment
+\[
+  k_1,\dots,k_n,
+\]
+that compatibility model then predicts exact ratios
+\[
+  \frac{m_{\mathrm{int}}(k_i)}{m_{\mathrm{int}}(k_j)}
+  =
+  \frac{B_4(k_i)}{B_4(k_j)}.
+\]
+Hence the quartic-backbone compatibility model admits an exact
+unnormalized ratio test.
+\end{proposition}
+
+\begin{proof}
+Immediate from \cref{thm:exact-ratio-law}.
+\end{proof}
+
+\begin{remark}[Interpretive consequence]
+\label{rem:exact-ratio-interpretive-consequence}
+Under the same quartic-backbone identification, if observed realized
+ratios for a chosen depth assignment are close to the exact quartic
+ratios, this supports using that quartic backbone as the leading
+intrinsic model for the chosen assignment.
+Residual discrepancy is then naturally modeled as lower-order realization
+defect, and under
+\cref{thm:asymptotic-exactness-quartic-mass-law-final} this defect is
+asymptotically negligible.
+\end{remark}
+
+\begin{theorem}[Complete intrinsic spectral prediction at the saved split]
+\label{thm:complete-intrinsic-spectral-prediction}
+The closed relational system determines the scalar channel and its
+quartic leading behavior, but not an intrinsic absolute normalization.
+Under the explicit quartic-backbone identification used in this
+section, one further obtains the exact table and exact ratio formulas
+for that compatibility model.
+Under an additional subcubic realization-defect bound, the realized
+spectrum is asymptotically exact relative to that quartic backbone in
+the sense of
+\cref{thm:asymptotic-exactness-quartic-mass-law-final}.
+\end{theorem}
+
+\begin{proof}
+The unconditional intrinsic statement is exactly the one-channel and
+quartic-leading-behavior package summarized in
+\cref{thm:closure,thm:no-absolute}.
+The conditional quartic-backbone table and ratio formulas are
+\cref{thm:intrinsic-spectral-mass-law,prop:unnormalized-intrinsic-mass-table,thm:exact-ratio-law}.
+The final statement is
+\cref{thm:asymptotic-exactness-quartic-mass-law-final}.
+\end{proof}
+
+% ============================================================
+\section{Handoff to matter-sector realization}
+\label{sec:shell-handoff}
+% ============================================================
+
+This chapter closes intrinsic scalar closure at the level of quartic
+leading behavior and a single normalization orbit, while retaining
+same-channel correction structure only as a compatibility bridge for
+modeled same-channel corrections.
+The next chapter (
+\cref{ch:matter-realization}
+) handles branch-level realization of the canonical sector invariant
+\(m_0(\sigma)=Q(\kappa_\sigma)\).
+Its first remaining theorem target is the Hilbert-branch operator
+realization
+\cref{thm:hilbert-realization-sector-scalar}, via the closed positive
+form route.
+It then isolates the explicit boundary between intrinsic sector observables
+and observer-side interpretation maps.
+
+
+% ============================================================
+\subsection{Forced-upgrade roadmap for the operator target}
+\label{subsec:shell-forced-upgrade-roadmap}
+% ============================================================
+
+A full promotion of the Chapter~22 operator target
+\cref{thm:hilbert-realization-sector-scalar}
+from realization/conditional status to intrinsic/forced status requires a
+theorem chain proved from existing theorem-level data only.
+The following labeled items record the minimal roadmap targets whose later
+discharge would suffice for that upgrade: canonical sector-to-Hilbert
+embedding, induced sector form construction, and closed-form closability.
+
+\begin{theorem}[Roadmap target: canonical sector-to-Hilbert embedding]
+\label{thm:roadmap-sector-to-hilbert-embedding}
+To promote the Chapter~22 operator statement to intrinsic/forced status,
+it would suffice to prove the following statement from only
+\cref{thm:interface-stabilized,ch:hilbert,def:spectral-defect-class,def:spectral-scalar,thm:spectral-depth-separation}:
+there exists a canonical linear map
+\[
+  \iota_{\mathrm{sec}}:
+  \operatorname{span}\{\kappa_\sigma:\sigma\text{ primitive excitation sector}\}
+  \hookrightarrow
+  H_{\mathrm{quad}}
+\]
+with
+\(\iota_{\mathrm{sec}}(\kappa_\sigma)=\psi_\sigma\neq0\),
+compatible with intrinsic depth labels and transport covariance.
+\end{theorem}
+
+\begin{lemma}[Roadmap target: embedded sector form realizes intrinsic scalar values]
+\label{lem:roadmap-embedded-sector-form}
+Assuming \cref{thm:roadmap-sector-to-hilbert-embedding}, the later
+intrinsic upgrade would also be secured by proving the following target
+statement from
+\cref{thm:quadratic-scalar,thm:spectral-scalar-identification,prop:hilbert-real-inner}:
+define on the finite sector span
+\[
+  q_{\mathrm{sec}}(\psi,\phi)
+  :=
+  \left\langle
+    \iota_{\mathrm{sec}}^{-1}\psi,
+    \iota_{\mathrm{sec}}^{-1}\phi
+  \right\rangle_Q.
+\]
+Then \(q_{\mathrm{sec}}\) is positive and densely defined, and for each
+primitive sector \(\sigma\),
+\[
+  q_{\mathrm{sec}}(\psi_\sigma,\psi_\sigma)
+  =
+  m_0(\sigma)\,\|\psi_\sigma\|^2.
+\]
+Hence \(q_{\mathrm{sec}}\) would be of the input type required by
+\cref{lem:sector-quadratic-form}.
+\end{lemma}
+
+\begin{theorem}[Roadmap target: closed-form closability from intrinsic control]
+\label{thm:roadmap-closed-form-closability}
+Assuming \cref{lem:roadmap-embedded-sector-form}, the later intrinsic
+upgrade would further be secured by proving this target statement:
+if intrinsic Hilbert-branch control estimates imply that
+\(q_{\mathrm{sec}}\) is closable, then its closure
+\(\overline q_{\mathrm{sec}}\) is a closed positive form on
+\(H_{\mathrm{quad}}\).
+This is exactly the closed/closable-form hypothesis needed in
+\cref{prop:matter-realization-form-route}.
+\end{theorem}
+
+\begin{proposition}[Roadmap implication for a later forced upgrade of the Chapter~22 operator target]
+\label{prop:roadmap-implies-ch22-operator-target}
+If
+\cref{thm:roadmap-sector-to-hilbert-embedding,lem:roadmap-embedded-sector-form,thm:roadmap-closed-form-closability}
+were later discharged from existing theorem-level inputs alone, then
+that discharge would supply the sufficiency route through
+\cref{prop:matter-realization-form-route} for promoting
+\cref{thm:hilbert-realization-sector-scalar} to intrinsic/forced status.
+\end{proposition}
+
+\begin{proof}
+A later proof of the first two roadmap targets would provide the
+sector-form data required by \cref{lem:sector-quadratic-form}.
+A later proof of the third would provide the closed/closable-form
+hypothesis used by \cref{prop:matter-realization-form-route}.
+Together, those later discharges would therefore yield the canonical
+positive self-adjoint operator with sector eigenvalue law
+\(\mathsf S\psi_\sigma=m_0(\sigma)\psi_\sigma\), which is exactly the
+content that would promote
+\cref{thm:hilbert-realization-sector-scalar} to intrinsic/forced
+status.
+\end{proof}
+
+\begin{corollary}[Forced-upgrade criterion recorded at roadmap strength]
+\label{cor:roadmap-forced-upgrade-criterion}
+A full promotion from realization/conditional to intrinsic/forced for the
+Chapter~22 operator statement is justified exactly when the roadmap
+targets
+\cref{thm:roadmap-sector-to-hilbert-embedding,lem:roadmap-embedded-sector-form,thm:roadmap-closed-form-closability}
+are later proved without adding new observer-side assumptions.
+\end{corollary}
+
+\begin{proof}
+Immediate from
+\cref{prop:roadmap-implies-ch22-operator-target,sec:cond-open}.
+\end{proof}
+
+% ============================================================
+\section{Compatibility bridge for legacy shell labels}
+\label{sec:shell-legacy-compat}
+% ============================================================
+
+For consistency with the existing ledger and cross-chapter references, we
+record a compact compatibility layer in legacy shell notation.
+These labels are optional interface markers and do not add observer-side
+inputs to the intrinsic core established above.
+They function as interface-level translators between the current closure
+language and older shell bookkeeping.
+
+\begin{definition}[Signed shell profile (compatibility form)]
+\label{def:shell-signed-profile}
+At fixed depth, a signed shell profile is a finite family
+\((\Delta_\eta(\sigma))_{\eta\in\Lambda_\sigma}\) with
+\(\Delta_\eta(\sigma)\in\mathbb Z\).
+\end{definition}
+
+\begin{definition}[Shell splitting invariant (compatibility form)]
+\label{def:shell-S}
+Define
+\[
+  S(\sigma):=\sum_{\eta\in\Lambda_\sigma}\Delta_\eta(\sigma)^2.
+\]
+\end{definition}
+
+\begin{definition}[Shell completeness property (legacy label)]
+\label{def:shell-completeness}
+A realized branch is \emph{shell-complete} at fixed depth when
+shell-visible scalar distinction factors through \(S(\sigma)\).
+\end{definition}
+
+\begin{theorem}[Signed-permutation criterion for shell completeness]
+\label{thm:shell-completeness-from-symmetry}
+If the shell residual at depth \(k\) is quadratic and invariant under
+independent sign flips and coordinate permutations of shell coordinates,
+then it is proportional to
+\(\sum_\eta\Delta_\eta^2\).
+If the proportionality coefficient is depth-independent, then
+the shell-completeness property of \cref{def:shell-completeness} holds.
+\end{theorem}
+
+\begin{proof}
+The invariance forces diagonal isotropy of the associated symmetric bilinear
+form, so the quadratic residual is a scalar multiple of the Euclidean square
+sum.
+Depth-independent proportionality then yields a single universal shell
+channel.
+\end{proof}
+
+\begin{corollary}[Conditional discharge of shell completeness]
+\label{cor:shell-completeness-discharged}
+Whenever \cref{thm:shell-completeness-from-symmetry} holds with
+depth-independent coefficient, the shell-completeness property
+\cref{def:shell-completeness} need not be stipulated independently.
+\end{corollary}
+
+\begin{proof}
+Immediate from \cref{thm:shell-completeness-from-symmetry}.
+\end{proof}
+
+\begin{theorem}[Transport-to-shell derivation of symmetry hypotheses]
+\label{thm:shell-symmetry-from-transport}
+Fix depth \(k\) and an interface map
+\(I_k:\mathbb R^{\Lambda_k}\to\mathcal K_{\mathbb R}\).
+If
+\[
+  R_k(\Delta)=Q(I_k\Delta)
+\]
+and for each signed permutation \(g\) there is a realized transport action
+\(T_g\) on \(\mathcal K_{\mathbb R}\) with
+\[
+  I_k(g\Delta)=T_gI_k(\Delta),
+  \qquad
+  Q(T_gx)=Q(x),
+\]
+then \(R_k\) satisfies the symmetry hypotheses of
+\cref{thm:shell-completeness-from-symmetry}.
+\end{theorem}
+
+\begin{proof}
+Linearity of \(I_k\) and quadraticity of \(Q\) make \(R_k\) quadratic.
+Intertwining together with \(Q\)-invariance implies invariance of
+\(R_k\) under the signed-permutation action.
+Hence the symmetry hypotheses are satisfied.
+\end{proof}
+
+\begin{theorem}[Interface checklist for transport-derived symmetry]
+\label{thm:shell-interface-checklist}
+To verify condition \textup{(iii)} of
+\cref{thm:shell-symmetry-from-transport} in-model, it suffices to check
+intertwining and \(Q\)-invariance on finite generators:
+coordinate sign flips \(s_i\) and adjacent transpositions \(\tau_i\),
+together with their signed-permutation relations.
+\end{theorem}
+
+\begin{proof}
+These generators and relations present the hyperoctahedral group.
+If intertwining and \(Q\)-invariance hold on generators, they extend to all
+group elements by composition.
+\end{proof}
+
+\begin{corollary}[Transport-derived shell-completeness route]
+\label{cor:shell-completeness-from-transport}
+If \cref{thm:shell-symmetry-from-transport} holds for each depth and the
+induced proportionality coefficients are depth-independent, then
+the shell-completeness property \cref{def:shell-completeness} and
+\cref{cor:shell-completeness-discharged} hold.
+\end{corollary}
+
+\begin{proof}
+Combine
+\cref{thm:shell-symmetry-from-transport,thm:shell-completeness-from-symmetry,cor:shell-completeness-discharged}.
+\end{proof}
+
+\begin{definition}[One-reference defect-evaluation datum (legacy label)]
+\label{def:shell-defect-intrinsic}
+A one-reference defect-evaluation datum is a non-balanced reference sector
+with intrinsic defect data sufficient to recover the dimensionless shell
+ratio parameter in one-reference form.
+\end{definition}
+
+\begin{definition}[One-reference anchor datum (legacy label)]
+\label{def:shell-anchor}
+A one-reference anchor datum is a reference sector with fixed intrinsic
+scalar value chosen for absolute normalization in one-reference form.
+\end{definition}
+
+\begin{theorem}[Two-reference algebraic closure]
+\label{thm:shell-two-reference-closure}
+Assume a shell-corrected normalized law
+\[
+  m(\sigma)=\alpha\bigl(q(k_\sigma)+\gamma S(\sigma)\bigr)
+\]
+in a realized branch.
+For two reference sectors \(\sigma_1,\sigma_2\) with known
+\(m_i,k_i,S_i\) \((i=1,2)\), if
+\(
+  m_1S_2-m_2S_1\neq0
+\), then
+\[
+  \gamma
+  =
+  \frac{m_2q(k_1)-m_1q(k_2)}{m_1S_2-m_2S_1},
+\]
+and
+\[
+  \alpha
+  =
+  \frac{m_1}{q(k_1)+\gamma S_1}
+  =
+  \frac{m_2}{q(k_2)+\gamma S_2}.
+\]
+\end{theorem}
+
+\begin{proof}
+Write the normalized law at \(\sigma_1,\sigma_2\), eliminate \(\alpha\) by
+cross-multiplication, solve for \(\gamma\), and then substitute back to
+recover \(\alpha\).
+\end{proof}
+
+\begin{corollary}[Discharge of one-reference closure data]
+\label{cor:shell-two-reference-discharges}
+Under \cref{thm:shell-two-reference-closure}, the one-reference data
+\cref{def:shell-defect-intrinsic,def:shell-anchor} are optional.
+\end{corollary}
+
+\begin{proof}
+Two-reference algebraic recovery determines both the dimensionless parameter
+and the absolute normalization directly.
+\end{proof}
+
+% ============================================================
+\section{Final closure statement}
+\label{sec:shell-summary}
+% ============================================================
+
+\begin{theorem}[Maximal intrinsic closure]
+\label{thm:final}
+The closed system determines:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item quartic structural depth law up to one normalization orbit;
+\item ratio rigidity and absence of intrinsic absolute normalization.
+\end{enumerate}
+In addition, under the chapter's explicit same-channel correction
+model, the cubic coefficient is fixed by the quartic backbone and the
+modeled remainder begins at quadratic order.
+No additional intrinsic scalar degree of freedom is left implicit.
+\end{theorem}
+
+\begin{proof}
+The intrinsic claims follow from
+\cref{thm:closure,thm:spectral-ratio-properties,thm:no-absolute}.
+The modeled correction statement follows from
+\cref{thm:no-new,thm:basis,thm:cubic,prop:correction-structure}
+under the explicit ansatz used in
+\cref{sec:shell-corrections}.
+\end{proof}
+
+% ============================================================
+\section{Conclusion}
+\label{sec:shell-conclusion}
+% ============================================================
+
+The intrinsic numerical sector is now closed at theorem level:
+the scalar law is fixed up to one normalization orbit, and any later
+same-channel correction discussion remains an explicit compatibility
+model rather than a new intrinsic scalar channel.
+
+Accordingly, this chapter closes the intrinsic one-channel numerical
+core of the main manuscript at saved strength: quartic leading
+behavior and normalization-orbit freedom are fixed, while
+same-channel correction models and realization-level identifications
+remain explicit rather than forced.
+The branch-level realization role of the canonical matter-sector
+scalar is taken up next in \cref{ch:matter-realization}.

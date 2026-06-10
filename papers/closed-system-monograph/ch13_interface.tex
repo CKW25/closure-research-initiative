@@ -1,0 +1,1082 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{\texorpdfstring{Intrinsic \(2\)-Skeleton Obstruction on the Stone Limit}{Intrinsic 2-Skeleton Obstruction on the Stone Limit}}
+\label{ch:interface}
+% ============================================================
+\section{Introduction}
+Under the standing principle of closed-world admissibility
+(\cref{sp:closed-world}), this chapter develops the inverse-limit
+interface consequences of \cref{sp:compactness,sp:transport}.
+Taking the triangle boundary and curvature realization from
+\cref{ch:triangles,ch:christoffel} as fixed input, it proves that the
+first stable intrinsic transport carrier is the quadratic carrier,
+stabilizes that carrier on the Stone limit, and then relates nonzero
+stabilized square classes to nonzero realized curvature for
+\cref{ch:causality,ch:hilbert,ch:einstein} under faithful smooth
+realization on this already-forced carrier.
+\Cref{ch:triangles,ch:christoffel} established two structural facts
+(\cref{thm:triangle,cor:first-visible-comm,thm:christoffel-main}).
+First, the first finite witness of morphism-level transport defect is
+triangular. Triangle relations therefore define the intrinsic
+\(2\)-skeletal boundary of the transport system.
+Second, the first visible graded carrier of intrinsic transport
+noncommutativity is the quadratic quotient
+\[
+	F^2/F^3,
+\]
+and, under smooth realization, its smooth infinitesimal realization is
+Riemann curvature.
+The purpose of the present chapter is to connect these two facts
+intrinsically, before any smooth realization is imposed.
+The mechanism is algebraic.
+At each finite stage, the isotropy group carries the augmentation
+filtration
+\[
+	F^1K \supseteq F^2K \supseteq F^3K \supseteq \cdots,
+\]
+and commutator squares automatically land in the quadratic layer
+\(F^2K\). Their images in
+\[
+	F^2K/F^3K
+\]
+define canonical degree--\(2\) transport classes.
+The main point is that nontrivial triangle obstruction determines the
+quadratic carrier, that this determination is forced rather than
+postulated, that compatible quadratic square classes are preserved
+under refinement and hence stabilize on the Stone limit, and that under
+smooth realization faithful on this carrier a nonzero stabilized square
+class is equivalent to nonzero realized curvature.
+The chapter is organized as follows.
+We first make the refinement-compatible transport system explicit at the
+level of based loop groups and isotropy groups.
+We then define the projective triangle obstruction.
+Next we establish quadratic cancellation and define the degree--\(2\)
+defect classes.
+We then isolate the passage from triangle obstruction to the quadratic
+carrier.
+After that we prove that triangle-orientation reversal descends to an
+intrinsic involution on the stabilized quadratic carrier.
+Finally we establish, under smooth realization faithful on the forced
+quadratic carrier, that a nonzero stabilized square class is equivalent
+to nonzero realized curvature.
+Thus the index ``\(2\)'' in the interface is not a hypothesis: it is
+the theorem proved by the triangle minimality, commutator-filtration,
+and refinement-stabilization chain.  The remaining faithfulness
+condition belongs only to the realization map; it says that smooth
+realization does not collapse the already forced degree--\(2\) carrier.
+% ============================================================
+\section{Refinement-compatible transport}
+\label{sec:interface-refinement}
+Let
+\[
+	\B_1\subseteq \B_2\subseteq \cdots
+\]
+be the Boolean refinement tower, and write
+\[
+	S_k:=\UF(\B_k),
+	\qquad
+	S_\infty \cong \varprojlim_k S_k
+\]
+for the associated Stone spaces.
+For each stage \(k\), let
+\[
+	\mathcal N_k=(V_k,E_k)
+\]
+be a finite directed transport network equipped with a transport functor
+\[
+	\Hol_k:\Path^\pm(\mathcal N_k)\longrightarrow \mathsf C_k.
+\]
+Fix a basepoint \(p_k\in V_k\), and define
+\[
+	\Omega_{p_k}(\mathcal N_k)
+	:=
+	\Hom_{\Path^\pm(\mathcal N_k)}(p_k,p_k),
+	\qquad
+	K_{p_k}^{(k)}
+	:=
+	\Aut_{\mathsf C_k}(p_k).
+\]
+The restriction of \(\Hol_k\) to based loops is the defect map
+\[
+	\delta_{p_k}^{(k)}:
+	\Omega_{p_k}(\mathcal N_k)\longrightarrow K_{p_k}^{(k)}.
+\]
+Assume the refinement package provides bonding functors
+\[
+	R_{k+1,k}:\Path^\pm(\mathcal N_{k+1})\to \Path^\pm(\mathcal N_k),
+	\qquad
+	Q_{k+1,k}:\mathsf C_{k+1}\to \mathsf C_k,
+\]
+such that
+\begin{equation}\label{eq:interface-compat}
+	Q_{k+1,k}\circ \Hol_{k+1}
+	=
+	\Hol_k\circ R_{k+1,k}.
+\end{equation}
+\begin{lemma}[Bonding maps on based loops and isotropy]
+	\label{lem:interface-bonding}
+	The refinement functors induce homomorphisms
+	\[
+		R_{k+1,k}^{\Omega}:
+		\Omega_{p_{k+1}}(\mathcal N_{k+1})\longrightarrow
+		\Omega_{p_k}(\mathcal N_k),
+		\qquad
+		Q_{k+1,k}^{K}:
+		K_{p_{k+1}}^{(k+1)}\longrightarrow
+		K_{p_k}^{(k)},
+	\]
+	and these satisfy
+	\[
+		Q_{k+1,k}^{K}\circ \delta_{p_{k+1}}^{(k+1)}
+		=
+		\delta_{p_k}^{(k)}\circ R_{k+1,k}^{\Omega}.
+	\]
+\end{lemma}
+\begin{proof}
+	Since \(R_{k+1,k}\) is a functor, it sends loops at \(p_{k+1}\) to loops
+	at \(p_k\), hence restricts to a homomorphism
+	\[
+		R_{k+1,k}^{\Omega}:
+		\Omega_{p_{k+1}}(\mathcal N_{k+1})\to \Omega_{p_k}(\mathcal N_k).
+	\]
+	Likewise \(Q_{k+1,k}\) restricts on isotropy groups to
+	\[
+		Q_{k+1,k}^{K}:
+		\Aut_{\mathsf C_{k+1}}(p_{k+1})\to \Aut_{\mathsf C_k}(p_k).
+	\]
+	Now restrict \cref{eq:interface-compat} to
+	\(\Omega_{p_{k+1}}(\mathcal N_{k+1})\). This yields
+	\[
+		Q_{k+1,k}^{K}\circ \delta_{p_{k+1}}^{(k+1)}
+		=
+		\delta_{p_k}^{(k)}\circ R_{k+1,k}^{\Omega},
+	\]
+	as claimed.
+\end{proof}
+% ============================================================
+\section{Triangle obstruction}
+\label{sec:interface-triangle}
+For each stage \(k\), let
+\[
+	N_{\triangle,p_k}^{(k)}\trianglelefteq \Omega_{p_k}(\mathcal N_k)
+\]
+denote the normal closure of all based triangle loops.
+\begin{definition}[Finite-stage triangle obstruction]
+	Define
+	\[
+		\Obs_\triangle^{(k)}
+		:=
+		\delta_{p_k}^{(k)}\bigl(N_{\triangle,p_k}^{(k)}\bigr)
+		\subseteq
+		K_{p_k}^{(k)}.
+	\]
+\end{definition}
+\begin{proposition}[Projective triangle obstruction]
+	The groups \(\Obs_\triangle^{(k)}\) form a projective system under
+	refinement. Consequently
+	\[
+		\Obs_\triangle^\infty
+		:=
+		\varprojlim_k \Obs_\triangle^{(k)}
+	\]
+	is canonically defined on the inverse-limit locus.
+\end{proposition}
+\begin{proof}
+	Refinement preserves triangle incidence, hence sends a based triangle
+	loop at stage \(k+1\) to a based triangle loop at stage \(k\). Since
+	\(N_{\triangle,p_k}^{(k)}\) is the normal closure of the based triangle loops at stage
+	\(k\), it follows that
+	\[
+		R_{k+1,k}^{\Omega}\bigl(N_{\triangle,p_{k+1}}^{(k+1)}\bigr)
+		\subseteq
+		N_{\triangle,p_k}^{(k)}.
+	\]
+	Applying \cref{lem:interface-bonding} gives
+	\[
+		Q_{k+1,k}^{K}\Bigl(\delta_{p_{k+1}}^{(k+1)}\bigl(N_{\triangle,p_{k+1}}^{(k+1)}\bigr)\Bigr)
+		=
+		\delta_{p_k}^{(k)}\Bigl(R_{k+1,k}^{\Omega}\bigl(N_{\triangle,p_{k+1}}^{(k+1)}\bigr)\Bigr)
+		\subseteq
+		\delta_{p_k}^{(k)}\bigl(N_{\triangle,p_k}^{(k)}\bigr).
+	\]
+	That is,
+	\[
+		Q_{k+1,k}^{K}\bigl(\Obs_\triangle^{(k+1)}\bigr)
+		\subseteq
+		\Obs_\triangle^{(k)}.
+	\]
+	Hence the triangle obstruction groups form a projective system.
+\end{proof}
+\begin{remark}[Minimal \(2\)-skeletal character]
+	Triangle loops are the minimal \(2\)-cell boundaries in the intrinsic
+	transport complex.
+	Accordingly \(\Obs_\triangle^{(k)}\) is the first obstruction that is
+	genuinely \(2\)-skeletal rather than merely path-theoretic.
+\end{remark}
+% ============================================================
+\section{Augmentation filtration and quadratic cancellation}
+\label{sec:interface-filtration}
+Let \(K\) be a group and
+\[
+	\varepsilon:\mathbb Z[K]\to \mathbb Z
+\]
+its augmentation homomorphism. Write
+\[
+	I:=\ker(\varepsilon).
+\]
+\begin{definition}[Intrinsic augmentation filtration]
+	For \(m\ge 1\), define
+	\[
+		F^mK
+		:=
+		\{g\in K: g-1\in I^m\}.
+	\]
+\end{definition}
+\begin{lemma}[Commutators raise augmentation order]
+	\label{lem:interface-comm-raises}
+	For all integers \(r,s\ge 1\),
+	\[
+		[F^rK,F^sK]\subseteq F^{r+s}K.
+	\]
+\end{lemma}
+\begin{proof}
+	Let \(a\in F^rK\) and \(b\in F^sK\). Then
+	\[
+		a-1\in I^r,
+		\qquad
+		b-1\in I^s.
+	\]
+	Write
+	\[
+		u:=a-1\in I^r,
+		\qquad
+		v:=b-1\in I^s.
+	\]
+	Then
+	\[
+		a=1+u,
+		\qquad
+		b=1+v.
+	\]
+	In the \(I\)-adic completion one has convergent geometric-series
+	expansions
+	\[
+		a^{-1}=1-u+u^2-u^3+\cdots,
+		\qquad
+		b^{-1}=1-v+v^2-v^3+\cdots.
+	\]
+	Hence
+	\[
+		a^{-1}-1\in I^r,
+		\qquad
+		b^{-1}-1\in I^s.
+	\]
+	Now compute
+	\[
+		[a,b]-1=aba^{-1}b^{-1}-1.
+	\]
+	Modulo \(I^{r+s}\), every nonconstant term in the product
+	\[
+		(1+u)(1+v)\bigl(1+(a^{-1}-1)\bigr)\bigl(1+(b^{-1}-1)\bigr)
+	\]
+	contains at least one factor from \(I^r\) and at least one factor from
+	\(I^s\), or else lies in a strictly higher power of \(I\). Hence
+	\[
+		[a,b]-1\in I^{r+s}.
+	\]
+	Therefore
+	\[
+		[a,b]\in F^{r+s}K.
+	\]
+\end{proof}
+Now fix a stage \(k\) and a basepoint \(p_k\).
+For based loops \(e_i,e_j\in \Omega_{p_k}(\mathcal N_k)\), define the
+commutator square
+\[
+	\square_{ij}:=e_ie_je_i^{-1}e_j^{-1}.
+\]
+\begin{proposition}[Quadratic cancellation]
+	For every stage \(k\) and every commutator square \(\square_{ij}\),
+	\[
+		\delta_{p_k}^{(k)}(\square_{ij})\in F^2K_{p_k}^{(k)}.
+	\]
+\end{proposition}
+\begin{proof}
+	Since \(\delta_{p_k}^{(k)}\) is a homomorphism,
+	\[
+		\delta_{p_k}^{(k)}(\square_{ij})
+		=
+		[\delta_{p_k}^{(k)}(e_i),\delta_{p_k}^{(k)}(e_j)].
+	\]
+	Every group element lies in \(F^1K\). Hence
+	\cref{lem:interface-comm-raises} with \(r=s=1\) gives
+	\[
+		\delta_{p_k}^{(k)}(\square_{ij})\in F^2K_{p_k}^{(k)}.
+	\]
+\end{proof}
+\begin{lemma}[Primitive two-cell Magnus term]
+\label{lem:primitive-two-cell-magnus}
+Let \(a,b\in K\) be two transport germs whose degree--\(1\) classes
+\[
+\bar a,\bar b\in F^1K/F^2K
+\]
+are independent.  Then the commutator square
+\[
+[a,b]=aba^{-1}b^{-1}
+\]
+has nonzero quadratic class
+\[
+[a,b]\bmod F^3K\in F^2K/F^3K.
+\]
+More precisely, in the augmentation ideal one has
+\[
+[a,b]-1\equiv (a-1)(b-1)-(b-1)(a-1) \pmod {I^3},
+\]
+so the class of \([a,b]\) is the exterior product
+\(\bar a\wedge\bar b\).
+\end{lemma}
+\begin{proof}
+Write \(u=a-1\) and \(v=b-1\).  Modulo \(I^3\),
+\[
+	a^{-1}\equiv 1-u+u^2,
+	\qquad
+	b^{-1}\equiv 1-v+v^2.
+\]
+Multiplying
+\[
+	(1+u)(1+v)(1-u+u^2)(1-v+v^2)
+\]
+and discarding terms in \(I^3\) gives
+\[
+	[a,b]\equiv 1+uv-vu \pmod {I^3}.
+\]
+Thus
+\[
+	[a,b]-1\equiv uv-vu \pmod {I^3}.
+\]
+The antisymmetric tensor \(uv-vu\) is the image of
+\(\bar a\wedge\bar b\).  Since \(\bar a\) and \(\bar b\) are independent,
+this exterior product is nonzero.  Hence \([a,b]\notin F^3K\), while
+\cref{lem:interface-comm-raises} gives \([a,b]\in F^2K\).
+\end{proof}
+\begin{lemma}[Minimal triangle witnesses have nonzero area class]
+\label{lem:minimal-triangle-area}
+A primitive triangle witness in the strict triangle regime determines two
+first-order edge germs with nonzero exterior product in \(F^1K/F^2K\).
+\end{lemma}
+\begin{proof}
+By \cref{thm:triangle} and \cref{cor:bridge-minimal}, every two-edge
+restriction of a primitive triangle witness is coherent, while the full
+three-edge subsystem is not.  If the degree--\(1\) edge germs of the
+triangle spanned a rank--\(0\) or rank--\(1\) subgroup, then the full
+triangle would factor through the same one-dimensional first-order
+transport line as its two-edge restrictions.  In that case pairwise
+coherence would determine the third edge and would extend to a coherent
+vertex gauge on the full triangle, contradicting the strict minimality of
+\cref{thm:triangle}.  Hence the primitive triangle witness has a rank--\(2\)
+first-order span.  Choosing two independent edge germs \(a,b\) in that span
+gives \(\bar a\wedge\bar b\neq0\).
+\end{proof}
+% ============================================================
+\section{Quadratic defect classes}
+\label{sec:interface-quadratic}
+\begin{definition}[Quadratic defect class]
+	For each stage \(k\), define
+	\[
+		\mathcal A_{ij}^{(k)}(p_k)
+		:=
+		\bigl[\delta_{p_k}^{(k)}(\square_{ij})\bigr]
+		\in
+		F^2K_{p_k}^{(k)}/F^3K_{p_k}^{(k)}.
+	\]
+\end{definition}
+\begin{proposition}[Alternation and graded bilinearity]
+	The assignment
+	\[
+		(i,j)\longmapsto \mathcal A_{ij}^{(k)}(p_k)
+	\]
+	is alternating, and commutator induces a bilinear map
+	\[
+		\bigl(F^1K_{p_k}^{(k)}/F^2K_{p_k}^{(k)}\bigr)
+		\times
+		\bigl(F^1K_{p_k}^{(k)}/F^2K_{p_k}^{(k)}\bigr)
+		\longrightarrow
+		F^2K_{p_k}^{(k)}/F^3K_{p_k}^{(k)}.
+	\]
+\end{proposition}
+\begin{proof}
+	By \cref{lem:interface-comm-raises}, the commutator of two degree--\(1\)
+	elements lands in degree \(2\). Therefore the commutator descends to a
+	map
+	\[
+		\bigl(F^1K/F^2K\bigr)\times\bigl(F^1K/F^2K\bigr)\to F^2K/F^3K.
+	\]
+	To prove bilinearity, let \(a,a',b\in F^1K\). The standard commutator
+	identity gives
+	\[
+		[aa',b]=[a,b]\,[a,b,a']\,[a',b],
+	\]
+	where \([a,b,a']=[[a,b],a']\). Since \([a,b]\in F^2K\), one has
+	\[
+		[a,b,a']\in [F^2K,F^1K]\subseteq F^3K
+	\]
+	by \cref{lem:interface-comm-raises}. Hence modulo \(F^3K\),
+	\[
+		[aa',b]\equiv [a,b][a',b].
+	\]
+	Similarly,
+	\[
+		[a,bb']\equiv [a,b][a,b'] \pmod{F^3K}.
+	\]
+	Thus the induced map is bilinear on the quotients.
+	For alternation, one has
+	\[
+		[a,a]=e
+	\]
+	for every \(a\), so the induced class of \([a,a]\) is zero in
+	\(F^2K/F^3K\). Also,
+	\[
+		[b,a]=[a,b]^{-1},
+	\]
+	so in additive notation on the abelian quotient \(F^2K/F^3K\),
+	\[
+		\mathcal A_{ji}^{(k)}(p_k)=-\mathcal A_{ij}^{(k)}(p_k).
+	\]
+	Therefore the assignment is alternating.
+\end{proof}
+% ============================================================
+\section{\texorpdfstring{Persistence of triangle obstruction in degree \(2\)}{Persistence of triangle obstruction in degree 2}}
+\label{sec:interface-persistence}
+The next step is the intrinsic passage from triangle obstruction to a
+nonzero quadratic carrier.
+\begin{lemma}[Primitive triangle defects survive quadratically]
+	\label{lem:quadratic-nondegenerate}
+	Let
+	\[
+		g\neq e
+	\]
+	be a primitive transport defect arising from a triangle witness.
+	Then there exists a refinement stage \(\ell\) such that
+	\[
+		g\notin F^3K_{p_\ell}^{(\ell)}.
+	\]
+\end{lemma}
+\begin{proof}
+	By \cref{lem:minimal-triangle-area}, the primitive triangle witness
+	determines two first-order edge germs \(a,b\) with
+	\[
+		\bar a\wedge\bar b\neq0.
+	\]
+	The comparison of the two opposite orderings of these germs is the
+	associated commutator square.  By
+	\cref{lem:primitive-two-cell-magnus}, that square has nonzero image in
+	\[
+		F^2K/F^3K.
+	\]
+	Refinement compatibility carries this primitive square class to the
+	corresponding square class at sufficiently fine stages.  Therefore the
+	refined primitive defect cannot lie in \(F^3\) at every stage.  Hence
+	there exists \(\ell\) with
+	\[
+		g\notin F^3K_{p_\ell}^{(\ell)}.
+	\]
+\end{proof}
+\begin{lemma}[Persistence of nontrivial triangle defect in \(F^2/F^3\)]
+	\label{lem:interface-persistence}
+	If
+	\[
+		\Obs_\triangle^{(k)}\neq \{e\},
+	\]
+	then, after passing if necessary to a sufficiently fine refinement stage
+	\(\ell\ge k\), the image of \(\Obs_\triangle^{(k)}\) in
+	\[
+		F^2K_{p_\ell}^{(\ell)}/F^3K_{p_\ell}^{(\ell)}
+	\]
+	is nonzero.
+\end{lemma}
+\begin{proof}
+	The group \(\Obs_\triangle^{(k)}\) is generated by the images of based
+	primitive triangle loops and their conjugates.  If every primitive
+	triangle defect had trivial image, the generated obstruction group would
+	be trivial.  Since \(\Obs_\triangle^{(k)}\neq \{e\}\), at least one
+	primitive triangle witness has nontrivial defect.
+
+	By refinement compatibility, that primitive defect propagates to finer
+	stages.  By \cref{lem:quadratic-nondegenerate}, there exists a refinement
+	stage \(\ell\ge k\) at which its refined image does not lie in
+	\[
+		F^3K_{p_\ell}^{(\ell)}.
+	\]
+	On the other hand, the witness is a boundary-supported \(2\)-cell
+	defect, so its degree--\(1\) image vanishes by
+	\cref{cor:triangle-degree1-invisible} in \cref{ch:christoffel}.  Its
+	first possible nonzero image is therefore in the quadratic range.  Hence
+	its class in
+	\[
+		F^2K_{p_\ell}^{(\ell)}/F^3K_{p_\ell}^{(\ell)}
+	\]
+	is nonzero, and so the image of \(\Obs_\triangle^{(k)}\) in this quotient
+	is nonzero.
+\end{proof}
+% ============================================================
+\section{The relevant quadratic carrier}
+\label{sec:interface-generation}
+The next object is the intrinsic degree--\(2\) carrier generated by
+quadratic square classes coming from the triangle-induced transport
+sector.
+\begin{definition}[Finite-stage quadratic carrier]
+	\label{def:interface-Kk}
+	Let
+	\[
+		\mathcal K_k
+		\subseteq
+		F^2K_{p_k}^{(k)}/F^3K_{p_k}^{(k)}
+	\]
+	denote the subgroup generated by the classes
+	\[
+		\mathcal A_{ij}^{(k)}(p_k)
+	\]
+	arising from commutator squares in the triangle-closed transport
+	regime.
+\end{definition}
+\begin{lemma}[Quadratic carrier is square-generated]
+	For each stage \(k\), the subgroup
+	\[
+		\mathcal K_k
+		\subseteq
+		F^2K_{p_k}^{(k)}/F^3K_{p_k}^{(k)}
+	\]
+	defined in \cref{def:interface-Kk} is generated by the classes
+	\[
+		\mathcal A_{ij}^{(k)}(p_k).
+	\]
+\end{lemma}
+\begin{proof}
+	This is immediate from the definition of \(\mathcal K_k\).
+\end{proof}
+\begin{remark}[What is retained from triangle defect]
+	The carrier \(\mathcal K_k\) is the intrinsic degree--\(2\) residue of
+	the \(2\)-skeletal transport boundary.
+	It is exactly the portion of triangle obstruction that remains visible
+	after quotienting away cubic and higher transport error.
+\end{remark}
+% ============================================================
+\section{Quadratic carrier determined by triangle obstruction}
+\label{sec:interface-carrier}
+\begin{theorem}[Triangle obstruction determines a quadratic carrier]
+	\label{thm:interface-quad-carrier}
+	If
+	\[
+		\Obs_\triangle^{(k)}\neq \{e\},
+	\]
+	then after refinement there exist \(\ell\ge k\) and indices
+	\((i,j)\) such that
+	\[
+		\mathcal A_{ij}^{(\ell)}(p_\ell)\neq 0.
+	\]
+\end{theorem}
+\begin{proof}
+	By \cref{lem:interface-persistence}, after refinement to some
+	\(\ell\ge k\), the image of \(\Obs_\triangle^{(k)}\) in
+	\[
+		F^2K_{p_\ell}^{(\ell)}/F^3K_{p_\ell}^{(\ell)}
+	\]
+	is nonzero.
+	By definition, the relevant degree--\(2\) carrier is the subgroup
+	\(\mathcal K_\ell\) generated by the square classes
+	\[
+		\mathcal A_{ij}^{(\ell)}(p_\ell).
+	\]
+	Therefore at least one such class must be nonzero.
+\end{proof}
+% ============================================================
+\section{Universal property of the quadratic carrier}
+\label{sec:interface-universal}
+\Cref{thm:interface-quad-carrier} shows that the degree--\(2\) quotient is the first
+place where intrinsic \(2\)-skeletal obstruction becomes visible.
+The next proposition isolates its universal property.
+\begin{proposition}[Universal property of the quadratic carrier]
+	\label{prop:interface-universal-quadratic}
+	Let
+	\[
+		\pi_{2,3}:F^2K_p\to F^2K_p/F^3K_p
+	\]
+	be the quotient map.
+	Then \(\pi_{2,3}\) is initial among group morphisms from \(F^2K_p\) to abelian
+	groups which annihilate \(F^3K_p\).
+	Equivalently, if
+	\[
+		\phi:F^2K_p\to A
+	\]
+	is a group morphism into an abelian group \(A\) with
+	\[
+		F^3K_p\subseteq \ker(\phi),
+	\]
+	then there exists a unique morphism
+	\[
+		\widetilde\phi:F^2K_p/F^3K_p\to A
+	\]
+	such that
+	\[
+		\phi=\widetilde\phi\circ \pi_{2,3}.
+	\]
+\end{proposition}
+\begin{proof}
+	This is the universal property of the quotient group
+	\(F^2K_p/F^3K_p\).
+\end{proof}
+\begin{remark}
+	\Cref{prop:interface-universal-quadratic} gives the precise sense in
+	which \(F^2/F^3\) is the canonical carrier of quadratic transport
+	defect.
+	Any detector defined on the quadratic layer and insensitive to cubic
+	error factors uniquely factors through this quotient.
+\end{remark}
+% ============================================================
+\section{Stabilization on the Stone limit}
+\label{sec:interface-stabilization}
+\begin{definition}[Stabilized quadratic carrier]
+	Define
+	\[
+		\mathcal K_\infty
+		:=
+		\varprojlim_k \mathcal K_k.
+	\]
+\end{definition}
+\begin{theorem}[Stabilized quadratic defect]
+	\label{thm:interface-stabilized}
+	Every compatible family of finite-stage quadratic square classes defines
+	an element of
+	\[
+		\mathcal K_\infty=\varprojlim_k \mathcal K_k.
+	\]
+	Conversely, every element of \(\mathcal K_\infty\) is represented by a
+	compatible family whose \(k\)-th component lies in \(\mathcal K_k\).
+\end{theorem}
+\begin{proof}
+	By \cref{lem:interface-bonding}, the refinement package supplies
+	group homomorphisms
+	\(Q_{k+1,k}^{K}:K_{p_{k+1}}^{(k+1)}\to K_{p_k}^{(k)}\). Any group
+	homomorphism extends linearly to a morphism of group rings preserving
+	augmentation ideals, so \(Q_{k+1,k}^{K}\) carries
+	\(F^2K_{p_{k+1}}^{(k+1)}\) into \(F^2K_{p_k}^{(k)}\) and
+	\(F^3K_{p_{k+1}}^{(k+1)}\) into \(F^3K_{p_k}^{(k)}\). Therefore it
+	induces a homomorphism
+	\(F^2K_{p_{k+1}}^{(k+1)}/F^3K_{p_{k+1}}^{(k+1)}\to
+	F^2K_{p_k}^{(k)}/F^3K_{p_k}^{(k)}\). Because each
+	\(\mathcal K_k\) is generated by the square classes
+	\(\mathcal A_{ij}^{(k)}(p_k)\) and refinement carries such square
+	classes to square classes at the previous stage, these quotient maps
+	restrict to bonding maps \(\mathcal K_{k+1}\to\mathcal K_k\). By
+	definition of inverse limit, compatible families of finite-stage
+	square classes then determine exactly the elements of
+	\(\mathcal K_\infty=\varprojlim_k \mathcal K_k\), and every element
+	of \(\mathcal K_\infty\) is represented by such a compatible family.
+\end{proof}
+\begin{definition}[Stabilized square class]
+	Whenever a compatible family of finite-stage square classes
+	\[
+		\bigl(\mathcal A_{ij}^{(k)}(p_k)\bigr)_k
+	\]
+	is fixed, we write its image in \(\mathcal K_\infty\) as
+	\[
+		\mathcal A_{ij}(p_\infty).
+	\]
+\end{definition}
+\begin{theorem}[Second-layer stabilization theorem]
+	\label{thm:interface-seal}
+	In the closed comparison stack, the first stable nontrivial transport
+	obstruction in the refinement tower is the stabilized quadratic carrier
+	\[
+		\mathcal K_\infty\simeq F^2/F^3.
+	\]
+	Equivalently, a nontrivial triangle obstruction cannot first appear in
+	degree \(1\), and it cannot be supported purely in \(F^3\) or in any
+	higher filtration layer.  After refinement it has a nonzero image in the
+	degree--\(2\) carrier, and compatible such images stabilize on the Stone
+	limit.
+\end{theorem}
+\begin{proof}
+	By \cref{thm:triangle} and \cref{cor:bridge-minimal}, the first finite
+	morphism-level obstruction is triangular: every two-edge restriction is
+	coherent, while the full three-edge subsystem need not be.  Hence no
+	degree--\(1\) transport quotient can carry this obstruction.  This is the
+	content of \cref{cor:triangle-degree1-invisible} in
+	\cref{ch:christoffel}: boundary-supported \(2\)-cell defect has trivial
+	image in \(F^1/F^2\).
+
+	By \cref{lem:interface-persistence}, any nontrivial triangle obstruction
+	has, after sufficiently fine refinement, a nonzero image in
+	\[
+		F^2K_{p_\ell}^{(\ell)}/F^3K_{p_\ell}^{(\ell)}.
+	\]
+	By \cref{thm:interface-quad-carrier}, this nonzero image is represented
+	by a nonzero quadratic square class
+	\[
+		\mathcal A_{ij}^{(\ell)}(p_\ell).
+	\]
+	Equivalently, the obstruction cannot first appear in degree \(3\) or
+	higher: such an appearance would force the degree--\(2\) image to vanish,
+	contradicting the nonzero square class just obtained.
+
+	Finally, \cref{thm:interface-stabilized} shows that refinement-compatible
+	families of these finite-stage square classes define exactly the inverse
+	limit carrier
+	\[
+		\mathcal K_\infty=\varprojlim_k\mathcal K_k.
+	\]
+	Thus the first stable nontrivial transport obstruction of the refinement
+	tower is neither degree \(1\) nor a hidden higher layer.  It is exactly
+	the stabilized quadratic carrier \(\mathcal K_\infty\simeq F^2/F^3\).
+\end{proof}
+\begin{remark}[What has stabilized]
+	The object \(\mathcal K_\infty\) is the intrinsic degree--\(2\)
+	transport carrier retained by the full refinement tower.
+	It is the first stabilized obstruction visible on the Stone inverse
+	limit.
+\end{remark}
+\begin{definition}[Admissible degree--\(2\) scalar detector]
+	\label{def:interface-admissible-scalar}
+	Fix a basepoint \(p\). A group morphism
+	\[
+		\phi:F^2K_p\to \mathbb R
+	\]
+	is called an admissible degree--\(2\) scalar detector if it is invariant
+	under multiplication by elements of \(F^3K_p\), i.e. if
+	\[
+		\phi(xz)=\phi(x)
+		\qquad
+		\text{for all }x\in F^2K_p,\ z\in F^3K_p.
+	\]
+\end{definition}
+\begin{theorem}[Kernel annihilation at the quadratic carrier]
+	\label{thm:kernel-annihilation-upstream}
+	Fix a basepoint \(p\), and let
+	\[
+		\pi_{2,3}:F^2K_p\to F^2K_p/F^3K_p
+	\]
+	be the canonical quotient.
+	Let
+	\[
+		\phi:F^2K_p\to \mathbb R
+	\]
+	be any admissible degree--\(2\) scalar detector.
+	Then
+	\[
+		F^3K_p\subseteq \Ker(\phi),
+	\]
+	and therefore there exists a unique morphism
+	\[
+		\overline\phi:F^2K_p/F^3K_p\to\mathbb R
+	\]
+	such that
+	\[
+		\phi=\overline\phi\circ \pi_{2,3}.
+	\]
+\end{theorem}
+\begin{proof}
+	Let \(z\in F^3K_p\).
+	Since \(\phi\) is admissible, \cref{def:interface-admissible-scalar}
+	gives
+	\[
+		\phi(xz)=\phi(x)
+		\qquad
+		\text{for all }x\in F^2K_p.
+	\]
+	Taking \(x=e\), where \(e\) is the identity element of \(F^2K_p\),
+	yields
+	\[
+		\phi(z)=\phi(e).
+	\]
+	Because \(\phi\) is a group morphism into the additive group
+	\(\mathbb R\), one has
+	\[
+		\phi(e)=0.
+	\]
+	Hence
+	\[
+		\phi(z)=0
+		\qquad
+		\text{for all }z\in F^3K_p.
+	\]
+	Therefore
+	\[
+		F^3K_p\subseteq \Ker(\phi).
+	\]
+	Now apply \cref{prop:interface-universal-quadratic}. Since \(\phi\)
+	annihilates \(F^3K_p\), there exists a unique morphism
+	\[
+		\overline\phi:F^2K_p/F^3K_p\to\mathbb R
+	\]
+	such that
+	\[
+		\phi=\overline\phi\circ \pi_{2,3}.
+	\]
+	This is the required factorization.
+\end{proof}
+% ============================================================
+\section{Orientation reversal on the quadratic carrier}
+\label{sec:orientation-carrier}
+Primitive triangle witnesses admit a natural orientation reversal.
+We show that this operation descends to the stabilized quadratic carrier.
+\begin{definition}[Primitive orientation reversal]
+	Let
+	\[
+		\omega(p,q,r)
+	\]
+	denote the defect class associated to the oriented triangle
+	\((p,q,r)\).
+	Define the reversed class by
+	\[
+		\mathsf R_\triangle\,\omega(p,q,r):=\omega(p,r,q).
+	\]
+\end{definition}
+\begin{lemma}[Orientation reversal preserves the triangle quotient]
+	Let \(w_\triangle(p,q,r)\) denote the triangle boundary word.
+	Then reversing orientation sends
+	\[
+		w_\triangle(p,q,r)\mapsto w_\triangle(p,r,q)=w_\triangle(p,q,r)^{-1}.
+	\]
+	Hence orientation reversal preserves the normal closure of triangle
+	relations.
+\end{lemma}
+\begin{proof}
+	By definition
+	\[
+		w_\triangle(p,q,r)=[rp][qr][pq].
+	\]
+	Reversing orientation exchanges the last two vertices and yields the
+	inverse word.
+	Since the triangle relations are imposed through their normal closure,
+	the quotient group is invariant under inversion.
+\end{proof}
+\begin{theorem}[Orientation involution on the quadratic carrier]
+	Primitive triangle reversal descends to a well-defined involution
+	\[
+		\mathsf R_{\mathrm{or}}:\mathcal K_\infty\longrightarrow \mathcal K_\infty.
+	\]
+	Moreover
+	\[
+		\mathsf R_{\mathrm{or}}^2=I.
+	\]
+\end{theorem}
+\begin{proof}
+	At each finite stage, the quotient
+	\[
+		F^2K_{p_k}^{(k)}/F^3K_{p_k}^{(k)}
+	\]
+	is abelian, so inversion is a well-defined automorphism.
+	On square classes it exchanges
+	\[
+		\mathcal A_{ij}^{(k)}(p_k)
+		\longleftrightarrow
+		\mathcal A_{ji}^{(k)}(p_k)
+		=
+		-\mathcal A_{ij}^{(k)}(p_k).
+	\]
+	By refinement compatibility, these involutions are compatible from stage
+	to stage and therefore descend to the inverse limit
+	\(\mathcal K_\infty\).
+	Applying inversion twice yields the identity, so
+	\[
+		\mathsf R_{\mathrm{or}}^2=I.
+	\]
+\end{proof}
+\begin{remark}
+	The involution \(\mathsf R_{\mathrm{or}}\) exchanges the two orientations of every primitive
+	triangle witness.
+	Later chapters may use the corresponding \(\pm1\)-eigenspace
+	decomposition to organize the defect sector.
+\end{remark}
+% ============================================================
+\section{Smooth realization}
+\label{sec:interface-smooth}
+Assume now a smooth realization in which square-loop transport admits a
+small-loop parameter \(\varepsilon\), and suppose parallel transport
+around a coordinate square satisfies
+\[
+	\Hol(\square_{ij}(\varepsilon))
+	=
+	\id
+	+
+	\varepsilon^2 R(\partial_i,\partial_j)
+	+
+	O(\varepsilon^3).
+\]
+Fix a limit basepoint \(p_\infty\in S_\infty\), and set
+\[
+	V:=T_{\iota(p_\infty)}M.
+\]
+\begin{definition}[Second-jet comparison map]
+	\label{def:interface-J2}
+	Define
+	\[
+		\Jtwo:\mathcal K_\infty\to \End(V)
+	\]
+	to be the map sending the quadratic class of an intrinsic square defect
+	to the coefficient of \(\varepsilon^2\) in the realized holonomy
+	expansion.
+\end{definition}
+\begin{lemma}[Well-definedness of the second-jet map]
+	The map \(\Jtwo\) is well-defined on \(\mathcal K_\infty\).
+\end{lemma}
+\begin{proof}
+	By \cref{lem:filtration-holonomy-order} in \cref{ch:christoffel}, the
+	quotient
+	\[
+		F^2/F^3
+	\]
+	records exactly the quadratic holonomy coefficient, while terms of order
+	\(3\) and higher are killed by passage to the quotient by \(F^3\).
+	Hence two representatives of the same stabilized quadratic class have
+	the same \(\varepsilon^2\)-coefficient under smooth realization.
+	Therefore \(\Jtwo\) is well-defined.
+\end{proof}
+\begin{theorem}[Curvature identification]
+	\label{thm:interface-curvature}
+	For the stabilized quadratic class,
+	\[
+		\Jtwo\bigl(\mathcal A_{ij}(p_\infty)\bigr)
+		=
+		R(\partial_i,\partial_j).
+	\]
+\end{theorem}
+\begin{proof}
+	By definition,
+	\[
+		\mathcal A_{ij}(p_\infty)
+	\]
+	is the degree--\(2\) class of the intrinsic commutator defect of the
+	square loop.
+	By \cref{def:interface-J2}, \(\Jtwo\) extracts the coefficient of
+	\(\varepsilon^2\) in the realized holonomy expansion.
+	By \cref{cor:infdef} in \cref{ch:christoffel}, the coefficient of
+	\(\varepsilon^2\) in the holonomy expansion of a small square is
+	exactly
+	\[
+		R(\partial_i,\partial_j).
+	\]
+	Therefore
+	\[
+		\Jtwo\bigl(\mathcal A_{ij}(p_\infty)\bigr)
+		=
+		R(\partial_i,\partial_j).
+	\]
+\end{proof}
+% ============================================================
+\section{Interface theorem}
+\label{sec:interface-main}
+\begin{theorem}[Intrinsic--smooth interface]
+	\label{thm:interface-main}
+	Under the standing principle \cref{sp:closed-world}, the refinement
+	tower stabilizes its first nontrivial transport obstruction at the
+	degree--\(2\) carrier
+	\[
+		\mathcal K_\infty\simeq F^2/F^3.
+	\]
+	Assume only realization faithfulness on this forced carrier, i.e. that
+	the comparison map
+	\[
+		\Jtwo:\mathcal K_\infty\to \End(V)
+	\]
+	is injective.
+	Then the following are equivalent:
+	\[
+		\exists\,\mathcal A_{ij}(p_\infty)\neq0,
+		\qquad
+		R\neq0.
+	\]
+\end{theorem}
+\begin{proof}
+	The stabilization assertion is \cref{thm:interface-seal}.  Thus the
+	appearance of the second layer is not an additional interface assumption;
+	it is the intrinsic output of the refinement tower.  What remains to
+	check is the faithful smooth reading of that carrier.
+
+	Suppose that
+	\[
+		\mathcal A_{ij}(p_\infty)\neq 0.
+	\]
+	Since \(\Jtwo\) is injective,
+	\[
+		\Jtwo\bigl(\mathcal A_{ij}(p_\infty)\bigr)\neq 0.
+	\]
+	By \cref{thm:interface-curvature},
+	\[
+		\Jtwo\bigl(\mathcal A_{ij}(p_\infty)\bigr)
+		=
+		R(\partial_i,\partial_j),
+	\]
+	hence
+	\[
+		R\neq 0.
+	\]
+	Conversely, if
+	\[
+		R\neq 0,
+	\]
+	then for some indices \(i,j\),
+	\[
+		R(\partial_i,\partial_j)\neq 0.
+	\]
+	By \cref{thm:interface-curvature},
+	\[
+		\Jtwo\bigl(\mathcal A_{ij}(p_\infty)\bigr)=R(\partial_i,\partial_j)\neq 0.
+	\]
+	Since the zero class has zero second-jet coefficient by
+	\cref{def:interface-J2}, this implies
+	\[
+		\mathcal A_{ij}(p_\infty)\neq 0.
+	\]
+\end{proof}
+\begin{remark}[Status of second-layer stabilization]
+\label{rem:second-jet-status}
+The aggressive question is not whether one may assume the second layer;
+the answer is that one may not.  The second layer is forced.  The proof is
+the chain
+\[
+\begin{aligned}
+&\text{strict triangle minimality}
+\Longrightarrow
+\text{no degree--1 residue}
+\\
+&\Longrightarrow
+\text{commutator-square defect in }F^2
+\Longrightarrow
+\text{nonzero class in }F^2/F^3
+\\
+&\Longrightarrow
+\mathcal K_\infty.
+\end{aligned}
+\]
+The only remaining hypothesis is not that the tower stabilizes at degree
+\(2\), but that a chosen compatible smooth realization is faithful on the
+already stabilized degree--\(2\) carrier.  Under that faithful reading,
+\cref{thm:interface-curvature} identifies the realized image with Riemann
+curvature, and the GR chain proceeds.
+\end{remark}
+% ============================================================
+\section{Einstein boundary}
+\label{sec:interface-boundary}
+The present chapter identifies the stabilized quadratic square-class
+channel as the forced intrinsic degree--\(2\) transport carrier and,
+under faithful smooth realization on that carrier, shows that nonzero
+such classes are equivalent to nonzero realized curvature.
+No dynamical equations have been assumed or derived.
+Macroscopic compatibility laws belong to the subsequent chapter.
+
+\section{Conclusion}
+\label{sec:interface-conclusion}
+The interface result is now closed in stabilized form: the refinement
+tower has a forced degree--\(2\) first obstruction, and under faithful
+smooth realization on that carrier the existence of a nonzero stabilized
+quadratic square class is equivalent to nonzero realized curvature on the
+same limit object.
+
+Accordingly, \cref{ch:causality} combines the stabilized quadratic
+carrier, under the faithful-realization criterion that nonzero stabilized
+square classes are equivalent to nonzero realized curvature, with the
+observer-side filtration inherited from
+\cref{ch:flow} and interleaved with the refinement tower in
+\cref{ch:stitching} to derive the macroscopic causal and scaling
+consequences forced by the closed stack.

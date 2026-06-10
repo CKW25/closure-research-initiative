@@ -1,0 +1,966 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\usepackage[margin=1.2in, headheight=14.5pt]{geometry}
+\usepackage{amsmath,amssymb,mathtools,amsthm}
+\usepackage[authoryear,round]{natbib}
+\usepackage{aliascnt}
+\usepackage[unicode,hypertexnames=false]{hyperref}
+\hypersetup{
+  pdftitle={A Factorization Criterion for Route Invariants with Fixed Endpoint Data},
+  pdfauthor={Chast K. Wolfe},
+  pdfsubject={endpoint data; route invariants; transport; holonomy;
+    curvature; quotient descent},
+  pdfkeywords={endpoint data, route invariants, transport, holonomy,
+    gauge theory, category theory, curvature, general relativity},
+  hidelinks
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+\newaliascnt{principle}{theorem}
+\newtheorem{principle}[principle]{Principle}
+\aliascntresetthe{principle}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{definition}{Definition}{Definitions}
+\crefname{principle}{Principle}{Principles}
+\crefname{corollary}{Corollary}{Corollaries}
+\crefname{section}{Section}{Sections}
+
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Mor}{\operatorname{Mor}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Hol}{\operatorname{Hol}}
+\newcommand{\Data}{\mathsf{D}}
+
+\begin{document}
+
+\title{A Factorization Criterion for Route Invariants with Fixed Endpoint Data}
+\author{Chast K.~Wolfe\\[4pt]
+\small Closure Research Initiative, United States\\[2pt]
+\small Corresponding author:~\href{mailto:chast.wolfe@closureresearchinitiative.org}{\texttt{chast.wolfe@closureresearchinitiative.org}}}
+\date{}
+\maketitle
+
+\begin{abstract}
+\noindent
+A factorization criterion is proved for comparison data with fixed
+endpoints. A comparison framework consists of endpoints, routes,
+endpoint data, and route invariants. The endpoint map sends each route
+to the data determined by its source and target. The main result is that
+a route invariant is determined by endpoint data if and only if it is
+constant on every endpoint fiber, equivalently if and only if it factors
+through the endpoint quotient. Equivalently, endpoint closure holds
+precisely for the invariants that descend to the endpoint quotient.
+Endpoint data specify source, target, and any datum assigned to an
+ordered pair; they do not include the route itself. Thus any invariant
+separating routes with the same source, target, and endpoint datum is not
+endpoint-determined. With composition, a basic obstruction is the direct
+route versus a composite route. When a return route is available, the
+discrepancy can be completed to a loop. In smooth transport geometry,
+infinitesimal transport around an infinitesimal loop is represented by
+curvature. The proof uses elementary quotient descent for the endpoint
+map. Subsequent sections record instances in quotient semantics,
+categories, networks, gauge transport, Wilson loops, holonomy,
+differential geometry, and general relativity. The result is a descent
+criterion, not a derivation of those theories. The formal obstruction is
+that representative-, morphism-, path-, transport-, and loop-dependent
+information is not endpoint-determined unless it is constant on endpoint
+fibers.
+\end{abstract}
+
+\paragraph{Keywords.}
+endpoint data; route invariants; quotient descent; holonomy;
+curvature; comparison data
+
+\paragraph{Conventions.}
+All collections below may be read as sets, or as classes in a fixed
+universe. When quotient notation is used, it denotes the ordinary set- or
+class-quotient by the displayed equivalence relation. No topological or
+smooth structure is assumed unless explicitly stated. The letters
+$p,q,r$ denote endpoints; $\gamma,\eta$ denote routes or paths; $s,t$
+denote source and target maps; $C$ denotes endpoint-comparison data; $e$
+denotes the endpoint map; and $\pi_E$ denotes the endpoint quotient map.
+
+\section{Endpoint Data and Route Invariants}
+\label{sec:intro}
+
+The basic operation considered here is passage from routes to the data
+determined by their endpoints. This operation is a map from a finer
+description to coarser data, analogous to a quotient map or a projection
+to boundary data. A quantity descends along such a map exactly when it is
+constant on its fibers. In the present setting, those fibers consist of
+routes with the same endpoint data.
+
+Write an endpoint comparison as
+\[
+  C(p,q),
+\]
+where $p$ and $q$ are endpoints. The symbol may denote equality,
+equivalence, distance, causal relation, boundary value, quotient class,
+or any other datum assigned to the ordered pair. The datum is determined
+by endpoints. It contains neither a route between the endpoints, nor a
+composition law for comparisons, nor equality of route-dependent values
+for two routes from $p$ to $q$.
+
+The issue is factorization through the endpoint map, equivalently
+descent of the chosen invariant along endpoint projection. Endpoint
+data determine exactly the invariants that are constant on endpoint
+fibers. If an invariant distinguishes routes with the same source and
+target, then it is not determined by endpoint data. Representation of
+such an invariant requires more than endpoints.
+
+Let $\calR$ be a class of routes and let
+$\pi_E:\calR\to\calR/{\sim_E}$ send a route to its endpoint-data
+class. A route invariant $I$ is determined by endpoint data if and only
+if it factors through $\pi_E$. Equivalently, $I$ must be constant on every
+fiber of $\pi_E$. This is the ordinary descent condition for a quotient
+\citep{Munkres2000}.
+
+Several standard settings instantiate the same factorization condition.
+For quotients, descent is constancy on equivalence classes
+\citep{Munkres2000}. In category theory, object data do not determine
+morphisms \citep{EilenbergMacLane1945,MacLane1998}. In networks, path
+products need not be determined by endpoints. In gauge theory, Wilson
+loops are gauge-invariant loop data rather than endpoint data
+\citep{Wilson1974}.
+In differential geometry, connections, holonomy, and curvature encode
+transport around loops
+\citep{Ehresmann1950,AmbroseSinger1953,KobayashiNomizu1963,Nakahara2003}.
+In general relativity, the corresponding hierarchy is metric comparison,
+Levi-Civita transport, curvature, and contraction, with curvature
+downstream of transport \citep{Einstein1916,Wald1984,Malament2012,Carroll2019}.
+
+The sequence considered is
+\[
+  \boxed{\text{Endpoint}\longrightarrow\text{Triangle}
+  \longrightarrow\text{Loop}\longrightarrow\text{Curvature}.}
+\]
+The endpoint map defines the quotient. With composition, a basic
+comparison is the direct route $p\to r$ versus the composite comparison
+$p\to q\to r$.
+When a return route is available, completing that comparison produces
+transport around a loop. In smooth
+transport geometry, infinitesimal transport around an infinitesimal loop
+is represented by curvature.
+
+Quotient topology, category theory, gauge theory, differential geometry,
+and general relativity have different structures. The claim here is not
+that these theories are derived from endpoint data. It is only that, in
+each setting, information depending on a representative, morphism, path,
+transport, or loop is determined by endpoint data only when it is
+constant on the relevant endpoint fibers.
+
+\section{Endpoint Fibers and Factorization}
+\label{sec:bottleneck}
+
+A map from finer descriptions to coarser data may be a quotient, an
+identification, a projection to boundary data, or the passage from routes
+to endpoint data. The quantities that descend along the map are exactly
+the quantities constant on its fibers.
+
+Let $X$ be a space of descriptions and let $q:X\to Q$ be such a map.
+A quantity $F:X\to S$ descends to $Q$ precisely when there exists
+$\bar F:Q\to S$ such that
+\[
+  F=\bar F\circ q.
+\]
+Equivalently, $F$ is constant on the fibers of $q$. This is the ordinary
+quotient descent criterion \citep{Munkres2000}. The proof below is a
+structured use of that fact.
+
+For comparison, the relevant map is the endpoint map. Routes may
+contain more information than endpoints. Endpoint comparison consists only
+of the endpoint class. The relevant obstruction is the endpoint fiber: the
+class of all routes with identical endpoint data.
+
+\begin{definition}[Endpoint comparison data]
+\label{def:endpoint-data}
+Endpoint comparison data consist of a class of endpoints $\calP$ and,
+for each ordered pair $(p,q)$ for which comparison is allowed, a datum
+$C(p,q)$. A route from $p$ to $q$ is an additional object denoted
+$\gamma:p\to q$. Two routes have the same endpoint data when they have
+the same source, the same target, and the same endpoint comparison datum.
+\end{definition}
+
+\begin{definition}[Comparison framework with endpoint data]
+\label{def:comparison-framework}
+A comparison framework with endpoint data is a tuple
+\[
+  \mathfrak C=(\calP,\calR,s,t,A,C,\Data),
+\]
+where $\calP$ is a class of endpoints, $\calR$ is a class of routes,
+$s,t:\calR\to\calP$ assign source and target, $A\subseteq\calP\times\calP$
+is the class of admissible endpoint pairs, $\Data$ is a class of
+endpoint-comparison values, and $C:A\to\Data$ assigns endpoint data. We
+assume $(s(\gamma),t(\gamma))\in A$ for every $\gamma\in\calR$. The
+endpoint map is
+\[
+  e:\calR\longrightarrow A\times\Data,
+  \qquad
+  e(\gamma)=\bigl((s(\gamma),t(\gamma)),C(s(\gamma),t(\gamma))\bigr).
+\]
+The endpoint equivalence relation is
+\[
+  \gamma\sim_E\eta \quad\Longleftrightarrow\quad e(\gamma)=e(\eta),
+\]
+and $\pi_E:\calR\to\calR/{\sim_E}$ is the quotient map. We write
+$[\gamma]_E$ for the $\sim_E$-equivalence class of $\gamma$.
+\end{definition}
+
+\begin{definition}[Endpoint recovery and constancy on fibers]
+\label{def:recoverability}
+Let $I:\calR\to S$ be a route invariant. It is determined by endpoint
+data, or recoverable from endpoint data, if there exists a function
+$J:e(\calR)\to S$ such that $I=J\circ e$.
+It is constant on endpoint fibers if, whenever $\gamma\sim_E\eta$, one
+has $I(\gamma)=I(\eta)$. It is route-dependent if it distinguishes at least
+two routes with the same source, target, and endpoint datum. A framework
+includes enough information for $I$ when it contains the distinctions
+needed to evaluate $I$.
+\end{definition}
+
+\begin{definition}[Endpoint closure for an invariant]
+\label{def:endpoint-closure}
+Let $I:\calR\to S$ be a route invariant. The endpoint quotient is
+\emph{closed for $I$} if $I$ descends to the endpoint quotient; that is,
+if there exists a necessarily unique function
+$\bar I:\calR/{\sim_E}\to S$ such that
+\[
+  I=\bar I\circ\pi_E.
+\]
+A failure of this condition is an \emph{endpoint-closure obstruction} for
+$I$.
+\end{definition}
+
+\begin{proposition}[Factorization criterion for endpoint data]
+\label{prop:factorization}
+For a route invariant $I:\calR\to S$, the following are equivalent:
+\begin{enumerate}
+\item $I$ is determined by endpoint data;
+\item the endpoint quotient is closed for $I$;
+\item $I$ is constant on endpoint fibers;
+\item there exists a necessarily unique function
+$\bar I:\calR/{\sim_E}\to S$ such that
+\[
+  I=\bar I\circ\pi_E.
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items (2) and (4) are identical by \cref{def:endpoint-closure}. If
+$I=J\circ e$, then $\gamma\sim_E\eta$ implies
+$e(\gamma)=e(\eta)$ and hence $I(\gamma)=I(\eta)$, so $I$ is constant on
+endpoint fibers. If $I$ is
+constant on endpoint fibers, define $\bar I([\gamma]_E)=I(\gamma)$. This
+is well-defined precisely because all representatives of $[\gamma]_E$
+have the same $I$-value, and then $I=\bar I\circ\pi_E$. Finally, if
+$I=\bar I\circ\pi_E$, define $J(e(\gamma))=\bar I([\gamma]_E)$. This is
+well-defined because equal endpoint data give the same endpoint class,
+and then $I=J\circ e$.
+\end{proof}
+
+\begin{theorem}[Endpoint-closure criterion]
+\label{thm:endpoint-ceiling}
+For a route invariant $I:\calR\to S$, the following are equivalent:
+\begin{enumerate}
+\item $I$ is recoverable from endpoint data;
+\item the endpoint quotient is closed for $I$;
+\item $I$ factors through the endpoint quotient $\pi_E$;
+\item $I$ is constant on endpoint fibers.
+\end{enumerate}
+Consequently, any route invariant that distinguishes routes with the
+same source, target, and endpoint datum is an endpoint-closure
+obstruction.
+\end{theorem}
+
+\begin{proof}
+The equivalences are exactly \cref{prop:factorization} together with
+\cref{def:endpoint-closure}. If a route invariant distinguishes
+routes in the same endpoint fiber, then it is not constant on that fiber.
+It therefore cannot factor through endpoint data, so endpoint closure for
+that invariant fails.
+\end{proof}
+
+\begin{remark}[Local meaning of endpoint closure]
+\label{rem:recoverability-closure}
+The term endpoint closure is used here only in the quotient-descent
+sense. Given a projection $q:X\to Q$ and a quantity $F:X\to S$, say
+that $Q$ is closed for $F$ when $F$ is recoverable from $Q$, equivalently
+when $F=\bar F\circ q$ for some $\bar F:Q\to S$. If $q$ is
+surjective, such $\bar F$ is unique. Under the specialization
+$X=\calR$, $Q=\calR/{\sim_E}$, $q=\pi_E$, and $F=I$,
+\cref{thm:endpoint-ceiling} is exactly this quotient-recovery criterion.
+The map $e:\calR\to e(\calR)$ has the same fibers as $\pi_E$, so
+recovery from endpoint data and descent to the endpoint quotient are
+equivalent. Thus endpoint closure is a relative property of one map and
+one invariant. It is not a claim about physically closed systems,
+dynamics, or completeness of a state space.
+All claims in this paper follow from quotient descent for the endpoint
+projection.
+\end{remark}
+
+\begin{proposition}[Endpoint closure as quotient recovery]
+\label{prop:closure-hierarchy}
+Let $q:X\to Q$ be a quotient or projection and let $F:X\to S$ be a
+quantity. Recovery of $F$ along $q$ is the condition that there exists
+$\bar F:Q\to S$ such that $F=\bar F\circ q$. Endpoint closure is
+exactly the special case
+\[
+  (X,Q,q,F)=(\calR,\calR/{\sim_E},\pi_E,I).
+\]
+Thus an endpoint-closure obstruction is exactly failure of the
+factorization $I=\bar I\circ\pi_E$. When the invariant is transport and
+reversed routes are available, this obstruction is equivalently detected
+by a loop with nontrivial transport; in smooth transport geometries, the
+infinitesimal form of local loop transport is curvature. No completeness
+or additional closure condition is assumed.
+\end{proposition}
+
+\begin{proof}
+The first statement is the definition of recovery by factorization.
+Substituting $X=\calR$, $Q=\calR/{\sim_E}$, $q=\pi_E$, and $F=I$
+yields \cref{def:endpoint-closure}. Failure of endpoint closure is
+therefore failure of this factorization. The loop test is
+\cref{thm:route-loop}; the curvature statement is the smooth transport
+interpretation in \cref{subsec:geometry-gr}.
+\end{proof}
+
+\begin{principle}[Criterion for projection to endpoint data]
+\label{prin:comparison-compression}
+Endpoint comparison data determine exactly the invariants constant on
+endpoint fibers. Equivalently, endpoint projection is closed exactly for
+those invariants. Every invariant that varies inside an endpoint fiber
+requires additional route or transport structure.
+\end{principle}
+
+The endpoint quotient is the relevant factorization target.
+Before quotienting there may be paths, histories, morphisms, transports,
+representatives, or loops. After quotienting there are endpoint classes.
+Only information constant on endpoint fibers factors through. In this
+sense, only such information is closed under endpoint projection.
+
+\section{Composition, Loops, and Defect}
+\label{sec:defects}
+
+Composition provides a finite test of whether endpoint data suffice.
+With a direct route $p\to r$ and a composite route $p\to q\to r$, the
+endpoint pair is the same but the route data may differ. The triangle is
+a simple compositional case in which endpoint data may have discarded
+route information.
+
+\begin{definition}[Transport comparison structure]
+\label{def:transport-structure}
+A transport comparison structure consists of a class of endpoints
+$\calP$, a class of routes $\calR$ with source and target maps
+$s,t:\calR\to\calP$, identity routes $1_p:p\to p$, a partially defined
+associative composition $\eta\circ\gamma:p\to r$ whenever
+$\gamma:p\to q$ and $\eta:q\to r$, data spaces $E_p$ over endpoints, and
+maps
+\[
+  \tau_\gamma:E_p\to E_q
+\]
+for every route $\gamma:p\to q$, such that
+\[
+  \tau_{1_p}=\id_{E_p},\qquad
+  \tau_{\eta\circ\gamma}=\tau_\eta\circ\tau_\gamma.
+\]
+When reversed routes are admitted, each route $\gamma:p\to q$ has a
+route $\gamma^{-1}:q\to p$ with
+$\tau_{\gamma^{-1}}=\tau_\gamma^{-1}$.
+\end{definition}
+
+\begin{proposition}[Endpoint data do not determine route comparison]
+\label{prop:endpoint-not-route}
+Pairwise endpoint data alone do not determine whether direct comparison
+from $p$ to $r$ agrees with comparison through $q$.
+\end{proposition}
+
+\begin{proof}
+It suffices to exhibit two transport structures with the same endpoint
+data and different direct-versus-routed values. Let the endpoint data be
+fixed and constant on all admissible pairs. Take endpoints $p,q,r$ and
+routes $a:p\to q$, $b:q\to r$, a direct route $c:p\to r$, and the
+composite route $d=b\circ a:p\to r$. In both structures let every fiber
+be the same two-element set $E=\{0,1\}$ and set
+$\tau_a=\tau_b=\id_E$, hence $\tau_d=\tau_b\circ\tau_a=\id_E$. In
+the first structure set $\tau_c=\id_E$, so $\tau_c=\tau_d$. In the
+second let $\tau_c$ be the transposition of $E$, so $\tau_c\neq\tau_d$.
+The endpoint assignment is the same in both structures, but the
+direct-versus-composite comparison has a different truth value. Hence
+that truth value is not determined by endpoint data alone.
+\end{proof}
+
+\begin{corollary}[Triangle criterion]
+\label{cor:triangle-obstruction}
+If a framework distinguishes the direct route $p\to r$ from the
+composite comparison $p\to q\to r$, then the distinguished quantity is not
+determined by endpoint data alone.
+\end{corollary}
+
+\begin{proof}
+The direct route and the composite route have the same source and
+target, hence the same endpoint datum $C(p,r)$ under the endpoint map.
+If an invariant distinguishes them, it is nonconstant on an endpoint
+fiber. The conclusion follows from \cref{thm:endpoint-ceiling}.
+\end{proof}
+
+\begin{principle}[Direct-versus-composite comparison]
+\label{prin:triangular-first-test}
+The triangle is a simple compositional test of projection to comparison
+data: direct route versus composite route. A nontrivial distinction
+between the two is already a failure of descent to endpoint data.
+\end{principle}
+
+\begin{proposition}[Recovery of transport from endpoint data is path independence]
+\label{prop:transport-route-invariant}
+In a transport comparison structure, view
+$\gamma\mapsto\tau_\gamma$ as a map to the disjoint union of all
+transport-map sets. It is determined by endpoint data if and only if
+transport is path independent: for all routes $\gamma,\eta:p\to q$ with
+the same source and target, one has $\tau_\gamma=\tau_\eta$.
+\end{proposition}
+
+\begin{proof}
+Endpoint data group routes with the same source and target. The invariant
+$\gamma\mapsto\tau_\gamma$ factors through endpoint data exactly when it
+is constant on each family of routes with the same source and target.
+\end{proof}
+
+When a return route is available, the triangle can be completed to a loop.
+A loop has degenerate endpoint data: source and target are both $p$. If
+transport around the loop is not the identity, the resulting invariant is
+not determined by the endpoint pair $(p,p)$.
+
+\begin{definition}[Transport around a loop and holonomy]
+\label{def:loop-defect}
+For a loop $\gamma:p\to p$ in a transport comparison structure, define
+the transport around the loop by
+\[
+  \delta_p(\gamma)=\tau_\gamma\in\Aut(E_p),
+\]
+when $\tau_\gamma$ is invertible. The holonomy at $p$ is
+\[
+  \Hol_p=\{\tau_\gamma\in\Aut(E_p):\gamma:p\to p\text{ is a loop}\}.
+\]
+The transport around the loop is nontrivial if
+$\tau_\gamma\neq\id_{E_p}$.
+\end{definition}
+
+\begin{theorem}[Loop test for endpoint-closure obstruction]
+\label{thm:route-loop}
+Assume transports compose and invert along reversed routes. Let
+\[
+  S_\tau=\bigsqcup_{p,q}\operatorname{Map}(E_p,E_q),
+\]
+and let $I:\calR\to S_\tau$ be given by $I(\gamma)=\tau_\gamma$.
+Then the following are equivalent:
+\begin{enumerate}
+\item endpoint closure fails for $I$;
+\item $I$ is not recoverable from endpoint data;
+\item transport is route-dependent;
+\item there exists a loop with nontrivial transport.
+\end{enumerate}
+Thus, when reversed routes are available, every endpoint-closure
+obstruction for transport has a loop test.
+\end{theorem}
+
+\begin{proof}
+The equivalence of (1), (2), and (3) follows from
+\cref{thm:endpoint-ceiling,prop:transport-route-invariant}. Here
+endpoint data are the source--target data of the transport structure. It
+remains to compare (3) and (4). If transport is route-dependent, choose
+routes
+$\gamma_1,\gamma_2:p\to q$ with the same source and target and with
+$\tau_{\gamma_1}\neq\tau_{\gamma_2}$. The loop
+$\gamma=\gamma_2^{-1}\circ\gamma_1:p\to p$ has transport
+\[
+  \tau_\gamma=\tau_{\gamma_2}^{-1}\circ\tau_{\gamma_1}.
+\]
+If this were $\id_{E_p}$, then $\tau_{\gamma_1}=\tau_{\gamma_2}$, a
+contradiction. Conversely, a loop $\gamma:p\to p$ with
+$\tau_\gamma\neq\id_{E_p}$ differs from the constant loop $1_p$ while
+sharing the same endpoint data. Thus transport is route-dependent.
+\end{proof}
+
+\begin{corollary}[Holonomy is not determined by endpoint data]
+\label{cor:holonomy-endpoint}
+Any framework with nontrivial holonomy contains holonomy information not
+recoverable from endpoint data alone.
+\end{corollary}
+
+\begin{proof}
+A nontrivial loop $\gamma:p\to p$ and the constant loop $1_p$ have the
+same endpoint data but different transports. Hence holonomy is
+nonconstant on an endpoint fiber and is not determined by endpoint data.
+\end{proof}
+
+Thus the chain is a sequence of tests. Projection to endpoint
+data defines the quotient. Composition tests endpoint closure. The triangle
+is a simple compositional test. A loop is the case with identical source
+and target.
+Holonomy is loop information not determined by endpoint data.
+
+\section{Standard Structures Used}
+\label{sec:existing-frameworks}
+
+The factorization result is the quotient factorization statement from
+\cref{prop:factorization}. The cited references provide standard
+interpretations of routes, endpoint quotients, and route invariants.
+
+The quotient fact is standard: a function descends through a quotient
+exactly when it is constant on equivalence classes \citep{Munkres2000}.
+In category theory the corresponding data are objects, morphisms,
+identities, and associative composition
+\citep{EilenbergMacLane1945,MacLane1998}. In differential geometry the
+corresponding data are connections, parallel transport, holonomy, and
+curvature; Wilson loops are closed-loop gauge observables; the
+Ambrose--Singer theorem relates holonomy to curvature
+\citep{Ehresmann1950,Wilson1974,AmbroseSinger1953,KobayashiNomizu1963,Nakahara2003}.
+In general relativity the corresponding hierarchy is metric--connection--
+curvature--contraction \citep{Einstein1916,Wald1984,Malament2012,Carroll2019}.
+
+In each case, the relevant test is to specify the routes, specify the
+endpoint quotient, and check constancy of the invariant on endpoint
+fibers.
+
+\begin{proposition}[External instance schema]
+\label{prop:external-schema}
+Suppose a cited theory contains a class of routes, an endpoint-data
+quotient on those routes, and a route invariant $I$ distinguishing some
+routes with the same endpoint data. Then the failure of $I$ to be
+determined by endpoint data follows formally from
+\cref{thm:endpoint-ceiling}.
+\end{proposition}
+
+\begin{proof}
+Interpret $\calR$, $\sim_E$, and $I$ in the cited theory. If there are
+routes $\gamma\sim_E\eta$ with $I(\gamma)\neq I(\eta)$, then $I$ is
+nonconstant on a fiber of $\pi_E$. By \cref{prop:factorization}, $I$
+cannot factor through endpoint data.
+\end{proof}
+
+The cited ingredients used here are quotient descent
+\citep{Munkres2000}; category
+language with distinct parallel arrows
+\citep{EilenbergMacLane1945,MacLane1998}; connections \citep{Ehresmann1950};
+closed-loop gauge observables \citep{Wilson1974}; the curvature--holonomy
+relation and differential-geometric background
+\citep{AmbroseSinger1953,KobayashiNomizu1963}; holonomy/path structures in
+general relativity and Yang--Mills theory \citep{Barrett1991}; and the
+relativistic ordering from metric to connection to curvature and the Einstein
+tensor \citep{Wald1984,Malament2012,Carroll2019}.
+
+\section{Instances Where Endpoint Data Do Not Determine the Invariant}
+\label{sec:realizations}
+
+In each case there is a domain-specific invariant. The criterion above
+states the condition under which that invariant fails to factor through
+endpoint data.
+
+\subsection{Quotients and Categorical Morphisms}
+\label{subsec:quotients-categories}
+
+A quotient groups representatives. A quantity descends to the
+quotient exactly when it is independent of the chosen representative
+\citep{Munkres2000}.
+
+\begin{proposition}[Quotient descent as recovery from endpoint data]
+\label{prop:quotient-descent}
+Let $q:X\to X/{\sim}$ be a quotient map. A function $F:X\to S$ is
+determined by quotient data if and only if there exists
+$\bar F:X/{\sim}\to S$ such that $F=\bar F\circ q$. Hence any
+representative-dependent $F$ is not determined by quotient data.
+\end{proposition}
+
+\begin{proof}
+The statement is the quotient descent criterion. If $F=\bar F\circ q$,
+then equivalent representatives have the same value. Conversely, if $F$
+is constant on equivalence classes, define $\bar F([x])=F(x)$. This is
+well-defined exactly because $F$ is constant on each equivalence class.
+\end{proof}
+
+The categorical version is compositional. Objects are endpoints;
+morphisms are routes; parallel morphisms are routes with the same source
+and target. Object data do not determine morphism-dependent information
+\citep{EilenbergMacLane1945,MacLane1998}.
+
+\begin{proposition}[Object data do not determine morphism invariants]
+\label{prop:category-realization}
+Let $\calC$ be a category and let
+$I:\Mor(\calC)\to S$ be a morphism invariant. Let
+$o:\Mor(\calC)\to\Ob(\calC)^2$ be the map sending
+a morphism to its ordered source--target pair. Then $I$ is determined
+by object data alone, meaning $I=J\circ o$ for some $J$, if and only if
+$I$ is constant on every hom-class $\Hom_{\calC}(X,Y)$.
+In particular, any invariant distinguishing parallel morphisms
+$f,g:X\to Y$ is not determined by object data.
+\end{proposition}
+
+\begin{proof}
+For fixed objects $X,Y$, the corresponding fiber of $o$ is
+$\Hom_{\calC}(X,Y)$. The result is the same fiber-constancy criterion as
+\cref{prop:factorization}.
+\end{proof}
+
+\subsection{Gauge Transport and Network Path Products}
+\label{subsec:gauge-networks}
+
+In gauge theory, two identifications are easily confused. Gauge
+invariance removes dependence on representative. It does not remove
+dependence on route. Wilson loops are gauge-invariant loop data, not
+endpoint data \citep{Wilson1974}. Connections supply the transport along
+paths \citep{Ehresmann1950,Nakahara2003}.
+
+\begin{proposition}[Nontrivial gauge holonomy is not determined by endpoint data]
+\label{prop:gauge-realization}
+Let a gauge theory assign parallel transport $U_\gamma$ to paths
+$\gamma:p\to q$, and let endpoint data group paths with the same source
+and target. If a gauge-invariant quantity $I$ built from the
+transport, for example a Wilson-loop value after completing paths to loops,
+has different values on two paths with the same source and target, then
+$I$ is not determined by endpoint data alone.
+\end{proposition}
+
+\begin{proof}
+The two paths lie in one endpoint fiber. Since $I$ has different values
+on them, it is not constant on endpoint fibers. By
+\cref{prop:factorization}, it cannot factor through endpoint data.
+\end{proof}
+
+Networks provide a finite model of the criterion. Vertices are
+endpoints. Edges carry labels. Paths multiply labels. No independent
+network theorem is used here; the example is a finite instance of the
+factorization criterion above.
+
+\begin{proposition}[Network path products are determined by endpoint data exactly
+under path independence]
+\label{prop:network-realization}
+Let a directed network have edge labels in a monoid $M$, and let
+$P(\gamma)$ be the ordered product of labels along a finite path
+$\gamma$, with $P(1_p)$ equal to the unit of $M$. Let endpoint data on
+paths be their ordered source--target pair. Then $P$ is determined by
+endpoint data if and only if all paths with the same source and target
+have the same product. In particular, any nontrivial loop product
+$P(\gamma)\neq P(1_p)$ is not determined by endpoint data.
+\end{proposition}
+
+\begin{proof}
+The endpoint fibers are exactly the families of paths with the same
+source and target. By
+\cref{prop:factorization}, the path product factors through endpoints
+exactly when it is constant on those fibers.
+\end{proof}
+
+\subsection{Differential Geometry and General Relativity}
+\label{subsec:geometry-gr}
+
+A connection geometry provides a smooth instance of the same factorization
+problem. Points are endpoints. Tangent spaces or bundle fibers are data
+spaces. A connection is the rule for comparing fibers along paths
+\citep{Ehresmann1950,KobayashiNomizu1963,Nakahara2003}. Holonomy is
+transport around loops. According to the Ambrose--Singer theorem, the
+infinitesimal generators of holonomy are curvature data transported back
+to the base point \citep{AmbroseSinger1953,KobayashiNomizu1963}.
+Barrett treats holonomy/path structures in general relativity and
+Yang--Mills theory \citep{Barrett1991}.
+
+In general relativity the same order appears in Lorentzian form. The
+metric provides pointwise comparison. Compatible torsion-free transport is
+Levi-Civita transport. Curvature is formed from that connection. Ricci
+and scalar contractions enter the Einstein tensor
+\citep{Einstein1916,Wald1984,Malament2012,Carroll2019}. The hierarchy is
+not endpoint--curvature, but endpoint comparison, transport, loop
+obstruction, curvature, and contraction.
+
+\begin{proposition}[Nontrivial holonomy is not determined by endpoint data]
+\label{prop:curvature-realization}
+In a smooth connection geometry, if parallel transport has nontrivial
+holonomy, then the corresponding holonomy invariant is not determined by
+endpoint data. For local or restricted holonomy, the standard
+Ambrose--Singer curvature--holonomy relation determines the holonomy algebra
+from curvature data transported back to the base point. Curvature is
+therefore the smooth infinitesimal form of this failure of descent to
+endpoint data.
+This statement does not identify every global holonomy effect with
+curvature.
+\end{proposition}
+
+\begin{proof}
+A nontrivial loop $\gamma:p\to p$ and the constant loop $1_p$ have the
+same endpoint data but different transports. Thus holonomy is not
+determined by endpoint data. For local or restricted holonomy, the
+Ambrose--Singer theorem determines the holonomy algebra from curvature data
+transported back to the base point.
+Thus curvature is the infinitesimal version of this route-dependent
+level; global flat holonomy is a separate route-dependent obstruction.
+\end{proof}
+
+Curvature records the infinitesimal transport obstruction; global flat
+holonomy records a non-infinitesimal route obstruction.
+
+\section{General Endpoint-Closure Obstruction}
+\label{sec:thesis}
+
+In each example, the obstruction is nonconstancy on endpoint fibers.
+
+\begin{theorem}[Endpoint-closure obstruction]
+\label{thm:general-extension}
+Let a comparison framework contain endpoint data, composable route data,
+and a route invariant $I$ capable of distinguishing routes with the same
+endpoint data. Then endpoint closure fails for $I$. Equivalently, $I$ is
+not determined by endpoint data, $I$ is not constant on endpoint fibers,
+and $I$ does not factor through the endpoint quotient $\pi_E$.
+Consequently, endpoint comparison data determine only invariants constant
+on endpoint fibers; representation of $I$ requires additional route or
+transport structure.
+\end{theorem}
+
+\begin{proof}
+If $I$ distinguishes routes $\gamma$ and $\eta$ with the same endpoint
+data, then $\pi_E(\gamma)=\pi_E(\eta)$ but $I(\gamma)\neq I(\eta)$. Thus
+$I$ is nonconstant on an endpoint fiber. By
+\cref{thm:endpoint-ceiling}, this is exactly failure of endpoint closure
+for $I$, equivalently failure of factorization through $\pi_E$.
+\end{proof}
+
+\begin{proposition}[Preservation under fiber-preserving translation]
+\label{prop:structural-universality}
+Let $\mathfrak C$ and $\mathfrak D$ be comparison frameworks with route
+classes $\calR_{\mathfrak C}$ and $\calR_{\mathfrak D}$ and endpoint
+equivalence relations $\sim_E^{\mathfrak C}$ and $\sim_E^{\mathfrak D}$.
+Let $T:\calR_{\mathfrak C}\to\calR_{\mathfrak D}$ be a translation such
+that
+\[
+  \gamma\sim_E^{\mathfrak C}\eta
+  \quad\Longrightarrow\quad
+  T(\gamma)\sim_E^{\mathfrak D}T(\eta).
+\]
+If route invariants $I_{\mathfrak C}$ and $I_{\mathfrak D}$ satisfy
+$I_{\mathfrak C}=I_{\mathfrak D}\circ T$, and if endpoint closure fails
+for $I_{\mathfrak C}$, then endpoint closure fails for
+$I_{\mathfrak D}$ on the image of $T$.
+\end{proposition}
+
+\begin{proof}
+Since endpoint closure fails for $I_{\mathfrak C}$, by
+\cref{thm:endpoint-ceiling} there are routes
+$\gamma\sim_E^{\mathfrak C}\eta$ with
+$I_{\mathfrak C}(\gamma)\neq I_{\mathfrak C}(\eta)$. The fiber condition
+on $T$ implies $T(\gamma)\sim_E^{\mathfrak D}T(\eta)$, while preservation
+of invariant values implies
+$I_{\mathfrak D}(T(\gamma))\neq I_{\mathfrak D}(T(\eta))$. Hence
+$I_{\mathfrak D}$ is nonconstant on an endpoint fiber of the translated
+image. By \cref{thm:endpoint-ceiling}, endpoint closure fails there.
+\end{proof}
+
+Gauge holonomy, categorical morphism dependence, network path products,
+and Riemann curvature are distinct structures. In each case, the same
+formal endpoint-closure obstruction is present: nonconstancy on endpoint
+fibers.
+
+\section{Scope of the Criterion}
+\label{sec:scope}
+
+The endpoint-closure criterion is not a derivation of connections,
+gauge fields, metrics, curvature tensors, or equations of motion. It is
+a limitation result: endpoint data are too coarse whenever the relevant
+invariant is not constant on endpoint fibers. Representation of that
+invariant requires additional domain-specific structure.
+
+Nor are dynamics derived. Gauge equations, variational
+principles, conservation laws, Einstein's field equations, and empirical
+interpretation require assumptions not present in endpoint data.
+In general relativity, curvature is downstream of transport. It does not
+imply the Einstein equations.
+
+The relation among these examples is formal rather than explanatory:
+each case has an invariant that fails to descend along the relevant
+endpoint projection. The shared structure is nonconstancy on endpoint
+fibers, not an additional closure axiom.
+
+Nontrivial holonomy is not a matter of endpoint convention under this
+criterion. If a smooth geometry that includes the invariant has
+nontrivial holonomy, endpoint data do not suffice for the relevant
+invariant. For local or restricted holonomy, curvature is the
+infinitesimal form of that nonconstancy; global flat holonomy remains a
+separate route-dependent obstruction.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+The conclusion is the following:
+\[
+\boxed{\text{Endpoint closure holds exactly for invariants constant on fibers.}}
+\]
+Equivalently, invariants determined by endpoint data are exactly the
+invariants that factor through the quotient by endpoint-data equivalence.
+Information separating routes with the same source and target is
+nonconstant on endpoint fibers. Its representation requires additional
+route or transport structure.
+
+The sequence is:
+\[
+  \boxed{\text{Endpoint}\longrightarrow\text{Triangle}
+  \longrightarrow\text{Loop}\longrightarrow\text{Curvature}.}
+\]
+The endpoint map defines the quotient. A direct route together with a
+composite route forms the triangle. A return route completes the triangle
+to a loop. In smooth transport
+geometry, infinitesimal transport around an infinitesimal loop is
+represented by curvature.
+
+Failure of quotient descent, categorical morphism dependence, network path
+dependence, gauge holonomy, Wilson loops, differential-geometric
+holonomy, curvature, and the curvature hierarchy of general relativity
+all concern the same formal question: which invariants fail to
+factor through endpoint data, and hence obstruct endpoint closure?
+
+The obstruction is route-dependent information. Endpoint descriptions
+are limited by the endpoint map. For any framework using only endpoint
+data, the condition is constancy on endpoint fibers, equivalently endpoint
+closure for the invariant under consideration.
+
+\section*{Author Biography}
+
+Chast K.~Wolfe is an independent researcher whose work concerns
+foundational problems in comparison, quotient descent, and physical
+theory.
+
+\section*{Statements and Declarations}
+
+\paragraph{Funding.}
+No funding was received to assist with the preparation of this manuscript.
+
+\paragraph{Competing interests.}
+The author has no relevant financial or non-financial interests to disclose.
+
+\paragraph{Data availability.}
+Data sharing is not applicable because no datasets were generated or
+analyzed during the preparation of this manuscript.
+
+\paragraph{Use of AI-assisted technologies.}
+Language-editing software was used for copy-editing and consistency
+checks. The author reviewed and approved the manuscript and takes full
+responsibility for its content.
+
+\paragraph{Ethics approval.}
+Not applicable.
+
+\paragraph{Consent to participate.}
+Not applicable.
+
+\paragraph{Consent for publication.}
+Not applicable.
+
+\paragraph{Materials and code availability.}
+Not applicable.
+
+\paragraph{Author contributions.}
+Chast K.~Wolfe is the sole author of the manuscript and is responsible
+for the conception, formal development, writing, and final approval of
+the work.
+
+\begin{sloppypar}
+\raggedright
+\begin{thebibliography}{99}
+
+\bibitem[Ambrose and Singer(1953)]{AmbroseSinger1953}
+Ambrose, W., \& Singer, I.~M. (1953).
+A theorem on holonomy.
+\textit{Transactions of the American Mathematical Society}, \textit{75}(3),
+428--443. https://doi.org/10.1090/S0002-9947-1953-0063739-1
+
+\bibitem[Barrett(1991)]{Barrett1991}
+Barrett, J.~W. (1991).
+Holonomy and path structures in general relativity and Yang--Mills theory.
+\textit{International Journal of Theoretical Physics}, \textit{30}(9),
+1171--1215. https://doi.org/10.1007/BF00671007
+
+\bibitem[Carroll(2019)]{Carroll2019}
+Carroll, S.~M. (2019).
+\textit{Spacetime and geometry: An introduction to general relativity}
+(2nd ed.). Cambridge University Press. https://doi.org/10.1017/9781108770385
+
+\bibitem[Ehresmann(1951)]{Ehresmann1950}
+Ehresmann, C. (1951).
+Les connexions infinit\'esimales dans un espace fibr\'e diff\'erentiable.
+In \textit{Colloque de Topologie (Bruxelles, 1950)} (pp.~29--55).
+Centre Belge de Recherches Math\'ematiques.
+
+\bibitem[Eilenberg and Mac Lane(1945)]{EilenbergMacLane1945}
+Eilenberg, S., \& Mac~Lane, S. (1945).
+General theory of natural equivalences.
+\textit{Transactions of the American Mathematical Society}, \textit{58},
+231--294. https://doi.org/10.1090/S0002-9947-1945-0013131-6
+
+\bibitem[Einstein(1916)]{Einstein1916}
+Einstein, A. (1916).
+Die Grundlage der allgemeinen Relativit\"atstheorie.
+\textit{Annalen der Physik}, \textit{354}(7), 769--822.
+https://doi.org/10.1002/andp.19163540702
+
+\bibitem[Kobayashi and Nomizu(1963)]{KobayashiNomizu1963}
+Kobayashi, S., \& Nomizu, K. (1963).
+\textit{Foundations of differential geometry} (Vol.~I).
+Wiley-Interscience.
+
+\bibitem[Mac Lane(1998)]{MacLane1998}
+Mac~Lane, S. (1998).
+\textit{Categories for the working mathematician} (2nd ed.).
+Springer. https://doi.org/10.1007/978-1-4757-4721-8
+
+\bibitem[Malament(2012)]{Malament2012}
+Malament, D.~B. (2012).
+\textit{Topics in the foundations of general relativity and Newtonian
+gravitation theory}. University of Chicago Press.
+
+\bibitem[Munkres(2000)]{Munkres2000}
+Munkres, J.~R. (2000).
+\textit{Topology} (2nd ed.). Prentice Hall.
+
+\bibitem[Nakahara(2003)]{Nakahara2003}
+Nakahara, M. (2003).
+\textit{Geometry, topology and physics} (2nd ed.).
+Institute of Physics Publishing.
+
+\bibitem[Wald(1984)]{Wald1984}
+Wald, R.~M. (1984).
+\textit{General relativity}. University of Chicago Press.
+
+\bibitem[Wilson(1974)]{Wilson1974}
+Wilson, K.~G. (1974).
+Confinement of quarks.
+\textit{Physical Review D}, \textit{10}(8), 2445--2459.
+https://doi.org/10.1103/PhysRevD.10.2445
+
+\end{thebibliography}
+\end{sloppypar}
+
+\end{document}

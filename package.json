@@ -1,0 +1,16 @@
+{
+  "name": "closure-research-initiative-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "ask:corpus": "node scripts/build-ask-corpus.mjs",
+    "ask:check": "node scripts/check-ask-corpus.mjs",
+    "backend:check": "node scripts/check-backend-wiring.mjs",
+    "backend:check:live": "node scripts/check-backend-wiring.mjs --live https://closureresearchinitiative.org",
+    "cf:whoami": "wrangler whoami",
+    "cf:dev": "wrangler dev --remote"
+  },
+  "devDependencies": {
+    "wrangler": "^4.98.0"
+  }
+}

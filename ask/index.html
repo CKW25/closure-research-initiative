@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Query the Closure Research Initiative corpus: monograph, six public preprints, citation sources, and public website pages.">
+<meta property="og:title" content="Corpus Query &mdash; Closure Research Initiative">
+<meta property="og:description" content="A corpus-bound scholarly query interface for the Closure Research Initiative monograph, six preprints, citation sources, and public website pages.">
+<meta property="og:url" content="https://closureresearchinitiative.org/ask/">
+<link rel="canonical" href="https://closureresearchinitiative.org/ask/">
+<meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Corpus Query &mdash; Closure Research Initiative">
+<meta name="twitter:description" content="A corpus-bound scholarly query interface for the Closure Research Initiative monograph, six preprints, citation sources, and public website pages.">
+<meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
+<meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
+<title>Corpus Query &mdash; Closure Research Initiative</title>
+<meta name="theme-color" content="#FAFAF8">
+<meta name="application-name" content="Closure Research Initiative">
+<meta name="apple-mobile-web-app-title" content="Closure Research">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260608">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-20260608.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-20260608.png">
+<link rel="icon" type="image/x-icon" href="/favicon-20260608.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-20260608.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="license" href="/license/">
+<link rel="alternate" type="application/atom+xml" title="Closure Research Initiative" href="/feed.xml">
+<meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://closureresearchinitiative.org/ask/#webapp",
+  "url": "https://closureresearchinitiative.org/ask/",
+  "name": "Corpus Query",
+  "applicationCategory": "ResearchApplication",
+  "operatingSystem": "Web",
+  "description": "A corpus-bound scholarly query interface for the Closure Research Initiative monograph, six public preprints, citation sources, and public website pages.",
+  "isPartOf": {
+    "@id": "https://closureresearchinitiative.org/#website"
+  },
+  "publisher": {
+    "@id": "https://closureresearchinitiative.org/#organization"
+  },
+  "inLanguage": "en"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A2348;
+  --gold: #B9933D;
+  --paper: #FAFAF8;
+  --text: #1E2430;
+  --muted: #5A6472;
+  --card: #FFFFFF;
+  --border: rgba(10,35,72,0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --paper: #11131A;
+    --navy: #9BB5D6;
+    --text: #D6D8DD;
+    --muted: #878C99;
+    --card: #1A1D27;
+    --border: rgba(255,255,255,0.08);
+  }
+}
+:root.dark {
+  --paper: #11131A;
+  --navy: #9BB5D6;
+  --text: #D6D8DD;
+  --muted: #878C99;
+  --card: #1A1D27;
+  --border: rgba(255,255,255,0.08);
+}
+:root.dark .hero-logo img { filter: invert(1); }
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .hero-logo img { filter: invert(1); }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 0 3rem; }
+.hero { text-align: center; padding: 4rem 0 2rem; }
+.hero-logo img { width: 220px; height: auto; opacity: 0.95; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.15;
+  margin: 1rem 0 0.4rem;
+}
+.subtitle { font-size: 1rem; color: var(--muted); max-width: 680px; margin: 0 auto; }
+.theme-toggle {
+  display: block;
+  margin: 0 auto 1.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.theme-toggle:hover { opacity: 1; }
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 0 2rem;
+  gap: 0;
+}
+nav a,
+nav span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1rem 0.6rem;
+  padding-bottom: 0.35rem;
+}
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+nav span { color: var(--navy); border-bottom: 2px solid var(--gold); }
+a { color: var(--navy); text-underline-offset: 0.18em; }
+.ask-shell {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+.corpus-line {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-bottom: 1rem;
+}
+.mode-control {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--paper);
+  padding: 0.2rem;
+  margin: 0 0 1rem;
+}
+.mode-control label {
+  display: block;
+  margin: 0;
+  cursor: pointer;
+}
+.mode-control input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.mode-control span {
+  display: block;
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  padding: 0.55rem 0.78rem;
+  text-transform: uppercase;
+}
+.mode-control input:checked + span {
+  background: var(--navy);
+  color: var(--paper);
+}
+.mode-control input:focus-visible + span {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.ask-form label {
+  display: block;
+  color: var(--navy);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+}
+.ask-input {
+  width: 100%;
+  min-height: 7rem;
+  resize: vertical;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 0.85rem 0.95rem;
+  font: inherit;
+  line-height: 1.6;
+}
+.ask-input:focus {
+  outline: 2px solid rgba(185,147,61,0.35);
+  border-color: var(--gold);
+}
+.ask-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-top: 0.85rem;
+}
+.ask-button,
+.clear-button,
+.example-button {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  font: inherit;
+}
+.ask-button {
+  background: var(--navy);
+  color: var(--paper);
+  padding: 0.48rem 1.05rem;
+}
+.clear-button,
+.example-button {
+  background: transparent;
+  color: var(--navy);
+  padding: 0.42rem 0.8rem;
+}
+.ask-button:disabled,
+.clear-button:disabled,
+.example-button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+.examples {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1rem 0 0;
+}
+.example-button {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.status {
+  min-height: 1.4rem;
+  margin-top: 0.85rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.status[data-state="error"] { color: #8A2D2D; }
+.corpus-loader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--paper), var(--card));
+  padding: 0.95rem 1rem;
+}
+.loader-diagram {
+  flex: 0 0 auto;
+  width: 10.4rem;
+  height: 8.35rem;
+  color: var(--navy);
+}
+.loader-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.loader-svg text {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  fill: var(--navy);
+}
+.loader-svg .orbit-ring {
+  fill: none;
+  stroke: rgba(10,35,72,0.34);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+.loader-svg .moving-orbit {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 14 72;
+  transform-box: view-box;
+  animation: twin-orbit-turn 1.9s linear infinite;
+}
+.loader-svg .moving-orbit.top { transform-origin: 52px 31px; }
+.loader-svg .moving-orbit.bottom {
+  transform-origin: 52px 88px;
+  animation-direction: reverse;
+}
+.loader-svg .connector {
+  fill: none;
+  stroke: var(--navy);
+  stroke-width: 2.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.loader-svg .thin-connector {
+  fill: none;
+  stroke: var(--navy);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+.loader-svg .node {
+  fill: var(--navy);
+}
+.loader-svg .gold-node {
+  fill: var(--gold);
+}
+.loader-svg .equation-band {
+  fill: var(--card);
+  stroke: rgba(10,35,72,0.18);
+  stroke-width: 1;
+  animation: projection-pulse 1.9s ease-in-out infinite;
+}
+.loader-svg .equation-text {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  font-size: 6.7px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.loader-svg .label {
+  font-size: 12px;
+  font-style: italic;
+}
+.loader-svg .small-label {
+  font-size: 8px;
+  font-style: italic;
+}
+@keyframes twin-orbit-turn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes projection-pulse {
+  0%, 100% { opacity: 0.78; }
+  50% { opacity: 1; }
+}
+.loader-copy {
+  min-width: 0;
+}
+.loader-kicker {
+  display: block;
+  color: var(--gold);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+.loader-caption {
+  color: var(--navy);
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+.loader-subcaption {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+.answer-panel {
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+.answer-title,
+.sources-title {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  color: var(--navy);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+}
+.turns-list {
+  display: grid;
+  gap: 0.75rem;
+}
+.turn-card {
+  border-radius: 5px;
+  padding: 0.8rem 0.9rem;
+}
+.turn-card.user {
+  border: 1px solid rgba(185,147,61,0.25);
+  background: rgba(185,147,61,0.06);
+}
+.turn-card.assistant {
+  border: 1px solid var(--border);
+  background: var(--paper);
+}
+.turn-label {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+.turn-text {
+  white-space: pre-wrap;
+  color: var(--text);
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+.turn-text strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+.sources-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.65rem;
+}
+.source-card {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.8rem 0.9rem;
+  background: var(--paper);
+}
+.source-card strong {
+  color: var(--navy);
+  font-size: 0.88rem;
+}
+.source-meta {
+  color: var(--muted);
+  font-size: 0.76rem;
+  margin: 0.15rem 0 0.35rem;
+}
+.source-excerpt {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+.hidden { display: none; }
+footer {
+  margin-top: 3.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+footer span { min-width: 0; }
+@media print {
+  nav, .theme-toggle, .ask-actions, .examples, .corpus-loader { display: none; }
+  body { color: #000; background: #fff; }
+  .container { max-width: 100%; padding: 0 1in; }
+  .ask-shell, .source-card { border-color: #aaa; background: #fff; }
+}
+@media (max-width: 800px) {
+  .container { padding: 0 1.5rem; }
+  .hero { padding: 3rem 0 1.5rem; }
+  .hero h1 { font-size: 2.25rem; }
+  .hero-logo img { width: 180px; }
+  nav a, nav span { margin: 0 0.6rem 0.6rem; font-size: 0.72rem; }
+  .corpus-loader { align-items: flex-start; }
+  .loader-diagram { width: 9.3rem; height: 7.45rem; }
+  footer { flex-direction: column; gap: 0.3rem; text-align: center; }
+}
+@media (max-width: 520px) {
+  .corpus-loader { flex-direction: column; gap: 0.75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loader-svg .moving-orbit,
+  .loader-svg .equation-band {
+    animation: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-logo">
+      <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
+    </div>
+    <h1>Corpus Query</h1>
+  <div class="subtitle">Corpus-bound guidance over the monograph, six public preprints, citation sources, and site pages</div>
+  </div>
+
+  <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/idea/">Foundations</a>
+    <a href="/overview/">Overview</a>
+    <a href="/map/">Structural Map</a>
+    <a href="/example/">Worked Example</a>
+    <a href="/notation/">Notation</a>
+    <a href="/objections/">Objections</a>
+    <a href="/predictions/">Predictions</a>
+    <a href="/guide/">Reading Guide</a>
+    <a href="/preprints/">Preprints</a>
+    <a href="/sources/">Sources</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+
+  <main class="ask-shell">
+    <div class="corpus-line" id="corpusLine">Corpus: checking retrieval index...</div>
+
+    <form class="ask-form" id="askForm">
+      <fieldset class="mode-control" aria-label="Query mode">
+        <label><input type="radio" name="askMode" value="guide" checked><span>Guide</span></label>
+        <label><input type="radio" name="askMode" value="locate"><span>Locate</span></label>
+        <label><input type="radio" name="askMode" value="cite"><span>Cite</span></label>
+      </fieldset>
+      <label for="question">Query</label>
+      <textarea class="ask-input" id="question" name="question" maxlength="1400" placeholder="Query rectangular completeness, comparison worlds, the prediction, citations, or where a claim is stated. Session context is retained for follow-up queries."></textarea>
+      <div class="ask-actions">
+        <button class="ask-button" id="askButton" type="submit">Submit Query</button>
+        <button class="clear-button" id="clearButton" type="button">Clear</button>
+      </div>
+    </form>
+
+    <div class="examples" aria-label="Example questions">
+      <button class="example-button" type="button" data-mode="guide" data-question="What is rectangular completeness, and why is it forced by closure rather than added as an axiom?">Rectangular completeness</button>
+      <button class="example-button" type="button" data-mode="guide" data-question="Trace the theorem-level chain from primitive comparison data to quotient semantics, transport obstruction, curvature, and the S3 conclusion.">From comparison to geometry</button>
+      <button class="example-button" type="button" data-mode="locate" data-question="What are the strongest open assumptions or objections, and exactly which conclusions depend on them?">Where the program can fail</button>
+    </div>
+
+    <div class="status" id="askStatus" role="status" aria-live="polite"></div>
+    <div class="corpus-loader hidden" id="corpusLoader" aria-hidden="true">
+      <div class="loader-diagram">
+        <svg class="loader-svg" viewBox="0 0 124 124" role="img" aria-label="Twin orbit comparison diagram">
+          <line class="thin-connector" x1="6" y1="62" x2="118" y2="62" opacity="0.22"></line>
+          <rect class="equation-band" x="22" y="53" width="80" height="18" rx="4"></rect>
+          <text class="equation-text" x="62" y="65" text-anchor="middle">&pi;(&Gamma;(t))=&pi;(&Gamma;&#771;(t))</text>
+
+          <circle class="orbit-ring" cx="52" cy="31" r="20"></circle>
+          <circle class="moving-orbit top" cx="52" cy="31" r="15"></circle>
+          <path class="connector" d="M32 31 L82 11 L71 31"></path>
+          <circle class="node" cx="32" cy="31" r="3"></circle>
+          <circle class="node" cx="71" cy="31" r="3"></circle>
+          <circle class="node" cx="82" cy="11" r="3"></circle>
+          <text class="label" x="20" y="34" text-anchor="end">B<tspan baseline-shift="-35%" font-size="7">1</tspan></text>
+          <text class="label" x="78" y="34">B<tspan baseline-shift="-35%" font-size="7">0</tspan></text>
+          <text class="label" x="86" y="9">A</text>
+          <text class="small-label" x="74" y="23">x</text>
+          <text class="small-label" x="101" y="29">I</text>
+
+          <circle class="orbit-ring" cx="52" cy="88" r="20"></circle>
+          <circle class="moving-orbit bottom" cx="52" cy="88" r="15"></circle>
+          <path class="connector" d="M32 88 L82 109 L71 88"></path>
+          <circle class="node" cx="32" cy="88" r="3"></circle>
+          <circle class="node" cx="71" cy="88" r="3"></circle>
+          <circle class="node" cx="82" cy="109" r="3"></circle>
+          <text class="label" x="20" y="91" text-anchor="end">A<tspan baseline-shift="-35%" font-size="7">1</tspan></text>
+          <text class="label" x="78" y="91">A<tspan baseline-shift="-35%" font-size="7">0</tspan></text>
+          <text class="label" x="86" y="119">B</text>
+          <text class="small-label" x="76" y="101">y</text>
+          <text class="small-label" x="101" y="101">II</text>
+          <circle class="gold-node" cx="52" cy="31" r="1.7"></circle>
+          <circle class="gold-node" cx="52" cy="88" r="1.7"></circle>
+        </svg>
+      </div>
+      <div class="loader-copy">
+        <span class="loader-kicker">Comparison search</span>
+        <div class="loader-caption" id="loaderCaption">Resolving comparison profiles</div>
+        <div class="loader-subcaption">Retrieving public corpus passages and citation records.</div>
+      </div>
+    </div>
+
+    <section class="answer-panel hidden" id="answerPanel" aria-live="polite">
+      <h2 class="answer-title">Query Record</h2>
+      <div class="turns-list" id="turnsList"></div>
+      <h2 class="sources-title">Retrieved Sources</h2>
+      <div class="sources-list" id="sourcesList"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
+    <span>Maintained by Closure Research Initiative &middot; Served by <a href="https://workers.cloudflare.com/" style="color:var(--muted);" target="_blank" rel="noopener">Cloudflare Workers</a> &middot; Versioned on <a href="https://github.com/CKW25/closure-research-initiative" style="color:var(--muted);" target="_blank" rel="noopener">GitHub</a> &middot; <a href="/sources/" style="color:var(--muted);">Sources and Citation</a> &middot; <a href="/license/" style="color:var(--muted);">License</a> &middot; <a href="/notes/" style="color:var(--muted);">Research Notes</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; <a href="/contact/" style="color:var(--muted);">Contact</a> &middot; Last updated June 9, 2026</span>
+  </footer>
+
+</div>
+
+<script src="/site.js" defer></script>
+<script src="/ask/ask.js" defer></script>
+</body>
+</html>

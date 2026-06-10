@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The smallest case where the closure mechanism runs end to end: profiles, the factor map, and rectangular completeness on a four-state world.">
+<meta property="og:title" content="A Worked Example &mdash; Closure Research Initiative">
+<meta property="og:description" content="The smallest case where the closure mechanism runs end to end: profiles, the factor map, and rectangular completeness on a four-state world.">
+<meta property="og:url" content="https://closureresearchinitiative.org/example/">
+<link rel="canonical" href="https://closureresearchinitiative.org/example/">
+<meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A Worked Example">
+<meta name="twitter:description" content="The smallest case where the closure mechanism runs end to end.">
+<meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
+<meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
+<title>A Worked Example &mdash; Closure Research Initiative</title>
+<meta name="theme-color" content="#FAFAF8">
+<meta name="application-name" content="Closure Research Initiative">
+<meta name="apple-mobile-web-app-title" content="Closure Research">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260608">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-20260608.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-20260608.png">
+<link rel="icon" type="image/x-icon" href="/favicon-20260608.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-20260608.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="license" href="/license/">
+<link rel="alternate" type="application/atom+xml" title="Closure Research Initiative" href="/feed.xml">
+<meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "@type":  "WebPage",
+    "@id":  "https://closureresearchinitiative.org/example/#webpage",
+    "url":  "https://closureresearchinitiative.org/example/",
+    "name":  "A Worked Example",
+    "description":  "The smallest case where the closure mechanism runs end to end: profiles, the factor map, and rectangular completeness on a four-state world.",
+    "isPartOf":  {
+                     "@id":  "https://closureresearchinitiative.org/#website"
+                 },
+    "publisher":  {
+                      "@id":  "https://closureresearchinitiative.org/#organization"
+                  },
+    "inLanguage":  "en"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A2348;
+  --gold: #B9933D;
+  --paper: #FAFAF8;
+  --text: #1E2430;
+  --muted: #5A6472;
+  --card: #FFFFFF;
+  --border: rgba(10,35,72,0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --paper: #11131A;
+    --navy: #9BB5D6;
+    --text: #D6D8DD;
+    --muted: #878C99;
+    --card: #1A1D27;
+    --border: rgba(255,255,255,0.08);
+  }
+}
+:root.dark {
+  --paper: #11131A;
+  --navy: #9BB5D6;
+  --text: #D6D8DD;
+  --muted: #878C99;
+  --card: #1A1D27;
+  --border: rgba(255,255,255,0.08);
+}
+:root.dark .hero-logo img { filter: invert(1); }
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .hero-logo img { filter: invert(1); }
+}
+.theme-toggle {
+  display: block;
+  margin: 0 auto 1.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.theme-toggle:hover { opacity: 1; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 0 3rem; }
+
+.hero { text-align: center; padding: 4rem 0 2rem; position: relative; }
+.discuss-wrapper {
+  text-align: center;
+  padding: 0 0 1.5rem;
+}
+.discuss-btn {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.discuss-btn:hover {
+  color: var(--navy);
+  border-color: var(--gold);
+}
+.hero-logo { margin-bottom: 1.5rem; }
+.hero-logo a { text-decoration: none; }
+.hero-logo img { width: 200px; height: auto; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+nav {
+  text-align: center;
+  padding: 1.5rem 0 2.5rem;
+  margin-bottom: 3rem;
+}
+nav a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+nav span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.section-header h2 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.section-header .line { flex: 1; height: 1px; background: var(--border); }
+
+p { font-size: 0.92rem; color: var(--text); margin-bottom: 1rem; line-height: 1.8; }
+a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
+a:hover { text-decoration-color: var(--gold); }
+h3 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+h4 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  font-style: italic;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+table.grid { border-collapse: collapse; margin: 1.5rem 0; }
+table.grid th, table.grid td { border: 1px solid var(--border); padding: 0.5rem 1rem; text-align: center; min-width: 4rem; }
+table.grid th { font-weight: 600; }
+table.grid td em { color: var(--muted); font-style: italic; }
+
+footer {
+  margin-top: 3.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+footer span { min-width: 0; }
+
+@media print {
+  body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
+  .container { max-width: 100%; padding: 0 1in; }
+  .hero { padding: 0.5in 0 0.25in; }
+  .hero-logo img { width: 180px; }
+  .hero h1 { font-size: 20pt; }
+  .hero .subtitle { font-size: 10pt; }
+  nav { display: none; }
+  a { color: #000 !important; text-decoration: underline !important; }
+  table.grid th, table.grid td { border: 1px solid #ccc; }
+  footer { font-size: 8pt; color: #555; }
+}
+
+@media (max-width: 800px) {
+  .container { padding: 0 1.5rem; }
+  .hero h1 { font-size: 2rem; }
+  .hero-logo img { width: 150px; }
+  nav a, nav span { margin: 0 0.6rem; font-size: 0.72rem; }
+  footer { flex-direction: column; gap: 0.3rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-logo">
+      <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
+    </div>
+    <h1>A Worked Example</h1>
+    <div class="subtitle">The smallest case where the mechanism runs end to end</div>
+  </div>
+
+  <div class="discuss-wrapper">
+    <a class="discuss-btn" href="https://github.com/CKW25/closure-research-initiative/discussions" target="_blank" rel="noopener">Discussion Forum &#8599;</a>
+  </div>
+
+  <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/idea/">Foundations</a>
+    <a href="/overview/">Overview</a>
+    <a href="/map/">Structural Map</a>
+    <span>Worked Example</span>
+    <a href="/notation/">Notation</a>
+    <a href="/objections/">Objections</a>
+    <a href="/predictions/">Predictions</a>
+    <a href="/guide/">Reading Guide</a>
+    <a href="/preprints/">Preprints</a>
+    <a href="/contact/">Contact</a>
+    <a href="/notes/">Research Notes</a>
+    <a href="/license/">License</a>
+  </nav>
+
+  <div class="section-header">
+    <h2>A Worked Example</h2>
+    <span class="line"></span>
+  </div>
+
+  <p>This page presents an explicit finite instance of the basic construction. It uses the smallest case in which the profile construction and factor map are nontrivial: a four-state comparison world. No geometry, curvature, or three-sphere theorem is involved; only comparison profiles and rectangular completeness appear. The example shows rectangular completeness in the full product case and its failure in a deleted-cell structure that is not closed under the criterion.</p>
+
+  <h3>The setup</h3>
+
+  <p>A comparison world is a set of states together with comparison predicates &mdash; functions that take two states and return 0 or 1. Consider four states, represented for calculation by two binary internal features, a <em>left</em> feature and a <em>right</em> feature:</p>
+
+  <p style="text-align:center;font-family:monospace;margin:1rem 0;">states: (0,0), (0,1), (1,0), (1,1)</p>
+
+  <p>The product interpretation is not assumed in advance. It is the structure the comparison data must recover. The initial data consist only of two predicates:</p>
+
+  <p style="text-align:center;font-family:monospace;margin:1rem 0;"><em>c<sub>L</sub></em>(<em>u</em>, <em>v</em>) returns the left feature of the first state, <em>u</em>.<br><em>c<sub>R</sub></em>(<em>u</em>, <em>v</em>) returns the right feature of the second state, <em>v</em>.</p>
+
+  <p>The example therefore starts from four states and two predicates, with no independent coordinate system or product structure assumed. The remaining structure is extracted from these predicates.</p>
+
+  <h3>Step one &mdash; profiles</h3>
+
+  <p>For each state, its <em>left profile</em> records how it behaves as the first argument across all comparisons; its <em>right profile</em> records how it behaves as the second argument. Two states are identified by the left congruence (written &alpha;) when their left profiles are identical, and by the right congruence (&beta;) when their right profiles match. (These are Definitions 2.3.1&ndash;2.3.2 of the monograph, applied by hand.)</p>
+
+  <p>Computing the left profiles: <em>c<sub>L</sub></em> returns the first state&rsquo;s left feature, so a state&rsquo;s left profile is fixed entirely by <em>its own left feature</em>. States (0,0) and (0,1) share left feature 0, so they are &alpha;-equivalent; (1,0) and (1,1) share left feature 1. The left congruence sorts the four states into two classes:</p>
+
+  <p><strong>&alpha;-classes:</strong> { (0,0), (0,1) } and { (1,0), (1,1) } &mdash; call them <em>L=0</em> and <em>L=1</em>.</p>
+
+  <p>Symmetrically, <em>c<sub>R</sub></em> returns the second state&rsquo;s right feature, so a state&rsquo;s right profile is fixed by its own right feature:</p>
+
+  <p><strong>&beta;-classes:</strong> { (0,0), (1,0) } and { (0,1), (1,1) } &mdash; call them <em>R=0</em> and <em>R=1</em>.</p>
+
+  <p>The predicates determine exactly two left classes and two right classes without assuming a product decomposition.</p>
+
+  <h3>Step two &mdash; the factor map</h3>
+
+  <p>The factor map &Theta; sends each state to the pair (its &alpha;-class, its &beta;-class) &mdash; that is, to (left class, right class). Laying the four states into a grid with &alpha;-classes as rows and &beta;-classes as columns:</p>
+
+  <table class="grid">
+    <caption>Full 2&times;2 comparison world: &Theta; is bijective</caption>
+    <tr><th scope="col"></th><th scope="col">R = 0</th><th scope="col">R = 1</th></tr>
+    <tr><th scope="row">L = 0</th><td>(0,0)</td><td>(0,1)</td></tr>
+    <tr><th scope="row">L = 1</th><td>(1,0)</td><td>(1,1)</td></tr>
+  </table>
+
+  <p>Every cell is filled by exactly one state. Thus &Theta; is bijective: each (left class, right class) pair is realized once. The comparison data recover a product of a left factor and a right factor &mdash; the canonical decomposition the program calls rectangular completeness (Definition 2.5.1; equivalently, bijectivity of &Theta;; derived under the stated hypotheses in Theorem 2.6.4).</p>
+
+  <p>This is the mechanism in its smallest nontrivial form: comparison data determine the product structure rather than presupposing it.</p>
+
+  <h3>What it looks like when closure fails</h3>
+
+  <p>The closed/open distinction appears when the same profile structure is present but one admissible pair is unrealized. Remove the state (1,1):</p>
+
+  <p style="text-align:center;font-family:monospace;margin:1rem 0;">states: (0,0), (0,1), (1,0)</p>
+
+  <p>The profiles still produce two left classes and two right classes (the remaining states still show both feature values on each side). So the grid still <em>has</em> four cells &mdash; but only three are filled:</p>
+
+  <table class="grid">
+    <caption>Deleted-cell world: (1,1) is empty</caption>
+    <tr><th scope="col"></th><th scope="col">R = 0</th><th scope="col">R = 1</th></tr>
+    <tr><th scope="row">L = 0</th><td>(0,0)</td><td>(0,1)</td></tr>
+    <tr><th scope="row">L = 1</th><td>(1,0)</td><td><em>empty</em></td></tr>
+  </table>
+
+  <p>The cell (L=1, R=1) is admissible &mdash; the comparison structure contains a left class <em>L=1</em> and a right class <em>R=1</em>, so the combination is a coherent possibility &mdash; but no state realizes it. The factor map is no longer onto; the resulting structure is not rectangularly complete. In the closure interpretation, this unrealized admissible cell indicates an omission requiring external selection: a possibility admitted by the comparison data, not realized by any state, and not internally detectable as an exclusion.</p>
+
+  <h3>The rod &mdash; where calculation and interpretation part</h3>
+
+  <p>The rod example separates the calculation from the interpretation. Suppose the two features are constrained to be equal, so that only states with left = right exist:</p>
+
+  <p style="text-align:center;font-family:monospace;margin:1rem 0;">states: (0,0), (1,1)</p>
+
+  <p>The profiles still yield two left classes and two right classes, so the grid still has four cells &mdash; but only the two diagonal cells are filled:</p>
+
+  <table class="grid">
+    <caption>Rod world: only diagonal cells filled</caption>
+    <tr><th scope="col"></th><th scope="col">R = 0</th><th scope="col">R = 1</th></tr>
+    <tr><th scope="row">L = 0</th><td>(0,0)</td><td><em>empty</em></td></tr>
+    <tr><th scope="row">L = 1</th><td><em>empty</em></td><td>(1,1)</td></tr>
+  </table>
+
+  <p>The calculation establishes the undisputed finite fact: two cells are admissible &mdash; the comparison structure contains both left classes and both right classes &mdash; and two are unrealized.</p>
+
+  <p>Closure adds an interpretation of that arithmetic: an admissible-but-unrealized cell is read as the signature of a constraint imposed from outside the two features themselves &mdash; here, a rigid coupling locking left to right, a relation the two features do not generate between them. On the closure reading, this world is <em>open</em>: the off-diagonal cells are excluded by a constraint not recovered from the two features alone.</p>
+
+  <p>One may instead treat the diagonal as the entire comparison world, a complete state space of two elements. That position is coherent, but it declines the closure criterion rather than refuting the calculation. It treats the exclusion of the off-diagonal cells as primitive rather than as evidence of an external constraint. Closure is the criterion that a self-contained comparison structure contains no admissible but unrealized profile pairs; accepting primitive exclusions amounts to adopting a different criterion of self-containment.</p>
+
+  <h3>What this shows, and what it doesn&rsquo;t</h3>
+
+  <p>The calculation and the closure interpretation should remain distinct. The calculation is elementary: predicates determine congruences, congruences determine the factor map, and the factor map is bijective for the full product but non-surjective for the deleted world and the rod. The closure principle &mdash; that an admissible unrealized cell signals openness, an externally maintained absence &mdash; is the interpretive criterion applied to that calculation. The example illustrates the criterion; the theorem-level justification is supplied by the monograph.</p>
+
+  <p>This example covers only the first two constructions &mdash; profiles and the factor map &mdash; in the smallest world where they are visible. It does not address transport, curvature, or the three-sphere theorem, which require the full development. Its role is to display the basic rigidity mechanism: admissible combinations recognized by the comparison structure must be realized in a closed world. The later constructions apply the same no-unrealized-admissible-pair discipline to frames, transport, and relations among them, subject to the additional hypotheses stated in the papers.</p>
+
+  <p>Source trail: comparison worlds, left/right profiles, intrinsic congruences, and the factor map are defined in <a href="/csm/">CSM</a> Chapter 2 and summarized in <a href="/notation/">Notation</a>. The deleted-cell and rod readings are examples of the closed/open distinction discussed in <a href="/idea/">Foundations</a>, <a href="/overview/">Overview</a>, and <a href="/objections/">Objections</a>. This page is illustrative; the theorem-level statements are the monograph definitions and results it cites.</p>
+
+  <p>The full theory is in the <a href="/csm/">monograph</a>; the foundational orientation is in <a href="/idea/">Foundations</a>; the result-by-result development is in the <a href="/overview/">Overview</a>.</p>
+
+  <footer>
+    <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
+    <span>Maintained by Closure Research Initiative &middot; Served by <a href="https://workers.cloudflare.com/" style="color:var(--muted);" target="_blank" rel="noopener">Cloudflare Workers</a> &middot; Versioned on <a href="https://github.com/CKW25/closure-research-initiative" style="color:var(--muted);" target="_blank" rel="noopener">GitHub</a> &middot; <a href="/sources/" style="color:var(--muted);">Sources and Citation</a> &middot; <a href="/license/" style="color:var(--muted);">License</a> &middot; <a href="/notes/" style="color:var(--muted);">Research Notes</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; <a href="/contact/" style="color:var(--muted);">Contact</a> &middot; Last updated June 9, 2026</span>
+  </footer>
+
+</div>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

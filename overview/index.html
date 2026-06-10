@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="An introduction to the closure program: what it means for a physical theory to be genuinely closed, and what structure follows necessarily from that requirement.">
+<meta property="og:title" content="Overview &mdash; Closure Research Initiative">
+<meta property="og:description" content="An introduction to the closure program: what it means for a physical theory to be genuinely closed, and what structure follows necessarily from that requirement.">
+<meta property="og:url" content="https://closureresearchinitiative.org/overview/">
+<link rel="canonical" href="https://closureresearchinitiative.org/overview/">
+<meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Overview &mdash; Closure Research Initiative">
+<meta name="twitter:description" content="An introduction to the closure program: what it means for a physical theory to be genuinely closed, and what structure follows necessarily from that requirement.">
+<meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
+<meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
+<title>Overview &mdash; Closure Research Initiative</title>
+<meta name="theme-color" content="#FAFAF8">
+<meta name="application-name" content="Closure Research Initiative">
+<meta name="apple-mobile-web-app-title" content="Closure Research">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260608">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-20260608.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-20260608.png">
+<link rel="icon" type="image/x-icon" href="/favicon-20260608.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-20260608.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="license" href="/license/">
+<link rel="alternate" type="application/atom+xml" title="Closure Research Initiative" href="/feed.xml">
+<meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "@type":  "WebPage",
+    "@id":  "https://closureresearchinitiative.org/overview/#webpage",
+    "url":  "https://closureresearchinitiative.org/overview/",
+    "name":  "Overview",
+    "description":  "An introduction to the closure program: what it means for a physical theory to be genuinely closed, and what structure follows necessarily from that requirement.",
+    "isPartOf":  {
+                     "@id":  "https://closureresearchinitiative.org/#website"
+                 },
+    "publisher":  {
+                      "@id":  "https://closureresearchinitiative.org/#organization"
+                  },
+    "inLanguage":  "en"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A2348;
+  --gold: #B9933D;
+  --paper: #FAFAF8;
+  --text: #1E2430;
+  --muted: #5A6472;
+  --card: #FFFFFF;
+  --border: rgba(10,35,72,0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --paper: #11131A;
+    --navy: #9BB5D6;
+    --text: #D6D8DD;
+    --muted: #878C99;
+    --card: #1A1D27;
+    --border: rgba(255,255,255,0.08);
+  }
+}
+:root.dark {
+  --paper: #11131A;
+  --navy: #9BB5D6;
+  --text: #D6D8DD;
+  --muted: #878C99;
+  --card: #1A1D27;
+  --border: rgba(255,255,255,0.08);
+}
+:root.dark .hero-logo img { filter: invert(1); }
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .hero-logo img { filter: invert(1); }
+}
+.theme-toggle {
+  display: block;
+  margin: 0 auto 1.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.theme-toggle:hover { opacity: 1; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 0 3rem; }
+
+.hero { text-align: center; padding: 4rem 0 2rem; position: relative; }
+.discuss-wrapper {
+  text-align: center;
+  padding: 0 0 1.5rem;
+}
+.discuss-btn {
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.discuss-btn:hover {
+  color: var(--navy);
+  border-color: var(--gold);
+}
+.hero-logo { margin-bottom: 1.5rem; }
+.hero-logo a { text-decoration: none; }
+.hero-logo img { width: 200px; height: auto; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+nav {
+  text-align: center;
+  padding: 1.5rem 0 2.5rem;
+  margin-bottom: 3rem;
+}
+nav a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+nav span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 1.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.section-header h2 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.section-header .line { flex: 1; height: 1px; background: var(--border); }
+
+p { font-size: 0.92rem; color: var(--text); margin-bottom: 1rem; line-height: 1.8; }
+a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
+a:hover { text-decoration-color: var(--gold); }
+
+.essay h3 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.essay h4 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  font-style: italic;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.essay .section-divider {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin: 2.5rem 0;
+  letter-spacing: 0.3em;
+}
+.concept-figure {
+  margin: 1.75rem 0 1.5rem;
+}
+.concept-figure .twin-loop-diagram {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  margin: 0 auto;
+  color: var(--text);
+  overflow: visible;
+}
+.twin-loop-diagram .orbit-ring,
+.twin-loop-diagram .motion-arc {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+.twin-loop-diagram .orbit-ring {
+  stroke-dasharray: 10 12;
+  opacity: 0.58;
+}
+.twin-loop-diagram .comparison-edge,
+.twin-loop-diagram .separator {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 2.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.twin-loop-diagram .separator {
+  stroke: var(--border);
+  stroke-width: 1.2;
+}
+.twin-loop-diagram .state-point {
+  fill: var(--muted);
+  stroke: var(--paper);
+  stroke-width: 1.5;
+}
+.twin-loop-diagram .formula-box {
+  fill: transparent;
+  stroke: var(--border);
+  stroke-width: 1;
+}
+.twin-loop-diagram text {
+  fill: var(--muted);
+  letter-spacing: 0;
+}
+.twin-loop-diagram .math-label,
+.twin-loop-diagram .math-title,
+.twin-loop-diagram .formula-text {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-style: italic;
+}
+.twin-loop-diagram .math-title {
+  fill: var(--text);
+  font-size: 34px;
+  font-weight: 400;
+}
+.twin-loop-diagram .math-label {
+  fill: var(--text);
+  font-size: 28px;
+  font-weight: 400;
+}
+.twin-loop-diagram .formula-text {
+  fill: var(--text);
+  font-size: 33px;
+  font-weight: 400;
+}
+.twin-loop-diagram .side-label {
+  fill: var(--muted);
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 20px;
+  font-style: italic;
+}
+.twin-loop-diagram .panel-label {
+  fill: var(--muted);
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+.twin-loop-diagram .formula-note {
+  fill: var(--muted);
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+.concept-figure figcaption {
+  max-width: 780px;
+  margin: 0.65rem auto 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+footer {
+  margin-top: 3.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+footer span { min-width: 0; }
+
+@media print {
+  body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
+  .container { max-width: 100%; padding: 0 1in; }
+  .hero { padding: 0.5in 0 0.25in; }
+  .hero-logo img { width: 180px; }
+  .hero h1 { font-size: 20pt; }
+  .hero .subtitle { font-size: 10pt; }
+  nav { display: none; }
+  a { color: #000 !important; text-decoration: underline !important; }
+  footer { font-size: 8pt; color: #555; }
+}
+
+@media (max-width: 800px) {
+  .container { padding: 0 1.5rem; }
+  .hero h1 { font-size: 2rem; }
+  .hero-logo img { width: 150px; }
+  nav a, nav span { margin: 0 0.6rem; font-size: 0.72rem; }
+  footer { flex-direction: column; gap: 0.3rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-logo">
+      <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
+    </div>
+    <h1>Overview</h1>
+    <div class="subtitle">An introduction to the closure program</div>
+  </div>
+
+  <div class="discuss-wrapper">
+    <a class="discuss-btn" href="https://github.com/CKW25/closure-research-initiative/discussions" target="_blank" rel="noopener">Discussion Forum &#8599;</a>
+  </div>
+
+  <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/idea/">Foundations</a>
+    <span>Overview</span>
+    <a href="/map/">Structural Map</a>
+    <a href="/example/">Worked Example</a>
+    <a href="/notation/">Notation</a>
+    <a href="/objections/">Objections</a>
+    <a href="/predictions/">Predictions</a>
+    <a href="/guide/">Reading Guide</a>
+    <a href="/preprints/">Preprints</a>
+    <a href="/contact/">Contact</a>
+    <a href="/notes/">Research Notes</a>
+    <a href="/license/">License</a>
+  </nav>
+
+  <div class="section-header">
+    <h2>What It Means for a Theory to Be Closed</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="essay">
+
+  <p>Every physical theory makes assumptions. Some are explicit axioms; others are structural commitments built into the mathematical language itself. The question at the foundation of this program is which of these assumptions are necessary, and which are imported only by convention. The aim is to identify the minimal commitments of a closed physical theory and determine what structure follows from those commitments alone.</p>
+
+  <p>The phrase &ldquo;closed physical theory&rdquo; is used here in a specific sense. A theory is closed when every structure it invokes is recoverable from within the system itself&mdash;when there is no appeal to an external frame, an external observer, a pre-supplied background, or any external primitive structure not justified by internal resources. This is not a claim about a particular theory being correct. It is a constraint on the adequacy of closed-world description.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>The Starting Point: Comparison Data</h3>
+
+  <p>Consider a system treated as self-contained. There is no external observer, no pre-existing coordinate system, no background space, and no external clock. The relevant question is what can be stated about such a system using only internal resources.</p>
+
+  <p>The only operation available internally is comparison. Given two states of the system, one can ask whether they are the same or different, and more finely, compare them along whatever dimensions of variation the system itself supports. This is the primitive data: a set of states equipped with binary comparison predicates. No topology, no metric, no dynamics, no geometry is assumed at the start. The question is what structure must emerge from this minimal beginning.</p>
+
+  <p>This starting point is not a conjecture about the nature of reality. It is a methodological discipline: if a structure cannot be recovered from comparison data alone, then it cannot be taken as primitive in a closed theory. It must either be derived from something deeper or abandoned.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>Two Subsystems: Rectangular Completeness</h3>
+
+  <p>When a system decomposes into two subsystems, a new question arises. The whole contains joint states of the two parts. But does it contain all possible combinations of states from each part individually, or only some of them? The condition under which the whole contains all such combinations is called <em>rectangular completeness</em>.</p>
+
+  <p>The name comes from the observation that the set of joint states can be arranged as a grid or rectangle: the rows correspond to states of one subsystem, the columns to states of the other, and each cell is a joint state. Rectangular completeness is the condition that every cell is filled&mdash;that every combination is realized. When this holds, the system admits a natural product structure: the whole is, in a precise sense, the product of its parts.</p>
+
+  <p>Rectangular completeness turns out to be equivalent, under mild conditions, to a property called profile-maximality: no extension exists to a larger comparison world in which one subsystem has the same range of profiles but strictly more states. This equivalence is not obvious, but it is provable from the comparison data alone.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>Quotient Semantics: When Labels Are Lost</h3>
+
+  <p>In a closed system, symmetries are not optional. If the system&rsquo;s internal comparison structure identifies two states as equivalent under a symmetry, then no admissible report can distinguish them. The states belong to orbits of the symmetry group, and the physically accessible information is what descends to the orbit space&mdash;the quotient.</p>
+
+  <p>This has a direct consequence for subsystem attribution. Consider a pure motion within a diagonal orbit of a two-subsystem system: a change that moves both subsystems together in a correlated way. Because the motion is within a single orbit, quotient-level reports do not determine whether the change is assigned to subsystem A or to subsystem B. The labels &ldquo;A changed&rdquo; and &ldquo;B changed&rdquo; are not distinguished by any admissible comparison. Subsystem attribution is not an invariant of the closed system.</p>
+
+  <p>One motivating thought experiment is a frame-attribution question. Suppose a field configuration and a reference subsystem within the same closed system are available only through their mutual comparison data. One presentation may hold the reference subsystem fixed and attribute the relative change to the field; another may hold the field data fixed and attribute the change to the reference subsystem. The formal issue is not whether a particular electromagnetic field is literally rotating. It is whether the attribution of the relative change to one side rather than the other is internally recoverable. If it is not, the distinction is a choice of representative, not quotient-level physical content.</p>
+
+  <figure class="concept-figure" aria-labelledby="overview-twin-loops-caption">
+    <svg class="twin-loop-diagram" viewBox="0 0 960 660" role="img" aria-label="Two orbit-projection-equivalent descriptions, one B-supported and one A-supported, descend to the same quotient report.">
+      <defs>
+        <marker id="twin-arrowhead-overview" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--muted)"></path>
+        </marker>
+      </defs>
+      <text class="math-title" x="480" y="48" text-anchor="middle">x = y</text>
+
+      <g aria-hidden="true">
+        <line class="separator" x1="80" y1="335" x2="226" y2="335"></line>
+        <line class="separator" x1="734" y1="335" x2="880" y2="335"></line>
+
+        <circle class="orbit-ring" cx="370" cy="188" r="92"></circle>
+        <path class="motion-arc" d="M 425 166 A 76 76 0 0 0 313 166" marker-end="url(#twin-arrowhead-overview)"></path>
+        <line class="comparison-edge" x1="276" y1="188" x2="532" y2="82"></line>
+        <line class="comparison-edge" x1="532" y1="82" x2="462" y2="188"></line>
+        <circle class="state-point" cx="276" cy="188" r="5.8"></circle>
+        <circle class="state-point" cx="462" cy="188" r="5.8"></circle>
+        <circle class="state-point" cx="532" cy="82" r="5.8"></circle>
+        <text class="side-label" x="84" y="196">single G-orbit</text>
+        <text class="math-label" x="228" y="197">B<tspan baseline-shift="sub" font-size="62%">1</tspan></text>
+        <text class="math-label" x="486" y="197">B<tspan baseline-shift="sub" font-size="62%">0</tspan></text>
+        <text class="math-label" x="552" y="73">A</text>
+        <text class="math-label" x="512" y="151">x</text>
+        <text class="panel-label" x="690" y="116">(I: &ldquo;B moves&rdquo;)</text>
+        <text class="math-label" x="760" y="178">&#915;(t)</text>
+
+        <rect class="formula-box" x="226" y="298" width="508" height="74" rx="5"></rect>
+        <text class="formula-text" x="480" y="348" text-anchor="middle">&#960;(&#915;(t)) = &#960;(&#915;&#771;(t)) &#8712; Phys</text>
+
+        <circle class="orbit-ring" cx="370" cy="482" r="92"></circle>
+        <path class="motion-arc" d="M 425 460 A 76 76 0 0 0 313 460" marker-end="url(#twin-arrowhead-overview)"></path>
+        <line class="comparison-edge" x1="276" y1="482" x2="532" y2="578"></line>
+        <line class="comparison-edge" x1="462" y1="482" x2="532" y2="578"></line>
+        <circle class="state-point" cx="276" cy="482" r="5.8"></circle>
+        <circle class="state-point" cx="462" cy="482" r="5.8"></circle>
+        <circle class="state-point" cx="532" cy="578" r="5.8"></circle>
+        <text class="side-label" x="84" y="490">single G-orbit</text>
+        <text class="math-label" x="228" y="491">A<tspan baseline-shift="sub" font-size="62%">1</tspan></text>
+        <text class="math-label" x="486" y="491">A<tspan baseline-shift="sub" font-size="62%">0</tspan></text>
+        <text class="math-label" x="552" y="621">B</text>
+        <text class="math-label" x="513" y="539">y</text>
+        <text class="formula-note" x="496" y="410">&#915;&#771;(t) = g(t)<tspan baseline-shift="super" font-size="70%">&#8722;1</tspan> &#183; &#915;<tspan baseline-shift="sub" font-size="70%">A</tspan>(t)</text>
+        <text class="panel-label" x="690" y="572">(II: &ldquo;A moves&rdquo;)</text>
+        <text class="math-label" x="760" y="634">&#915;&#771;(t)</text>
+      </g>
+    </svg>
+    <figcaption id="overview-twin-loops-caption">Two representative histories can differ in subsystem attribution while projecting to the same physical quotient history. The edge labels x and y denote comparison-relation values; the heading x = y denotes equality of report values. Source: <a href="/ccw/">Closed Comparison Worlds</a>.</figcaption>
+  </figure>
+
+  <p>This is not a limitation of the formalism. It is a structural fact about what it means to be closed. If there is no external frame, then there is no invariant criterion for determining which subsystem moved. The notion of subsystem attribution itself presupposes the kind of external primitive structure that closure excludes.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>Transport and Curvature</h3>
+
+  <p>To compare states across different locations or contexts, a closed system requires a notion of transport: a rule relating a quantity at one point to the corresponding quantity at another point. This rule cannot be supplied from outside; it must be recoverable from the system&rsquo;s internal comparison structure.</p>
+
+  <p>The comparison groupoid is the mathematical structure that encodes how points relate to one another through admissible comparisons. Transport arises naturally from this groupoid: a route from one point to another carries comparison data along with it. When two different routes between the same points give different transport data, there is an obstruction. This obstruction, recorded around closed loops, is curvature in the standard connection-and-holonomy sense [2,3].</p>
+
+  <p>Curvature, in this setting, is not a geometric assumption. It is the first stable layer of transport obstruction in a closed system, realized as curvature under faithful smooth realization. The curvature hierarchy&mdash;the hierarchy of increasingly fine-grained obstructions to route independence&mdash;emerges from the comparison groupoid without any prior geometric commitment.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>The Shape of the Universe</h3>
+
+  <p>The culmination of the geometric branch is a theorem about genuinely closed three-dimensional systems at the smooth-realization stage. The argument should be read with that scope in view.</p>
+
+  <p>The relational theory first supplies the comparison architecture and transport-obstruction data. When that obstruction data is faithfully realized on a smooth manifold, one obtains a compact Riemannian 3-manifold <em>M</em> equipped with the relevant closed-system comparison structure.</p>
+
+  <p>The manifold <em>M</em> is then modeled through its orthonormal frame bundle: the collection of orthonormal frames at all points. The product of the frame bundle with itself carries the diagonal action of the isometry group. Admissible comparison reports are those respecting this symmetry, i.e. those factoring through the corresponding orbit space.</p>
+
+  <p>Genuine closure at this stage requires admissible comparison morphisms between the relevant frame data. That condition forces the isometry group to act transitively on the frame bundle. By the standard homogeneous-geometry result [1] invoked in the program&rsquo;s <a href="/cfsg/">CFSG paper</a>, transitivity on the orthonormal frame bundle forces constant sectional curvature. Together with the program&rsquo;s gauge-reduced transport criterion for simple connectivity, the remaining closed realized three-dimensional case is S&sup3;.</p>
+
+  <p>The result is therefore not an unconditional derivation of smooth geometry from bare comparison data. It is a conditional rigidity theorem: once the faithful smooth-realization bridge is in place, genuine closure selects the spherical case.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>The Same Pattern Across Theories</h3>
+
+  <p>A separate result, the factorization criterion for route invariants with fixed endpoint data, records a pattern that recurs across many areas of physics. The criterion is simple: a route-dependent quantity is determined by its endpoints if and only if it is constant on every endpoint fiber. Equivalently, it must factor through the endpoint quotient.</p>
+
+  <p>This criterion, proved from elementary principles, captures the same structural obstruction that appears in quotient semantics (when do orbit-level reports determine object-level data?), in categories (when do morphisms factor through objects?), in gauge transport (when does parallel transport depend only on the path&rsquo;s endpoints?), in Wilson loops (when do loop variables reduce to endpoint data?), in differential geometry (curvature as the obstruction to path-independence), and in general relativity (the holonomy group as a measure of non-flatness) [2&ndash;4].</p>
+
+  <p>The recurrence is not accidental. The same logical structure&mdash;the failure of endpoint-determinedness&mdash;manifests as distinct phenomena in each domain. The factorization criterion unifies them under a single formal account.</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>Structural Error: Four Ways a Theory Can Fail to Be Closed</h3>
+
+  <p>If closure is a constraint on admissible physical description, then theories can fail to satisfy it in identifiable ways. A four-axis taxonomy isolates the recurrent forms of primitive structural input that violate closure:</p>
+
+  <p><em>Externalization.</em> A structure is externalized when it is treated as given rather than derived from the system&rsquo;s internal resources. Examples include an absolute background space, an external observer, or a pre-assumed causal structure.</p>
+
+  <p><em>Artificial factorization.</em> A system is artificially factorized when it is divided into subsystems in a way that is not recoverable from the intrinsic comparison structure. The division imports a distinction that the system itself does not support.</p>
+
+  <p><em>Premature globalization.</em> A local description is prematurely globalized when features that hold in a restricted context are assumed without justification to hold everywhere. The structure is imported because it is convenient, not because it is forced.</p>
+
+  <p><em>Reification of repair.</em> A formal repair of a structural problem is reified when the repair mechanism is treated as a physical object. An artifact of the mathematics is treated as if it were a feature of physical ontology.</p>
+
+  <p>These four axes are proved to be logically independent: no one of them is a Boolean consequence of the other three. They offer a scheme for classifying foundational tensions in classical mechanics, quantum mechanics, quantum field theory, general relativity, and statistical mechanics&mdash;not as separate problems, but as instances of a common pattern [3,5&ndash;8].</p>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3>What This Means</h3>
+
+  <p>The closure program proceeds from a single methodological constraint: a genuinely closed physical theory cannot rely on external primitive structure. Any structure it invokes must be recoverable from within the system itself. This constraint is not a physical hypothesis to be tested against observation. It is a condition on the form of physical description.</p>
+
+  <p>The claim is that these are not additional choices once the relevant closure hypotheses are in force. They are consequences of the intrinsicality premise together with the stated structural conditions, especially local distinguishability at the comparison stage and faithful smooth realization at the geometric stage.</p>
+
+  <p>The question of closure in this sense is first a question about the adequacy of physical description: what may be taken as primitive in a theory of the closed world? Empirical contact enters downstream, through whether the structures derived under that discipline recover the physical theories and phenomena they are intended to explain.</p>
+
+  </div>
+
+  <div class="section-divider">&sect;</div>
+
+  <h3 style="font-family:'Cormorant Garamond','EB Garamond',Georgia,serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-top:2rem;margin-bottom:0.75rem;">References</h3>
+
+  <p style="font-size:0.85rem;color:var(--muted);line-height:1.9;margin-bottom:0.3rem;">
+  [1] S. Kobayashi and K. Nomizu, <a href="https://www.wiley-vch.de/en/areas-interest/mathematics-statistics/foundations-of-differential-geometry-volume-1-978-0-471-15733-5" target="_blank" rel="noopener"><em>Foundations of Differential Geometry</em>, Vol. I</a> (Interscience, 1963), Theorem 4.2. For the homogeneous-geometry background used in the CFSG comparison, see S. Helgason, <a href="https://bookstore.ams.org/gsm-34/" target="_blank" rel="noopener"><em>Differential Geometry, Lie Groups, and Symmetric Spaces</em></a> (Academic Press, 1978), Ch. I &sect;4.
+  </p>
+  <p style="font-size:0.85rem;color:var(--muted);line-height:1.9;margin-bottom:0.3rem;">
+  [2] M. Nakahara, <a href="https://www.routledge.com/Geometry-Topology-and-Physics-Second-Edition/Nakahara/p/book/9780750306065" target="_blank" rel="noopener"><em>Geometry, Topology and Physics</em></a>, 2nd ed. (Institute of Physics, 2003), Chs. 10&ndash;11, for connections, holonomy, and gauge-field geometry.
+  </p>
+  <p style="font-size:0.85rem;color:var(--muted);line-height:1.9;margin-bottom:0.3rem;">
+  [3] R. M. Wald, <a href="https://press.uchicago.edu/ucp/books/book/chicago/G/bo5952261.html" target="_blank" rel="noopener"><em>General Relativity</em></a> (University of Chicago Press, 1984), for curvature, parallel transport, and holonomy in relativistic geometry.
+  </p>
+  <p style="font-size:0.85rem;color:var(--muted);line-height:1.9;margin-bottom:0.3rem;">
+  [4] K. G. Wilson, <a href="https://doi.org/10.1103/PhysRevD.10.2445" target="_blank" rel="noopener">&ldquo;Confinement of quarks,&rdquo;</a> <em>Phys. Rev. D</em> 10 (1974) 2445&ndash;2459, for the Wilson-loop setting invoked as an external comparison example.
+  </p>
+  <p style="font-size:0.85rem;color:var(--muted);line-height:1.9;margin-bottom:0.3rem;">
+  [5] L. D. Landau and E. M. Lifshitz, <a href="https://shop.elsevier.com/books/mechanics/landau/978-0-08-050347-9" target="_blank" rel="noopener"><em>Mechanics</em></a>, 3rd ed. (Pergamon, 1976). [6] J. von Neumann, <a href="https://press.princeton.edu/books/paperback/9780691178578/mathematical-foundations-of-quantum-mechanics" target="_blank" rel="noopener"><em>Mathematical Foundations of Quantum Mechanics</em></a> (Princeton University Press, 1955). [7] M. E. Peskin and D. V. Schroeder, <a href="https://www.routledge.com/An-Introduction-To-Quantum-Field-Theory/Peskin-Schroeder/p/book/9780429503559" target="_blank" rel="noopener"><em>An Introduction to Quantum Field Theory</em></a> (Westview, 1995). [8] R. K. Pathria and P. D. Beale, <a href="https://shop.elsevier.com/books/statistical-mechanics/beale/978-0-12-382188-1" target="_blank" rel="noopener"><em>Statistical Mechanics</em></a>, 3rd ed. (Elsevier, 2011).
+  </p>
+
+  <footer>
+    <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
+    <span>Maintained by Closure Research Initiative &middot; Served by <a href="https://workers.cloudflare.com/" style="color:var(--muted);" target="_blank" rel="noopener">Cloudflare Workers</a> &middot; Versioned on <a href="https://github.com/CKW25/closure-research-initiative" style="color:var(--muted);" target="_blank" rel="noopener">GitHub</a> &middot; <a href="/sources/" style="color:var(--muted);">Sources and Citation</a> &middot; <a href="/license/" style="color:var(--muted);">License</a> &middot; <a href="/notes/" style="color:var(--muted);">Research Notes</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; <a href="/contact/" style="color:var(--muted);">Contact</a> &middot; Last updated June 9, 2026</span>
+  </footer>
+
+</div>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+name: Scholarly Question
+description: Ask a technical question about a specific definition, result, dependency, or citation.
+title: "Question: "
+labels:
+  - question
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is for focused scholarly questions. Please identify the exact passage or result; broad correspondence is better sent through the contact page.
+  - type: input
+    id: work
+    attributes:
+      label: Work and version
+      placeholder: "CCW v1"
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Exact location
+      description: Section, theorem, definition, equation, page, URL, or file path.
+      placeholder: "Theorem 4.2, p. 18"
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: State the question as precisely as possible.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context or attempted reading
+      description: Optional. Note related passages, external references, or the dependency you are trying to trace.
+    validations:
+      required: false

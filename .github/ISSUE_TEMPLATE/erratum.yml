@@ -1,0 +1,47 @@
+name: Erratum or Correction
+description: Report a possible error, ambiguity, citation problem, or version inconsistency.
+title: "Erratum: "
+labels:
+  - erratum
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for precise corrections. Please cite the work, version, and location so the report can be evaluated against the fixed public record.
+  - type: input
+    id: work
+    attributes:
+      label: Work and version
+      description: "Example: CSM v3, CCW v1, Sources page, README, or feed.xml."
+      placeholder: "CSM v3"
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Exact location
+      description: Section, theorem, definition, equation, page, URL, or file path.
+      placeholder: "Definition 2.3.1, p. 42"
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: Issue
+      description: State the error, ambiguity, broken link, citation mismatch, or version inconsistency.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+      description: Give the corrected wording, citation, link, or metadata if known.
+    validations:
+      required: false
+  - type: textarea
+    id: consequences
+    attributes:
+      label: Consequences
+      description: Note whether this affects later results, public summaries, DOI metadata, BibTeX, feed entries, sitemap entries, or download links.
+    validations:
+      required: false

@@ -1,0 +1,808 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{Descent--Obstruction Classification}
+\label{ch:descent_obstruction}
+% ============================================================
+\section{Introduction}
+Under the standing principle of closed-world admissibility
+(\cref{sp:closed-world}), this chapter globalizes the transport-visibility
+clause \cref{sp:transport} from finite triangle witnesses to loop-level
+obstruction representations.
+Starting from the first finite witness isolated in \cref{ch:triangles},
+it develops the global obstruction classification via loop
+representations required in \cref{ch:bridge}.
+\Cref{ch:triangles} identified the first finite witness of failure of a
+common diagonal gauge (\cref{thm:triangle}). The present chapter addresses the complementary
+global problem: how does one classify all representative lifts of a
+connected quotient protocol up to gauge?
+The answer is controlled by a tree--loop decomposition.
+Fix a spanning tree in the underlying undirected graph of
+\(\mathcal I\). After a suitable gauge
+normalization, all representatives become constant and every morphism in
+the tree groupoid carries trivial transport. All residual transport then
+lives on loops. More precisely, the remaining datum is a homomorphism
+from the based loop group of the groupoid completion
+\[
+	\Omega_{i_0}(\mathcal G(\mathcal I))
+\]
+into the stabilizer subgroup of a chosen base representative.
+This loop representation is the intrinsic obstruction to descent.
+Tree transport carries no gauge-invariant content; loop transport is the
+residue. Endpoint-determined transport on the groupoid completion is
+equivalent to triviality of this residue.
+The chapter proves three things.
+\begin{enumerate}
+	\item Every lift is gauge-equivalent to a tree-normalized lift with
+	      constant representative choice.
+	\item Tree-normalized lifts are completely determined by their based loop
+	      representation.
+	\item Gauge-equivalence classes of lifts are classified by conjugacy
+	      classes of homomorphisms
+	      \[
+		      \rho:\Omega_{i_0}(\mathcal G(\mathcal I))\to H_*,
+		      \qquad
+		      H_*=\Stab(x_*),
+	      \]
+	      where \(x_*\) is the chosen base representative.
+\end{enumerate}
+Thus the morphism locus of the two-locus principle admits a complete
+and explicit obstruction theory. Beyond the already-separated
+object-level representative data, no additional morphism-level
+obstruction parameter appears.
+% ============================================================
+\section{Connected quotient protocols and their lifts}
+% ============================================================
+Let
+\[
+	\overline R:\mathcal I\to \Phys^{\disc}
+\]
+be a quotient-level protocol, where \(\mathcal I\) is a connected small
+category and \(\Phys^{\disc}\) is the discrete category on the quotient
+state space \(\Phys\).
+By \cref{lem:lift-existence}, connectedness of \(\mathcal I\) implies
+that \(\overline R\) is constant. We therefore fix the unique point
+\[
+	p\in \Phys
+\]
+such that
+\[
+	\overline R(i)=p
+	\qquad
+	\text{for all }i\in \Obj(\mathcal I).
+\]
+Choose once and for all a representative
+\[
+	x_*\in X
+	\qquad
+	\text{with}\qquad
+	\pi(x_*)=p,
+\]
+and set
+\[
+	H_*:=\Stab(x_*)
+	=
+	\{h\in G:\ h\cdot x_*=x_*\}.
+\]
+We work with representative lift data \((x,g)\) in the sense of
+\cref{thm:lift-classification-main}: thus
+\[
+	x_i\in X
+	\qquad (i\in \Obj(\mathcal I)),
+\]
+and
+\[
+	g_f\in G
+	\qquad (f\in \Mor(\mathcal I)),
+\]
+satisfy
+\begin{align}
+	g_f\cdot x_i  & = x_j
+	              &             & \text{for every }f:i\to j, \label{eq:DO-T1}                     \\
+	g_{\id_i}     & = e
+	              &             & \text{for every }i, \label{eq:DO-T2}                            \\
+	g_{f'\circ f} & = g_{f'}g_f
+	              &             & \text{for every composable }i\xrightarrow{f}j\xrightarrow{f'}k.
+	\label{eq:DO-T3}
+\end{align}
+Equivalently, these data determine a functor
+\[
+	T:\mathcal I\to X\sslash G
+\]
+lifting \(\overline R\).
+% ============================================================
+\section{Tree normalization}
+% ============================================================
+We now isolate the gauge-removable part of the transport.
+\begin{definition}[Underlying graph and spanning tree]
+	Let \(|\mathcal I|\) denote the underlying undirected graph of
+	\(\mathcal I\): its vertices are the objects of \(\mathcal I\), and an
+	undirected edge joins \(i\) and \(j\) whenever \(\mathcal I\) contains a
+	morphism \(i\to j\) or \(j\to i\).
+	A \emph{spanning tree} \(\mathcal T\subseteq |\mathcal I|\) is a
+	connected, acyclic spanning subgraph.
+\end{definition}
+Fix a base object
+\[
+	i_0\in \Obj(\mathcal I)
+\]
+and a spanning tree \(\mathcal T\subseteq |\mathcal I|\).
+Let
+\[
+	\mathcal G(\mathcal I)
+\]
+denote the groupoid completion of \(\mathcal I\), as in
+\cref{def:groupoid-completion}. Let
+\[
+	\mathcal G(\mathcal T)\subseteq \mathcal G(\mathcal I)
+\]
+denote the subgroupoid generated by the tree edges. Since \(\mathcal T\)
+is a tree, for each object \(i\) there is a unique morphism
+\[
+	\gamma_i:i_0\to i
+\]
+in \(\mathcal G(\mathcal T)\).
+\begin{lemma}[Tree-path transport]
+	\label{lem:DO-tree-path}
+	For every object \(i\),
+	\[
+		g_{\gamma_i}\cdot x_{i_0}=x_i.
+	\]
+\end{lemma}
+\begin{proof}
+	By \cref{lem:cocycle-extension}, the transport cocycle extends uniquely
+	from \(\mathcal I\) to a functor
+	\[
+		\widetilde T:\mathcal G(\mathcal I)\to X\sslash G.
+	\]
+	Write
+	\[
+		\widetilde T(\gamma_i)=(g_{\gamma_i},x_{i_0}).
+	\]
+	Since \(\gamma_i:i_0\to i\), the target of this morphism is \(x_i\).
+	By definition of the action groupoid,
+	\[
+		g_{\gamma_i}\cdot x_{i_0}=x_i.
+	\]
+\end{proof}
+\begin{theorem}[Tree normalization]
+	\label{thm:DO-tree-normalize}
+	There exists a gauge modification \(h=(h_i)_{i\in\Obj(\mathcal I)}\)
+	such that the gauge-modified lift datum \((x^h,g^h)\) satisfies:
+	\begin{enumerate}
+		\item
+		      \[
+			      x_i^h=x_*
+			      \qquad
+			      \text{for all }i\in\Obj(\mathcal I);
+		      \]
+		\item for every morphism \(\tau\) in the tree groupoid
+		      \(\mathcal G(\mathcal T)\),
+		      \[
+			      g_\tau^h=e.
+		      \]
+	\end{enumerate}
+	In particular, every tree edge carries trivial transport after
+	normalization.
+\end{theorem}
+\begin{proof}
+	Because \(\overline R\) is constant with value \(p\), every representative
+	\(x_i\) lies in the orbit \(\pi^{-1}(p)\). In particular,
+	\[
+		\pi(x_{i_0})=\pi(x_*)=p.
+	\]
+	Hence there exists \(u\in G\) such that
+	\[
+		u\cdot x_{i_0}=x_*.
+	\]
+	By \cref{lem:DO-tree-path},
+	\[
+		g_{\gamma_i}\cdot x_{i_0}=x_i
+		\qquad
+		\text{for all }i.
+	\]
+	Define
+	\[
+		h_i:=u\,g_{\gamma_i}^{-1}
+		\qquad
+		(i\in\Obj(\mathcal I)).
+	\]
+	We first compute the transformed representatives. By definition of gauge
+	modification,
+	\[
+		x_i^h=h_i\cdot x_i
+		=
+		u\,g_{\gamma_i}^{-1}\cdot x_i.
+	\]
+	Using \(x_i=g_{\gamma_i}\cdot x_{i_0}\), we obtain
+	\[
+		x_i^h
+		=
+		u\,g_{\gamma_i}^{-1}\cdot(g_{\gamma_i}\cdot x_{i_0})
+		=
+		u\cdot x_{i_0}
+		=
+		x_*.
+	\]
+	Thus all transformed representatives are equal to the base
+	representative \(x_*\).
+	Next let \(\tau:i\to j\) be any morphism in the tree groupoid
+	\(\mathcal G(\mathcal T)\). Then in \(\mathcal G(\mathcal T)\) one has
+	\[
+		\tau=\gamma_j\circ \gamma_i^{-1}.
+	\]
+	Hence, by functoriality of the extended transport,
+	\[
+		g_\tau=g_{\gamma_j}g_{\gamma_i}^{-1}.
+	\]
+	The transformed transport label is therefore
+	\[
+		g_\tau^h
+		=
+		h_j g_\tau h_i^{-1}
+		=
+		(u g_{\gamma_j}^{-1})(g_{\gamma_j}g_{\gamma_i}^{-1})(g_{\gamma_i}u^{-1})
+		=
+		e.
+	\]
+	This proves the second statement.
+\end{proof}
+\begin{definition}[Tree-normalized lift]
+	A representative lift datum \((x,g)\) is called
+	\emph{tree-normalized} if
+	\[
+		x_i=x_*
+		\qquad
+		\text{for all }i\in\Obj(\mathcal I),
+	\]
+	and
+	\[
+		g_\tau=e
+		\qquad
+		\text{for all }\tau\in \Mor(\mathcal G(\mathcal T)).
+	\]
+\end{definition}
+\begin{remark}[What remains after normalization]
+	After tree normalization, the object-level data are constant and the
+	entire tree transport vanishes. All residual information is therefore
+	concentrated on loops. This is the descent--obstruction form of the
+	morphism locus.
+\end{remark}
+% ============================================================
+\section{Loop representations}
+% ============================================================
+Let
+\[
+	\Omega_{i_0}(\mathcal G(\mathcal I))
+	:=
+	\Hom_{\mathcal G(\mathcal I)}(i_0,i_0)
+\]
+denote the based loop group at \(i_0\), with group law given by
+composition in \(\mathcal G(\mathcal I)\).
+\begin{lemma}[Loop holonomy lands in the stabilizer]
+	\label{lem:DO-holonomy}
+	If \((x,g)\) is tree-normalized, then for every loop
+	\[
+		\ell\in \Omega_{i_0}(\mathcal G(\mathcal I))
+	\]
+	one has
+	\[
+		g_\ell\in H_*=\Stab(x_*).
+	\]
+\end{lemma}
+\begin{proof}
+	Since \((x,g)\) is tree-normalized, the representative at the base object
+	is \(x_*\). Because \(\ell\) is a loop at \(i_0\), the corresponding
+	morphism in the action groupoid is
+	\[
+		(g_\ell,x_*):x_*\to x_*.
+	\]
+	Thus
+	\[
+		g_\ell\cdot x_*=x_*,
+	\]
+	which is exactly the statement that \(g_\ell\in H_*\).
+\end{proof}
+\begin{definition}[Obstruction representation]
+	\label{def:DO-rho}
+	For a tree-normalized lift datum \((x,g)\), define
+	\[
+		\rho_g:\Omega_{i_0}(\mathcal G(\mathcal I))\to H_*,
+		\qquad
+		\rho_g(\ell):=g_\ell.
+	\]
+\end{definition}
+\begin{lemma}
+	\label{lem:DO-rho-hom}
+	The map \(\rho_g\) is a group homomorphism.
+\end{lemma}
+\begin{proof}
+	Let \(\ell_1,\ell_2\in \Omega_{i_0}(\mathcal G(\mathcal I))\). Since
+	transport is functorial on the groupoid completion,
+	\[
+		g_{\ell_2\circ \ell_1}=g_{\ell_2}g_{\ell_1}.
+	\]
+	Therefore
+	\[
+		\rho_g(\ell_2\circ \ell_1)
+		=
+		g_{\ell_2\circ \ell_1}
+		=
+		g_{\ell_2}g_{\ell_1}
+		=
+		\rho_g(\ell_2)\rho_g(\ell_1).
+	\]
+	Thus \(\rho_g\) is a homomorphism.
+\end{proof}
+\begin{lemma}[Gauge conjugation of the loop representation]
+	\label{lem:DO-rho-conj}
+	Let \((x,g)\) be tree-normalized, and let \(k\in H_*\). Define a gauge
+	transformation by
+	\[
+		h_i:=k
+		\qquad
+		\text{for all }i\in\Obj(\mathcal I).
+	\]
+	Then the transformed tree-normalized lift datum satisfies
+	\[
+		\rho_{g^h}(\ell)=k\,\rho_g(\ell)\,k^{-1}
+		\qquad
+		\text{for all }\ell\in \Omega_{i_0}(\mathcal G(\mathcal I)).
+	\]
+\end{lemma}
+\begin{proof}
+	For any morphism \(\alpha:i\to j\) in \(\mathcal G(\mathcal I)\), the
+	gauge transformation rule gives
+	\[
+		g_\alpha^h=h_j g_\alpha h_i^{-1}=k g_\alpha k^{-1}.
+	\]
+	Applying this to a loop \(\ell:i_0\to i_0\) yields
+	\[
+		\rho_{g^h}(\ell)
+		=
+		g_\ell^h
+		=
+		k g_\ell k^{-1}
+		=
+		k\,\rho_g(\ell)\,k^{-1}.
+	\]
+\end{proof}
+% ============================================================
+\section{Reconstruction from the loop representation}
+% ============================================================
+We now prove the converse statement: a homomorphism into the base
+stabilizer determines a unique tree-normalized lift.
+\begin{definition}[Loop reduction map]
+	For any morphism
+	\[
+		\alpha:i\to j
+	\]
+	in \(\mathcal G(\mathcal I)\), define the associated based loop
+	\[
+		\lambda(\alpha):=\gamma_j^{-1}\circ \alpha\circ \gamma_i
+		\in
+		\Omega_{i_0}(\mathcal G(\mathcal I)).
+	\]
+\end{definition}
+\begin{lemma}[Multiplicativity of loop reduction]
+	\label{lem:DO-lambda}
+	For composable morphisms
+	\[
+		i\xrightarrow{\alpha} j\xrightarrow{\beta} k
+	\]
+	in \(\mathcal G(\mathcal I)\),
+	\[
+		\lambda(\beta\circ \alpha)=\lambda(\beta)\circ \lambda(\alpha).
+	\]
+\end{lemma}
+\begin{proof}
+	By definition,
+	\[
+		\lambda(\beta\circ \alpha)
+		=
+		\gamma_k^{-1}\circ \beta\circ \alpha\circ \gamma_i.
+	\]
+	Insert the identity
+	\[
+		\id_j=\gamma_j\circ\gamma_j^{-1}
+	\]
+	between \(\beta\) and \(\alpha\). Then
+	\[
+		\lambda(\beta\circ \alpha)
+		=
+		(\gamma_k^{-1}\circ \beta\circ \gamma_j)
+		\circ
+		(\gamma_j^{-1}\circ \alpha\circ \gamma_i)
+		=
+		\lambda(\beta)\circ \lambda(\alpha).
+	\]
+\end{proof}
+\begin{proposition}[Reconstruction from a loop representation]
+	\label{prop:DO-reconstruct}
+	Let
+	\[
+		\rho:\Omega_{i_0}(\mathcal G(\mathcal I))\to H_*
+	\]
+	be a homomorphism. Then there exists a unique tree-normalized
+	representative lift datum \((x,g)\) such that
+	\[
+		\rho_g=\rho.
+	\]
+\end{proposition}
+\begin{proof}
+	Define
+	\[
+		x_i:=x_*
+		\qquad
+		\text{for all }i\in\Obj(\mathcal I).
+	\]
+	For any morphism \(\alpha:i\to j\) in \(\mathcal G(\mathcal I)\), define
+	\[
+		g_\alpha:=\rho(\lambda(\alpha))\in H_*\subseteq G.
+	\]
+	We first check that this determines a functor
+	\[
+		\widetilde T_\rho:\mathcal G(\mathcal I)\to X\sslash G.
+	\]
+	Because \(g_\alpha\in H_*=\Stab(x_*)\), one has
+	\[
+		g_\alpha\cdot x_i=g_\alpha\cdot x_*=x_*=x_j.
+	\]
+	Hence
+	\[
+		(g_\alpha,x_*):x_i\to x_j
+	\]
+	is a well-defined morphism in the action groupoid.
+	For the identity morphism \(\id_i\), one has
+	\[
+		\lambda(\id_i)=\gamma_i^{-1}\circ \id_i\circ \gamma_i=\id_{i_0},
+	\]
+	so
+	\[
+		g_{\id_i}=\rho(\id_{i_0})=e.
+	\]
+	For composable \(\alpha,\beta\), \cref{lem:DO-lambda} and the
+	homomorphism property of \(\rho\) give
+	\[
+		g_{\beta\circ \alpha}
+		=
+		\rho(\lambda(\beta\circ \alpha))
+		=
+		\rho(\lambda(\beta)\circ \lambda(\alpha))
+		=
+		\rho(\lambda(\beta))\rho(\lambda(\alpha))
+		=
+		g_\beta g_\alpha.
+	\]
+	Thus \(\widetilde T_\rho\) is a functor.
+	Restricting from \(\mathcal G(\mathcal I)\) to \(\mathcal I\) gives a
+	representative lift datum \((x,g)\).
+	It remains to verify tree-normalization. If \(\tau:i\to j\) is a
+	morphism in the tree groupoid \(\mathcal G(\mathcal T)\), then
+	\[
+		\tau=\gamma_j\circ \gamma_i^{-1},
+	\]
+	hence
+	\[
+		\lambda(\tau)
+		=
+		\gamma_j^{-1}\circ \tau\circ \gamma_i
+		=
+		\gamma_j^{-1}\circ \gamma_j\circ \gamma_i^{-1}\circ \gamma_i
+		=
+		\id_{i_0}.
+	\]
+	Therefore
+	\[
+		g_\tau=\rho(\id_{i_0})=e.
+	\]
+	So the lift is tree-normalized.
+	Finally, for a loop \(\ell\in \Omega_{i_0}(\mathcal G(\mathcal I))\),
+	\[
+		\lambda(\ell)
+		=
+		\gamma_{i_0}^{-1}\circ \ell\circ \gamma_{i_0}
+		=
+		\ell,
+	\]
+	because \(\gamma_{i_0}=\id_{i_0}\). Hence
+	\[
+		\rho_g(\ell)=g_\ell=\rho(\ell).
+	\]
+	Thus \(\rho_g=\rho\).
+	Uniqueness is immediate: a tree-normalized lift is determined by its
+	values on all morphisms, and for each \(\alpha\) those values are determined
+	to be \(\rho(\lambda(\alpha))\).
+\end{proof}
+% ============================================================
+\section{Descent--obstruction classification}
+% ============================================================
+We now combine normalization, reconstruction, and gauge conjugation into
+the main theorem.
+\begin{theorem}[Descent--obstruction classification]
+	\label{thm:DO-classification}
+	Under the standing principle \cref{sp:closed-world}, let
+	\(\mathcal I\) be connected, fix a base object \(i_0\), and fix a
+	representative
+	\[
+		x_*\in \pi^{-1}(p),
+		\qquad
+		H_*=\Stab(x_*).
+	\]
+	Then gauge-equivalence classes of representative lifts of the connected
+	quotient protocol
+	\[
+		\overline R:\mathcal I\to \Phys^{\disc}
+	\]
+	are classified by \(H_*\)-conjugacy classes of homomorphisms
+	\[
+		\rho:\Omega_{i_0}(\mathcal G(\mathcal I))\to H_*.
+	\]
+	Equivalently: after tree normalization, all residual transport data are
+	recorded exactly by the based loop representation into the base
+	stabilizer.
+\end{theorem}
+\begin{proof}
+	We divide the proof into four steps.
+	\smallskip
+	\noindent
+	\emph{Step 1: every gauge class admits a tree-normalized
+		representative.}
+	This is \cref{thm:DO-tree-normalize}. Hence every gauge-equivalence
+	class contains at least one tree-normalized lift datum.
+	\smallskip
+	\noindent
+	\emph{Step 2: every tree-normalized lift determines a homomorphism
+	\(\rho:\Omega_{i_0}(\mathcal G(\mathcal I))\to H_*\).}
+	Given a tree-normalized lift datum \((x,g)\), define \(\rho_g\) by
+	\cref{def:DO-rho}. By \cref{lem:DO-holonomy},
+	\[
+		\rho_g(\ell)\in H_*
+		\qquad
+		\text{for all }\ell,
+	\]
+	and by \cref{lem:DO-rho-hom}, \(\rho_g\) is a homomorphism.
+	\smallskip
+	\noindent
+	\emph{Step 3: every such homomorphism reconstructs a unique
+		tree-normalized lift.}
+	This is exactly \cref{prop:DO-reconstruct}. Therefore tree-normalized
+	lifts are in bijection with homomorphisms
+	\[
+		\rho:\Omega_{i_0}(\mathcal G(\mathcal I))\to H_*.
+	\]
+	\smallskip
+	\noindent
+	\emph{Step 4: residual gauge acts by \(H_*\)-conjugation.}
+	Let \((x,g)\) and \((x',g')\) be two tree-normalized lifts belonging to
+	the same gauge-equivalence class. Since both are tree-normalized, all
+	representatives are equal to \(x_*\), and all tree morphisms have
+	trivial transport.
+	Let \(h=(h_i)\) be a gauge modification with
+	\[
+		(x',g')=(x^h,g^h).
+	\]
+	Because
+	\[
+		x_i'=x_i=x_*
+		\qquad
+		\text{for all }i,
+	\]
+	one has
+	\[
+		h_i\cdot x_*=x_*,
+	\]
+	hence each \(h_i\in H_*\).
+	Now let \(\tau:i\to j\) be a tree morphism. Since both lifts are
+	tree-normalized,
+	\[
+		e=g_\tau'=h_j g_\tau h_i^{-1}=h_j e h_i^{-1},
+	\]
+	so
+	\[
+		h_j=h_i.
+	\]
+	As the tree is connected, it follows that all \(h_i\) are equal to a
+	single element
+	\[
+		k\in H_*.
+	\]
+	By \cref{lem:DO-rho-conj},
+	\[
+		\rho_{g'}(\ell)=k\,\rho_g(\ell)\,k^{-1}
+		\qquad
+		\text{for all }\ell.
+	\]
+	Thus gauge-equivalent tree-normalized lifts determine \(H_*\)-conjugate
+	homomorphisms.
+	Conversely, let \(\rho,\rho':\Omega_{i_0}(\mathcal G(\mathcal I))\to H_*\)
+	be two homomorphisms that are \(H_*\)-conjugate, say
+	\[
+		\rho'(\ell)=k\,\rho(\ell)\,k^{-1}
+		\qquad
+		(k\in H_*).
+	\]
+	Let \((x,g)\) and \((x',g')\) be the corresponding tree-normalized lifts
+	given by \cref{prop:DO-reconstruct}. Then the constant gauge
+	transformation \(h_i:=k\) transforms \((x,g)\) into \((x',g')\). Indeed,
+	for any \(\alpha:i\to j\),
+	\[
+		g_\alpha^h
+		=
+		k\,g_\alpha\,k^{-1}
+		=
+		k\,\rho(\lambda(\alpha))\,k^{-1}
+		=
+		\rho'(\lambda(\alpha))
+		=
+		g_\alpha'.
+	\]
+	Since both reconstructed lifts are tree-normalized, this proves that
+	they are gauge-equivalent.
+	Combining the four steps yields the classification.
+\end{proof}
+% ============================================================
+\section{Endpoint-determined transport}
+% ============================================================
+The obstruction representation measures exactly the failure of endpoint
+determinacy. In this chapter, endpoint-determined transport means
+endpoint-determined transport on the groupoid completion
+\(\mathcal G(\mathcal I)\).
+\begin{corollary}[Endpoint-determined transport]
+	\label{cor:DO-endpoint}
+	For a connected indexing category, the following are equivalent.
+	\begin{enumerate}
+		\item Transport on the groupoid completion \(\mathcal G(\mathcal I)\) is
+		      endpoint-determined.
+		\item Every loop holonomy is trivial.
+		\item The obstruction representation
+		      \[
+			      \rho_g:\Omega_{i_0}(\mathcal G(\mathcal I))\to H_*
+		      \]
+		      is the trivial homomorphism.
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	We first prove \textup{(i)}\(\Rightarrow\)\textup{(ii)}.
+	Assume transport is endpoint-determined on \(\mathcal G(\mathcal I)\).
+	Let
+	\[
+		\ell\in \Omega_{i_0}(\mathcal G(\mathcal I))
+	\]
+	be any loop at \(i_0\). Since \(\ell\) and \(\id_{i_0}\) have the same
+	source and target, endpoint-determinacy implies
+	\[
+		g_\ell=g_{\id_{i_0}}=e.
+	\]
+	Thus every loop holonomy is trivial.
+	Next, \textup{(ii)}\(\Rightarrow\)\textup{(iii)} is immediate from the
+	definition of \(\rho_g\): if every loop holonomy is trivial, then
+	\[
+		\rho_g(\ell)=g_\ell=e
+		\qquad
+		\text{for every }\ell\in \Omega_{i_0}(\mathcal G(\mathcal I)),
+	\]
+	so \(\rho_g\) is the trivial homomorphism.
+	Finally, we prove \textup{(iii)}\(\Rightarrow\)\textup{(i)}.
+	Assume \(\rho_g\) is trivial. Let
+	\[
+		\alpha,\beta:i\to j
+	\]
+	be morphisms in \(\mathcal G(\mathcal I)\) with the same source and
+	target. Then
+	\[
+		\omega:=\beta^{-1}\circ \alpha
+	\]
+	is a loop at \(i\). Conjugating by the tree paths gives a based loop at
+	\(i_0\),
+	\[
+		\lambda(\omega)=\gamma_i^{-1}\circ \omega\circ \gamma_i
+		\in
+		\Omega_{i_0}(\mathcal G(\mathcal I)).
+	\]
+	Since \(\rho_g\) is trivial,
+	\[
+		g_{\lambda(\omega)}=e.
+	\]
+	By definition of \(\lambda\),
+	\[
+		g_{\lambda(\omega)}
+		=
+		g_{\gamma_i}^{-1}g_\omega g_{\gamma_i},
+	\]
+	hence
+	\[
+		g_\omega=e.
+	\]
+	Using \(\omega=\beta^{-1}\circ \alpha\), functoriality gives
+	\[
+		e=g_\omega=g_{\beta^{-1}\circ \alpha}=g_\beta^{-1}g_\alpha.
+	\]
+	Therefore
+	\[
+		g_\alpha=g_\beta.
+	\]
+	Thus transport on \(\mathcal G(\mathcal I)\) is endpoint-determined.
+\end{proof}
+\begin{corollary}[Flatness isolates object-level enrichment]
+	A connected representative lift is gauge-equivalent to one with trivial
+	transport if and only if its obstruction representation is trivial.
+\end{corollary}
+\begin{proof}
+	Assume first that the obstruction representation is trivial. By
+	\cref{cor:DO-endpoint}, transport is endpoint-determined on
+	\(\mathcal G(\mathcal I)\). Let \((x',g')\) be a tree-normalized
+	representative of the gauge class, given by
+	\cref{thm:DO-tree-normalize}. Since \((x',g')\) is tree-normalized, one
+	has
+	\[
+		g'_\tau=e
+		\qquad
+		\text{for every }\tau\in \Mor(\mathcal G(\mathcal T)).
+	\]
+	Now let \(\alpha:i\to j\) be any morphism in \(\mathcal G(\mathcal I)\).
+	The tree morphism
+	\[
+		\tau:=\gamma_j\circ \gamma_i^{-1}:i\to j
+	\]
+	has the same source and target as \(\alpha\). Since transport is
+	endpoint-determined,
+	\[
+		g'_\alpha=g'_\tau=e.
+	\]
+	Hence every morphism of \(\mathcal G(\mathcal I)\), and therefore every
+	morphism of \(\mathcal I\), carries trivial transport in the
+	tree-normalized representative. Thus the original lift is
+	gauge-equivalent to one with trivial transport.
+	Conversely, if the lift is gauge-equivalent to one with trivial
+	transport, then in that representative
+	\[
+		g_\ell=e
+		\qquad
+		\text{for every }\ell\in \Omega_{i_0}(\mathcal G(\mathcal I)),
+	\]
+	so the obstruction representation is trivial. Since triviality is
+	preserved under gauge conjugation, the original lift also has trivial
+	obstruction representation.
+\end{proof}
+% ============================================================
+\section{Interpretation}
+% ============================================================
+The classification theorem shows that the morphism locus of enrichment
+has a rigid internal structure.
+Tree transport carries no gauge-invariant content.
+The residual content is carried entirely by the loop representation into
+the stabilizer of a single representative. Thus the obstruction is not,
+in general, a single group element, but a conjugacy class of
+homomorphisms
+\[
+	\Omega_{i_0}(\mathcal G(\mathcal I))\to H_*.
+\]
+This is the exact descent--obstruction form of the two-locus spine:
+\begin{itemize}
+	\item the object locus is representative choice;
+	\item the morphism locus is the obstruction representation.
+\end{itemize}
+No third enrichment appears, because the action groupoid contains only
+objects in \(X\) and morphisms labeled by elements of \(G\).
+This loop representation is the algebraic residue that persists into the
+later chapters. In \cref{ch:bridge} it is identified with the finite
+triangle witness on the minimal directed triangle subsystem, from there
+it drives the observer-level irreversible descent of \cref{ch:flow},
+continues through the stitched refinement/observer arena of
+\cref{ch:stitching}, and only later does the obstruction chain pass
+into graded commutator defects and curvature after smooth
+realization.
+
+\section{Conclusion}
+\label{sec:descent-obstruction-conclusion}
+The loop-side classification is complete: after tree normalization, all
+gauge-invariant morphism enrichment is concentrated in the conjugacy class
+of the obstruction representation
+\(\Omega_{i_0}(\mathcal G(\mathcal I))\to H_*\).
+This identifies descent failure as the exact global residue of transport
+nontriviality.
+
+Accordingly, \cref{ch:bridge} proves that this global loop
+obstruction and the finite triangle witness are two presentations of
+one invariant datum, and \cref{ch:flow} then derives observer-level
+irreversible descent from that same static transport obstruction.
