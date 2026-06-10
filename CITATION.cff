@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "For general citation, cite the current monograph DOI. For paper-specific claims, cite the relevant DOI or landing page listed in the references below."
+message: "For general citation, cite the current monograph page. DOI records listed as archived DOI versions refer only to the earlier version to which the DOI was assigned."
 title: "Closure Research Initiative"
 type: dataset
 authors:
@@ -8,7 +8,7 @@ authors:
     orcid: "https://orcid.org/0009-0008-8846-2539"
 url: "https://closureresearchinitiative.org"
 repository-code: "https://github.com/CKW25/closure-research-initiative"
-date-released: "2026-06-09"
+date-released: "2026-06-10"
 abstract: "A public research program studying closed physical theory from comparison data, intrinsicality, rectangular completeness, quotient semantics, subsystem-attribution obstruction, route-invariant transport, and conditional geometric consequences."
 preferred-citation:
   type: book
@@ -21,12 +21,95 @@ preferred-citation:
     name: "Closure Research Initiative"
     website: "https://closureresearchinitiative.org"
   year: 2026
-  version: "3"
-  doi: "10.5281/zenodo.20589038"
-  url: "https://doi.org/10.5281/zenodo.20589038"
+  version: "4"
+  url: "https://closureresearchinitiative.org/csm/"
 references:
   - type: book
     title: "Closed Systems from Comparison Completeness"
+    authors:
+      - family-names: Wolfe
+        given-names: "Chast K."
+        orcid: "https://orcid.org/0009-0008-8846-2539"
+    publisher:
+      name: "Closure Research Initiative"
+      website: "https://closureresearchinitiative.org"
+    year: 2026
+    version: "4"
+    url: "https://closureresearchinitiative.org/csm/"
+  - type: generic
+    title: "Closed Comparison Worlds and the Obstruction to Subsystem Attribution"
+    authors:
+      - family-names: Wolfe
+        given-names: "Chast K."
+        orcid: "https://orcid.org/0009-0008-8846-2539"
+    publisher:
+      name: "Closure Research Initiative"
+      website: "https://closureresearchinitiative.org"
+    year: 2026
+    version: "2"
+    url: "https://closureresearchinitiative.org/ccw/"
+  - type: generic
+    title: "Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3"
+    authors:
+      - family-names: Wolfe
+        given-names: "Chast K."
+        orcid: "https://orcid.org/0009-0008-8846-2539"
+    publisher:
+      name: "Closure Research Initiative"
+      website: "https://closureresearchinitiative.org"
+    year: 2026
+    version: "2"
+    url: "https://closureresearchinitiative.org/cfsg/"
+  - type: generic
+    title: "Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems"
+    authors:
+      - family-names: Wolfe
+        given-names: "Chast K."
+        orcid: "https://orcid.org/0009-0008-8846-2539"
+    publisher:
+      name: "Closure Research Initiative"
+      website: "https://closureresearchinitiative.org"
+    year: 2026
+    version: "2"
+    url: "https://closureresearchinitiative.org/scc/"
+  - type: generic
+    title: "Rectangular Completeness Encompasses Standard Physical Closure"
+    authors:
+      - family-names: Wolfe
+        given-names: "Chast K."
+        orcid: "https://orcid.org/0009-0008-8846-2539"
+    publisher:
+      name: "Closure Research Initiative"
+      website: "https://closureresearchinitiative.org"
+    year: 2026
+    version: "2"
+    url: "https://closureresearchinitiative.org/rc/"
+  - type: generic
+    title: "Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy"
+    authors:
+      - family-names: Wolfe
+        given-names: "Chast K."
+        orcid: "https://orcid.org/0009-0008-8846-2539"
+    publisher:
+      name: "Closure Research Initiative"
+      website: "https://closureresearchinitiative.org"
+    year: 2026
+    version: "2"
+    url: "https://closureresearchinitiative.org/fe/"
+  - type: generic
+    title: "A Factorization Criterion for Route Invariants with Fixed Endpoint Data"
+    authors:
+      - family-names: Wolfe
+        given-names: "Chast K."
+        orcid: "https://orcid.org/0009-0008-8846-2539"
+    publisher:
+      name: "Closure Research Initiative"
+      website: "https://closureresearchinitiative.org"
+    year: 2026
+    version: "2"
+    url: "https://closureresearchinitiative.org/rie/"
+  - type: book
+    title: "Closed Systems from Comparison Completeness (archived DOI version)"
     authors:
       - family-names: Wolfe
         given-names: "Chast K."
@@ -39,7 +122,7 @@ references:
     doi: "10.5281/zenodo.20589038"
     url: "https://doi.org/10.5281/zenodo.20589038"
   - type: generic
-    title: "Closed Comparison Worlds and the Obstruction to Subsystem Attribution"
+    title: "Closed Comparison Worlds and the Obstruction to Subsystem Attribution (archived DOI version)"
     authors:
       - family-names: Wolfe
         given-names: "Chast K."
@@ -52,55 +135,7 @@ references:
     doi: "10.5281/zenodo.20600752"
     url: "https://doi.org/10.5281/zenodo.20600752"
   - type: generic
-    title: "Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3"
-    authors:
-      - family-names: Wolfe
-        given-names: "Chast K."
-        orcid: "https://orcid.org/0009-0008-8846-2539"
-    publisher:
-      name: "Closure Research Initiative"
-      website: "https://closureresearchinitiative.org"
-    year: 2026
-    version: "1"
-    url: "https://closureresearchinitiative.org/cfsg/"
-  - type: generic
-    title: "Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems"
-    authors:
-      - family-names: Wolfe
-        given-names: "Chast K."
-        orcid: "https://orcid.org/0009-0008-8846-2539"
-    publisher:
-      name: "Closure Research Initiative"
-      website: "https://closureresearchinitiative.org"
-    year: 2026
-    version: "1"
-    url: "https://closureresearchinitiative.org/scc/"
-  - type: generic
-    title: "Rectangular Completeness Encompasses Standard Physical Closure"
-    authors:
-      - family-names: Wolfe
-        given-names: "Chast K."
-        orcid: "https://orcid.org/0009-0008-8846-2539"
-    publisher:
-      name: "Closure Research Initiative"
-      website: "https://closureresearchinitiative.org"
-    year: 2026
-    version: "1"
-    url: "https://closureresearchinitiative.org/rc/"
-  - type: generic
-    title: "Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy"
-    authors:
-      - family-names: Wolfe
-        given-names: "Chast K."
-        orcid: "https://orcid.org/0009-0008-8846-2539"
-    publisher:
-      name: "Closure Research Initiative"
-      website: "https://closureresearchinitiative.org"
-    year: 2026
-    version: "1"
-    url: "https://closureresearchinitiative.org/fe/"
-  - type: generic
-    title: "A Factorization Criterion for Route Invariants with Fixed Endpoint Data"
+    title: "A Factorization Criterion for Route Invariants with Fixed Endpoint Data (archived DOI version)"
     authors:
       - family-names: Wolfe
         given-names: "Chast K."

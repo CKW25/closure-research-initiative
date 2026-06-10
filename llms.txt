@@ -50,28 +50,35 @@ The formal development starts from intrinsic comparison data. A comparison is a 
 ## Public Works
 
 - Closed Systems from Comparison Completeness: https://closureresearchinitiative.org/csm/
-  - DOI: https://doi.org/10.5281/zenodo.20589038
+  - Current release: v4, June 10, 2026; DOI pending.
   - PDF: https://closureresearchinitiative.org/csm.pdf
-  - Superseded archived PDFs: https://closureresearchinitiative.org/archive/csm/csm-v2.pdf and https://closureresearchinitiative.org/archive/csm/csm-v1.pdf
+  - Archived DOI version: v3, https://doi.org/10.5281/zenodo.20589038
+  - Superseded archived PDFs: https://closureresearchinitiative.org/archive/csm/csm-v3.pdf, https://closureresearchinitiative.org/archive/csm/csm-v2.pdf, and https://closureresearchinitiative.org/archive/csm/csm-v1.pdf
 
 - Closed Comparison Worlds and the Obstruction to Subsystem Attribution: https://closureresearchinitiative.org/ccw/
-  - DOI: https://doi.org/10.5281/zenodo.20600752
+  - Current release: v2, June 10, 2026; DOI pending.
+  - Archived DOI version: v1, https://doi.org/10.5281/zenodo.20600752
   - PDF: https://closureresearchinitiative.org/ccw.pdf
 
 - Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3: https://closureresearchinitiative.org/cfsg/
+  - Current release: v2, June 10, 2026; DOI pending.
   - PDF: https://closureresearchinitiative.org/cfsg.pdf
 
 - Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems: https://closureresearchinitiative.org/scc/
+  - Current release: v2, June 10, 2026; DOI pending.
   - PDF: https://closureresearchinitiative.org/scc.pdf
 
 - Rectangular Completeness Encompasses Standard Physical Closure: https://closureresearchinitiative.org/rc/
+  - Current release: v2, June 10, 2026; DOI pending.
   - PDF: https://closureresearchinitiative.org/rc.pdf
 
 - Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy: https://closureresearchinitiative.org/fe/
+  - Current release: v2, June 10, 2026; DOI pending.
   - PDF: https://closureresearchinitiative.org/fe.pdf
 
 - A Factorization Criterion for Route Invariants with Fixed Endpoint Data: https://closureresearchinitiative.org/rie/
-  - DOI: https://doi.org/10.5281/zenodo.20617818
+  - Current release: v2, June 10, 2026; DOI pending.
+  - Archived DOI version: v1, https://doi.org/10.5281/zenodo.20617818
   - PDF: https://closureresearchinitiative.org/rie.pdf
 
 ## Public Prediction
@@ -80,7 +87,7 @@ The current public empirical prediction is a charge-sector exclusion. Conditiona
 
 ## Citation Guidance
 
-Use the DOI links where present. For works without DOI assignment, cite the page URL or PDF URL shown on the relevant landing page, plus the BibTeX block on that page. The Sources and Citation page collects the canonical citation targets for the monograph, public preprints, author ORCID, and outside works cited across the site. The external-source BibTeX download is available at https://closureresearchinitiative.org/external-sources.bib.
+Use the current-version page URL and BibTeX block for current releases. Use archived DOI links only for the version to which the DOI was assigned. The Sources and Citation page collects the canonical citation targets for the monograph, public preprints, author ORCID, and outside works cited across the site. The external-source BibTeX download is available at https://closureresearchinitiative.org/external-sources.bib.
 
 ## Corpus Assistant
 

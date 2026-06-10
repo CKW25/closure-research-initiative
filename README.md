@@ -16,21 +16,21 @@ For orientation, see the site pages [Overview](https://closureresearchinitiative
 
 For general citation of the program, cite the current monograph:
 
-Chast K. Wolfe, *Closed Systems from Comparison Completeness*, v3, Closure Research Initiative, 2026. DOI: [10.5281/zenodo.20589038](https://doi.org/10.5281/zenodo.20589038).
+Chast K. Wolfe, *Closed Systems from Comparison Completeness*, v4, Closure Research Initiative, 2026. Current version: [closureresearchinitiative.org/csm/](https://closureresearchinitiative.org/csm/). DOI pending; archived DOI for v3: [10.5281/zenodo.20589038](https://doi.org/10.5281/zenodo.20589038).
 
-Paper-specific claims should cite the relevant DOI or landing page listed in [Sources and Citation](https://closureresearchinitiative.org/sources/). GitHub citation metadata is provided in [`CITATION.cff`](CITATION.cff).
+Paper-specific claims should cite the current landing page listed in [Sources and Citation](https://closureresearchinitiative.org/sources/). Archived DOI records are retained for the versions to which they were assigned. GitHub citation metadata is provided in [`CITATION.cff`](CITATION.cff).
 
 ## Public Works
 
 | Code | Title | Status | Citation target |
 |------|-------|--------|-----------------|
-| `csm` | *Closed Systems from Comparison Completeness* | Monograph, v3 | DOI: [10.5281/zenodo.20589038](https://doi.org/10.5281/zenodo.20589038) |
-| `ccw` | *Closed Comparison Worlds and the Obstruction to Subsystem Attribution* | Preprint, v1 | DOI: [10.5281/zenodo.20600752](https://doi.org/10.5281/zenodo.20600752) |
-| `cfsg` | *Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3* | Preprint, v1 | [Paper page](https://closureresearchinitiative.org/cfsg/) |
-| `scc` | *Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems* | Preprint, v1 | [Paper page](https://closureresearchinitiative.org/scc/) |
-| `rc` | *Rectangular Completeness Encompasses Standard Physical Closure* | Preprint, v1 | [Paper page](https://closureresearchinitiative.org/rc/) |
-| `fe` | *Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy* | Preprint, v1 | [Paper page](https://closureresearchinitiative.org/fe/) |
-| `rie` | *A Factorization Criterion for Route Invariants with Fixed Endpoint Data* | Preprint, v1 | DOI: [10.5281/zenodo.20617818](https://doi.org/10.5281/zenodo.20617818) |
+| `csm` | *Closed Systems from Comparison Completeness* | Monograph, v4 | [Current page](https://closureresearchinitiative.org/csm/); archived v3 DOI: [10.5281/zenodo.20589038](https://doi.org/10.5281/zenodo.20589038) |
+| `ccw` | *Closed Comparison Worlds and the Obstruction to Subsystem Attribution* | Preprint, v2 | [Current page](https://closureresearchinitiative.org/ccw/); archived v1 DOI: [10.5281/zenodo.20600752](https://doi.org/10.5281/zenodo.20600752) |
+| `cfsg` | *Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3* | Preprint, v2 | [Paper page](https://closureresearchinitiative.org/cfsg/) |
+| `scc` | *Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems* | Preprint, v2 | [Paper page](https://closureresearchinitiative.org/scc/) |
+| `rc` | *Rectangular Completeness Encompasses Standard Physical Closure* | Preprint, v2 | [Paper page](https://closureresearchinitiative.org/rc/) |
+| `fe` | *Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy* | Preprint, v2 | [Paper page](https://closureresearchinitiative.org/fe/) |
+| `rie` | *A Factorization Criterion for Route Invariants with Fixed Endpoint Data* | Preprint, v2 | [Current page](https://closureresearchinitiative.org/rie/); archived v1 DOI: [10.5281/zenodo.20617818](https://doi.org/10.5281/zenodo.20617818) |
 
 All public manuscripts are versioned research manuscripts. They are not peer reviewed unless a later record states otherwise.
 
@@ -76,7 +76,7 @@ General correspondence is listed at [Contact](https://closureresearchinitiative.
 
 ## Versioning and Provenance
 
-The current monograph version is the version of record for general citation. Superseded PDFs are preserved in `archive/` and linked from the relevant landing page when version-specific reference is needed. Future DOI assignments should be recorded on the paper landing page, [Preprints](https://closureresearchinitiative.org/preprints/), [Sources and Citation](https://closureresearchinitiative.org/sources/), `CITATION.cff`, and the Atom feed where appropriate.
+The current monograph and preprints are the version-of-record site releases. Superseded PDFs and source bundles are preserved in `archive/` and linked from the relevant landing page when version-specific reference is needed. DOI records are associated with the archived version to which they were assigned until a later Zenodo release is added to the current version.
 
 `main` is the only active branch. It is the public deployment branch and should remain the canonical source of the website record.
 

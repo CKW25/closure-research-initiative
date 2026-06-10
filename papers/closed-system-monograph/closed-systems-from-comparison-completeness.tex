@@ -28,9 +28,15 @@
 % Hyperlinks and cross-references
 % ============================================================
 \usepackage[unicode,hypertexnames=false]{hyperref}
-\pdfinfoomitdate=1
-\pdftrailerid{}
-\pdfsuppressptexinfo=15
+\ifdefined\pdfinfoomitdate
+  \pdfinfoomitdate=1
+\fi
+\ifdefined\pdftrailerid
+  \pdftrailerid{}
+\fi
+\ifdefined\pdfsuppressptexinfo
+  \pdfsuppressptexinfo=15
+\fi
 \hypersetup{
   pdftitle  = {Closed Systems from Comparison Completeness: A Unified Theory},
   pdfauthor = {Chast K. Wolfe},
@@ -160,7 +166,10 @@
 	\vspace*{3cm}
 	{\Huge\bfseries Closed Systems from\\[6pt] Comparison Completeness}\\[1.5cm]
 	{\Large\itshape A Theory of Closed Relational Systems}\\[10pt]
-	{\Large Chast K.~Wolfe}\\[2cm]
+	{\Large Chast K.~Wolfe}\\[0.55cm]
+	{\large Closure Research Initiative, United States}\\[4pt]
+	{\normalsize \href{mailto:chast.wolfe@closureresearchinitiative.org}{\texttt{chast.wolfe@closureresearchinitiative.org}}}\\[0.6cm]
+	{\normalsize Version 4, June 10, 2026}\\[2cm]
 	\vfill
 \end{titlepage}
 \input{preface}
