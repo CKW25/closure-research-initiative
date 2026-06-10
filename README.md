@@ -10,6 +10,8 @@ The Closure Research Initiative studies what structure a physical theory may inv
 
 Under the theorem hypotheses stated in the monograph, especially local distinguishability, intrinsicality yields rectangular completeness rather than assuming it as an independent closure axiom. The finite-to-global boundary is addressed through refinement-tower and finite-witness results. The subsequent development gives quotient semantics, the obstruction to subsystem attribution, route-invariant transport criteria, and conditional geometric consequences under the faithful smooth-realization bridge.
 
+Standard physical frameworks are treated as recovery targets rather than rejected formalisms. Their successful structures are constraints on the program: where possible, background spacetime, field content, state spaces, gauge conventions, causal order, scale structure, and boundary data are to be derived from the closed-system comparison architecture; where they are not yet derived, they remain explicit bridge assumptions.
+
 For orientation, see the site pages [Overview](https://closureresearchinitiative.org/overview/), [Structural Map](https://closureresearchinitiative.org/map/), [Notation](https://closureresearchinitiative.org/notation/), [Objections](https://closureresearchinitiative.org/objections/), and [Sources and Citation](https://closureresearchinitiative.org/sources/). For binding claims, cite the monograph, the relevant preprint, or the cited theorem location rather than this README.
 
 ## Canonical Citation
