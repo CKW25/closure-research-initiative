@@ -27,6 +27,8 @@ The Foundations page includes a compactification-orientation note: the topologic
 
 The Overview page frames QFT, GR, and standard cosmology as recovery targets rather than opponents. Their empirical success constrains the closure program: the question is whether their standard inputs--background spacetime, field content, regulators, renormalization scales, boundary conditions, and cosmological initial data--are internally recoverable and which remain bridge assumptions. Renormalization is treated as a precise framework, compact S3 is not claimed to remove local UV divergences, and no cosmological bounce theorem is claimed without a separate dynamical result. The Overview also includes a standard-FLRW recovery-target figure: the flat R3 transverse-distance law D_M = D_C is compared with the closed S3 law D_M = R_c sin(D_C/R_c), emphasizing that a large-radius closed realization locally reproduces the flat approximation while closing globally.
 
+The Structural Map includes quantum causal inference and generalized noncontextuality as neighboring programs. Spekkens, Wolfe, Schmid, Wood, and collaborators are cited as adjacent external literature on operational equivalence, causal assumptions, and when observed correlations justify representational distinctions. The site does not claim that this literature proves closure or endorses CRI; the comparison is methodological.
+
 ## Claim Support
 
 - Foundational comparison data, intrinsicality, rectangular completeness, quotient semantics, transport obstruction, and the broad theorem chain: https://closureresearchinitiative.org/csm/
