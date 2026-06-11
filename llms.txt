@@ -21,7 +21,7 @@ Closure Research Initiative is not about mine closure, industrial site closure, 
 
 ## Core Idea
 
-The formal development starts from intrinsic comparison data. A comparison is a relation among states, invariant under the symmetries of the comparison world it helps constitute, not an externally imposed label. Under stated structural hypotheses, the theory develops rectangular completeness, quotient semantics, subsystem-attribution obstruction, transport obstruction, curvature at the faithful smooth-realization stage, and a rigidity result for genuinely closed realized three-dimensional systems.
+The formal development starts from intrinsic comparison data. A comparison is a relation among states, invariant under the symmetries of the comparison world it helps constitute, not an externally imposed label. Under stated structural hypotheses, the theory develops rectangular completeness, quotient semantics, subsystem-attribution obstruction, transport obstruction, curvature at the faithful smooth-realization stage, and a rigidity result for genuinely closed realized three-dimensional systems. As of monograph v5, the smooth-realization faithfulness condition is decomposed into a torsion condition (T) and an intrinsic detectability axiom (D), shown exactly necessary by ghost counter-models (torsion classes and profinite realizations), and discharged on a canonical realization: a structure trichotomy (Gleason-Yamabe, van Dantzig) shows every scale-compatible completion of the transport law is Lie, totally disconnected, or mixed, axiom (D) selects the Lie branch, and under (T) the Malcev completion of the two-step transport quotient realizes the carrier with an injective second-jet comparison map by construction.
 
 The Foundations page includes a compactification-orientation note: the topological fact R^3 union a point at infinity is homeomorphic to S^3 is useful intuition, but it is not the proof of the S3 theorem. The theorem-level mechanism is the CFSG chain from closed-system admissibility to the action groupoid, isometric transport, frame-bundle transitivity, constant sectional curvature, and the simply connected compact space-form case.
 
@@ -31,7 +31,7 @@ The Structural Map includes several neighboring programs. Rovelli's partial-obse
 
 ## Claim Support
 
-- Foundational comparison data, intrinsicality, rectangular completeness, quotient semantics, transport obstruction, and the broad theorem chain: https://closureresearchinitiative.org/csm/
+- Foundational comparison data, intrinsicality, rectangular completeness, quotient semantics, transport obstruction, interface forcing (conditions (T)/(D), structure trichotomy, canonical realization), and the broad theorem chain: https://closureresearchinitiative.org/csm/
 - Finitary two-subsystem comparison worlds and the subsystem-attribution obstruction: https://closureresearchinitiative.org/ccw/
 - Conditional S3 theorem at the faithful smooth-realization/manifold stage: https://closureresearchinitiative.org/cfsg/
 - Compactification intuition versus the formal S3 rigidity proof: https://closureresearchinitiative.org/idea/#compactification-rigidity
@@ -57,10 +57,10 @@ The Structural Map includes several neighboring programs. Rovelli's partial-obse
 ## Public Works
 
 - Closed Systems from Comparison Completeness: https://closureresearchinitiative.org/csm/
-  - Current release: v4, June 10, 2026; DOI pending.
+  - Current release: v5, June 11, 2026; DOI pending.
   - PDF: https://closureresearchinitiative.org/csm.pdf
   - Archived DOI version: v3, https://doi.org/10.5281/zenodo.20589038
-  - Superseded archived PDFs: https://closureresearchinitiative.org/archive/csm/csm-v3.pdf, https://closureresearchinitiative.org/archive/csm/csm-v2.pdf, and https://closureresearchinitiative.org/archive/csm/csm-v1.pdf
+  - Superseded archived PDFs: https://closureresearchinitiative.org/archive/csm/csm-v4.pdf, https://closureresearchinitiative.org/archive/csm/csm-v3.pdf, https://closureresearchinitiative.org/archive/csm/csm-v2.pdf, and https://closureresearchinitiative.org/archive/csm/csm-v1.pdf
 
 - Closed Comparison Worlds and the Obstruction to Subsystem Attribution: https://closureresearchinitiative.org/ccw/
   - Current release: v2, June 10, 2026; DOI pending.
