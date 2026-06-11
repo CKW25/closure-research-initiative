@@ -46,7 +46,7 @@ The Structural Map includes several neighboring programs. Rovelli's partial-obse
 - Logical map and comparison to neighboring programs: https://closureresearchinitiative.org/map/
 - Minimal worked example: https://closureresearchinitiative.org/example/
 - Notation and definitions: https://closureresearchinitiative.org/notation/
-- Objections and open bridge assumptions: https://closureresearchinitiative.org/objections/
+- Objections and remaining interface conditions: https://closureresearchinitiative.org/objections/
 - Reading guide: https://closureresearchinitiative.org/guide/
 - Preprints and downloads: https://closureresearchinitiative.org/preprints/
 - Research notes: https://closureresearchinitiative.org/notes/
