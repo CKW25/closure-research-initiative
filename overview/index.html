@@ -226,6 +226,29 @@ nav span:not(:first-child)::before {
 p { font-size: 0.92rem; color: var(--text); margin-bottom: 1rem; line-height: 1.8; }
 a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
 a:hover { text-decoration-color: var(--gold); }
+.scholarly-ledger {
+  margin: 1rem 0 1.5rem;
+  padding: 1rem 0 1.1rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.scholarly-ledger dl {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.24fr) 1fr;
+  gap: 0.8rem 1.2rem;
+}
+.scholarly-ledger dt {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.scholarly-ledger dd {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text);
+}
 
 .essay h3 {
   font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
@@ -584,6 +607,7 @@ footer span { min-width: 0; }
   .hero h1 { font-size: 2rem; }
   .hero-logo img { width: 150px; }
   nav a, nav span { margin: 0; font-size: 0.72rem; }
+  .scholarly-ledger dl { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 0.3rem; text-align: center; }
 }
 </style>
@@ -632,6 +656,20 @@ footer span { min-width: 0; }
   <p>Every physical theory carries structural commitments. Some are explicit axioms; others are built into the mathematical language itself. The question at the foundation of this program is which commitments are internally recoverable and which are imported by convention. The aim is to identify the minimal commitments of a closed physical theory and determine what structure follows from them.</p>
 
   <p>The phrase &ldquo;closed physical theory&rdquo; is used here in a specific sense. A theory is closed when every structure it invokes is recoverable from within the system itself&mdash;when there is no appeal to an external frame, an external observer, a pre-supplied background, or any external primitive structure not justified by internal resources. This is not a claim about a particular theory being correct. It is a constraint on the adequacy of closed-world description.</p>
+
+  <h3>Scholarly Organization</h3>
+
+  <p>The academic functions usually named as method, results, scope, and evidence are distributed across the site rather than made into generic navigation tabs. The following list fixes how those functions should be read here.</p>
+
+  <section class="scholarly-ledger" aria-label="Scholarly organization of the closure program">
+    <dl>
+      <div><dt>Formal setting</dt><dd>The primitive object is a comparison world <em>(U,C)</em>, consisting of states and internally admissible comparison predicates. Geometry, topology, dynamics, subsystem factorization, and external coordinates are not primitive at this level.</dd></div>
+      <div><dt>Method</dt><dd>The program proceeds by deriving admissible structure from comparison data: finite-profile and rectangular-completeness arguments, quotient semantics under group actions, transport groupoids and obstruction towers, and faithful smooth realization only under explicit interface conditions.</dd></div>
+      <div><dt>Principal results</dt><dd>The public record includes rectangular completeness under stated comparison-world hypotheses, quotient-level limits on subsystem attribution, endpoint-fiber factorization for route invariants, the second-jet faithful-realization analysis, the S&sup3; rigidity theorem at the manifold stage, and the conditional charge-sector prediction.</dd></div>
+      <div><dt>Empirical status</dt><dd>The only public empirical prediction currently listed is the charge-denominator exclusion on <a href="/predictions/">Predictions</a>. Other comparisons with standard physics are recovery targets, interface conditions, or structural correspondences unless explicitly stated as predictions.</dd></div>
+      <div><dt>Binding sources</dt><dd>This page is expository. Formal authority belongs to the definitions, hypotheses, proofs, and versioned manuscript records on <a href="/preprints/">Preprints</a>, with claim classification collected on <a href="/status/">Logical Status</a>.</dd></div>
+    </dl>
+  </section>
 
   <div class="section-divider">&sect;</div>
 

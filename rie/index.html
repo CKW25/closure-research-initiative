@@ -384,6 +384,29 @@ nav span:not(:first-child)::before {
   margin-bottom: 2rem;
   line-height: 1.8;
 }
+.research-summary {
+  margin: 0 0 1.5rem;
+  padding: 1rem 0 1.1rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.research-summary dl {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.24fr) 1fr;
+  gap: 0.75rem 1.15rem;
+}
+.research-summary dt {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.research-summary dd {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text);
+}
 .download-block {
   background: var(--card);
   border: 1px solid var(--border);
@@ -550,6 +573,7 @@ footer span { min-width: 0; }
   .hero-logo img { width: 150px; }
   nav a, nav span { margin: 0; font-size: 0.72rem; }
   .record-panel dl { grid-template-columns: 1fr; }
+  .research-summary dl { grid-template-columns: 1fr; }
   .version-table,
   .version-table tbody,
   .version-table tr,
@@ -652,6 +676,14 @@ footer span { min-width: 0; }
     <div class="abstract">
       A factorization criterion for comparison data with fixed endpoints: a route invariant is determined by endpoint data if and only if it is constant on every endpoint fiber. Instances are recorded in quotient semantics, categories, gauge transport, holonomy, differential geometry, and general relativity.
     </div>
+
+    <section class="research-summary" aria-label="Research method and result summary">
+      <dl>
+        <div><dt>Method</dt><dd>The paper abstracts route-dependence to a quotient problem. Routes with the same endpoints form endpoint fibers, and a proposed invariant is tested by whether it is constant on those fibers.</dd></div>
+        <div><dt>Main result</dt><dd>A route invariant is endpoint-determined exactly when it factors through the endpoint quotient, equivalently when it is constant on every endpoint fiber. The criterion is then matched to quotient semantics, categorical factorization, gauge transport, holonomy, curvature, and general-relativistic examples.</dd></div>
+        <div><dt>Scope</dt><dd>The result is a structural factorization theorem. The physical examples are comparison instances of the same formal obstruction, not new dynamical laws for the external theories cited.</dd></div>
+      </dl>
+    </section>
 
     <p class="scope-note" style="font-size:0.82rem;color:var(--muted);font-style:italic;margin-bottom:1.5rem;">Scope: this landing-page summary is informal; the binding statements are the definitions, hypotheses, and theorems in the paper. Internal orientation: <a href="/overview/">Overview</a> for the recurrence of endpoint-determinedness, <a href="/notation/">Notation</a> for transport-obstruction vocabulary, and <a href="/guide/">Reading Guide</a> for linked background sources on connections, holonomy, gauge theory, and general relativity.</p>
 

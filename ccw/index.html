@@ -392,6 +392,29 @@ nav span:not(:first-child)::before {
   margin-bottom: 2rem;
   line-height: 1.8;
 }
+.research-summary {
+  margin: 0 0 1.5rem;
+  padding: 1rem 0 1.1rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.research-summary dl {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.24fr) 1fr;
+  gap: 0.75rem 1.15rem;
+}
+.research-summary dt {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.research-summary dd {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text);
+}
 .download-block {
   background: var(--card);
   border: 1px solid var(--border);
@@ -653,6 +676,7 @@ footer span { min-width: 0; }
   .hero-logo img { width: 150px; }
   nav a, nav span { margin: 0; font-size: 0.72rem; }
   .record-panel dl { grid-template-columns: 1fr; }
+  .research-summary dl { grid-template-columns: 1fr; }
   .version-table,
   .version-table tbody,
   .version-table tr,
@@ -755,6 +779,14 @@ footer span { min-width: 0; }
     <div class="abstract">
       A finitary structural account of subsystem attribution in closed two-subsystem comparison worlds, using only binary comparison predicates as primitive data: no topology, metric, dynamics, background geometry, or gauge structure. Among locally distinguishable worlds, rectangular completeness is equivalent to profile-maximality.
     </div>
+
+    <section class="research-summary" aria-label="Research method and result summary">
+      <dl>
+        <div><dt>Method</dt><dd>The paper works entirely in finite comparison worlds. It defines subsystem profiles from binary comparison predicates, studies admissible extensions by profile data, and then passes to quotient reports under the relevant symmetry action.</dd></div>
+        <div><dt>Main results</dt><dd>For locally distinguishable two-subsystem comparison worlds, rectangular completeness is equivalent to profile-maximality. The quotient analysis then shows that twin representatives can agree on all admissible reports while assigning the relative change to different subsystems.</dd></div>
+        <div><dt>Scope</dt><dd>The result is a finitary theorem about comparison structure and subsystem attribution. It does not assume a background metric, gauge field, topology, or dynamics, and it does not assert that arbitrary physical subsystems are closed in the closure-theoretic sense.</dd></div>
+      </dl>
+    </section>
 
     <p class="scope-note" style="font-size:0.82rem;color:var(--muted);font-style:italic;margin-bottom:1.5rem;">Motivation: the figure abstracts a frame-attribution thought experiment. If a field-like subsystem and a reference subsystem are described only by their mutual comparison data, then &ldquo;the field changes relative to the reference&rdquo; and &ldquo;the reference assignment changes relative to the field&rdquo; need not be distinct invariant claims. The paper replaces that intuition by the finitary orbit statement shown here.</p>
 

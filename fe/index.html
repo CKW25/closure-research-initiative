@@ -381,6 +381,29 @@ nav span:not(:first-child)::before {
   margin-bottom: 2rem;
   line-height: 1.8;
 }
+.research-summary {
+  margin: 0 0 1.5rem;
+  padding: 1rem 0 1.1rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.research-summary dl {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.24fr) 1fr;
+  gap: 0.75rem 1.15rem;
+}
+.research-summary dt {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.research-summary dd {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text);
+}
 .download-block {
   background: var(--card);
   border: 1px solid var(--border);
@@ -547,6 +570,7 @@ footer span { min-width: 0; }
   .hero-logo img { width: 150px; }
   nav a, nav span { margin: 0; font-size: 0.72rem; }
   .record-panel dl { grid-template-columns: 1fr; }
+  .research-summary dl { grid-template-columns: 1fr; }
   .version-table,
   .version-table tbody,
   .version-table tr,
@@ -649,6 +673,14 @@ footer span { min-width: 0; }
     <div class="abstract">
       Four independent axes of primitive structural input&mdash;externalization, artificial factorization, premature globalization, reification of repair&mdash;are isolated and proved logically independent. Applied to foundational tensions across classical and quantum physics.
     </div>
+
+    <section class="research-summary" aria-label="Research method and result summary">
+      <dl>
+        <div><dt>Method</dt><dd>The paper treats failures of closure as formally classifiable uses of primitive structural input. Each axis is defined independently and then compared with standard foundational situations in mechanics, quantum theory, field theory, relativity, and statistical mechanics.</dd></div>
+        <div><dt>Main result</dt><dd>Externalization, artificial factorization, premature globalization, and reification of repair are logically independent axes. No one axis is a Boolean consequence of the other three, so the taxonomy distinguishes different kinds of non-closure rather than naming a single defect.</dd></div>
+        <div><dt>Scope</dt><dd>The taxonomy is diagnostic. It classifies where external or unrecovered structure enters a formalism; it does not by itself establish the detailed recovery theorem for any one physical theory.</dd></div>
+      </dl>
+    </section>
 
     <p class="scope-note" style="font-size:0.82rem;color:var(--muted);font-style:italic;margin-bottom:1.5rem;">Scope: this landing-page summary is informal; the binding statements are the definitions, hypotheses, and independence results in the paper. Internal orientation: <a href="/map/">Structural Map</a> for the page-level taxonomy, <a href="/status/">Logical Status</a> for the closure criterion, and <a href="/guide/">Reading Guide</a> for linked background sources in mechanics, quantum theory, QFT, GR, and statistical mechanics.</p>
 

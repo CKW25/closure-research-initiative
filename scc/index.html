@@ -381,6 +381,29 @@ nav span:not(:first-child)::before {
   margin-bottom: 2rem;
   line-height: 1.8;
 }
+.research-summary {
+  margin: 0 0 1.5rem;
+  padding: 1rem 0 1.1rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.research-summary dl {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.24fr) 1fr;
+  gap: 0.75rem 1.15rem;
+}
+.research-summary dt {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.research-summary dd {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text);
+}
 .download-block {
   background: var(--card);
   border: 1px solid var(--border);
@@ -547,6 +570,7 @@ footer span { min-width: 0; }
   .hero-logo img { width: 150px; }
   nav a, nav span { margin: 0; font-size: 0.72rem; }
   .record-panel dl { grid-template-columns: 1fr; }
+  .research-summary dl { grid-template-columns: 1fr; }
   .version-table,
   .version-table tbody,
   .version-table tr,
@@ -649,6 +673,14 @@ footer span { min-width: 0; }
     <div class="abstract">
       Argues that the cosmological and structural uses of &ldquo;open&rdquo; and &ldquo;closed&rdquo; operate at different logical levels and cannot be identified. Structural closure is required for invariant physical content, not a geometric condition.
     </div>
+
+    <section class="research-summary" aria-label="Research method and result summary">
+      <dl>
+        <div><dt>Method</dt><dd>The paper separates terminological levels: observational or cosmological openness/closedness in standard models is compared with structural closure as an admissibility condition on internally recoverable physical content.</dd></div>
+        <div><dt>Main result</dt><dd>The two uses of &ldquo;open&rdquo; and &ldquo;closed&rdquo; are not interchangeable. Structural closure concerns whether physical content is invariantly recoverable from internal comparison data; cosmological curvature and topology are separate model-level questions.</dd></div>
+        <div><dt>Scope</dt><dd>The paper does not infer a measured spatial curvature, a cosmological bounce, or a replacement cosmological dynamics. It fixes the logical distinction needed before the geometric branch of the program is applied.</dd></div>
+      </dl>
+    </section>
 
     <p class="scope-note" style="font-size:0.82rem;color:var(--muted);font-style:italic;margin-bottom:1.5rem;">Scope: this landing-page summary is informal; the binding statements are the definitions, hypotheses, and theorems in the paper. Internal orientation: <a href="/overview/">Overview</a> for the structural-closure claim, <a href="/notation/">Notation</a> for terms, and <a href="/guide/">Reading Guide</a> for the linked general-relativity and cosmology background sources.</p>
 

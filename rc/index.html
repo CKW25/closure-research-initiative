@@ -381,6 +381,29 @@ nav span:not(:first-child)::before {
   margin-bottom: 2rem;
   line-height: 1.8;
 }
+.research-summary {
+  margin: 0 0 1.5rem;
+  padding: 1rem 0 1.1rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.research-summary dl {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.24fr) 1fr;
+  gap: 0.75rem 1.15rem;
+}
+.research-summary dt {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.research-summary dd {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text);
+}
 .download-block {
   background: var(--card);
   border: 1px solid var(--border);
@@ -547,6 +570,7 @@ footer span { min-width: 0; }
   .hero-logo img { width: 150px; }
   nav a, nav span { margin: 0; font-size: 0.72rem; }
   .record-panel dl { grid-template-columns: 1fr; }
+  .research-summary dl { grid-template-columns: 1fr; }
   .version-table,
   .version-table tbody,
   .version-table tr,
@@ -649,6 +673,14 @@ footer span { min-width: 0; }
     <div class="abstract">
       Closure as rectangular completeness stands in a precise relation to standard notions of closed two-subsystem systems. For classical systems it equals the full-product component; for quantum systems it captures the product-state sector.
     </div>
+
+    <section class="research-summary" aria-label="Research method and result summary">
+      <dl>
+        <div><dt>Method</dt><dd>The paper compares the closure-theoretic criterion of rectangular completeness with standard classical and quantum two-subsystem descriptions, keeping the comparison at the level of state-space structure rather than ordinary-language usage of &ldquo;closed system.&rdquo;</dd></div>
+        <div><dt>Main results</dt><dd>In the classical setting the closure criterion recovers the full-product component. In the quantum setting it isolates the product-state sector. The result identifies where structural closure agrees with familiar subsystem closure and where the standard formalism carries additional representational structure.</dd></div>
+        <div><dt>Scope</dt><dd>The paper is a comparison theorem, not a replacement for classical or quantum dynamics. It fixes the relation between rectangular completeness and standard two-subsystem formalisms used elsewhere in the program.</dd></div>
+      </dl>
+    </section>
 
     <p class="scope-note" style="font-size:0.82rem;color:var(--muted);font-style:italic;margin-bottom:1.5rem;">Scope: this landing-page summary is informal; the binding statements are the definitions, hypotheses, and theorems in the paper. Internal orientation: <a href="/ccw/">CCW</a> for rectangular completeness, <a href="/overview/">Overview</a> for the standard-closure comparison, and <a href="/guide/">Reading Guide</a> for linked classical and quantum background sources.</p>
 

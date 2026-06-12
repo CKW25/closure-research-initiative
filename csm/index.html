@@ -460,6 +460,29 @@ nav span:not(:first-child)::before {
   margin-bottom: 2rem;
   line-height: 1.8;
 }
+.research-summary {
+  margin: 0 0 1.5rem;
+  padding: 1rem 0 1.1rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.research-summary dl {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.24fr) 1fr;
+  gap: 0.75rem 1.15rem;
+}
+.research-summary dt {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.research-summary dd {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text);
+}
 .download-block {
   background: var(--card);
   border: 1px solid var(--border);
@@ -637,6 +660,7 @@ footer span { min-width: 0; }
   .hero-logo img { width: 150px; }
   nav a, nav span { margin: 0; font-size: 0.72rem; }
   .record-panel dl { grid-template-columns: 1fr; }
+  .research-summary dl { grid-template-columns: 1fr; }
   .version-table,
   .version-table tbody,
   .version-table tr,
@@ -737,8 +761,16 @@ footer span { min-width: 0; }
     </section>
 
     <div class="abstract">
-      A mathematically closed physical theory is formulated without external primitive structure. The monograph develops the closure principle as a classification program, showing the admissible architecture is highly rigid across geometric, field-theoretic, scalar, and matter sectors. It develops the full theory from primitive comparison data through quotient semantics, transport obstruction, curvature, and the emergence of smooth geometry. The smooth-realization faithfulness condition is decomposed into a torsion condition (T) and an intrinsic detectability axiom (D) and is discharged on a canonical realization built from the tower itself.
+      A mathematically closed physical theory is formulated without external primitive structure. The monograph develops the closure principle as a classification program, proving rigidity results under stated hypotheses across geometric, field-theoretic, scalar, and matter sectors. It develops the theory from primitive comparison data through quotient semantics, transport obstruction, curvature, and the emergence of smooth geometry. The smooth-realization faithfulness condition is decomposed into a torsion condition (T) and an intrinsic detectability axiom (D) and is discharged on a canonical realization built from the tower itself.
     </div>
+
+    <section class="research-summary" aria-label="Research method and result summary">
+      <dl>
+        <div><dt>Method</dt><dd>The monograph begins with intrinsic comparison worlds and proceeds by finite-profile arguments, quotient semantics, refinement towers, and transport obstruction. Smooth geometry is introduced only through the faithful-realization interface, where condition (T) and axiom (D) make the second-jet comparison map well-defined and injective.</dd></div>
+        <div><dt>Main results</dt><dd>The current version records the conservative-completion route to rectangular completeness, finite-to-global control of comparison profiles, quotient-level non-recoverability of unsupported labels, the transport-obstruction hierarchy, canonical second-jet realization under (T)+(D), the S&sup3; rigidity branch at the manifold stage, and the conditional charge-denominator consequence in Chapter 18.</dd></div>
+        <div><dt>Scope</dt><dd>This is the primary source for the closure program. Physical claims are stated as theorem-level consequences under explicit hypotheses, recovery targets, interface conditions, or conditional predictions; the public web summary is only an orientation to the manuscript record.</dd></div>
+      </dl>
+    </section>
 
     <p class="scope-note" style="font-size:0.82rem;color:var(--muted);font-style:italic;margin-bottom:1.5rem;">Scope: this landing-page summary is informal; the binding statements are the definitions, hypotheses, and theorems in the monograph. Internal orientation is on <a href="/overview/">Overview</a>, <a href="/notation/">Notation</a>, <a href="/status/">Logical Status</a>, and <a href="/predictions/">Predictions</a>; cite the current-version BibTeX block below.</p>
 

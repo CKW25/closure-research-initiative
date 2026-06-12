@@ -381,6 +381,29 @@ nav span:not(:first-child)::before {
   margin-bottom: 2rem;
   line-height: 1.8;
 }
+.research-summary {
+  margin: 0 0 1.5rem;
+  padding: 1rem 0 1.1rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.research-summary dl {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.24fr) 1fr;
+  gap: 0.75rem 1.15rem;
+}
+.research-summary dt {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.research-summary dd {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text);
+}
 .download-block {
   background: var(--card);
   border: 1px solid var(--border);
@@ -547,6 +570,7 @@ footer span { min-width: 0; }
   .hero-logo img { width: 150px; }
   nav a, nav span { margin: 0; font-size: 0.72rem; }
   .record-panel dl { grid-template-columns: 1fr; }
+  .research-summary dl { grid-template-columns: 1fr; }
   .version-table,
   .version-table tbody,
   .version-table tr,
@@ -649,6 +673,14 @@ footer span { min-width: 0; }
     <div class="abstract">
       At the manifold stage, a genuinely closed realized three-dimensional system is forced to the S&sup3; case. The closure constraint, expressed through the orthonormal frame bundle and the admissible comparison groupoid, entails the rigidity result within that smooth-realization setting.
     </div>
+
+    <section class="research-summary" aria-label="Research method and result summary">
+      <dl>
+        <div><dt>Method</dt><dd>The paper works after faithful smooth realization has been obtained. It formulates closed comparison reports on the orthonormal frame bundle and uses the diagonal isometry action to test whether frame-level distinctions remain admissible.</dd></div>
+        <div><dt>Main result</dt><dd>Under the stated closed-system and smooth-realization hypotheses, admissible frame comparisons force frame-bundle transitivity. Standard homogeneous-geometry rigidity then gives constant sectional curvature; with the program&rsquo;s compact simply connected closed space-form condition, the realized three-dimensional case is S&sup3;.</dd></div>
+        <div><dt>Scope</dt><dd>The theorem is a manifold-stage rigidity result. It is not a standalone derivation of a continuum from raw comparison data; that interface is supplied by the monograph&rsquo;s faithful-realization analysis and recorded separately on <a href="/status/">Logical Status</a>.</dd></div>
+      </dl>
+    </section>
 
     <p class="scope-note" style="font-size:0.82rem;color:var(--muted);font-style:italic;margin-bottom:1.5rem;">Scope: this landing-page summary is informal; the binding statements are the definitions, hypotheses, and theorem in the paper. The result is stated at the faithful smooth-realization interface; see <a href="/notation/">Notation</a> and <a href="/status/">Logical Status</a> for condition (T), axiom (D), and the canonical realization, and <a href="/overview/">Overview</a> for the linked differential-geometric background sources.</p>
 
