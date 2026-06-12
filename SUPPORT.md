@@ -1,6 +1,6 @@
 # Support and Correspondence
 
-For research orientation, begin with:
+Begin with:
 
 - [Overview](https://closureresearchinitiative.org/overview/)
 - [Reading Guide](https://closureresearchinitiative.org/guide/)

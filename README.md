@@ -1,8 +1,8 @@
 # Closure Research Initiative
 
-Repository for the public website, manuscript archive, citation metadata, and deployment code of the Closure Research Initiative.
+Repository for the public HTML record, manuscript archive, citation metadata, and deployment code of the Closure Research Initiative.
 
-The live research record is maintained at [closureresearchinitiative.org](https://closureresearchinitiative.org). This repository preserves the website source, public PDFs, LaTeX source bundles, version archive, bounded corpus-query Worker, and operational metadata used to serve that record.
+The live research record is maintained at [closureresearchinitiative.org](https://closureresearchinitiative.org). This repository preserves the public HTML source, PDFs, LaTeX source bundles, version archive, bounded corpus-query Worker, and operational metadata used to serve that record.
 
 ## Research Scope
 
@@ -12,9 +12,7 @@ Under the theorem hypotheses stated in the monograph, especially local distingui
 
 Standard physical frameworks are treated as recovery targets. Their successful structures constrain the program: background spacetime, field content, state spaces, gauge conventions, causal order, scale structure, and boundary data are classified according to whether they are recovered from the closed-system comparison architecture or retained as explicit interface conditions.
 
-For orientation, see the site pages [Overview](https://closureresearchinitiative.org/overview/), [Structural Map](https://closureresearchinitiative.org/map/), [Notation](https://closureresearchinitiative.org/notation/), [Logical Status](https://closureresearchinitiative.org/status/), and [Sources and Citation](https://closureresearchinitiative.org/sources/). For binding claims, cite the monograph, the relevant preprint, or the cited theorem location rather than this README.
-
-Research orientation, theorem status, empirical consequences, citation metadata, and provenance are maintained on Overview, Logical Status, Predictions, Sources and Citation, and the individual work pages.
+Research sequence, theorem status, empirical consequences, citation metadata, and provenance are maintained on [Overview](https://closureresearchinitiative.org/overview/), [Structural Map](https://closureresearchinitiative.org/map/), [Notation](https://closureresearchinitiative.org/notation/), [Logical Status](https://closureresearchinitiative.org/status/), [Predictions](https://closureresearchinitiative.org/predictions/), [Sources and Citation](https://closureresearchinitiative.org/sources/), and the individual work pages. For binding claims, cite the monograph, the relevant preprint, or the cited theorem location rather than this README.
 
 ## Canonical Citation
 
@@ -22,7 +20,7 @@ For general citation of the program, cite the current monograph:
 
 Chast K. Wolfe, *Closed Systems from Comparison Completeness*, v5, Closure Research Initiative, 2026. Current version: [closureresearchinitiative.org/csm/](https://closureresearchinitiative.org/csm/). DOI: [10.5281/zenodo.20657202](https://doi.org/10.5281/zenodo.20657202).
 
-Paper-specific claims should cite the current landing page listed in [Sources and Citation](https://closureresearchinitiative.org/sources/). GitHub citation metadata is provided in [`CITATION.cff`](CITATION.cff).
+Paper-specific claims should cite the current work page listed in [Sources and Citation](https://closureresearchinitiative.org/sources/). GitHub citation metadata is provided in [`CITATION.cff`](CITATION.cff).
 
 ## Public Works
 
@@ -42,15 +40,15 @@ All public manuscripts are versioned research manuscripts. They are not peer rev
 
 | Path | Contents |
 |------|----------|
-| `index.html` and page directories | Static website pages and research orientation material |
+| `index.html` and page directories | Public HTML record |
 | `papers/` | Public PDFs and LaTeX source bundles for the monograph and six preprints |
 | `archive/` | Superseded PDFs retained for provenance and version-specific reference |
-| `external-sources.bib` | Bibliography for outside sources cited across the site |
+| `external-sources.bib` | Bibliography for outside sources cited by the research record |
 | `CITATION.cff` | GitHub-readable citation metadata |
 | `LICENSE.md` | Repository-level rights and permissions notice |
 | `CONTRIBUTING.md`, `SUPPORT.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md` | Correction, correspondence, conduct, and security-reporting guidance |
 | `.gitattributes` | Line-ending, binary-file, diff, and GitHub language-stat hygiene |
-| `llms.txt` | Bounded site summary and citation guidance for retrieval tools |
+| `llms.txt` | Bounded research summary and citation guidance for retrieval tools |
 | `src/worker.js` | Cloudflare Worker for `/api/ask`, `/api/ask-status`, and static-asset fallback |
 | `src/_generated/ask-corpus.js` | Generated retrieval corpus for the public corpus-query interface |
 | `scripts/` | Corpus and deployment-wiring checks |
@@ -60,7 +58,7 @@ All public manuscripts are versioned research manuscripts. They are not peer rev
 
 ## Use and Corrections
 
-The website and this repository divide public participation into three channels:
+The public record supports three participation channels:
 
 - Use [GitHub Discussions](https://github.com/CKW25/closure-research-initiative/discussions) for technical discussion of definitions, hypotheses, proof structure, interpretation, and possible extensions.
 - Use GitHub issue templates for public errata, citation corrections, broken links, deployment problems, or narrowly scoped technical questions about a specific passage.
@@ -80,7 +78,7 @@ General correspondence is listed at [Contact](https://closureresearchinitiative.
 
 ## Versioning and Provenance
 
-The current monograph and preprints are the version-of-record site releases. Version history is maintained on the corresponding work pages.
+The current monograph and preprints are the version-of-record releases. Version history is maintained on the corresponding work pages.
 
 `main` is the only active branch. It is the public deployment branch and should remain the canonical source of the website record.
 
@@ -90,7 +88,7 @@ The live site is served through Cloudflare Workers with static assets from this 
 
 Download links intentionally use `/dl/...` URLs. A separate Cloudflare download-count route increments the public counter and redirects to the static file. The shared `site.js` file reads `/dl/stats` and displays the visible down-arrow count beside each download link.
 
-The checked-in Worker in `src/worker.js` serves the bounded corpus-query interface at `/ask/`. The generated corpus is built from the monograph, six public preprints, website pages, `llms.txt`, and `external-sources.bib`. The Worker retrieves local corpus excerpts before calling the Cloudflare Workers AI binding and fails closed if the binding is absent.
+The checked-in Worker in `src/worker.js` serves the bounded corpus-query interface at `/ask/`. The generated corpus is built from the monograph, six public preprints, public research pages, `llms.txt`, and `external-sources.bib`. The Worker retrieves local corpus excerpts before calling the Cloudflare Workers inference binding and fails closed if the binding is absent.
 
 Run the wiring checks after changes that touch downloads, Worker code, headers, redirects, the corpus, citation metadata, or public discoverability files:
 
@@ -107,7 +105,7 @@ Use `update-paper.ps1` only as a local helper for copying revised PDFs/source bu
 .\update-paper.ps1 -Paper rie -NewPdf path\to\new-version.pdf
 ```
 
-Before publishing a revision, verify that the paper landing page, [Preprints](https://closureresearchinitiative.org/preprints/), BibTeX block, feed entry, sitemap, `llms.txt`, `CITATION.cff`, and version-history table describe the same version.
+Before publishing a revision, verify that the work page, [Preprints](https://closureresearchinitiative.org/preprints/), BibTeX block, feed entry, sitemap, `llms.txt`, `CITATION.cff`, and version-history table describe the same version.
 
 ## Rights
 

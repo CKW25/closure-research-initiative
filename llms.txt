@@ -27,11 +27,11 @@ The formal development starts from intrinsic comparison data. A comparison is a 
 
 Method: derive admissible structure from comparison data by finite-profile arguments, quotient semantics, transport groupoids and obstruction towers, then introduce smooth geometry only through explicit faithful-realization conditions. Principal results: rectangular completeness under stated comparison-world hypotheses, quotient-level limits on subsystem attribution, endpoint-fiber factorization for route invariants, second-jet faithful-realization analysis, conditional S3 rigidity at the manifold stage, and the charge-denominator prediction. Formal record: binding statements are the definitions, hypotheses, proofs, theorem labels, and versioned PDFs listed on the Preprints, Sources and Citation, and Logical Status pages.
 
-The Foundations page includes a compactification-orientation note: the topological fact R^3 union a point at infinity is homeomorphic to S^3 is useful intuition, but it is not the proof of the S3 theorem. The theorem-level mechanism is the CFSG chain from closed-system admissibility to the action groupoid, isometric transport, frame-bundle transitivity, constant sectional curvature, and the simply connected compact space-form case.
+The Foundations page includes compactification background: the topological fact R^3 union a point at infinity is homeomorphic to S^3 is useful intuition. The theorem-level mechanism is the CFSG chain from closed-system admissibility to the action groupoid, isometric transport, frame-bundle transitivity, constant sectional curvature, and the simply connected compact space-form case.
 
 The Overview page frames QFT, GR, and standard cosmology as recovery targets. Their empirical success constrains the closure program: standard inputs--background spacetime, field content, regulators, renormalization scales, boundary conditions, and cosmological initial data--are classified according to whether they are internally recoverable or remain explicit interface conditions. Renormalization is treated as a precise framework, compact S3 is not claimed to remove local UV divergences, and no cosmological bounce theorem is claimed without a separate dynamical result. The Overview also includes a standard-FLRW recovery-target figure: the flat R3 transverse-distance law D_M = D_C is compared with the closed S3 law D_M = R_c sin(D_C/R_c), emphasizing that a large-radius closed realization locally reproduces the flat approximation while closing globally.
 
-The Structural Map includes several neighboring programs. Rovelli's partial-observables work and Dittrich's partial/complete-observables program are cited as adjacent external literature on observability without an external clock or frame. Abramsky and Brandenburger's sheaf-theoretic contextuality is cited as a mathematical neighbor where local compatibility can fail to extend to a global section. Spekkens, Wolfe, Schmid, Wood, and collaborators are cited as adjacent literature on operational equivalence, causal assumptions, and when observed correlations justify representational distinctions. The site does not claim that this literature proves closure or endorses CRI; the comparison is methodological.
+The Structural Map includes several neighboring programs. Rovelli's partial-observables work and Dittrich's partial/complete-observables program are cited as adjacent external literature on observability without an external clock or frame. Abramsky and Brandenburger's sheaf-theoretic contextuality is cited as a mathematical neighbor where local compatibility can fail to extend to a global section. Spekkens, Wolfe, Schmid, Wood, and collaborators are cited as adjacent literature on operational equivalence, causal assumptions, and when observed correlations justify representational distinctions. CRI does not claim that this literature proves closure or endorses the closure program; the comparison is methodological.
 
 ## Claim Support
 
@@ -42,10 +42,10 @@ The Structural Map includes several neighboring programs. Rovelli's partial-obse
 - Public charge-sector consequence and experimental interface: https://closureresearchinitiative.org/predictions/
 - Canonical citation targets and external works cited for background, comparison, experimental, and legal context: https://closureresearchinitiative.org/sources/
 
-## Best Entry Points
+## Principal Entry Points
 
 - Homepage: https://closureresearchinitiative.org/
-- Foundational orientation: https://closureresearchinitiative.org/idea/
+- Foundational account: https://closureresearchinitiative.org/idea/
 - Technical overview without proofs: https://closureresearchinitiative.org/overview/
 - Logical map and comparison to neighboring programs: https://closureresearchinitiative.org/map/
 - Minimal worked example: https://closureresearchinitiative.org/example/
@@ -94,11 +94,11 @@ The current public empirical prediction is a charge-sector exclusion. Conditiona
 
 ## Citation Guidance
 
-Use the current-version page URL and BibTeX block for current releases. The Sources and Citation page collects the canonical citation targets for the monograph, public preprints, author ORCID, and outside works cited across the site. The external-source BibTeX download is available at https://closureresearchinitiative.org/external-sources.bib.
+Use the current-version page URL and BibTeX block for current releases. The Sources and Citation page collects the canonical citation targets for the monograph, public preprints, author ORCID, and outside works cited by the research record. The external-source BibTeX download is available at https://closureresearchinitiative.org/external-sources.bib.
 
 ## Corpus Assistant
 
-Corpus Query is a public bounded research query interface at https://closureresearchinitiative.org/ask/. Its retrieval corpus is generated from the monograph, six public preprints, website pages, llms.txt, and external-source BibTeX. It supports guide, locate, and cite modes. Its answers are instructed to use only retrieved corpus excerpts and cite those excerpts by source label; short in-session history is used only to interpret follow-up queries.
+Corpus Query is a public bounded research query interface at https://closureresearchinitiative.org/ask/. Its retrieval corpus is generated from the monograph, six public preprints, public research pages, llms.txt, and external-source BibTeX. It supports guide, locate, and cite modes. Its answers are instructed to use only retrieved corpus excerpts and cite those excerpts by source label; short in-session history is used only to interpret follow-up queries.
 
 ## Crawl Guidance
 

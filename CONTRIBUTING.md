@@ -1,6 +1,6 @@
 # Contributions and Corrections
 
-This repository supports the public website and manuscript record of the Closure Research Initiative. Contributions should be directed toward accuracy, citation integrity, deployment correctness, and clear research navigation.
+This repository supports the public website and manuscript record of the Closure Research Initiative. Contributions should be directed toward accuracy, citation integrity, deployment correctness, and clarity of the public record.
 
 ## Appropriate Reports
 
@@ -37,7 +37,7 @@ Do not add external claims without a citation trail. External background should 
 
 ## Publication Checks
 
-Before merging changes that affect public manuscripts or citation records, verify the relevant landing page, `preprints/`, `sources/`, `llms.txt`, `CITATION.cff`, `feed.xml`, and `sitemap.xml` agree on title, version, DOI, date, PDF link, and source bundle.
+Before merging changes that affect public manuscripts or citation records, verify the relevant work page, `preprints/`, `sources/`, `llms.txt`, `CITATION.cff`, `feed.xml`, and `sitemap.xml` agree on title, version, DOI, date, PDF link, and source bundle.
 
 Run deployment-wiring checks when changing Worker code, headers, redirects, downloads, metadata, or public discoverability files:
 
