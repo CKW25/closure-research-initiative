@@ -96,6 +96,8 @@
     'archive/csm/csm-v5-latex.zip': 9,
     'archive/csm/csm-v3.pdf': 116,
     'archive/csm/csm-v3-latex.zip': 9,
+    'archive/ccw/ccw-v2.pdf': 14,
+    'archive/ccw/ccw-v2-latex.zip': 8,
     'archive/ccw/ccw-v1.pdf': 14,
     'archive/ccw/ccw-v1-latex.zip': 8,
     'archive/cfsg/cfsg-v1.pdf': 26,

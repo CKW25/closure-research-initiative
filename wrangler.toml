@@ -13,4 +13,4 @@ binding = "AI"
 
 [vars]
 ASK_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
-ASK_CORPUS_VERSION = "2026-06-12-v7"
+ASK_CORPUS_VERSION = "2026-06-12-v7-ccw-v3"
