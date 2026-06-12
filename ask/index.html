@@ -119,33 +119,49 @@ body {
 .theme-toggle:hover { opacity: 1; }
 nav {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  margin: 0 0 2rem;
-  gap: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem 0.85rem;
+  width: min(1200px, calc(100vw - 2rem));
+  margin: 0 0 3rem 50%;
+  padding: 1.5rem 0 2.5rem;
+  transform: translateX(-50%);
+  text-align: center;
 }
-nav a,
-nav span {
-  font-size: 0.78rem;
+nav a, nav span {
+  font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   text-transform: uppercase;
-  margin: 0 1rem 0.6rem;
+  white-space: nowrap;
+  margin: 0;
   padding-bottom: 0.35rem;
 }
 nav a {
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--muted);
   text-decoration: none;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0;
+  padding-bottom: 0.35rem;
   border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
 }
 nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
-nav span { color: var(--navy); border-bottom: 2px solid var(--gold); }
-a { color: var(--navy); text-underline-offset: 0.18em; }
-.ask-shell {
-  border: 1px solid var(--border);
-  background: var(--card);
-  border-radius: 6px;
-  padding: 1.25rem;
+nav span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--gold);
 }
 .corpus-line {
   color: var(--muted);
@@ -481,7 +497,7 @@ footer span { min-width: 0; }
   .hero { padding: 3rem 0 1.5rem; }
   .hero h1 { font-size: 2.25rem; }
   .hero-logo img { width: 180px; }
-  nav a, nav span { margin: 0 0.6rem 0.6rem; font-size: 0.72rem; }
+  nav a, nav span { margin: 0; font-size: 0.72rem; }
   .corpus-loader { align-items: flex-start; }
   .loader-diagram { width: 9.3rem; height: 7.45rem; }
   footer { flex-direction: column; gap: 0.3rem; text-align: center; }
@@ -518,7 +534,7 @@ footer span { min-width: 0; }
     <a href="/map/">Structural Map</a>
     <a href="/example/">Worked Example</a>
     <a href="/notation/">Notation</a>
-    <a href="/status/">Logical Status</a>
+    <a href="/status/">Status</a>
     <a href="/predictions/">Predictions</a>
     <a href="/guide/">Reading Guide</a>
     <a href="/preprints/">Preprints</a>

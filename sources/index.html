@@ -205,27 +205,49 @@ body {
   color: var(--muted);
 }
 nav {
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem 0.85rem;
+  width: min(1200px, calc(100vw - 2rem));
+  margin: 0 0 3rem 50%;
   padding: 1.5rem 0 2.5rem;
-  margin-bottom: 3rem;
+  transform: translateX(-50%);
+  text-align: center;
 }
 nav a, nav span {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   text-transform: uppercase;
-  margin: 0 1.25rem;
+  white-space: nowrap;
+  margin: 0;
   padding-bottom: 0.35rem;
 }
 nav a {
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--muted);
   text-decoration: none;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0;
+  padding-bottom: 0.35rem;
   border-bottom: 2px solid transparent;
   transition: color 0.2s, border-color 0.2s;
 }
 nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
 nav span {
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--navy);
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0;
+  padding-bottom: 0.35rem;
   border-bottom: 2px solid var(--gold);
 }
 .section-header {
@@ -330,7 +352,7 @@ footer span { min-width: 0; }
   .container { padding: 0 1.5rem; }
   .hero h1 { font-size: 2rem; }
   .hero-logo img { width: 150px; }
-  nav a, nav span { margin: 0 0.6rem; font-size: 0.72rem; }
+  nav a, nav span { margin: 0; font-size: 0.72rem; }
   .section-header h2 { white-space: normal; }
   footer { flex-direction: column; gap: 0.3rem; text-align: center; }
 }
@@ -361,7 +383,7 @@ footer span { min-width: 0; }
     <a href="/map/">Structural Map</a>
     <a href="/example/">Worked Example</a>
     <a href="/notation/">Notation</a>
-    <a href="/status/">Logical Status</a>
+    <a href="/status/">Status</a>
     <a href="/predictions/">Predictions</a>
     <a href="/guide/">Reading Guide</a>
     <a href="/preprints/">Preprints</a>
@@ -761,23 +783,6 @@ footer span { min-width: 0; }
       <div class="source-used">Used on: <a href="/map/">Structural Map</a>, for generalized noncontextuality and operational-equivalence comparison.</div>
     </div>
 
-    <div class="source-item">
-      <div class="source-title"><a href="https://doi.org/10.1111/j.1746-8361.1989.tb00933.x" target="_blank" rel="noopener">Structural Realism: The Best of Both Worlds?</a></div>
-      <div class="source-citation">J. Worrall, &ldquo;Structural Realism: The Best of Both Worlds?&rdquo; <em>Dialectica</em> 43 (1989) 99.</div>
-      <div class="source-used">Used on: <a href="/status/">Logical Status</a>.</div>
-    </div>
-
-    <div class="source-item">
-      <div class="source-title"><a href="https://doi.org/10.1016/S0039-3681(98)80129-5" target="_blank" rel="noopener">What is Structural Realism?</a></div>
-      <div class="source-citation">J. Ladyman, &ldquo;What is Structural Realism?&rdquo; <em>Stud. Hist. Phil. Sci.</em> 29 (1998) 409.</div>
-      <div class="source-used">Used on: <a href="/status/">Logical Status</a>.</div>
-    </div>
-
-    <div class="source-item">
-      <div class="source-title"><a href="https://doi.org/10.1093/acprof:oso/9780199276196.001.0001" target="_blank" rel="noopener">Every Thing Must Go</a></div>
-      <div class="source-citation">J. Ladyman and D. Ross, <em>Every Thing Must Go: Metaphysics Naturalized</em> (Oxford University Press, 2007).</div>
-      <div class="source-used">Used on: <a href="/status/">Logical Status</a>.</div>
-    </div>
   </div>
 
   <div class="section-header">
