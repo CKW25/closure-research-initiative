@@ -1,0 +1,811 @@
+% ============================================================
+\chapter{Observable Exhaustivity and the Automorphism Bridge}
+\label{ch:dynamics-program}
+% ============================================================
+\section{Introduction and status}
+\label{sec:dyn-intro}
+This chapter is a formally marked extension of the main theorem chain.
+The preceding chapters establish the closed-system stack through
+connection-first geometry, scalar-sector closure, and matter-sector
+realization. The present chapter does not supply a premise needed by
+those results. It asks the next structural question: how much of the
+\emph{state-side} observable content of the closed stack is readable by
+the realized geometry, and in what precise sense dynamics can be
+recovered from the stack.
+
+The architecture mirrors the interface chapter. There, faithfulness
+decomposed into exact failure modes, each defeated by a named
+condition, with the realization then canonical. Here, the raw limit
+algebra provably exceeds every realized reading
+(\cref{thm:dyn-raw-inexhaustible}); the excess is characterized
+exactly: it consists of the fiber-separating observables, reached
+through two canonical finite-stage mechanisms
+(\cref{thm:dyn-ghost-characterization,rem:dyn-ghost-presentations});
+a single scale-coherence condition \textup{(U)} selects the
+complementary sector, which is provably the maximal sector admitting
+a realized reading; and on that sector the realized algebra is
+recovered exactly, by construction
+(\cref{thm:dyn-regular-identification}). On the same sector,
+derivations are classified: they are precisely the vector fields of
+the realized manifold (\cref{thm:dyn-derivation-transport}), and the
+transport-stabilizing ones form the symmetry algebra of the realized
+connection up to gauge (\cref{cor:dyn-stabilizer}).
+
+\begin{remark}[Status ledger]
+	\label{rem:dyn-status}
+	The following are proved unconditionally relative to the standing
+	data \textup{(R1)}--\textup{(R3)} below:
+	\cref{lem:dyn-limit-algebra,thm:dyn-raw-inexhaustible,lem:dyn-regular-structure,thm:dyn-regular-identification,lem:dyn-ghost-localization,thm:dyn-ghost-characterization,cor:dyn-smooth-sector,thm:dyn-hadamard,thm:dyn-derivation-transport,lem:dyn-gauge-cocycle,lem:dyn-curvature-class,cor:dyn-stabilizer,cor:dyn-conservation}.
+	Condition \textup{(U)} (\cref{def:dyn-scale-coherence}) is a named
+	selection: that \emph{some} selection is required is a theorem
+	(\cref{thm:dyn-raw-inexhaustible}); that \textup{(U)} selects the
+	maximal readable sector is a theorem
+	(\cref{thm:dyn-ghost-characterization}); whether the closure
+	axioms \emph{force} this selection for the physical sector is open
+	(\cref{sec:dyn-open}). Clause \textup{(R2)} is an added state-side
+	realization hypothesis introduced by this chapter; its status is
+	stated plainly below and its removal is part of open problem
+	\textup{(O3)}. The intrinsic characterization of the smooth sector
+	and of the stabilization clause is open.
+\end{remark}
+
+\paragraph{Standing data.}
+Throughout the chapter:
+\begin{enumerate}[label=\textup{(R\arabic*)}]
+	\item
+	      Conditions \textup{(T)} and \textup{(D)} hold
+	      (\cref{def:condition-T,def:axiom-D}), and a compatible smooth
+	      realization is fixed, faithful on the stabilized carrier; by
+	      \cref{thm:canonical-realization,rem:ghost-free-reading} this
+	      regime is nonvacuous and the faithfulness is discharged, not
+	      assumed.
+	\item
+	      \emph{State-side realization hypothesis.} Writing
+	      \(\Phys_k\) for the stage physical quotients determined by the
+	      quotient semantics of \cref{ch:rotation,ch:closure}, with
+	      bonding maps induced by the refinement tower and
+	      \(\Phys_\infty:=\varprojlim_k\Phys_k\), it is assumed that the
+	      realization descends through quotient semantics to a
+	      continuous surjection
+	      \[
+		      \varphi:\Phys_\infty\longrightarrow M
+	      \]
+	      onto the realized locus \(M\), which is assumed to be a
+	      connected smooth manifold of positive dimension, equipped with
+	      the realized Riemannian distance \(d\). This clause is an
+	      \emph{added interface hypothesis of the present chapter}: it
+	      is not asserted to be contained in, or discharged by, the
+	      compatibility notion of \cref{ch:interface,ch:connection}.
+	      Compactness of \(M\) is automatic, since \(\Phys_\infty\) is
+	      compact and \(M=\varphi(\Phys_\infty)\).
+	\item
+	      A scale assignment \(\varepsilon_k\downarrow0\) is fixed as in
+	      \cref{def:scale-completion}.
+\end{enumerate}
+
+% ============================================================
+\section{The limit comparison algebra}
+\label{sec:dyn-algebra}
+Each stage is finite, so each stage physical quotient \(\Phys_k\) is a
+finite set, and the algebra of admissible stage observables is, by the
+quotient-semantics principle that admissible content is exactly
+quotient content, the full finite-dimensional algebra of real
+functions on \(\Phys_k\):
+\[
+	\mathsf A_k:=C(\Phys_k).
+\]
+Bonding maps \(\Phys_{k+1}\to\Phys_k\) induce unital injections
+\(\mathsf A_k\hookrightarrow\mathsf A_{k+1}\), and every
+\(\mathsf A_k\) pulls back to an algebra of locally constant functions
+on \(\Phys_\infty\).
+
+\begin{definition}[Limit comparison algebra]
+	\label{def:dyn-limit-algebra}
+	The \emph{limit comparison algebra} is the uniform closure
+	\[
+		\mathsf A
+		:=
+		\overline{\bigcup_{k}\mathsf A_k}
+		\subseteq
+		C(\Phys_\infty).
+	\]
+\end{definition}
+
+\begin{lemma}[The limit algebra is the full continuous algebra]
+	\label{lem:dyn-limit-algebra}
+	\(\mathsf A=C(\Phys_\infty)\).
+\end{lemma}
+\begin{proof}
+	\(\Phys_\infty\) is an inverse limit of finite discrete spaces,
+	hence compact, Hausdorff, totally disconnected, and metrizable
+	(the tower is countable). The union \(\bigcup_k\mathsf A_k\) is a
+	unital subalgebra of real continuous functions; it separates
+	points, since two distinct limit points differ at some finite
+	stage and every function on the finite set \(\Phys_k\) is a stage
+	observable. The Stone--Weierstrass theorem gives density.
+\end{proof}
+
+\begin{definition}[Realized algebra]
+	\label{def:dyn-realized-algebra}
+	The \emph{realized algebra} is
+	\[
+		\mathsf A_{\mathrm{real}}
+		:=
+		\varphi^*C(M)\subseteq\mathsf A,
+	\]
+	the pullback of the continuous realized observables. Since
+	\(\varphi\) is surjective, \(\varphi^*\) is an isometric unital
+	embedding and \(\mathsf A_{\mathrm{real}}\) is closed; in
+	particular it already contains the closure of
+	\(\varphi^*C^\infty(M)\).
+\end{definition}
+
+% ============================================================
+\section{Raw inexhaustibility}
+\label{sec:dyn-inexhaustible}
+The naive exhaustivity statement -- that the limit algebra equals the
+realized algebra -- is false, and its failure is structural, not an
+artifact of a poor choice of realization.
+
+\begin{theorem}[Raw inexhaustibility]
+	\label{thm:dyn-raw-inexhaustible}
+	\(\mathsf A_{\mathrm{real}}\subsetneq\mathsf A\). More precisely,
+	\(\varphi\) is not injective, and for any two distinct points
+	\(p\neq q\) with \(\varphi(p)=\varphi(q)\) there is a finite-stage
+	observable separating \(p\) from \(q\) which lies in
+	\(\mathsf A\setminus\mathsf A_{\mathrm{real}}\).
+\end{theorem}
+\begin{proof}
+	If \(\varphi\) were injective, it would be a continuous bijection
+	from a compact Hausdorff space onto \(M\), hence a homeomorphism;
+	but \(\Phys_\infty\) is totally disconnected and \(M\) is connected
+	of positive dimension. So \(\varphi\) has a fiber containing two
+	distinct points \(p\neq q\). Since \(\Phys_\infty\) is a Stone
+	space, there is a clopen set \(C\) with \(p\in C\), \(q\notin C\).
+	Every clopen subset of an inverse limit of finite discrete spaces is
+	pulled back from a finite stage: a clopen set is compact, hence is
+	covered by finitely many cylinder neighborhoods, and these finitely
+	many cylinders all refine to one common stage. Therefore the
+	indicator \(\mathbf 1_C\) lies in some
+	\(\mathsf A_k\subseteq\mathsf A\). Every element of
+	\(\mathsf A_{\mathrm{real}}\) is constant on
+	\(\varphi\)-fibers, and \(\mathbf 1_C\) is not. Since
+	\(\mathsf A_{\mathrm{real}}\) is closed, the inclusion is proper
+	even after closure.
+\end{proof}
+
+\begin{remark}
+	\Cref{thm:dyn-raw-inexhaustible} is the state-side analogue of
+	\cref{rem:disconnected-ghost}: it proves that no theorem of the
+	closed stack alone can force observable exhaustivity on the raw
+	algebra. A selection of the physical sector is therefore mandatory.
+	What can be proved is that the excess admits an exact
+	characterization, and that one canonical selection -- the maximal
+	one admitting a realized reading -- recovers the realized algebra
+	identically. That is the content of the next two sections.
+\end{remark}
+
+% ============================================================
+\section{The regular sector}
+\label{sec:dyn-coherence}
+\begin{definition}[Realized oscillation; scale coherence]
+	\label{def:dyn-oscillation}
+	For \(a\in\mathsf A\) and \(\varepsilon>0\), the \emph{realized
+		oscillation of \(a\) at scale \(\varepsilon\)} is
+	\[
+		\operatorname{osc}_\varphi(a;\varepsilon)
+		:=
+		\sup_{x\in M}\;
+		\sup\bigl\{\,
+		|a(p)-a(q)|
+		:
+		p,q\in\varphi^{-1}\bigl(B(x,\varepsilon)\bigr)
+		\,\bigr\},
+	\]
+	where \(B(x,\varepsilon)\) is the realized metric ball. The element
+	\(a\) is \emph{scale-coherent} if
+	\(\operatorname{osc}_\varphi(a;\varepsilon)\to0\) as
+	\(\varepsilon\to0\). The \emph{regular sector} is
+	\[
+		\mathsf A_U
+		:=
+		\{\,a\in\mathsf A:\ a\ \text{is scale-coherent}\,\}.
+	\]
+\end{definition}
+
+\begin{lemma}[Structure of the regular sector]
+	\label{lem:dyn-regular-structure}
+	\(\mathsf A_U\) is a closed unital subalgebra of \(\mathsf A\)
+	containing \(\varphi^*C(M)\).
+\end{lemma}
+\begin{proof}
+	Stability under sums is immediate. For products,
+	\[
+		|a(p)b(p)-a(q)b(q)|
+		\le
+		\|a\|\,|b(p)-b(q)|+\|b\|\,|a(p)-a(q)|,
+	\]
+	so
+	\(\operatorname{osc}_\varphi(ab;\varepsilon)\le
+	\|a\|\operatorname{osc}_\varphi(b;\varepsilon)
+	+\|b\|\operatorname{osc}_\varphi(a;\varepsilon)\).
+	For closedness,
+	\(\operatorname{osc}_\varphi(a;\varepsilon)
+	\le\operatorname{osc}_\varphi(a_j;\varepsilon)+2\|a-a_j\|\),
+	so
+	\(\limsup_{\varepsilon\to0}\operatorname{osc}_\varphi(a;\varepsilon)
+	\le2\|a-a_j\|\to0\). For pullbacks, \(M\) is compact, so
+	\(f\in C(M)\) is uniformly continuous and
+	\(\operatorname{osc}_\varphi(\varphi^*f;\varepsilon)
+	\le\sup_x\operatorname{osc}\bigl(f;B(x,\varepsilon)\bigr)\to0\).
+\end{proof}
+
+\begin{definition}[Condition \textup{(U)}: scale-coherent admissibility]
+	\label{def:dyn-scale-coherence}
+	The closed tower satisfies \emph{condition \textup{(U)}} if the
+	physical observable sector is the regular sector \(\mathsf A_U\):
+	an admissible limit observable is required to have a definite
+	reading in the refinement limit, i.e.\ to be scale-coherent.
+\end{definition}
+
+\begin{remark}[Status of condition \textup{(U)}]
+	\label{rem:dyn-U-status}
+	Three statements with three different standings must be kept
+	apart. First, that some selection of the physical sector is
+	required is a theorem: \cref{thm:dyn-raw-inexhaustible}. Second,
+	that \textup{(U)} is the canonical selection is also a theorem:
+	by \cref{thm:dyn-ghost-characterization} below, \(\mathsf A_U\)
+	consists exactly of the observables constant on realization
+	fibers, hence is the \emph{maximal} sector on which any
+	fiber-consistent realized reading can exist; \textup{(U)} selects
+	that maximum and nothing less. Third, that the closure axioms
+	force this selection for the physical sector is \emph{not} proved
+	here; it is open problem \textup{(O1)}. In the vocabulary of the
+	factorization criterion for route invariants, an observable
+	violating \textup{(U)} is one whose reading depends on the
+	refinement route rather than on the realized endpoint; whether
+	that observation can be promoted to a derivation of \textup{(U)}
+	is exactly \textup{(O1)}. Where the transport side required two
+	conditions, \textup{(T)} and \textup{(D)}, the state side requires
+	one.
+\end{remark}
+
+% ============================================================
+\section{The regular-sector identification theorem}
+\label{sec:dyn-identification}
+The next theorem is the chapter's central result: on the regular
+sector, exhaustivity is not an assumption but an identity, with an
+explicit inverse to the pullback.
+
+\begin{theorem}[Regular-sector identification]
+	\label{thm:dyn-regular-identification}
+	\(\mathsf A_U=\varphi^*C(M)\). Moreover the \emph{reading map}
+	\[
+		\mathcal R:\mathsf A_U\longrightarrow C(M),
+		\qquad
+		\mathcal R(a)(x):=\lim_{k\to\infty}a(p_{k,x}),
+		\quad
+		p_{k,x}\in\varphi^{-1}\bigl(B(x,\varepsilon_k)\bigr)
+		\ \text{arbitrary},
+	\]
+	is well defined, independent of all choices, and is an isometric
+	unital algebra isomorphism inverse to \(\varphi^*\):
+	\[
+		\mathcal R\circ\varphi^*=\id_{C(M)},
+		\qquad
+		\varphi^*\circ\mathcal R=\id_{\mathsf A_U}.
+	\]
+\end{theorem}
+\begin{proof}
+	\emph{Existence and independence.}
+	Fibers of balls are nonempty since \(\varphi\) is onto. For
+	\(j,k\ge K\), both \(p_{j,x}\) and \(p_{k,x}\) lie in
+	\(\varphi^{-1}(B(x,\varepsilon_K))\), so
+	\[
+		|a(p_{j,x})-a(p_{k,x})|
+		\le\operatorname{osc}_\varphi(a;\varepsilon_K)\to0.
+	\]
+	The sequence is Cauchy, and the same estimate shows the limit does
+	not depend on the choices.
+
+	\emph{Continuity.}
+	For \(x,y\in M\), choose the approximants at stage \(k\); since
+	\(B(y,\varepsilon_k)\subseteq B(x,d(x,y)+\varepsilon_k)\), both
+	\(p_{k,x}\) and \(p_{k,y}\) lie in
+	\(\varphi^{-1}(B(x,d(x,y)+\varepsilon_k))\), whence
+	\[
+		|\mathcal R(a)(x)-\mathcal R(a)(y)|
+		\le
+		\limsup_k\operatorname{osc}_\varphi
+		\bigl(a;\,d(x,y)+\varepsilon_k\bigr),
+	\]
+	which tends to \(0\) as \(d(x,y)\to0\) by scale coherence. Thus
+	\(\mathcal R(a)\in C(M)\).
+
+	\emph{\(\varphi^*\circ\mathcal R=\id\).}
+	Fix \(p\in\Phys_\infty\) and set \(x:=\varphi(p)\). Then \(p\)
+	itself lies in \(\varphi^{-1}(B(x,\varepsilon_k))\) for every
+	\(k\), so
+	\[
+		|a(p)-a(p_{k,x})|
+		\le\operatorname{osc}_\varphi(a;\varepsilon_k)\to0,
+	\]
+	giving \(a(p)=\mathcal R(a)(\varphi(p))\). Hence
+	\(a=\varphi^*\mathcal R(a)\), and in particular
+	\(\mathsf A_U\subseteq\varphi^*C(M)\); with
+	\cref{lem:dyn-regular-structure} this proves the set equality.
+
+	\emph{\(\mathcal R\circ\varphi^*=\id\).}
+	For \(f\in C(M)\),
+	\(\mathcal R(\varphi^*f)(x)=\lim_k f(\varphi(p_{k,x}))\) with
+	\(\varphi(p_{k,x})\in B(x,\varepsilon_k)\), and continuity of \(f\)
+	gives the limit \(f(x)\).
+
+	\emph{Homomorphism and isometry.}
+	Each evaluation \(a\mapsto a(p_{k,x})\) is multiplicative and
+	linear, hence so is the limit; \(\mathcal R(1)=1\). Isometry holds
+	because \(\varphi^*\) is isometric and the two maps are mutually
+	inverse.
+\end{proof}
+
+\begin{lemma}[Ghost localization]
+	\label{lem:dyn-ghost-localization}
+	If \(a\notin\mathsf A_U\), there exist \(\eta>0\), a point
+	\(x^*\in M\), and points
+	\(p\neq q\in\varphi^{-1}(x^*)\) in a \emph{single fiber}, with
+	\[
+		|a(p)-a(q)|\ge\eta .
+	\]
+	Every failure of scale coherence is witnessed, in the limit, by a
+	distinction inside one realization fiber.
+\end{lemma}
+\begin{proof}
+	Failure of scale coherence gives \(\eta>0\), scales
+	\(\varepsilon_j\downarrow0\), points \(x_j\in M\), and witnesses
+	\(p_j,q_j\in\varphi^{-1}\bigl(B(x_j,\varepsilon_j)\bigr)\) with
+	\(|a(p_j)-a(q_j)|\ge\eta\). The spaces \(M\) and
+	\(\Phys_\infty\) are compact and metrizable
+	(\cref{lem:dyn-limit-algebra}), so after passing to a subsequence,
+	\(x_j\to x^*\), \(p_j\to p\), and \(q_j\to q\). Continuity of
+	\(\varphi\) gives
+	\(\varphi(p)=\lim\varphi(p_j)=x^*\), since
+	\(\varphi(p_j)\in B(x_j,\varepsilon_j)\) and
+	\(\varepsilon_j\to0\); likewise \(\varphi(q)=x^*\). Continuity of
+	\(a\) gives \(|a(p)-a(q)|\ge\eta\), and in particular
+	\(p\neq q\).
+\end{proof}
+
+\begin{theorem}[Ghost characterization]
+	\label{thm:dyn-ghost-characterization}
+	For \(a\in\mathsf A\) the following are equivalent:
+	\begin{enumerate}[label=\textup{(\roman*)}]
+		\item \(a\) is scale-coherent: \(a\in\mathsf A_U\);
+		\item \(a\) is constant on every fiber of \(\varphi\);
+		\item \(a\in\varphi^*C(M)\).
+	\end{enumerate}
+	Consequently
+	\(\mathsf A\setminus\mathsf A_U\) consists exactly of the
+	fiber-separating observables, and \(\mathsf A_U\) is the maximal
+	subset of \(\mathsf A\) on which a fiber-consistent realized
+	reading can exist.
+\end{theorem}
+\begin{proof}
+	\textup{(i)}\(\Rightarrow\)\textup{(ii)}:
+	if \(\varphi(p)=\varphi(q)=:x\), then
+	\(p,q\in\varphi^{-1}(B(x,\varepsilon))\) for every
+	\(\varepsilon>0\), so
+	\[
+		|a(p)-a(q)|
+		\le\operatorname{osc}_\varphi(a;\varepsilon)\to0.
+	\]
+
+	\textup{(ii)}\(\Rightarrow\)\textup{(iii)}:
+	fiber-constancy defines \(f:M\to\mathbb R\) with
+	\(a=f\circ\varphi\). A continuous surjection between compact
+	Hausdorff spaces is closed, hence a quotient map; for closed
+	\(F\subseteq\mathbb R\),
+	\(f^{-1}(F)=\varphi\bigl(a^{-1}(F)\bigr)\) is closed, so \(f\) is
+	continuous and \(a=\varphi^*f\).
+
+	\textup{(iii)}\(\Rightarrow\)\textup{(i)} is
+	\cref{lem:dyn-regular-structure}.
+
+	For the final statements: the complement description is the
+	contrapositive of
+	\textup{(i)}\(\Leftrightarrow\)\textup{(ii)}, witnessed in
+	localized form by \cref{lem:dyn-ghost-localization}; and any
+	assignment of realized values must agree on all points of a fiber,
+	so it can be defined at most on the fiber-constant elements, which
+	by \textup{(ii)}\(\Leftrightarrow\)\textup{(i)} are exactly
+	\(\mathsf A_U\).
+\end{proof}
+
+\begin{remark}[One species, two presentations]
+	\label{rem:dyn-ghost-presentations}
+	At finite stages, fiber-separating observables arise through two
+	canonical mechanisms: \emph{direct fiber separators} -- clopen
+	indicators splitting two points of a single fiber, as in
+	\cref{thm:dyn-raw-inexhaustible} -- and \emph{interface
+		presentations} -- clopen indicators \(\mathbf 1_C\) whose realized
+	images overlap along a boundary point, where the oscillation is
+	persistent. By \cref{lem:dyn-ghost-localization} the second
+	mechanism also produces, in the limit, a distinction inside a
+	single fiber. The two mechanisms are therefore finite-stage
+	presentations of \emph{one} underlying species, the fiber ghost;
+	the taxonomy is a characterization
+	(\cref{thm:dyn-ghost-characterization}), not a dichotomy.
+\end{remark}
+
+\begin{corollary}[Exhaustivity in the selected sector]
+	\label{cor:dyn-exhaustivity}
+	Under condition \textup{(U)}, the physical observable algebra
+	coincides with the realized algebra,
+	\(\mathsf A_U=\varphi^*C(M)\), by
+	\cref{thm:dyn-regular-identification} -- an identity, not an added
+	assumption. The conditionality of the exhaustivity program is
+	thereby concentrated in \textup{(U)} itself: that some selection is
+	needed is \cref{thm:dyn-raw-inexhaustible}; that this one is
+	canonical and maximal is \cref{thm:dyn-ghost-characterization};
+	that it is forced is open.
+\end{corollary}
+
+\begin{corollary}[Smooth sector]
+	\label{cor:dyn-smooth-sector}
+	Set \(\mathsf A_U^\infty:=\mathcal R^{-1}\bigl(C^\infty(M)\bigr)
+	=\varphi^*C^\infty(M)\).
+	Then \(\mathcal R\) restricts to an isomorphism
+	\(\mathsf A_U^\infty\cong C^\infty(M)\), and
+	\(\mathsf A_U^\infty\) is dense in \(\mathsf A_U\), since
+	\(C^\infty(M)\) is uniformly dense in \(C(M)\) by smoothing on the
+	compact manifold \(M\).
+\end{corollary}
+
+\begin{remark}[Toward an intrinsic smooth sector]
+	\label{rem:dyn-smooth-intrinsic}
+	\Cref{cor:dyn-smooth-sector} defines the smooth sector through the
+	reading. The expected intrinsic characterization -- that
+	\(\mathsf A_U^\infty\) consists of the scale-coherent observables
+	whose realized difference quotients of every order converge under
+	refinement, organized by the transport jet tower of
+	\cref{sec:jet-tower} -- is open; see \cref{sec:dyn-open}.
+\end{remark}
+
+% ============================================================
+\section{Derivations of the regular sector}
+\label{sec:dyn-derivations}
+\begin{remark}[Why dynamics is densely defined]
+	\label{rem:dyn-singer-wermer}
+	No nontrivial dynamics can act boundedly on the full algebra: by
+	the Singer--Wermer theorem, a bounded derivation of a commutative
+	Banach algebra maps into the Jacobson radical, and
+	\(C(\Phys_\infty)\) is semisimple, so bounded derivations vanish.
+	Dynamics therefore necessarily lives on a dense smooth core; the
+	canonical core supplied by the chapter is
+	\(\mathsf A_U^\infty\).
+\end{remark}
+
+\begin{theorem}[Derivations of the smooth algebra are vector fields]
+	\label{thm:dyn-hadamard}
+	Let \(D:C^\infty(M)\to C^\infty(M)\) be an \(\mathbb R\)-linear map
+	satisfying the Leibniz rule. Then there is a unique smooth vector
+	field \(X\) on \(M\) with \(D=\Lie_X\).
+\end{theorem}
+\begin{proof}
+	\emph{Locality.} \(D(1)=D(1\cdot1)=2D(1)\) gives \(D(1)=0\), hence
+	\(D\) kills constants. If \(f\) vanishes on a neighborhood of
+	\(p\), choose \(\chi\in C^\infty(M)\) with \(\chi\equiv1\) on
+	\(\supp f\) and \(\chi(p)=0\); then \(f=\chi f\) and
+	\[
+		Df(p)=\chi(p)\,Df(p)+f(p)\,D\chi(p)=0 .
+	\]
+	So \(Df(p)\) depends only on the germ of \(f\) at \(p\).
+
+	\emph{Local form.} In a chart around \(p\) with coordinates
+	\(x^1,\dots,x^n\), extended to global smooth functions
+	\(\widetilde x^i\) by a bump function, Hadamard's lemma writes any
+	smooth \(f\) near \(p\) as
+	\[
+		f=f(p)+\sum_i(\widetilde x^i-x^i(p))\,g_i,
+		\qquad
+		g_i\ \text{smooth},\quad g_i(p)=\partial_if(p).
+	\]
+	Applying \(D\) at \(p\) and using locality and \(D(1)=0\),
+	\[
+		Df(p)=\sum_i X^i(p)\,\partial_if(p),
+		\qquad
+		X^i:=D\widetilde x^i .
+	\]
+	The functions \(X^i\) are smooth, so \(X:=\sum_iX^i\partial_i\) is
+	a smooth vector field on the chart, and the expressions glue
+	because they are determined by \(D\). Uniqueness holds because
+	coordinate functions separate tangent vectors.
+\end{proof}
+
+\begin{theorem}[Derivation transport]
+	\label{thm:dyn-derivation-transport}
+	The assignments
+	\[
+		\delta\longmapsto X_\delta,
+		\qquad
+		\Lie_{X_\delta}=\mathcal R\circ\delta\circ\varphi^*,
+	\]
+	and
+	\[
+		X\longmapsto\delta_X:=\varphi^*\circ\Lie_X\circ\mathcal R
+	\]
+	are mutually inverse Lie-algebra isomorphisms between the
+	derivations of \(\mathsf A_U^\infty\) and the smooth vector fields
+	on \(M\).
+\end{theorem}
+\begin{proof}
+	If \(\delta\) is a derivation of \(\mathsf A_U^\infty\), then
+	\(\mathcal R\circ\delta\circ\varphi^*\) is an \(\mathbb R\)-linear
+	Leibniz map of \(C^\infty(M)\), since \(\mathcal R\) is an algebra
+	isomorphism with inverse \(\varphi^*\)
+	(\cref{thm:dyn-regular-identification,cor:dyn-smooth-sector});
+	by \cref{thm:dyn-hadamard} it equals \(\Lie_{X_\delta}\) for a
+	unique \(X_\delta\). Conversely \(\delta_X\) is a derivation of
+	\(\mathsf A_U^\infty\) by the same conjugation. The two maps are
+	mutually inverse because
+	\(\mathcal R\circ\varphi^*=\id\) and
+	\(\varphi^*\circ\mathcal R=\id\) on the smooth sector. Brackets
+	are preserved:
+	\[
+		[\delta_X,\delta_Y]
+		=
+		\varphi^*\circ[\Lie_X,\Lie_Y]\circ\mathcal R
+		=
+		\varphi^*\circ\Lie_{[X,Y]}\circ\mathcal R
+		=
+		\delta_{[X,Y]} .
+	\]
+\end{proof}
+
+% ============================================================
+\section{The stabilizer and the dynamics bridge}
+\label{sec:dyn-bridge}
+Let \(\nabla\) denote the realized transport connection of
+\cref{ch:christoffel,ch:connection}, with curvature \(R^\nabla\), and
+for a vector field \(X\) let \(\Lie_X\nabla\) denote the
+\(\End(TM)\)-valued one-form measuring the variation of \(\nabla\)
+along the flow of \(X\); in a local frame with connection form
+\(\omega\) this is \(\Lie_X\omega\).
+
+\begin{definition}[Symmetry algebra of the realized transport]
+	\label{def:dyn-symmetry-algebra}
+	\[
+		\mathfrak{aut}(M,[\nabla])
+		:=
+		\bigl\{\,X\in\mathrm{Vect}(M)
+		:
+		\Lie_X\nabla=\mathrm d^{\nabla}\!A_X
+		\quad\text{for some } A_X\in\Gamma(\End(TM))\,\bigr\},
+	\]
+	the fields moving the realized transport law only by an
+	infinitesimal gauge transformation.
+\end{definition}
+
+\begin{lemma}[Gauge cocycle; closure under bracket]
+	\label{lem:dyn-gauge-cocycle}
+	In a local frame, for any \(\End\)-valued form \(B\),
+	\[
+		\Lie_X(\mathrm d^\nabla B)-\mathrm d^\nabla(\Lie_XB)
+		=
+		[\Lie_X\omega,\,B] .
+	\]
+	Consequently, if \(X,Y\in\mathfrak{aut}(M,[\nabla])\) with
+	potentials \(A_X,A_Y\), then
+	\[
+		\Lie_{[X,Y]}\nabla
+		=
+		\mathrm d^\nabla A_{[X,Y]},
+		\qquad
+		A_{[X,Y]}
+		=
+		\Lie_XA_Y-\Lie_YA_X+[A_X,A_Y],
+	\]
+	so \(\mathfrak{aut}(M,[\nabla])\) is a Lie algebra.
+\end{lemma}
+\begin{proof}
+	With \(\mathrm d^\nabla B=\mathrm dB+[\omega,B]\) and
+	\([\Lie_X,\mathrm d]=0\),
+	\[
+		\Lie_X(\mathrm d^\nabla B)
+		=
+		\mathrm d(\Lie_XB)+[\Lie_X\omega,B]+[\omega,\Lie_XB]
+		=
+		\mathrm d^\nabla(\Lie_XB)+[\Lie_X\omega,B].
+	\]
+	Then, using
+	\(\Lie_{[X,Y]}=[\Lie_X,\Lie_Y]\) and
+	\(\Lie_X\omega=\mathrm d^\nabla A_X\),
+	\(\Lie_Y\omega=\mathrm d^\nabla A_Y\),
+	\begin{align*}
+		\Lie_{[X,Y]}\omega
+		 & =
+		\Lie_X(\mathrm d^\nabla A_Y)-\Lie_Y(\mathrm d^\nabla A_X)      \\
+		 & =
+		\mathrm d^\nabla(\Lie_XA_Y)+[\mathrm d^\nabla A_X,A_Y]
+		-\mathrm d^\nabla(\Lie_YA_X)-[\mathrm d^\nabla A_Y,A_X]        \\
+		 & =
+		\mathrm d^\nabla\bigl(\Lie_XA_Y-\Lie_YA_X+[A_X,A_Y]\bigr),
+	\end{align*}
+	the last step by the Leibniz rule
+	\[
+		\mathrm d^\nabla[A_X,A_Y]
+		=
+		[\mathrm d^\nabla A_X,A_Y]+[A_X,\mathrm d^\nabla A_Y].
+	\]
+\end{proof}
+
+\begin{lemma}[Curvature class preservation]
+	\label{lem:dyn-curvature-class}
+	If \(X\in\mathfrak{aut}(M,[\nabla])\) with potential \(A_X\), then
+	\[
+		\Lie_XR^\nabla=[R^\nabla,A_X].
+	\]
+	The realized curvature moves inside its gauge class, so the reading
+	of every stabilized square class of the carrier
+	\(\mathcal K_\infty\) is preserved up to conjugation; under the
+	faithful reading
+	(\cref{thm:interface-curvature,prop:canonical-universality}) this
+	is exactly preservation of the carrier classes.
+\end{lemma}
+\begin{proof}
+	In a frame, \(R^\nabla=\mathrm d\omega+\tfrac12[\omega,\omega]\),
+	so
+	\[
+		\Lie_XR^\nabla
+		=
+		\mathrm d(\Lie_X\omega)+[\Lie_X\omega,\omega]
+		=
+		\mathrm d^\nabla(\Lie_X\omega)
+		=
+		\mathrm d^\nabla\mathrm d^\nabla A_X
+		=
+		[R^\nabla,A_X],
+	\]
+	the last identity being the standard
+	\(\mathrm d^\nabla\circ\mathrm d^\nabla=\mathrm{ad}_{R^\nabla}\).
+\end{proof}
+
+\begin{definition}[Stabilizing derivation]
+	\label{def:dyn-admissible-derivation}
+	A derivation \(\delta\) of \(\mathsf A_U^\infty\) is
+	\emph{stabilizing} if its transported field
+	\(X_\delta\) (\cref{thm:dyn-derivation-transport}) lies in
+	\(\mathfrak{aut}(M,[\nabla])\). Write
+	\(\mathrm{Der}_{\mathrm{stab}}(\mathsf A_U^\infty,\mathcal K_\infty)\)
+	for the stabilizing derivations.
+\end{definition}
+
+\begin{remark}[Intrinsicality of the stabilization clause]
+	\label{rem:dyn-stabilization-intrinsic}
+	The clause is stated on the realized side. Its intrinsic content,
+	via \cref{lem:dyn-curvature-class}, is that \(\delta\) moves each
+	stabilized square class within its conjugation class; under the
+	discharged faithful reading the two formulations agree in the
+	direction proved above. A purely intrinsic formulation, and the
+	converse direction, belong to the open problems
+	(\cref{sec:dyn-open}).
+\end{remark}
+
+\begin{corollary}[Stabilizer identification]
+	\label{cor:dyn-stabilizer}
+	Derivation transport restricts to a canonical Lie-algebra
+	isomorphism
+	\[
+		\mathrm{Der}_{\mathrm{stab}}
+		\bigl(\mathsf A_U^\infty,\mathcal K_\infty\bigr)
+		\;\cong\;
+		\mathfrak{aut}(M,[\nabla]).
+	\]
+\end{corollary}
+\begin{proof}
+	Immediate from
+	\cref{thm:dyn-derivation-transport,def:dyn-admissible-derivation,lem:dyn-gauge-cocycle}.
+\end{proof}
+
+\begin{corollary}[Dynamics bridge]
+	\label{cor:dyn-bridge}
+	In the regime \textup{(T)}+\textup{(D)}+\textup{(U)}, with the
+	state-side hypothesis \textup{(R2)}, the stabilizing derivations
+	of the selected physical sector are identified with the
+	infinitesimal symmetries of the realized transport law up to
+	gauge,
+	\[
+		\mathrm{Der}_{\mathrm{stab}}\cong\mathfrak{aut}(M,[\nabla]),
+	\]
+	acting on the physical observable algebra through derivation
+	transport.
+\end{corollary}
+
+\begin{remark}[The conditional upgrade]
+	\label{rem:dyn-upgrade}
+	If open problems \textup{(O1)} and \textup{(O2)} close -- that is,
+	if condition \textup{(U)} is forced from the closure axioms and the
+	stabilization clause is formulated and proved intrinsically -- then
+	\cref{cor:dyn-bridge} upgrades to the unqualified statement that
+	admissible dynamics is reconstructed from the closed stack rather
+	than imposed on it. The chapter deliberately does not claim that
+	statement yet.
+\end{remark}
+
+\begin{corollary}[Conservation of endpoint-determined route invariants]
+	\label{cor:dyn-conservation}
+	Let \(X\in\mathfrak{aut}(M,[\nabla])\) generate a flow that
+	preserves \emph{each} endpoint fiber of a comparison family
+	setwise. Then every route invariant satisfying the
+	endpoint-factorization criterion is constant along the flow.
+\end{corollary}
+\begin{proof}
+	By the factorization criterion, such an invariant is a function of
+	the endpoint data alone, i.e.\ of the endpoint fibers. A flow
+	preserving each fiber setwise fixes the arguments of that function,
+	hence its value.
+\end{proof}
+
+% ============================================================
+\section{Open problems}
+\label{sec:dyn-open}
+\begin{enumerate}[label=\textup{(O\arabic*)}]
+	\item
+	      \emph{Forcing scale coherence.} Derive condition \textup{(U)}
+	      from the closure axioms, plausibly through the factorization
+	      criterion read in the scale direction: an observable whose
+	      reading depends on the refinement route is not
+	      endpoint-determined at scale zero.
+	      \Cref{thm:dyn-raw-inexhaustible} shows some selection is
+	      mandatory and \cref{thm:dyn-ghost-characterization} shows
+	      \textup{(U)} selects the maximal readable sector; the question
+	      is whether the physical sector is \emph{forced} to be that
+	      maximum, as \textup{(T)} is forced in the Magnus regime
+	      (\cref{thm:magnus-torsion-free}).
+	\item
+	      \emph{Intrinsic smooth sector and stabilization clause.}
+	      Characterize \(\mathsf A_U^\infty\) inside \(\mathsf A_U\) by
+	      transport-jet data (\cref{sec:jet-tower}), and give the
+	      intrinsic formulation, with converse, of the stabilization
+	      clause of \cref{def:dyn-admissible-derivation}.
+	\item
+	      \emph{Spectral reconstruction; removal of \textup{(R2)}.}
+	      Upgrade the pair
+	      \((\mathsf A_U,\ \text{jet filtration},\ \mathcal K_\infty)\)
+	      to a spectral datum recovering \(M\) \emph{with its smooth
+		      structure} as a spectrum, in the sense of the commutative
+	      reconstruction theorem of noncommutative geometry. This would
+	      eliminate the added state-side hypothesis \textup{(R2)}: the
+	      descent map \(\varphi\) would be constructed rather than
+	      assumed.
+	\item
+	      \emph{The Hamiltonian layer.} Pass from the symmetry algebra
+	      \(\mathfrak{aut}(M,[\nabla])\) to an evolution law. The
+	      natural forcing mechanism is closure of the
+	      hypersurface-deformation algebra, which is known to determine
+	      the Einstein Hamiltonian on metric phase space
+	      (\cref{rem:external-certifications}); the task is to derive
+	      the deformation-algebra closure condition itself from the
+	      closed stack.
+\end{enumerate}
+
+\section{Conclusion}
+\label{sec:dyn-conclusion}
+The exhaustivity question is now in the same final form as the
+interface question before it. The raw limit algebra provably exceeds
+every realized reading; the excess is exactly the fiber-separating
+sector, reached at finite stages through two presentations of one
+ghost species; the scale-coherence condition \textup{(U)} selects the
+maximal readable sector; and on that sector the realized algebra, its
+smooth core, its derivations, and its transport-stabilizing
+derivations are identified by construction:
+\[
+	\mathsf A_U=\varphi^*C(M),
+	\qquad
+	\mathrm{Der}\bigl(\mathsf A_U^\infty\bigr)\cong\mathrm{Vect}(M),
+	\qquad
+	\mathrm{Der}_{\mathrm{stab}}\cong\mathfrak{aut}(M,[\nabla]).
+\]
+What remains open is concentrated and named: forcing \textup{(U)},
+intrinsicizing the smooth sector and the stabilization clause,
+spectral reconstruction in place of the state-side hypothesis
+\textup{(R2)}, and the Hamiltonian layer.

@@ -157,14 +157,16 @@ At a conceptual level, the logical progression is
 			\\
 			\;&\Longrightarrow\;\text{repaired intrinsic--smooth interface and macroscopic compatibility laws}
 			\\
-			\;&\Longrightarrow\;\text{scalar-channel classification, numerical closure, and canonical realization}.
+			\;&\Longrightarrow\;\text{scalar-channel classification, numerical closure, and canonical realization}
+			\\
+			\;&\Longrightarrow\;\text{state-side observable exhaustivity and the automorphism bridge}.
 		\end{aligned}
 	\]
 
 \section{Main structural claim}
 Theorem~\ref{thm:intro-structural-rigidity} records the structural
 content proved across
-\cref{ch:foundation,ch:bottom,ch:rotation,ch:closure,ch:locus,ch:lift,ch:triangles,ch:descent_obstruction,ch:bridge,ch:flow,ch:stitching,ch:christoffel,ch:interface,ch:causality,ch:hilbert,ch:einstein,ch:connection,ch:em,ch:matter,ch:matter-numbers,ch:numerical-closure,ch:matter-realization,app:fusion}.
+\cref{ch:foundation,ch:bottom,ch:rotation,ch:closure,ch:locus,ch:lift,ch:triangles,ch:descent_obstruction,ch:bridge,ch:flow,ch:stitching,ch:christoffel,ch:interface,ch:causality,ch:hilbert,ch:einstein,ch:connection,ch:em,ch:matter,ch:matter-numbers,ch:numerical-closure,ch:matter-realization,ch:dynamics-program,app:fusion}.
 
 \begin{theorem}[Structural rigidity of closed relational systems]
 	\label{thm:intro-structural-rigidity}
@@ -215,6 +217,17 @@ content proved across
 		      classified intrinsically, assigned its canonical matter-sector
 		      realization role, and finally yields a concrete nonperturbative
 		      invariant in the magnetic-confinement appendix.
+		\item
+		      In the separately marked state-side reconstruction extension,
+		      relative to the additional realization data
+		      \textup{(R1)}--\textup{(R3)}, the raw limit comparison
+		      algebra is proved to be larger than every realized smooth
+		      reading. The excess is exactly the fiber-separating sector.
+		      Under the scale-coherence condition \textup{(U)}, the maximal
+		      readable sector is identified with \(C(M)\), its smooth
+		      derivations are identified with vector fields on \(M\), and
+		      its transport-stabilizing derivations are identified with the
+		      symmetry algebra of the realized connection up to gauge.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -235,6 +248,10 @@ content proved across
 		Item \textup{(7)} is completed by the scalar-classification and
 		realization chain in
 		\cref{ch:matter,ch:matter-numbers,ch:numerical-closure,ch:matter-realization,app:fusion}.
+		Item \textup{(8)} is the state-side reconstruction extension proved in
+		\cref{ch:dynamics-program}. It is stated relative to its own standing
+		data and does not enter the dependency chain for items
+		\textup{(1)}--\textup{(7)}.
 		Thus the theorem is exactly the consolidated statement of the chapterwise
 		results listed above.
 \end{proof}
@@ -254,8 +271,9 @@ It does not assume the standard ordering
 "geometry first, fields second."
 Instead, it proves a reverse ordering:
 semantic closure and transport obstruction first, then geometric,
-field-theoretic, scalar, and realization-level structure, and only
-afterward any appendix-level application.
+field-theoretic, scalar, and realization-level structure, followed by a
+separately marked state-side reconstruction extension and appendix-level
+applications.
 
 The admissibility hypotheses of this manuscript reduce to a single
 primitive condition. By
@@ -315,6 +333,15 @@ classify primitive matter sectors, derive the quartic depth law and
 intrinsic scalar closure, and determine the canonical realization role of
 the scalar invariant before any appendix-level application.
 
+\textbf{State-side reconstruction extension.}
+\Cref{ch:dynamics-program} studies the limit observable algebra after the
+realization stack is in place. It proves raw inexhaustibility, identifies
+the fiber-separating excess, isolates the scale-coherence condition
+\textup{(U)} selecting the maximal readable sector, and identifies
+derivations of the smooth regular sector with vector fields and
+transport-stabilizing derivations with connection automorphisms up to
+gauge.
+
 \textbf{Concrete downstream realization.}
 \Cref{app:fusion} then shows that the scalar channel already fixed by the
 main stack yields a concrete nonperturbative adiabatic invariant in
@@ -322,12 +349,12 @@ magnetic confinement.
 
 \section{How to read this book}
 A natural first reading is theorem-driven:
-\cref{ch:foundation,ch:closure,ch:locus,ch:bridge,ch:interface,ch:einstein,ch:em,ch:matter,ch:numerical-closure}.
+\cref{ch:foundation,ch:closure,ch:locus,ch:bridge,ch:interface,ch:einstein,ch:em,ch:matter,ch:numerical-closure,ch:dynamics-program}.
 This path isolates the main boundary and rigidity statements with minimal
 technical detours.
 
 A second reading is construction-driven:
-\cref{ch:bottom,ch:lift,ch:descent_obstruction,ch:flow,ch:stitching,ch:christoffel,ch:connection,ch:matter-numbers,ch:matter-realization,app:fusion}.
+\cref{ch:bottom,ch:lift,ch:descent_obstruction,ch:flow,ch:stitching,ch:christoffel,ch:connection,ch:matter-numbers,ch:matter-realization,ch:dynamics-program,app:fusion}.
 This path foregrounds explicit constructions and realization mechanisms.
 
 Both readings are equivalent in conclusion:
@@ -342,7 +369,8 @@ exact form: within a closed world, admissible structure must be derived
 from intrinsic comparison data and not posited as external background.
 The chapter architecture is therefore a proof architecture, ordered from
 compactness and quotient semantics through transport obstruction to
-geometric, field-theoretic, scalar, and realization-level closure.
+geometric, field-theoretic, scalar, realization-level, and state-side
+reconstruction results.
 
 Accordingly, \cref{ch:foundation} is logically first: it determines the
 finite-to-global admissibility boundary that is reused by every later

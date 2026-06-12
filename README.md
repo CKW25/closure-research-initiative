@@ -18,7 +18,7 @@ Research sequence, theorem status, empirical consequences, citation metadata, an
 
 For general citation of the program, cite the current monograph:
 
-Chast K. Wolfe, *Closed Systems from Comparison Completeness*, v5, Closure Research Initiative, 2026. Current version: [closureresearchinitiative.org/csm/](https://closureresearchinitiative.org/csm/). DOI: [10.5281/zenodo.20657202](https://doi.org/10.5281/zenodo.20657202).
+Chast K. Wolfe, *Closed Systems from Comparison Completeness*, v6, Closure Research Initiative, 2026. Current version: [closureresearchinitiative.org/csm/](https://closureresearchinitiative.org/csm/). DOI pending for v6; prior DOI records are retained with their archived versions.
 
 Paper-specific claims should cite the current work page listed in [Sources and Citation](https://closureresearchinitiative.org/sources/). GitHub citation metadata is provided in [`CITATION.cff`](CITATION.cff).
 
@@ -26,7 +26,7 @@ Paper-specific claims should cite the current work page listed in [Sources and C
 
 | Code | Title | Status | Citation target |
 |------|-------|--------|-----------------|
-| `csm` | *Closed Systems from Comparison Completeness* | Monograph, v5 | [Current page](https://closureresearchinitiative.org/csm/); DOI: [10.5281/zenodo.20657202](https://doi.org/10.5281/zenodo.20657202) |
+| `csm` | *Closed Systems from Comparison Completeness* | Monograph, v6 | [Current page](https://closureresearchinitiative.org/csm/) |
 | `ccw` | *Closed Comparison Worlds and the Obstruction to Subsystem Attribution* | Preprint, v2 | [Current page](https://closureresearchinitiative.org/ccw/) |
 | `cfsg` | *Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3* | Preprint, v2 | [Paper page](https://closureresearchinitiative.org/cfsg/) |
 | `scc` | *Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems* | Preprint, v2 | [Paper page](https://closureresearchinitiative.org/scc/) |

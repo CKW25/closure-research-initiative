@@ -15,10 +15,9 @@
   <entry>
     <id>https://closureresearchinitiative.org/csm.pdf</id>
     <title>Closed Systems from Comparison Completeness</title>
-    <summary>A theorem-first monograph developing closed relational systems from intrinsic comparison data through quotient semantics, transport obstruction, and faithful smooth realization. Version 5 decomposes the smooth-realization faithfulness condition into a torsion condition (T) and an intrinsic detectability axiom (D) and discharges it on a canonical realization built from the tower (new Chapter 13 sections: ghost sectors, structure trichotomy, canonical realization).</summary>
+    <summary>A theorem-first monograph developing closed relational systems from intrinsic comparison data through quotient semantics, transport obstruction, faithful smooth realization, scalar closure, matter-sector realization, and the state-side observable-exhaustivity extension. Version 6 adds Chapter 23, which identifies the raw limit algebra excess as the fiber-separating sector and gives the automorphism bridge on the regular sector.</summary>
     <link rel="alternate" href="https://closureresearchinitiative.org/csm.pdf"/>
     <link rel="related" href="https://closureresearchinitiative.org/csm/"/>
-    <link rel="related" href="https://doi.org/10.5281/zenodo.20657202"/>
     <updated>2026-06-12T00:00:00Z</updated>
   </entry>
 
