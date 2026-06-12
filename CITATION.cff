@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "For general citation, cite the current monograph page. DOI records listed as archived DOI versions refer only to the earlier version to which the DOI was assigned."
+message: "For general citation, cite the current monograph page and DOI. Archived DOI records refer only to the earlier version to which the DOI was assigned."
 title: "Closure Research Initiative"
 type: dataset
 authors:
@@ -22,6 +22,7 @@ preferred-citation:
     website: "https://closureresearchinitiative.org"
   year: 2026
   version: "5"
+  doi: "10.5281/zenodo.20657202"
   url: "https://closureresearchinitiative.org/csm/"
 references:
   - type: book
@@ -35,6 +36,7 @@ references:
       website: "https://closureresearchinitiative.org"
     year: 2026
     version: "5"
+    doi: "10.5281/zenodo.20657202"
     url: "https://closureresearchinitiative.org/csm/"
   - type: generic
     title: "Closed Comparison Worlds and the Obstruction to Subsystem Attribution"

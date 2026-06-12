@@ -18,7 +18,7 @@ For orientation, see the site pages [Overview](https://closureresearchinitiative
 
 For general citation of the program, cite the current monograph:
 
-Chast K. Wolfe, *Closed Systems from Comparison Completeness*, v5, Closure Research Initiative, 2026. Current version: [closureresearchinitiative.org/csm/](https://closureresearchinitiative.org/csm/). DOI pending; archived DOI for v3: [10.5281/zenodo.20589038](https://doi.org/10.5281/zenodo.20589038).
+Chast K. Wolfe, *Closed Systems from Comparison Completeness*, v5, Closure Research Initiative, 2026. Current version: [closureresearchinitiative.org/csm/](https://closureresearchinitiative.org/csm/). DOI: [10.5281/zenodo.20657202](https://doi.org/10.5281/zenodo.20657202); archived DOI for v3: [10.5281/zenodo.20589038](https://doi.org/10.5281/zenodo.20589038).
 
 Paper-specific claims should cite the current landing page listed in [Sources and Citation](https://closureresearchinitiative.org/sources/). Archived DOI records are retained for the versions to which they were assigned. GitHub citation metadata is provided in [`CITATION.cff`](CITATION.cff).
 
@@ -26,7 +26,7 @@ Paper-specific claims should cite the current landing page listed in [Sources an
 
 | Code | Title | Status | Citation target |
 |------|-------|--------|-----------------|
-| `csm` | *Closed Systems from Comparison Completeness* | Monograph, v5 | [Current page](https://closureresearchinitiative.org/csm/); archived v3 DOI: [10.5281/zenodo.20589038](https://doi.org/10.5281/zenodo.20589038) |
+| `csm` | *Closed Systems from Comparison Completeness* | Monograph, v5 | [Current page](https://closureresearchinitiative.org/csm/); DOI: [10.5281/zenodo.20657202](https://doi.org/10.5281/zenodo.20657202); archived v3 DOI: [10.5281/zenodo.20589038](https://doi.org/10.5281/zenodo.20589038) |
 | `ccw` | *Closed Comparison Worlds and the Obstruction to Subsystem Attribution* | Preprint, v2 | [Current page](https://closureresearchinitiative.org/ccw/); archived v1 DOI: [10.5281/zenodo.20600752](https://doi.org/10.5281/zenodo.20600752) |
 | `cfsg` | *Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3* | Preprint, v2 | [Paper page](https://closureresearchinitiative.org/cfsg/) |
 | `scc` | *Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems* | Preprint, v2 | [Paper page](https://closureresearchinitiative.org/scc/) |

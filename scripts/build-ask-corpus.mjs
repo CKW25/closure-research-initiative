@@ -12,7 +12,7 @@ const outputModule = join(generatedDir, "ask-corpus.js");
 const outputJson = join(dataDir, "chunks.json");
 const manifestJson = join(dataDir, "manifest.json");
 
-const corpusVersion = "2026-06-11";
+const corpusVersion = "2026-06-12";
 const baseUrl = "https://closureresearchinitiative.org";
 
 const htmlPages = [
