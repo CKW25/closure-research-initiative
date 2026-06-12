@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "For general citation, cite the current monograph page and DOI. Archived DOI records refer only to the earlier version to which the DOI was assigned."
+message: "For general citation, cite the current monograph page and DOI."
 title: "Closure Research Initiative"
 type: dataset
 authors:
@@ -110,42 +110,3 @@ references:
     year: 2026
     version: "2"
     url: "https://closureresearchinitiative.org/rie/"
-  - type: book
-    title: "Closed Systems from Comparison Completeness (archived DOI version)"
-    authors:
-      - family-names: Wolfe
-        given-names: "Chast K."
-        orcid: "https://orcid.org/0009-0008-8846-2539"
-    publisher:
-      name: "Closure Research Initiative"
-      website: "https://closureresearchinitiative.org"
-    year: 2026
-    version: "3"
-    doi: "10.5281/zenodo.20589038"
-    url: "https://doi.org/10.5281/zenodo.20589038"
-  - type: generic
-    title: "Closed Comparison Worlds and the Obstruction to Subsystem Attribution (archived DOI version)"
-    authors:
-      - family-names: Wolfe
-        given-names: "Chast K."
-        orcid: "https://orcid.org/0009-0008-8846-2539"
-    publisher:
-      name: "Closure Research Initiative"
-      website: "https://closureresearchinitiative.org"
-    year: 2026
-    version: "1"
-    doi: "10.5281/zenodo.20600752"
-    url: "https://doi.org/10.5281/zenodo.20600752"
-  - type: generic
-    title: "A Factorization Criterion for Route Invariants with Fixed Endpoint Data (archived DOI version)"
-    authors:
-      - family-names: Wolfe
-        given-names: "Chast K."
-        orcid: "https://orcid.org/0009-0008-8846-2539"
-    publisher:
-      name: "Closure Research Initiative"
-      website: "https://closureresearchinitiative.org"
-    year: 2026
-    version: "1"
-    doi: "10.5281/zenodo.20617818"
-    url: "https://doi.org/10.5281/zenodo.20617818"

@@ -59,12 +59,9 @@ The Structural Map includes several neighboring programs. Rovelli's partial-obse
 - Closed Systems from Comparison Completeness: https://closureresearchinitiative.org/csm/
   - Current release: v5, June 11, 2026; DOI: https://doi.org/10.5281/zenodo.20657202
   - PDF: https://closureresearchinitiative.org/csm.pdf
-  - Archived DOI version: v3, https://doi.org/10.5281/zenodo.20589038
-  - Superseded archived PDFs: https://closureresearchinitiative.org/archive/csm/csm-v4.pdf, https://closureresearchinitiative.org/archive/csm/csm-v3.pdf, https://closureresearchinitiative.org/archive/csm/csm-v2.pdf, and https://closureresearchinitiative.org/archive/csm/csm-v1.pdf
 
 - Closed Comparison Worlds and the Obstruction to Subsystem Attribution: https://closureresearchinitiative.org/ccw/
   - Current release: v2, June 10, 2026; DOI pending.
-  - Archived DOI version: v1, https://doi.org/10.5281/zenodo.20600752
   - PDF: https://closureresearchinitiative.org/ccw.pdf
 
 - Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3: https://closureresearchinitiative.org/cfsg/
@@ -85,7 +82,6 @@ The Structural Map includes several neighboring programs. Rovelli's partial-obse
 
 - A Factorization Criterion for Route Invariants with Fixed Endpoint Data: https://closureresearchinitiative.org/rie/
   - Current release: v2, June 10, 2026; DOI pending.
-  - Archived DOI version: v1, https://doi.org/10.5281/zenodo.20617818
   - PDF: https://closureresearchinitiative.org/rie.pdf
 
 ## Public Prediction
@@ -94,7 +90,7 @@ The current public empirical prediction is a charge-sector exclusion. Conditiona
 
 ## Citation Guidance
 
-Use the current-version page URL and BibTeX block for current releases. Use archived DOI links only for the version to which the DOI was assigned. The Sources and Citation page collects the canonical citation targets for the monograph, public preprints, author ORCID, and outside works cited across the site. The external-source BibTeX download is available at https://closureresearchinitiative.org/external-sources.bib.
+Use the current-version page URL and BibTeX block for current releases. The Sources and Citation page collects the canonical citation targets for the monograph, public preprints, author ORCID, and outside works cited across the site. The external-source BibTeX download is available at https://closureresearchinitiative.org/external-sources.bib.
 
 ## Corpus Assistant
 
