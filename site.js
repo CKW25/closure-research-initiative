@@ -77,8 +77,8 @@
   var currentReleaseBaselines = {
     'csm.pdf': 0,
     'csm-latex.zip': 0,
-    'ccw.pdf': 14,
-    'ccw-latex.zip': 8,
+    'ccw.pdf': 20,
+    'ccw-latex.zip': 9,
     'cfsg.pdf': 26,
     'cfsg-latex.zip': 6,
     'scc.pdf': 6,
