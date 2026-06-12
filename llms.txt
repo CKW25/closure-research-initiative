@@ -23,7 +23,7 @@ Closure Research Initiative is not about mine closure, industrial site closure, 
 
 The formal development starts from intrinsic comparison data. A comparison is a relation among states, invariant under the symmetries of the comparison world it helps constitute, not an externally imposed label. Under stated structural hypotheses, the theory develops rectangular completeness, quotient semantics, subsystem-attribution obstruction, transport obstruction, curvature at the faithful smooth-realization stage, and a rigidity result for genuinely closed realized three-dimensional systems. The smooth-realization faithfulness condition decomposes into a torsion condition (T) and an intrinsic detectability axiom (D), shown exactly necessary by ghost counter-models (torsion classes and profinite realizations), and is discharged on a canonical realization: a structure trichotomy (Gleason-Yamabe, van Dantzig) shows every scale-compatible completion of the transport law is Lie, totally disconnected, or mixed, axiom (D) selects the Lie branch, and under (T) the Malcev completion of the two-step transport quotient realizes the carrier with an injective second-jet comparison map by construction.
 
-## Scholarly Organization
+## Research Organization
 
 The site should be read as a research-program record, not as a generic article template. Method: derive admissible structure from comparison data by finite-profile arguments, quotient semantics, transport groupoids and obstruction towers, then introduce smooth geometry only through explicit faithful-realization conditions. Principal results: rectangular completeness under stated comparison-world hypotheses, quotient-level limits on subsystem attribution, endpoint-fiber factorization for route invariants, second-jet faithful-realization analysis, conditional S3 rigidity at the manifold stage, and the charge-denominator prediction. Scope: public web pages are orientation; binding statements are the definitions, hypotheses, proofs, theorem labels, and versioned PDFs listed on the Preprints, Sources and Citation, and Logical Status pages.
 
@@ -98,7 +98,7 @@ Use the current-version page URL and BibTeX block for current releases. The Sour
 
 ## Corpus Assistant
 
-Corpus Query is a public bounded scholarly query interface at https://closureresearchinitiative.org/ask/. Its retrieval corpus is generated from the monograph, six public preprints, website pages, llms.txt, and external-source BibTeX. It supports guide, locate, and cite modes. Its answers are instructed to use only retrieved corpus excerpts and cite those excerpts by source label; short in-session history is used only to interpret follow-up queries.
+Corpus Query is a public bounded research query interface at https://closureresearchinitiative.org/ask/. Its retrieval corpus is generated from the monograph, six public preprints, website pages, llms.txt, and external-source BibTeX. It supports guide, locate, and cite modes. Its answers are instructed to use only retrieved corpus excerpts and cite those excerpts by source label; short in-session history is used only to interpret follow-up queries.
 
 ## Crawl Guidance
 

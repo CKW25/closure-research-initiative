@@ -1,6 +1,6 @@
 # Closure Research Initiative Discussions
 
-This forum is for scholarly discussion of the closure program: definitions, hypotheses, proofs, implications, limitations, and possible extensions.
+This forum is for technical discussion of the closure program: definitions, hypotheses, proofs, implications, limitations, and possible extensions.
 
 ## Scope
 
@@ -29,7 +29,7 @@ Discussions complement the public manuscripts hosted at [closureresearchinitiati
 
 2. **Distinguish kinds of criticism.** A proof error, a definitional ambiguity, a missing hypothesis, a citation problem, and disagreement with a premise require different responses. Mark the category where possible.
 
-3. **Keep the register scholarly.** Address the formal statement, proof, citation, or interpretation at issue.
+3. **Keep the register formal.** Address the formal statement, proof, citation, or interpretation at issue.
 
 4. **Use attributable reports for errata.** Anonymous or pseudonymous remarks may be useful for discussion, but formal errata should be attributable.
 

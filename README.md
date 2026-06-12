@@ -2,7 +2,7 @@
 
 Repository for the public website, manuscript archive, citation metadata, and deployment code of the Closure Research Initiative.
 
-The live scholarly record is maintained at [closureresearchinitiative.org](https://closureresearchinitiative.org). This repository preserves the website source, public PDFs, LaTeX source bundles, version archive, bounded corpus-query Worker, and operational metadata used to serve that record.
+The live research record is maintained at [closureresearchinitiative.org](https://closureresearchinitiative.org). This repository preserves the website source, public PDFs, LaTeX source bundles, version archive, bounded corpus-query Worker, and operational metadata used to serve that record.
 
 ## Research Scope
 
@@ -14,7 +14,7 @@ Standard physical frameworks are treated as recovery targets. Their successful s
 
 For orientation, see the site pages [Overview](https://closureresearchinitiative.org/overview/), [Structural Map](https://closureresearchinitiative.org/map/), [Notation](https://closureresearchinitiative.org/notation/), [Logical Status](https://closureresearchinitiative.org/status/), and [Sources and Citation](https://closureresearchinitiative.org/sources/). For binding claims, cite the monograph, the relevant preprint, or the cited theorem location rather than this README.
 
-The site separates the ordinary scholarly functions explicitly: method is summarized on Overview and the manuscript pages, theorem status is classified on Logical Status, empirical consequences are isolated on Predictions, and citation/provenance metadata is maintained on Sources and Citation plus the individual work pages.
+The site separates the ordinary research functions explicitly: method is summarized on Overview and the manuscript pages, theorem status is classified on Logical Status, empirical consequences are isolated on Predictions, and citation/provenance metadata is maintained on Sources and Citation plus the individual work pages.
 
 ## Canonical Citation
 
@@ -42,13 +42,13 @@ All public manuscripts are versioned research manuscripts. They are not peer rev
 
 | Path | Contents |
 |------|----------|
-| `index.html` and page directories | Static website pages and scholarly orientation material |
+| `index.html` and page directories | Static website pages and research orientation material |
 | `papers/` | Public PDFs and LaTeX source bundles for the monograph and six preprints |
 | `archive/` | Superseded PDFs retained for provenance and version-specific reference |
 | `external-sources.bib` | Bibliography for outside sources cited across the site |
 | `CITATION.cff` | GitHub-readable citation metadata |
 | `LICENSE.md` | Repository-level rights and permissions notice |
-| `CONTRIBUTING.md`, `SUPPORT.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md` | Scholarly correction, correspondence, conduct, and security-reporting guidance |
+| `CONTRIBUTING.md`, `SUPPORT.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md` | Correction, correspondence, conduct, and security-reporting guidance |
 | `.gitattributes` | Line-ending, binary-file, diff, and GitHub language-stat hygiene |
 | `llms.txt` | Bounded site summary and citation guidance for retrieval tools |
 | `src/worker.js` | Cloudflare Worker for `/api/ask`, `/api/ask-status`, and static-asset fallback |
@@ -58,11 +58,11 @@ All public manuscripts are versioned research manuscripts. They are not peer rev
 | `wrangler.toml` | Cloudflare Worker deployment configuration |
 | `update-paper.ps1` | Local paper revision helper; does not commit or push by default |
 
-## Scholarly Use and Corrections
+## Use and Corrections
 
 The website and this repository divide public participation into three channels:
 
-- Use [GitHub Discussions](https://github.com/CKW25/closure-research-initiative/discussions) for scholarly discussion of definitions, hypotheses, proof structure, interpretation, and possible extensions.
+- Use [GitHub Discussions](https://github.com/CKW25/closure-research-initiative/discussions) for technical discussion of definitions, hypotheses, proof structure, interpretation, and possible extensions.
 - Use GitHub issue templates for public errata, citation corrections, broken links, deployment problems, or narrowly scoped technical questions about a specific passage.
 - Use [Contact](https://closureresearchinitiative.org/contact/) for correspondence that should not be a public issue or discussion.
 
@@ -111,7 +111,7 @@ Before publishing a revision, verify that the paper landing page, [Preprints](ht
 
 ## Rights
 
-All works are (c) Chast K. Wolfe. All rights reserved. Public availability is for reading, citation, criticism, and scholarly review; it is not an open-source license grant.
+All works are (c) Chast K. Wolfe. All rights reserved. Public availability is for reading, citation, criticism, and review; it is not an open-source license grant.
 
 ## Contact
 

@@ -1,6 +1,6 @@
-# Scholarly Contributions and Corrections
+# Contributions and Corrections
 
-This repository supports the public website and manuscript record of the Closure Research Initiative. Contributions should be directed toward accuracy, citation integrity, deployment correctness, and clear scholarly navigation.
+This repository supports the public website and manuscript record of the Closure Research Initiative. Contributions should be directed toward accuracy, citation integrity, deployment correctness, and clear research navigation.
 
 ## Appropriate Reports
 
@@ -10,9 +10,9 @@ Use GitHub issues for:
 - broken links, missing citation metadata, or inconsistent BibTeX,
 - deployment or download-count problems,
 - narrowly scoped questions about a specific passage,
-- proposed improvements to scholarly presentation or public discoverability.
+- proposed improvements to public presentation or discoverability.
 
-Use [GitHub Discussions](https://github.com/CKW25/closure-research-initiative/discussions) for broader scholarly discussion, interpretive questions, and proposals that are not yet correction reports.
+Use [GitHub Discussions](https://github.com/CKW25/closure-research-initiative/discussions) for broader technical discussion, interpretive questions, and proposals that are not yet correction reports.
 
 For broad correspondence, use the contact information on the site. For paper-specific criticism, cite the work, version, section, theorem or definition label, and page number when available.
 
@@ -48,4 +48,4 @@ npm.cmd run backend:check:live
 
 ## Rights
 
-Public availability of the manuscripts and site source supports reading, citation, criticism, and scholarly review. It is not an open-source license grant. All works are (c) Chast K. Wolfe. All rights reserved.
+Public availability of the manuscripts and site source supports reading, citation, criticism, and review. It is not an open-source license grant. All works are (c) Chast K. Wolfe. All rights reserved.

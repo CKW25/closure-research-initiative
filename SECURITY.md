@@ -8,4 +8,4 @@ Do not open a public issue for secrets, credentials, private Cloudflare account 
 
 Include the affected URL or file, reproduction steps, expected impact, and whether the issue is already public.
 
-Theoretical criticism, errata, citation corrections, and scholarly questions are not security reports; use the issue templates or the contact page for those.
+Theoretical criticism, errata, citation corrections, and research questions are not security reports; use the issue templates or the contact page for those.
