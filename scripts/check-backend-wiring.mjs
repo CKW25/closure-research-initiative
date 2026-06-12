@@ -127,7 +127,10 @@ function checkRedirects(text) {
     "/license /license/ 301",
     "/about.html /overview/ 301",
     "/about /overview/ 301",
-    "/about/ /overview/ 301"
+    "/about/ /overview/ 301",
+    "/objections.html /status/ 301",
+    "/objections /status/ 301",
+    "/objections/ /status/ 301"
   ].forEach((needle) => expectIncludes(text, needle, `_redirects contains ${needle}`));
 }
 

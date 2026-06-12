@@ -22,7 +22,7 @@ const htmlPages = [
   ["map/index.html", "Structural Map", "/map/"],
   ["example/index.html", "Worked Example", "/example/"],
   ["notation/index.html", "Notation", "/notation/"],
-  ["objections/index.html", "Objections", "/objections/"],
+  ["status/index.html", "Logical Status", "/status/"],
   ["predictions/index.html", "Predictions", "/predictions/"],
   ["guide/index.html", "Reading Guide", "/guide/"],
   ["preprints/index.html", "Preprints", "/preprints/"],

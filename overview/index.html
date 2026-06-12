@@ -574,7 +574,7 @@ footer span { min-width: 0; }
     <a href="/map/">Structural Map</a>
     <a href="/example/">Worked Example</a>
     <a href="/notation/">Notation</a>
-    <a href="/objections/">Objections</a>
+    <a href="/status/">Logical Status</a>
     <a href="/predictions/">Predictions</a>
     <a href="/guide/">Reading Guide</a>
     <a href="/preprints/">Preprints</a>
@@ -590,7 +590,7 @@ footer span { min-width: 0; }
 
   <div class="essay">
 
-  <p>Every physical theory makes assumptions. Some are explicit axioms; others are structural commitments built into the mathematical language itself. The question at the foundation of this program is which of these assumptions are necessary, and which are imported only by convention. The aim is to identify the minimal commitments of a closed physical theory and determine what structure follows from those commitments alone.</p>
+  <p>Every physical theory carries structural commitments. Some are explicit axioms; others are built into the mathematical language itself. The question at the foundation of this program is which commitments are internally recoverable and which are imported by convention. The aim is to identify the minimal commitments of a closed physical theory and determine what structure follows from them.</p>
 
   <p>The phrase &ldquo;closed physical theory&rdquo; is used here in a specific sense. A theory is closed when every structure it invokes is recoverable from within the system itself&mdash;when there is no appeal to an external frame, an external observer, a pre-supplied background, or any external primitive structure not justified by internal resources. This is not a claim about a particular theory being correct. It is a constraint on the adequacy of closed-world description.</p>
 
@@ -600,7 +600,7 @@ footer span { min-width: 0; }
 
   <p>Consider a system treated as self-contained. There is no external observer, no pre-existing coordinate system, no background space, and no external clock. The relevant question is what can be stated about such a system using only internal resources.</p>
 
-  <p>The only operation available internally is comparison. Given two states of the system, one can ask whether they are the same or different, and more finely, compare them along whatever dimensions of variation the system itself supports. This is the primitive data: a set of states equipped with binary comparison predicates. No topology, no metric, no dynamics, no geometry is assumed at the start. The question is what structure must emerge from this minimal beginning.</p>
+  <p>The only operation available internally is comparison. Given two states of the system, one can ask whether they are the same or different, and more finely, compare them along whatever dimensions of variation the system itself supports. This is the primitive data: a set of states equipped with binary comparison predicates. Topology, metric, dynamics, and geometry are not primitive data. The question is what structure must emerge from this minimal beginning.</p>
 
   <p>This starting point is not a conjecture about the nature of reality. It is a methodological discipline: if a structure cannot be recovered from comparison data alone, then it cannot be taken as primitive in a closed theory. It must either be derived from something deeper or abandoned.</p>
 
@@ -685,7 +685,7 @@ footer span { min-width: 0; }
 
   <p>The comparison groupoid is the mathematical structure that encodes how points relate to one another through admissible comparisons. Transport arises naturally from this groupoid: a route from one point to another carries comparison data along with it. When two different routes between the same points give different transport data, there is an obstruction. This obstruction, recorded around closed loops, is curvature in the standard connection-and-holonomy sense [2,3].</p>
 
-  <p>Curvature, in this setting, is not a geometric assumption. It is the first stable layer of transport obstruction in a closed system, realized as curvature under faithful smooth realization. The curvature hierarchy&mdash;the hierarchy of increasingly fine-grained obstructions to route independence&mdash;emerges from the comparison groupoid without any prior geometric commitment. The faithfulness of the smooth reading decomposes into a torsion condition (T) and an intrinsic detectability axiom (D), shown exactly necessary by ghost counter-models, and is discharged on a canonical realization built from the transport tower (CSM Chapter 13, &sect;&sect;13.14&ndash;13.16).</p>
+  <p>Curvature, in this setting, is the first stable layer of transport obstruction in a closed system, realized as curvature under faithful smooth realization. The curvature hierarchy&mdash;the hierarchy of increasingly fine-grained obstructions to route independence&mdash;emerges from the comparison groupoid before any smooth geometry is introduced. The faithfulness of the smooth reading decomposes into a torsion condition (T) and an intrinsic detectability axiom (D), shown exactly necessary by ghost counter-models, and is discharged on a canonical realization built from the transport tower (CSM Chapter 13, &sect;&sect;13.14&ndash;13.16).</p>
 
   <div class="section-divider">&sect;</div>
 
@@ -699,7 +699,7 @@ footer span { min-width: 0; }
 
   <p>Genuine closure at this stage requires admissible comparison morphisms between the relevant frame data. That condition forces the isometry group to act transitively on the frame bundle. By the standard homogeneous-geometry result [1] invoked in the program&rsquo;s <a href="/cfsg/">CFSG paper</a>, transitivity on the orthonormal frame bundle forces constant sectional curvature. Together with the program&rsquo;s gauge-reduced transport criterion for simple connectivity, the remaining closed realized three-dimensional case is S&sup3;.</p>
 
-  <p>The result is therefore not an unconditional derivation of smooth geometry from bare comparison data. It is a conditional rigidity theorem: once the faithful smooth-realization interface is in place, genuine closure selects the spherical case. That interface is not a single free-standing assumption: it is equivalent to the ghost-free regime (T)+(D), and the realization is supplied canonically by the tower under that pair. For the compactification intuition and why it is not the proof, see <a href="/idea/#compactification-rigidity">Foundations</a>.</p>
+  <p>The result is a rigidity theorem at the faithful smooth-realization stage: in the ghost-free regime (T)+(D), genuine closure selects the spherical case, and the realization is supplied canonically by the tower under that pair. For the compactification intuition and why it is not the proof, see <a href="/idea/#compactification-rigidity">Foundations</a>.</p>
 
   <div class="section-divider">&sect;</div>
 
@@ -717,11 +717,11 @@ footer span { min-width: 0; }
 
   <p>If closure is a constraint on admissible physical description, then theories can fail to satisfy it in identifiable ways. A four-axis taxonomy isolates the recurrent forms of primitive structural input that violate closure:</p>
 
-  <p><em>Externalization.</em> A structure is externalized when it is treated as given rather than derived from the system&rsquo;s internal resources. Examples include an absolute background space, an external observer, or a pre-assumed causal structure.</p>
+  <p><em>Externalization.</em> A structure is externalized when it is treated as given rather than derived from the system&rsquo;s internal resources. Examples include an absolute background space, an external observer, or a pre-supplied causal structure.</p>
 
   <p><em>Artificial factorization.</em> A system is artificially factorized when it is divided into subsystems in a way that is not recoverable from the intrinsic comparison structure. The division imports a distinction that the system itself does not support.</p>
 
-  <p><em>Premature globalization.</em> A local description is prematurely globalized when features that hold in a restricted context are assumed without justification to hold everywhere. The structure is imported because it is convenient, not because it is forced.</p>
+  <p><em>Premature globalization.</em> A local description is prematurely globalized when features that hold in a restricted context are extended without justification to hold everywhere. The structure is imported because it is convenient, not because it is forced.</p>
 
   <p><em>Reification of repair.</em> A formal repair of a structural problem is reified when the repair mechanism is treated as a physical object. An artifact of the mathematics is treated as if it were a feature of physical ontology.</p>
 
@@ -731,7 +731,7 @@ footer span { min-width: 0; }
 
   <h3>Relation to Standard Frameworks</h3>
 
-  <p>The closure program treats quantum field theory, general relativity, and standard cosmology as recovery targets, not as opponents. Their empirical success is part of the constraint on any closed-system reconstruction. The question is prior to empirical model selection: which structures may be taken as primitive in a theory of a closed system? Standard frameworks often begin with substantial mathematical input already in place&mdash;a spacetime arena, field content, state spaces, regulators or renormalization scales, boundary conditions, and cosmological initial data. These structures are legitimate and powerful within their domains. From the standpoint of structural closure, however, each must be classified: either it is internally recoverable from the system&rsquo;s comparison structure, or it remains an explicit bridge assumption.</p>
+  <p>The closure program treats quantum field theory, general relativity, and standard cosmology as recovery targets, not as opponents. Their empirical success is part of the constraint on any closed-system reconstruction. The question is prior to empirical model selection: which structures may be taken as primitive in a theory of a closed system? Standard frameworks often begin with substantial mathematical input already in place&mdash;a spacetime arena, field content, state spaces, regulators or renormalization scales, boundary conditions, and cosmological initial data. These structures are legitimate and powerful within their domains. From the standpoint of structural closure, each is classified according to whether it is internally recoverable from the system&rsquo;s comparison structure or remains an explicit interface condition.</p>
 
   <p>In quantum field theory, renormalization is not treated here as a defect or an informal trick. It is a precise framework for obtaining finite, scale-dependent physical predictions, and the Wilsonian viewpoint makes the dependence on scale part of the physical description [7,9]. The closure question is different: are the relevant fields, scales, regulators, and background structures primitive inputs, or can they be recovered from internal comparison and transport data? A compact spatial realization such as S&sup3; addresses the role of spatial infinity and global boundary conditions, but compactness alone does not remove local ultraviolet divergences. Any claim that closure supplies a finite microscopic cutoff would require an additional theorem, not merely the S&sup3; rigidity result.</p>
 
@@ -820,7 +820,7 @@ footer span { min-width: 0; }
     <figcaption id="overview-flrw-closure-caption">Schematic comparison of the standard FLRW transverse-distance functions. The closure claim is not that standard cosmological distance relations are discarded, but that the flat R&sup3; case should be read as a local or large-curvature-radius approximation to a closed S&sup3; realization when the closure hypotheses are in force. The formulas shown are the standard distance-measure forms reviewed by Hogg [12]; present data strongly constrain spatial curvature near zero, which is compatible with a large-radius closed model but does not by itself determine global topology [13].</figcaption>
   </figure>
 
-  <p>The disagreement with standard frameworks is therefore architectural rather than dismissive. Closure does not compete with general relativity or quantum field theory as a rival phenomenological formalism. It asks whether the structures those formalisms use with such success can be recovered from a prior closed-system discipline: intrinsic comparison data, quotient semantics, and transport obstruction. Where they can be derived, they cease to be primitive. Where they cannot yet be derived, they remain marked assumptions at the interface between the relational core and the standard physical framework.</p>
+  <p>The disagreement with standard frameworks is therefore architectural rather than dismissive. Closure does not compete with general relativity or quantum field theory as a rival phenomenological formalism. It asks whether the structures those formalisms use with such success can be recovered from a prior closed-system discipline: intrinsic comparison data, quotient semantics, and transport obstruction. Where they are derived, they cease to be primitive. Where they are not yet derived, they are recorded as interface conditions between the relational core and the standard physical framework.</p>
 
   <div class="section-divider">&sect;</div>
 
