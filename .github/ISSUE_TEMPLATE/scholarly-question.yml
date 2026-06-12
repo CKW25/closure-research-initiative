@@ -12,7 +12,7 @@ body:
     id: work
     attributes:
       label: Work and version
-      placeholder: "CCW v1"
+      placeholder: "CCW v2"
     validations:
       required: true
   - type: input

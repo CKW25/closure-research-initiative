@@ -23,7 +23,7 @@ An erratum report should include:
 1. Work and version.
 2. Exact location.
 3. The statement at issue.
-4. The reason the statement is wrong, ambiguous, or underspecified.
+4. The reason the statement is incorrect, ambiguous, or underspecified.
 5. The proposed correction, if known.
 6. Whether the issue affects later results, citations, or public summaries.
 

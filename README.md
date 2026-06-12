@@ -6,11 +6,11 @@ The live scholarly record is maintained at [closureresearchinitiative.org](https
 
 ## Research Scope
 
-The Closure Research Initiative studies what structure a physical theory may invoke when it is formulated without external primitive scaffolding. Its basic admissibility condition is intrinsicality: comparison predicates are relations among states and are invariant under the automorphisms of the comparison world they help constitute.
+The Closure Research Initiative studies what structure a physical theory may invoke when it is formulated without external primitive structure. Its basic admissibility condition is intrinsicality: comparison predicates are relations among states and are invariant under the automorphisms of the comparison world they help constitute.
 
 Under the theorem hypotheses stated in the monograph, especially local distinguishability, intrinsicality yields rectangular completeness as a theorem rather than as an independent closure axiom. The finite-to-global boundary is addressed through refinement-tower and finite-witness results. The subsequent development gives quotient semantics, the obstruction to subsystem attribution, route-invariant transport criteria, and geometric consequences in the ghost-free interface regime (T)+(D), under which the faithful realization is supplied canonically by the transport tower.
 
-Standard physical frameworks are treated as recovery targets rather than rejected formalisms. Their successful structures are constraints on the program: background spacetime, field content, state spaces, gauge conventions, causal order, scale structure, and boundary data are classified according to whether they are recovered from the closed-system comparison architecture or retained as explicit interface conditions.
+Standard physical frameworks are treated as recovery targets. Their successful structures constrain the program: background spacetime, field content, state spaces, gauge conventions, causal order, scale structure, and boundary data are classified according to whether they are recovered from the closed-system comparison architecture or retained as explicit interface conditions.
 
 For orientation, see the site pages [Overview](https://closureresearchinitiative.org/overview/), [Structural Map](https://closureresearchinitiative.org/map/), [Notation](https://closureresearchinitiative.org/notation/), [Logical Status](https://closureresearchinitiative.org/status/), and [Sources and Citation](https://closureresearchinitiative.org/sources/). For binding claims, cite the monograph, the relevant preprint, or the cited theorem location rather than this README.
 
@@ -72,7 +72,7 @@ For substantial theoretical criticism, cite the relevant formal statement and di
 - a proof error,
 - a mismatch between a theorem and its stated hypotheses,
 - a citation or versioning problem,
-- a programmatic objection to the adopted premises.
+- a premise-level disagreement.
 
 General correspondence is listed at [Contact](https://closureresearchinitiative.org/contact/). The [Reading Guide](https://closureresearchinitiative.org/guide/) gives suggested paths through the material by background and interest.
 

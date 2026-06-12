@@ -8,7 +8,7 @@ Discussions complement the public manuscripts hosted at [closureresearchinitiati
 
 - Technical questions about specific definitions, lemmas, or theorems
 - Clarification of the logical architecture and dependency structure
-- Discussion of connections to existing literature in gauge theory, general relativity, quantum field theory, cosmology, and foundations of physics, with standard frameworks treated as recovery targets rather than opponents
+- Discussion of connections to existing literature in gauge theory, general relativity, quantum field theory, cosmology, and foundations of physics, with standard frameworks treated as recovery targets whose successful structures constrain the program
 - Proposals for extensions, alternative formulations, or applications
 - Notification of possible errors, omissions, or required corrections
 

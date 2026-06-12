@@ -5,6 +5,7 @@ For scholarly orientation, begin with:
 - [Overview](https://closureresearchinitiative.org/overview/)
 - [Reading Guide](https://closureresearchinitiative.org/guide/)
 - [Notation](https://closureresearchinitiative.org/notation/)
+- [Logical Status](https://closureresearchinitiative.org/status/)
 - [Sources and Citation](https://closureresearchinitiative.org/sources/)
 - [Corpus Query](https://closureresearchinitiative.org/ask/)
 
