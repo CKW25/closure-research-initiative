@@ -14,7 +14,7 @@ Standard physical frameworks are treated as recovery targets. Their successful s
 
 For orientation, see the site pages [Overview](https://closureresearchinitiative.org/overview/), [Structural Map](https://closureresearchinitiative.org/map/), [Notation](https://closureresearchinitiative.org/notation/), [Logical Status](https://closureresearchinitiative.org/status/), and [Sources and Citation](https://closureresearchinitiative.org/sources/). For binding claims, cite the monograph, the relevant preprint, or the cited theorem location rather than this README.
 
-The site separates the ordinary research functions explicitly: method is summarized on Overview and the manuscript pages, theorem status is classified on Logical Status, empirical consequences are isolated on Predictions, and citation/provenance metadata is maintained on Sources and Citation plus the individual work pages.
+Research orientation, theorem status, empirical consequences, citation metadata, and provenance are maintained on Overview, Logical Status, Predictions, Sources and Citation, and the individual work pages.
 
 ## Canonical Citation
 
