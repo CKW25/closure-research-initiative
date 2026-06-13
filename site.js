@@ -83,7 +83,7 @@
     'cfsg-latex.zip': 7,
     'scc.pdf': 10,
     'scc-latex.zip': 5,
-    'rc.pdf': 14,
+    'rc.pdf': 15,
     'rc-latex.zip': 5,
     'fe.pdf': 19,
     'fe-latex.zip': 5,
