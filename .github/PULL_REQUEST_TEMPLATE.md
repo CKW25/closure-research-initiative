@@ -1,6 +1,6 @@
 ## Scope
 
-Describe the scholarly or deployment-facing purpose of this change.
+Describe the research or deployment-facing purpose of this change.
 
 ## Affected Record
 

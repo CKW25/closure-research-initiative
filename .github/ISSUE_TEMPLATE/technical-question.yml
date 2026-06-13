@@ -1,4 +1,4 @@
-name: Scholarly Question
+name: Technical Question
 description: Ask a technical question about a specific definition, result, dependency, or citation.
 title: "Question: "
 labels:
@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        This form is for focused scholarly questions. Please identify the exact passage or result; broad correspondence is better sent through the contact page.
+        This form is for focused technical questions. Please identify the exact passage or result; broad correspondence is better sent through the contact page.
   - type: input
     id: work
     attributes:

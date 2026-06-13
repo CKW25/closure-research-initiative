@@ -2,7 +2,7 @@ blank_issues_enabled: true
 contact_links:
   - name: GitHub Discussions
     url: https://github.com/CKW25/closure-research-initiative/discussions
-    about: Public scholarly discussion of definitions, hypotheses, proof structure, interpretation, and possible extensions.
+    about: Public technical discussion of definitions, hypotheses, proof structure, interpretation, and possible extensions.
   - name: Sources and Citation
     url: https://closureresearchinitiative.org/sources/
     about: Canonical citations, DOI targets, ORCID, and external-source bibliography.
