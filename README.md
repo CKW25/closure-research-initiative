@@ -32,7 +32,7 @@ Paper-specific claims should cite the current work page listed in [Sources and C
 | `scc` | *Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems* | Preprint, v3 | [Current page](https://closureresearchinitiative.org/scc/) |
 | `rc` | *Rectangular Completeness Encompasses Standard Physical Closure* | Preprint, v3 | [Current page](https://closureresearchinitiative.org/rc/) |
 | `fe` | *Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy* | Preprint, v3 | [Paper page](https://closureresearchinitiative.org/fe/) |
-| `rie` | *A Factorization Criterion for Route Invariants with Fixed Endpoint Data* | Preprint, v2 | [Current page](https://closureresearchinitiative.org/rie/) |
+| `rie` | *A Factorization Criterion for Route Invariants with Fixed Endpoint Data* | Preprint, v3 | [Current page](https://closureresearchinitiative.org/rie/) |
 
 All public manuscripts are versioned research manuscripts. They are not peer reviewed unless a later record states otherwise.
 

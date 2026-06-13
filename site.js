@@ -87,7 +87,7 @@
     'rc-latex.zip': 5,
     'fe.pdf': 24,
     'fe-latex.zip': 5,
-    'rie.pdf': 8,
+    'rie.pdf': 15,
     'rie-latex.zip': 6
   };
 
@@ -116,6 +116,8 @@
     'archive/fe/fe-v2-latex.zip': 5,
     'archive/fe/fe-v1.pdf': 19,
     'archive/fe/fe-v1-latex.zip': 5,
+    'archive/rie/rie-v2.pdf': 15,
+    'archive/rie/rie-v2-latex.zip': 6,
     'archive/rie/rie-v1.pdf': 8,
     'archive/rie/rie-v1-latex.zip': 6
   };
