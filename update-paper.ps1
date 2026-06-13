@@ -12,17 +12,10 @@ param(
     [string]$NewLatexZip,
 
     [ValidateRange(1, 999)]
-    [int]$Version,
-
-    [switch]$Commit,
-    [switch]$Push
+    [int]$Version
 )
 
 $ErrorActionPreference = 'Stop'
-
-if ($Push -and -not $Commit) {
-    throw '-Push requires -Commit so the pushed state is explicit.'
-}
 
 $Base = Split-Path -Parent $MyInvocation.MyCommand.Path
 $ArchiveDir = Join-Path $Base "archive\$Paper"
@@ -112,18 +105,8 @@ Rebuild-AllPapersZip -Destination $AllPapersZip
 Write-Host ''
 Write-Host "Manual checks before publishing v${NewVersion}:"
 Write-Host "  - Update $Paper/index.html with version, date, abstract/change notes, and BibTeX."
-Write-Host "  - Update preprints/index.html, feed.xml, and sitemap.xml if public metadata changed."
+Write-Host "  - Update preprints/index.html, sources/index.html, feed.xml, sitemap.xml, llms.txt, CITATION.cff, and the Ask corpus if public metadata changed."
+Write-Host "  - Review site.js download baselines before replacing a current release."
 Write-Host "  - Verify /dl/$Paper.pdf and /dl/$Paper-latex.zip after deploy."
-
-if ($Commit) {
-    Set-Location -LiteralPath $Base
-    git add -- "$Paper.pdf" "$Paper-latex.zip" 'all-papers.zip' "archive/$Paper"
-    git commit -m "Update $Paper to v$NewVersion"
-
-    if ($Push) {
-        git push origin main
-    }
-} else {
-    Write-Host ''
-    Write-Host 'No commit was created. Review the site, then commit and push when ready.'
-}
+Write-Host ''
+Write-Host 'No commit was created. Review the full site metadata, then commit and push through the normal release workflow.'

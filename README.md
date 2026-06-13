@@ -99,13 +99,13 @@ npm.cmd run backend:check:live
 
 ## Publication Workflow
 
-Use `update-paper.ps1` only as a local helper for copying revised PDFs/source bundles and rebuilding `all-papers.zip`:
+Publication is a manual metadata release, not a blind file replacement. If a revised PDF/source bundle is prepared outside the site tree, `update-paper.ps1` may be used only as a local staging helper for copying the files and rebuilding `all-papers.zip`; it does not publish, commit, or update metadata:
 
 ```powershell
 .\update-paper.ps1 -Paper rie -NewPdf path\to\new-version.pdf
 ```
 
-Before publishing a revision, verify that the work page, [Preprints](https://closureresearchinitiative.org/preprints/), BibTeX block, feed entry, sitemap, `llms.txt`, `CITATION.cff`, and version-history table describe the same version.
+Before publishing a revision, verify that the work page, [Preprints](https://closureresearchinitiative.org/preprints/), BibTeX block, feed entry, sitemap, `llms.txt`, `CITATION.cff`, generated Ask corpus, download baselines, and version-history table describe the same version.
 
 ## Rights
 
