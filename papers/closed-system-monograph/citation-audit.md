@@ -2,7 +2,9 @@
 
 This ledger tracks the citation-hardening pass for the monograph. It is not
 part of the manuscript text. Its purpose is to keep the v7 citation layer
-traceable and restrained.
+traceable and restrained. The ledger is historical: later releases may preserve
+the citation layer while adding front-matter, notation, or status-language
+changes.
 
 ## Citation Standard
 
@@ -107,7 +109,7 @@ requires them.
 
 ## Local Release Packaging Checkpoint
 
-- Updated the manuscript title page to Version 7, June 12, 2026.
+- Updated the manuscript title page for the v7 release dated June 12, 2026.
 - Rebuilt the monograph PDF from source.
 - Archived the prior public PDF and source bundle as `archive/csm/csm-v6.pdf`
   and `archive/csm/csm-v6-latex.zip`.
