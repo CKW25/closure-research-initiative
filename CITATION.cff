@@ -94,7 +94,7 @@ references:
       name: "Closure Research Initiative"
       website: "https://closureresearchinitiative.org"
     year: 2026
-    version: "2"
+    version: "3"
     url: "https://closureresearchinitiative.org/fe/"
   - type: generic
     title: "A Factorization Criterion for Route Invariants with Fixed Endpoint Data"

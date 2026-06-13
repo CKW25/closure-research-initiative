@@ -85,7 +85,7 @@
     'scc-latex.zip': 5,
     'rc.pdf': 15,
     'rc-latex.zip': 5,
-    'fe.pdf': 19,
+    'fe.pdf': 24,
     'fe-latex.zip': 5,
     'rie.pdf': 8,
     'rie-latex.zip': 6
@@ -112,6 +112,8 @@
     'archive/rc/rc-v1-latex.zip': 5,
     'archive/rc/rc-v2.pdf': 14,
     'archive/rc/rc-v2-latex.zip': 5,
+    'archive/fe/fe-v2.pdf': 24,
+    'archive/fe/fe-v2-latex.zip': 5,
     'archive/fe/fe-v1.pdf': 19,
     'archive/fe/fe-v1-latex.zip': 5,
     'archive/rie/rie-v1.pdf': 8,

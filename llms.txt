@@ -81,7 +81,7 @@ The Structural Map includes several neighboring programs. Rovelli's partial-obse
   - PDF: https://closureresearchinitiative.org/rc.pdf
 
 - Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy: https://closureresearchinitiative.org/fe/
-  - Current release: v2, June 10, 2026; DOI pending.
+  - Current release: v3, June 13, 2026; DOI pending.
   - PDF: https://closureresearchinitiative.org/fe.pdf
 
 - A Factorization Criterion for Route Invariants with Fixed Endpoint Data: https://closureresearchinitiative.org/rie/
