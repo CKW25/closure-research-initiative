@@ -27,7 +27,7 @@ The formal development starts from intrinsic comparison data. A comparison is a 
 
 Method: derive admissible structure from comparison data by finite-profile arguments, quotient semantics, transport groupoids and obstruction towers, then introduce smooth geometry only through explicit faithful-realization conditions. Principal results: rectangular completeness under stated comparison-world hypotheses, quotient-level limits on subsystem attribution, endpoint-fiber factorization for route invariants, second-jet faithful-realization analysis, conditional S3 rigidity at the manifold stage, and the charge-denominator prediction. Formal record: binding statements are the definitions, hypotheses, proofs, theorem labels, and versioned PDFs listed on the Preprints, Sources and Citation, and Logical Status pages.
 
-The Foundations page includes compactification background: the topological fact R^3 union a point at infinity is homeomorphic to S^3 is useful intuition. The theorem-level mechanism is the CFSG chain from closed-system admissibility to the action groupoid, isometric transport, frame-bundle transitivity, constant sectional curvature, and the simply connected compact space-form case.
+The Foundations page includes compactification background: the topological fact R^3 union a point at infinity is homeomorphic to S^3 is useful intuition. The theorem-level mechanism is the CFSG chain from frame-complete closed realization to isometry-induced frame transport, frame-bundle transitivity, constant sectional curvature, and the simply connected compact space-form case.
 
 The Overview page frames QFT, GR, and standard cosmology as recovery targets. Their empirical success constrains the closure program: standard inputs--background spacetime, field content, regulators, renormalization scales, boundary conditions, and cosmological initial data--are classified according to whether they are internally recoverable or remain explicit interface conditions. Renormalization is treated as a precise framework, compact S3 is not claimed to remove local UV divergences, and no cosmological bounce theorem is claimed without a separate dynamical result. The Overview also includes a standard-FLRW recovery-target figure: the flat R3 transverse-distance law D_M = D_C is compared with the closed S3 law D_M = R_c sin(D_C/R_c), emphasizing that a large-radius closed realization locally reproduces the flat approximation while closing globally.
 
@@ -69,7 +69,7 @@ The Structural Map includes several neighboring programs. Rovelli's partial-obse
   - PDF: https://closureresearchinitiative.org/ccw.pdf
 
 - Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3: https://closureresearchinitiative.org/cfsg/
-  - Current release: v2, June 10, 2026; DOI pending.
+  - Current release: v3, June 13, 2026; DOI pending for v3.
   - PDF: https://closureresearchinitiative.org/cfsg.pdf
 
 - Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems: https://closureresearchinitiative.org/scc/
