@@ -338,7 +338,7 @@ quadratic carrier, through invariants such as
 (\cref{def:spectral-defect-class,def:spectral-scalar,thm:spectral-depth-separation}).
 Operator realization is a statement about unbounded self-adjoint structure on
 the Hilbert branch.
-No theorem in the current chain yet constructs the canonical positive
+No theorem in the chain above constructs the canonical positive
 self-adjoint operator whose sector eigenvalues are the intrinsic scalars.
 Hence the remaining gap is an operator-construction gap.
 \end{proof}
@@ -366,7 +366,7 @@ vector \(\psi_\sigma \in D(\mathsf S)\) satisfying
 \label{rem:matter-realization-sector-observable-status}
 \Cref{thm:hilbert-realization-sector-scalar} records the exact remaining
 realization-level operator statement to be discharged.
-It is not part of the current intrinsic theorem package proved so far.
+It is not part of the intrinsic theorem package proved above.
 \end{remark}
 
 \begin{lemma}[Target form-typing input for the sector operator route]
@@ -386,7 +386,7 @@ on \(H_{\mathrm{quad}}\) such that for every primitive excitation sector
 
 \begin{remark}[Conditional candidate for the form route]
 \label{rem:matter-realization-form-candidate}
-If the later sector-to-Hilbert embedding and form-typing targets are
+If the sector-to-Hilbert embedding and form-typing targets are
 discharged, then the natural candidate for the form in
 \cref{lem:sector-quadratic-form}
 is the defect-carrier expression
@@ -397,7 +397,7 @@ where \(\kappa(\psi)\) denotes the quadratic defect representative
 attached to the embedded sector vector \(\psi\), and
 \(\langle\cdot,\cdot\rangle_Q\)
 is the polarized form induced by the scalar channel \(Q\)
-(\cref{prop:hilbert-real-inner}) together with its later
+(\cref{prop:hilbert-real-inner}) together with the required
 sesquilinear Hilbert-branch extension.
 This remark records only that candidate route;
 it does not assert that the required embedding, form-typing, or
@@ -431,50 +431,50 @@ Canonicity follows from uniqueness in the representation theorem.
 \end{proof}
 
 % ============================================================
-\subsection{Proof checklist for the forced-upgrade roadmap}
-\label{subsec:matter-realization-roadmap-checklist}
+\subsection{Proof checklist for conditional promotion}
+\label{subsec:matter-realization-promotion-checklist}
 % ============================================================
 
-This subsection maps the roadmap stubs of
-\cref{subsec:shell-forced-upgrade-roadmap}
+This subsection maps the conditional targets of
+\cref{subsec:shell-operator-promotion}
 to exact proof slots inside the Chapter~22 operator route.
 
-\begin{proposition}[Later roadmap-target bookkeeping for the Chapter~22 operator route]
-\label{prop:matter-roadmap-stub-slot-map}
-If the later roadmap targets recorded in
-\cref{subsec:shell-forced-upgrade-roadmap}
+\begin{proposition}[Conditional-target bookkeeping for the Chapter~22 operator route]
+\label{prop:matter-conditional-slot-map}
+If the conditional targets recorded in
+\cref{subsec:shell-operator-promotion}
 were discharged, then they would feed this chapter as follows:
 \begin{enumerate}[label=\textup{(\roman*)}]
 \item
-      \cref{thm:roadmap-sector-to-hilbert-embedding}
+      \cref{thm:conditional-sector-to-hilbert-embedding}
       would supply the canonical sector-to-Hilbert embedding input needed
       to
       place sector vectors \(\psi_\sigma\in H_{\mathrm{quad}}\) in the
       operator-construction route of \cref{sec:matter-realization-gap};
 \item
-      \cref{lem:roadmap-embedded-sector-form}
+      \cref{lem:conditional-embedded-sector-form}
       would supply the form-typing input slot formalized by
       \cref{lem:sector-quadratic-form};
 \item
-      \cref{thm:roadmap-closed-form-closability}
+      \cref{thm:conditional-closed-form-closability}
       would discharge the closed/closable hypothesis required by
       \cref{prop:matter-realization-form-route}.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-Immediate from the repaired target status of
+Immediate from the target status of
 \cref{lem:sector-quadratic-form,prop:matter-realization-form-route}
-and the later-upgrade bookkeeping already recorded in
-\cref{subsec:shell-forced-upgrade-roadmap,prop:roadmap-implies-ch22-operator-target}.
+and the promotion criterion recorded in
+\cref{subsec:shell-operator-promotion,prop:conditional-implies-ch22-operator-target}.
 \end{proof}
 
-\begin{corollary}[Later checklist discharge promotes the operator target]
-\label{cor:matter-roadmap-checklist-to-operator-target}
-If the three roadmap targets named in
-\cref{prop:matter-roadmap-stub-slot-map}
-are later proved from existing theorem-level inputs without new
-observer-side assumptions, then that later discharge promotes the
+\begin{corollary}[Conditional checklist discharge promotes the operator target]
+\label{cor:matter-promotion-checklist-to-operator-target}
+If the three conditional targets named in
+\cref{prop:matter-conditional-slot-map}
+are proved from existing theorem-level inputs without new
+observer-side assumptions, then that discharge promotes the
 Chapter~22 operator target
 \cref{thm:hilbert-realization-sector-scalar}
 through the closed-form route.
@@ -482,7 +482,7 @@ through the closed-form route.
 
 \begin{proof}
 Combine
-\cref{prop:matter-roadmap-stub-slot-map,prop:matter-realization-form-route,prop:roadmap-implies-ch22-operator-target}.
+\cref{prop:matter-conditional-slot-map,prop:matter-realization-form-route,prop:conditional-implies-ch22-operator-target}.
 \end{proof}
 
 \begin{lemma}[Sector orthogonality from operator realization]

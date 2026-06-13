@@ -31,7 +31,8 @@ The objectives are:
 
 The chapter proceeds in two layers.
 First comes the forced intrinsic closure chain for scalar depth laws.
-Second comes a compatibility bridge that preserves legacy shell labels
+Second comes a compatibility bridge that preserves shell labels from the
+one-reference notation
 without introducing new observer-side data.
 
 % ============================================================
@@ -67,13 +68,13 @@ This mirrors the bookkeeping discipline used in
 
 \begin{proposition}[Inherited dependency role in intrinsic form]
 \label{prop:shell-dependency-role}
-The unconditional intrinsic statements in this chapter use two saved
+The unconditional intrinsic statements in this chapter use two established
 upstream inputs:
 \begin{enumerate}[label=\textup{(\roman*)}]
 \item the Chapter~19 scalar-channel framework
       \cref{thm:quadratic-scalar,thm:spectral-scalar-identification,thm:spectral-scalar-invariant};
 \item the Chapter~20 quartic-backbone and rigidity-envelope package,
-      read with its saved distinction between structural consequences
+      read with its stated distinction between structural consequences
       and extra compatibility inputs.
 \end{enumerate}
 Exact identification of a chosen scalar profile with
@@ -137,8 +138,8 @@ universal leading law is quartic.
 
 \begin{proof}
 Channel uniqueness is exactly the Chapter~19 scalar-channel statement.
-The quartic growth envelope and quartic leading law are the saved
-Chapter~20 consequences recorded after patch P-218; they do not by
+The quartic growth envelope and quartic leading law are the Chapter~20
+consequences used here; they do not by
 themselves identify the full profile with the exact quartic backbone.
 \end{proof}
 
@@ -431,7 +432,7 @@ separate realization data
 (\cref{rem:numbers-forced-vs-calibrated,sec:cond-open}).
 \end{proof}
 
-\begin{corollary}[Intrinsic prediction content at saved strength]
+\begin{corollary}[Intrinsic prediction content at stated strength]
 \label{cor:complete-intrinsic-prediction-content}
 At unconditional intrinsic level, the theory determines the unique
 scalar channel, quartic leading behavior, and the absence of intrinsic
@@ -705,7 +706,7 @@ defect, and under
 asymptotically negligible.
 \end{remark}
 
-\begin{theorem}[Complete intrinsic spectral prediction at the saved split]
+\begin{theorem}[Complete intrinsic spectral prediction at the stated split]
 \label{thm:complete-intrinsic-spectral-prediction}
 The closed relational system determines the scalar channel and its
 quartic leading behavior, but not an intrinsic absolute normalization.
@@ -750,20 +751,20 @@ and observer-side interpretation maps.
 
 
 % ============================================================
-\subsection{Forced-upgrade roadmap for the operator target}
-\label{subsec:shell-forced-upgrade-roadmap}
+\subsection{Conditional promotion criterion for the operator target}
+\label{subsec:shell-operator-promotion}
 % ============================================================
 
 A full promotion of the Chapter~22 operator target
 \cref{thm:hilbert-realization-sector-scalar}
 from realization/conditional status to intrinsic/forced status requires a
 theorem chain proved from existing theorem-level data only.
-The following labeled items record the minimal roadmap targets whose later
-discharge would suffice for that upgrade: canonical sector-to-Hilbert
+The following labeled items record the minimal conditional targets whose
+discharge would suffice for that promotion: canonical sector-to-Hilbert
 embedding, induced sector form construction, and closed-form closability.
 
-\begin{theorem}[Roadmap target: canonical sector-to-Hilbert embedding]
-\label{thm:roadmap-sector-to-hilbert-embedding}
+\begin{theorem}[Conditional target: canonical sector-to-Hilbert embedding]
+\label{thm:conditional-sector-to-hilbert-embedding}
 To promote the Chapter~22 operator statement to intrinsic/forced status,
 it would suffice to prove the following statement from only
 \cref{thm:interface-stabilized,ch:hilbert,def:spectral-defect-class,def:spectral-scalar,thm:spectral-depth-separation}:
@@ -779,10 +780,10 @@ with
 compatible with intrinsic depth labels and transport covariance.
 \end{theorem}
 
-\begin{lemma}[Roadmap target: embedded sector form realizes intrinsic scalar values]
-\label{lem:roadmap-embedded-sector-form}
-Assuming \cref{thm:roadmap-sector-to-hilbert-embedding}, the later
-intrinsic upgrade would also be secured by proving the following target
+\begin{lemma}[Conditional target: embedded sector form realizes intrinsic scalar values]
+\label{lem:conditional-embedded-sector-form}
+Assuming \cref{thm:conditional-sector-to-hilbert-embedding}, promotion to
+intrinsic status would also be secured by proving the following target
 statement from
 \cref{thm:quadratic-scalar,thm:spectral-scalar-identification,prop:hilbert-real-inner}:
 define on the finite sector span
@@ -805,10 +806,10 @@ Hence \(q_{\mathrm{sec}}\) would be of the input type required by
 \cref{lem:sector-quadratic-form}.
 \end{lemma}
 
-\begin{theorem}[Roadmap target: closed-form closability from intrinsic control]
-\label{thm:roadmap-closed-form-closability}
-Assuming \cref{lem:roadmap-embedded-sector-form}, the later intrinsic
-upgrade would further be secured by proving this target statement:
+\begin{theorem}[Conditional target: closed-form closability from intrinsic control]
+\label{thm:conditional-closed-form-closability}
+Assuming \cref{lem:conditional-embedded-sector-form}, promotion to intrinsic
+status would further be secured by proving this target statement:
 if intrinsic Hilbert-branch control estimates imply that
 \(q_{\mathrm{sec}}\) is closable, then its closure
 \(\overline q_{\mathrm{sec}}\) is a closed positive form on
@@ -817,22 +818,22 @@ This is exactly the closed/closable-form hypothesis needed in
 \cref{prop:matter-realization-form-route}.
 \end{theorem}
 
-\begin{proposition}[Roadmap implication for a later forced upgrade of the Chapter~22 operator target]
-\label{prop:roadmap-implies-ch22-operator-target}
+\begin{proposition}[Conditional-target implication for the Chapter~22 operator target]
+\label{prop:conditional-implies-ch22-operator-target}
 If
-\cref{thm:roadmap-sector-to-hilbert-embedding,lem:roadmap-embedded-sector-form,thm:roadmap-closed-form-closability}
-were later discharged from existing theorem-level inputs alone, then
+\cref{thm:conditional-sector-to-hilbert-embedding,lem:conditional-embedded-sector-form,thm:conditional-closed-form-closability}
+were discharged from existing theorem-level inputs alone, then
 that discharge would supply the sufficiency route through
 \cref{prop:matter-realization-form-route} for promoting
 \cref{thm:hilbert-realization-sector-scalar} to intrinsic/forced status.
 \end{proposition}
 
 \begin{proof}
-A later proof of the first two roadmap targets would provide the
+A proof of the first two conditional targets would provide the
 sector-form data required by \cref{lem:sector-quadratic-form}.
-A later proof of the third would provide the closed/closable-form
+A proof of the third would provide the closed/closable-form
 hypothesis used by \cref{prop:matter-realization-form-route}.
-Together, those later discharges would therefore yield the canonical
+Together, those discharges would therefore yield the canonical
 positive self-adjoint operator with sector eigenvalue law
 \(\mathsf S\psi_\sigma=m_0(\sigma)\psi_\sigma\), which is exactly the
 content that would promote
@@ -840,31 +841,31 @@ content that would promote
 status.
 \end{proof}
 
-\begin{corollary}[Forced-upgrade criterion recorded at roadmap strength]
-\label{cor:roadmap-forced-upgrade-criterion}
+\begin{corollary}[Promotion criterion at conditional-target strength]
+\label{cor:conditional-promotion-criterion}
 A full promotion from realization/conditional to intrinsic/forced for the
-Chapter~22 operator statement is justified exactly when the roadmap
+Chapter~22 operator statement is justified exactly when the conditional
 targets
-\cref{thm:roadmap-sector-to-hilbert-embedding,lem:roadmap-embedded-sector-form,thm:roadmap-closed-form-closability}
-are later proved without adding new observer-side assumptions.
+\cref{thm:conditional-sector-to-hilbert-embedding,lem:conditional-embedded-sector-form,thm:conditional-closed-form-closability}
+are proved without adding new observer-side assumptions.
 \end{corollary}
 
 \begin{proof}
 Immediate from
-\cref{prop:roadmap-implies-ch22-operator-target,sec:cond-open}.
+\cref{prop:conditional-implies-ch22-operator-target,sec:cond-open}.
 \end{proof}
 
 % ============================================================
-\section{Compatibility bridge for legacy shell labels}
-\label{sec:shell-legacy-compat}
+\section{Compatibility bridge for one-reference shell labels}
+\label{sec:shell-one-reference-compat}
 % ============================================================
 
 For consistency with the existing ledger and cross-chapter references, we
-record a compact compatibility layer in legacy shell notation.
+record a compact compatibility layer in one-reference shell notation.
 These labels are optional interface markers and do not add observer-side
 inputs to the intrinsic core established above.
-They function as interface-level translators between the current closure
-language and older shell bookkeeping.
+They function as interface-level translators between the closure
+language and one-reference shell bookkeeping.
 
 \begin{definition}[Signed shell profile (compatibility form)]
 \label{def:shell-signed-profile}
@@ -881,7 +882,7 @@ Define
 \]
 \end{definition}
 
-\begin{definition}[Shell completeness property (legacy label)]
+\begin{definition}[Shell completeness property (one-reference label)]
 \label{def:shell-completeness}
 A realized branch is \emph{shell-complete} at fixed depth when
 shell-visible scalar distinction factors through \(S(\sigma)\).
@@ -970,14 +971,14 @@ Combine
 \cref{thm:shell-symmetry-from-transport,thm:shell-completeness-from-symmetry,cor:shell-completeness-discharged}.
 \end{proof}
 
-\begin{definition}[One-reference defect-evaluation datum (legacy label)]
+\begin{definition}[One-reference defect-evaluation datum]
 \label{def:shell-defect-intrinsic}
 A one-reference defect-evaluation datum is a non-balanced reference sector
 with intrinsic defect data sufficient to recover the dimensionless shell
 ratio parameter in one-reference form.
 \end{definition}
 
-\begin{definition}[One-reference anchor datum (legacy label)]
+\begin{definition}[One-reference anchor datum]
 \label{def:shell-anchor}
 A one-reference anchor datum is a reference sector with fixed intrinsic
 scalar value chosen for absolute normalization in one-reference form.
@@ -1059,13 +1060,13 @@ under the explicit ansatz used in
 \label{sec:shell-conclusion}
 % ============================================================
 
-The intrinsic numerical sector is now closed at theorem level:
-the scalar law is fixed up to one normalization orbit, and any later
+The intrinsic numerical sector is closed at theorem level:
+the scalar law is fixed up to one normalization orbit, and any
 same-channel correction discussion remains an explicit compatibility
 model rather than a new intrinsic scalar channel.
 
 Accordingly, this chapter closes the intrinsic one-channel numerical
-core of the main manuscript at saved strength: quartic leading
+core of the main manuscript at the stated theorem strength: quartic leading
 behavior and normalization-orbit freedom are fixed, while
 same-channel correction models and realization-level identifications
 remain explicit rather than forced.
