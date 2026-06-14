@@ -369,17 +369,17 @@ nav span:not(:first-child)::before {
 .corpus-loader {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin: 0.75rem 0 0;
+  gap: 0.55rem;
+  margin: 0.55rem 0 0;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 5px;
   background: linear-gradient(135deg, var(--paper), var(--card));
-  padding: 0.7rem 0.85rem;
+  padding: 0.45rem 0.58rem;
 }
 .loader-diagram {
   flex: 0 0 auto;
-  width: 6.2rem;
-  height: 4.95rem;
+  width: 4.1rem;
+  height: 2.55rem;
   color: var(--navy);
 }
 .loader-svg {
@@ -394,65 +394,70 @@ nav span:not(:first-child)::before {
 }
 .loader-svg .orbit-ring {
   fill: none;
-  stroke: rgba(10,35,72,0.34);
-  stroke-width: 1.5;
-  stroke-dasharray: 4 4;
+  stroke: var(--navy);
+  opacity: 0.38;
+  stroke-width: 1.25;
+  stroke-dasharray: 3 3;
 }
-.loader-svg .moving-orbit {
-  fill: none;
-  stroke: var(--gold);
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-dasharray: 14 72;
+.loader-svg .moving-carrier {
   transform-box: view-box;
-  animation: twin-orbit-turn 1.9s linear infinite;
+  animation: orbit-carrier-turn 1.9s linear infinite;
 }
-.loader-svg .moving-orbit.top { transform-origin: 52px 31px; }
-.loader-svg .moving-orbit.bottom {
-  transform-origin: 52px 88px;
+.loader-svg .moving-carrier.top { transform-origin: 22px 14px; }
+.loader-svg .moving-carrier.bottom {
+  transform-origin: 22px 36px;
   animation-direction: reverse;
 }
 .loader-svg .connector {
   fill: none;
   stroke: var(--navy);
-  stroke-width: 2.3;
+  stroke-width: 1.45;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 .loader-svg .thin-connector {
   fill: none;
   stroke: var(--navy);
-  stroke-width: 1.8;
+  stroke-width: 1.1;
   stroke-linecap: round;
 }
 .loader-svg .node {
   fill: var(--navy);
 }
-.loader-svg .gold-node {
+.loader-svg .moving-node {
   fill: var(--gold);
+  stroke: var(--card);
+  stroke-width: 0.9;
 }
 .loader-svg .equation-band {
   fill: var(--card);
-  stroke: rgba(10,35,72,0.18);
+  stroke: var(--navy);
+  stroke-opacity: 0.18;
   stroke-width: 1;
   animation: projection-pulse 1.9s ease-in-out infinite;
 }
 .loader-svg .equation-text {
   font-family: 'Inter', 'Source Sans Pro', sans-serif;
-  font-size: 6.7px;
+  font-size: 5.6px;
   font-style: normal;
   font-weight: 500;
   letter-spacing: 0;
 }
 .loader-svg .label {
-  font-size: 12px;
+  font-size: 7px;
   font-style: italic;
 }
 .loader-svg .small-label {
-  font-size: 8px;
+  font-size: 5.5px;
   font-style: italic;
 }
-@keyframes twin-orbit-turn {
+.loader-svg .carrier-label {
+  fill: var(--navy);
+  font-size: 6.4px;
+  font-style: italic;
+  font-weight: 600;
+}
+@keyframes orbit-carrier-turn {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
@@ -466,24 +471,24 @@ nav span:not(:first-child)::before {
 .loader-kicker {
   display: block;
   color: var(--gold);
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   line-height: 1;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.18rem;
   text-transform: uppercase;
 }
 .loader-caption {
   color: var(--navy);
   font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  font-size: 1rem;
+  font-size: 0.88rem;
   line-height: 1.25;
 }
 .loader-subcaption {
   color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.5;
-  margin-top: 0.25rem;
+  font-size: 0.68rem;
+  line-height: 1.35;
+  margin-top: 0.08rem;
 }
 .answer-panel {
   margin-top: 0.5rem;
@@ -685,10 +690,11 @@ footer span { min-width: 0; }
   .ask-button {
     width: 100%;
   }
-  .corpus-loader { flex-direction: column; gap: 0.75rem; }
+  .corpus-loader { gap: 0.45rem; }
+  .loader-subcaption { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .loader-svg .moving-orbit,
+  .loader-svg .moving-carrier,
   .loader-svg .equation-band {
     animation: none;
   }
@@ -767,36 +773,34 @@ footer span { min-width: 0; }
 
       <div class="corpus-loader hidden" id="corpusLoader" aria-hidden="true">
         <div class="loader-diagram">
-          <svg class="loader-svg" viewBox="0 0 124 124" role="img" aria-label="Twin orbit comparison diagram">
-            <line class="thin-connector" x1="6" y1="62" x2="118" y2="62" opacity="0.22"></line>
-            <rect class="equation-band" x="22" y="53" width="80" height="18" rx="4"></rect>
-            <text class="equation-text" x="62" y="65" text-anchor="middle">&pi;(&Gamma;(t))=&pi;(&Gamma;&#771;(t))</text>
+          <svg class="loader-svg" viewBox="0 0 92 50" role="img" aria-label="Twin orbit comparison diagram">
+            <line class="thin-connector" x1="38" y1="25" x2="88" y2="25" opacity="0.22"></line>
+            <rect class="equation-band" x="45" y="18.5" width="38" height="13" rx="3"></rect>
+            <text class="equation-text" x="64" y="27" text-anchor="middle">&pi;&Gamma;=&pi;&Gamma;&#771;</text>
 
-            <circle class="orbit-ring" cx="52" cy="31" r="20"></circle>
-            <circle class="moving-orbit top" cx="52" cy="31" r="15"></circle>
-            <path class="connector" d="M32 31 L82 11 L71 31"></path>
-            <circle class="node" cx="32" cy="31" r="3"></circle>
-            <circle class="node" cx="71" cy="31" r="3"></circle>
-            <circle class="node" cx="82" cy="11" r="3"></circle>
-            <text class="label" x="20" y="34" text-anchor="end">B<tspan baseline-shift="-35%" font-size="7">1</tspan></text>
-            <text class="label" x="78" y="34">B<tspan baseline-shift="-35%" font-size="7">0</tspan></text>
-            <text class="label" x="86" y="9">A</text>
-            <text class="small-label" x="74" y="23">x</text>
-            <text class="small-label" x="101" y="29">I</text>
+            <circle class="orbit-ring" cx="22" cy="14" r="10"></circle>
+            <path class="connector" d="M12 14 L35 5 L31 14" opacity="0.82"></path>
+            <circle class="node" cx="12" cy="14" r="1.7"></circle>
+            <circle class="node" cx="31" cy="14" r="1.7"></circle>
+            <circle class="node" cx="35" cy="5" r="1.7"></circle>
+            <text class="label" x="38.5" y="6.5">A</text>
+            <text class="small-label" x="77" y="14">I</text>
+            <g class="moving-carrier top">
+              <circle class="moving-node" cx="22" cy="4" r="2.1"></circle>
+              <text class="carrier-label" x="25.8" y="6.2">B</text>
+            </g>
 
-            <circle class="orbit-ring" cx="52" cy="88" r="20"></circle>
-            <circle class="moving-orbit bottom" cx="52" cy="88" r="15"></circle>
-            <path class="connector" d="M32 88 L82 109 L71 88"></path>
-            <circle class="node" cx="32" cy="88" r="3"></circle>
-            <circle class="node" cx="71" cy="88" r="3"></circle>
-            <circle class="node" cx="82" cy="109" r="3"></circle>
-            <text class="label" x="20" y="91" text-anchor="end">A<tspan baseline-shift="-35%" font-size="7">1</tspan></text>
-            <text class="label" x="78" y="91">A<tspan baseline-shift="-35%" font-size="7">0</tspan></text>
-            <text class="label" x="86" y="119">B</text>
-            <text class="small-label" x="76" y="101">y</text>
-            <text class="small-label" x="101" y="101">II</text>
-            <circle class="gold-node" cx="52" cy="31" r="1.7"></circle>
-            <circle class="gold-node" cx="52" cy="88" r="1.7"></circle>
+            <circle class="orbit-ring" cx="22" cy="36" r="10"></circle>
+            <path class="connector" d="M12 36 L35 45 L31 36" opacity="0.82"></path>
+            <circle class="node" cx="12" cy="36" r="1.7"></circle>
+            <circle class="node" cx="31" cy="36" r="1.7"></circle>
+            <circle class="node" cx="35" cy="45" r="1.7"></circle>
+            <text class="label" x="38.5" y="47">B</text>
+            <text class="small-label" x="77" y="39">II</text>
+            <g class="moving-carrier bottom">
+              <circle class="moving-node" cx="22" cy="26" r="2.1"></circle>
+              <text class="carrier-label" x="25.8" y="28.2">A</text>
+            </g>
           </svg>
         </div>
         <div class="loader-copy">
