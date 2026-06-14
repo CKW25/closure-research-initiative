@@ -213,7 +213,7 @@ async function checkLiveBackend(base, downloadKeys) {
   if (!askStatus?.corpus?.version) failures.push("Live /api/ask-status corpus version is malformed.");
 
   const askInfo = await readLiveJson(`${base}/api/ask`, "GET /api/ask");
-  if (askInfo?.name !== "Corpus Query") failures.push("Live /api/ask did not identify Corpus Query.");
+  if (askInfo?.name !== "CRI Research Assistant") failures.push("Live /api/ask did not identify the CRI Research Assistant.");
   if (askInfo?.corpus?.version !== askStatus?.corpus?.version) failures.push("Live /api/ask corpus version differs from /api/ask-status.");
   const notesRecord = askInfo?.corpus?.records?.find((record) => record.code === "notes");
   if (!notesRecord || notesRecord.title !== "Research Notes") failures.push("Live Ask manifest does not expose Research Notes for /notes/.");

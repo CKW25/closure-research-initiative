@@ -54,7 +54,7 @@ The Structural Map includes several neighboring programs. Rovelli's partial-obse
 - Reading guide: https://closureresearchinitiative.org/guide/
 - Preprints and downloads: https://closureresearchinitiative.org/preprints/
 - Research notes: https://closureresearchinitiative.org/notes/
-- Corpus Query: https://closureresearchinitiative.org/ask/
+- Research Assistant: https://closureresearchinitiative.org/ask/
 - Public prediction page: https://closureresearchinitiative.org/predictions/
 - Sources and citation hub: https://closureresearchinitiative.org/sources/
 
@@ -98,7 +98,7 @@ Use the current-version page URL and BibTeX block for current releases. The Sour
 
 ## Corpus Assistant
 
-Corpus Query is a public bounded research query interface at https://closureresearchinitiative.org/ask/. Its retrieval corpus is generated from the monograph, six public preprints, public research pages, llms.txt, and external-source BibTeX. It supports guide, locate, and cite modes. Its answers are instructed to use only retrieved corpus excerpts and cite those excerpts by source label; short in-session history is used only to interpret follow-up queries.
+Research Assistant is a public source-bound conversational interface at https://closureresearchinitiative.org/ask/. Its retrieval corpus is generated from the monograph, six public preprints, public research pages, llms.txt, and external-source BibTeX. It supports discuss, locate, and cite modes. Its answers are instructed to use only retrieved corpus excerpts and cite public excerpts by source label; short in-session history is used only to interpret follow-up queries.
 
 ## Crawl Guidance
 

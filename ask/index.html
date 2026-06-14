@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Query the Closure Research Initiative corpus: monograph, six public preprints, citation sources, and public research pages.">
-<meta property="og:title" content="Corpus Query &mdash; Closure Research Initiative">
-<meta property="og:description" content="A corpus-bound research query interface for the Closure Research Initiative monograph, six preprints, citation sources, and public research pages.">
+<meta name="description" content="Ask a source-bound Closure Research Initiative assistant over the monograph, six public preprints, citation sources, and public research pages.">
+<meta property="og:title" content="Research Assistant &mdash; Closure Research Initiative">
+<meta property="og:description" content="A source-bound research assistant for the Closure Research Initiative monograph, six preprints, citation sources, and public research pages.">
 <meta property="og:url" content="https://closureresearchinitiative.org/ask/">
 <link rel="canonical" href="https://closureresearchinitiative.org/ask/">
 <meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Corpus Query &mdash; Closure Research Initiative">
-<meta name="twitter:description" content="A corpus-bound research query interface for the Closure Research Initiative monograph, six preprints, citation sources, and public research pages.">
+<meta name="twitter:title" content="Research Assistant &mdash; Closure Research Initiative">
+<meta name="twitter:description" content="A source-bound research assistant for the Closure Research Initiative monograph, six preprints, citation sources, and public research pages.">
 <meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
 <meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
-<title>Corpus Query &mdash; Closure Research Initiative</title>
+<title>Research Assistant &mdash; Closure Research Initiative</title>
 <meta name="theme-color" content="#FAFAF8">
 <meta name="application-name" content="Closure Research Initiative">
 <meta name="apple-mobile-web-app-title" content="Closure Research">
@@ -34,10 +34,10 @@
   "@type": "WebApplication",
   "@id": "https://closureresearchinitiative.org/ask/#webapp",
   "url": "https://closureresearchinitiative.org/ask/",
-  "name": "Corpus Query",
+  "name": "Research Assistant",
   "applicationCategory": "ResearchApplication",
   "operatingSystem": "Web",
-  "description": "A corpus-bound research query interface for the Closure Research Initiative monograph, six public preprints, citation sources, and public research pages.",
+  "description": "A source-bound research assistant for the Closure Research Initiative monograph, six public preprints, citation sources, and public research pages.",
   "isPartOf": {
     "@id": "https://closureresearchinitiative.org/#website"
   },
@@ -471,10 +471,89 @@ nav span:not(:first-child)::before {
   color: var(--navy);
   font-weight: 600;
 }
+.turn-text p,
+.turn-text ul,
+.turn-text ol {
+  margin: 0.55rem 0;
+}
+.turn-text p:first-child,
+.turn-text ul:first-child,
+.turn-text ol:first-child {
+  margin-top: 0;
+}
+.turn-text p:last-child,
+.turn-text ul:last-child,
+.turn-text ol:last-child {
+  margin-bottom: 0;
+}
+.turn-text ul,
+.turn-text ol {
+  padding-left: 1.25rem;
+  white-space: normal;
+}
+.turn-text code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.9em;
+}
+.citation-ref {
+  color: var(--navy);
+  font-weight: 600;
+}
+.followups {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin: 0.9rem 0 0;
+}
+.followup-button {
+  border: 1px solid rgba(185,147,61,0.35);
+  border-radius: 999px;
+  background: rgba(185,147,61,0.07);
+  color: var(--navy);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.72rem;
+}
+.followup-button:hover,
+.followup-button:focus-visible {
+  border-color: var(--gold);
+  outline: none;
+}
+.sources-panel {
+  margin-top: 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--paper);
+}
+.sources-panel summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.75rem 0.85rem;
+}
+.sources-panel summary::-webkit-details-marker { display: none; }
+.sources-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  color: var(--navy);
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.source-count {
+  color: var(--muted);
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
 .sources-list {
   display: grid;
   gap: 0.75rem;
-  margin-top: 0.65rem;
+  padding: 0 0.85rem 0.85rem;
 }
 .source-card {
   border: 1px solid var(--border);
@@ -495,6 +574,15 @@ nav span:not(:first-child)::before {
   color: var(--muted);
   font-size: 0.8rem;
   line-height: 1.6;
+}
+.source-card details {
+  margin-top: 0.45rem;
+}
+.source-card summary {
+  color: var(--navy);
+  cursor: pointer;
+  font-size: 0.78rem;
+  padding: 0;
 }
 .hidden { display: none; }
 footer {
@@ -545,8 +633,8 @@ footer span { min-width: 0; }
     <div class="hero-logo">
       <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
     </div>
-    <h1>Corpus Query</h1>
-    <div class="subtitle">Corpus-bound guidance over the monograph, six public preprints, citation sources, and public research pages</div>
+    <h1>Research Assistant</h1>
+    <div class="subtitle">A source-bound conversation over the monograph, six public preprints, citation sources, and public research pages</div>
   </div>
 
   <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9790;</button>
@@ -571,21 +659,21 @@ footer span { min-width: 0; }
 
     <form class="ask-form" id="askForm">
       <fieldset class="mode-control" aria-label="Query mode">
-        <label><input type="radio" name="askMode" value="guide" checked><span>Guide</span></label>
+        <label><input type="radio" name="askMode" value="discuss" checked><span>Discuss</span></label>
         <label><input type="radio" name="askMode" value="locate"><span>Locate</span></label>
         <label><input type="radio" name="askMode" value="cite"><span>Cite</span></label>
       </fieldset>
-      <label for="question">Query</label>
-      <textarea class="ask-input" id="question" name="question" maxlength="1400" placeholder="Query rectangular completeness, comparison worlds, the prediction, citations, or where a claim is stated. Session context is retained for follow-up queries."></textarea>
+      <label for="question">Question</label>
+      <textarea class="ask-input" id="question" name="question" maxlength="1400" placeholder="Ask about a theorem, definition, proof dependency, citation, prediction, or where a claim is stated. Follow-up questions keep the session context."></textarea>
       <div class="ask-actions">
-        <button class="ask-button" id="askButton" type="submit">Submit Query</button>
+        <button class="ask-button" id="askButton" type="submit">Ask</button>
         <button class="clear-button" id="clearButton" type="button">Clear</button>
       </div>
     </form>
 
     <div class="examples" aria-label="Example questions">
-      <button class="example-button" type="button" data-mode="guide" data-question="What is rectangular completeness, and why is it forced by closure rather than added as an axiom?">Rectangular completeness</button>
-      <button class="example-button" type="button" data-mode="guide" data-question="Trace the theorem-level chain from primitive comparison data to quotient semantics, transport obstruction, curvature, and the S3 conclusion.">From comparison to geometry</button>
+      <button class="example-button" type="button" data-mode="discuss" data-question="What is rectangular completeness, and why is it forced by closure rather than added as an axiom?">Rectangular completeness</button>
+      <button class="example-button" type="button" data-mode="discuss" data-question="Trace the theorem-level chain from primitive comparison data to quotient semantics, transport obstruction, curvature, and the S3 conclusion.">From comparison to geometry</button>
       <button class="example-button" type="button" data-mode="locate" data-question="What is the current logical status of rectangular completeness, condition (T), axiom (D), and the S3 rigidity theorem?">Current theorem status</button>
     </div>
 
@@ -632,10 +720,15 @@ footer span { min-width: 0; }
     </div>
 
     <section class="answer-panel hidden" id="answerPanel" aria-live="polite">
-      <h2 class="answer-title">Query Record</h2>
+      <h2 class="answer-title">Conversation</h2>
       <div class="turns-list" id="turnsList"></div>
-      <h2 class="sources-title">Retrieved Sources</h2>
-      <div class="sources-list" id="sourcesList"></div>
+      <div class="followups hidden" id="followups" aria-label="Follow-up questions"></div>
+      <details class="sources-panel" id="sourcesPanel">
+        <summary>
+          <span class="sources-summary"><span>Retrieved sources</span><span class="source-count" id="sourceCount">0 sources</span></span>
+        </summary>
+        <div class="sources-list" id="sourcesList"></div>
+      </details>
     </section>
   </main>
 

@@ -8,7 +8,10 @@
   var status = document.getElementById('askStatus');
   var panel = document.getElementById('answerPanel');
   var turnsList = document.getElementById('turnsList');
+  var sourcesPanel = document.getElementById('sourcesPanel');
   var sourcesList = document.getElementById('sourcesList');
+  var sourceCount = document.getElementById('sourceCount');
+  var followups = document.getElementById('followups');
   var corpusLine = document.getElementById('corpusLine');
   var corpusLoader = document.getElementById('corpusLoader');
   var loaderCaption = document.getElementById('loaderCaption');
@@ -29,6 +32,12 @@
     history = [];
     turnsList.textContent = '';
     sourcesList.textContent = '';
+    if (followups) {
+      followups.textContent = '';
+      followups.classList.add('hidden');
+    }
+    if (sourcesPanel) sourcesPanel.classList.add('hidden');
+    if (sourceCount) sourceCount.textContent = '0 sources';
     panel.classList.add('hidden');
     setLoader(false);
     setStatus('');
@@ -49,7 +58,8 @@
       .then(function (data) {
         var chunkText = data && data.corpus ? data.corpus.chunks + ' indexed excerpts' : 'indexed corpus';
         var aiText = data && data.aiReady ? 'answer model ready' : 'answer model pending Cloudflare binding';
-        corpusLine.textContent = 'Corpus: monograph, six public preprints, site pages, and citation sources; ' + chunkText + '; ' + aiText + '.';
+        var retrieval = data && data.corpus && data.corpus.retrieval ? data.corpus.retrieval.replace('-', ' ') : 'static hybrid retrieval';
+        corpusLine.textContent = 'Corpus: monograph, six public preprints, site pages, and citation sources; ' + chunkText + '; ' + retrieval + '; ' + aiText + '.';
       })
       .catch(function () {
         corpusLine.textContent = 'Corpus: monograph, six public preprints, site pages, and citation sources.';
@@ -108,10 +118,11 @@
 
   function currentMode() {
     var selected = document.querySelector('input[name="askMode"]:checked');
-    return selected ? selected.value : 'guide';
+    return selected ? selected.value : 'discuss';
   }
 
   function setMode(value) {
+    if (value === 'guide') value = 'discuss';
     var input = document.querySelector('input[name="askMode"][value="' + value + '"]');
     if (input) input.checked = true;
   }
@@ -121,11 +132,11 @@
     if (stage === 'working') {
       if (mode === 'locate') return 'Locating the strongest corpus matches...';
       if (mode === 'cite') return 'Checking citation sources...';
-      return 'Reading the retrieved corpus excerpts...';
+      return 'Thinking through the retrieved corpus context...';
     }
     if (mode === 'locate') return 'Locations generated from retrieved corpus excerpts.';
     if (mode === 'cite') return 'Citation answer generated from retrieved corpus excerpts.';
-    return 'Answer generated from retrieved corpus excerpts.';
+    return 'Answer generated from the source-bound corpus.';
   }
 
   function rememberTurn(role, content) {
@@ -140,9 +151,23 @@
       appendTurn('user', questionText);
     }
     appendTurn('assistant', data.answer || 'No answer was returned.');
-    sourcesList.textContent = '';
+    renderSources(data.citations || []);
+    renderFollowups(data.suggestions || []);
+    panel.classList.remove('hidden');
+    panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
 
-    (data.citations || []).forEach(function (source) {
+  function renderSources(citations) {
+    sourcesList.textContent = '';
+    if (sourceCount) {
+      sourceCount.textContent = citations.length + (citations.length === 1 ? ' source' : ' sources');
+    }
+    if (sourcesPanel) {
+      sourcesPanel.classList.toggle('hidden', !citations.length);
+      sourcesPanel.removeAttribute('open');
+    }
+
+    citations.forEach(function (source) {
       var card = document.createElement('article');
       card.className = 'source-card';
 
@@ -154,20 +179,39 @@
 
       var meta = document.createElement('div');
       meta.className = 'source-meta';
-      meta.textContent = source.kind + ' - ' + source.code;
+      meta.textContent = source.kind + ' - ' + source.code + (source.locator ? ' - ' + source.locator : '');
 
+      var details = document.createElement('details');
+      var summary = document.createElement('summary');
+      summary.textContent = 'Evidence excerpt';
       var excerpt = document.createElement('div');
       excerpt.className = 'source-excerpt';
       excerpt.textContent = source.excerpt || '';
+      details.appendChild(summary);
+      details.appendChild(excerpt);
 
       card.appendChild(title);
       card.appendChild(meta);
-      card.appendChild(excerpt);
+      card.appendChild(details);
       sourcesList.appendChild(card);
     });
+  }
 
-    panel.classList.remove('hidden');
-    panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  function renderFollowups(suggestions) {
+    if (!followups) return;
+    followups.textContent = '';
+    suggestions.slice(0, 3).forEach(function (suggestion) {
+      var button = document.createElement('button');
+      button.className = 'followup-button';
+      button.type = 'button';
+      button.textContent = suggestion;
+      button.addEventListener('click', function () {
+        question.value = suggestion;
+        submitQuestion(suggestion);
+      });
+      followups.appendChild(button);
+    });
+    followups.classList.toggle('hidden', !followups.children.length);
   }
 
   function appendTurn(role, text) {
@@ -176,7 +220,7 @@
 
     var label = document.createElement('div');
     label.className = 'turn-label';
-    label.textContent = role === 'user' ? 'You' : 'Corpus response';
+    label.textContent = role === 'user' ? 'You' : 'CRI assistant';
 
     var body = document.createElement('div');
     body.className = 'turn-text';
@@ -188,7 +232,59 @@
   }
 
   function renderFormattedText(container, text) {
-    var pattern = /\*\*([^\n]+?)\*\*/g;
+    container.textContent = '';
+    var lines = String(text || '').replace(/\r/g, '').split('\n');
+    var index = 0;
+
+    while (index < lines.length) {
+      var line = lines[index];
+      if (!line.trim()) {
+        index += 1;
+        continue;
+      }
+
+      if (/^\s*[-*]\s+/.test(line)) {
+        var ul = document.createElement('ul');
+        while (index < lines.length && /^\s*[-*]\s+/.test(lines[index])) {
+          var li = document.createElement('li');
+          appendInline(li, lines[index].replace(/^\s*[-*]\s+/, ''));
+          ul.appendChild(li);
+          index += 1;
+        }
+        container.appendChild(ul);
+        continue;
+      }
+
+      if (/^\s*\d+\.\s+/.test(line)) {
+        var ol = document.createElement('ol');
+        while (index < lines.length && /^\s*\d+\.\s+/.test(lines[index])) {
+          var oli = document.createElement('li');
+          appendInline(oli, lines[index].replace(/^\s*\d+\.\s+/, ''));
+          ol.appendChild(oli);
+          index += 1;
+        }
+        container.appendChild(ol);
+        continue;
+      }
+
+      var paragraphLines = [];
+      while (
+        index < lines.length &&
+        lines[index].trim() &&
+        !/^\s*[-*]\s+/.test(lines[index]) &&
+        !/^\s*\d+\.\s+/.test(lines[index])
+      ) {
+        paragraphLines.push(lines[index].replace(/^#{1,4}\s+/, ''));
+        index += 1;
+      }
+      var paragraph = document.createElement('p');
+      appendInline(paragraph, paragraphLines.join('\n'));
+      container.appendChild(paragraph);
+    }
+  }
+
+  function appendInline(container, text) {
+    var pattern = /(\*\*[^*]+\*\*|`[^`]+`|\[S\d+\])/g;
     var lastIndex = 0;
     var match;
 
@@ -197,9 +293,21 @@
         container.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
       }
 
-      var strong = document.createElement('strong');
-      strong.textContent = match[1];
-      container.appendChild(strong);
+      var token = match[0];
+      if (token.indexOf('**') === 0) {
+        var strong = document.createElement('strong');
+        strong.textContent = token.slice(2, -2);
+        container.appendChild(strong);
+      } else if (token.indexOf('`') === 0) {
+        var code = document.createElement('code');
+        code.textContent = token.slice(1, -1);
+        container.appendChild(code);
+      } else {
+        var cite = document.createElement('span');
+        cite.className = 'citation-ref';
+        cite.textContent = token;
+        container.appendChild(cite);
+      }
       lastIndex = pattern.lastIndex;
     }
 
@@ -212,7 +320,7 @@
     askButton.disabled = value;
     clearButton.disabled = value;
     examples.forEach(function (button) { button.disabled = value; });
-    askButton.textContent = value ? 'Submitting...' : 'Submit Query';
+    askButton.textContent = value ? 'Thinking...' : 'Ask';
     setLoader(value);
   }
 

@@ -228,9 +228,9 @@
     launcher.id = 'askLauncher';
     launcher.className = 'ask-launcher';
     launcher.href = '/ask/';
-    launcher.setAttribute('aria-label', 'Open Corpus Query');
-    launcher.setAttribute('title', 'Open Corpus Query');
-    launcher.innerHTML = '<span aria-hidden="true">Q</span><strong>Corpus Query</strong>';
+    launcher.setAttribute('aria-label', 'Open Research Assistant');
+    launcher.setAttribute('title', 'Open Research Assistant');
+    launcher.innerHTML = '<span aria-hidden="true">?</span><strong>Ask CRI</strong>';
 
     var style = document.createElement('style');
     style.id = 'ask-launcher-style';
