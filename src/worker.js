@@ -207,7 +207,7 @@ async function handleAsk(request, env) {
     corpus: responseCorpus(),
     mode,
     model,
-    suggestions: suggestionsFor(question, mode, citations),
+    suggestions: suggestionsFor(question, mode, citations, answer),
     retrieval: "local-hybrid"
   };
   writeCachedAnswer(cacheKey, payload);
@@ -635,8 +635,8 @@ function responseManifest() {
   };
 }
 
-function suggestionsFor(question, mode, citations) {
-  const text = question.toLowerCase();
+function suggestionsFor(question, mode, citations, answer = "") {
+  const text = `${question} ${answer}`.toLowerCase();
   if (mode === "cite") {
     return [
       "Which work should I cite for the main theorem?",
@@ -651,6 +651,20 @@ function suggestionsFor(question, mode, citations) {
       "Which paper should I open first?"
     ];
   }
+  if (/not enough|not contain enough|missing support|weaker claim|not support/.test(text)) {
+    return [
+      "Which source comes closest to answering this?",
+      "What exact term should I search for?",
+      "What is known from the retrieved sources?"
+    ];
+  }
+  if (/conditional|hypotheses|requires|assuming|under the stated/.test(text)) {
+    return [
+      "List the hypotheses needed for this claim.",
+      "Which parts are proved and which are conditional?",
+      "Where does this condition enter the proof?"
+    ];
+  }
   if (/\bs3\b|s\^3|sphere|spherical|geometry/.test(text)) {
     return [
       "Is S3 assumed or derived?",
@@ -663,6 +677,20 @@ function suggestionsFor(question, mode, citations) {
       "What does rectangular completeness rule out?",
       "Where is this proved in the monograph?",
       "How does this relate to standard physical closure?"
+    ];
+  }
+  if (/second-jet|jet|faithfulness|torsion|detectability|\(t\)|\(d\)/.test(text)) {
+    return [
+      "Why is the second jet the needed level?",
+      "Where do condition (T) and axiom (D) enter?",
+      "What would fail at first jet?"
+    ];
+  }
+  if (/quotient|transport|obstruction|curvature|holonomy/.test(text)) {
+    return [
+      "Trace the dependency from quotient semantics to curvature.",
+      "Where is transport obstruction first defined?",
+      "How does this connect to the S3 theorem?"
     ];
   }
   if (/charge|millicharged|prediction|denominator/.test(text)) {

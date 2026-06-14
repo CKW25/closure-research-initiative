@@ -15,7 +15,14 @@
   var corpusLine = document.getElementById('corpusLine');
   var corpusLoader = document.getElementById('corpusLoader');
   var loaderCaption = document.getElementById('loaderCaption');
-  var examples = Array.prototype.slice.call(document.querySelectorAll('[data-question]'));
+  var examplesContainer = document.querySelector('.examples');
+  var defaultExamples = Array.prototype.slice.call(document.querySelectorAll('.examples [data-question]')).map(function (button) {
+    return {
+      label: button.textContent,
+      question: button.getAttribute('data-question') || '',
+      mode: button.getAttribute('data-mode') || 'discuss'
+    };
+  });
   var history = [];
 
   if (!form || !question) return;
@@ -38,19 +45,22 @@
     }
     if (sourcesPanel) sourcesPanel.classList.add('hidden');
     if (sourceCount) sourceCount.textContent = '0 sources';
+    restoreDefaultExamples();
     panel.classList.add('hidden');
     setLoader(false);
     setStatus('');
     question.focus();
   });
 
-  examples.forEach(function (button) {
-    button.addEventListener('click', function () {
+  if (examplesContainer) {
+    examplesContainer.addEventListener('click', function (event) {
+      var button = event.target.closest ? event.target.closest('[data-question]') : null;
+      if (!button || !examplesContainer.contains(button) || button.disabled) return;
       question.value = button.getAttribute('data-question') || '';
-      setMode(button.getAttribute('data-mode') || 'guide');
+      setMode(button.getAttribute('data-mode') || 'discuss');
       question.focus();
     });
-  });
+  }
 
   function loadStatus() {
     fetch('/api/ask-status', { cache: 'no-store' })
@@ -153,6 +163,7 @@
     appendTurn('assistant', data.answer || 'No answer was returned.');
     renderSources(data.citations || []);
     renderFollowups(data.suggestions || []);
+    renderExamplePrompts(data.suggestions || [], data.mode || currentMode());
     panel.classList.remove('hidden');
     panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
@@ -212,6 +223,53 @@
       followups.appendChild(button);
     });
     followups.classList.toggle('hidden', !followups.children.length);
+  }
+
+  function renderExamplePrompts(suggestions, mode) {
+    if (!examplesContainer) return;
+    var clean = uniqueSuggestions(suggestions);
+    if (!clean.length) {
+      restoreDefaultExamples();
+      return;
+    }
+
+    examplesContainer.textContent = '';
+    clean.slice(0, 3).forEach(function (suggestion) {
+      examplesContainer.appendChild(makeExampleButton({
+        label: suggestion,
+        question: suggestion,
+        mode: mode || 'discuss'
+      }));
+    });
+  }
+
+  function restoreDefaultExamples() {
+    if (!examplesContainer || !defaultExamples.length) return;
+    examplesContainer.textContent = '';
+    defaultExamples.forEach(function (item) {
+      examplesContainer.appendChild(makeExampleButton(item));
+    });
+  }
+
+  function makeExampleButton(item) {
+    var button = document.createElement('button');
+    button.className = 'example-button';
+    button.type = 'button';
+    button.setAttribute('data-mode', item.mode || 'discuss');
+    button.setAttribute('data-question', item.question || item.label || '');
+    button.textContent = item.label || item.question || '';
+    return button;
+  }
+
+  function uniqueSuggestions(suggestions) {
+    var seen = {};
+    return (suggestions || [])
+      .map(function (value) { return (value || '').replace(/\s+/g, ' ').trim(); })
+      .filter(function (value) {
+        if (!value || seen[value.toLowerCase()]) return false;
+        seen[value.toLowerCase()] = true;
+        return true;
+      });
   }
 
   function appendTurn(role, text) {
@@ -319,7 +377,9 @@
   function setBusy(value) {
     askButton.disabled = value;
     clearButton.disabled = value;
-    examples.forEach(function (button) { button.disabled = value; });
+    Array.prototype.slice.call(document.querySelectorAll('.examples [data-question]')).forEach(function (button) {
+      button.disabled = value;
+    });
     askButton.textContent = value ? 'Thinking...' : 'Ask';
     setLoader(value);
   }
