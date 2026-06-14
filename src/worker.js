@@ -5,6 +5,7 @@ const MODEL_SECONDARY = "@cf/meta/llama-3.1-8b-instruct-fast";
 const MAX_QUESTION_LENGTH = 1400;
 const MAX_HISTORY_TURNS = 6;
 const MAX_HISTORY_CHARS = 1800;
+const MAX_CONTEXTUAL_ASSISTANT_CHARS = 900;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_REQUESTS = 20;
 const RESPONSE_CACHE_TTL_MS = 6 * 60 * 1000;
@@ -149,8 +150,9 @@ async function handleAsk(request, env) {
   const cached = readCachedAnswer(cacheKey);
   if (cached) return json({ ...cached, cached: true });
 
+  const search = searchText(question, history);
   const matches = findMatches(question, 18, mode, history);
-  const terms = queryTerms(searchText(question, history));
+  const terms = queryTerms(search);
   const visibleMatches = matches.filter((match) => !isHiddenContext(match.chunk)).slice(0, 10);
   const hiddenMatches = matches.filter((match) => isHiddenContext(match.chunk)).slice(0, 3);
   const citations = visibleMatches.map((match, index) => citationFor(match.chunk, index + 1, match.score, terms));
@@ -158,7 +160,7 @@ async function handleAsk(request, env) {
 
   if (!citations.length) {
     return json({
-      answer: "I found orientation material in the corpus, but not enough public-facing source material to cite for that question. Try naming the paper, theorem topic, or phrase used on the site.",
+      answer: noCitationAnswer(question, history),
       citations: [],
       corpus: responseCorpus(),
       mode,
@@ -187,13 +189,13 @@ async function handleAsk(request, env) {
   let model = env.ASK_MODEL || MODEL_FALLBACK;
   try {
     const result = await runAnswerModel(env, model, prompt, mode);
-    answer = cleanAnswerText(extractText(result));
+    answer = finalizeAnswerText(extractText(result), citations);
   } catch (error) {
     if (model !== MODEL_SECONDARY) {
       try {
         model = MODEL_SECONDARY;
         const result = await runAnswerModel(env, model, prompt, mode);
-        answer = cleanAnswerText(extractText(result));
+        answer = finalizeAnswerText(extractText(result), citations);
       } catch (fallbackError) {
         return generationFailed(fallbackError, citations, mode);
       }
@@ -303,7 +305,20 @@ function searchText(question, history = []) {
     .slice(-2)
     .map((turn) => turn.content)
     .join(" ");
-  return `${question} ${recentUserContext}`.trim();
+  const assistantContext = contextDependentQuestion(question)
+    ? history
+        .filter((turn) => turn.role === "assistant")
+        .slice(-1)
+        .map((turn) => stripCitationLabels(turn.content).slice(0, MAX_CONTEXTUAL_ASSISTANT_CHARS))
+        .join(" ")
+    : "";
+  return `${question} ${recentUserContext} ${assistantContext}`.trim();
+}
+
+function contextDependentQuestion(question) {
+  const text = String(question || "").toLowerCase();
+  const terms = tokenize(text).filter((term) => !STOPWORDS.has(term));
+  return terms.length <= 4 || /\b(this|that|it|these|those|above|previous|claim|result|proof|source|citation|hypothesis|condition|step|there|here)\b/.test(text);
 }
 
 function findMatches(question, limit, mode = "discuss", history = []) {
@@ -541,14 +556,15 @@ function buildPrompt(question, citations, hiddenContext, mode, history) {
   const publicContext = citations
     .map((citation) => `[${citation.id}] ${citation.title}\nURL: ${citation.url}\nExcerpt: ${citation.excerpt}`)
     .join("\n\n");
+  const sourceMap = citations
+    .map((citation) => `[${citation.id}] ${citation.code}; ${citation.kind}; locator ${citation.locator}; ${citation.url}`)
+    .join("\n");
   const orientationContext = hiddenContext.length
     ? hiddenContext
         .map((source) => `[${source.id}] ${source.title}\nInternal note: ${source.excerpt}`)
         .join("\n\n")
     : "No internal orientation excerpts retrieved.";
-  const conversation = history.length
-    ? history.map((turn) => `${turn.role === "assistant" ? "Assistant" : "User"}: ${turn.content}`).join("\n")
-    : "No prior turns in this session.";
+  const conversation = formatConversation(history);
   const modeInstruction = modeInstructions(mode);
 
   return [
@@ -557,16 +573,19 @@ function buildPrompt(question, citations, hiddenContext, mode, history) {
       content: [
         "You are the CRI Research Assistant, a source-bound conversational guide for closureresearchinitiative.org.",
         "You may speak directly to the reader in a calm, clear, technically serious voice.",
-        "Use the conversation history only to understand follow-up references; use the retrieved excerpts as the sole authority for factual claims.",
+        "Treat the current question as part of a conversation. Resolve words such as this, that, it, the claim, the result, or the proof from the recent conversation when possible.",
+        "Use the conversation history only to understand follow-up references and the user's intent; use the retrieved excerpts as the sole authority for factual claims.",
         "Answer only from the supplied excerpts. Do not use outside knowledge or unstated assumptions.",
-        "Cite substantive claims with public bracketed source labels such as [S1] or [S2]; a citation may support a full sentence or paragraph.",
+        "Cite substantive claims with public bracketed source labels such as [S1] or [S2]. Use only labels present in the public source map.",
         "Internal orientation excerpts are labeled [I1], [I2], and so on. Use them only to understand the site structure or choose public sources.",
         "Never cite, quote, recommend, or mention internal orientation labels, LLMS Site Summary, or llms.txt in the final answer.",
         "If the excerpts support a weaker claim than the question asks for, state the weaker supported claim and name the missing support.",
         "If the excerpts do not support the answer, say that the retrieved corpus excerpts do not contain enough support.",
         "Do not invent theorem numbers, page numbers, URLs, paper titles, claims, or citations.",
         "Prefer useful synthesis over a string of excerpts, but keep every synthesis traceable to the source labels.",
+        "Do not sound promotional or defensive. Do not oversell the program. State logical status, scope, and boundaries exactly.",
         "Use concise Markdown when it improves readability: short paragraphs, bullets for dependencies, and bold labels sparingly.",
+        "Answer format: begin with a direct answer in one or two sentences; then give support, dependencies, or limits as needed. If the answer is conditional, include a brief Boundary sentence.",
         modeInstruction
       ].join(" ")
     },
@@ -576,6 +595,7 @@ function buildPrompt(question, citations, hiddenContext, mode, history) {
         `Mode: ${mode}`,
         `Recent conversation:\n${conversation}`,
         `Current question: ${question}`,
+        `Public source map, the only citation labels allowed:\n${sourceMap}`,
         `Public source excerpts for citation:\n${publicContext}`,
         `Internal orientation excerpts, not for citation:\n${orientationContext}`
       ].join("\n\n")
@@ -587,19 +607,24 @@ function modeInstructions(mode) {
   if (mode === "locate") {
     return [
       "For locate mode, act like a source locator.",
-      "Start with the best place to read, then list the most relevant source labels with one-sentence reasons.",
+      "Start with a line beginning 'Best place to read:' followed by the single strongest public source label.",
+      "Then list the most relevant source labels with one-sentence reasons.",
+      "If a follow-up asks where this is proved or defined, identify the source and locator supplied in the source map.",
       "Do not over-explain the theory unless needed to distinguish locations."
     ].join(" ");
   }
   if (mode === "cite") {
     return [
       "For cite mode, prioritize canonical citation details, DOI or URL evidence, and which work should be cited for which claim.",
-      "If the retrieved excerpts do not include a full citation field, say so instead of filling it in from memory."
+      "Start with a line beginning 'Use:' when a citation target is supported.",
+      "If the retrieved excerpts do not include a full citation field, say so instead of filling it in from memory.",
+      "Distinguish the canonical current-version citation from archived or superseded versions when the excerpts expose that distinction."
     ].join(" ");
   }
   return [
     "For discuss mode, answer as a patient technical interlocutor rather than a search-result snippet.",
     "Begin with the direct answer, then give the proof/status/dependency structure only as far as the retrieved excerpts support it.",
+    "When the question asks whether something is assumed, derived, theorem-level, conditional, or open, state the logical status explicitly.",
     "When helpful, end with a brief next-reading route through the cited public sources."
   ].join(" ");
 }
@@ -614,19 +639,52 @@ function extractText(result) {
   return "";
 }
 
-function cleanAnswerText(value) {
+function finalizeAnswerText(value, citations = []) {
+  const cleaned = cleanAnswerText(value, citations);
+  if (!cleaned) return "";
+  if (!citations.length || /\[S\d+\]/.test(cleaned)) return cleaned;
+  const trail = citations
+    .slice(0, 3)
+    .map((citation) => `[${citation.id}] ${citation.title}`)
+    .join("; ");
+  return `${cleaned}\n\nClosest retrieved public sources: ${trail}.`;
+}
+
+function cleanAnswerText(value, citations = []) {
+  const validPublicLabels = new Set(citations.map((citation) => citation.id));
   const text = String(value || "").trim();
-  const publicLines = text
-    .split(/\n+/)
-    .filter((line) => !/\[I\d+\]|\bLLMS Site Summary\b|\bllms\.txt\b/i.test(line));
-  const cleaned = (publicLines.length ? publicLines.join("\n") : text)
+  const cleaned = text
     .replace(/\s*\[I\d+\]/g, "")
+    .replace(/\[S\d+\]/g, (label) => (validPublicLabels.has(label.slice(1, -1)) ? label : ""))
     .replace(/\baccording to (?:the )?(?:LLMS Site Summary|llms\.txt),?\s*/gi, "")
     .replace(/\b(?:LLMS Site Summary|llms\.txt)\b/gi, "");
   return cleaned
     .replace(/[ \t]{2,}/g, " ")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+}
+
+function stripCitationLabels(value) {
+  return String(value || "")
+    .replace(/\[[SI]\d+\]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function formatConversation(history = []) {
+  if (!history.length) return "No prior turns in this session.";
+  return history
+    .map((turn) => {
+      const role = turn.role === "assistant" ? "Assistant" : "User";
+      return `${role}: ${stripCitationLabels(turn.content).slice(0, 700)}`;
+    })
+    .join("\n");
+}
+
+function noCitationAnswer(question, history = []) {
+  const terms = queryTerms(searchText(question, history)).slice(0, 6);
+  const termHint = terms.length ? ` Useful search terms from the question are: ${terms.join(", ")}.` : "";
+  return `I do not find enough public-facing corpus material to cite for that question. Try naming the paper, theorem topic, definition label, or exact phrase used on the site.${termHint}`;
 }
 
 function responseCorpus() {
