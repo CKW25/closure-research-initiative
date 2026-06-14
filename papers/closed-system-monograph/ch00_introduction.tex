@@ -1,44 +1,40 @@
 % !TeX root = closed-systems-from-comparison-completeness.tex
 % ============================================================
 \chapter*{Introduction}
+\phantomsection
 \addcontentsline{toc}{chapter}{Introduction}
 \label{ch:introduction}
 % ============================================================
-A mathematically closed physical theory must be written without
-external scaffolding.
-If observers, clocks, laboratories, comparison protocols, and measuring
-conventions are all internal to the same world being modeled, then no
-background manifold, state-space linearity, causal order, field content,
-or observer frame can be accepted as primitive by convention alone.
-Such structure is admissible only when it is recovered from intrinsic
-relational data, or when the text explicitly marks it as boundary data for
-a later realized reading.
-The external-time and external-reference issues motivating this stance
-are familiar from the problem-of-time literature in canonical quantum
-gravity \cite{Isham1993,Kuchar1992,Anderson2017}; the present manuscript
-uses them only as context for the closure requirement stated below.
+This introduction begins the formal argument.
+The problem is to describe a world in which the agents, clocks,
+comparison protocols, reports, and measuring conventions are themselves
+internal to the object being modeled.
+In such a setting, a background manifold, state-space linearity, causal
+order, field content, observer frame, or measurement scale cannot be used
+as the primitive source of distinctions.
+Those structures may appear later, but only after the text has fixed
+their status as reconstructed structure, realization data, or boundary
+data.
 
-The purpose of the monograph is to make that requirement into a
-mathematical classification problem.
-The primitive data are not a manifold, not a Hilbert space, not a field
-bundle, and not a causal order.
-They are states equipped with binary comparison predicates.
-The central question is then structural:
-which objects can be reconstructed from those predicates, which apparent
-distinctions fail to descend through the internal symmetries, and which
-additional data must remain explicitly marked at a realization interface?
+The primitive object is deliberately small.
+It is not a manifold, a Hilbert space, a field bundle, or a causal order.
+It is a set of states equipped with binary comparison predicates.
+The first task is to specify which predicates count as intrinsic.
+The second is to determine what quotient semantics, transport residue,
+smooth realization, and observer-side readings are forced or permitted
+once the system is required to close over its own comparison data.
 
-The central claim is that the admissible architecture is highly rigid.
-Once closed-world admissibility is imposed, quotient semantics,
-transport structure, the first stable obstruction layer, and the
-intrinsic--smooth interface are mathematically constrained.
-Geometric, field-theoretic, scalar, matter-sector, and state-side
-reconstruction statements then enter downstream from those constraints.
-The direction of explanation is therefore reversed from the usual
-background-first presentation: the manuscript does not begin with a
-space on which fields live, but with comparison data whose closure
-conditions determine which geometric and field-theoretic readings are
-admissible.
+The resulting problem is a mathematical classification problem.
+Which distinctions survive descent through the intrinsic symmetries?
+Which structures are forced by comparison completeness and transport
+obstruction?
+Which familiar smooth or field-theoretic objects enter only at a
+realization interface?
+External-time and external-reference issues familiar from canonical
+quantum gravity motivate the closure requirement
+\cite{Isham1993,Kuchar1992,Anderson2017}, but the present manuscript uses
+that literature only as context.  The formal object of study is the
+comparison system defined below.
 
 \medskip
 \noindent
@@ -350,80 +346,32 @@ It is a sharpened criterion for admissibility in closed-system modeling:
 which constructions remain valid when all external reference structures
 are removed.
 
-\section{Organization of the manuscript}
+\section{Organization of the proof}
 \label{sec:paper}
-The manuscript is organized as a dependency-driven argument rather than a
-collection of independent chapters.
+The detailed reading paths are given in the Reader Guide.  The proof
+itself has a single dependency order.
+\Cref{ch:foundation,ch:bottom,ch:rotation,ch:closure} fix the
+finite-to-global boundary, derive comparison completeness, and establish
+quotient semantics.  \Cref{ch:locus,ch:lift,ch:triangles,ch:descent_obstruction,ch:bridge}
+classify enrichment and isolate transport obstruction.  The middle
+chapters then pass from obstruction to observer reduction, spacetime
+interleaving, curvature, and the intrinsic--smooth interface.  The later
+chapters treat the realized Hilbert, Einstein-boundary, connection,
+electromagnetic, scalar, matter-sector, numerical, and state-side
+consequences under their stated hypotheses.
 
-\textbf{Foundational phase.}
-\Cref{ch:foundation,ch:bottom,ch:rotation,ch:closure} establish the
-finite-to-global admissibility boundary, derive comparison completeness,
-force quotient semantics, and isolate the subsystem-attribution boundary.
-This phase fixes the semantic backbone of the closed system.
-
-\textbf{Classification and obstruction phase.}
-\Cref{ch:locus,ch:lift,ch:triangles,ch:descent_obstruction,ch:bridge}
-prove the universal two-locus enrichment classification and identify the
-first nontrivial transport obstruction through finite and global
-representatives of the same defect.
-
-\textbf{Dynamical and geometric phase.}
-\Cref{ch:flow,ch:stitching,ch:christoffel,ch:interface,ch:causality}
-translate the obstruction framework into the internal
-observer-reduction framework, the conditional regime of compatible
-irreversible descent, spacetime interleaving, curvature realization,
-and macroscopic causal structure.
-
-\textbf{Macroscopic compatibility and field-theoretic phase.}
-\Cref{ch:hilbert,ch:einstein,ch:connection,ch:em} derive determined Hilbert
-structure, the Einstein compatibility boundary, connection-first
-reconstruction, and electromagnetic phase/charge structure from the same
-intrinsic chain.
-
-\textbf{Scalar-sector and numerical-closure phase.}
-\Cref{ch:matter,ch:matter-numbers,ch:numerical-closure,ch:matter-realization}
-classify primitive matter sectors, derive the quartic depth law and
-intrinsic scalar closure, and determine the canonical realization role of
-the scalar invariant before any appendix-level application.
-
-\textbf{State-side reconstruction extension.}
-\Cref{ch:dynamics-program} studies the limit observable algebra after the
-realization stack is in place. It proves raw inexhaustibility, identifies
-the fiber-separating excess, isolates the scale-coherence condition
-\textup{(U)} selecting the maximal readable sector, and identifies
-derivations of the smooth regular sector with vector fields and
-transport-stabilizing derivations with connection automorphisms up to
-gauge.
-
-\textbf{Concrete downstream realization.}
-\Cref{app:fusion} then shows that the scalar channel already fixed by the
-main stack yields a concrete nonperturbative adiabatic invariant in
-magnetic confinement.
-
-\section{How to read this book}
-A natural first reading is theorem-driven:
-\cref{ch:foundation,ch:closure,ch:locus,ch:bridge,ch:interface,ch:einstein,ch:em,ch:matter,ch:numerical-closure,ch:dynamics-program}.
-This path isolates the main boundary and rigidity statements with minimal
-technical detours.
-
-A second reading is construction-driven:
-\cref{ch:bottom,ch:lift,ch:descent_obstruction,ch:flow,ch:stitching,ch:christoffel,ch:connection,ch:matter-numbers,ch:matter-realization,ch:dynamics-program,app:fusion}.
-This path foregrounds explicit constructions and realization mechanisms.
-
-Both readings are equivalent in conclusion:
-for closed relational systems satisfying the stated hypotheses, the
-admissible global architecture is determined by the comparison and
-transport stack rather than by an independently supplied background.
+Thus the chapter order is not only expository.  It records the order in
+which structures become admissible.
 
 \section{Conclusion}
 \label{sec:introduction-conclusion}
-This introduction states the manuscript's governing theorem program in
-exact form: within a closed world, admissible structure must be derived
-from intrinsic comparison data and not posited as external background.
-The chapter architecture is therefore a proof architecture, ordered from
-compactness and quotient semantics through transport obstruction to
-geometric, field-theoretic, scalar, realization-level, and state-side
-reconstruction results.
+This introduction fixes the mathematical entry point of the manuscript:
+primitive comparison data, closed-world admissibility, and the structural
+theorem whose proof is distributed across the book.  The chapter
+architecture is therefore a proof architecture, ordered from compactness
+and quotient semantics through transport obstruction to geometric,
+field-theoretic, scalar, realization-level, and state-side reconstruction
+results.
 
 Accordingly, \cref{ch:foundation} is logically first: it determines the
 finite-to-global admissibility boundary that is reused by every later
