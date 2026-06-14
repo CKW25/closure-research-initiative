@@ -369,7 +369,10 @@ nav span:not(:first-child)::before {
 .corpus-loader {
   display: flex;
   align-items: center;
+  align-self: flex-start;
   gap: 0.55rem;
+  width: fit-content;
+  max-width: 100%;
   margin: 0.55rem 0 0;
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -467,6 +470,7 @@ nav span:not(:first-child)::before {
 }
 .loader-copy {
   min-width: 0;
+  max-width: 22rem;
 }
 .loader-kicker {
   display: block;
