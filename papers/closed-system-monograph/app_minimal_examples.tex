@@ -1,0 +1,177 @@
+% !TeX root = closed-systems-from-comparison-completeness.tex
+% ============================================================
+\chapter{Minimal Examples and Failure Modes}
+\label{app:minimal-examples}
+% ============================================================
+\begin{chapterorientation}
+\orientationitem{Purpose}{This appendix supplies small models that test the definitions used in the main text.}
+\orientationitem{Status}{The examples are illustrative.  They do not replace the proofs in the chapters where the corresponding results are established.}
+\orientationitem{Use}{Each example identifies the relevant theorem or definition and the failure mode it is meant to isolate.}
+\end{chapterorientation}
+
+The body of the monograph is theorem-first.  This appendix records
+minimal examples and failure modes so that the main definitions can be
+checked without carrying the full stack at once.  Each example is
+deliberately small.  Its role is to isolate one structural distinction,
+not to model a physical system in full.
+
+\section{A missing rectangle}
+\label{app:example-missing-rectangle}
+Let
+\[
+	A=\{a_0,a_1\},\qquad B=\{b_0,b_1\},
+\]
+and consider the subset
+\[
+	U=\{(a_0,b_0),(a_1,b_0),(a_0,b_1)\}\subset A\times B.
+\]
+The left and right coordinates define two profile maps.  The realized
+left profiles are \(a_0,a_1\), and the realized right profiles are
+\(b_0,b_1\), but the pair \((a_1,b_1)\) is absent.
+
+Thus \(U\) has the two marginal profile families but not their full
+product.  In the language of \cref{def:rect}, it is not rectangularly
+complete.  Adding the missing state \((a_1,b_1)\) gives the completion
+\[
+	U^{+}=A\times B.
+\]
+No old coordinate pair is changed by this addition.  The example is the
+finite prototype for the distinction used in
+\cref{lem:conservative-completion-dichotomy}: an omitted profile is
+either internally excluded by the comparison predicates or it is a
+conservative omission.
+
+\section{A conservative omission is not closed}
+\label{app:example-conservative-omission}
+Continue with \(U\subset A\times B\) from
+\cref{app:example-missing-rectangle}.  Suppose the comparison predicates
+only read the left profile, the right profile, and equality of those
+profiles where they are defined.  Then adding \((a_1,b_1)\) does not
+alter the comparison values among the old states.  The omission is
+therefore conservative relative to the old comparison algebra.
+
+The point is not that every omission is conservative.  The point is that
+a closed intrinsic comparison world cannot omit a profile whose
+realization would preserve all old finite-coordinate comparison data.
+This is the finite example behind
+\cref{cor:closure-forbids-conservative-omission} and the
+rectangular-completeness theorem
+\cref{thm:rectangular-completeness-intrinsicality}.
+
+\section{A quotient report and a non-descending report}
+\label{app:example-nondescending-report}
+Let \(X=\{x_0,x_1\}\), and let \(G=\mathbb Z/2\mathbb Z\) act by
+interchanging \(x_0\) and \(x_1\).  The quotient
+\[
+	\pi:X\to X/G
+\]
+has a single orbit.  A report
+\[
+	R:X\to\{0,1\},\qquad R(x_0)=0,\quad R(x_1)=1,
+\]
+does not descend to the quotient, because it is not constant on the
+orbit fibre.  The constant report \(R_0(x_0)=R_0(x_1)=0\) does descend.
+
+This is the minimal form of the descent condition in
+\cref{thm:descent}: coherent physical reports are precisely those
+representative-level reports that are constant on the quotient fibres.
+Representative labels may still be useful in a calculation, but they
+are not physical data unless the report descends.
+
+\section{Twin supported descriptions}
+\label{app:example-twin-descriptions}
+Let \(\Gamma(t)\) and \(\widetilde\Gamma(t)\) be two representative
+paths in a \(G\)-space \(X\), with
+\[
+	\widetilde\Gamma(t)=g(t)^{-1}\cdot\Gamma(t).
+\]
+Then
+\[
+	\pi(\Gamma(t))=\pi(\widetilde\Gamma(t))
+\]
+for every \(t\).  A description in which the \(A\)-side is held fixed
+and the \(B\)-side carries the motion, and a twin description in which
+the \(B\)-side is held fixed and the \(A\)-side carries the motion, can
+therefore determine the same quotient path in \(\Phys=X/G\).
+
+No coherent report distinguishes the two descriptions unless it uses
+representative data that fail to descend.  This is the small model
+behind the orbit-equivalent supported representatives of
+\cref{ch:rotation}.  It records the logical content of the twin-loop
+figure: the equality is equality of physical report values, not equality
+of representative states or comparison arrows.
+
+\section{Endpoint data do not determine route data}
+\label{app:example-route-fibre}
+Let a protocol category contain two distinct paths
+\[
+	p,q:a\to b
+\]
+with the same source and target.  Let a route assignment \(H\) satisfy
+\[
+	H(p)\ne H(q).
+\]
+Then \(H\) cannot be a function of endpoint data alone.  It is not
+constant on the endpoint fibre.  Conversely, any assignment that is
+constant on every endpoint fibre factors through endpoint data.
+
+This is the elementary form of the factorization criterion used
+throughout the transport chapters.  Holonomy, loop defect, and
+descent obstruction enter exactly when route data carry information not
+recoverable from endpoints alone.
+
+\section{A ghost carrier}
+\label{app:example-ghost-carrier}
+Let \(K\) be a two-dimensional real vector space with basis
+\(\{e_1,e_2\}\), and let a realized second-jet comparison map be
+\[
+	J:K\to\mathbb R,
+	\qquad
+	J(e_1)=1,\quad J(e_2)=0.
+\]
+Then \(e_2\ne 0\) is an intrinsic carrier direction that is invisible to
+the realized second-jet reading.  It lies in the ghost kernel of \(J\).
+
+This is the finite linear prototype for the ghost-sector analysis in
+\cref{sec:interface-ghosts}.  Condition \textup{(D)} rules out precisely
+this kind of invisible intrinsic carrier in the realized branch, while
+condition \textup{(T)} controls the torsion-side ambiguity.  Without the
+ghost-free regime, the smooth realization may fail to read all
+intrinsic degree--\(2\) obstruction data.
+
+\section{Local flatness and global closure}
+\label{app:example-local-flat-global-closed}
+Let \(S^1_R\) be a circle of radius \(R\), parameterized by arc length.
+For separations \(d\ll R\), an interval in \(S^1_R\) is locally
+indistinguishable from an interval in \(\mathbb R\) up to curvature
+corrections of higher order.  Globally, however, the circle closes:
+moving far enough along the same geodesic returns to the starting
+point.
+
+The higher-dimensional spherical case has the same logical form.  Local
+coordinates may read a small region as approximately flat, while the
+global topology is closed.  This example is not a proof of the
+manifold-stage \(S^3\) result.  It records the distinction needed in
+\cref{ch:connection}: local smooth realization and global closure are
+different questions.
+
+\section{A normalization obstruction}
+\label{app:example-normalization}
+Suppose a positive scalar channel determines only ratios
+\[
+	\frac{s_i}{s_j}.
+\]
+Then multiplying every scalar by the same positive constant leaves all
+ratios unchanged.  No internal comparison among ratios can select the
+absolute unit.  An external calibration would fix the scale, but that
+calibration is not produced by the ratio data themselves.
+
+This is the minimal form of the normalization obstruction used in the
+numerical closure chapters.  Internal structure can determine exact
+dimensionless ratios while leaving an absolute normalization as boundary
+data.
+
+\begin{chapterclosing}
+\closingitem{Established}{The principal definitions have been tested against finite examples and failure modes.}
+\closingitem{Carried forward}{The examples provide a compact reference for readers checking the abstract definitions in the main theorem chain.}
+\end{chapterclosing}

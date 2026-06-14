@@ -92,6 +92,8 @@
   };
 
   var archiveCarryoverBaselines = {
+    'archive/csm/csm-v9.pdf': 146,
+    'archive/csm/csm-v9-latex.zip': 14,
     'archive/csm/csm-v8.pdf': 143,
     'archive/csm/csm-v8-latex.zip': 14,
     'archive/csm/csm-v7.pdf': 143,
