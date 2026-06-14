@@ -428,6 +428,20 @@ a:hover { text-decoration-color: var(--gold); }
 .flrw-closure-diagram .target-dot {
   fill: var(--gold);
 }
+.flrw-closure-diagram .flrw-motion-trace {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.72;
+  pointer-events: none;
+}
+.flrw-closure-diagram .flrw-parameter-dot {
+  fill: var(--gold);
+  stroke: var(--paper);
+  stroke-width: 1.4;
+  pointer-events: none;
+}
 .flrw-closure-diagram text {
   letter-spacing: 0;
 }
@@ -544,6 +558,18 @@ a:hover { text-decoration-color: var(--gold); }
   fill: var(--gold);
   stroke: var(--paper);
   stroke-width: 1.3;
+}
+.flrw-mobile-panel svg .m-motion-trace {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  opacity: 0.72;
+}
+.flrw-mobile-panel svg .m-moving-dot {
+  fill: var(--gold);
+  stroke: var(--paper);
+  stroke-width: 1.2;
 }
 .flrw-mobile-panel svg text {
   fill: var(--muted);
@@ -906,7 +932,7 @@ footer span { min-width: 0; }
     </div>
     <div class="live-comparison-text">
       <h4 id="live-comparison-title">The support assignment is not the invariant content.</h4>
-      <p>The three presentations display different representative choices for following a comparison relation. The closed-system question is not which endpoint carries absolute motion, but whether that support assignment descends to the quotient. In the twin-loop setting it does not: only the comparison value whose report factors through the quotient has physical status.</p>
+      <p>The three presentations display different representative choices for following a comparison relation. The closed-system question is not which endpoint carries absolute motion, but whether that support assignment, the attribution of the change to A or to B, descends to the quotient. In the twin-loop setting it does not: only the comparison value whose report factors through the quotient has physical status.</p>
       <p class="source-line">Formal source: <a href="/ccw/">Closed Comparison Worlds</a> and <a href="/csm/">CSM</a> Chapters 4&ndash;6 on quotient semantics and report descent.</p>
     </div>
   </aside>
@@ -992,6 +1018,12 @@ footer span { min-width: 0; }
       <line class="axis-line" x1="95" y1="188" x2="345" y2="188" marker-end="url(#flrw-arrow)" />
       <circle class="observer-dot" cx="116" cy="188" r="5.5" />
       <circle class="target-dot" cx="266" cy="188" r="5" />
+      <path class="flrw-motion-trace" d="M 116 188 L 266 188" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1">
+        <animate attributeName="stroke-dashoffset" dur="4.4s" repeatCount="indefinite" values="1;0;0" keyTimes="0;0.76;1"></animate>
+      </path>
+      <circle class="flrw-parameter-dot" cx="116" cy="188" r="4.4">
+        <animate attributeName="cx" dur="4.4s" repeatCount="indefinite" calcMode="linear" values="116;134.8;153.5;172.3;191;209.8;228.5;247.3;266;266" keyTimes="0;0.095;0.19;0.285;0.38;0.475;0.57;0.665;0.76;1"></animate>
+      </circle>
       <text class="math-emph" x="108" y="168" text-anchor="middle">O</text>
       <text class="math-emph" x="266" y="168" text-anchor="middle">X</text>
       <text class="axis-label" x="190" y="217" text-anchor="middle">local separation D<tspan baseline-shift="sub" font-size="9">C</tspan></text>
@@ -1003,6 +1035,13 @@ footer span { min-width: 0; }
       <path class="return-arc" d="M 651 147 A 66 66 0 1 1 535 191" />
       <circle class="observer-dot" cx="534" cy="190" r="5.5" />
       <circle class="target-dot" cx="651" cy="147" r="5" />
+      <path class="flrw-motion-trace" d="M 534 190 A 66 66 0 0 1 651 147" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1">
+        <animate attributeName="stroke-dashoffset" dur="4.4s" repeatCount="indefinite" values="1;0;0" keyTimes="0;0.76;1"></animate>
+      </path>
+      <circle class="flrw-parameter-dot" cx="534" cy="190" r="4.4">
+        <animate attributeName="cx" dur="4.4s" repeatCount="indefinite" calcMode="linear" values="534;537;545.9;559.8;577.4;597;617;635.3;651;651" keyTimes="0;0.095;0.19;0.285;0.38;0.475;0.57;0.665;0.76;1"></animate>
+        <animate attributeName="cy" dur="4.4s" repeatCount="indefinite" calcMode="linear" values="190;170.2;152.2;137.7;128;124.1;126.2;134.3;147;147" keyTimes="0;0.095;0.19;0.285;0.38;0.475;0.57;0.665;0.76;1"></animate>
+      </circle>
       <text class="math-emph" x="518" y="194" text-anchor="end">O</text>
       <text class="math-emph" x="666" y="143">X</text>
       <text class="formula-main" x="600" y="284" text-anchor="middle">D<tspan baseline-shift="sub" font-size="15">M</tspan> = R<tspan baseline-shift="sub" font-size="15">c</tspan> sin(D<tspan baseline-shift="sub" font-size="15">C</tspan>/R<tspan baseline-shift="sub" font-size="15">c</tspan>)</text>
@@ -1024,6 +1063,12 @@ footer span { min-width: 0; }
           <line class="m-line" x1="42" y1="62" x2="282" y2="62" marker-end="url(#flrw-mobile-arrow-flat)" />
           <circle class="m-dot" cx="58" cy="62" r="5" />
           <circle class="m-dot-gold" cx="202" cy="62" r="5" />
+          <path class="m-motion-trace" d="M 58 62 L 202 62" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1">
+            <animate attributeName="stroke-dashoffset" dur="4.4s" repeatCount="indefinite" values="1;0;0" keyTimes="0;0.76;1"></animate>
+          </path>
+          <circle class="m-moving-dot" cx="58" cy="62" r="4.2">
+            <animate attributeName="cx" dur="4.4s" repeatCount="indefinite" calcMode="linear" values="58;76;94;112;130;148;166;184;202;202" keyTimes="0;0.095;0.19;0.285;0.38;0.475;0.57;0.665;0.76;1"></animate>
+          </circle>
           <text class="m-math" x="51" y="47">O</text>
           <text class="m-math" x="198" y="47">X</text>
           <text x="130" y="86" text-anchor="middle">local separation D<tspan baseline-shift="sub" font-size="8">C</tspan></text>
@@ -1045,6 +1090,13 @@ footer span { min-width: 0; }
           <path class="m-return" d="M 203 36 A 56 56 0 1 1 105 73" />
           <circle class="m-dot" cx="104" cy="72" r="5" />
           <circle class="m-dot-gold" cx="203" cy="36" r="5" />
+          <path class="m-motion-trace" d="M 104 72 A 56 56 0 0 1 203 36" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1">
+            <animate attributeName="stroke-dashoffset" dur="4.4s" repeatCount="indefinite" values="1;0;0" keyTimes="0;0.76;1"></animate>
+          </path>
+          <circle class="m-moving-dot" cx="104" cy="72" r="4.2">
+            <animate attributeName="cx" dur="4.4s" repeatCount="indefinite" calcMode="linear" values="104;106.6;114.1;125.9;140.9;157.6;174.5;190.1;203;203" keyTimes="0;0.095;0.19;0.285;0.38;0.475;0.57;0.665;0.76;1"></animate>
+            <animate attributeName="cy" dur="4.4s" repeatCount="indefinite" calcMode="linear" values="72;55.2;39.9;27.6;19.4;16.1;17.9;24.8;36;36" keyTimes="0;0.095;0.19;0.285;0.38;0.475;0.57;0.665;0.76;1"></animate>
+          </circle>
           <text class="m-math" x="86" y="73">O</text>
           <text class="m-math" x="215" y="33">X</text>
         </svg>
@@ -1053,7 +1105,7 @@ footer span { min-width: 0; }
 
       <div class="flrw-mobile-limit">D<sub>C</sub> &lt;&lt; R<sub>c</sub> implies R<sub>c</sub> sin(D<sub>C</sub>/R<sub>c</sub>) &approx; D<sub>C</sub></div>
     </div>
-    <figcaption id="overview-flrw-closure-caption">Schematic comparison of the standard FLRW transverse-distance functions. The closure claim is not that standard cosmological distance relations are discarded; the flat R&sup3; case is the local or large-curvature-radius approximation to a closed S&sup3; realization when the closure hypotheses are in force. The formulas shown are the standard distance-measure forms reviewed by Hogg [12]; present data strongly constrain spatial curvature near zero, which is compatible with a large-radius closed model but does not by itself determine global topology [13].</figcaption>
+    <figcaption id="overview-flrw-closure-caption">Schematic comparison of the standard FLRW transverse-distance functions. The gold overlays advance synchronously in the same comoving parameter D<sub>C</sub>: in the flat chart the marker follows the ray, while in the closed case it follows the great-circle arc. The closure claim is not that standard cosmological distance relations are discarded; the flat R&sup3; case is the local or large-curvature-radius approximation to a closed S&sup3; realization when the closure hypotheses are in force. The formulas shown are the standard distance-measure forms reviewed by Hogg [12]; present data strongly constrain spatial curvature near zero, which is compatible with a large-radius closed model but does not by itself determine global topology [13].</figcaption>
   </figure>
 
   <p>The disagreement with standard frameworks is therefore architectural rather than dismissive. Closure does not compete with general relativity or quantum field theory as a rival phenomenological formalism. It asks whether the structures those formalisms use with such success can be recovered from a prior closed-system discipline: intrinsic comparison data, quotient semantics, and transport obstruction. Where they are derived, they cease to be primitive. Where they are not yet derived, they are recorded as interface conditions between the relational core and the standard physical framework.</p>
