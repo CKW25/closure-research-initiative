@@ -567,7 +567,72 @@ a:hover { text-decoration-color: var(--gold); }
   font-size: 0.78rem;
   line-height: 1.6;
 }
+.live-comparison-panel {
+  max-width: 780px;
+  margin: -0.25rem auto 1.45rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: minmax(5.5rem, 7.25rem) 1fr;
+  gap: 1.15rem;
+  align-items: center;
+}
+.live-comparison-visual {
+  width: 100%;
+  max-width: 7.25rem;
+  justify-self: center;
+}
+.live-comparison-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.live-comparison-svg .live-orbit {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.35;
+  stroke-dasharray: 4 4;
+  opacity: 0.58;
+}
+.live-comparison-svg .live-edge {
+  stroke: var(--gold);
+  stroke-linecap: round;
+  stroke-width: 1.25;
+  opacity: 0.68;
+}
+.live-comparison-svg .live-point {
+  fill: var(--gold);
+  stroke: var(--paper);
+  stroke-width: 0.9;
+}
+.live-comparison-text h4 {
+  margin: 0 0 0.35rem;
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.06rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+.live-comparison-text p {
+  margin: 0.35rem 0 0;
+  color: var(--text);
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+.live-comparison-text .source-line {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
 @media (max-width: 640px) {
+  .live-comparison-panel {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    text-align: left;
+  }
+  .live-comparison-visual {
+    max-width: 6rem;
+  }
   .concept-figure.flrw-closure-figure .flrw-closure-diagram {
     display: none;
   }
@@ -751,6 +816,34 @@ footer span { min-width: 0; }
     </svg>
     <figcaption id="overview-twin-loops-caption">Two representative histories can differ in subsystem attribution while projecting to the same physical quotient history. The edge labels x and y denote comparison-relation values; the heading x = y denotes equality of report values. Source: <a href="/ccw/">Closed Comparison Worlds</a>.</figcaption>
   </figure>
+
+  <aside class="live-comparison-panel" aria-labelledby="live-comparison-title">
+    <div class="live-comparison-visual" aria-hidden="true">
+      <svg class="live-comparison-svg" viewBox="0 0 48 56">
+        <circle class="live-orbit" cx="24" cy="16" r="11"></circle>
+        <circle class="live-orbit" cx="24" cy="40" r="11"></circle>
+        <line class="live-edge" x1="24" y1="5" x2="13" y2="40">
+          <animate attributeName="x1" dur="2.4s" repeatCount="indefinite" values="24;31.8;35;31.8;24;16.2;13;16.2;24"></animate>
+          <animate attributeName="y1" dur="2.4s" repeatCount="indefinite" values="5;8.2;16;23.8;27;23.8;16;8.2;5"></animate>
+          <animate attributeName="x2" dur="2.4s" repeatCount="indefinite" values="13;16.2;24;31.8;35;31.8;24;16.2;13"></animate>
+          <animate attributeName="y2" dur="2.4s" repeatCount="indefinite" values="40;47.8;51;47.8;40;32.2;29;32.2;40"></animate>
+        </line>
+        <circle class="live-point" cx="24" cy="5" r="2.2">
+          <animate attributeName="cx" dur="2.4s" repeatCount="indefinite" values="24;31.8;35;31.8;24;16.2;13;16.2;24"></animate>
+          <animate attributeName="cy" dur="2.4s" repeatCount="indefinite" values="5;8.2;16;23.8;27;23.8;16;8.2;5"></animate>
+        </circle>
+        <circle class="live-point" cx="13" cy="40" r="2.2">
+          <animate attributeName="cx" dur="2.4s" repeatCount="indefinite" values="13;16.2;24;31.8;35;31.8;24;16.2;13"></animate>
+          <animate attributeName="cy" dur="2.4s" repeatCount="indefinite" values="40;47.8;51;47.8;40;32.2;29;32.2;40"></animate>
+        </circle>
+      </svg>
+    </div>
+    <div class="live-comparison-text">
+      <h4 id="live-comparison-title">The comparison edge carries the reportable content.</h4>
+      <p>The moving endpoints are representatives within orbit descriptions; the gold segment records the comparison being followed. The animation is schematic, not a metric claim about the drawing: it suppresses fixed external marks and displays only representative motion together with the comparison value whose physical status is determined by descent to the quotient.</p>
+      <p class="source-line">Formal source: <a href="/ccw/">Closed Comparison Worlds</a> and <a href="/csm/">CSM</a> Chapters 4&ndash;6 on quotient semantics and report descent.</p>
+    </div>
+  </aside>
 
   <p>This is a quotient-level consequence of closed description. It is a structural fact about what it means to be closed. If there is no external frame, then there is no invariant criterion for determining which subsystem moved. The notion of subsystem attribution itself presupposes the kind of external primitive structure that closure excludes.</p>
 
