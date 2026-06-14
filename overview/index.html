@@ -234,8 +234,14 @@ a:hover { text-decoration-color: var(--gold); }
 }
 .research-ledger dl {
   display: grid;
-  grid-template-columns: minmax(8rem, 0.24fr) 1fr;
-  gap: 0.8rem 1.2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+}
+.research-ledger dl > div {
+  min-width: 0;
+}
+.research-ledger dl > div:last-child {
+  grid-column: 1 / -1;
 }
 .research-ledger dt {
   font-size: 0.68rem;
