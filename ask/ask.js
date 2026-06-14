@@ -25,18 +25,36 @@
   });
   var history = [];
   var shownSuggestions = [];
+  var isBusy = false;
 
   if (!form || !question) return;
 
   loadStatus();
+  autoResizeInput();
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     submitQuestion(question.value);
   });
 
+  question.addEventListener('input', autoResizeInput);
+  question.addEventListener('keydown', function (event) {
+    if (
+      event.key === 'Enter' &&
+      !event.shiftKey &&
+      !event.ctrlKey &&
+      !event.altKey &&
+      !event.metaKey &&
+      !event.isComposing
+    ) {
+      event.preventDefault();
+      submitQuestion(question.value);
+    }
+  });
+
   clearButton.addEventListener('click', function () {
     question.value = '';
+    autoResizeInput();
     history = [];
     shownSuggestions = [];
     turnsList.textContent = '';
@@ -60,6 +78,7 @@
       if (!button || !examplesContainer.contains(button) || button.disabled) return;
       question.value = button.getAttribute('data-question') || '';
       setMode(button.getAttribute('data-mode') || 'discuss');
+      autoResizeInput();
       question.focus();
     });
   }
@@ -79,13 +98,27 @@
   }
 
   function submitQuestion(value) {
+    if (isBusy) return;
     var text = (value || '').replace(/\s+/g, ' ').trim();
     if (!text) {
       setStatus('Enter a question first.', 'error');
       question.focus();
       return;
     }
+    var requestMode = currentMode();
+    var requestHistory = history.slice(-6);
+    var requestSuggestions = history.length ? recentPromptSuggestions() : [];
 
+    question.value = '';
+    autoResizeInput();
+    appendTurn('user', text);
+    rememberTurn('user', text);
+    panel.classList.remove('hidden');
+    if (followups) {
+      followups.textContent = '';
+      followups.classList.add('hidden');
+    }
+    scrollConversationEnd();
     setBusy(true);
     setStatus(statusForMode('working'));
 
@@ -94,24 +127,14 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         question: text,
-        mode: currentMode(),
-        history: history.slice(-6),
-        previousSuggestions: history.length ? recentPromptSuggestions() : []
+        mode: requestMode,
+        history: requestHistory,
+        previousSuggestions: requestSuggestions
       })
     })
-      .then(function (response) {
-        return response.json().then(function (data) {
-          if (!response.ok) {
-            var error = new Error(data && data.message ? data.message : 'The assistant could not answer.');
-            error.payload = data;
-            throw error;
-          }
-          return data;
-        });
-      })
+      .then(readAskResponse)
       .then(function (data) {
-        renderAnswer(data, text);
-        rememberTurn('user', text);
+        renderAnswer(data);
         rememberTurn('assistant', data.answer || '');
         setStatus(statusForMode('done'));
       })
@@ -119,14 +142,42 @@
         if (error.payload && Array.isArray(error.payload.citations)) {
           renderAnswer({
             answer: error.payload.message || error.message,
-            citations: error.payload.citations
-          }, text);
+            citations: error.payload.citations,
+            suggestions: error.payload.suggestions || []
+          });
+        } else {
+          renderAnswer({
+            answer: error.message || 'The assistant is unavailable.',
+            citations: [],
+            suggestions: []
+          });
         }
         setStatus(error.message || 'The assistant is unavailable.', 'error');
       })
       .finally(function () {
         setBusy(false);
       });
+  }
+
+  function readAskResponse(response) {
+    return response.text().then(function (bodyText) {
+      var data = null;
+      if (bodyText) {
+        try {
+          data = JSON.parse(bodyText);
+        } catch (parseError) {
+          var unreadable = new Error(response.ok ? 'The assistant returned an unreadable response.' : 'The assistant is temporarily unavailable.');
+          unreadable.payload = null;
+          throw unreadable;
+        }
+      }
+      if (!response.ok) {
+        var error = new Error(data && data.message ? data.message : 'The assistant could not answer.');
+        error.payload = data;
+        throw error;
+      }
+      return data || {};
+    });
   }
 
   function currentMode() {
@@ -168,7 +219,7 @@
     renderFollowups(data.suggestions || []);
     renderExamplePrompts(data.suggestions || [], data.mode || currentMode());
     panel.classList.remove('hidden');
-    panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    scrollConversationEnd();
   }
 
   function renderSources(citations) {
@@ -357,6 +408,20 @@
     turnsList.appendChild(card);
   }
 
+  function scrollConversationEnd() {
+    window.requestAnimationFrame(function () {
+      var target = turnsList.lastElementChild || panel;
+      if (target && target.scrollIntoView) {
+        target.scrollIntoView({ block: 'end', behavior: 'smooth' });
+      }
+    });
+  }
+
+  function autoResizeInput() {
+    question.style.height = 'auto';
+    question.style.height = Math.min(question.scrollHeight, 144) + 'px';
+  }
+
   function renderFormattedText(container, text) {
     container.textContent = '';
     var lines = String(text || '').replace(/\r/g, '').split('\n');
@@ -443,6 +508,7 @@
   }
 
   function setBusy(value) {
+    isBusy = value;
     askButton.disabled = value;
     clearButton.disabled = value;
     Array.prototype.slice.call(document.querySelectorAll('.examples [data-question]')).forEach(function (button) {
