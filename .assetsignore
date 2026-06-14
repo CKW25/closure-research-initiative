@@ -6,6 +6,7 @@ functions/
 scripts/
 src/
 token/
+example-work/
 .gitignore
 .assetsignore
 package.json
