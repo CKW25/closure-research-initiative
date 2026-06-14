@@ -61,7 +61,7 @@ The Structural Map includes several neighboring programs. Rovelli's partial-obse
 ## Public Works
 
 - Closed Systems from Comparison Completeness: https://closureresearchinitiative.org/csm/
-  - Current release: v8, June 13, 2026; DOI pending for v8
+  - Current release: v9, June 14, 2026; DOI pending for v9
   - PDF: https://closureresearchinitiative.org/csm.pdf
 
 - Closed Comparison Worlds and the Obstruction to Subsystem Attribution: https://closureresearchinitiative.org/ccw/

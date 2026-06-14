@@ -75,8 +75,8 @@
   }
 
   var currentReleaseBaselines = {
-    'csm.pdf': 143,
-    'csm-latex.zip': 14,
+    'csm.pdf': 0,
+    'csm-latex.zip': 0,
     'ccw.pdf': 20,
     'ccw-latex.zip': 9,
     'cfsg.pdf': 40,
@@ -92,6 +92,8 @@
   };
 
   var archiveCarryoverBaselines = {
+    'archive/csm/csm-v8.pdf': 143,
+    'archive/csm/csm-v8-latex.zip': 14,
     'archive/csm/csm-v7.pdf': 143,
     'archive/csm/csm-v7-latex.zip': 14,
     'archive/csm/csm-v5.pdf': 116,

@@ -8,7 +8,7 @@ authors:
     orcid: "https://orcid.org/0009-0008-8846-2539"
 url: "https://closureresearchinitiative.org"
 repository-code: "https://github.com/CKW25/closure-research-initiative"
-date-released: "2026-06-13"
+date-released: "2026-06-14"
 abstract: "A public research program studying closed physical theory from comparison data, intrinsicality, rectangular completeness, quotient semantics, subsystem-attribution obstruction, route-invariant transport, and conditional geometric consequences."
 preferred-citation:
   type: book
@@ -21,7 +21,7 @@ preferred-citation:
     name: "Closure Research Initiative"
     website: "https://closureresearchinitiative.org"
   year: 2026
-  version: "8"
+  version: "9"
   url: "https://closureresearchinitiative.org/csm/"
 references:
   - type: book
@@ -34,7 +34,7 @@ references:
       name: "Closure Research Initiative"
       website: "https://closureresearchinitiative.org"
     year: 2026
-    version: "8"
+    version: "9"
     url: "https://closureresearchinitiative.org/csm/"
   - type: generic
     title: "Closed Comparison Worlds and the Obstruction to Subsystem Attribution"

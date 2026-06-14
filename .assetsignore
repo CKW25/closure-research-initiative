@@ -13,4 +13,5 @@ package-lock.json
 wrangler.toml
 README.md
 update-paper.ps1
+site.zip
 *.log

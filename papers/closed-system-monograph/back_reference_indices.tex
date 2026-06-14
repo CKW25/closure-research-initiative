@@ -1,136 +1,411 @@
 % !TeX root = closed-systems-from-comparison-completeness.tex
 % ============================================================
-\chapter*{Reference Index of Notation}
+% Back-matter indexes
+% ============================================================
+\providecommand{\idxloc}[1]{p.~\pageref{#1}}
+
+% ============================================================
+\chapter*{Index of Notation}
 \phantomsection
-\addcontentsline{toc}{chapter}{Reference Index of Notation}
+\addcontentsline{toc}{chapter}{Index of Notation}
 \label{ch:notation-index}
 % ============================================================
-This index records the recurring notation of the monograph.  It is a
-reader reference; symbols with chapter-local meanings are defined where
-they occur.
+Entries record the first formal location or the principal structural use
+of recurring notation.  Symbols used only inside a local proof are
+defined in that proof.
 
-\begin{description}[leftmargin=3.1cm,style=nextline]
+\section*{Primitive comparison data}
+\begin{description}[leftmargin=4.1cm,style=nextline,itemsep=0.2em,before=\raggedright]
 \item[\((U,\mathcal C)\)]
-Comparison world; see \cref{def:intro-comparison-world}.
+Comparison world; primitive definition \idxloc{def:intro-comparison-world};
+comparison-completeness analysis \idxloc{ch:bottom}.
 \item[\(U\)]
-Primitive state set.
+Primitive state set; introduced with comparison worlds
+\idxloc{def:intro-comparison-world}.
 \item[\(\mathcal C\)]
-Family of intrinsic binary comparison predicates.
-\item[\(G\)]
-Intrinsic automorphism group, usually \(G=\Aut(U,\mathcal C)\).
+Family of intrinsic binary comparison predicates;
+\idxloc{def:intro-comparison-world}.
+\item[\(c(u,v)\)]
+Value of the comparison predicate \(c\) on the ordered pair \((u,v)\);
+\idxloc{def:intro-comparison-world}.
+\item[\(\mathsf L(u),\mathsf R(u)\)]
+Left and right comparison profiles; \idxloc{def:left-right-profiles}.
+\item[\(\alpha,\beta\)]
+Intrinsic congruences determined by profile equality;
+\idxloc{def:alpha-beta}.
 \item[\(X_A,X_B\)]
-Factors in the comparison-complete product decomposition.
+Factor sets \(U/\alpha\) and \(U/\beta\); \idxloc{sec:Theta}.
+\item[\(\Theta\)]
+Canonical factor map \(U\to X_A\times X_B\); \idxloc{def:Theta}.
+\item[\(G=\Aut(U,\mathcal C)\)]
+Intrinsic automorphism group; \idxloc{def:intrinsic-symmetry-group}.
+\item[\(L_{c,w},R_{c,w}\)]
+Boolean generators from left and right comparison predicates;
+\idxloc{subsec:finite-profile-support}.
+\end{description}
+
+\section*{Quotients, reports, and semantic descent}
+\begin{description}[leftmargin=4.1cm,style=nextline,itemsep=0.2em,before=\raggedright]
 \item[\(\pi\)]
-Quotient or projection map.
+Quotient or projection map; orbit quotient semantics begins in
+\idxloc{thm:descent}.
 \item[\(\Phys\)]
-Physical quotient, typically \((X_A\times X_B)/G\).
-\item[\(R\)]
-Coherent report.
+Physical quotient, usually \(X/G\) or \((X_A\times X_B)/G\);
+\idxloc{thm:descent}.
+\item[\(X/G\)]
+Orbit quotient of a \(G\)-action; quotient semantics
+\idxloc{thm:descent}.
+\item[\(X\sslash G\)]
+Quotient notation with additional stack, protocol, or gauge-reduction
+structure; front convention \idxloc{ch:notation-conventions}.
+\item[\(R,\widetilde R\)]
+Representative-level report and descended quotient-level report;
+\idxloc{thm:descent}.
+\item[\(\sim_\Delta\)]
+Diagonal equivalence in \(X^n\); \idxloc{thm:diag-separation}.
+\item[\(\pi_n:X^n\to X^n/G\)]
+Diagonal \(n\)-point orbit projection; \idxloc{thm:diag-separation}.
+\item[\(R^{(n)}\)]
+\(n\)-point coherent observable; \idxloc{thm:diag-separation}.
+\item[\(\Gamma,\widetilde\Gamma\)]
+Representative paths and orbit-equivalent twin paths; \idxloc{ch:rotation}.
+\item[\(\Theta_X\)]
+Orbit-preserving map; \idxloc{ch:rotation}.
+\end{description}
+
+\section*{Boolean and refinement notation}
+\begin{description}[leftmargin=4.1cm,style=nextline,itemsep=0.2em,before=\raggedright]
 \item[\(\mathsf B,\mathsf B_A,\mathsf B_B\)]
-Boolean algebras of comparison-generated propositions.
+Comparison-generated Boolean algebra and factor subalgebras;
+\idxloc{subsec:finite-profile-support}.
+\item[\(\mathsf B_k,\mathsf B^{(n)}\)]
+Finite-stage Boolean algebras; refinement tower
+\idxloc{ch:foundation}; finite-coordinate tower \idxloc{subsec:refinement-compactness}.
+\item[\(\mathsf B_\infty\)]
+Limit Boolean algebra; \idxloc{ch:foundation}.
+\item[\(\mathsf J,\mathsf J_k,\mathsf J_\infty\)]
+Ideals of excluded or inadmissible patterns; \idxloc{def:excl-tower}.
 \item[\(\UF(\mathsf B)\)]
-Stone space of ultrafilters on \(\mathsf B\).
-\item[\(\mathcal G(\mathcal I)\)]
-Action or protocol groupoid associated with an index system.
+Stone space of ultrafilters on \(\mathsf B\); \idxloc{ch:foundation}.
+\item[\(\UF(\mathsf B;\mathsf J)\)]
+Admissible ultrafilters disjoint from \(\mathsf J\);
+\idxloc{ch:foundation}.
+\item[\(\mathfrak u,\mathfrak u_k\)]
+Ultrafilter and finite-stage restrictions; \idxloc{ch:foundation}.
+\item[\(\varprojlim\)]
+Inverse limit; inverse-limit representation \idxloc{thm:inverse-limit}.
+\item[\(\Bool(\cdot)\)]
+Generated Boolean algebra; \idxloc{subsec:finite-profile-support}.
+\item[\(\otimes\)]
+Tensor product or Boolean tensor product, according to local context;
+Boolean use \idxloc{thm:ultrafilter-splitting}.
+\end{description}
+
+\section*{Groupoid, path, and transport notation}
+\begin{description}[leftmargin=4.1cm,style=nextline,itemsep=0.2em,before=\raggedright]
+\item[\(\mathcal I\)]
+Index system or protocol category; action groupoids \idxloc{ch:locus}.
+\item[\(\mathcal G(\mathcal I)\), \(\GI\)]
+Action or protocol groupoid; \idxloc{ch:locus}.
 \item[\(\Ob,\Mor\)]
-Object and morphism sets.
+Object and morphism sets; groupoid notation \idxloc{ch:locus}.
 \item[\(\Path,\Hol\)]
-Path and holonomy data.
+Path and holonomy data; \idxloc{ch:rotation}; lift classification
+\idxloc{ch:lift}.
+\item[\(H_k=\Stab(x_k)\)]
+Stabilizer subgroup in the diagonal-alignment criterion;
+\idxloc{ch:triangles}.
+\item[\(C_k\)]
+Alignment coset in the stabilizer-coset criterion; \idxloc{ch:triangles}.
 \item[\(F^k\)]
-Transport filtration.
+Descending transport filtration; \idxloc{ch:bridge}.
 \item[\(F^2/F^3\)]
-First stable visible transport-obstruction layer.
+First stable visible transport-obstruction layer; \idxloc{ch:interface};
+Hilbert reconstruction \idxloc{thm:hilbert-classification}.
 \item[\(\gr\)]
-Associated graded object.
-\item[\(M\)]
-Realized smooth manifold.
+Associated graded object of a filtration; \idxloc{ch:bridge}.
+\item[\(\ncl{S}\)]
+Normal closure of \(S\); appendix transport use \idxloc{app:fusion}.
+\item[\(\gamma_i(G)\)]
+Lower central series; \idxloc{app:fusion}.
+\item[\(\square_{ij}\)]
+Commutator square or elementary loop; \idxloc{app:fusion}.
+\end{description}
+
+\section*{Smooth, Hilbert, phase, and matter notation}
+\begin{description}[leftmargin=4.1cm,style=nextline,itemsep=0.2em,before=\raggedright]
+\item[\(ST,ST^{\reg}\)]
+Intrinsic spacetime object and regular locus; \idxloc{ch:connection}.
+\item[\(V_p,T^{(1)}ST^{\reg}\)]
+First-variation vector space and bundle; \idxloc{ch:connection}.
+\item[\(M,TM,T^*M\)]
+Realized smooth manifold and tangent/cotangent bundles;
+\idxloc{ch:connection}.
 \item[\(\nabla,\LC\)]
-Connection and Levi--Civita connection in a smooth realization.
+Connection and Levi--Civita connection; \idxloc{ch:christoffel};
+\idxloc{ch:connection}.
 \item[\(\Riem,\Ric,\Scal\)]
-Riemann curvature, Ricci tensor, and scalar curvature.
+Riemann curvature, Ricci tensor, and scalar curvature;
+\idxloc{ch:christoffel}; \idxloc{ch:einstein}.
 \item[\(\Jtwo\)]
-Second-jet comparison map.
+Second-jet comparison map; \idxloc{ch:interface}.
+\item[\(\mathcal K,\mathcal K_{\mathbb R}\)]
+Stabilized quadratic carrier and its real extension;
+\idxloc{thm:hilbert-classification}.
+\item[\(Q\)]
+Canonical positive quadratic scalar channel; \idxloc{thm:quadratic-scalar}.
+\item[\(H_{\mathbb R},J\)]
+Oriented real defect double and its complex structure;
+\idxloc{thm:hilbert-classification}.
 \item[\(\PhysH\)]
-Hilbert-side physical quotient after Hilbert realization.
-\item[\(\Obs\)]
-Observable algebra or observable sector.
-\item[\(\Chan\)]
-Channel operator or channel class.
-\item[\(\dimdiamond\)]
-Intrinsic causal-diamond growth dimension.
-\item[\textup{(SP1)--(SP5)}]
-Closed-World Admissibility clauses.
-\item[\textup{(T)}, \textup{(D)}, \textup{(U)}]
-Torsion, detectability, and scale-coherence conditions.
-\item[\textup{(R1)--(R3)}]
-Additional realization data for the state-side reconstruction extension.
+Hilbert-side physical quotient; \idxloc{ch:hilbert}.
+\item[\(\rho_{\mathrm{ph}}\)]
+Phase representation into \(U(1)\); \idxloc{thm:em-phase-reduction}.
+\item[\(F,J_{\mathrm{ph}}\)]
+Electromagnetic field strength and phase current;
+\idxloc{thm:em-phase-connection}; \idxloc{thm:em-sourced-maxwell}.
+\item[\(\mathsf P_\infty,\mathfrak p_0,q_0\)]
+Global phase sector group, primitive phase sector, and primitive charge;
+\idxloc{thm:em-charge-lattice}.
+\item[\(G_{\mathrm{int}}\)]
+Realized internal gauge label \(U(1)\times SU(2)\times SU(3)\);
+\idxloc{ch:matter}.
+\item[\(\sigma,\kappa_\sigma\)]
+Primitive excitation sector and its quadratic defect class;
+\idxloc{ch:matter}.
+\item[\(m_0(\sigma)=Q(\kappa_\sigma)\)]
+Intrinsic scalar invariant of a primitive sector; \idxloc{def:spectral-scalar}.
+\item[\(k_\sigma\)]
+Refinement depth of a primitive sector; \idxloc{def:spectral-depth}.
+\item[\(\eta_k,\omega_k,E_4\)]
+Cumulative depth profile, quartic profile, and quartic coefficient
+energy; \idxloc{ch:matter-numbers}.
+\item[\(q(k),B_4(k)\)]
+Quartic backbone \(4\binom{k}{4}\); \idxloc{ch:matter-numbers};
+\idxloc{ch:numerical-closure}.
 \end{description}
 
 % ============================================================
-\chapter*{Reference Index of Definitions and Terms}
+\chapter*{Index of Terms and Definitions}
 \phantomsection
-\addcontentsline{toc}{chapter}{Reference Index of Definitions and Terms}
+\addcontentsline{toc}{chapter}{Index of Terms and Definitions}
 \label{ch:definition-index}
 % ============================================================
-This index lists the recurring terms whose formal content controls the
-argument.  For orientation-level descriptions, see
-\hyperref[ch:standing-terminology]{Standing Terminology}; for theorem
-use, consult the indicated chapter blocks.
+Entries identify where a term is defined, where its formal role is fixed,
+or where it becomes structurally decisive.
 
-\begin{description}[leftmargin=3.8cm,style=nextline]
+\begin{description}[leftmargin=4.5cm,style=nextline,itemsep=0.2em,before=\raggedright]
 \item[Admissibility]
-Primitive and finite-to-global admissibility are developed in
-\hyperref[ch:introduction]{Introduction} and \cref{ch:foundation}.
+Closed-world clauses \idxloc{sp:closed-world}; finite-stage/global
+admissibility \idxloc{ch:foundation}.
 \item[Boundary data]
-Scoped realization and quantitative boundary data are recorded in
-\hyperref[ch:logical-status]{Logical Status and Dependency Ledger} and
-\cref{app:conditional-completion}.
+Logical-status ledger \idxloc{ch:logical-status}; conditional-completion
+ledger \idxloc{app:conditional-completion}.
 \item[Closed world]
-The standing closure stance is fixed in
-\hyperref[ch:introduction]{Introduction} and
-\hyperref[ch:logical-status]{Logical Status and Dependency Ledger}.
+Standing principle \idxloc{sp:closed-world}; dependency status
+\idxloc{ch:logical-status}.
+\item[Closure]
+Profile-pairing completeness \idxloc{def:closure}; structural closure
+\idxloc{thm:structural-closure}.
 \item[Coherent report]
-Used in quotient and physical-report arguments; see
-\cref{ch:rotation,ch:closure}.
+Descent through quotient semantics \idxloc{thm:descent}; lift setting
+\idxloc{lem:forced-descent}.
 \item[Comparison completeness]
-Developed and derived in \cref{ch:bottom,ch:closure}.
+Rectangular completeness definition \idxloc{def:rect}; derivation under
+intrinsicality \idxloc{thm:rectangular-completeness-intrinsicality}.
 \item[Comparison world]
-Defined in \cref{def:intro-comparison-world}.
+Primitive object of the monograph \idxloc{def:intro-comparison-world};
+comparison-completeness analysis \idxloc{ch:bottom}.
 \item[Diagonal redundancy]
-Developed in \cref{ch:bottom,ch:rotation}.
+Intrinsic symmetry group and product action \idxloc{def:intrinsic-symmetry-group};
+diagonal action theorem \idxloc{thm:diagonal}.
 \item[External primitive]
-Excluded at primitive level by the admissibility stance; see
-\hyperref[ch:introduction]{Introduction} and
-\hyperref[ch:logical-status]{Logical Status and Dependency Ledger}.
+Excluded by the closed-world admissibility stance \idxloc{sp:intrinsic};
+logical-status ledger \idxloc{ch:logical-status}.
+\item[Finite-to-global boundary]
+Quantifier-reversal boundary \idxloc{thm:boundary}; inverse-limit
+representation \idxloc{thm:inverse-limit}.
 \item[Ghost sector]
-Analyzed in the intrinsic--smooth interface; see \cref{ch:interface}.
+Interface status \idxloc{ch:interface}; state-side characterization
+\idxloc{thm:dyn-ghost-characterization}.
 \item[Intrinsic]
-Used throughout for comparison-recoverable, quotient-descending, or
-transport-determined structure; see
-\hyperref[ch:standing-terminology]{Standing Terminology}.
+Primitive predicate condition \idxloc{def:intro-comparison-world};
+standing terminology \idxloc{ch:standing-terminology}.
 \item[Local distinguishability]
-Used in the derivation of rectangular completeness; see
-\cref{ch:bottom}.
+Used in the derivation of rectangular completeness
+\idxloc{thm:rectangular-completeness-intrinsicality}.
 \item[Morphism locus]
-Classified in \cref{ch:locus,ch:lift}.
+Representative-enrichment classification \idxloc{thm:representative-enrichment-classification};
+lift classification \idxloc{thm:lift-classification-main}.
 \item[Object locus]
-Classified in \cref{ch:locus,ch:lift}.
+Representative-enrichment classification \idxloc{thm:representative-enrichment-classification};
+lift classification \idxloc{thm:lift-classification-main}.
 \item[Physical quotient]
-Developed in \cref{ch:rotation,ch:closure}.
+Canonical descent \idxloc{thm:descent}; closure-forced quotient semantics
+\idxloc{ch:closure}.
 \item[Realization]
-Formal status is fixed in
-\hyperref[ch:logical-status]{Logical Status and Dependency Ledger};
-smooth and field-theoretic realizations are developed from
-\cref{ch:christoffel} onward.
+Logical status \idxloc{ch:logical-status}; smooth reconstruction
+\idxloc{ch:connection}; matter-sector realization \idxloc{ch:matter-realization}.
 \item[Rectangular completeness]
-Developed in \cref{ch:bottom,ch:closure}.
+Definition \idxloc{def:rect}; exact classification \idxloc{thm:classification};
+rigidity \idxloc{thm:comparison-completeness-rigidity}.
 \item[Regular sector]
-Defined and used in the state-side reconstruction extension; see
-\cref{ch:dynamics-program}.
+State-side reconstruction extension \idxloc{thm:dyn-regular-identification}.
 \item[Semantic descent]
-Developed in \cref{ch:rotation,ch:closure}.
+Canonical descent theorem \idxloc{thm:descent}; descent--obstruction
+classification \idxloc{thm:DO-classification}.
 \item[Transport obstruction]
-Developed in \cref{ch:triangles,ch:descent_obstruction,ch:bridge}.
+Triangle regime \idxloc{thm:triangle}; descent--obstruction
+classification \idxloc{thm:DO-classification}; bridge theorem
+\idxloc{thm:bridge-main}.
 \item[Two-locus theorem]
-Proved through \cref{ch:locus,ch:lift}.
+Representative-enrichment classification \idxloc{thm:representative-enrichment-classification};
+lift classification \idxloc{thm:lift-classification-main}.
+\item[Quadratic carrier]
+Interface stabilization \idxloc{ch:interface}; Hilbert reconstruction
+\idxloc{thm:hilbert-classification}.
+\item[Phase sector]
+Finite phase typing \idxloc{thm:em-finite-phase-typing}; charge lattice
+\idxloc{thm:em-charge-lattice}.
+\item[Charge lattice]
+Fundamental lattice theorem \idxloc{thm:em-charge-lattice}; composite
+descent \idxloc{thm:em-fractional-criterion}.
+\item[Minimal denominator]
+Composite quotient index \idxloc{thm:em-minimal-composite-index};
+denominator-\(3\) uniqueness \idxloc{thm:em-denominator3-uniqueness}.
+\item[Scalar invariant]
+Matter-sector scalar identification \idxloc{thm:spectral-scalar-identification};
+strict positivity \idxloc{thm:spectral-scalar-positive}.
+\item[Refinement depth]
+Definition \idxloc{def:spectral-depth}; sector separation
+\idxloc{thm:spectral-depth-separation}.
+\item[Quartic backbone]
+Numerical closure \idxloc{ch:matter-numbers}; exact ratio law
+\idxloc{thm:exact-ratio-law}.
+\item[Normalization obstruction]
+No absolute normalization \idxloc{thm:no-absolute}; final normalization
+obstruction \idxloc{thm:normalization-obstruction-final}.
+\item[Observable exhaustivity]
+Raw inexhaustibility \idxloc{thm:dyn-raw-inexhaustible}; regular-sector
+identification \idxloc{thm:dyn-regular-identification}.
+\end{description}
+
+% ============================================================
+\chapter*{Index of Principal Results}
+\phantomsection
+\addcontentsline{toc}{chapter}{Index of Principal Results}
+\label{ch:result-index}
+% ============================================================
+The following list records the main results used to navigate the proof.
+It is selective: local lemmas are indexed when they carry a structural
+transition used later in the book.
+
+\section*{Foundational and quotient-semantic results}
+\begin{description}[leftmargin=4.9cm,style=nextline,itemsep=0.2em,before=\raggedright]
+\item[Closed relational systems]
+Structural rigidity theorem; \cref{thm:intro-structural-rigidity},
+\idxloc{thm:intro-structural-rigidity}.
+\item[Quantifier reversal]
+Finite-to-global admissibility boundary; \cref{thm:boundary},
+\idxloc{thm:boundary}.
+\item[Inverse-limit representation]
+Ultrafilters on the limit algebra; \cref{thm:inverse-limit},
+\idxloc{thm:inverse-limit}.
+\item[Comparison-world classification]
+Exact classification; \cref{thm:classification}, \idxloc{thm:classification}.
+\item[Rectangular completeness]
+Derived under intrinsicality and local distinguishability;
+\cref{thm:rectangular-completeness-intrinsicality},
+\idxloc{thm:rectangular-completeness-intrinsicality}.
+\item[Diagonal action]
+Canonical diagonal symmetry after decomposition; \cref{thm:diagonal},
+\idxloc{thm:diagonal}.
+\item[Boolean internalization]
+Boolean factorization of rectangular completeness; \cref{thm:boolean-complete},
+\idxloc{thm:boolean-complete}.
+\item[Ultrafilter splitting]
+Splitting characterization; \cref{thm:ultrafilter-splitting},
+\idxloc{thm:ultrafilter-splitting}.
+\item[Canonical descent]
+Reports factor through quotient semantics; \cref{thm:descent},
+\idxloc{thm:descent}.
+\item[Two loci of enrichment]
+Representative and morphism loci; \cref{thm:two-locus-classification},
+\idxloc{thm:two-locus-classification}; \cref{thm:lift-classification-main},
+\idxloc{thm:lift-classification-main}.
+\end{description}
+
+\section*{Transport, curvature, and spacetime results}
+\begin{description}[leftmargin=4.9cm,style=nextline,itemsep=0.2em,before=\raggedright]
+\item[Triangle regime]
+Minimal multi-point obstruction; \cref{thm:triangle}, \idxloc{thm:triangle}.
+\item[Descent--obstruction classification]
+Loop obstruction from representative lifts; \cref{thm:DO-classification},
+\idxloc{thm:DO-classification}.
+\item[Triangle--loop bridge]
+Rigidity bridge theorem; \cref{thm:bridge-main}, \idxloc{thm:bridge-main}.
+\item[Triangle degree \(2\)]
+Degree-\(2\) carrier of loop defect; \cref{thm:triangle-degree2},
+\idxloc{thm:triangle-degree2}.
+\item[Intrinsic curvature]
+Curvature from the intrinsic \(2\)-skeleton; \cref{thm:interface-curvature},
+\idxloc{thm:interface-curvature}.
+\item[Hilbert reconstruction]
+Complex Hilbert structure from quadratic transport;
+\cref{thm:hilbert-classification}, \idxloc{thm:hilbert-classification}.
+\item[Quadratic scalar]
+Positive quadratic scalar channel; \cref{thm:quadratic-scalar},
+\idxloc{thm:quadratic-scalar}.
+\item[Macroscopic compatibility law]
+Einstein-boundary result; \cref{thm:einstein-main}, \idxloc{thm:einstein-main}.
+\item[Connection-first geometry]
+First-order geometry classification; \cref{thm:first-order-classification},
+\idxloc{thm:first-order-classification}.
+\end{description}
+
+\section*{Phase, matter, numerical, and dynamical results}
+\begin{description}[leftmargin=4.9cm,style=nextline,itemsep=0.2em,before=\raggedright]
+\item[Phase reduction]
+Reduction to \(U(1)\) phase structure; \cref{thm:em-phase-reduction},
+\idxloc{thm:em-phase-reduction}.
+\item[Maxwell equations]
+Homogeneous phase curvature and sourced equation;
+\cref{thm:em-phase-connection}, \idxloc{thm:em-phase-connection};
+\cref{thm:em-sourced-maxwell}, \idxloc{thm:em-sourced-maxwell}.
+\item[Charge lattice]
+Fundamental charge lattice; \cref{thm:em-charge-lattice},
+\idxloc{thm:em-charge-lattice}.
+\item[Composite fractional charge]
+Descent criterion and denominator-\(3\) uniqueness;
+\cref{thm:em-fractional-criterion}, \idxloc{thm:em-fractional-criterion};
+\cref{thm:em-denominator3-uniqueness}, \idxloc{thm:em-denominator3-uniqueness}.
+\item[Matter-sector scalar]
+Scalar-channel identification; \cref{thm:spectral-scalar-identification},
+\idxloc{thm:spectral-scalar-identification}.
+\item[Refinement-depth separation]
+Separation of primitive sectors by refinement depth;
+\cref{thm:spectral-depth-separation}, \idxloc{thm:spectral-depth-separation}.
+\item[Quartic mass coordinate]
+Intrinsic quartic mass-coordinate bridge; \cref{thm:numbers-mass-calibration},
+\idxloc{thm:numbers-mass-calibration}.
+\item[Exact ratio laws]
+General and shell-level ratio laws; \cref{thm:numbers-general-ratio-law},
+\idxloc{thm:numbers-general-ratio-law}; \cref{thm:exact-ratio-law},
+\idxloc{thm:exact-ratio-law}.
+\item[Maximal intrinsic closure]
+Final closure statement; \cref{thm:final}, \idxloc{thm:final}.
+\item[Matter-sector realization]
+Target operator realization of the sector scalar;
+\cref{thm:hilbert-realization-sector-scalar},
+\idxloc{thm:hilbert-realization-sector-scalar}.
+\item[Observable exhaustivity]
+Raw inexhaustibility and regular-sector identification;
+\cref{thm:dyn-raw-inexhaustible}, \idxloc{thm:dyn-raw-inexhaustible};
+\cref{thm:dyn-regular-identification}, \idxloc{thm:dyn-regular-identification}.
+\item[Conditional completion]
+Global closure audit normal form; \cref{thm:cond-closure-normal-form},
+\idxloc{thm:cond-closure-normal-form}.
+\item[Transport appendix]
+Nonperturbative invariant package; \cref{thm:fusion-main-statement},
+\idxloc{thm:fusion-main-statement}.
 \end{description}

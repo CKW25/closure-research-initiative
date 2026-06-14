@@ -6,146 +6,322 @@
 \label{ch:notation-conventions}
 % ============================================================
 This section records the notation used repeatedly across the monograph.
-Local notation introduced for a single construction is defined in the
-chapter where it is used.  When a symbol is reused in a later realized
-setting, the text states the realization map or quotient through which
-the reuse is justified.
+Chapter-local notation is defined where it is used.  A symbol introduced
+at a realized level does not retroactively become primitive data; its
+status is determined by the construction in which it appears.
+
+\section*{Scope of the notation}
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item Primitive notation belongs to the comparison world and its
+intrinsic quotient semantics.
+\item Realization notation belongs to a smooth, Hilbert, phase,
+observer-side, or numerical reading introduced after the relevant
+interface data have been stated.
+\item The same letter may reappear at a later level only when the text
+specifies the quotient, projection, realization map, or functor through
+which the reuse is justified.
+\item A theorem labelled conditional is to be read with its named
+hypotheses as part of the assertion.
+\end{enumerate}
+
+\section*{Typographic conventions}
+\begin{description}[leftmargin=3.6cm,style=nextline]
+\item[Ordinary italic letters]
+Variables, points, elements, maps, paths, and local parameters.
+\item[Calligraphic letters]
+Families, categories, carriers, and structured collections, such as
+\(\mathcal C\), \(\mathcal I\), \(\mathcal G\), \(\mathcal K\), and
+\(\mathcal H\).  The local definition controls the meaning.
+\item[Sans-serif letters]
+Closure-structural carriers and sectors, such as \(\mathsf B\),
+\(\mathsf J\), \(\mathsf{Phys}\), \(\mathsf{Obs}\), and \(\mathsf P\).
+\item[Fraktur letters]
+Ultrafilters, filters, phase-sector elements, or quadratic forms when
+the notation is used locally, for example \(\mathfrak u\),
+\(\mathfrak p\), and \(\mathfrak q\).
+\item[Roman operators]
+Named operations and functors, for example \(\Aut\), \(\UF\), \(\Stab\),
+\(\pr\), \(\Hol\), \(\Path\), \(\Riem\), \(\Ric\), \(\Scal\),
+\(\Obs\), and \(\Chan\).
+\item[Tildes, hats, and bars]
+\(\widetilde{(\cdot)}\), \(\widehat{(\cdot)}\), and
+\(\overline{(\cdot)}\) denote lifted, induced/completed, or quotient-level
+objects according to the local construction.
+\end{description}
 
 \section*{Primitive comparison data}
-\begin{description}[leftmargin=3.1cm,style=nextline]
+\begin{description}[leftmargin=3.6cm,style=nextline]
 \item[\(U\)]
 The underlying nonempty set of primitive states in a comparison world.
 No topology, metric, smooth structure, probability measure, or linear
 structure is assumed on \(U\) at the primitive level.
 \item[\(\mathcal C\)]
 The family of intrinsic binary comparison predicates
-\(c:U\times U\to\{0,1\}\).
+\[
+        c:U\times U\to\{0,1\}.
+\]
 \item[\((U,\mathcal C)\)]
-A comparison world.  The primitive definition is given in
-\cref{def:intro-comparison-world} and used throughout the foundational
-chapters.
+A comparison world, in the sense fixed in the Introduction.
+\item[\(c(u,v)\)]
+The value of the comparison predicate \(c\) on the ordered pair
+\((u,v)\).  The order matters unless symmetry is separately proved or
+assumed in a local construction.
+\item[\(\mathsf L(u)\), \(\mathsf R(u)\)]
+The left and right comparison profiles of \(u\).  They record,
+respectively, the outgoing and incoming comparison data of \(u\).
+\item[\(\alpha,\beta\)]
+The intrinsic congruences on \(U\) determined by equality of left and
+right comparison profiles.
+\item[\(X_A=U/\alpha\), \(X_B=U/\beta\)]
+The canonical factor sets determined by the two intrinsic congruences.
+\item[\(\Theta\)]
+The canonical factor map
+\[
+        \Theta:U\to X_A\times X_B,
+        \qquad
+        \Theta(u)=([u]_\alpha,[u]_\beta).
+\]
 \item[\(G=\Aut(U,\mathcal C)\)]
-The intrinsic automorphism group of the comparison world.  Its elements
-preserve the comparison predicates and determine the diagonal redundancy
-used in the quotient semantics.
-\item[\(X_A,X_B\)]
-The two factors appearing after the product decomposition forced by
-comparison completeness in the relevant closed regime.
+The intrinsic automorphism group of the comparison world.  Elements of
+\(G\) preserve every predicate in \(\mathcal C\).  In later smooth
+chapters the symbol \(\mathsf G\) is also used for this comparison
+symmetry group when a sans-serif carrier notation is being emphasized.
 \item[\(X\)]
-A state space or comparison-state carrier when no factor distinction is
-being emphasized.
+A representative-level state carrier, often \(X_A\times X_B\), when the
+factor distinction is not being emphasized.
+\item[\(L_{c,w}\), \(R_{c,w}\)]
+The basic left and right Boolean generators
+\[
+        L_{c,w}=\{u\in U:c(u,w)=1\},
+        \qquad
+        R_{c,w}=\{u\in U:c(w,u)=1\}.
+\]
 \end{description}
 
-\section*{Quotients and reports}
-\begin{description}[leftmargin=3.1cm,style=nextline]
+\section*{Quotients, reports, and diagonal semantics}
+\begin{description}[leftmargin=3.6cm,style=nextline]
 \item[\(\pi\)]
-A quotient map, usually from a representative-level object to the
-corresponding physical quotient.
+A quotient map, projection map, or orbit projection.  Its domain and
+codomain are always specified locally.
 \item[\(\Phys\)]
 The physical quotient of representative data by the intrinsic diagonal
 redundancy.  In the basic two-factor setting,
 \[
         \Phys=(X_A\times X_B)/G .
 \]
-\item[\(R\)]
-A coherent report.  Reports are required to factor through the relevant
-quotient when they are to count as physical or semantic content.
-\item[\(\sim\)]
-An equivalence relation.  Its precise meaning is local to the chapter:
-orbit equivalence, semantic equivalence, quotient equivalence, or
-gauge-equivalence is stated at the point of use.
 \item[\(X/G\)]
-The orbit quotient of a \(G\)-action on \(X\).  The symbol denotes
-quotient semantics, not the assertion that \(X\) was primitive.
+The orbit quotient of a \(G\)-action on \(X\).  This notation records
+quotient semantics; it does not assert that \(X\) was primitive.
 \item[\(X\sslash G\)]
-A quotient notation used when the quotient is being read with additional
+A quotient notation used when the quotient is read with additional
 stack, protocol, or gauge-reduction structure.
+\item[\(R\)]
+A coherent report.  Reports carrying physical content factor through the
+relevant quotient.
+\item[\(\widetilde R\)]
+The unique quotient-level report satisfying \(R=\widetilde R\circ\pi\)
+when descent holds.
+\item[\(\sim\)]
+An equivalence relation.  Its meaning is local: orbit equivalence,
+semantic equivalence, quotient equivalence, gauge equivalence, or
+chapter-specific equivalence is stated at the point of use.
+\item[\(\pi_n:X^n\to X^n/G\)]
+The diagonal \(n\)-point orbit projection.
+\item[\(\sim_\Delta\)]
+Diagonal equivalence in \(X^n\): a single element of \(G\) carries all
+coordinates simultaneously.
+\item[\(R^{(n)}\)]
+An \(n\)-point coherent observable, invariant under the diagonal
+\(G\)-action on \(X^n\).
+\item[\(\Gamma\)]
+A path in representative-level data, quotient data, or realized
+transport data.  The ambient carrier is always named locally.
+\item[\(\Theta_X\)]
+An orbit-preserving map \(X\to X\) satisfying \(\pi\circ\Theta_X=\pi\).
 \end{description}
 
-\section*{Boolean and refinement notation}
-\begin{description}[leftmargin=3.1cm,style=nextline]
+\section*{Boolean, compactness, and refinement notation}
+\begin{description}[leftmargin=3.6cm,style=nextline]
 \item[\(\mathsf B\), \(\mathsf B_A\), \(\mathsf B_B\)]
-Boolean algebras of comparison-generated propositions or their
+Boolean algebras of comparison-generated propositions and their
 factor-specific versions.
+\item[\(\mathsf B_k\), \(\mathsf B^{(n)}\)]
+Finite-stage Boolean algebras in a refinement tower or finite-coordinate
+approximation.  The subscript or superscript is a stage label, not a
+new primitive coordinate.
+\item[\(\mathsf B_\infty\)]
+The direct union or generated limit Boolean algebra of the refinement
+tower, as defined in the relevant chapter.
+\item[\(\mathsf J\), \(\mathsf J_k\), \(\mathsf J_\infty\)]
+Ideals of excluded or inadmissible patterns at a stage and at the
+global limit.
+\item[\(\Idl\)]
+The ideal operator in a Boolean or algebraic filtration setting.
 \item[\(\UF(\mathsf B)\)]
 The Stone space of ultrafilters on a Boolean algebra \(\mathsf B\).
+\item[\(\UF(\mathsf B;\mathsf J)\)]
+The admissible ultrafilters on \(\mathsf B\), namely those disjoint from
+the ideal \(\mathsf J\).
+\item[\(\mathfrak u\), \(\mathfrak u_k\)]
+An ultrafilter and its finite-stage restrictions.
 \item[\(\varprojlim\)]
-An inverse limit.  In the refinement tower it denotes the passage from
-finite-stage comparison data to the global limit object.
+An inverse limit.  In refinement arguments it records the passage from
+finite-stage comparison data to the global object.
 \item[\(\pr\)]
 A projection map in a product, inverse system, or quotient diagram.
-\item[\(\Idl\)]
-An ideal operator, typically in a Boolean or algebraic filtration
-setting.
+\item[\(\Bool(\cdot)\)]
+The Boolean algebra generated by the indicated family.
+\item[\(\otimes\)]
+Boolean tensor product, algebraic tensor product, or Hilbert tensor
+product according to the local category.  The text specifies which
+structure is intended.
 \end{description}
 
-\section*{Groupoid, path, and transport notation}
-\begin{description}[leftmargin=3.1cm,style=nextline]
-\item[\(\mathcal G(\mathcal I)\)]
-The action groupoid or protocol groupoid associated with an index
-system \(\mathcal I\).
+\section*{Groupoids, paths, and transport}
+\begin{description}[leftmargin=3.6cm,style=nextline]
+\item[\(\mathcal I\)]
+An index system, protocol category, or refinement index.
+\item[\(\mathcal G(\mathcal I)\), \(\GI\)]
+The action groupoid or protocol groupoid associated with \(\mathcal I\).
 \item[\(\Ob\), \(\Mor\)]
 Object and morphism sets of a category or groupoid.
 \item[\(\Path\)]
 A path object or path groupoid, depending on the local construction.
 \item[\(\Hol\)]
 Holonomy or loop transport data.
+\item[\(H_k=\Stab(x_k)\)]
+A stabilizer subgroup in an alignment or diagonal-equivalence problem.
+\item[\(C_k\)]
+An alignment coset in the stabilizer-coset criterion for simultaneous
+diagonal alignment.
 \item[\(F^k\)]
-The descending transport filtration.  The quotient \(F^2/F^3\) is the
-first stable visible obstruction layer in the main transport stack.
+The descending transport filtration.
+\item[\(F^2/F^3\)]
+The first stable visible transport-obstruction layer.
 \item[\(\gr\)]
 The associated graded object of a filtration.
 \item[\(\ncl{S}\)]
 The normal closure generated by a subset \(S\).
+\item[\(\gamma_i(G)\)]
+The lower central series of a group \(G\), used in the nonperturbative
+transport appendix.
+\item[\(\square_{ij}\)]
+A commutator square or elementary loop in a transport presentation,
+with local definition supplied where it appears.
 \end{description}
 
-\section*{Smooth realization notation}
-\begin{description}[leftmargin=3.1cm,style=nextline]
+\section*{Smooth and geometric realization notation}
+\begin{description}[leftmargin=3.6cm,style=nextline]
+\item[\(ST\)]
+The intrinsic spacetime object obtained from the refinement tower and
+observer-induced temporal quotient filtration.
+\item[\(ST^{\reg}\)]
+The regular locus on which the first-variation arena is nondegenerate.
+\item[\(V_p\)]
+The first-variation vector space at \(p\in ST^{\reg}\).
+\item[\(T^{(1)}ST^{\reg}\)]
+The first-variation bundle over the regular locus.
 \item[\(M\)]
-A smooth manifold appearing only after a realization has been introduced.
-It is not primitive comparison data.
+A smooth manifold appearing only after a smooth realization has been
+introduced.  It is not primitive comparison data.
 \item[\(TM\), \(T^*M\)]
 The tangent and cotangent bundles of a realized smooth manifold.
 \item[\(\nabla\)]
 A connection in a smooth realization.
 \item[\(\LC\)]
-Levi--Civita transport or the Levi--Civita connection, when the metric
+Levi--Civita transport or the Levi--Civita connection after a metric
 realization has been fixed.
 \item[\(\Riem\), \(\Ric\), \(\Scal\)]
 The Riemann curvature tensor, Ricci tensor, and scalar curvature of a
 smooth realization.
-\item[\(\Diff(M)\)]
-The diffeomorphism group of \(M\).
+\item[\(\Diff(M)\), \(\Homeo(M)\)]
+The diffeomorphism and homeomorphism groups of \(M\).
 \item[\(\Jtwo\)]
 The second-jet comparison map used in the intrinsic--smooth interface.
 \item[\(\Curv\)]
 A curvature operator or curvature class, defined locally in the
 realized transport setting.
+\item[\(S^3\), \(SU(2)\), \(SO(3)\)]
+Standard notation for the three-sphere and its associated Lie groups
+when the realized geometric classification is invoked.
 \end{description}
 
-\section*{Linear, Hilbert, phase, and matter-sector notation}
-\begin{description}[leftmargin=3.1cm,style=nextline]
+\section*{Hilbert, phase, field, and matter-sector notation}
+\begin{description}[leftmargin=3.6cm,style=nextline]
+\item[\(\mathcal K\)]
+The stabilized quadratic transport carrier, canonically identified with
+the visible obstruction layer \(F^2/F^3\) in the relevant setting.
+\item[\(\mathcal K_{\mathbb R}\)]
+The real scalar extension of the stabilized quadratic carrier.
+\item[\(Q\)]
+The canonical positive quadratic scalar channel on
+\(\mathcal K_{\mathbb R}\), where the required interface hypotheses are
+in force.
+\item[\(H_{\mathbb R}\)]
+The real oriented defect double used in the Hilbert reconstruction.
+\item[\(J\)]
+The orthogonal complex structure on \(H_{\mathbb R}\), satisfying
+\(J^2=-\id\), unique up to the sign corresponding to complex
+conjugation.
 \item[\(\PhysH\)]
 The Hilbert-side physical quotient or physical Hilbert sector after the
 Hilbert realization has been introduced.
 \item[\(\Obs\)]
 An observable algebra or observable sector, with the precise algebra
-specified in the relevant chapter.
+specified locally.
 \item[\(\Chan\)]
 A channel operator or channel class, especially in scalar-channel and
 matter-sector arguments.
-\item[\(\Ad\)]
-The adjoint action or an adjoint transport operation.
-\item[\(\End\)]
-An endomorphism algebra.
-\item[\(\rank\)]
-Rank in the algebraic or vector-bundle setting under discussion.
-\item[\(\dimdiamond\)]
-Intrinsic causal-diamond growth dimension.
+\item[\(\rho_{\mathrm{ph}}\)]
+The phase representation of the based loop group into \(U(1)\) in the
+electromagnetic realization.
+\item[\(\Omega_{i_0}(\mathcal G(\mathcal I))\)]
+The based loop group at \(i_0\) in the protocol groupoid.
+\item[\(F\)]
+The electromagnetic field strength in the realized phase-curvature
+setting.
+\item[\(J_{\mathrm{ph}}\)]
+The phase current in the sourced Maxwell equation.
+\item[\(\mathsf P_\infty\)]
+The global phase sector group.
+\item[\(\mathfrak p_0\), \(q_0\)]
+A primitive phase sector and its primitive charge unit.
+\item[\(q_{\mathrm{raw}}\), \(q_{\mathrm{obs}}\)]
+Raw and descended charge assignments in the composite-sector descent
+analysis.
+\item[\(G_{\mathrm{int}}\)]
+The realized internal gauge label
+\[
+        G_{\mathrm{int}}=U(1)\times SU(2)\times SU(3),
+\]
+when the matter-sector reduction is being read in that interface.
+\item[\(\sigma\)]
+A primitive excitation sector when used in the matter-sector chapters.
+This use is local and should not be confused with a permutation or sign
+map in unrelated chapters.
+\item[\(\kappa_\sigma\)]
+The canonical quadratic defect class attached to the primitive sector
+\(\sigma\).
+\item[\(m_0(\sigma)=Q(\kappa_\sigma)\)]
+The intrinsic scalar invariant of a primitive excitation sector.
+\item[\(k_\sigma\)]
+The refinement depth of the primitive sector \(\sigma\).
+\item[\(\eta_k\), \(\omega_k\)]
+The cumulative quadratic depth profile and its quartic profile.
+\item[\(E_4\)]
+The quartic coefficient-energy readout.
+\item[\(q(k)\), \(B_4(k)\)]
+The quartic backbone
+\[
+        q(k)=B_4(k)=4\binom{k}{4}.
+\]
+\item[\(\lambda\), \(\mu\)]
+Positive scale constants in numerical-closure and mass-coordinate
+readings.  Their status is specified in the theorem where they appear.
 \end{description}
 
 \section*{Logical-status notation}
-\begin{description}[leftmargin=3.1cm,style=nextline]
+\begin{description}[leftmargin=3.6cm,style=nextline]
 \item[\textup{(SP1)--(SP5)}]
 The clauses of Closed-World Admissibility in
 \cref{sp:closed-world}.
@@ -160,19 +336,29 @@ the state-side reconstruction extension.
 \item[\textup{(R1)--(R3)}]
 The additional realization data for the state-side reconstruction
 extension.
+\item[Boundary datum]
+An explicitly named condition, calibration, interface, or realization
+input.  It is not part of the primitive comparison data.
+\item[Conditional theorem]
+A theorem whose hypotheses include boundary or realization data.  The
+conditional status is part of the theorem, not a defect in the result.
 \end{description}
 
-\section*{Conventions}
+\section*{Standing conventions}
 \begin{enumerate}[label=\textup{(\roman*)}]
 \item A structure called \emph{intrinsic} is recovered from comparison
 data and its admissible quotient or transport structure.
 \item A structure called \emph{realized} has been introduced through an
 explicit smooth, Hilbert, phase, observer-side, or quantitative reading.
-\item A statement called \emph{conditional} is proved under its stated
-interface or boundary data; the condition is part of the result.
 \item A quotient statement is always read modulo the equivalence relation
 or symmetry named in the local construction.
-\item Chapter references identify where the formal theorem or definition
-is proved.  This front matter is a guide to usage, not a replacement for
-the chapterwise definitions.
+\item The words \emph{canonical}, \emph{forced}, and \emph{unique} refer
+to uniqueness relative to the stated data and admissibility conditions.
+\item Physical-content statements are report statements: a distinction
+has physical status only when it survives the relevant descent.
+\item Absolute numerical scales are not inferred unless a theorem names
+the calibration or boundary datum that fixes them.
+\item Chapter references identify where formal definitions and theorems
+are proved.  This front matter fixes usage; it does not replace the
+chapterwise definitions.
 \end{enumerate}

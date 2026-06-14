@@ -11,12 +11,12 @@
   <url><loc>https://closureresearchinitiative.org/contact/</loc><lastmod>2026-06-11</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://closureresearchinitiative.org/notes/</loc><lastmod>2026-06-11</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://closureresearchinitiative.org/license/</loc><lastmod>2026-06-11</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://closureresearchinitiative.org/sources/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://closureresearchinitiative.org/sources/</loc><lastmod>2026-06-14</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://closureresearchinitiative.org/guide/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://closureresearchinitiative.org/preprints/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://closureresearchinitiative.org/preprints/</loc><lastmod>2026-06-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://closureresearchinitiative.org/ask/</loc><lastmod>2026-06-11</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
-  <url><loc>https://closureresearchinitiative.org/csm/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://closureresearchinitiative.org/csm/</loc><lastmod>2026-06-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://closureresearchinitiative.org/ccw/</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://closureresearchinitiative.org/cfsg/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://closureresearchinitiative.org/scc/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -24,9 +24,9 @@
   <url><loc>https://closureresearchinitiative.org/fe/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://closureresearchinitiative.org/rie/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
-  <url><loc>https://closureresearchinitiative.org/llms.txt</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://closureresearchinitiative.org/llms.txt</loc><lastmod>2026-06-14</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://closureresearchinitiative.org/external-sources.bib</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.2</priority></url>
-  <url><loc>https://closureresearchinitiative.org/csm.pdf</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://closureresearchinitiative.org/csm.pdf</loc><lastmod>2026-06-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://closureresearchinitiative.org/ccw.pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://closureresearchinitiative.org/cfsg.pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://closureresearchinitiative.org/scc.pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -34,5 +34,5 @@
   <url><loc>https://closureresearchinitiative.org/fe.pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://closureresearchinitiative.org/rie.pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url><loc>https://closureresearchinitiative.org/feed.xml</loc><changefreq>weekly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://closureresearchinitiative.org/feed.xml</loc><lastmod>2026-06-14</lastmod><changefreq>weekly</changefreq><priority>0.3</priority></url>
 </urlset>

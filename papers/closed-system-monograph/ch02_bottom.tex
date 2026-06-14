@@ -3,6 +3,11 @@
 \chapter{Comparison Completeness and the Emergence of Diagonal Redundancy}
 \label{ch:bottom}
 % ============================================================
+\begin{chapterorientation}
+\orientationitem{Input}{A primitive comparison world \((U,\mathcal C)\) together with the compactness mechanism of \cref{ch:foundation}.}
+\orientationitem{Role}{This chapter derives rectangular comparison completeness, rather than treating product structure as a background assumption.}
+\orientationitem{Output}{The canonical factor map, diagonal symmetry, and Boolean factorization package used by quotient semantics and closure.}
+\end{chapterorientation}
 \section{Introduction}
 Under the standing principle of closed-world admissibility
 (\cref{sp:closed-world}), this chapter develops the
@@ -92,13 +97,13 @@ This establishes the canonical product decomposition promised in
 \section{Primitive comparison worlds}
 % ============================================================
 \begin{definition}[Comparison world (recalled)]
-	As in \cref{def:intro-comparison-world}, a \emph{comparison world} is a pair \((U,\mathcal C)\), where
+	As in the Introduction, a \emph{comparison world} is a pair \((U,\mathcal C)\), where
 	\(U\neq\varnothing\) and \(\mathcal C\) is a family of maps
 	\[
 		c:U\times U\to\{0,1\}.
 	\]
-	In this manuscript such worlds are required to be intrinsic in the sense
-	of \cref{def:intro-comparison-world}.
+	In this manuscript such worlds are required to satisfy the intrinsicality
+	condition stated in the introductory definition.
 \end{definition}
 \begin{remark}
 	No symmetry, topology, product structure, or background geometry is
@@ -906,7 +911,7 @@ Boolean factorization theorem.
 	comparison context supported in \(U\); by the lemma it is intrinsically
 	undetectable. Such an omission therefore depends on a selection external
 	to the comparison structure. Closure, as expressed by intrinsicality in
-	\cref{def:intro-comparison-world} together with the prohibition on
+	the comparison-world definition together with the prohibition on
 	external scaffolding in \cref{sp:intrinsic}, admits no externally
 	maintained omission. Hence every admissible profile pair is either
 	internally excluded or already realized; equivalently, no unrealized
@@ -914,7 +919,7 @@ Boolean factorization theorem.
 \end{corollary}
 \begin{theorem}[Rectangular completeness under intrinsicality]
 	\label{thm:rectangular-completeness-intrinsicality}
-	Let \((U,\mathcal C)\) be intrinsic (\cref{def:intro-comparison-world})
+	Let \((U,\mathcal C)\) be an intrinsic comparison world
 	with local distinguishability
 	\[
 		\alpha\cap\beta=\Delta_U.
@@ -1211,7 +1216,7 @@ This is the compactness input used in the reverse implication of
 \cref{thm:boolean-complete}.
 \begin{theorem}[Compactness from intrinsicality]
 	\label{thm:compactness-from-intrinsicality}
-	For an intrinsic comparison world (\cref{def:intro-comparison-world}),
+	For an intrinsic comparison world,
 	the finite-coordinate refinement tower has limit equal to the direct
 	union
 	\[
@@ -1778,3 +1783,8 @@ ultrafilter formulations without residual structural freedom.
 \Cref{ch:rotation} starts from this fixed quotient backbone and
 establishes quotient descent before classifying the remaining
 admissible non-quotient enrichment loci.
+
+\begin{chapterclosing}
+\closingitem{Established}{Rectangular comparison completeness determines the canonical product, diagonal action, orbit quotient, and equivalent Boolean/ultrafilter forms.}
+\closingitem{Carried forward}{The fixed quotient backbone is the input for quotient descent and the subsystem-attribution obstruction.}
+\end{chapterclosing}
