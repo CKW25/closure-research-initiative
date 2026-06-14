@@ -144,7 +144,8 @@ async function handleAsk(request, env) {
 
   const mode = normalizeMode(body?.mode);
   const history = normalizeHistory(body?.history);
-  const cacheKey = cacheKeyFor(question, mode, history);
+  const previousSuggestions = normalizeSuggestions(body?.previousSuggestions);
+  const cacheKey = cacheKeyFor(question, mode, history, previousSuggestions);
   const cached = readCachedAnswer(cacheKey);
   if (cached) return json({ ...cached, cached: true });
 
@@ -161,7 +162,7 @@ async function handleAsk(request, env) {
       citations: [],
       corpus: responseCorpus(),
       mode,
-      suggestions: defaultSuggestions(mode),
+      suggestions: defaultSuggestions(mode, history, previousSuggestions),
       retrieval: "local-hybrid"
     });
   }
@@ -174,7 +175,7 @@ async function handleAsk(request, env) {
         citations,
         corpus: responseCorpus(),
         mode,
-        suggestions: suggestionsFor(question, mode, citations),
+        suggestions: suggestionsFor(question, mode, citations, "", history, previousSuggestions),
         retrieval: "local-hybrid"
       },
       503
@@ -207,7 +208,7 @@ async function handleAsk(request, env) {
     corpus: responseCorpus(),
     mode,
     model,
-    suggestions: suggestionsFor(question, mode, citations, answer),
+    suggestions: suggestionsFor(question, mode, citations, answer, history, previousSuggestions),
     retrieval: "local-hybrid"
   };
   writeCachedAnswer(cacheKey, payload);
@@ -262,6 +263,14 @@ function normalizeHistory(value) {
       acc.push({ ...turn, content: turn.content.slice(0, Math.max(0, MAX_HISTORY_CHARS - used)) });
       return acc;
     }, []);
+}
+
+function normalizeSuggestions(value) {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((item) => normalizeQuestion(item).slice(0, 180))
+    .filter(Boolean)
+    .slice(0, 6);
 }
 
 function clientId(request) {
@@ -635,94 +644,187 @@ function responseManifest() {
   };
 }
 
-function suggestionsFor(question, mode, citations, answer = "") {
+function suggestionsFor(question, mode, citations, answer = "", history = [], previousSuggestions = []) {
   const text = `${question} ${answer}`.toLowerCase();
   if (mode === "cite") {
-    return [
+    return chooseSuggestions([
       "Which work should I cite for the main theorem?",
       "Give me the BibTeX for the current version.",
-      "Which claims have DOI records now?"
+      "Which claims have DOI records now?",
+      "Which version should be cited for this answer?",
+      "Show the citation boundary for this claim.",
+      "What source supports the narrower claim?"
+    ], mode, question, history, previousSuggestions);
+  }
+  if (mode === "locate") {
+    return chooseSuggestions([
+      "Summarize the result at the strongest location.",
+      "What depends on this result?",
+      "Which paper should I open first?",
+      "Which definition should I read before this?",
+      "Where is the proof step immediately after this?",
+      "Show the nearest related theorem."
+    ], mode, question, history, previousSuggestions);
+  }
+  const candidates = [];
+  if (/not enough|not contain enough|missing support|weaker claim|not support/.test(text)) {
+    candidates.push(
+      "Which source comes closest to answering this?",
+      "What exact term should I search for?",
+      "What is known from the retrieved sources?",
+      "What claim would be safe to state from these sources?",
+      "Which missing premise would need a citation?",
+      "Where should I look next in the corpus?"
+    );
+  }
+  if (/conditional|hypotheses|requires|assuming|under the stated/.test(text)) {
+    candidates.push(
+      "List the hypotheses needed for this claim.",
+      "Which parts are proved and which are conditional?",
+      "Where does this condition enter the proof?",
+      "Which hypothesis is doing the most work?",
+      "What changes if that hypothesis is removed?",
+      "Where is each hypothesis discharged?",
+      "What is the strongest unconditional statement here?"
+    );
+  }
+  if (/\bs3\b|s\^3|sphere|spherical|geometry/.test(text)) {
+    candidates.push(
+      "Is S3 assumed or derived?",
+      "What hypotheses are needed for the S3 conclusion?",
+      "Where is frame completeness used?",
+      "Trace the route from frame completeness to constant curvature.",
+      "Where does simple connectivity enter?",
+      "What non-S3 alternatives are ruled out?"
+    );
+  }
+  if (/rectangular|completeness|product/.test(text)) {
+    candidates.push(
+      "What does rectangular completeness rule out?",
+      "Where is this proved in the monograph?",
+      "How does this relate to standard physical closure?",
+      "Which definition of comparison world is being used?",
+      "What would fail without rectangular completeness?",
+      "How does the RC paper sharpen this point?"
+    );
+  }
+  if (/second-jet|jet|faithfulness|torsion|detectability|\(t\)|\(d\)/.test(text)) {
+    candidates.push(
+      "Why is the second jet the needed level?",
+      "Where do condition (T) and axiom (D) enter?",
+      "What would fail at first jet?",
+      "How is second-jet faithfulness discharged?",
+      "Which part is theorem and which part is a criterion?",
+      "Where does this feed into curvature?"
+    );
+  }
+  if (/quotient|transport|obstruction|curvature|holonomy/.test(text)) {
+    candidates.push(
+      "Trace the dependency from quotient semantics to curvature.",
+      "Where is transport obstruction first defined?",
+      "How does this connect to the S3 theorem?",
+      "Which quotient equality is being used here?",
+      "What loop or route invariant controls this step?",
+      "Where does obstruction become geometric?"
+    );
+  }
+  if (/charge|millicharged|prediction|denominator/.test(text)) {
+    candidates.push(
+      "State the prediction as a falsifiable claim.",
+      "Where is the denominator-3 lattice defined?",
+      "Which source should be cited for this prediction?",
+      "What would count as an experimental conflict?",
+      "How does this differ from ordinary charge quantization?",
+      "Which assumptions does the prediction use?"
+    );
+  }
+  if (citations.some((citation) => citation.code === "csm")) {
+    candidates.push(
+      "What is the exact logical status of this claim?",
+      "Where does the proof enter the monograph?",
+      "What are the needed hypotheses?",
+      "Which chapter should I read next?",
+      "What is the shortest dependency chain?",
+      "Which supporting paper gives the focused version?"
+    );
+  }
+  return chooseSuggestions(candidates.length ? candidates : defaultSuggestions(mode), mode, question, history, previousSuggestions);
+}
+
+function defaultSuggestions(mode, history = [], previousSuggestions = []) {
+  if (mode === "locate") return chooseSuggestions(["Open the best source.", "Explain this result.", "Show related dependencies.", "What proof step comes next?", "Which source is most central?"], mode, "", history, previousSuggestions);
+  if (mode === "cite") return chooseSuggestions(["Give canonical citations.", "Show DOI records.", "Which version should be cited?", "Which claim does this source support?", "Show BibTeX for the closest source."], mode, "", history, previousSuggestions);
+  return [
+    "What is the exact logical status?",
+    "Where is this proved?",
+    "How does this connect to the rest of the program?",
+    "Which definition controls this point?",
+    "What should I read next?",
+    "What is the shortest dependency chain?"
+  ];
+}
+
+function chooseSuggestions(candidates, mode, question, history = [], previousSuggestions = []) {
+  const recentQuestions = history
+    .filter((turn) => turn.role === "user")
+    .map((turn) => turn.content)
+    .concat(question);
+  const asked = new Set(recentQuestions.map(suggestionKey));
+  const previous = new Set(previousSuggestions.map(suggestionKey));
+  const unique = [];
+  const seen = new Set();
+
+  for (const candidate of [...candidates, ...generalFollowups(mode)]) {
+    const clean = normalizeQuestion(candidate);
+    const key = suggestionKey(clean);
+    if (!clean || seen.has(key) || asked.has(key)) continue;
+    seen.add(key);
+    unique.push({ clean, key });
+  }
+
+  let selected = unique.filter((item) => !previous.has(item.key)).map((item) => item.clean);
+  if (selected.length < 3) {
+    const fill = unique.map((item) => item.clean).filter((item) => !selected.includes(item));
+    selected = selected.concat(fill);
+  }
+  return selected.slice(0, 3);
+}
+
+function generalFollowups(mode) {
+  if (mode === "cite") {
+    return [
+      "Which citation should not be used for this claim?",
+      "What is the narrowest citable statement?",
+      "Where is the public source record?"
     ];
   }
   if (mode === "locate") {
     return [
-      "Summarize the result at the strongest location.",
-      "What depends on this result?",
-      "Which paper should I open first?"
+      "Which section should I read before this?",
+      "Which section should I read after this?",
+      "Show the closest supporting paper."
     ];
   }
-  if (/not enough|not contain enough|missing support|weaker claim|not support/.test(text)) {
-    return [
-      "Which source comes closest to answering this?",
-      "What exact term should I search for?",
-      "What is known from the retrieved sources?"
-    ];
-  }
-  if (/conditional|hypotheses|requires|assuming|under the stated/.test(text)) {
-    return [
-      "List the hypotheses needed for this claim.",
-      "Which parts are proved and which are conditional?",
-      "Where does this condition enter the proof?"
-    ];
-  }
-  if (/\bs3\b|s\^3|sphere|spherical|geometry/.test(text)) {
-    return [
-      "Is S3 assumed or derived?",
-      "What hypotheses are needed for the S3 conclusion?",
-      "Where is frame completeness used?"
-    ];
-  }
-  if (/rectangular|completeness|product/.test(text)) {
-    return [
-      "What does rectangular completeness rule out?",
-      "Where is this proved in the monograph?",
-      "How does this relate to standard physical closure?"
-    ];
-  }
-  if (/second-jet|jet|faithfulness|torsion|detectability|\(t\)|\(d\)/.test(text)) {
-    return [
-      "Why is the second jet the needed level?",
-      "Where do condition (T) and axiom (D) enter?",
-      "What would fail at first jet?"
-    ];
-  }
-  if (/quotient|transport|obstruction|curvature|holonomy/.test(text)) {
-    return [
-      "Trace the dependency from quotient semantics to curvature.",
-      "Where is transport obstruction first defined?",
-      "How does this connect to the S3 theorem?"
-    ];
-  }
-  if (/charge|millicharged|prediction|denominator/.test(text)) {
-    return [
-      "State the prediction as a falsifiable claim.",
-      "Where is the denominator-3 lattice defined?",
-      "Which source should be cited for this prediction?"
-    ];
-  }
-  if (citations.some((citation) => citation.code === "csm")) {
-    return [
-      "What is the exact logical status of this claim?",
-      "Where does the proof enter the monograph?",
-      "What are the needed hypotheses?"
-    ];
-  }
-  return defaultSuggestions(mode);
-}
-
-function defaultSuggestions(mode) {
-  if (mode === "locate") return ["Open the best source.", "Explain this result.", "Show related dependencies."];
-  if (mode === "cite") return ["Give canonical citations.", "Show DOI records.", "Which version should be cited?"];
   return [
-    "What is the exact logical status?",
-    "Where is this proved?",
-    "How does this connect to the rest of the program?"
+    "Give the shortest version of the argument.",
+    "Trace the dependency chain one step deeper.",
+    "What is the next natural objection to check?",
+    "Where does this appear outside the monograph?",
+    "Which statement is safest to quote?"
   ];
 }
 
-function cacheKeyFor(question, mode, history) {
+function suggestionKey(value) {
+  return normalizeQuestion(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function cacheKeyFor(question, mode, history, previousSuggestions = []) {
   const historyText = history.map((turn) => `${turn.role}:${turn.content}`).join("|");
-  return `${mode}|${question.toLowerCase()}|${historyText}`.slice(0, 2600);
+  const suggestionText = previousSuggestions.map(suggestionKey).join("|");
+  return `${mode}|${question.toLowerCase()}|${historyText}|${suggestionText}`.slice(0, 2800);
 }
 
 function readCachedAnswer(key) {

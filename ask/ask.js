@@ -24,6 +24,7 @@
     };
   });
   var history = [];
+  var shownSuggestions = [];
 
   if (!form || !question) return;
 
@@ -37,6 +38,7 @@
   clearButton.addEventListener('click', function () {
     question.value = '';
     history = [];
+    shownSuggestions = [];
     turnsList.textContent = '';
     sourcesList.textContent = '';
     if (followups) {
@@ -93,7 +95,8 @@
       body: JSON.stringify({
         question: text,
         mode: currentMode(),
-        history: history.slice(-6)
+        history: history.slice(-6),
+        previousSuggestions: history.length ? recentPromptSuggestions() : []
       })
     })
       .then(function (response) {
@@ -241,6 +244,7 @@
         mode: mode || 'discuss'
       }));
     });
+    rememberShownSuggestions(clean);
   }
 
   function restoreDefaultExamples() {
@@ -270,6 +274,21 @@
         seen[value.toLowerCase()] = true;
         return true;
       });
+  }
+
+  function currentPromptSuggestions() {
+    return Array.prototype.slice.call(document.querySelectorAll('.examples [data-question]'))
+      .map(function (button) { return (button.getAttribute('data-question') || button.textContent || '').replace(/\s+/g, ' ').trim(); })
+      .filter(Boolean)
+      .slice(0, 5);
+  }
+
+  function recentPromptSuggestions() {
+    return uniqueSuggestions(shownSuggestions.concat(currentPromptSuggestions())).slice(-12);
+  }
+
+  function rememberShownSuggestions(suggestions) {
+    shownSuggestions = uniqueSuggestions(shownSuggestions.concat(suggestions || [])).slice(-12);
   }
 
   function appendTurn(role, text) {
