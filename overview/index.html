@@ -693,6 +693,126 @@ a:hover { text-decoration-color: var(--gold); }
   color: var(--muted);
   font-size: 0.78rem;
 }
+.route-obstruction-panel {
+  max-width: 780px;
+  margin: 1.35rem auto 1.45rem;
+  padding: 0.95rem 0 0.85rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.route-obstruction-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
+}
+.route-obstruction-diagram .route-path {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.46;
+}
+.route-obstruction-diagram .route-one {
+  stroke: var(--navy);
+  opacity: 0.78;
+}
+.route-obstruction-diagram .route-two {
+  stroke: var(--muted);
+  stroke-dasharray: 6 7;
+  opacity: 0.58;
+}
+.route-obstruction-diagram .transport-motion-trace {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.72;
+  pointer-events: none;
+}
+.route-obstruction-diagram .endpoint-dot {
+  fill: var(--navy);
+  stroke: var(--paper);
+  stroke-width: 1.4;
+}
+.route-obstruction-diagram .endpoint-dot.gold {
+  fill: var(--gold);
+}
+.route-obstruction-diagram .transport-moving-dot {
+  fill: var(--gold);
+  stroke: var(--paper);
+  stroke-width: 1.4;
+  pointer-events: none;
+}
+.route-obstruction-diagram .transport-vector {
+  stroke: var(--navy);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  opacity: 0.82;
+}
+.route-obstruction-diagram .transport-vector.second {
+  stroke: var(--gold);
+  opacity: 0.9;
+}
+.route-obstruction-diagram .residue-arc {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.85;
+}
+.route-obstruction-diagram .residue-loop {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 5;
+  opacity: 0.62;
+}
+.route-obstruction-diagram .comparison-line {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1.1;
+}
+.route-obstruction-diagram text {
+  letter-spacing: 0;
+}
+.route-obstruction-diagram .route-title,
+.route-obstruction-diagram .route-formula,
+.route-obstruction-diagram .route-math {
+  fill: var(--text);
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-style: italic;
+}
+.route-obstruction-diagram .route-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+.route-obstruction-diagram .route-formula {
+  font-size: 25px;
+}
+.route-obstruction-diagram .route-math {
+  font-size: 22px;
+}
+.route-obstruction-diagram .route-label,
+.route-obstruction-diagram .route-small-label {
+  fill: var(--muted);
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  font-size: 13px;
+}
+.route-obstruction-diagram .route-small-label {
+  font-size: 12px;
+}
+.route-obstruction-diagram .gold-label {
+  fill: var(--gold);
+}
+@media (prefers-reduced-motion: reduce) {
+  .route-obstruction-diagram .transport-moving-dot,
+  .route-obstruction-diagram .transport-motion-trace {
+    display: none;
+  }
+}
 @media (max-width: 640px) {
   .live-comparison-cases {
     grid-template-columns: 1fr;
@@ -700,6 +820,22 @@ a:hover { text-decoration-color: var(--gold); }
   }
   .live-comparison-visual {
     width: 5rem;
+  }
+  .route-obstruction-panel {
+    padding: 0.75rem 0;
+  }
+  .route-obstruction-diagram .route-title {
+    font-size: 28px;
+  }
+  .route-obstruction-diagram .route-formula {
+    font-size: 31px;
+  }
+  .route-obstruction-diagram .route-math {
+    font-size: 25px;
+  }
+  .route-obstruction-diagram .route-label,
+  .route-obstruction-diagram .route-small-label {
+    font-size: 16px;
   }
   .concept-figure.flrw-closure-figure .flrw-closure-diagram {
     display: none;
@@ -962,7 +1098,67 @@ footer span { min-width: 0; }
 
   <p>To compare states across different locations or contexts, a closed system requires a notion of transport: a rule relating a quantity at one point to the corresponding quantity at another point. This rule cannot be supplied from outside; it must be recoverable from the system&rsquo;s internal comparison structure.</p>
 
-  <p>The comparison groupoid is the mathematical structure that encodes how points relate to one another through admissible comparisons. Transport arises naturally from this groupoid: a route from one point to another carries comparison data along with it. When two different routes between the same points give different transport data, there is an obstruction. This obstruction, recorded around closed loops, is curvature in the standard connection-and-holonomy sense [2,3].</p>
+  <p>The comparison groupoid is the mathematical structure that encodes how points relate to one another through admissible comparisons. Transport arises naturally from this groupoid: a route from one point to another carries comparison data along with it. When two different routes between the same points give different transport data, there is an obstruction. In a smooth connection setting this is the familiar holonomy pattern: endpoint equality does not by itself determine the transported data [2,3,14].</p>
+
+  <figure class="concept-figure route-obstruction-panel" aria-labelledby="route-obstruction-caption">
+    <svg class="route-obstruction-diagram" viewBox="0 0 820 330" role="img" aria-labelledby="route-obstruction-title route-obstruction-desc" xmlns="http://www.w3.org/2000/svg">
+      <title id="route-obstruction-title">Route obstruction and transported-data residue</title>
+      <desc id="route-obstruction-desc">Two admissible routes from p to q are traced in sequence. The endpoints agree, but the compared transported data at q differ, leaving a loop residue.</desc>
+      <defs>
+        <marker id="route-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--navy)" />
+        </marker>
+        <marker id="route-arrow-gold" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--gold)" />
+        </marker>
+      </defs>
+
+      <text class="route-title" x="410" y="38" text-anchor="middle">Endpoint agreement need not determine transport</text>
+      <line class="comparison-line" x1="142" y1="60" x2="678" y2="60" />
+
+      <path id="route-one-path" class="route-path route-one" d="M 126 176 C 238 66 505 66 642 176" marker-end="url(#route-arrow)" />
+      <path id="route-two-path" class="route-path route-two" d="M 126 176 C 252 284 506 284 642 176" marker-end="url(#route-arrow)" />
+
+      <path class="transport-motion-trace" d="M 126 176 C 238 66 505 66 642 176" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1">
+        <animate attributeName="stroke-dashoffset" dur="6s" repeatCount="indefinite" values="1;0;0;1;1" keyTimes="0;0.42;0.48;0.5;1"></animate>
+      </path>
+      <path class="transport-motion-trace" d="M 126 176 C 252 284 506 284 642 176" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1">
+        <animate attributeName="stroke-dashoffset" dur="6s" repeatCount="indefinite" values="1;1;1;0;0" keyTimes="0;0.48;0.52;0.94;1"></animate>
+      </path>
+
+      <circle class="transport-moving-dot" r="5">
+        <animateMotion dur="6s" repeatCount="indefinite" path="M 126 176 C 238 66 505 66 642 176" keyPoints="0;1;1;1;0" keyTimes="0;0.42;0.48;0.99;1" calcMode="linear"></animateMotion>
+        <animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="1;1;0;0;1" keyTimes="0;0.42;0.44;0.98;1"></animate>
+      </circle>
+      <circle class="transport-moving-dot" r="5">
+        <animateMotion dur="6s" repeatCount="indefinite" path="M 126 176 C 252 284 506 284 642 176" keyPoints="0;0;0;1;1" keyTimes="0;0.48;0.52;0.94;1" calcMode="linear"></animateMotion>
+        <animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;0.5;0.52;0.94;0.98"></animate>
+      </circle>
+
+      <circle class="endpoint-dot" cx="126" cy="176" r="6" />
+      <circle class="endpoint-dot gold" cx="642" cy="176" r="6" />
+      <text class="route-math" x="104" y="184" text-anchor="end">p</text>
+      <text class="route-math" x="664" y="184">q</text>
+      <text class="route-label" x="365" y="84" text-anchor="middle">&gamma;1: p &rarr; q</text>
+      <text class="route-label" x="365" y="286" text-anchor="middle">&gamma;2: p &rarr; q</text>
+
+      <g aria-hidden="true">
+        <line class="transport-vector" x1="642" y1="176" x2="698" y2="151" marker-end="url(#route-arrow)" />
+        <line class="transport-vector second" x1="642" y1="176" x2="696" y2="207" marker-end="url(#route-arrow-gold)" />
+        <path class="residue-arc" d="M 682 159 A 45 45 0 0 1 683 199" marker-end="url(#route-arrow-gold)">
+          <animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0.28;0.28;0.28;0.92;0.92;0.28" keyTimes="0;0.45;0.55;0.72;0.94;1"></animate>
+        </path>
+        <ellipse class="residue-loop" cx="673" cy="179" rx="48" ry="35">
+          <animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0.25;0.25;0.72;0.72;0.25" keyTimes="0;0.52;0.68;0.94;1"></animate>
+        </ellipse>
+      </g>
+
+      <text class="route-small-label" x="700" y="140">transport by &gamma;1</text>
+      <text class="route-small-label gold-label" x="700" y="219">transport by &gamma;2</text>
+      <text class="route-formula" x="410" y="313" text-anchor="middle">&gamma;1, &gamma;2: p &rarr; q, but H(&gamma;1) &ne; H(&gamma;2)</text>
+    </svg>
+    <figcaption id="route-obstruction-caption">Route obstruction in its minimal form: two routes have the same source and target, yet the transported data assigned to those routes need not agree. The residue is not endpoint data; under the smooth connection interface it is read through holonomy and curvature. Formal source: <a href="/csm/">CSM</a>, Appendix A, &ldquo;Endpoint data do not determine route data.&rdquo;</figcaption>
+  </figure>
 
   <p>Curvature, in this setting, is the first stable layer of transport obstruction in a closed system, realized as curvature under faithful smooth realization. The curvature hierarchy&mdash;the hierarchy of increasingly fine-grained obstructions to route independence&mdash;emerges from the comparison groupoid before any smooth geometry is introduced. The faithfulness of the smooth reading decomposes into a torsion condition (T) and an intrinsic detectability axiom (D), shown exactly necessary by ghost counter-models, and is discharged on a canonical realization built from the transport tower (CSM Chapter 13, &sect;&sect;13.14&ndash;13.16).</p>
 
@@ -1164,6 +1360,9 @@ footer span { min-width: 0; }
   </p>
   <p style="font-size:0.85rem;color:var(--muted);line-height:1.9;margin-bottom:0.3rem;">
   [12] D. W. Hogg, <a href="https://arxiv.org/abs/astro-ph/9905116" target="_blank" rel="noopener">&ldquo;Distance measures in cosmology,&rdquo;</a> arXiv:astro-ph/9905116 (1999). [13] Planck Collaboration, <a href="https://arxiv.org/abs/1807.06209" target="_blank" rel="noopener">&ldquo;Planck 2018 results. VI. Cosmological parameters,&rdquo;</a> <em>Astronomy &amp; Astrophysics</em> 641 (2020) A6.
+  </p>
+  <p style="font-size:0.85rem;color:var(--muted);line-height:1.9;margin-bottom:0.3rem;">
+  [14] W. Ambrose and I. M. Singer, <a href="https://doi.org/10.1090/S0002-9947-1953-0063739-1" target="_blank" rel="noopener">&ldquo;A theorem on holonomy,&rdquo;</a> <em>Trans. Amer. Math. Soc.</em> 75 (1953) 428&ndash;443, for the classical relation between holonomy and curvature.
   </p>
 
   <footer>
