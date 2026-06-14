@@ -21,7 +21,7 @@ preferred-citation:
     name: "Closure Research Initiative"
     website: "https://closureresearchinitiative.org"
   year: 2026
-  version: "10"
+  version: "11"
   url: "https://closureresearchinitiative.org/csm/"
 references:
   - type: book
@@ -34,7 +34,7 @@ references:
       name: "Closure Research Initiative"
       website: "https://closureresearchinitiative.org"
     year: 2026
-    version: "10"
+    version: "11"
     url: "https://closureresearchinitiative.org/csm/"
   - type: generic
     title: "Closed Comparison Worlds and the Obstruction to Subsystem Attribution"
