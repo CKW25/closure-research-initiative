@@ -370,19 +370,18 @@ nav span:not(:first-child)::before {
   display: flex;
   align-items: center;
   align-self: flex-start;
-  gap: 0.55rem;
   width: fit-content;
   max-width: 100%;
   margin: 0.55rem 0 0;
   border: 1px solid var(--border);
   border-radius: 5px;
   background: linear-gradient(135deg, var(--paper), var(--card));
-  padding: 0.45rem 0.58rem;
+  padding: 0.32rem 0.38rem;
 }
 .loader-diagram {
   flex: 0 0 auto;
-  width: 4.1rem;
-  height: 2.55rem;
+  width: 3.1rem;
+  height: 3.6rem;
   color: var(--navy);
 }
 .loader-svg {
@@ -390,10 +389,6 @@ nav span:not(:first-child)::before {
   width: 100%;
   height: 100%;
   overflow: visible;
-}
-.loader-svg text {
-  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  fill: var(--navy);
 }
 .loader-svg .orbit-ring {
   fill: none;
@@ -406,93 +401,23 @@ nav span:not(:first-child)::before {
   transform-box: view-box;
   animation: orbit-carrier-turn 1.9s linear infinite;
 }
-.loader-svg .moving-carrier.top { transform-origin: 22px 14px; }
+.loader-svg .moving-carrier.top { transform-origin: 24px 16px; }
 .loader-svg .moving-carrier.bottom {
-  transform-origin: 22px 36px;
+  transform-origin: 24px 40px;
   animation-direction: reverse;
-}
-.loader-svg .connector {
-  fill: none;
-  stroke: var(--navy);
-  stroke-width: 1.45;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.loader-svg .thin-connector {
-  fill: none;
-  stroke: var(--navy);
-  stroke-width: 1.1;
-  stroke-linecap: round;
 }
 .loader-svg .node {
   fill: var(--navy);
+  opacity: 0.9;
 }
 .loader-svg .moving-node {
   fill: var(--gold);
   stroke: var(--card);
   stroke-width: 0.9;
 }
-.loader-svg .equation-band {
-  fill: var(--card);
-  stroke: var(--navy);
-  stroke-opacity: 0.18;
-  stroke-width: 1;
-  animation: projection-pulse 1.9s ease-in-out infinite;
-}
-.loader-svg .equation-text {
-  font-family: 'Inter', 'Source Sans Pro', sans-serif;
-  font-size: 5.6px;
-  font-style: normal;
-  font-weight: 500;
-  letter-spacing: 0;
-}
-.loader-svg .label {
-  font-size: 7px;
-  font-style: italic;
-}
-.loader-svg .small-label {
-  font-size: 5.5px;
-  font-style: italic;
-}
-.loader-svg .carrier-label {
-  fill: var(--navy);
-  font-size: 6.4px;
-  font-style: italic;
-  font-weight: 600;
-}
 @keyframes orbit-carrier-turn {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-@keyframes projection-pulse {
-  0%, 100% { opacity: 0.78; }
-  50% { opacity: 1; }
-}
-.loader-copy {
-  min-width: 0;
-  max-width: 22rem;
-}
-.loader-kicker {
-  display: block;
-  color: var(--gold);
-  font-size: 0.6rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  margin-bottom: 0.18rem;
-  text-transform: uppercase;
-}
-.loader-caption {
-  color: var(--navy);
-  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  font-size: 0.88rem;
-  line-height: 1.25;
-}
-.loader-subcaption {
-  color: var(--muted);
-  font-size: 0.68rem;
-  line-height: 1.35;
-  margin-top: 0.08rem;
 }
 .answer-panel {
   margin-top: 0.5rem;
@@ -694,12 +619,10 @@ footer span { min-width: 0; }
   .ask-button {
     width: 100%;
   }
-  .corpus-loader { gap: 0.45rem; }
-  .loader-subcaption { display: none; }
+  .corpus-loader { padding: 0.28rem 0.34rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .loader-svg .moving-carrier,
-  .loader-svg .equation-band {
+  .loader-svg .moving-carrier {
     animation: none;
   }
 }
@@ -777,40 +700,21 @@ footer span { min-width: 0; }
 
       <div class="corpus-loader hidden" id="corpusLoader" aria-hidden="true">
         <div class="loader-diagram">
-          <svg class="loader-svg" viewBox="0 0 92 50" role="img" aria-label="Twin orbit comparison diagram">
-            <line class="thin-connector" x1="38" y1="25" x2="88" y2="25" opacity="0.22"></line>
-            <rect class="equation-band" x="45" y="18.5" width="38" height="13" rx="3"></rect>
-            <text class="equation-text" x="64" y="27" text-anchor="middle">&pi;&Gamma;=&pi;&Gamma;&#771;</text>
-
-            <circle class="orbit-ring" cx="22" cy="14" r="10"></circle>
-            <path class="connector" d="M12 14 L35 5 L31 14" opacity="0.82"></path>
-            <circle class="node" cx="12" cy="14" r="1.7"></circle>
-            <circle class="node" cx="31" cy="14" r="1.7"></circle>
-            <circle class="node" cx="35" cy="5" r="1.7"></circle>
-            <text class="label" x="38.5" y="6.5">A</text>
-            <text class="small-label" x="77" y="14">I</text>
+          <svg class="loader-svg" viewBox="0 0 48 56" role="img" aria-label="Orbit comparison loading indicator">
+            <circle class="orbit-ring" cx="24" cy="16" r="11"></circle>
+            <circle class="node" cx="13" cy="16" r="1.9"></circle>
+            <circle class="node" cx="35" cy="16" r="1.9"></circle>
             <g class="moving-carrier top">
-              <circle class="moving-node" cx="22" cy="4" r="2.1"></circle>
-              <text class="carrier-label" x="25.8" y="6.2">B</text>
+              <circle class="moving-node" cx="24" cy="5" r="2.2"></circle>
             </g>
 
-            <circle class="orbit-ring" cx="22" cy="36" r="10"></circle>
-            <path class="connector" d="M12 36 L35 45 L31 36" opacity="0.82"></path>
-            <circle class="node" cx="12" cy="36" r="1.7"></circle>
-            <circle class="node" cx="31" cy="36" r="1.7"></circle>
-            <circle class="node" cx="35" cy="45" r="1.7"></circle>
-            <text class="label" x="38.5" y="47">B</text>
-            <text class="small-label" x="77" y="39">II</text>
+            <circle class="orbit-ring" cx="24" cy="40" r="11"></circle>
+            <circle class="node" cx="13" cy="40" r="1.9"></circle>
+            <circle class="node" cx="35" cy="40" r="1.9"></circle>
             <g class="moving-carrier bottom">
-              <circle class="moving-node" cx="22" cy="26" r="2.1"></circle>
-              <text class="carrier-label" x="25.8" y="28.2">A</text>
+              <circle class="moving-node" cx="24" cy="29" r="2.2"></circle>
             </g>
           </svg>
-        </div>
-        <div class="loader-copy">
-          <span class="loader-kicker">Comparison search</span>
-          <div class="loader-caption" id="loaderCaption">Resolving comparison profiles</div>
-          <div class="loader-subcaption">Retrieving public corpus passages and citation records.</div>
         </div>
       </div>
     </section>

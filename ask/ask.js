@@ -14,7 +14,6 @@
   var followups = document.getElementById('followups');
   var corpusLine = document.getElementById('corpusLine');
   var corpusLoader = document.getElementById('corpusLoader');
-  var loaderCaption = document.getElementById('loaderCaption');
   var examplesContainer = document.querySelector('.examples');
   var defaultExamples = Array.prototype.slice.call(document.querySelectorAll('.examples [data-question]')).map(function (button) {
     return {
@@ -531,17 +530,9 @@
     if (!corpusLoader) return;
 
     if (value) {
-      if (loaderCaption) loaderCaption.textContent = loaderTextForMode();
       corpusLoader.classList.remove('hidden');
     } else {
       corpusLoader.classList.add('hidden');
     }
-  }
-
-  function loaderTextForMode() {
-    var mode = currentMode();
-    if (mode === 'locate') return 'Tracing the source route';
-    if (mode === 'cite') return 'Checking citation boundary';
-    return 'Resolving comparison profiles';
   }
 })();
