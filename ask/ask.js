@@ -214,14 +214,18 @@
   function renderFollowups(suggestions) {
     if (!followups) return;
     followups.textContent = '';
-    suggestions.slice(0, 3).forEach(function (suggestion) {
+    uniqueSuggestions(suggestions, currentMode()).slice(0, 3).forEach(function (item) {
       var button = document.createElement('button');
       button.className = 'followup-button';
       button.type = 'button';
-      button.textContent = suggestion;
+      button.textContent = item.label;
+      button.setAttribute('data-mode', item.mode || 'discuss');
+      button.setAttribute('data-kind', item.kind || '');
+      button.title = suggestionTitle(item);
       button.addEventListener('click', function () {
-        question.value = suggestion;
-        submitQuestion(suggestion);
+        setMode(item.mode || 'discuss');
+        question.value = item.question;
+        submitQuestion(item.question);
       });
       followups.appendChild(button);
     });
@@ -230,19 +234,15 @@
 
   function renderExamplePrompts(suggestions, mode) {
     if (!examplesContainer) return;
-    var clean = uniqueSuggestions(suggestions);
+    var clean = uniqueSuggestions(suggestions, mode || currentMode());
     if (!clean.length) {
       restoreDefaultExamples();
       return;
     }
 
     examplesContainer.textContent = '';
-    clean.slice(0, 3).forEach(function (suggestion) {
-      examplesContainer.appendChild(makeExampleButton({
-        label: suggestion,
-        question: suggestion,
-        mode: mode || 'discuss'
-      }));
+    clean.slice(0, 3).forEach(function (item) {
+      examplesContainer.appendChild(makeExampleButton(item));
     });
     rememberShownSuggestions(clean);
   }
@@ -260,35 +260,84 @@
     button.className = 'example-button';
     button.type = 'button';
     button.setAttribute('data-mode', item.mode || 'discuss');
+    button.setAttribute('data-kind', item.kind || '');
     button.setAttribute('data-question', item.question || item.label || '');
     button.textContent = item.label || item.question || '';
+    button.title = suggestionTitle(item);
     return button;
   }
 
-  function uniqueSuggestions(suggestions) {
+  function uniqueSuggestions(suggestions, fallbackMode) {
     var seen = {};
     return (suggestions || [])
-      .map(function (value) { return (value || '').replace(/\s+/g, ' ').trim(); })
-      .filter(function (value) {
-        if (!value || seen[value.toLowerCase()]) return false;
-        seen[value.toLowerCase()] = true;
+      .map(function (value) { return normalizeSuggestionItem(value, fallbackMode || 'discuss'); })
+      .filter(function (item) {
+        var key = item.question.toLowerCase();
+        if (!item.question || seen[key]) return false;
+        seen[key] = true;
         return true;
       });
   }
 
   function currentPromptSuggestions() {
     return Array.prototype.slice.call(document.querySelectorAll('.examples [data-question]'))
-      .map(function (button) { return (button.getAttribute('data-question') || button.textContent || '').replace(/\s+/g, ' ').trim(); })
+      .map(function (button) { return cleanSuggestionText(button.getAttribute('data-question') || button.textContent || ''); })
       .filter(Boolean)
       .slice(0, 5);
   }
 
   function recentPromptSuggestions() {
-    return uniqueSuggestions(shownSuggestions.concat(currentPromptSuggestions())).slice(-12);
+    return uniqueSuggestionTexts(shownSuggestions.concat(currentPromptSuggestions())).slice(-12);
   }
 
   function rememberShownSuggestions(suggestions) {
-    shownSuggestions = uniqueSuggestions(shownSuggestions.concat(suggestions || [])).slice(-12);
+    shownSuggestions = uniqueSuggestionTexts(shownSuggestions.concat((suggestions || []).map(suggestionQuestion))).slice(-12);
+  }
+
+  function normalizeSuggestionItem(value, fallbackMode) {
+    var mode = fallbackMode || 'discuss';
+    if (typeof value === 'string') {
+      var text = cleanSuggestionText(value);
+      return { label: text, question: text, mode: mode, kind: mode };
+    }
+    var questionText = cleanSuggestionText(value && (value.question || value.label));
+    var labelText = cleanSuggestionText(value && (value.label || value.question)) || questionText;
+    var itemMode = value && value.mode ? value.mode : mode;
+    if (itemMode === 'guide') itemMode = 'discuss';
+    if (['discuss', 'locate', 'cite'].indexOf(itemMode) === -1) itemMode = mode;
+    return {
+      label: labelText,
+      question: questionText,
+      mode: itemMode,
+      kind: cleanSuggestionText(value && value.kind)
+    };
+  }
+
+  function suggestionQuestion(value) {
+    if (typeof value === 'string') return cleanSuggestionText(value);
+    return cleanSuggestionText(value && (value.question || value.label));
+  }
+
+  function suggestionTitle(item) {
+    var kind = cleanSuggestionText(item && item.kind);
+    var questionText = cleanSuggestionText(item && item.question);
+    return kind && questionText ? kind + ': ' + questionText : questionText;
+  }
+
+  function uniqueSuggestionTexts(values) {
+    var seen = {};
+    return (values || [])
+      .map(suggestionQuestion)
+      .filter(function (value) {
+        var key = value.toLowerCase();
+        if (!value || seen[key]) return false;
+        seen[key] = true;
+        return true;
+      });
+  }
+
+  function cleanSuggestionText(value) {
+    return String(value || '').replace(/\s+/g, ' ').trim();
   }
 
   function appendTurn(role, text) {

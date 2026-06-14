@@ -268,7 +268,7 @@ function normalizeHistory(value) {
 function normalizeSuggestions(value) {
   if (!Array.isArray(value)) return [];
   return value
-    .map((item) => normalizeQuestion(item).slice(0, 180))
+    .map((item) => suggestionText(item).slice(0, 180))
     .filter(Boolean)
     .slice(0, 6);
 }
@@ -648,120 +648,146 @@ function suggestionsFor(question, mode, citations, answer = "", history = [], pr
   const text = `${question} ${answer}`.toLowerCase();
   if (mode === "cite") {
     return chooseSuggestions([
-      "Which work should I cite for the main theorem?",
-      "Give me the BibTeX for the current version.",
-      "Which claims have DOI records now?",
-      "Which version should be cited for this answer?",
-      "Show the citation boundary for this claim.",
-      "What source supports the narrower claim?"
+      sg("Which work should I cite for the main theorem?", "cite", "Citation"),
+      sg("Give me the BibTeX for the current version.", "cite", "BibTeX"),
+      sg("Which claims have DOI records now?", "cite", "DOI"),
+      sg("Which version should be cited for this answer?", "cite", "Version"),
+      sg("Show the citation boundary for this claim.", "cite", "Boundary"),
+      sg("What source supports the narrower claim?", "cite", "Evidence"),
+      sg("Explain the cited result in context.", "discuss", "Explain"),
+      sg("Locate the proof behind this citation.", "locate", "Locate")
     ], mode, question, history, previousSuggestions);
   }
   if (mode === "locate") {
     return chooseSuggestions([
-      "Summarize the result at the strongest location.",
-      "What depends on this result?",
-      "Which paper should I open first?",
-      "Which definition should I read before this?",
-      "Where is the proof step immediately after this?",
-      "Show the nearest related theorem."
+      sg("Summarize the result at the strongest location.", "discuss", "Explain"),
+      sg("What depends on this result?", "discuss", "Dependencies"),
+      sg("Which paper should I open first?", "locate", "Locate"),
+      sg("Which definition should I read before this?", "locate", "Definition"),
+      sg("Where is the proof step immediately after this?", "locate", "Proof"),
+      sg("Show the nearest related theorem.", "locate", "Theorem"),
+      sg("Which source should I cite for this location?", "cite", "Cite")
     ], mode, question, history, previousSuggestions);
   }
   const candidates = [];
   if (/not enough|not contain enough|missing support|weaker claim|not support/.test(text)) {
     candidates.push(
-      "Which source comes closest to answering this?",
-      "What exact term should I search for?",
-      "What is known from the retrieved sources?",
-      "What claim would be safe to state from these sources?",
-      "Which missing premise would need a citation?",
-      "Where should I look next in the corpus?"
+      sg("Which source comes closest to answering this?", "locate", "Locate"),
+      sg("What exact term should I search for?", "locate", "Search"),
+      sg("What is known from the retrieved sources?", "discuss", "Known"),
+      sg("What claim would be safe to state from these sources?", "discuss", "Boundary"),
+      sg("Which missing premise would need a citation?", "cite", "Missing"),
+      sg("Where should I look next in the corpus?", "locate", "Next")
     );
   }
   if (/conditional|hypotheses|requires|assuming|under the stated/.test(text)) {
     candidates.push(
-      "List the hypotheses needed for this claim.",
-      "Which parts are proved and which are conditional?",
-      "Where does this condition enter the proof?",
-      "Which hypothesis is doing the most work?",
-      "What changes if that hypothesis is removed?",
-      "Where is each hypothesis discharged?",
-      "What is the strongest unconditional statement here?"
+      sg("List the hypotheses needed for this claim.", "discuss", "Status"),
+      sg("Which parts are proved and which are conditional?", "discuss", "Status"),
+      sg("Where does this condition enter the proof?", "locate", "Locate"),
+      sg("Which hypothesis is doing the most work?", "discuss", "Stress"),
+      sg("What changes if that hypothesis is removed?", "discuss", "Stress"),
+      sg("Where is each hypothesis discharged?", "locate", "Discharge"),
+      sg("What is the strongest unconditional statement here?", "discuss", "Boundary"),
+      sg("Which source should I cite for these hypotheses?", "cite", "Cite")
     );
   }
   if (/\bs3\b|s\^3|sphere|spherical|geometry/.test(text)) {
     candidates.push(
-      "Is S3 assumed or derived?",
-      "What hypotheses are needed for the S3 conclusion?",
-      "Where is frame completeness used?",
-      "Trace the route from frame completeness to constant curvature.",
-      "Where does simple connectivity enter?",
-      "What non-S3 alternatives are ruled out?"
+      sg("Is S3 assumed or derived?", "discuss", "Status"),
+      sg("What hypotheses are needed for the S3 conclusion?", "discuss", "Hypotheses"),
+      sg("Where is frame completeness used?", "locate", "Locate"),
+      sg("Trace the route from frame completeness to constant curvature.", "discuss", "Chain"),
+      sg("Where does simple connectivity enter?", "locate", "Locate"),
+      sg("What non-S3 alternatives are ruled out?", "discuss", "Alternatives"),
+      sg("Which source should I cite for the S3 conclusion?", "cite", "Cite")
     );
   }
   if (/rectangular|completeness|product/.test(text)) {
     candidates.push(
-      "What does rectangular completeness rule out?",
-      "Where is this proved in the monograph?",
-      "How does this relate to standard physical closure?",
-      "Which definition of comparison world is being used?",
-      "What would fail without rectangular completeness?",
-      "How does the RC paper sharpen this point?"
+      sg("What does rectangular completeness rule out?", "discuss", "Meaning"),
+      sg("Where is this proved in the monograph?", "locate", "Locate"),
+      sg("How does this relate to standard physical closure?", "discuss", "Compare"),
+      sg("Which definition of comparison world is being used?", "locate", "Definition"),
+      sg("What would fail without rectangular completeness?", "discuss", "Stress"),
+      sg("How does the RC paper sharpen this point?", "locate", "Paper"),
+      sg("Which source should I cite for rectangular completeness?", "cite", "Cite")
     );
   }
   if (/second-jet|jet|faithfulness|torsion|detectability|\(t\)|\(d\)/.test(text)) {
     candidates.push(
-      "Why is the second jet the needed level?",
-      "Where do condition (T) and axiom (D) enter?",
-      "What would fail at first jet?",
-      "How is second-jet faithfulness discharged?",
-      "Which part is theorem and which part is a criterion?",
-      "Where does this feed into curvature?"
+      sg("Why is the second jet the needed level?", "discuss", "Explain"),
+      sg("Where do condition (T) and axiom (D) enter?", "locate", "Locate"),
+      sg("What would fail at first jet?", "discuss", "Stress"),
+      sg("How is second-jet faithfulness discharged?", "locate", "Discharge"),
+      sg("Which part is theorem and which part is a criterion?", "discuss", "Status"),
+      sg("Where does this feed into curvature?", "locate", "Chain"),
+      sg("Which source should I cite for second-jet faithfulness?", "cite", "Cite")
     );
   }
   if (/quotient|transport|obstruction|curvature|holonomy/.test(text)) {
     candidates.push(
-      "Trace the dependency from quotient semantics to curvature.",
-      "Where is transport obstruction first defined?",
-      "How does this connect to the S3 theorem?",
-      "Which quotient equality is being used here?",
-      "What loop or route invariant controls this step?",
-      "Where does obstruction become geometric?"
+      sg("Trace the dependency from quotient semantics to curvature.", "discuss", "Chain"),
+      sg("Where is transport obstruction first defined?", "locate", "Locate"),
+      sg("How does this connect to the S3 theorem?", "discuss", "Connect"),
+      sg("Which quotient equality is being used here?", "locate", "Locate"),
+      sg("What loop or route invariant controls this step?", "discuss", "Invariant"),
+      sg("Where does obstruction become geometric?", "locate", "Locate"),
+      sg("Which source should I cite for the obstruction step?", "cite", "Cite")
     );
   }
   if (/charge|millicharged|prediction|denominator/.test(text)) {
     candidates.push(
-      "State the prediction as a falsifiable claim.",
-      "Where is the denominator-3 lattice defined?",
-      "Which source should be cited for this prediction?",
-      "What would count as an experimental conflict?",
-      "How does this differ from ordinary charge quantization?",
-      "Which assumptions does the prediction use?"
+      sg("State the prediction as a falsifiable claim.", "discuss", "Prediction"),
+      sg("Where is the denominator-3 lattice defined?", "locate", "Locate"),
+      sg("Which source should be cited for this prediction?", "cite", "Cite"),
+      sg("What would count as an experimental conflict?", "discuss", "Test"),
+      sg("How does this differ from ordinary charge quantization?", "discuss", "Compare"),
+      sg("Which assumptions does the prediction use?", "discuss", "Hypotheses")
     );
   }
   if (citations.some((citation) => citation.code === "csm")) {
     candidates.push(
-      "What is the exact logical status of this claim?",
-      "Where does the proof enter the monograph?",
-      "What are the needed hypotheses?",
-      "Which chapter should I read next?",
-      "What is the shortest dependency chain?",
-      "Which supporting paper gives the focused version?"
+      sg("What is the exact logical status of this claim?", "discuss", "Status"),
+      sg("Where does the proof enter the monograph?", "locate", "Locate"),
+      sg("What are the needed hypotheses?", "discuss", "Hypotheses"),
+      sg("Which chapter should I read next?", "locate", "Next"),
+      sg("What is the shortest dependency chain?", "discuss", "Chain"),
+      sg("Which supporting paper gives the focused version?", "locate", "Paper"),
+      sg("Which source should I cite for this claim?", "cite", "Cite")
     );
   }
   return chooseSuggestions(candidates.length ? candidates : defaultSuggestions(mode), mode, question, history, previousSuggestions);
 }
 
 function defaultSuggestions(mode, history = [], previousSuggestions = []) {
-  if (mode === "locate") return chooseSuggestions(["Open the best source.", "Explain this result.", "Show related dependencies.", "What proof step comes next?", "Which source is most central?"], mode, "", history, previousSuggestions);
-  if (mode === "cite") return chooseSuggestions(["Give canonical citations.", "Show DOI records.", "Which version should be cited?", "Which claim does this source support?", "Show BibTeX for the closest source."], mode, "", history, previousSuggestions);
-  return [
-    "What is the exact logical status?",
-    "Where is this proved?",
-    "How does this connect to the rest of the program?",
-    "Which definition controls this point?",
-    "What should I read next?",
-    "What is the shortest dependency chain?"
-  ];
+  if (mode === "locate") {
+    return chooseSuggestions([
+      sg("Open the best source.", "locate", "Locate"),
+      sg("Explain this result.", "discuss", "Explain"),
+      sg("Show related dependencies.", "discuss", "Dependencies"),
+      sg("What proof step comes next?", "locate", "Proof"),
+      sg("Which source is most central?", "cite", "Cite")
+    ], mode, "", history, previousSuggestions);
+  }
+  if (mode === "cite") {
+    return chooseSuggestions([
+      sg("Give canonical citations.", "cite", "Citation"),
+      sg("Show DOI records.", "cite", "DOI"),
+      sg("Which version should be cited?", "cite", "Version"),
+      sg("Which claim does this source support?", "discuss", "Boundary"),
+      sg("Show BibTeX for the closest source.", "cite", "BibTeX")
+    ], mode, "", history, previousSuggestions);
+  }
+  return chooseSuggestions([
+    sg("What is the exact logical status?", "discuss", "Status"),
+    sg("Where is this proved?", "locate", "Locate"),
+    sg("How does this connect to the rest of the program?", "discuss", "Connect"),
+    sg("Which definition controls this point?", "locate", "Definition"),
+    sg("What should I read next?", "locate", "Next"),
+    sg("What is the shortest dependency chain?", "discuss", "Chain"),
+    sg("Which source should I cite for this?", "cite", "Cite")
+  ], mode, "", history, previousSuggestions);
 }
 
 function chooseSuggestions(candidates, mode, question, history = [], previousSuggestions = []) {
@@ -775,47 +801,90 @@ function chooseSuggestions(candidates, mode, question, history = [], previousSug
   const seen = new Set();
 
   for (const candidate of [...candidates, ...generalFollowups(mode)]) {
-    const clean = normalizeQuestion(candidate);
+    const item = normalizeSuggestion(candidate, mode);
+    const clean = item.question;
     const key = suggestionKey(clean);
     if (!clean || seen.has(key) || asked.has(key)) continue;
     seen.add(key);
-    unique.push({ clean, key });
+    unique.push({ ...item, key });
   }
 
-  let selected = unique.filter((item) => !previous.has(item.key)).map((item) => item.clean);
-  if (selected.length < 3) {
-    const fill = unique.map((item) => item.clean).filter((item) => !selected.includes(item));
-    selected = selected.concat(fill);
+  let pool = unique.filter((item) => !previous.has(item.key));
+  if (pool.length < 3) {
+    pool = pool.concat(unique.filter((item) => previous.has(item.key)));
   }
-  return selected.slice(0, 3);
+
+  const selected = [];
+  for (const desiredMode of suggestionModeOrder(mode)) {
+    const pick = pool.find((item) => item.mode === desiredMode && !selected.some((chosen) => chosen.key === item.key));
+    if (pick) selected.push(pick);
+    if (selected.length === 3) break;
+  }
+  for (const item of pool) {
+    if (selected.length === 3) break;
+    if (!selected.some((chosen) => chosen.key === item.key)) selected.push(item);
+  }
+
+  return selected.slice(0, 3).map(({ key, ...item }) => item);
 }
 
 function generalFollowups(mode) {
   if (mode === "cite") {
     return [
-      "Which citation should not be used for this claim?",
-      "What is the narrowest citable statement?",
-      "Where is the public source record?"
+      sg("Which citation should not be used for this claim?", "cite", "Boundary"),
+      sg("What is the narrowest citable statement?", "discuss", "Boundary"),
+      sg("Where is the public source record?", "locate", "Locate")
     ];
   }
   if (mode === "locate") {
     return [
-      "Which section should I read before this?",
-      "Which section should I read after this?",
-      "Show the closest supporting paper."
+      sg("Which section should I read before this?", "locate", "Before"),
+      sg("Which section should I read after this?", "locate", "After"),
+      sg("Show the closest supporting paper.", "locate", "Paper"),
+      sg("Which source should I cite here?", "cite", "Cite")
     ];
   }
   return [
-    "Give the shortest version of the argument.",
-    "Trace the dependency chain one step deeper.",
-    "What is the next natural objection to check?",
-    "Where does this appear outside the monograph?",
-    "Which statement is safest to quote?"
+    sg("Give the shortest version of the argument.", "discuss", "Short"),
+    sg("Trace the dependency chain one step deeper.", "discuss", "Chain"),
+    sg("What is the next natural objection to check?", "discuss", "Test"),
+    sg("Where does this appear outside the monograph?", "locate", "Locate"),
+    sg("Which statement is safest to quote?", "cite", "Cite")
   ];
 }
 
+function suggestionModeOrder(mode) {
+  if (mode === "cite") return ["cite", "discuss", "locate"];
+  if (mode === "locate") return ["locate", "discuss", "cite"];
+  return ["discuss", "locate", "cite"];
+}
+
+function sg(question, mode = "discuss", kind = "") {
+  return { label: question, question, mode, kind };
+}
+
+function normalizeSuggestion(item, fallbackMode = "discuss") {
+  if (typeof item === "string") {
+    const question = normalizeQuestion(item);
+    return { label: question, question, mode: fallbackMode, kind: fallbackMode };
+  }
+  const question = normalizeQuestion(item?.question || item?.label || "");
+  const suggestionMode = VALID_MODES.has(item?.mode) ? item.mode : fallbackMode;
+  return {
+    label: normalizeQuestion(item?.label || question),
+    question,
+    mode: suggestionMode,
+    kind: normalizeQuestion(item?.kind || suggestionMode).slice(0, 40)
+  };
+}
+
+function suggestionText(item) {
+  if (typeof item === "string") return normalizeQuestion(item);
+  return normalizeQuestion(item?.question || item?.label || "");
+}
+
 function suggestionKey(value) {
-  return normalizeQuestion(value)
+  return suggestionText(value)
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
