@@ -573,15 +573,21 @@ a:hover { text-decoration-color: var(--gold); }
   padding: 0.9rem 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+}
+.live-comparison-cases {
   display: grid;
-  grid-template-columns: minmax(5.5rem, 7.25rem) 1fr;
-  gap: 1.15rem;
-  align-items: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  align-items: start;
+}
+.live-comparison-case {
+  margin: 0;
+  min-width: 0;
+  text-align: center;
 }
 .live-comparison-visual {
-  width: 100%;
-  max-width: 7.25rem;
-  justify-self: center;
+  width: 5.6rem;
+  margin: 0 auto 0.45rem;
 }
 .live-comparison-svg {
   display: block;
@@ -607,8 +613,28 @@ a:hover { text-decoration-color: var(--gold); }
   stroke: var(--paper);
   stroke-width: 0.9;
 }
+.live-comparison-svg .live-fixed-point {
+  fill: var(--paper);
+  stroke: var(--gold);
+  stroke-width: 1.15;
+}
+.live-comparison-case figcaption {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+.live-comparison-case strong {
+  display: block;
+  color: var(--navy);
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.18rem;
+}
 .live-comparison-text h4 {
-  margin: 0 0 0.35rem;
+  margin: 0.9rem 0 0.35rem;
   font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
   font-size: 1.06rem;
   font-weight: 600;
@@ -625,13 +651,12 @@ a:hover { text-decoration-color: var(--gold); }
   font-size: 0.78rem;
 }
 @media (max-width: 640px) {
-  .live-comparison-panel {
+  .live-comparison-cases {
     grid-template-columns: 1fr;
     gap: 0.65rem;
-    text-align: left;
   }
   .live-comparison-visual {
-    max-width: 6rem;
+    width: 5rem;
   }
   .concept-figure.flrw-closure-figure .flrw-closure-diagram {
     display: none;
@@ -818,29 +843,70 @@ footer span { min-width: 0; }
   </figure>
 
   <aside class="live-comparison-panel" aria-labelledby="live-comparison-title">
-    <div class="live-comparison-visual" aria-hidden="true">
-      <svg class="live-comparison-svg" viewBox="0 0 48 56">
-        <circle class="live-orbit" cx="24" cy="16" r="11"></circle>
-        <circle class="live-orbit" cx="24" cy="40" r="11"></circle>
-        <line class="live-edge" x1="24" y1="5" x2="13" y2="40">
-          <animate attributeName="x1" dur="2.4s" repeatCount="indefinite" values="24;31.8;35;31.8;24;16.2;13;16.2;24"></animate>
-          <animate attributeName="y1" dur="2.4s" repeatCount="indefinite" values="5;8.2;16;23.8;27;23.8;16;8.2;5"></animate>
-          <animate attributeName="x2" dur="2.4s" repeatCount="indefinite" values="13;16.2;24;31.8;35;31.8;24;16.2;13"></animate>
-          <animate attributeName="y2" dur="2.4s" repeatCount="indefinite" values="40;47.8;51;47.8;40;32.2;29;32.2;40"></animate>
-        </line>
-        <circle class="live-point" cx="24" cy="5" r="2.2">
-          <animate attributeName="cx" dur="2.4s" repeatCount="indefinite" values="24;31.8;35;31.8;24;16.2;13;16.2;24"></animate>
-          <animate attributeName="cy" dur="2.4s" repeatCount="indefinite" values="5;8.2;16;23.8;27;23.8;16;8.2;5"></animate>
-        </circle>
-        <circle class="live-point" cx="13" cy="40" r="2.2">
-          <animate attributeName="cx" dur="2.4s" repeatCount="indefinite" values="13;16.2;24;31.8;35;31.8;24;16.2;13"></animate>
-          <animate attributeName="cy" dur="2.4s" repeatCount="indefinite" values="40;47.8;51;47.8;40;32.2;29;32.2;40"></animate>
-        </circle>
-      </svg>
+    <div class="live-comparison-cases">
+      <figure class="live-comparison-case">
+        <div class="live-comparison-visual" aria-hidden="true">
+          <svg class="live-comparison-svg" viewBox="0 0 48 56">
+            <circle class="live-orbit" cx="24" cy="16" r="11"></circle>
+            <circle class="live-orbit" cx="24" cy="40" r="11"></circle>
+            <line class="live-edge" x1="24" y1="5" x2="13" y2="40">
+              <animate attributeName="x1" dur="2.4s" repeatCount="indefinite" values="24;31.8;35;31.8;24;16.2;13;16.2;24"></animate>
+              <animate attributeName="y1" dur="2.4s" repeatCount="indefinite" values="5;8.2;16;23.8;27;23.8;16;8.2;5"></animate>
+              <animate attributeName="x2" dur="2.4s" repeatCount="indefinite" values="13;16.2;24;31.8;35;31.8;24;16.2;13"></animate>
+              <animate attributeName="y2" dur="2.4s" repeatCount="indefinite" values="40;47.8;51;47.8;40;32.2;29;32.2;40"></animate>
+            </line>
+            <circle class="live-point" cx="24" cy="5" r="2.2">
+              <animate attributeName="cx" dur="2.4s" repeatCount="indefinite" values="24;31.8;35;31.8;24;16.2;13;16.2;24"></animate>
+              <animate attributeName="cy" dur="2.4s" repeatCount="indefinite" values="5;8.2;16;23.8;27;23.8;16;8.2;5"></animate>
+            </circle>
+            <circle class="live-point" cx="13" cy="40" r="2.2">
+              <animate attributeName="cx" dur="2.4s" repeatCount="indefinite" values="13;16.2;24;31.8;35;31.8;24;16.2;13"></animate>
+              <animate attributeName="cy" dur="2.4s" repeatCount="indefinite" values="40;47.8;51;47.8;40;32.2;29;32.2;40"></animate>
+            </circle>
+          </svg>
+        </div>
+        <figcaption><strong>Joint representative motion</strong>Both endpoints vary in the chosen presentation.</figcaption>
+      </figure>
+      <figure class="live-comparison-case">
+        <div class="live-comparison-visual" aria-hidden="true">
+          <svg class="live-comparison-svg" viewBox="0 0 48 56">
+            <circle class="live-orbit" cx="24" cy="16" r="11"></circle>
+            <circle class="live-orbit" cx="24" cy="40" r="11"></circle>
+            <line class="live-edge" x1="24" y1="5" x2="13" y2="40">
+              <animate attributeName="x1" dur="2.4s" repeatCount="indefinite" values="24;31.8;35;31.8;24;16.2;13;16.2;24"></animate>
+              <animate attributeName="y1" dur="2.4s" repeatCount="indefinite" values="5;8.2;16;23.8;27;23.8;16;8.2;5"></animate>
+            </line>
+            <circle class="live-point" cx="24" cy="5" r="2.2">
+              <animate attributeName="cx" dur="2.4s" repeatCount="indefinite" values="24;31.8;35;31.8;24;16.2;13;16.2;24"></animate>
+              <animate attributeName="cy" dur="2.4s" repeatCount="indefinite" values="5;8.2;16;23.8;27;23.8;16;8.2;5"></animate>
+            </circle>
+            <circle class="live-fixed-point" cx="13" cy="40" r="2.2"></circle>
+          </svg>
+        </div>
+        <figcaption><strong>A-supported presentation</strong>A varies while B is held fixed.</figcaption>
+      </figure>
+      <figure class="live-comparison-case">
+        <div class="live-comparison-visual" aria-hidden="true">
+          <svg class="live-comparison-svg" viewBox="0 0 48 56">
+            <circle class="live-orbit" cx="24" cy="16" r="11"></circle>
+            <circle class="live-orbit" cx="24" cy="40" r="11"></circle>
+            <line class="live-edge" x1="24" y1="5" x2="13" y2="40">
+              <animate attributeName="x2" dur="2.4s" repeatCount="indefinite" values="13;16.2;24;31.8;35;31.8;24;16.2;13"></animate>
+              <animate attributeName="y2" dur="2.4s" repeatCount="indefinite" values="40;47.8;51;47.8;40;32.2;29;32.2;40"></animate>
+            </line>
+            <circle class="live-fixed-point" cx="24" cy="5" r="2.2"></circle>
+            <circle class="live-point" cx="13" cy="40" r="2.2">
+              <animate attributeName="cx" dur="2.4s" repeatCount="indefinite" values="13;16.2;24;31.8;35;31.8;24;16.2;13"></animate>
+              <animate attributeName="cy" dur="2.4s" repeatCount="indefinite" values="40;47.8;51;47.8;40;32.2;29;32.2;40"></animate>
+            </circle>
+          </svg>
+        </div>
+        <figcaption><strong>B-supported presentation</strong>B varies while A is held fixed.</figcaption>
+      </figure>
     </div>
     <div class="live-comparison-text">
-      <h4 id="live-comparison-title">The comparison edge carries the reportable content.</h4>
-      <p>The moving endpoints are representatives within orbit descriptions; the gold segment records the comparison being followed. The animation is schematic, not a metric claim about the drawing: it suppresses fixed external marks and displays only representative motion together with the comparison value whose physical status is determined by descent to the quotient.</p>
+      <h4 id="live-comparison-title">The support assignment is not the invariant content.</h4>
+      <p>The three presentations display different representative choices for following a comparison relation. The closed-system question is not which endpoint carries absolute motion, but whether that support assignment descends to the quotient. In the twin-loop setting it does not: only the comparison value whose report factors through the quotient has physical status.</p>
       <p class="source-line">Formal source: <a href="/ccw/">Closed Comparison Worlds</a> and <a href="/csm/">CSM</a> Chapters 4&ndash;6 on quotient semantics and report descent.</p>
     </div>
   </aside>
