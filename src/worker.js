@@ -204,13 +204,22 @@ async function handleAsk(request, env) {
     }
   }
 
+  const suggestions = await generateSmartSuggestions(env, {
+    question,
+    mode,
+    citations,
+    answer,
+    history,
+    previousSuggestions
+  });
+
   const payload = {
     answer: answer || "I could not generate a stable answer from the retrieved corpus excerpts.",
     citations,
     corpus: responseCorpus(),
     mode,
     model,
-    suggestions: suggestionsFor(question, mode, citations, answer, history, previousSuggestions),
+    suggestions,
     retrieval: "local-hybrid"
   };
   writeCachedAnswer(cacheKey, payload);
@@ -223,6 +232,132 @@ function runAnswerModel(env, model, prompt, mode) {
     temperature: mode === "discuss" ? 0.26 : 0.08,
     max_tokens: mode === "discuss" ? 1350 : 980
   });
+}
+
+async function generateSmartSuggestions(env, { question, mode, citations, answer, history, previousSuggestions }) {
+  const fallback = suggestionsFor(question, mode, citations, answer, history, previousSuggestions);
+  if (!answer || !env.AI || typeof env.AI.run !== "function") return fallback;
+
+  const prompt = buildSuggestionPrompt({
+    question,
+    mode,
+    citations,
+    answer,
+    history,
+    previousSuggestions,
+    fallback
+  });
+
+  try {
+    const result = await env.AI.run(MODEL_SECONDARY, {
+      messages: prompt,
+      temperature: 0.18,
+      max_tokens: 420
+    });
+    const parsed = parseSuggestionResult(extractText(result), mode);
+    const chosen = chooseSuggestions(parsed, mode, question, history, previousSuggestions);
+    return chosen.length === 3 ? chosen : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function buildSuggestionPrompt({ question, mode, citations, answer, history, previousSuggestions, fallback }) {
+  const sourceMap = citations
+    .slice(0, 8)
+    .map((citation) => `[${citation.id}] ${citation.title}; ${citation.code}; ${citation.kind}; ${citation.locator}; ${citation.url}`)
+    .join("\n");
+  const prior = previousSuggestions.length ? previousSuggestions.slice(-8).map((item) => `- ${item}`).join("\n") : "None.";
+  const fallbackExamples = fallback.map((item) => `- ${item.label}: ${item.question}`).join("\n");
+
+  return [
+    {
+      role: "system",
+      content: [
+        "You generate follow-up chips for the CRI Research Assistant.",
+        "The chips must be genuinely responsive to the last answer, not generic navigation.",
+        "Generate exactly three follow-ups that a serious reader would naturally ask next after the answer.",
+        "Each follow-up must point into one of these functions: clarify a boundary, locate a proof or definition, test a dependency, compare two named claims, request the citation target, or ask the next step in the argument.",
+        "Do not repeat the user's question or previous chips.",
+        "Do not mention internal notes, LLMS Site Summary, llms.txt, or unavailable source labels.",
+        "Use only these modes: discuss, locate, cite.",
+        "Return only JSON: an array of exactly three objects with keys label, question, mode, kind.",
+        "Labels must be short, two to five words. Questions must be concrete and answer-aware."
+      ].join(" ")
+    },
+    {
+      role: "user",
+      content: [
+        `Mode: ${mode}`,
+        `Recent conversation:\n${formatConversation(history)}`,
+        `User question: ${question}`,
+        `Assistant answer:\n${stripCitationLabels(answer).slice(0, 1800)}`,
+        `Public source map:\n${sourceMap}`,
+        `Previous chips to avoid:\n${prior}`,
+        `Fallback examples for style only, not to copy:\n${fallbackExamples}`
+      ].join("\n\n")
+    }
+  ];
+}
+
+function parseSuggestionResult(value, fallbackMode) {
+  const jsonText = extractJsonArray(value);
+  if (!jsonText) return [];
+  try {
+    const parsed = JSON.parse(jsonText);
+    if (!Array.isArray(parsed)) return [];
+    return parsed
+      .map((item) => normalizeSuggestion(item, fallbackMode))
+      .filter((item) => item.question && item.label)
+      .map((item) => ({
+        ...item,
+        mode: ["discuss", "locate", "cite"].includes(item.mode) ? item.mode : fallbackMode,
+        label: clampSuggestionLabel(item.label),
+        question: clampSuggestionQuestion(item.question)
+      }))
+      .filter((item) => item.question && item.label && !genericSuggestion(item.question));
+  } catch {
+    return [];
+  }
+}
+
+function extractJsonArray(value) {
+  const text = String(value || "").trim();
+  if (!text) return "";
+  if (text.startsWith("[")) {
+    const end = text.lastIndexOf("]");
+    return end >= 0 ? text.slice(0, end + 1) : "";
+  }
+  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  if (fenced) return extractJsonArray(fenced[1]);
+  const start = text.indexOf("[");
+  const end = text.lastIndexOf("]");
+  return start >= 0 && end > start ? text.slice(start, end + 1) : "";
+}
+
+function clampSuggestionLabel(value) {
+  const text = normalizeQuestion(value).replace(/[?.!:;]+$/g, "");
+  return text.split(/\s+/).slice(0, 5).join(" ").slice(0, 64);
+}
+
+function clampSuggestionQuestion(value) {
+  return normalizeQuestion(value)
+    .replace(/\[[SI]\d+\]/g, "")
+    .replace(/\b(?:LLMS Site Summary|llms\.txt)\b/gi, "")
+    .slice(0, 180);
+}
+
+function genericSuggestion(value) {
+  const key = suggestionKey(value).replace(/\s+/g, "");
+  return [
+    "whatshouldireadnext",
+    "whereisthisproved",
+    "whatistheshortestdependencychain",
+    "whatsourceisciteforthis",
+    "explaintheanswer",
+    "tellmemore",
+    "showmoreresults"
+  ].some((generic) => key === generic || key.includes(generic));
 }
 
 function generationFailed(error, citations, mode) {
