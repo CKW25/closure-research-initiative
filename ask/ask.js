@@ -7,6 +7,7 @@
   var clearButton = document.getElementById('clearButton');
   var status = document.getElementById('askStatus');
   var panel = document.getElementById('answerPanel');
+  var shell = document.querySelector('.ask-shell');
   var turnsList = document.getElementById('turnsList');
   var sourcesPanel = document.getElementById('sourcesPanel');
   var sourcesList = document.getElementById('sourcesList');
@@ -66,6 +67,7 @@
     if (sourceCount) sourceCount.textContent = '0 sources';
     restoreDefaultExamples();
     panel.classList.add('hidden');
+    if (shell) shell.classList.remove('has-conversation');
     setLoader(false);
     setStatus('');
     question.focus();
@@ -112,6 +114,7 @@
     autoResizeInput();
     appendTurn('user', text);
     rememberTurn('user', text);
+    if (shell) shell.classList.add('has-conversation');
     panel.classList.remove('hidden');
     if (followups) {
       followups.textContent = '';
@@ -213,12 +216,12 @@
     if (questionText) {
       appendTurn('user', questionText);
     }
-    appendTurn('assistant', data.answer || 'No answer was returned.');
+    var assistantTurn = appendTurn('assistant', data.answer || 'No answer was returned.');
     renderSources(data.citations || []);
     renderFollowups(data.suggestions || []);
     renderExamplePrompts(data.suggestions || [], data.mode || currentMode());
     panel.classList.remove('hidden');
-    scrollConversationEnd();
+    revealTurnStart(assistantTurn);
   }
 
   function renderSources(citations) {
@@ -405,6 +408,7 @@
     card.appendChild(label);
     card.appendChild(body);
     turnsList.appendChild(card);
+    return card;
   }
 
   function scrollConversationEnd() {
@@ -412,10 +416,39 @@
       var target = corpusLoader && !corpusLoader.classList.contains('hidden')
         ? corpusLoader
         : turnsList.lastElementChild || panel;
-      if (target && target.scrollIntoView) {
-        target.scrollIntoView({ block: 'end', behavior: 'smooth' });
+      revealElement(target);
+    });
+  }
+
+  function revealElement(target) {
+    if (!target) return;
+    var rect = target.getBoundingClientRect();
+    var topLimit = 18;
+    var bottomLimit = availableBottom();
+    if (rect.bottom > bottomLimit) {
+      window.scrollBy({ top: rect.bottom - bottomLimit, behavior: 'smooth' });
+    } else if (rect.top < topLimit) {
+      window.scrollBy({ top: rect.top - topLimit, behavior: 'smooth' });
+    }
+  }
+
+  function revealTurnStart(target) {
+    if (!target) return;
+    window.requestAnimationFrame(function () {
+      var rect = target.getBoundingClientRect();
+      var topLimit = 18;
+      var bottomLimit = availableBottom();
+      if (rect.top < topLimit || rect.top > bottomLimit - 72) {
+        window.scrollBy({ top: rect.top - topLimit, behavior: 'smooth' });
       }
     });
+  }
+
+  function availableBottom() {
+    var composer = document.querySelector('.chat-composer');
+    var composerHeight = composer ? composer.getBoundingClientRect().height : 0;
+    var reserve = shell && shell.classList.contains('has-conversation') ? composerHeight + 18 : 18;
+    return Math.max(120, window.innerHeight - reserve);
   }
 
   function autoResizeInput() {
