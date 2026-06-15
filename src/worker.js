@@ -255,8 +255,16 @@ async function generateSmartSuggestions(env, { question, mode, citations, answer
       max_tokens: 420
     });
     const parsed = parseSuggestionResult(extractText(result), mode);
-    const chosen = chooseSuggestions(parsed, mode, question, history, previousSuggestions);
-    return chosen.length === 3 ? chosen : fallback;
+    const generated = chooseSuggestions(parsed, mode, question, history, previousSuggestions, { includeGeneral: false });
+    const supplemented = chooseSuggestions(
+      generated.concat(answerAwareSuggestionFallback(question, mode, citations, answer)),
+      mode,
+      question,
+      history,
+      previousSuggestions,
+      { includeGeneral: false }
+    );
+    return supplemented.length === 3 ? supplemented : fallback;
   } catch {
     return fallback;
   }
@@ -267,7 +275,9 @@ function buildSuggestionPrompt({ question, mode, citations, answer, history, pre
     .slice(0, 8)
     .map((citation) => `[${citation.id}] ${citation.title}; ${citation.code}; ${citation.kind}; ${citation.locator}; ${citation.url}`)
     .join("\n");
-  const prior = previousSuggestions.length ? previousSuggestions.slice(-8).map((item) => `- ${item}`).join("\n") : "None.";
+  const prior = previousSuggestions.length
+    ? previousSuggestions.slice(-8).map((item) => `- ${suggestionText(item)}`).join("\n")
+    : "None.";
   const fallbackExamples = fallback.map((item) => `- ${item.label}: ${item.question}`).join("\n");
 
   return [
@@ -358,6 +368,80 @@ function genericSuggestion(value) {
     "tellmemore",
     "showmoreresults"
   ].some((generic) => key === generic || key.includes(generic));
+}
+
+function answerAwareSuggestionFallback(question, mode, citations, answer = "") {
+  const topic = suggestionTopic(question, answer);
+  const topSource = citations[0];
+  const sourceTitle = topSource ? shortSourceTitle(topSource.title) : "the strongest source";
+  const text = `${question} ${answer}`.toLowerCase();
+  const candidates = [];
+
+  if (/boundary|weaker|missing|not support|not contain enough|does not/.test(text)) {
+    candidates.push(
+      sg(`What is the supported boundary of ${topic}?`, "discuss", "Boundary"),
+      sg(`Which stronger claim about ${topic} is not supported here?`, "discuss", "Limit")
+    );
+  }
+  if (/hypoth|condition|conditional|requires|under/.test(text)) {
+    candidates.push(
+      sg(`Which hypotheses control ${topic}?`, "discuss", "Hypotheses"),
+      sg(`Where are the hypotheses for ${topic} stated?`, "locate", "Locate")
+    );
+  }
+  if (/doi|version|archive|citation|bibtex|release-control/.test(text)) {
+    candidates.push(
+      sg(`Which current citation record controls ${topic}?`, "cite", "Citation"),
+      sg(`How do archive rows change ${topic}?`, "discuss", "Archive"),
+      sg(`Where is the version rule for ${topic} stated?`, "locate", "Locate")
+    );
+  }
+  if (/proof|theorem|definition|lemma|corollary|stated/.test(text)) {
+    candidates.push(
+      sg(`Where is ${topic} stated most directly?`, "locate", "Locate"),
+      sg(`What is the next proof dependency for ${topic}?`, "discuss", "Dependency")
+    );
+  }
+
+  candidates.push(
+    sg(`What exactly follows from ${topic}?`, "discuss", "Consequence"),
+    sg(`Where does ${sourceTitle} support this answer?`, "locate", "Source"),
+    sg(`Which citation should be used for ${topic}?`, "cite", "Cite")
+  );
+
+  return candidates;
+}
+
+function suggestionTopic(question, answer = "") {
+  const combined = `${question} ${answer}`.toLowerCase();
+  const pairs = [
+    [/release-control|release control|version rule|current public version/, "the release-control rule"],
+    [/archive doi|archive dois|archived doi|archived version/, "archive DOI handling"],
+    [/rectangular completeness/, "rectangular completeness"],
+    [/second-jet|second jet|faithful realization|faithfulness/, "second-jet faithfulness"],
+    [/condition \(?t\)?|torsion/, "condition (T)"],
+    [/axiom \(?d\)?|detectability/, "axiom (D)"],
+    [/\bs3\b|s\^3|spherical geometry|three-sphere/, "the S3 conclusion"],
+    [/charge|denominator-3|millicharged/, "the charge-sector prediction"],
+    [/quotient semantics|subsystem attribution/, "quotient semantics"],
+    [/transport obstruction|holonomy|route invariant/, "transport obstruction"],
+    [/boundary datum|boundary data/, "boundary data"],
+    [/conditional theorem|conditional status/, "conditional theorem status"]
+  ];
+  const found = pairs.find(([pattern]) => pattern.test(combined));
+  if (found) return found[1];
+  const terms = queryTerms(`${question} ${answer}`).slice(0, 3);
+  return terms.length ? terms.join(" ") : "this claim";
+}
+
+function shortSourceTitle(value) {
+  return normalizeQuestion(value)
+    .replace(/\s+[-—]\s+Closure Research Initiative$/i, "")
+    .replace(/^Closed Systems from Comparison Completeness$/i, "CSM")
+    .replace(/^Corrections and Version Record$/i, "Corrections")
+    .split(/\s+/)
+    .slice(0, 7)
+    .join(" ");
 }
 
 function generationFailed(error, citations, mode) {
@@ -983,17 +1067,18 @@ function defaultSuggestions(mode, history = [], previousSuggestions = []) {
   ], mode, "", history, previousSuggestions);
 }
 
-function chooseSuggestions(candidates, mode, question, history = [], previousSuggestions = []) {
+function chooseSuggestions(candidates, mode, question, history = [], previousSuggestions = [], options = {}) {
   const recentQuestions = history
     .filter((turn) => turn.role === "user")
     .map((turn) => turn.content)
     .concat(question);
   const asked = new Set(recentQuestions.map(suggestionKey));
   const previous = new Set(previousSuggestions.map(suggestionKey));
+  const sourceCandidates = options.includeGeneral === false ? candidates : [...candidates, ...generalFollowups(mode)];
   const unique = [];
   const seen = new Set();
 
-  for (const candidate of [...candidates, ...generalFollowups(mode)]) {
+  for (const candidate of sourceCandidates) {
     const item = normalizeSuggestion(candidate, mode);
     const clean = item.question;
     const key = suggestionKey(clean);
