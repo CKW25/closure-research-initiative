@@ -106,7 +106,9 @@ Publication is a manual metadata release, not a blind file replacement. If a rev
 .\update-paper.ps1 -Paper rie -NewPdf path\to\new-version.pdf
 ```
 
-Before publishing a revision, verify that the work page, [Preprints](https://closureresearchinitiative.org/preprints/), BibTeX block, feed entry, sitemap, `llms.txt`, `CITATION.cff`, generated Ask corpus, download baselines, and version-history table describe the same version.
+Release-control rule, effective with the June 15, 2026 DOI-synchronized record: a revised manuscript or newly assigned DOI is not current until the PDF, source bundle, work page, [Preprints](https://closureresearchinitiative.org/preprints/), [Sources and Citation](https://closureresearchinitiative.org/sources/), BibTeX block, feed entry, sitemap, `llms.txt`, `CITATION.cff`, generated Ask corpus, download-count baseline, and version-history table describe the same version.
+
+Archive DOIs and archive files stay attached to the version for which they were issued. They may appear in the archive row of a work page, but they must not be carried forward into current citation fields.
 
 ## Rights
 
