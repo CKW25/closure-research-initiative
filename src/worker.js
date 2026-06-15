@@ -821,6 +821,8 @@ function buildPrompt(question, citations, hiddenContext, mode, history) {
         "Write in two layers. First give a conversational main answer in two to four short sentences, normally 70 to 120 words total, using at most one citation label unless the citation is essential.",
         "The main answer should read like an expert explaining the point to a serious reader, not like an abstract, bibliography note, or search-result summary.",
         "Put most citation labels and formal source comparisons in the Detailed support section rather than the visible main answer.",
+        "In the visible main answer, translate notation-heavy source text into readable prose when possible. Put formal notation, labels, and source comparisons in Detailed support.",
+        "Do not paste a raw list of source labels or malformed source notation into the visible main answer.",
         "Then, only when useful, add a separate section beginning exactly 'Detailed support:' for source-heavy breakdowns, proof dependencies, boundary notes, and reading routes.",
         "In the Detailed support section, use concise bullets with labels such as Support, Boundary, Dependencies, Where to read, or Citation note.",
         "Do not write source-dump sentences like 'Support for this claim can be found in [S1], [S2], [S3]...' and do not list every retrieved source just because it is available.",

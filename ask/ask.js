@@ -542,7 +542,7 @@
     if (marker >= 0) {
       var before = cleaned.slice(0, marker).trim();
       var after = cleaned.slice(marker).replace(/^\s*(?:#{1,4}\s*)?(?:\*\*)?Detailed support(?:\*\*)?\s*:?\s*/i, '').trim();
-      return { main: before || 'Here is the short version.', details: after };
+      return compactAnswerParts({ main: before || 'Here is the short version.', details: after });
     }
 
     var lines = cleaned.split('\n');
@@ -554,13 +554,103 @@
       }
     }
     if (detailStart > 0) {
-      return {
+      return compactAnswerParts({
         main: lines.slice(0, detailStart).join('\n').trim(),
         details: lines.slice(detailStart).join('\n').trim()
-      };
+      });
     }
 
-    return { main: cleaned, details: '' };
+    return compactAnswerParts({ main: cleaned, details: '' });
+  }
+
+  function compactAnswerParts(parts) {
+    var main = cleanVisibleAnswer(parts.main || '');
+    var details = String(parts.details || '').trim();
+    var separated = moveSourceSentences(main);
+    main = separated.main;
+    if (separated.details) {
+      details = prependDetail(separated.details, details);
+    }
+    var visibleCitations = citationTokens(main);
+    if (visibleCitations.length) {
+      main = cleanVisibleAnswer(main.replace(/\s*\[S\d+\]/g, ''));
+      details = prependDetail('Citation note: support for the visible answer is in ' + visibleCitations.join(', ') + '.', details);
+    }
+
+    var sentences = splitSentences(main);
+    if (sentences.length > 2 || main.length > 430) {
+      var kept = [];
+      var moved = [];
+      var length = 0;
+      sentences.forEach(function (sentence, index) {
+        var candidateLength = length + sentence.length;
+        var shouldKeep = kept.length < 2 && (candidateLength <= 360 || kept.length === 0);
+        if (shouldKeep) {
+          kept.push(sentence);
+          length = candidateLength;
+        } else {
+          moved.push(sentence);
+        }
+      });
+      if (moved.length) {
+        main = cleanVisibleAnswer(kept.join(' '));
+        details = prependDetail('Additional explanation: ' + moved.join(' '), details);
+      }
+    }
+
+    return {
+      main: main || 'Here is the short version.',
+      details: details
+    };
+  }
+
+  function moveSourceSentences(text) {
+    var sentences = splitSentences(text);
+    if (sentences.length < 2) return { main: text, details: '' };
+    var kept = [];
+    var moved = [];
+    sentences.forEach(function (sentence) {
+      var isCitationSentence = /\[S\d+\]/.test(sentence) && /\b(?:support|source|citation|found|read|consult|see|retrieved|excerpt)\b/i.test(sentence);
+      if (isCitationSentence) {
+        moved.push(sentence);
+      } else {
+        kept.push(sentence);
+      }
+    });
+    return {
+      main: cleanVisibleAnswer(kept.join(' ')) || text,
+      details: moved.length ? 'Citation note: ' + moved.join(' ') : ''
+    };
+  }
+
+  function splitSentences(text) {
+    return (String(text || '').match(/[^.!?]+[.!?]+(?:\s+|$)|[^.!?]+$/g) || [])
+      .map(function (sentence) { return sentence.replace(/\s+/g, ' ').trim(); })
+      .filter(Boolean);
+  }
+
+  function citationTokens(text) {
+    var seen = {};
+    return (String(text || '').match(/\[S\d+\]/g) || []).filter(function (token) {
+      if (seen[token]) return false;
+      seen[token] = true;
+      return true;
+    });
+  }
+
+  function prependDetail(line, details) {
+    var cleanLine = cleanVisibleAnswer(line);
+    var cleanDetails = String(details || '').trim();
+    return cleanDetails ? cleanLine + '\n\n' + cleanDetails : cleanLine;
+  }
+
+  function cleanVisibleAnswer(text) {
+    return String(text || '')
+      .replace(/[ \t]+/g, ' ')
+      .replace(/\s+([.,;:!?])/g, '$1')
+      .replace(/\(\s+/g, '(')
+      .replace(/\s+\)/g, ')')
+      .trim();
   }
 
   function appendInline(container, text) {
