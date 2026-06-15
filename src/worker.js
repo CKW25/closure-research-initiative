@@ -354,6 +354,9 @@ function clampSuggestionQuestion(value) {
   return normalizeQuestion(value)
     .replace(/\[[SI]\d+\]/g, "")
     .replace(/\b(?:LLMS Site Summary|llms\.txt)\b/gi, "")
+    .replace(/\bClosureresearchinitiative\.org websites?\b/gi, "current work pages")
+    .replace(/\bClosure Research Initiative websites?\b/gi, "current work pages")
+    .replace(/\bCRI websites?\b/gi, "current work pages")
     .slice(0, 180);
 }
 
