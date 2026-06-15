@@ -459,6 +459,10 @@
 
   function autoResizeInput() {
     question.style.height = 'auto';
+    if (!(question.value || '').trim()) {
+      question.style.height = '';
+      return;
+    }
     question.style.height = Math.min(question.scrollHeight, 144) + 'px';
   }
 
@@ -718,7 +722,8 @@
     Array.prototype.slice.call(document.querySelectorAll('.examples [data-question]')).forEach(function (button) {
       button.disabled = value;
     });
-    askButton.textContent = value ? 'Thinking...' : 'Ask';
+    askButton.textContent = value ? 'Wait' : 'Ask';
+    askButton.setAttribute('aria-label', value ? 'Working' : 'Ask');
     setLoader(value);
     if (!value) {
       question.focus({ preventScroll: true });

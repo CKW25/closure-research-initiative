@@ -222,6 +222,7 @@
   }
 
   function setupAskLauncher() {
+    if (/^\/ask\/(?:index\.html)?$/i.test(window.location.pathname)) return;
     if (document.getElementById('askLauncher')) return;
 
     var launcher = document.createElement('a');
@@ -241,7 +242,7 @@
       '.ask-launcher:hover,.ask-launcher:focus{transform:translateY(-1px);box-shadow:0 0.9rem 2.1rem rgba(10,35,72,0.24);outline:none;}',
       '.ask-launcher:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}',
       '@media print{.ask-launcher{display:none;}}',
-      '@media (max-width:600px){.ask-launcher{right:0.85rem;bottom:0.85rem;min-height:2.55rem;padding:0.48rem 0.72rem 0.48rem 0.52rem;font-size:0.76rem;}.ask-launcher span{width:1.32rem;height:1.32rem;}}'
+      '@media (max-width:600px){.ask-launcher{right:max(0.85rem,env(safe-area-inset-right));bottom:max(0.85rem,env(safe-area-inset-bottom));min-height:2.55rem;padding:0.48rem 0.72rem 0.48rem 0.52rem;font-size:0.76rem;}.ask-launcher span{width:1.32rem;height:1.32rem;}}'
     ].join('');
 
     document.head.appendChild(style);
