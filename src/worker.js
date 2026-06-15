@@ -351,12 +351,18 @@ function clampSuggestionLabel(value) {
 }
 
 function clampSuggestionQuestion(value) {
-  return normalizeQuestion(value)
+  const text = normalizeQuestion(value)
     .replace(/\[[SI]\d+\]/g, "")
     .replace(/\b(?:LLMS Site Summary|llms\.txt)\b/gi, "")
     .replace(/\bClosureresearchinitiative\.org websites?\b/gi, "current work pages")
     .replace(/\bClosure Research Initiative websites?\b/gi, "current work pages")
-    .replace(/\bCRI websites?\b/gi, "current work pages")
+    .replace(/\bCRI websites?\b/gi, "current work pages");
+  if (/release-control rule/i.test(text) && /\bwebsites?\b/i.test(text)) {
+    return "Does the release-control rule apply to manuscripts, source bundles, and work pages?";
+  }
+  return text
+    .replace(/\bon other websites?\b/gi, "in the public record")
+    .replace(/\bwebsites?\b/gi, "public records")
     .slice(0, 180);
 }
 
