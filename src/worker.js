@@ -354,11 +354,16 @@ function clampSuggestionQuestion(value) {
   const text = normalizeQuestion(value)
     .replace(/\[[SI]\d+\]/g, "")
     .replace(/\b(?:LLMS Site Summary|llms\.txt)\b/gi, "")
+    .replace(/\bClosureResearchInitiative\.org\b/gi, "CRI")
+    .replace(/\bClosureresearchinitiative\.org\b/gi, "CRI")
     .replace(/\bClosureresearchinitiative\.org websites?\b/gi, "current work pages")
     .replace(/\bClosure Research Initiative websites?\b/gi, "current work pages")
     .replace(/\bCRI websites?\b/gi, "current work pages");
   if (/release-control rule/i.test(text) && /\bwebsites?\b/i.test(text)) {
     return "Does the release-control rule apply to manuscripts, source bundles, and work pages?";
+  }
+  if (/release-control rule/i.test(text) && /\bpublications?\b/i.test(text)) {
+    return "Does the release-control rule apply to all current CRI publications?";
   }
   return text
     .replace(/\bon other websites?\b/gi, "in the public record")
