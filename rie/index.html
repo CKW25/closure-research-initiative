@@ -399,8 +399,14 @@ nav span:not(:first-child)::before {
 }
 .research-summary dl {
   display: grid;
-  grid-template-columns: minmax(7rem, 0.24fr) 1fr;
-  gap: 0.75rem 1.15rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+}
+.research-summary dl > div {
+  min-width: 0;
+}
+.research-summary dl > div:last-child {
+  grid-column: 1 / -1;
 }
 .research-summary dt {
   font-size: 0.68rem;
