@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Core terms and symbols of the closure program, each defined once, with the location in the monograph where it is established.">
+<meta name="description" content="Core terms, status conventions, and symbols of the closure program, with the location in the monograph where each is established.">
 <meta property="og:title" content="Notation &amp; Definitions &mdash; Closure Research Initiative">
-<meta property="og:description" content="Core terms and symbols of the closure program, each defined once, with the location in the monograph where it is established.">
+<meta property="og:description" content="Core terms, status conventions, and symbols of the closure program, with the location in the monograph where each is established.">
 <meta property="og:url" content="https://closureresearchinitiative.org/notation/">
 <link rel="canonical" href="https://closureresearchinitiative.org/notation/">
 <meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Notation &amp; Definitions">
-<meta name="twitter:description" content="Core terms and symbols of the closure program, each defined once.">
+<meta name="twitter:description" content="Core terms, status conventions, and symbols of the closure program.">
 <meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
 <meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
 <title>Notation &amp; Definitions &mdash; Closure Research Initiative</title>
@@ -35,7 +35,7 @@
     "@id":  "https://closureresearchinitiative.org/notation/#webpage",
     "url":  "https://closureresearchinitiative.org/notation/",
     "name":  "Notation \u0026 Definitions",
-    "description":  "Core terms and symbols of the closure program, each defined once, with the location in the monograph where it is established.",
+    "description":  "Core terms, status conventions, and symbols of the closure program, with the location in the monograph where each is established.",
     "isPartOf":  {
                      "@id":  "https://closureresearchinitiative.org/#website"
                  },
@@ -234,6 +234,18 @@ h3 {
   margin-top: 2rem;
   margin-bottom: 0.75rem;
 }
+.notation-scope {
+  margin: 1.8rem 0 2rem;
+  padding: 1rem 0 0.95rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.notation-scope h3 {
+  margin-top: 0;
+}
+.notation-scope p:last-child {
+  margin-bottom: 0;
+}
 
 dl.glossary { margin: 2rem 0; }
 dl.glossary dt { font-weight: 600; margin-top: 1.4rem; }
@@ -285,7 +297,7 @@ footer span { min-width: 0; }
       <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
     </div>
     <h1>Notation &amp; Definitions</h1>
-    <div class="subtitle">The core terms and symbols, each defined once</div>
+    <div class="subtitle">Core terms, symbols, and status conventions</div>
   </div>
 
   <div class="discuss-wrapper">
@@ -315,7 +327,13 @@ footer span { min-width: 0; }
     <span class="line"></span>
   </div>
 
-  <p>The closure program uses a small, fixed vocabulary introduced across several papers. The reference list collects the core terms in one place, each defined once and as precisely as a reference entry allows, with the location in the monograph (<a href="/csm/"><em>Closed Systems from Comparison Completeness</em></a>) where it is established rigorously. The terms are ordered by dependency &mdash; each builds on the ones above it &mdash; rather than alphabetically, so the list also records the dependency structure of the construction. The definitions below are reference summaries; the binding statements are in the monograph at the cited locations.</p>
+  <p>The closure program uses a small, fixed vocabulary introduced across several papers. The reference list collects the core terms and status conventions in one place, with each entry defined as precisely as a reference entry allows and with the location in the monograph (<a href="/csm/"><em>Closed Systems from Comparison Completeness</em></a>) where it is established rigorously. The terms are ordered by dependency &mdash; each builds on the ones above it &mdash; rather than alphabetically, so the list also records the dependency structure of the construction. The definitions below are reference summaries; the binding statements are in the monograph at the cited locations.</p>
+
+  <div class="notation-scope">
+    <h3>Scope of notation</h3>
+    <p>Primitive notation belongs to comparison worlds and their intrinsic quotient semantics. Realization notation belongs to a smooth, Hilbert, phase, observer-side, or numerical reading introduced only after the relevant interface data have been stated.</p>
+    <p>A symbol introduced at a realized level does not retroactively become primitive data. The same letter may be reused at a later level only when the quotient, projection, realization map, or functor justifying that reuse is specified. A theorem labelled conditional is read with its named hypotheses as part of the assertion.</p>
+  </div>
 
   <dl class="glossary">
 
@@ -364,11 +382,20 @@ footer span { min-width: 0; }
   <dt>Augmentation filtration / quadratic carrier <span class="sym">F&sup2;, F&sup3;, F&sup2;/F&sup3;</span></dt>
   <dd>The filtration of the transport (triangle) obstruction by degree. The first visible graded carrier of the obstruction is <em>F&sup2;/F&sup3;</em>, the first stable nonvanishing layer. Under faithful smooth realization, this degree-2 carrier is identified with realized curvature; later chapters build on the same carrier downstream. The faithfulness of that identification is decomposed by the ghost-free regime below. <span class="src">(Chapter 13, &sect;&sect;13.4&ndash;13.8.)</span></dd>
 
+  <dt>Realization <span class="sym">smooth, Hilbert, phase, observer-side, or numerical reading</span></dt>
+  <dd>A reading of intrinsic comparison, quotient, or transport structure into a later mathematical setting. A realized object is not primitive merely because it appears in a theorem; its status is fixed by the interface data and construction that introduce it. <span class="src">(Notation and Conventions; Standing Terminology; Chapters 12&ndash;21.)</span></dd>
+
   <dt>Faithful smooth realization <span class="sym">&mdash; the manifold-stage bridge</span></dt>
   <dd>The condition under which the already-stabilized degree-2 carrier is realized without collapse on a smooth manifold, identifying nonzero stabilized square classes with realized curvature; formally, injectivity of the second-jet comparison map on the stabilized quadratic carrier. The condition decomposes exactly into condition (T) and axiom (D) and is discharged on a canonical realization built from the tower; the explicit interface inputs are the intrinsic detectability axiom (D), together with condition (T) outside the Magnus regime. <span class="src">(Chapter 12, &sect;&sect;12.6&ndash;12.9; Chapter 13, &sect;&sect;13.12&ndash;13.16.)</span></dd>
 
   <dt>Ghost-free regime <span class="sym">(T)+(D)</span></dt>
   <dd>The exact decomposition of the faithfulness condition. <em>Condition (T)</em>: the stabilized quadratic carrier is torsion-free &mdash; necessary because torsion classes are invisible to every real-linear reading, and a theorem in the Magnus regime, where stage carriers embed in the exterior square of the degree-1 lattice. <em>Axiom (D)</em>: uniform defect detectability &mdash; the realized transport completion has no small subgroups, so a nonzero failure of closure cannot be infinitesimally small; independent of the tower axioms (profinite counter-model) and equivalent to selecting the Lie branch of the structure trichotomy (Lie / totally disconnected / mixed, by Gleason&ndash;Yamabe and van Dantzig). Under (T)+(D), the canonical Malcev realization of the two-step transport quotient has exact square-loop holonomy and an injective second-jet comparison map: faithfulness holds by construction. <span class="src">(Chapter 13, &sect;&sect;13.14&ndash;13.16.)</span></dd>
+
+  <dt>Boundary datum <span class="sym">&mdash; named interface input</span></dt>
+  <dd>An explicitly stated condition, calibration, interface choice, or realization input that is not part of the primitive comparison data. Boundary data are not hidden primitives; they mark the point at which a realized or quantitative reading adds information beyond the intrinsic theorem stack. <span class="src">(Notation and Conventions; Standing Terminology; CSM Appendix A.)</span></dd>
+
+  <dt>Conditional theorem <span class="sym">&mdash; theorem with named hypotheses</span></dt>
+  <dd>A theorem whose assertion includes its stated interface, realization, boundary, or calibration hypotheses. The conditional status is part of the claim's logical content: the theorem proves what follows from the named data, and it does not assert the same conclusion with those data omitted. <span class="src">(Notation and Conventions; Logical Status; CSM Appendix A.)</span></dd>
 
   <dt>Closed-world admissibility <span class="sym">&mdash; the four-axis criterion</span></dt>
   <dd>The standard against which primitive structural input is assessed: a quantity is admissible if it is invariant under internal symmetries, independent of imposed subsystem cuts, and independent of non-dynamical representational choices. It underlies the four-axis taxonomy: externalization, artificial factorization, premature globalization, and reification of repair. <span class="src">(Foundational Closure and Primitive Structural Input, Definition 4.3.)</span></dd>
