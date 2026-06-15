@@ -88,6 +88,7 @@ references:
       website: "https://closureresearchinitiative.org"
     year: 2026
     version: "3"
+    doi: "10.5281/zenodo.20695177"
     url: "https://closureresearchinitiative.org/rc/"
   - type: generic
     title: "Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy"
