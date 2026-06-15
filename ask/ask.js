@@ -438,7 +438,7 @@
       var rect = target.getBoundingClientRect();
       var topLimit = 18;
       var bottomLimit = availableBottom();
-      if (rect.top < topLimit || rect.top > bottomLimit - 72) {
+      if (rect.top < topLimit || rect.bottom > bottomLimit || rect.top > bottomLimit - 72) {
         window.scrollBy({ top: rect.top - topLimit, behavior: 'smooth' });
       }
     });
