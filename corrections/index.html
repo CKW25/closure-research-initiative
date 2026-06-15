@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Contact the Closure Research Initiative: correspondence, registry, and identifiers">
-<meta property="og:title" content="Contact &mdash; Closure Research Initiative">
-<meta property="og:description" content="Contact the Closure Research Initiative: correspondence, registry, and identifiers">
-<meta property="og:url" content="https://closureresearchinitiative.org/contact/">
-<link rel="canonical" href="https://closureresearchinitiative.org/contact/">
+<meta name="description" content="Correction procedure, version records, and archived manuscript policy for the Closure Research Initiative.">
+<meta property="og:title" content="Corrections and Version Record &mdash; Closure Research Initiative">
+<meta property="og:description" content="Correction procedure, version records, and archived manuscript policy for the Closure Research Initiative.">
+<meta property="og:url" content="https://closureresearchinitiative.org/corrections/">
+<link rel="canonical" href="https://closureresearchinitiative.org/corrections/">
 <meta property="og:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Contact &mdash; Closure Research Initiative">
-<meta name="twitter:description" content="Contact the Closure Research Initiative: correspondence, registry, and identifiers">
+<meta name="twitter:title" content="Corrections and Version Record">
+<meta name="twitter:description" content="Correction procedure, version records, and archived manuscript policy.">
 <meta name="twitter:image" content="https://closureresearchinitiative.org/apple-touch-icon-20260608.png">
 <meta name="google-site-verification" content="wIUVyROXKBefBreC_ZUaNbyRa3pv-EuNjPQ-Bsgwizc">
-<title>Contact &mdash; Closure Research Initiative</title>
+<title>Corrections and Version Record &mdash; Closure Research Initiative</title>
 <meta name="theme-color" content="#FAFAF8">
 <meta name="application-name" content="Closure Research Initiative">
 <meta name="apple-mobile-web-app-title" content="Closure Research">
@@ -30,22 +30,15 @@
 <meta name="license" content="SPDX-License-Identifier: All-Rights-Reserved">
 <script type="application/ld+json">
 {
-    "@context":  "https://schema.org",
-    "@type":  "ContactPage",
-    "@id":  "https://closureresearchinitiative.org/contact/#webpage",
-    "url":  "https://closureresearchinitiative.org/contact/",
-    "name":  "Contact",
-    "description":  "Contact the Closure Research Initiative: correspondence, registry, and identifiers",
-    "isPartOf":  {
-                     "@id":  "https://closureresearchinitiative.org/#website"
-                 },
-    "publisher":  {
-                      "@id":  "https://closureresearchinitiative.org/#organization"
-                  },
-    "inLanguage":  "en",
-    "about":  {
-                  "@id":  "https://closureresearchinitiative.org/#organization"
-              }
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://closureresearchinitiative.org/corrections/#webpage",
+  "url": "https://closureresearchinitiative.org/corrections/",
+  "name": "Corrections and Version Record",
+  "description": "Correction procedure, version records, and archived manuscript policy for the Closure Research Initiative.",
+  "isPartOf": { "@id": "https://closureresearchinitiative.org/#website" },
+  "publisher": { "@id": "https://closureresearchinitiative.org/#organization" },
+  "inLanguage": "en"
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,11 +101,26 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 3rem; }
-.hero { text-align: center; padding: 4rem 0 2rem; }
-.discuss-wrapper {
-  text-align: center;
-  padding: 0 0 1.5rem;
+.hero { text-align: center; padding: 4rem 0 2rem; position: relative; }
+.hero-logo { margin-bottom: 1.5rem; }
+.hero-logo a { text-decoration: none; }
+.hero-logo img { width: 200px; height: auto; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
 }
+.hero .subtitle {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--muted);
+}
+.discuss-wrapper { text-align: center; padding: 0 0 1.5rem; }
 .discuss-btn {
   font-family: 'Inter', 'Source Sans Pro', sans-serif;
   font-size: 0.75rem;
@@ -125,28 +133,7 @@ body {
   border-radius: 3px;
   transition: color 0.2s, border-color 0.2s;
 }
-.discuss-btn:hover {
-  color: var(--navy);
-  border-color: var(--gold);
-}
-.hero-logo { margin-bottom: 1.5rem; }
-.hero-logo a { text-decoration: none; }
-.hero-logo img { width: 200px; height: auto; }
-.hero h1 {
-  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: var(--navy);
-  line-height: 1.25;
-  margin-bottom: 0.5rem;
-}
-.hero .subtitle {
-  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  font-size: 1rem;
-  font-style: italic;
-  color: var(--muted);
-}
+.discuss-btn:hover { color: var(--navy); border-color: var(--gold); }
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -159,34 +146,26 @@ nav {
   transform: translateX(-50%);
   text-align: center;
 }
-nav a {
+nav a, nav span {
+  position: relative;
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--muted);
-  text-decoration: none;
   letter-spacing: 0;
   text-transform: uppercase;
   white-space: nowrap;
   margin: 0;
   padding-bottom: 0.35rem;
+}
+nav a {
+  color: var(--muted);
+  text-decoration: none;
   border-bottom: 2px solid transparent;
   transition: color 0.2s, border-color 0.2s;
 }
 nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
 nav span {
-  font-size: 0.75rem;
-  font-weight: 500;
   color: var(--navy);
-  letter-spacing: 0;
-  text-transform: uppercase;
-  white-space: nowrap;
-  margin: 0;
-  padding-bottom: 0.35rem;
   border-bottom: 2px solid var(--gold);
-}
-nav a,
-nav span {
-  position: relative;
 }
 nav a:not(:first-child)::before,
 nav span:not(:first-child)::before {
@@ -204,15 +183,13 @@ nav span:not(:first-child)::before {
 }
 @media (max-width: 980px) {
   nav a:not(:first-child)::before,
-  nav span:not(:first-child)::before {
-    display: none;
-  }
+  nav span:not(:first-child)::before { display: none; }
 }
 .section-header {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin: 2.2rem 0 1.2rem;
 }
 .section-header h2 {
   font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
@@ -221,30 +198,40 @@ nav span:not(:first-child)::before {
   color: var(--navy);
   white-space: nowrap;
 }
-.section-header .line {
-  flex: 1;
-  height: 1px;
-  background: var(--border);
+.section-header .line { flex: 1; height: 1px; background: var(--border); }
+p { font-size: 0.92rem; color: var(--text); margin-bottom: 1rem; line-height: 1.8; }
+a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
+a:hover { text-decoration-color: var(--gold); }
+.record-table {
+  margin: 1.3rem 0 2rem;
+  border-top: 1px solid var(--border);
 }
-.contact-grid {
+.record-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: minmax(160px, 0.9fr) minmax(0, 2fr);
+  gap: 1rem 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.record-key {
+  font-size: 0.75rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.record-value {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+.record-value p { font-size: inherit; line-height: inherit; margin-bottom: 0.5rem; }
+.notice {
+  margin: 1.4rem 0;
+  padding: 1rem 1.1rem;
+  border-left: 3px solid var(--gold);
   background: var(--card);
-  border: 1px solid var(--border);
-  padding: 2rem 2.25rem;
 }
-.contact-col h3 {
-  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--navy);
-  margin-bottom: 0.75rem;
-}
-.contact-col p { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.4rem; line-height: 1.6; }
-.contact-col a { color: var(--navy); text-decoration: none; }
-.contact-col a:hover { color: var(--gold); text-decoration: underline; }
-.orcid-img { vertical-align: middle; margin-right: 4px; }
+.notice p { font-size: 0.88rem; margin-bottom: 0; }
 footer {
   margin-top: 3.5rem;
   padding: 1.5rem 0;
@@ -263,19 +250,18 @@ footer span { min-width: 0; }
   .container { max-width: 100%; padding: 0 1in; }
   .hero { padding: 0.5in 0 0.25in; }
   .hero-logo img { width: 180px; }
-  .hero h1 { font-size: 18pt; }
-  nav { display: none; }
-  a { color: #000 !important; }
-  .contact-grid { break-inside: avoid; border: none; padding: 0; }
+  .hero h1 { font-size: 20pt; }
+  .hero .subtitle { font-size: 10pt; }
+  nav, .theme-toggle, .discuss-wrapper { display: none; }
+  a { color: #000 !important; text-decoration: underline !important; }
   footer { font-size: 8pt; color: #555; }
-  .orcid-img { display: none; }
 }
 @media (max-width: 800px) {
   .container { padding: 0 1.5rem; }
-  .hero h1 { font-size: 1.5rem; }
+  .hero h1 { font-size: 2rem; }
   .hero-logo img { width: 150px; }
   nav a, nav span { margin: 0; font-size: 0.72rem; }
-  .contact-grid { grid-template-columns: 1fr; }
+  .record-row { grid-template-columns: 1fr; gap: 0.3rem; }
   footer { flex-direction: column; gap: 0.3rem; text-align: center; }
 }
 </style>
@@ -288,8 +274,8 @@ footer span { min-width: 0; }
     <div class="hero-logo">
       <a href="/"><img src="/logo.png" alt="Closure Research Initiative"></a>
     </div>
-    <h1>Contact</h1>
-    <div class="subtitle">Correspondence and registry information</div>
+    <h1>Corrections and Version Record</h1>
+    <div class="subtitle">Fixed records, superseded versions, and public corrections</div>
   </div>
 
   <div class="discuss-wrapper">
@@ -309,39 +295,72 @@ footer span { min-width: 0; }
     <a href="/predictions/">Predictions</a>
     <a href="/guide/">Reading Guide</a>
     <a href="/preprints/">Preprints</a>
-    <span>Contact</span>
+    <a href="/sources/">Sources</a>
+    <span>Corrections</span>
+    <a href="/contact/">Contact</a>
     <a href="/notes/">Research Notes</a>
     <a href="/license/">License</a>
   </nav>
 
   <div class="section-header">
-    <h2>Contact</h2>
+    <h2>Record Policy</h2>
     <span class="line"></span>
   </div>
 
-  <div class="contact-grid">
-    <div class="contact-col">
-      <h3>Correspondence</h3>
-      <p><strong>Chast K. Wolfe</strong></p>
-      <p>Closure Research Initiative</p>
-      <p>PO Box 282</p>
-      <p>Harper, TX 78631</p>
-      <p>United States</p>
-      <p style="margin-top:0.75rem;"><a href="mailto:chast.wolfe@closureresearchinitiative.org">chast.wolfe@closureresearchinitiative.org</a></p>
+  <p>The current PDFs, source bundles, citation metadata, and DOI records are the active public record. Earlier PDFs and source files are retained as fixed archived versions on the relevant work page. A superseded version remains citable for version-specific discussion, but the current version is the recommended citation target unless a claim depends on an earlier text.</p>
+
+  <div class="record-table">
+    <div class="record-row">
+      <div class="record-key">Current record</div>
+      <div class="record-value">
+        <p>The current monograph and preprints are listed on <a href="/preprints/">Preprints</a> and <a href="/sources/">Sources and Citation</a>. Each work page gives the current PDF, source bundle, DOI, BibTeX record, and version history.</p>
+      </div>
     </div>
-    <div class="contact-col">
-      <h3>Registry &amp; Identifiers</h3>
-      <p>
-        <a href="https://orcid.org/0009-0008-8846-2539" target="_blank" rel="noopener">
-          <svg class="orcid-img" width="16" height="16" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><rect width="256" height="256" rx="40" fill="#A6CE39"/><g fill="#FFF"><path d="M86.3 186.2H70.5V70.3h15.8z"/><path d="M109.3 70.3h46.8c25.1 0 43.5 11.3 47.4 34.2 2.7 15.6 0 34.8-19.4 46.1l28.6 35.6H193.9l-24.7-34.6h-15.5v34.6h-15.8zm15.8 66.1c25.3 0 33-10.2 33-27.5 0-18.8-11.4-25.3-31.4-25.3h-15.7v52.8z"/></g></svg>
-          0009-0008-8846-2539
-        </a>
-      </p>
-      <p style="margin-top:0.75rem;"><strong>Research program:</strong> Foundational mathematics, comparison theory, relational systems, transport geometry, structural physics</p>
-      <p><strong>Affiliation:</strong> Closure Research Initiative</p>
-      <p><strong>Director:</strong> Chast K. Wolfe</p>
+    <div class="record-row">
+      <div class="record-key">Archived versions</div>
+      <div class="record-value">
+        <p>Superseded PDFs and source bundles are fixed archive files. Archive DOIs remain attached to the version for which they were issued and are not used as current citation targets.</p>
+      </div>
+    </div>
+    <div class="record-row">
+      <div class="record-key">Corrections</div>
+      <div class="record-value">
+        <p>Corrections to definitions, hypotheses, proofs, citations, figures, or metadata are made in the next public version of the relevant work. The version history on that work page records the change at release level.</p>
+      </div>
+    </div>
+    <div class="record-row">
+      <div class="record-key">Errata reports</div>
+      <div class="record-value">
+        <p>Public errata should identify the work, version, section, theorem or definition label, page number when available, and proposed correction. Reports may be opened through GitHub Issues or Discussions; private correspondence may be sent through <a href="/contact/">Contact</a>.</p>
+      </div>
+    </div>
+    <div class="record-row">
+      <div class="record-key">Citation practice</div>
+      <div class="record-value">
+        <p>For current claims, cite the current work page and DOI. For historical comparison, cite the archived version and its DOI if one was issued. The consolidated citation map is maintained on <a href="/sources/">Sources and Citation</a>.</p>
+      </div>
     </div>
   </div>
+
+  <div class="section-header">
+    <h2>Current Errata</h2>
+    <span class="line"></span>
+  </div>
+
+  <div class="notice">
+    <p>No mathematical erratum is posted on this site as of June 15, 2026. Version-level changes are recorded on the individual monograph and preprint pages.</p>
+  </div>
+
+  <div class="record-table">
+    <div class="record-row">
+      <div class="record-key">June 15, 2026</div>
+      <div class="record-value">
+        <p>Administrative citation correction: the public PDF and LaTeX source bundles for RC v3 and FE v3 were rebuilt so their internal references cite the current CSM v12 DOI rather than superseded monograph references. Mathematical statements and theorem content were not changed.</p>
+      </div>
+    </div>
+  </div>
+
+  <p>The classification of claims by logical role is maintained on <a href="/status/">Logical Status</a>. That page distinguishes primitive definitions, theorem-level results, interface conditions, recovery targets, and conditional empirical claims.</p>
 
   <footer>
     <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
@@ -349,7 +368,6 @@ footer span { min-width: 0; }
   </footer>
 
 </div>
-
 
 <script src="/site.js" defer></script>
 </body>

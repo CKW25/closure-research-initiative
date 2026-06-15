@@ -1,4 +1,4 @@
-# Scholarly Report
+# Public Record Report
 
 Use this fallback template only if the structured issue forms do not fit the report.
 

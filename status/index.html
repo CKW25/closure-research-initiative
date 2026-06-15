@@ -234,6 +234,69 @@ h3 {
   margin-top: 2rem;
   margin-bottom: 0.75rem;
 }
+.status-ledger {
+  margin: 1.6rem 0 2.2rem;
+  border-top: 1px solid var(--border);
+}
+.status-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.9fr) minmax(190px, 1fr) minmax(0, 2.2fr);
+  gap: 1rem 1.4rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.status-row.header {
+  padding: 0.65rem 0;
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.claim-name {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.25;
+}
+.claim-type {
+  font-size: 0.78rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.45;
+}
+.claim-body {
+  font-size: 0.86rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+.claim-body p {
+  font-size: inherit;
+  line-height: inherit;
+  margin-bottom: 0.55rem;
+}
+.claim-source {
+  color: var(--muted);
+}
+.status-note {
+  margin: 1.2rem 0;
+  padding: 1rem 1.1rem;
+  border-left: 3px solid var(--gold);
+  background: var(--card);
+}
+.status-note p {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin-bottom: 0;
+}
+.section-divider {
+  text-align: center;
+  color: var(--gold);
+  margin: 2.5rem 0 1.5rem;
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 1.1rem;
+}
 
 footer {
   margin-top: 3.5rem;
@@ -266,6 +329,11 @@ footer span { min-width: 0; }
   .hero h1 { font-size: 2rem; }
   .hero-logo img { width: 150px; }
   nav a, nav span { margin: 0; font-size: 0.72rem; }
+  .status-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+  .status-row.header { display: none; }
   footer { flex-direction: column; gap: 0.3rem; text-align: center; }
 }
 </style>
@@ -305,49 +373,142 @@ footer span { min-width: 0; }
   </nav>
 
   <div class="section-header">
-    <h2>Logical Status</h2>
+    <h2>Claim Register</h2>
     <span class="line"></span>
   </div>
 
-  <p>The claim-status index classifies the main statements by logical role: primitive definitions, methods of derivation, theorem-level results under stated hypotheses, criterion-level commitments, interface conditions, recovery targets, and conditional physical consequences. The binding statements are the cited definitions, hypotheses, proofs, and theorems in the monograph and supporting papers.</p>
+  <p>This page records the public claims by logical role. The entries below do not replace the proofs; they identify the controlling source, the status of the assertion, and the hypotheses or limits under which the assertion is made.</p>
 
-  <h3>1. Primitive level</h3>
+  <div class="status-ledger" aria-label="Claim-status ledger">
+    <div class="status-row header">
+      <div>Claim</div>
+      <div>Status</div>
+      <div>Source and scope</div>
+    </div>
 
-  <p><em>Status: primitive/admissibility condition.</em> The primitive object is a comparison world <em>(U,C)</em>: states together with comparison predicates. The primitive admissibility condition is intrinsicality: a comparison is a relation among states, invariant under the automorphisms of the comparison world it helps constitute, rather than a label imposed from outside. This is the starting condition of the program, not a theorem inside the program.</p>
+    <div class="status-row">
+      <div class="claim-name">Comparison world</div>
+      <div class="claim-type">Primitive definition</div>
+      <div class="claim-body">
+        <p>The primitive object is a comparison world <em>(U,C)</em>: states together with comparison predicates. Intrinsicality says that comparison predicates are relations among states, invariant under the automorphisms of the comparison world they help constitute.</p>
+        <p class="claim-source">Control: <a href="/csm/">CSM</a>, Definition 0.1.1 and Chapter 2; finitary two-subsystem use in <a href="/ccw/">CCW</a>.</p>
+      </div>
+    </div>
 
-  <h3>2. Rectangular completeness</h3>
+    <div class="status-row">
+      <div class="claim-name">Closed comparison criterion</div>
+      <div class="claim-type">Criterion / theorem-linked definition</div>
+      <div class="claim-body">
+        <p>A comparison world is closed at this stage when no admissible profile-pair omission remains invisible to its own comparison structure: admissible combinations are realized or internally excluded.</p>
+        <p class="claim-source">Control: CSM Lemma 2.6.2 and Corollary 2.6.3; comparison with standard product closure in <a href="/rc/">RC</a>.</p>
+      </div>
+    </div>
 
-  <p><em>Status: theorem under stated comparison-world hypotheses.</em> Under the hypotheses stated in CSM Theorem 2.6.4 &mdash; especially intrinsicality, local distinguishability, and the self-containment condition expressed by the conservative-completion argument &mdash; rectangular completeness follows. The finite-to-global boundary is handled separately by the refinement-tower and finite-witness results.</p>
+    <div class="status-row">
+      <div class="claim-name">Rectangular completeness</div>
+      <div class="claim-type">Theorem under stated hypotheses</div>
+      <div class="claim-body">
+        <p>Under local distinguishability, intrinsicality, and the conservative-completion/self-containment hypotheses stated in the monograph, the full admissible profile rectangle is forced. The finite-to-global boundary is handled by the refinement-tower and finite-witness results.</p>
+        <p class="claim-source">Control: CSM Theorem 2.6.4; two-subsystem record in CCW; standard-closure comparison in RC.</p>
+      </div>
+    </div>
 
-  <p><em>Scope.</em> Rectangular completeness is not asserted for every physical subsystem. Rods, heat baths, and symmetric comparison worlds remain genuine open systems in this terminology. The theorem says that a self-contained, locally distinguishable comparison world contains no admissible profile-pair omission invisible to its own comparison structure. Systems that fail this condition are classified as open because their constraints are not generated by the internal comparison data alone.</p>
+    <div class="status-row">
+      <div class="claim-name">Subsystem attribution</div>
+      <div class="claim-type">Quotient-level consequence</div>
+      <div class="claim-body">
+        <p>Once the relevant group action and quotient are fixed, coherent reports factor through the orbit quotient. Twin representatives can differ in whether the change is assigned to subsystem <em>A</em> or subsystem <em>B</em> while giving the same quotient-level report.</p>
+        <p class="claim-source">Control: <a href="/ccw/">CCW</a>; motivating figure and plain-language account on <a href="/overview/">Overview</a>.</p>
+      </div>
+    </div>
 
-  <h3>3. Closure criterion</h3>
+    <div class="status-row">
+      <div class="claim-name">Endpoint route invariants</div>
+      <div class="claim-type">Factorization theorem</div>
+      <div class="claim-body">
+        <p>A route invariant with fixed endpoint data is determined by endpoint data exactly when it is constant on each endpoint fiber. Endpoint agreement alone does not imply equality of transported route data.</p>
+        <p class="claim-source">Control: <a href="/rie/">RIE</a>. This is a route-invariant criterion, not an empirical claim.</p>
+      </div>
+    </div>
 
-  <p><em>Status: definition/criterion.</em> The program uses &ldquo;closed&rdquo; at the comparison stage for worlds with no admissible profile-pair omission: admissible combinations are either realized or internally excluded. CSM Lemma 2.6.2 shows that an admissible but unrealized profile pair can be adjoined conservatively, without disturbing the existing finite comparison algebra; CSM Corollary 2.6.3 identifies closure as the exclusion of such conservative omissions.</p>
+    <div class="status-row">
+      <div class="claim-name">Faithful smooth realization</div>
+      <div class="claim-type">Interface condition with exact decomposition</div>
+      <div class="claim-body">
+        <p>The smooth geometric branch reads the stabilized degree-2 transport carrier as curvature only through the explicit interface (T)+(D). Condition (T) controls torsion in the stabilized quadratic carrier; axiom (D) supplies uniform defect detectability on the tower; together they select the Lie branch and support the canonical Malcev realization.</p>
+        <p class="claim-source">Control: CSM Chapter 13 and Appendix A. Torsion and profinite ghost models mark the failure modes.</p>
+      </div>
+    </div>
 
-  <p>The standard two-subsystem comparison in <a href="/rc/">RC</a> checks this criterion against familiar physics: in the classical case it recovers the full-product closed component, and in the quantum case it captures the product-state sector. The criterion is a formal admissibility standard, not ordinary-language usage of the word &ldquo;closed.&rdquo;</p>
+    <div class="status-row">
+      <div class="claim-name">Second-jet layer</div>
+      <div class="claim-type">Intrinsic-filtration selection</div>
+      <div class="claim-body">
+        <p>The second-jet layer is the first stable obstruction layer in the transport filtration. First-order data records transport/connection data; the quadratic square-defect carrier <em>F</em><sup>2</sup>/<em>F</em><sup>3</sup> is where closed-loop tensorial obstruction first appears. Higher jets refine later obstruction layers.</p>
+        <p class="claim-source">Control: CSM Chapter 13 and Appendix A. Background differential geometry is cited in References [1]-[3].</p>
+      </div>
+    </div>
 
-  <h3>4. Quotient semantics and subsystem attribution</h3>
+    <div class="status-row">
+      <div class="claim-name">S&sup3; rigidity</div>
+      <div class="claim-type">Conditional manifold-stage theorem</div>
+      <div class="claim-body">
+        <p>At the faithful smooth-realization stage, a compact connected simply connected orientable Riemannian three-manifold satisfying the stated closed-system frame-completeness hypotheses has isometry-induced frame transport, hence transitivity on the orthonormal frame bundle, constant sectional curvature, and the simply connected compact space-form case <em>S</em><sup>3</sup>.</p>
+        <p class="claim-source">Control: <a href="/cfsg/">CFSG</a>; compactification intuition on <a href="/idea/#compactification-rigidity">Foundations</a>.</p>
+      </div>
+    </div>
 
-  <p><em>Status: theorem-level quotient consequences.</em> Once the relevant group action and quotient are fixed, admissible reports factor through the orbit quotient. In the two-subsystem setting, pure orbit loops can have twin representatives with different subsystem attributions but the same quotient-level report values. Thus subsystem attribution is not invariantly recoverable from quotient content alone. The finitary version is developed in <a href="/ccw/">CCW</a>.</p>
+    <div class="status-row">
+      <div class="claim-name">Standard frameworks</div>
+      <div class="claim-type">Recovery targets / interface classification</div>
+      <div class="claim-body">
+        <p>General relativity, quantum field theory, and standard cosmological machinery are treated as successful structures to be classified: recovered from the closed comparison architecture, retained as explicit interface conditions, or left outside the closed-system claim. The site does not assert that compact <em>S</em><sup>3</sup> by itself removes local ultraviolet divergences or proves a cosmological bounce.</p>
+        <p class="claim-source">Control: <a href="/overview/">Overview</a>, <a href="/scc/">SCC</a>, <a href="/sources/">Sources and Citation</a>.</p>
+      </div>
+    </div>
 
-  <h3>5. Faithful smooth realization</h3>
+    <div class="status-row">
+      <div class="claim-name">FLRW closed-distance comparison</div>
+      <div class="claim-type">Recovery-target comparison</div>
+      <div class="claim-body">
+        <p>The flat transverse-distance law <em>D</em><sub>M</sub>=<em>D</em><sub>C</sub> and the closed law <em>D</em><sub>M</sub>=<em>R</em><sub>c</sub> sin(<em>D</em><sub>C</sub>/<em>R</em><sub>c</sub>) are compared to show local agreement for large curvature radius and global closure in the <em>S</em><sup>3</sup> case. This is a structural comparison, not a fitted cosmological parameter result.</p>
+        <p class="claim-source">Control: <a href="/scc/">SCC</a> and the FLRW distance-measure references on Sources and Citation.</p>
+      </div>
+    </div>
 
-  <p><em>Status: interface condition with exact decomposition.</em> The geometric branch reads the stabilized degree-2 transport carrier as smooth curvature. The current interface is explicit: condition (T) controls torsion in the stabilized quadratic carrier, axiom (D) supplies uniform defect detectability on the tower, and under (T)+(D) the Malcev completion of the two-step transport quotient provides a canonical realization whose second-jet comparison map is injective by construction.</p>
+    <div class="status-row">
+      <div class="claim-name">Charge-sector exclusion</div>
+      <div class="claim-type">Public empirical prediction, conditional on physical realization</div>
+      <div class="claim-body">
+        <p>If the closed electromagnetic phase sector constructed in CSM Chapter 18 is physically realized, and the primitive charge unit is normalized by the observed electron charge magnitude, then every free or asymptotic particle with true vacuum electromagnetic charge lies in the denominator-3 lattice.</p>
+        <p class="claim-source">Control: <a href="/predictions/">Predictions</a> and CSM Chapter 18.</p>
+      </div>
+    </div>
 
-  <p>The ghost counter-models identify the exact failure modes. Torsion classes are invisible to every real-linear reading, and profinite completions admit no differential reading. The structure trichotomy (via Gleason&ndash;Yamabe and van Dantzig) shows that every scale-compatible completion of the transport law is Lie, totally disconnected, or mixed; axiom (D) selects the Lie branch. Condition (T) is a theorem in the Magnus regime, where stage carriers embed in the exterior square of the degree-1 lattice, with the cited Magnus, Witt, Labute, and Duchamp&ndash;Krob inputs.</p>
+    <div class="status-row">
+      <div class="claim-name">Framework-input taxonomy</div>
+      <div class="claim-type">Diagnostic taxonomy</div>
+      <div class="claim-body">
+        <p>The four-axis taxonomy classifies primitive structural input by externalization, artificial factorization, premature globalization, and reification of repair. It is a diagnostic framework for comparing theory architectures; it is not an empirical discriminator by itself.</p>
+        <p class="claim-source">Control: <a href="/fe/">FE</a>.</p>
+      </div>
+    </div>
 
-  <p>The second-jet layer is selected by the intrinsic filtration, not by an arbitrary preference among first-, second-, and third-order smooth data. First-order data records the transport or connection level, but it does not yet contain the closed-loop tensorial obstruction. The first stable obstruction is the quadratic square-defect carrier <em>F</em><sup>2</sup>/<em>F</em><sup>3</sup>; under smooth realization this is the infinitesimal-holonomy layer. Standard differential geometry supports the smooth side of that reading: curvature is detected by infinitesimal holonomy around small two-cells, and in normal coordinates first-derivative metric data can be removed while curvature is carried by second-order data [1&ndash;3]. Higher jets refine the later tower after curvature is already visible.</p>
+    <div class="status-row">
+      <div class="claim-name">Scalar and matter-sector stack</div>
+      <div class="claim-type">Intrinsic theorem stack with compatibility boundaries</div>
+      <div class="claim-body">
+        <p>The monograph separates forced intrinsic content from compatibility-level or realization-level statements: unique scalar channel up to normalization, quartic leading behavior under the stated structural hypotheses, absence of intrinsic absolute normalization, and later conditional Hilbert-branch/operator realization.</p>
+        <p class="claim-source">Control: CSM Chapters 19-23.</p>
+      </div>
+    </div>
+  </div>
 
-  <h3>6. S&sup3; rigidity</h3>
+  <div class="status-note">
+    <p>Version records, superseded files, and correction procedure are maintained separately on <a href="/corrections/">Corrections and Version Record</a>. Current citation targets are collected on <a href="/sources/">Sources and Citation</a> and on the individual work pages.</p>
+  </div>
 
-  <p><em>Status: manifold-stage rigidity theorem.</em> The S&sup3; result is the CFSG theorem at the faithful smooth-realization stage. Under the stated closed-system and smooth-realization hypotheses, frame-complete admissible transport is isometry-induced, hence the isometry action is transitive on the orthonormal frame bundle. This forces constant sectional curvature, and the simply connected compact space-form case is S&sup3;. The compactification discussion in <a href="/idea/#compactification-rigidity">Foundations</a> records the motivating topology; the proof is the CFSG theorem.</p>
-
-  <h3>7. Physical consequences</h3>
-
-  <p><em>Status: conditional recovery and prediction claims.</em> Standard frameworks enter as recovery targets. Their structures are classified according to whether they are recovered from the closure architecture or retained as explicit interface conditions. The public empirical consequence is likewise conditional: if the closed electromagnetic phase sector constructed in CSM Chapter 18 is physically realized and the primitive charge unit is normalized by the observed electron charge magnitude, then free/asymptotic vacuum electromagnetic charges lie in the denominator-3 lattice.</p>
-
-  <p style="font-size:0.9rem;color:var(--text);line-height:1.8;">Internal sources: intrinsicality, rectangular completeness, finite-to-global results, transport obstruction, and the faithful-realization interface are in <a href="/csm/">CSM</a>; the finitary comparison-world version is in <a href="/ccw/">CCW</a>; the standard two-subsystem comparison is in <a href="/rc/">RC</a>; the S&sup3; rigidity theorem is isolated in <a href="/cfsg/">CFSG</a>; the charge-sector consequence is stated on <a href="/predictions/">Predictions</a>. References [1]&ndash;[3] support the standard differential-geometric background behind the smooth reading of curvature and second-order data; they are not sources for the closure program&rsquo;s own theorem claims.</p>
+  <p style="font-size:0.9rem;color:var(--text);line-height:1.8;">References [1]-[3] support the standard differential-geometric background behind the smooth reading of curvature, holonomy, and second-order data. They are not sources for the closure program&rsquo;s own theorem claims, which are controlled by the monograph and public preprints listed above.</p>
 
   <div class="section-divider">&sect;</div>
 
@@ -365,7 +526,7 @@ footer span { min-width: 0; }
 
   <footer>
     <span>&copy; 2026 Chast K. Wolfe. Closure Research Initiative. All rights reserved.</span>
-    <span>Maintained by Closure Research Initiative &middot; Served by <a href="https://workers.cloudflare.com/" style="color:var(--muted);" target="_blank" rel="noopener">Cloudflare Workers</a> &middot; Versioned on <a href="https://github.com/CKW25/closure-research-initiative" style="color:var(--muted);" target="_blank" rel="noopener">GitHub</a> &middot; <a href="/sources/" style="color:var(--muted);">Sources and Citation</a> &middot; <a href="/license/" style="color:var(--muted);">License</a> &middot; <a href="/notes/" style="color:var(--muted);">Research Notes</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; <a href="/contact/" style="color:var(--muted);">Contact</a> &middot; Last updated June 14, 2026</span>
+    <span>Maintained by Closure Research Initiative &middot; Served by <a href="https://workers.cloudflare.com/" style="color:var(--muted);" target="_blank" rel="noopener">Cloudflare Workers</a> &middot; Versioned on <a href="https://github.com/CKW25/closure-research-initiative" style="color:var(--muted);" target="_blank" rel="noopener">GitHub</a> &middot; <a href="/sources/" style="color:var(--muted);">Sources and Citation</a> &middot; <a href="/corrections/" style="color:var(--muted);">Corrections</a> &middot; <a href="/license/" style="color:var(--muted);">License</a> &middot; <a href="/notes/" style="color:var(--muted);">Research Notes</a> &middot; <a href="/feed.xml" style="color:var(--muted);">Feed</a> &middot; <a href="/contact/" style="color:var(--muted);">Contact</a> &middot; Last updated June 15, 2026</span>
   </footer>
 
 </div>

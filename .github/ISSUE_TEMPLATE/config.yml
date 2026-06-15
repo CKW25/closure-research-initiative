@@ -6,6 +6,9 @@ contact_links:
   - name: Sources and Citation
     url: https://closureresearchinitiative.org/sources/
     about: Canonical citations, DOI targets, ORCID, and external-source bibliography.
+  - name: Corrections and Version Record
+    url: https://closureresearchinitiative.org/corrections/
+    about: Public correction procedure, archive policy, and current errata state.
   - name: Reading Guide
     url: https://closureresearchinitiative.org/guide/
     about: Suggested paths through the monograph, preprints, and site.

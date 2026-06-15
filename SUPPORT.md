@@ -7,6 +7,7 @@ Begin with:
 - [Notation](https://closureresearchinitiative.org/notation/)
 - [Logical Status](https://closureresearchinitiative.org/status/)
 - [Sources and Citation](https://closureresearchinitiative.org/sources/)
+- [Corrections and Version Record](https://closureresearchinitiative.org/corrections/)
 - [Research Assistant](https://closureresearchinitiative.org/ask/)
 
 Use GitHub issues for public errata, citation corrections, broken links, deployment problems, or narrowly scoped technical questions about a specific passage.

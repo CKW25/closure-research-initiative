@@ -12,7 +12,7 @@ const outputModule = join(generatedDir, "ask-corpus.js");
 const outputJson = join(dataDir, "chunks.json");
 const manifestJson = join(dataDir, "manifest.json");
 
-const corpusVersion = "2026-06-14-v12-ccw-v3-cfsg-v3-scc-v3-rc-v3-fe-v3-rie-v3";
+const corpusVersion = "2026-06-15-record-control-v12-ccw-v3-cfsg-v3-scc-v3-rc-v3-fe-v3-rie-v3";
 const baseUrl = "https://closureresearchinitiative.org";
 
 const htmlPages = [
@@ -27,6 +27,7 @@ const htmlPages = [
   ["guide/index.html", "Reading Guide", "/guide/"],
   ["preprints/index.html", "Preprints", "/preprints/"],
   ["sources/index.html", "Sources and Citation", "/sources/"],
+  ["corrections/index.html", "Corrections and Version Record", "/corrections/"],
   ["csm/index.html", "Closed Systems from Comparison Completeness", "/csm/"],
   ["ccw/index.html", "Closed Comparison Worlds", "/ccw/"],
   ["cfsg/index.html", "Closure Forces Spherical Geometry", "/cfsg/"],

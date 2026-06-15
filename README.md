@@ -12,7 +12,7 @@ Under the theorem hypotheses stated in the monograph, especially local distingui
 
 Standard physical frameworks are treated as recovery targets. Their successful structures constrain the program: background spacetime, field content, state spaces, gauge conventions, causal order, scale structure, and boundary data are classified according to whether they are recovered from the closed-system comparison architecture or retained as explicit interface conditions.
 
-Research sequence, theorem status, empirical consequences, citation metadata, and provenance are maintained on [Overview](https://closureresearchinitiative.org/overview/), [Structural Map](https://closureresearchinitiative.org/map/), [Notation](https://closureresearchinitiative.org/notation/), [Logical Status](https://closureresearchinitiative.org/status/), [Predictions](https://closureresearchinitiative.org/predictions/), [Sources and Citation](https://closureresearchinitiative.org/sources/), and the individual work pages. For binding claims, cite the monograph, the relevant preprint, or the cited theorem location rather than this README.
+Research sequence, theorem status, empirical consequences, citation metadata, corrections, and provenance are maintained on [Overview](https://closureresearchinitiative.org/overview/), [Structural Map](https://closureresearchinitiative.org/map/), [Notation](https://closureresearchinitiative.org/notation/), [Logical Status](https://closureresearchinitiative.org/status/), [Predictions](https://closureresearchinitiative.org/predictions/), [Sources and Citation](https://closureresearchinitiative.org/sources/), [Corrections and Version Record](https://closureresearchinitiative.org/corrections/), and the individual work pages. For binding claims, cite the monograph, the relevant preprint, or the cited theorem location rather than this README.
 
 ## Canonical Citation
 
@@ -47,6 +47,7 @@ All public manuscripts are versioned research manuscripts. They are not peer rev
 | `CITATION.cff` | GitHub-readable citation metadata |
 | `LICENSE.md` | Repository-level rights and permissions notice |
 | `CONTRIBUTING.md`, `SUPPORT.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md` | Correction, correspondence, conduct, and security-reporting guidance |
+| `corrections/` | Public correction procedure and version-record policy |
 | `.gitattributes` | Line-ending, binary-file, diff, and GitHub language-stat hygiene |
 | `llms.txt` | Bounded research summary and citation guidance for retrieval tools |
 | `src/worker.js` | Cloudflare Worker for `/api/ask`, `/api/ask-status`, and static-asset fallback |
@@ -64,7 +65,7 @@ The public record supports three participation channels:
 - Use GitHub issue templates for public errata, citation corrections, broken links, deployment problems, or narrowly scoped technical questions about a specific passage.
 - Use [Contact](https://closureresearchinitiative.org/contact/) for correspondence that should not be a public issue or discussion.
 
-Reports should identify the work, version, section, theorem or definition label, page number when available, and the proposed correction or question.
+Reports should identify the work, version, section, theorem or definition label, page number when available, and the proposed correction or question. The public correction procedure and current errata state are maintained at [Corrections and Version Record](https://closureresearchinitiative.org/corrections/).
 
 For substantial theoretical criticism, cite the relevant formal statement and distinguish among:
 
@@ -78,7 +79,7 @@ General correspondence is listed at [Contact](https://closureresearchinitiative.
 
 ## Versioning and Provenance
 
-The current monograph and preprints are the version-of-record releases. Version history is maintained on the corresponding work pages.
+The current monograph and preprints are the version-of-record releases. Version history is maintained on the corresponding work pages; fixed correction procedure and archive policy are maintained at [Corrections and Version Record](https://closureresearchinitiative.org/corrections/).
 
 `main` is the only active branch. It is the public deployment branch and should remain the canonical source of the website record.
 

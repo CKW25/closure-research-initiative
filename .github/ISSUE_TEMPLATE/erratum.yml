@@ -12,8 +12,8 @@ body:
     id: work
     attributes:
       label: Work and version
-      description: "Example: CSM v5, CCW v2, Sources page, README, or feed.xml."
-      placeholder: "CSM v5"
+      description: "Example: CSM v12, CCW v3, Sources page, README, or feed.xml."
+      placeholder: "CSM v12"
     validations:
       required: true
   - type: input

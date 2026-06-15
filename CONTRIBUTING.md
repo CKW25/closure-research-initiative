@@ -37,7 +37,7 @@ Do not add external claims without a citation trail. External background should 
 
 ## Publication Checks
 
-Before merging changes that affect public manuscripts or citation records, verify the relevant work page, `preprints/`, `sources/`, `llms.txt`, `CITATION.cff`, `feed.xml`, and `sitemap.xml` agree on title, version, DOI, date, PDF link, and source bundle.
+Before merging changes that affect public manuscripts or citation records, verify the relevant work page, `preprints/`, `sources/`, `corrections/`, `llms.txt`, `CITATION.cff`, `feed.xml`, and `sitemap.xml` agree on title, version, DOI, date, PDF link, source bundle, and archive status.
 
 Run deployment-wiring checks when changing Worker code, headers, redirects, downloads, metadata, or public discoverability files:
 

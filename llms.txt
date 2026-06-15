@@ -13,6 +13,7 @@
 - Feed: https://closureresearchinitiative.org/feed.xml
 - License: https://closureresearchinitiative.org/license/
 - Sources and citation: https://closureresearchinitiative.org/sources/
+- Corrections and version record: https://closureresearchinitiative.org/corrections/
 - External sources BibTeX: https://closureresearchinitiative.org/external-sources.bib
 
 ## Disambiguation
@@ -25,7 +26,7 @@ The formal development starts from intrinsic comparison data. A comparison is a 
 
 ## Research Organization
 
-Method: derive admissible structure from comparison data by finite-profile arguments, quotient semantics, transport groupoids and obstruction towers, then introduce smooth geometry only through explicit faithful-realization conditions. Principal results: rectangular completeness under stated comparison-world hypotheses, quotient-level limits on subsystem attribution, endpoint-fiber factorization for route invariants, second-jet faithful-realization analysis, conditional S3 rigidity at the manifold stage, and the charge-denominator prediction. Formal record: binding statements are the definitions, hypotheses, proofs, theorem labels, and versioned PDFs listed on the Preprints, Sources and Citation, and Logical Status pages.
+Method: derive admissible structure from comparison data by finite-profile arguments, quotient semantics, transport groupoids and obstruction towers, then introduce smooth geometry only through explicit faithful-realization conditions. Principal results: rectangular completeness under stated comparison-world hypotheses, quotient-level limits on subsystem attribution, endpoint-fiber factorization for route invariants, second-jet faithful-realization analysis, conditional S3 rigidity at the manifold stage, and the charge-denominator prediction. Formal record: binding statements are the definitions, hypotheses, proofs, theorem labels, and versioned PDFs listed on the Preprints, Sources and Citation, Logical Status, and Corrections and Version Record pages.
 
 The Foundations page includes compactification background: the topological fact R^3 union a point at infinity is homeomorphic to S^3 is useful intuition. The theorem-level mechanism is the CFSG chain from frame-complete closed realization to isometry-induced frame transport, frame-bundle transitivity, constant sectional curvature, and the simply connected compact space-form case.
 
@@ -53,6 +54,7 @@ The Structural Map includes several neighboring programs. Rovelli's partial-obse
 - Logical status and interface conditions: https://closureresearchinitiative.org/status/
 - Reading guide: https://closureresearchinitiative.org/guide/
 - Preprints and downloads: https://closureresearchinitiative.org/preprints/
+- Corrections and version record: https://closureresearchinitiative.org/corrections/
 - Research notes: https://closureresearchinitiative.org/notes/
 - Research Assistant: https://closureresearchinitiative.org/ask/
 - Public prediction page: https://closureresearchinitiative.org/predictions/
@@ -95,6 +97,10 @@ The current public empirical prediction is a charge-sector exclusion. Conditiona
 ## Citation Guidance
 
 Use the current-version page URL and BibTeX block for current releases. The Sources and Citation page collects the canonical citation targets for the monograph, public preprints, author ORCID, and outside works cited by the research record. The external-source BibTeX download is available at https://closureresearchinitiative.org/external-sources.bib.
+
+## Corrections and Versions
+
+Current-version claims should cite the current work page and DOI. Superseded PDFs and source bundles remain fixed on the relevant work page as archive records; archive DOIs remain attached to their issued versions and should not be treated as current citation targets. Correction procedure and current errata state are maintained at https://closureresearchinitiative.org/corrections/.
 
 ## Corpus Assistant
 
