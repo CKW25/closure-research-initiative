@@ -506,6 +506,40 @@ nav span:not(:first-child)::before {
 .citation-ref {
   color: var(--navy);
   font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(185,147,61,0.45);
+  text-underline-offset: 0.16em;
+}
+.citation-ref:hover,
+.citation-ref:focus-visible {
+  text-decoration-color: var(--gold);
+  outline: none;
+}
+.answer-details {
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.55rem;
+  white-space: normal;
+}
+.answer-details summary {
+  color: var(--navy);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 500;
+  list-style: none;
+}
+.answer-details summary::-webkit-details-marker { display: none; }
+.answer-details summary::after {
+  content: "+";
+  color: var(--gold);
+  margin-left: 0.35rem;
+}
+.answer-details[open] summary::after {
+  content: "-";
+}
+.answer-details-body {
+  margin-top: 0.45rem;
+  color: var(--text);
 }
 .followups {
   display: flex;
@@ -568,6 +602,12 @@ nav span:not(:first-child)::before {
   border-radius: 4px;
   padding: 0.8rem 0.9rem;
   background: var(--paper);
+  scroll-margin-top: 1rem;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.source-card.is-highlighted {
+  border-color: rgba(185,147,61,0.75);
+  background: rgba(185,147,61,0.08);
 }
 .source-card strong {
   color: var(--navy);
@@ -741,6 +781,6 @@ footer span { min-width: 0; }
 </div>
 
 <script src="/site.js" defer></script>
-<script src="/ask/ask.js?v=20260615-scroll-fix-3" defer></script>
+<script src="/ask/ask.js?v=20260615-answer-details" defer></script>
 </body>
 </html>

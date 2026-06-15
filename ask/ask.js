@@ -237,6 +237,8 @@
     citations.forEach(function (source) {
       var card = document.createElement('article');
       card.className = 'source-card';
+      card.id = 'source-' + String(source.id || '').toLowerCase();
+      card.setAttribute('tabindex', '-1');
 
       var title = document.createElement('strong');
       var link = document.createElement('a');
@@ -403,7 +405,11 @@
 
     var body = document.createElement('div');
     body.className = 'turn-text';
-    renderFormattedText(body, text || '');
+    if (role === 'assistant') {
+      renderAssistantText(body, text || '');
+    } else {
+      renderFormattedText(body, text || '');
+    }
 
     card.appendChild(label);
     card.appendChild(body);
@@ -508,6 +514,55 @@
     }
   }
 
+  function renderAssistantText(container, text) {
+    container.textContent = '';
+    var parts = splitDetailedSupport(text);
+    renderFormattedText(container, parts.main);
+    if (!parts.details) return;
+
+    var details = document.createElement('details');
+    details.className = 'answer-details';
+
+    var summary = document.createElement('summary');
+    summary.textContent = 'Detailed support and citations';
+
+    var body = document.createElement('div');
+    body.className = 'answer-details-body';
+    renderFormattedText(body, parts.details);
+
+    details.appendChild(summary);
+    details.appendChild(body);
+    container.appendChild(details);
+  }
+
+  function splitDetailedSupport(text) {
+    var cleaned = String(text || '').replace(/\r/g, '').trim();
+    if (!cleaned) return { main: '', details: '' };
+    var marker = cleaned.search(/(?:^|\n)\s*(?:#{1,4}\s*)?(?:\*\*)?Detailed support(?:\*\*)?\s*:?\s*(?:\n|$)/i);
+    if (marker >= 0) {
+      var before = cleaned.slice(0, marker).trim();
+      var after = cleaned.slice(marker).replace(/^\s*(?:#{1,4}\s*)?(?:\*\*)?Detailed support(?:\*\*)?\s*:?\s*/i, '').trim();
+      return { main: before || 'Here is the short version.', details: after };
+    }
+
+    var lines = cleaned.split('\n');
+    var detailStart = -1;
+    for (var i = 0; i < lines.length; i += 1) {
+      if (/^\s*(?:\*\*)?(?:Support|Support for this claim|Boundary|Dependencies|Where to read|Next reading route|Citation note|Closest retrieved public sources)(?:\*\*)?\s*(?:can be found|:)/i.test(lines[i])) {
+        detailStart = i;
+        break;
+      }
+    }
+    if (detailStart > 0) {
+      return {
+        main: lines.slice(0, detailStart).join('\n').trim(),
+        details: lines.slice(detailStart).join('\n').trim()
+      };
+    }
+
+    return { main: cleaned, details: '' };
+  }
+
   function appendInline(container, text) {
     var pattern = /(\*\*[^*]+\*\*|`[^`]+`|\[S\d+\])/g;
     var lastIndex = 0;
@@ -528,9 +583,15 @@
         code.textContent = token.slice(1, -1);
         container.appendChild(code);
       } else {
-        var cite = document.createElement('span');
+        var cite = document.createElement('a');
         cite.className = 'citation-ref';
+        cite.href = '#source-' + token.slice(1, -1).toLowerCase();
+        cite.setAttribute('data-source-ref', token.slice(1, -1));
         cite.textContent = token;
+        cite.addEventListener('click', function (event) {
+          event.preventDefault();
+          openSourceReference(event.currentTarget.getAttribute('data-source-ref'));
+        });
         container.appendChild(cite);
       }
       lastIndex = pattern.lastIndex;
@@ -539,6 +600,23 @@
     if (lastIndex < text.length) {
       container.appendChild(document.createTextNode(text.slice(lastIndex)));
     }
+  }
+
+  function openSourceReference(sourceId) {
+    var normalized = String(sourceId || '').toLowerCase();
+    if (!normalized) return;
+    if (sourcesPanel) {
+      sourcesPanel.classList.remove('hidden');
+      sourcesPanel.setAttribute('open', '');
+    }
+    var target = document.getElementById('source-' + normalized);
+    if (!target) return;
+    Array.prototype.slice.call(document.querySelectorAll('.source-card.is-highlighted')).forEach(function (card) {
+      card.classList.remove('is-highlighted');
+    });
+    target.classList.add('is-highlighted');
+    target.focus({ preventScroll: true });
+    revealElement(target);
   }
 
   function setBusy(value) {

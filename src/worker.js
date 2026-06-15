@@ -818,7 +818,11 @@ function buildPrompt(question, citations, hiddenContext, mode, history) {
         "Prefer useful synthesis over a string of excerpts, but keep every synthesis traceable to the source labels.",
         "Do not sound promotional or defensive. Do not oversell the program. State logical status, scope, and boundaries exactly.",
         "Use concise Markdown when it improves readability: short paragraphs, bullets for dependencies, and bold labels sparingly.",
-        "Answer format: begin with a direct answer in one or two sentences; then give support, dependencies, or limits as needed. If the answer is conditional, include a brief Boundary sentence.",
+        "Write in two layers. First give a conversational main answer in two to four short sentences, using at most two citation labels unless the user explicitly asks for a source list.",
+        "Then, only when useful, add a separate section beginning exactly 'Detailed support:' for source-heavy breakdowns, proof dependencies, boundary notes, and reading routes.",
+        "In the Detailed support section, use concise bullets with labels such as Support, Boundary, Dependencies, Where to read, or Citation note.",
+        "Do not write source-dump sentences like 'Support for this claim can be found in [S1], [S2], [S3]...' and do not list every retrieved source just because it is available.",
+        "If the answer is conditional, put the boundary in the Detailed support section unless it is essential to the main answer.",
         modeInstruction
       ].join(" ")
     },
@@ -880,7 +884,7 @@ function finalizeAnswerText(value, citations = []) {
     .slice(0, 3)
     .map((citation) => `[${citation.id}] ${citation.title}`)
     .join("; ");
-  return `${cleaned}\n\nClosest retrieved public sources: ${trail}.`;
+  return `${cleaned}\n\nDetailed support:\n- Support: closest retrieved public sources are ${trail}.`;
 }
 
 function cleanAnswerText(value, citations = []) {
