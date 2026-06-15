@@ -409,7 +409,9 @@
 
   function scrollConversationEnd() {
     window.requestAnimationFrame(function () {
-      var target = turnsList.lastElementChild || panel;
+      var target = corpusLoader && !corpusLoader.classList.contains('hidden')
+        ? corpusLoader
+        : turnsList.lastElementChild || panel;
       if (target && target.scrollIntoView) {
         target.scrollIntoView({ block: 'end', behavior: 'smooth' });
       }
@@ -510,11 +512,16 @@
     isBusy = value;
     askButton.disabled = value;
     clearButton.disabled = value;
+    question.readOnly = value;
+    question.setAttribute('aria-busy', value ? 'true' : 'false');
     Array.prototype.slice.call(document.querySelectorAll('.examples [data-question]')).forEach(function (button) {
       button.disabled = value;
     });
     askButton.textContent = value ? 'Thinking...' : 'Ask';
     setLoader(value);
+    if (!value) {
+      question.focus({ preventScroll: true });
+    }
   }
 
   function setStatus(message, state) {
@@ -531,8 +538,11 @@
 
     if (value) {
       corpusLoader.classList.remove('hidden');
+      corpusLoader.setAttribute('aria-hidden', 'false');
+      scrollConversationEnd();
     } else {
       corpusLoader.classList.add('hidden');
+      corpusLoader.setAttribute('aria-hidden', 'true');
     }
   }
 })();
