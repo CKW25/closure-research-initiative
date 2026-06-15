@@ -18,7 +18,7 @@ Research sequence, theorem status, empirical consequences, citation metadata, an
 
 For general citation of the program, cite the current monograph:
 
-Chast K. Wolfe, *Closed Systems from Comparison Completeness*, v12, Closure Research Initiative, 2026. Current version: [closureresearchinitiative.org/csm/](https://closureresearchinitiative.org/csm/). DOI pending for v12; prior DOI records are retained with their archived versions.
+Chast K. Wolfe, *Closed Systems from Comparison Completeness*, v12, Closure Research Initiative, 2026. Current version: [closureresearchinitiative.org/csm/](https://closureresearchinitiative.org/csm/). DOI: [10.5281/zenodo.20694663](https://doi.org/10.5281/zenodo.20694663); prior DOI records are retained with their archived versions.
 
 Paper-specific claims should cite the current work page listed in [Sources and Citation](https://closureresearchinitiative.org/sources/). GitHub citation metadata is provided in [`CITATION.cff`](CITATION.cff).
 

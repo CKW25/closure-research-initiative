@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "For general citation, cite the current monograph page; DOI pending for the current monograph release."
+message: "For general citation, cite the current monograph page and DOI."
 title: "Closure Research Initiative"
 type: dataset
 authors:
@@ -8,7 +8,7 @@ authors:
     orcid: "https://orcid.org/0009-0008-8846-2539"
 url: "https://closureresearchinitiative.org"
 repository-code: "https://github.com/CKW25/closure-research-initiative"
-date-released: "2026-06-14"
+date-released: "2026-06-15"
 abstract: "A public research program studying closed physical theory from comparison data, intrinsicality, rectangular completeness, quotient semantics, subsystem-attribution obstruction, route-invariant transport, and conditional geometric consequences."
 preferred-citation:
   type: book
@@ -22,6 +22,7 @@ preferred-citation:
     website: "https://closureresearchinitiative.org"
   year: 2026
   version: "12"
+  doi: "10.5281/zenodo.20694663"
   url: "https://closureresearchinitiative.org/csm/"
 references:
   - type: book
@@ -35,6 +36,7 @@ references:
       website: "https://closureresearchinitiative.org"
     year: 2026
     version: "12"
+    doi: "10.5281/zenodo.20694663"
     url: "https://closureresearchinitiative.org/csm/"
   - type: generic
     title: "Closed Comparison Worlds and the Obstruction to Subsystem Attribution"
@@ -47,6 +49,7 @@ references:
       website: "https://closureresearchinitiative.org"
     year: 2026
     version: "3"
+    doi: "10.5281/zenodo.20694701"
     url: "https://closureresearchinitiative.org/ccw/"
   - type: generic
     title: "Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3"
@@ -59,6 +62,7 @@ references:
       website: "https://closureresearchinitiative.org"
     year: 2026
     version: "3"
+    doi: "10.5281/zenodo.20694725"
     url: "https://closureresearchinitiative.org/cfsg/"
   - type: generic
     title: "Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems"
@@ -71,6 +75,7 @@ references:
       website: "https://closureresearchinitiative.org"
     year: 2026
     version: "3"
+    doi: "10.5281/zenodo.20694803"
     url: "https://closureresearchinitiative.org/scc/"
   - type: generic
     title: "Rectangular Completeness Encompasses Standard Physical Closure"
@@ -107,4 +112,5 @@ references:
       website: "https://closureresearchinitiative.org"
     year: 2026
     version: "3"
+    doi: "10.5281/zenodo.20694678"
     url: "https://closureresearchinitiative.org/rie/"
