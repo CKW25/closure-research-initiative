@@ -24,15 +24,15 @@ Paper-specific claims should cite the current work page listed in [Sources and C
 
 ## Public Works
 
-| Code | Title | Status | Citation target |
-|------|-------|--------|-----------------|
-| `csm` | *Closed Systems from Comparison Completeness* | Monograph, v12 | [Current page](https://closureresearchinitiative.org/csm/) |
-| `ccw` | *Closed Comparison Worlds and the Obstruction to Subsystem Attribution* | Preprint, v3 | [Current page](https://closureresearchinitiative.org/ccw/) |
-| `cfsg` | *Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3* | Preprint, v3 | [Current page](https://closureresearchinitiative.org/cfsg/) |
-| `scc` | *Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems* | Preprint, v3 | [Current page](https://closureresearchinitiative.org/scc/) |
-| `rc` | *Rectangular Completeness Encompasses Standard Physical Closure* | Preprint, v3 | [Current page](https://closureresearchinitiative.org/rc/) |
-| `fe` | *Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy* | Preprint, v3 | [Paper page](https://closureresearchinitiative.org/fe/) |
-| `rie` | *A Factorization Criterion for Route Invariants with Fixed Endpoint Data* | Preprint, v3 | [Current page](https://closureresearchinitiative.org/rie/) |
+| Code | Title | Status | DOI | Citation target |
+|------|-------|--------|-----|-----------------|
+| `csm` | *Closed Systems from Comparison Completeness* | Monograph, v12 | [10.5281/zenodo.20694663](https://doi.org/10.5281/zenodo.20694663) | [Current page](https://closureresearchinitiative.org/csm/) |
+| `ccw` | *Closed Comparison Worlds and the Obstruction to Subsystem Attribution* | Preprint, v3 | [10.5281/zenodo.20694701](https://doi.org/10.5281/zenodo.20694701) | [Current page](https://closureresearchinitiative.org/ccw/) |
+| `cfsg` | *Closure Forces Spherical Geometry: Genuinely Closed Three-Dimensional Systems Are Diffeomorphic to S3* | Preprint, v3 | [10.5281/zenodo.20694725](https://doi.org/10.5281/zenodo.20694725) | [Current page](https://closureresearchinitiative.org/cfsg/) |
+| `scc` | *Structural Closure and the Cosmological Misnomer: Admissibility, Expansion, and the Geometry of Closed Systems* | Preprint, v3 | [10.5281/zenodo.20694803](https://doi.org/10.5281/zenodo.20694803) | [Current page](https://closureresearchinitiative.org/scc/) |
+| `rc` | *Rectangular Completeness Encompasses Standard Physical Closure* | Preprint, v3 | [10.5281/zenodo.20695177](https://doi.org/10.5281/zenodo.20695177) | [Current page](https://closureresearchinitiative.org/rc/) |
+| `fe` | *Foundational Closure and Primitive Structural Input: A Four-Axis Taxonomy* | Preprint, v3 | [10.5281/zenodo.20695081](https://doi.org/10.5281/zenodo.20695081) | [Current page](https://closureresearchinitiative.org/fe/) |
+| `rie` | *A Factorization Criterion for Route Invariants with Fixed Endpoint Data* | Preprint, v3 | [10.5281/zenodo.20694985](https://doi.org/10.5281/zenodo.20694985) | [Current page](https://closureresearchinitiative.org/rie/) |
 
 All public manuscripts are versioned research manuscripts. They are not peer reviewed unless a later record states otherwise.
 
