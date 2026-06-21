@@ -65,7 +65,12 @@ function checkCoreFiles() {
 function checkWrangler(text) {
   expectIncludes(text, 'main = "src/worker.js"', "wrangler main points to src/worker.js");
   expectIncludes(text, 'binding = "ASSETS"', "wrangler ASSETS binding exists");
-  expectIncludes(text, 'run_worker_first = ["/api/*"]', "wrangler routes /api/* through Worker first");
+  if (!/run_worker_first\s*=\s*\[[^\]]*"\/api\/\*"/.test(text)) {
+    failures.push("wrangler routes /api/* through Worker first");
+  }
+  if (!/run_worker_first\s*=\s*\[[^\]]*"\/Full-Stop(?:\/\*)?"/.test(text)) {
+    failures.push("wrangler routes /Full-Stop through Worker first");
+  }
   expectIncludes(text, '[ai]', "wrangler AI binding section exists");
   expectIncludes(text, 'binding = "AI"', "wrangler AI binding is named AI");
   expectIncludes(text, "ASK_MODEL", "wrangler ASK_MODEL variable exists");

@@ -8,6 +8,7 @@ scripts/
 src/
 token/
 example-work/
+Full-Stop/
 .gitignore
 .assetsignore
 .gitattributes

@@ -72,6 +72,17 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    if (isInternalProgramPath(url.pathname)) {
+      return new Response("Not found", {
+        status: 404,
+        headers: {
+          "Content-Type": "text/plain; charset=utf-8",
+          "X-Content-Type-Options": "nosniff",
+          "X-Robots-Tag": "noindex, nofollow"
+        }
+      });
+    }
+
     if (url.pathname === "/api/ask" && request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: commonHeaders() });
     }
@@ -106,6 +117,11 @@ export default {
     return env.ASSETS.fetch(request);
   }
 };
+
+function isInternalProgramPath(pathname) {
+  const normalized = String(pathname || "").toLowerCase();
+  return normalized === "/full-stop" || normalized.startsWith("/full-stop/");
+}
 
 async function handleAsk(request, env) {
   const rate = rateLimit(clientId(request));
