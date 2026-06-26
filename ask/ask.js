@@ -26,11 +26,13 @@
   var history = [];
   var shownSuggestions = [];
   var isBusy = false;
+  var composerReserve = 0;
 
   if (!form || !question) return;
 
   loadStatus();
   autoResizeInput();
+  syncComposerReserve();
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -51,6 +53,11 @@
       submitQuestion(question.value);
     }
   });
+  window.addEventListener('resize', syncComposerReserve);
+  window.addEventListener('orientationchange', syncComposerReserve);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', syncComposerReserve);
+  }
 
   clearButton.addEventListener('click', function () {
     question.value = '';
@@ -68,6 +75,7 @@
     restoreDefaultExamples();
     panel.classList.add('hidden');
     if (shell) shell.classList.remove('has-conversation');
+    updateConversationChrome();
     setLoader(false);
     setStatus('');
     question.focus();
@@ -112,9 +120,11 @@
 
     question.value = '';
     autoResizeInput();
+    syncComposerReserve();
     appendTurn('user', text);
     rememberTurn('user', text);
     if (shell) shell.classList.add('has-conversation');
+    updateConversationChrome();
     panel.classList.remove('hidden');
     if (followups) {
       followups.textContent = '';
@@ -280,6 +290,7 @@
       button.addEventListener('click', function () {
         setMode(item.mode || 'discuss');
         question.value = item.question;
+        question.focus({ preventScroll: true });
         submitQuestion(item.question);
       });
       followups.appendChild(button);
@@ -451,10 +462,11 @@
   }
 
   function availableBottom() {
+    var viewportHeight = window.visualViewport && window.visualViewport.height ? window.visualViewport.height : window.innerHeight;
     var composer = document.querySelector('.chat-composer');
     var composerHeight = composer ? composer.getBoundingClientRect().height : 0;
     var reserve = shell && shell.classList.contains('has-conversation') ? composerHeight + 18 : 18;
-    return Math.max(120, window.innerHeight - reserve);
+    return Math.max(120, viewportHeight - reserve);
   }
 
   function autoResizeInput() {
@@ -541,6 +553,10 @@
 
   function splitDetailedSupport(text) {
     var cleaned = String(text || '').replace(/\r/g, '').trim();
+    cleaned = cleaned
+      .replace(/^\s*(?:\*\*)?short answer(?:\*\*)?\s*:?\s*/i, '')
+      .replace(/^\s*(?:\*\*)?short answer(?:\*\*)?\s*\n/i, '')
+      .replace(/^\s*(?:\*\*)?short answer(?:\*\*)?\s*:/i, '');
     if (!cleaned) return { main: '', details: '' };
     var marker = cleaned.search(/(?:^|\n)\s*(?:#{1,4}\s*)?(?:\*\*)?Detailed support(?:\*\*)?\s*:?\s*(?:\n|$)/i);
     if (marker >= 0) {
@@ -577,8 +593,10 @@
     }
     var visibleCitations = citationTokens(main);
     if (visibleCitations.length) {
-      main = cleanVisibleAnswer(main.replace(/\s*\[S\d+\]/g, ''));
-      details = prependDetail('Citation note: support for the visible answer is in ' + visibleCitations.join(', ') + '.', details);
+      if (visibleCitations.length > 1) {
+        main = keepSingleCitationInMain(main, visibleCitations[0]);
+      }
+      details = prependDetail(formatCitationNote(visibleCitations), details);
     }
 
     var sentences = splitSentences(main);
@@ -606,6 +624,44 @@
       main: main || 'Here is the short version.',
       details: details
     };
+  }
+
+  function keepSingleCitationInMain(value, keep) {
+    var keepToken = String(keep || '').trim();
+    if (!keepToken) {
+      return String(value || '').replace(/\s*\[S\d+\]\s*/g, ' ').replace(/\s{2,}/g, ' ').trim();
+    }
+    var kept = false;
+    var normalizedKeep = normalizeCitationToken(keepToken);
+    var text = String(value || '').replace(/\[S\d+\]/g, function (token) {
+      if (!kept && normalizeCitationToken(token) === normalizedKeep) {
+        kept = true;
+        return token;
+      }
+      return '';
+    });
+    return text.replace(/\s{2,}/g, ' ').trim() || keepToken;
+  }
+
+  function formatCitationNote(tokens) {
+    var unique = [];
+    var seen = {};
+    for (var i = 0; i < (tokens || []).length; i += 1) {
+      var token = tokens[i];
+      var key = normalizeCitationToken(token);
+      if (!key || seen[key]) continue;
+      seen[key] = true;
+      unique.push(token);
+    }
+    if (!unique.length) return 'Citation note: source links are listed below.';
+    if (unique.length === 1) return 'Citation note: supported by ' + unique[0] + '.';
+    return 'Citation note: supported by ' + unique.join(', ') + '.';
+  }
+
+  function normalizeCitationToken(value) {
+    return String(value || '')
+      .replace(/[\[\]\s]/g, '')
+      .toLowerCase();
   }
 
   function moveSourceSentences(text) {
@@ -713,6 +769,36 @@
     revealElement(target);
   }
 
+  function syncComposerReserve() {
+    if (!shell) return;
+    if (!question) return;
+    if (!question.ownerDocument || !question.ownerDocument.body) return;
+    var composer = document.querySelector('.chat-composer');
+    if (!composer) {
+      composerReserve = 0;
+      shell.style.setProperty('--ask-composer-space', '0px');
+      return;
+    }
+    var height = Math.ceil(composer.getBoundingClientRect().height);
+    if (Number.isNaN(height) || !height) {
+      composerReserve = 0;
+      shell.style.setProperty('--ask-composer-space', '0px');
+      return;
+    }
+    composerReserve = Math.max(82, height + 18);
+    shell.style.setProperty('--ask-composer-space', composerReserve + 'px');
+  }
+
+  function updateConversationChrome() {
+    if (!shell) return;
+    if (shell.classList.contains('has-conversation')) {
+      syncComposerReserve();
+      window.scrollTo({ top: Math.max(0, window.scrollY), behavior: 'auto' });
+    } else {
+      shell.style.setProperty('--ask-composer-space', '0px');
+    }
+  }
+
   function setBusy(value) {
     isBusy = value;
     askButton.disabled = value;
@@ -726,6 +812,7 @@
     askButton.setAttribute('aria-label', value ? 'Working' : 'Ask');
     setLoader(value);
     if (!value) {
+      syncComposerReserve();
       question.focus({ preventScroll: true });
     }
   }

@@ -305,6 +305,7 @@ function buildSuggestionPrompt({ question, mode, citations, answer, history, pre
         "Generate exactly three follow-ups that a serious reader would naturally ask next after the answer.",
         "Each follow-up must point into one of these functions: clarify a boundary, locate a proof or definition, test a dependency, compare two named claims, request the citation target, or ask the next step in the argument.",
         "Do not repeat the user's question or previous chips.",
+        "Avoid paraphrase duplicates: if a question repeats the same intent with minor wording changes, choose a different follow-up path.",
         "Do not mention internal notes, LLMS Site Summary, llms.txt, or unavailable source labels.",
         "Use only these modes: discuss, locate, cite.",
         "Return only JSON: an array of exactly three objects with keys label, question, mode, kind.",
@@ -1120,7 +1121,13 @@ function chooseSuggestions(candidates, mode, question, history = [], previousSug
     const item = normalizeSuggestion(candidate, mode);
     const clean = item.question;
     const key = suggestionKey(clean);
-    if (!clean || seen.has(key) || asked.has(key)) continue;
+    if (
+      !clean ||
+      seen.has(key) ||
+      asked.has(key) ||
+      isNearDuplicate(clean, recentQuestions) ||
+      isNearDuplicate(clean, previousSuggestions)
+    ) continue;
     seen.add(key);
     unique.push({ ...item, key });
   }
@@ -1142,6 +1149,32 @@ function chooseSuggestions(candidates, mode, question, history = [], previousSug
   }
 
   return selected.slice(0, 3).map(({ key, ...item }) => item);
+}
+
+function isNearDuplicate(candidate, disallowedValues = []) {
+  const clean = suggestionKey(candidate);
+  if (!clean) return true;
+  for (const rawValue of disallowedValues) {
+    const denied = suggestionKey(rawValue);
+    if (!denied) continue;
+    if (denied === clean) return true;
+    if (denied.length > 16 && (denied.includes(clean) || clean.includes(denied))) return true;
+    if (tokenOverlapRatio(clean, denied) > 0.72) return true;
+  }
+  return false;
+}
+
+function tokenOverlapRatio(a, b) {
+  const left = new Set(a.split(" ").filter(Boolean));
+  const right = new Set(b.split(" ").filter(Boolean));
+  if (!left.size || !right.size) return 0;
+  const bigger = left.size >= right.size ? left : right;
+  const smaller = left.size < right.size ? left : right;
+  let hits = 0;
+  smaller.forEach((token) => {
+    if (bigger.has(token)) hits += 1;
+  });
+  return hits / bigger.size;
 }
 
 function generalFollowups(mode) {

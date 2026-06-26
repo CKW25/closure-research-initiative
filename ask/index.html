@@ -59,6 +59,8 @@
   --muted: #5A6472;
   --card: #FFFFFF;
   --border: rgba(10,35,72,0.12);
+  --ask-composer-space: 0px;
+  --ask-composer-width: min(820px, calc(100vw - 2rem));
 }
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
@@ -200,22 +202,37 @@ nav span:not(:first-child)::before {
   min-height: 0;
   display: flex;
   flex-direction: column;
+  position: relative;
+  padding-bottom: var(--ask-composer-space);
 }
 .ask-shell.has-conversation {
-  min-height: calc(100vh - 18rem);
   min-height: calc(100dvh - 18rem);
 }
 .chat-composer {
   position: relative;
+  width: var(--ask-composer-width);
+  margin-left: auto;
+  margin-right: auto;
   z-index: 20;
   margin-top: 1rem;
   padding: 0.85rem 0 max(1rem, env(safe-area-inset-bottom));
   background: linear-gradient(to top, var(--paper) 88%, rgba(250,250,248,0));
 }
 .ask-shell.has-conversation .chat-composer {
-  position: sticky;
+  position: fixed;
+  left: 50%;
   bottom: 0;
-  margin-top: auto;
+  transform: translateX(-50%);
+  width: var(--ask-composer-width);
+  max-width: calc(100vw - 2rem);
+  margin-bottom: 0;
+  border-top: 1px solid rgba(10,35,72,0.08);
+  box-shadow: 0 -1px 18px rgba(10,35,72,0.08);
+  backdrop-filter: blur(10px);
+}
+.ask-shell.has-conversation .answer-panel {
+  margin-bottom: calc(var(--ask-composer-space) + 0.4rem);
+  padding-bottom: clamp(10.2rem, 30vh, 18rem);
 }
 :root.dark .chat-composer {
   background: linear-gradient(to top, var(--paper) 88%, rgba(17,19,26,0));
@@ -667,10 +684,12 @@ footer span { min-width: 0; }
   .hero-logo img { width: 180px; }
   nav a, nav span { margin: 0; font-size: 0.72rem; }
   .ask-shell.has-conversation {
-    min-height: calc(100vh - 10rem);
-    min-height: calc(100dvh - 10rem);
+    min-height: calc(100dvh - 8.75rem);
   }
-  .ask-shell.has-conversation .answer-panel { padding-bottom: calc(10.5rem + env(safe-area-inset-bottom)); }
+  .ask-shell.has-conversation .chat-composer {
+    width: calc(100vw - 2rem);
+  }
+  .ask-shell.has-conversation .answer-panel { padding-bottom: calc(9.8rem + env(safe-area-inset-bottom)); }
   .ask-shell.has-conversation .examples { display: none; }
   .composer-topline { align-items: flex-start; flex-direction: column; gap: 0.45rem; }
   .status { text-align: left; }
@@ -714,8 +733,14 @@ footer span { min-width: 0; }
   nav span { flex: 0 0 auto; }
   .corpus-line { font-size: 0.78rem; line-height: 1.55; }
   .chat-composer {
+    width: 100%;
     padding-top: 0.6rem;
     padding-bottom: max(0.8rem, env(safe-area-inset-bottom));
+  }
+  .ask-shell.has-conversation .chat-composer {
+    left: 0;
+    transform: none;
+    width: calc(100% - 2rem);
   }
   .composer-topline { gap: 0.38rem; margin-bottom: 0.45rem; }
   .composer-row {
@@ -878,6 +903,6 @@ footer span { min-width: 0; }
 </div>
 
 <script src="/site.js" defer></script>
-<script src="/ask/ask.js?v=20260615-ai-quality" defer></script>
+<script src="/ask/ask.js?v=20260626-ai-flow" defer></script>
 </body>
 </html>
